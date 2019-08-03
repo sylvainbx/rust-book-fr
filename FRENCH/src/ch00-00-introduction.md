@@ -75,7 +75,7 @@ subtils, qui, dans la plupart des autres langages, ne peuvent être prévenus
 uniquement aux moyens de campagnes de test étendus et de minutieuses revues de
 code menées par des développeurs chevronnés. Avec Rust, le compilateur joue le
 rôle de gardien en refusant de compiler le code qui comprend ces bogues
-discrets et vicieux, y compris les bogues de simultanéité. En travaillant avec
+discrets et vicieux, y compris les bogues de concurrence. En travaillant avec
 le compilateur, l'équipe peut se concentrer sur la logique du programme plutôt
 que de traquer les bogues.
 
@@ -195,10 +195,10 @@ vous permet de les écrire. Les vérifications du compilateur de Rust assurent l
 stabilité même pour des opérations d'ajout ou de remaniement du code. Cela
 le démarque des langages qui ne font pas ces contrôles sur du code instable que
 le programme a hérité avec le temps, et que bien souvent les développeurs ont
-peur de modifier. En s'efforçant de mettre en place des abstractions sans effet
-de bord, les fonctionnalités de haut-niveau qui compile vers du code bas-niveau
-aussi vite que si le code avait été rajouté manuellement, Rust fait en sorte que
-le code sûr soit aussi du code rapide.
+peur de modifier. En s'efforçant de mettre en place des abstractions sans coût,
+les fonctionnalités de haut-niveau qui compile vers du code bas-niveau aussi
+vite que si le code avait été rajouté manuellement, Rust fait en sorte que le
+code sûr soit aussi du code rapide.
 
 <!--
 The Rust language hopes to support many other users as well; those mentioned
@@ -290,7 +290,7 @@ apporter plus de détails. Si vous voulez vous *salir les mains* tout de suite,
 le chapitre 2 est l'endroit pour cela. Au début, vous pouvez même sauter le
 chapitre 3, qui aborde les fonctions de Rust semblables aux autres langages de
 programmation, et passer directement au chapitre 4 pour en savoir plus sur le
-système d'appropriation de Rust. Toutefois, si vous êtes un apprenti
+système de posession *(ownership)* de Rust. Toutefois, si vous êtes un apprenti
 particulièrement minutieux qui préfère apprendre chaque particularité avant de
 passer au suivant, vous pouvez sauter le chapitre 2 et passer directement au
 chapitre 3, puis revenir au chapitre 2 lorsque vous souhaitez travailler sur un
@@ -303,9 +303,9 @@ enums to make custom types in Rust.
 -->
 
 Le chapitre 5 traite des structures et des méthodes, et le chapitre couvre les
-énumérations, les expressions `match`, et le contrôle d'écoulement de flux
-`if let`. Vous emploierez les structures et les énumérations pour créer des
-types personnalisés avec Rust.
+énumérations, les expressions `match`, et la structure de contrôle `if let`.
+Vous emploierez les structures et les énumérations pour créer des types
+personnalisés avec Rust.
 
 <!--
 In Chapter 7, you’ll learn about Rust’s module system and about privacy rules
@@ -319,7 +319,7 @@ Au chapitre 7, vous apprendrez le système de modules de Rust et les instruction
 de protection, afin d'organiser votre code et son *Application Programming
 Interface (API)* publique. Le chapitre 8 traitera des structures de collections
 de données usuelles fournies par la bibliothèque standard, comme les vecteurs,
-les chaînes de caractères et les tableaux hachés *(hash maps)*. Le chapitre 9
+les chaînes de caractères et les tables de hachage *(hash maps)*. Le chapitre 9
 explorera la philosophie et les techniques gestion d'erreurs de Rust.
 
 <!--
@@ -364,10 +364,9 @@ principles you might be familiar with.
 -->
 
 Au chapitre 16, nous passerons en revue les différents modes de programmation
-pour le calcul parallèle et comment Rust nous aide à développer dans des
-processus parallèles sans craintes.
-Le chapitre 17 comparera les fonctionnalités de Rust aux principes de
-programmation orientée objet, que vous connaissez peut-être.
+concurrente et comment Rust nous aide à développer dans des processus parallèles
+sans craintes. Le chapitre 17 comparera les fonctionnalités de Rust aux
+principes de programmation orientée objet, que vous connaissez peut-être.
 
 <!--
 Chapter 18 is a reference on patterns and pattern matching, which are powerful
@@ -376,7 +375,7 @@ smorgasbord of advanced topics of interest, including unsafe Rust, macros, and
 more about lifetimes, traits, types, functions, and closures.
 -->
 
-Le chapitre 18 est une référence sur les modèles et la correspondance de modèles
+Le chapitre 18 est une référence sur les motifs et le filtrage de motif
 *(pattern matching)*, qui sont des moyens puissants permettant de communiquer
 des idées dans les programmes Rust. Le chapitre 19 contient une foultitude de
 sujets avancés intéressants, comme le code Rust non sécurisé *(unsafe)*, les
