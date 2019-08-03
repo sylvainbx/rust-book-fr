@@ -10,7 +10,7 @@ somewhere. In this chapter, we’ll discuss:
 -->
 
 Démarrons notre périple avec Rust ! Il y a beaucoup à apprendre, mais chaque
-aventure doit commencer quelque part. Dans ce chapitre, nous alors aborder :
+aventure doit commencer quelque part. Dans ce chapitre, nous allons aborder :
 
 <!--
 * Installing Rust on Linux, macOS, and Windows
@@ -20,4 +20,5 @@ aventure doit commencer quelque part. Dans ce chapitre, nous alors aborder :
 
 * L'installation de Rust sur Linux, macOS et Windows
 * L'écriture d'un programme qui affiche `Hello, world!`
-* Utiliser `cargo`, le gestionnaire de paquet et sytème de compilation de Rust
+* L'utilisation de `cargo`, le gestionnaire de paquet et système de compilation
+  de Rust
