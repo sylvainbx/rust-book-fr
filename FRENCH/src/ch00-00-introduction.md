@@ -171,7 +171,7 @@ language.
 
 Rust est ouvert aux personnes qui veulent développer le langage de programmation
 Rust, la communauté, les outils de développement et les bibliothèques. Nous
-serions ravis que vous contribueriez au langage Rust.
+serions ravis que vous contribuiez au langage Rust.
 
 <!--
 ### People Who Value Speed and Stability
