@@ -20,5 +20,5 @@ aventure doit commencer quelque part. Dans ce chapitre, nous allons aborder :
 
 * L'installation de Rust sur Linux, macOS et Windows
 * L'écriture d'un programme qui affiche `Hello, world!`
-* L'utilisation de `cargo`, le gestionnaire de paquet et système de compilation
+* L'utilisation de `cargo`, le gestionnaire de paquets et système de compilation
   de Rust
