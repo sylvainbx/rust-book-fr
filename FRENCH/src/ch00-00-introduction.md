@@ -171,7 +171,7 @@ language.
 
 Rust est ouvert aux personnes qui veulent développer le langage de programmation
 Rust, la communauté, les outils de développement et les bibliothèques. Nous
-serions ravis que vous contribuiez au langage Rust.
+serions ravis que vous contribueriez au langage Rust.
 
 <!--
 ### People Who Value Speed and Stability
@@ -435,7 +435,7 @@ error. Ferris will also help you distinguish code that isn’t meant to work:
 
 Une composante importante du processus d'apprentissage de Rust est de comprendre
 comment lire les messages d'erreur qu'affiche le compilateur : ils vous
-guideront vers du code qui fonctionne.
+guideront vers du code correct.
 Ainsi, nous citerons de nombreux exemples qui ne compilent pas, avec le message
 d'erreur que le compilateur devrait vous afficher dans chaque cas. C'est donc
 normal que dans certains cas, si vous copiez et exécutez un exemple au hasard,
