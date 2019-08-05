@@ -198,7 +198,7 @@ use std::io;
 fn main() {
     println!("Devinez le nombre !");
 
-    println!("Veuillez entrez un nombre.");
+    println!("Veuillez entrer un nombre.");
 
     let mut deduction = String::new();
 
@@ -291,7 +291,7 @@ println!("Please input your guess.");
 ```rust,ignore
 println!("Devinez le nombre !");
 
-println!("Veuillez entrez un nombre.");
+println!("Veuillez entrer un nombre.");
 ```
 
 <!--
@@ -780,10 +780,10 @@ $ cargo run
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
     Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
      Running `target/debug/guessing_game`
-Jeu de Plus ou Moins
-Entrez votre déduction.
+Devinez le nombre !
+Veuillez entrer un nombre.
 6
-Votre déduction: 6
+Votre nombre : 6
 ```
 
 <!--
@@ -1000,6 +1000,8 @@ code.
 #### Ensuring Reproducible Builds with the *Cargo.lock* File
 -->
 
+#### Assurer la reproductivité des compilations avec le fichier *Cargo.lock*
+
 <!--
 Cargo has a mechanism that ensures you can rebuild the same artifact every time
 you or anyone else builds your code: Cargo will use only the versions of the
@@ -1008,6 +1010,14 @@ happens if next week version 0.3.15 of the `rand` crate comes out and
 contains an important bug fix but also contains a regression that will break
 your code?
 -->
+
+Cargo embarque une fonctionnalité qui garantie que vous pouvez recompiler le
+même artéfact à chaque fois que vous ou quelqu'un d'autre compile votre code :
+Cargo va utiliser uniquement les mêmes versions de vos dépendances jusqu'à ce
+que vous demandiez le contraire. Par exemple, que se passe-t-il si la semaine
+prochaine la version 0.3.15 du *crate* `rand` est publié et qu'il apporte une
+correction importante mais aussi qu'il produit une régression qui va casser
+votre code ?
 
 <!--
 The answer to this problem is the *Cargo.lock* file, which was created the
@@ -1022,9 +1032,23 @@ remain at `0.3.14` until you explicitly upgrade, thanks to the *Cargo.lock*
 file.
 -->
 
+La réponse à ce problème est le fichier *Cargo.lock*, qui a été créé la première
+fois que vous avez utilisé `cargo build` et qui se trouve désormais dans votre
+dossier *guessing_game*. Quand vous compilez un projet pour la première fois,
+Cargo trouve toutes les versions de dépendances qui correspondent à vos critères
+et les écrit dans le fichier *Cargo.lock*. Quand vous compilerez votre projet
+plus tard, Cargo va regarder si le fichier *Cargo.lock* existe et utiliser les
+versions précisées dedans plutôt que faire à nouveau tout le travail de
+retrouver à nouveau les versions demandées. Ceci vous permets d'avoir
+automatiquement des compilations reproductibles. En d'autres termes, votre
+projet va rester sur la version `0.3.14` jusqu'à ce que vous le mettiez à jour
+explicitement, grâce au fichier *Cargo.lock*.
+
 <!--
 #### Updating a Crate to Get a New Version
 -->
+
+#### Mettre à jour un *crate* vers sa nouvelle version
 
 <!--
 When you *do* want to update a crate, Cargo provides another command, `update`,
@@ -1033,11 +1057,22 @@ that fit your specifications in *Cargo.toml*. If that works, Cargo will write
 those versions to the *Cargo.lock* file.
 -->
 
+Lorsque vous *voulez* mettre à jour un *crate*, Cargo vous donne une autre
+instruction, `update`, qui va ignorer le fichier *Cargo.lock* et va rechercher
+à nouveau toutes les versions qui correspondent à vos critères dans
+*Cargo.toml*. Si cela se passe bien, Cargo va écrire ces versions dans le
+fichier le fichier *Cargo.lock*.
+
 <!--
 But by default, Cargo will only look for versions greater than `0.3.0` and less
 than `0.4.0`. If the `rand` crate has released two new versions, `0.3.15` and
 `0.4.0`, you would see the following if you ran `cargo update`:
 -->
+
+Mais par défaut, Cargo va rechercher uniquement les versions plus grandes que
+`0.3.0` et inférieures à `0.4.0`. Si le *crate* `rand` a été publié en deux
+nouvelles versions, `0.3.15` et `0.4.0`, alors vous allez voir ceci si vous
+lancez `cargo update` :
 
 ```text
 $ cargo update
@@ -1050,10 +1085,18 @@ At this point, you would also notice a change in your *Cargo.lock* file noting
 that the version of the `rand` crate you are now using is `0.3.15`.
 -->
 
+A partir de ce moment, vous pouvez aussi constater un changement dans le fichier
+*Cargo.lock* indiquant que la version du *crate* `rand` que vous utilisez
+maintenant est la `0.3.15`.
+
 <!--
 If you wanted to use `rand` version `0.4.0` or any version in the `0.4.x`
 series, you’d have to update the *Cargo.toml* file to look like this instead:
 -->
+
+Si vous vouliez utiliser `rand` en version `0.4.0` ou toute autre version dans
+la série des `0.4.x`, il vous faut mettre à jour le fichier *Cargo.toml* pour
+qu'il ressemble à ceci :
 
 ```toml
 [dependencies]
@@ -1067,6 +1110,10 @@ available and reevaluate your `rand` requirements according to the new version
 you have specified.
 -->
 
+La prochaine fois que vous lancerez `cargo build`, Cargo va mettre à jour son
+registre de *crates* disponibles et évaluer à nouveau vos besoins de `rand` pour
+correspondre à la nouvelle version que vous avez précisé.
+
 <!--
 There’s a lot more to say about [Cargo][doccargo]<!-- ignore -- > and [its
 ecosystem][doccratesio]<!-- ignore -- > which we’ll discuss in Chapter 14, but
@@ -1075,6 +1122,12 @@ libraries, so Rustaceans are able to write smaller projects that are assembled
 from a number of packages.
 -->
 
+Il y a encore plus à dire à propos de [Cargo][doccargo]<!-- ignore --> et [son
+écosystème][doccratesio]<!-- ignore --> que nous aborderons au chapitre 14, mais
+pour l'instant, c'est tout ce que vous avez besoin de savoir. Cargo facilite la
+réutilisation des bibliothèques, pour qu'un *Rustacé* soit capable d'écrire des
+petits projets issus d'un assemblage de quelques paquets.
+
 [doccargo]: http://doc.crates.io
 [doccratesio]: http://doc.crates.io/crates-io.html
 
@@ -1082,14 +1135,22 @@ from a number of packages.
 ### Generating a Random Number
 -->
 
+### Générer un nombre aléatoire
+
 <!--
 Now that you’ve added the `rand` crate to *Cargo.toml*, let’s start using
 `rand`. The next step is to update *src/main.rs*, as shown in Listing 2-3.
 -->
 
+Maintenant que vous avez ajouté le *crate* `rand` dans *Cargo.toml*, commençons
+à utiliser `rand`. La prochaine étape est de modifier *src/main.rs* comme dans
+l'encart 2-3.
+
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
+
+<span class="filename">Nom du fichier: src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -1115,16 +1176,46 @@ fn main() {
 ```
 -->
 
+```rust,ignore
+use std::io;
+use rand::Rng;
+
+fn main() {
+    println!("Devinez le nombre !");
+
+    let nombre_secret = rand::thread_rng().gen_range(1, 101);
+
+    println!("Le nombre secret est : {}", nombre_secret);
+
+    println!("Veuillez entrer un nombre.");
+
+    let mut deduction = String::new();
+
+    io::stdin().read_line(&mut deduction)
+        .expect("Echec de la lecture de l'entrée utilisateur");
+
+    println!("Votre nombre : {}", deduction);
+}
+```
+
 <!--
 <span class="caption">Listing 2-3: Adding code to generate a random
 number</span>
 -->
+
+<span class="caption">Encart 2-3: ajoutons du code pour générer un nombre
+aléatoire</span>
 
 <!--
 First, we add a `use` line: `use rand::Rng`. The `Rng` trait defines
 methods that random number generators implement, and this trait must be in
 scope for us to use those methods. Chapter 10 will cover traits in detail.
 -->
+
+Premièrement, nous avons ajouté une ligne `use` : `use rand::Rng`. Le *trait*
+`Rng` déclare des méthodes que le générateur de nombre aléatoire nous offre, et
+ce *trait* doit être accessible à notre code pour utiliser ces méthodes. Le
+chapitre 10 expliquera plus en détail les *traits*.
 
 <!--
 Next, we’re adding two lines in the middle. The `rand::thread_rng` function
@@ -1138,6 +1229,16 @@ on the lower bound but exclusive on the upper bound, so we need to specify `1`
 and `101` to request a number between 1 and 100.
 -->
 
+Ensuite, nous ajoutons deux lignes au milieu. La fonction `rand::thread_rng` va
+nous donner le fameux générateur de nombre aléatoires que nous allons utiliser :
+il sera propre au processus d'exécution courant et généré par le système
+d'exploitation. Ensuite, nous appelons la méthode `gen_range` sur le générateur
+de nombre aléatoire. Cette méthode est définie par le *trait* `Rng` que nous
+avons importé avec l'instruction `use rand::Rng`. La méthode `gen_range` prend
+deux nombres en paramètres et génère un nombre aléatoire entre ces deux bornes.
+Elle inclus la borne inférieure mais exclus la borne supérieure, donc nous avons
+besoin de préciser `1` et `101` pour demander un nombre entre 1 et 100.
+
 <!--
 > Note: You won’t just know which traits to use and which methods and functions
 > to call from a crate. Instructions for using a crate are in each crate’s
@@ -1148,6 +1249,16 @@ and `101` to request a number between 1 and 100.
 > and click `rand` in the sidebar on the left.
 -->
 
+> Remarque : vous ne pouvez probablement pas deviner quels *traits* utiliser et
+> quelles méthodes et fonctions à utiliser avec un *crate*. Les instructions
+> pour l'utilisation d'un *crate* se situent dans la documentation propre à
+> chaque *crate*. Une autre fonctionnalité intéressante de Cargo est que vous
+> pouvez lancer la commande `cargo doc --open`, qui va construire la
+> documentation intégrée dans les dépendances et va l'ouvrir dans votre
+> navigateur. Si par exemple vous vous intéressez à d'autres fonctionnalités du
+> *crate* `rand`, vous pouvez lancer `cargo doc --open` et cliquer sur `rand`
+> dans le volet latéral sur la gauche.
+
 <!--
 The second line that we added to the middle of the code prints the secret
 number. This is useful while we’re developing the program to be able to test
@@ -1155,9 +1266,16 @@ it, but we’ll delete it from the final version. It’s not much of a game if t
 program prints the answer as soon as it starts!
 -->
 
+La seconde ligne que nous avons ajouté au milieu du code affiche le nombre
+secret. C'est pratique lors du développement pour pouvoir le tester, mais nous
+l'enlèverons dans la version finale. Ce n'est pas du jeu si le programme affiche
+la réponse dès qu'il démarre !
+
 <!--
 Try running the program a few times:
 -->
+
+Essayez de lancer le programme plusieurs fois :
 
 <!--
 ```text
@@ -1180,14 +1298,38 @@ You guessed: 5
 ```
 -->
 
+```text
+$ cargo run
+   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
+     Running `target/debug/guessing_game`
+Devinez le nombre !
+Le nombre secret est : 7
+Veuillez entrer un nombre.
+4
+Votre nombre : 4
+$ cargo run
+     Running `target/debug/guessing_game`
+Devinez le nombre !
+Le nombre secret est : 83
+Veuillez entrer un nombre.
+5
+Votre nombre : 5
+```
+
 <!--
 You should get different random numbers, and they should all be numbers between
 1 and 100. Great job!
 -->
 
+Vous obtenez des nombres aléatoires différents, et ils sont tous entre 1 et 100.
+Beau travail !
+
 <!--
 ## Comparing the Guess to the Secret Number
 -->
+
+## Comparer la déduction avec le nombre secret
 
 <!--
 Now that we have user input and a random number, we can compare them. That step
@@ -1195,9 +1337,15 @@ is shown in Listing 2-4. Note that this code won’t compile quite yet, as we
 will explain.
 -->
 
+Maintenant que nous avons une entrée utilisateur et un nombre aléatoire, nous
+pouvons les comparer. Cette étape est écrite dans l'encart 2-4. Sachez que le
+code ne compile pas encore, nous allons l'expliquer ensuite.
+
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
+
+<span class="filename">Nom du fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore,does_not_compile
@@ -1220,10 +1368,32 @@ fn main() {
 ```
 -->
 
+```rust,ignore,does_not_compile
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
+
+fn main() {
+
+    // --- code inchangé masqué ici ---
+
+    println!("Votre nombre : {}", guess);
+
+    match deduction.cmp(&nombre_secret) {
+        Ordering::Less => println!("C'est plus !"),
+        Ordering::Greater => println!("C'est moins !"),
+        Ordering::Equal => println!("Vous avez gagné !"),
+    }
+}
+```
+
 <!--
 <span class="caption">Listing 2-4: Handling the possible return values of
 comparing two numbers</span>
 -->
+
+<span class="caption">Encart 2-4 : traitement des valeurs saisies en comparant
+les deux nombres</span>
 
 <!--
 The first new bit here is another `use` statement, bringing a type called
@@ -1232,6 +1402,12 @@ The first new bit here is another `use` statement, bringing a type called
 `Greater`, and `Equal`. These are the three outcomes that are possible when you
 compare two values.
 -->
+
+La première nouveauté ici est une nouvelle utilisation de l'instruction `use`,
+qui importe `std::cmp::Ordering` de la bibliothèque standard à portée de notre
+code. Comme `Result`, `Ordering` est une autre énumération, mais les variantes
+pour `Ordering` sont `Less`, `Greater` et `Equal`. Ce sont les trois valeurs
+qui sont possibles quand vous comparez deux valeurs.
 
 <!--
 Then we add five new lines at the bottom that use the `Ordering` type. The
@@ -1244,6 +1420,15 @@ which variant of `Ordering` was returned from the call to `cmp` with the values
 in `guess` and `secret_number`.
 -->
 
+Ensuite, nous ajoutons cinq nouvelles lignes à la fin qui utilisent le type
+`Ordering`. La méthode `cmp` compare deux valeurs et peut être appelée sur
+tout ce qui peut être comparé. Il prend en paramètre une référence vers ce que
+vous voulez comparer : ici nous voulons comparer `deduction` et `nombre_secret`. Ensuite, cela retourne une variante de l'énumération `Ordering` que nous avons
+importé avec l'instruction `use`. Nous utilisons une expression
+[`match`][match]<!-- ignore --> pour décider quoi faire ensuite en fonction de
+quelles variantes `Ordering` a retourné à l'appel de `cmp` entre `deduction` et
+`nombre_secret`.
+
 [match]: ch06-02-match.html
 
 <!--
@@ -1255,6 +1440,16 @@ are powerful features in Rust that let you express a variety of situations your
 code might encounter and make sure that you handle them all. These features
 will be covered in detail in Chapter 6 and Chapter 18, respectively.
 -->
+
+Une expression `match` est composé de *branches*. Une branche est constituée
+d'un *motif (pattern)* et d'un code qui sera exécuté si la valeur de ce qui est
+passé au début de l'expression `match` correspond bien au *motif* de cette
+branche. Rust récupère la valeur donnée à `match` et vérifie le *motif* de
+chaque branche à tour de rôle. La structure `match` et les *motifs* sont des
+fonctionnalités puissantes de Rust qui vous permettent de décrire une multitude
+de scénarios que votre code peut rencontrer et s'assure que vous les gérez
+toutes. Ces fonctionnalités seront expliquées plus en détail respectivement dans
+le chapitre 6 et le chapitre 18.
 
 <!--
 Let’s walk through an example of what would happen with the `match` expression
@@ -1270,9 +1465,24 @@ that arm will execute and print `Too big!` to the screen. The `match`
 expression ends because it has no need to look at the last arm in this scenario.
 -->
 
+Voyons un exemple que ce qu'il se passerait avec l'expression `match` utilisé
+ici. Disons que l'utilisateur a saisi le nombre 50 et que le nombre secret
+généré aléatoirement aura cette fois comme valeur 38. Quand le code compare 50 à
+38, la méthode `cmp` va retourner `Ordering::Greater`, car 50 et plus grand
+que 38. L'expression `match` obtient la valeur `Ordering::Greater` et commence à
+vérifier chaque motif de chaque branche. Elle consulte le motif de la première
+branche, `Ordering::Less`, et ignore donc le code de cette branche et passe à la
+suivante. Le motif de la branche suivante, `Ordering::Greater`, correspond à
+`Ordering::Greater` ! Le code associé à cette branche va être exécuté et va
+afficher à l'écran `C'est moins !`. L'expression `match` se termine ensuite car
+il est inutile de consulter les autres branches de ce scénario.
+
 <!--
 However, the code in Listing 2-4 won’t compile yet. Let’s try it:
 -->
+
+Cependant, notre code dans l'encart 2-4 ne se compile pas encore. Essayons de le
+faire :
 
 ```text
 $ cargo build
@@ -1303,16 +1513,38 @@ to infer a different numerical type. The reason for the error is that Rust
 cannot compare a string and a number type.
 -->
 
+Le message d'erreur nous indique que nous sommes dans un cas de types non
+compatibles *(mismatched types)*. Rust a un système de types robuste et rigide.
+Cependant, il a aussi une fonctionnalité de déduction de type. Quand nous avons
+écrit `let mut deduction = String::new()`, Rust a pu en déduire que `deduction`
+devait être un `String` et ne nous a pas demandé d'écrire le type. Le
+`nombre_secret`, d'autre part, est un type nombre. Quelques types de nombres
+peuvent avoir un nombre entre 1 et 100 : `i32`, un nombre encodé sur 32 bits,
+`u32`, un nombre encodé sur 32 bits sans signe (toujours positif); `i64`, un
+nombre encodé sur 64 bits; et bien d'autres. Rust utilise par défaut un `i32`,
+qui est le type de `secret_number` à moins que vous précisiez quelque part une
+information de type qui amènerait Rust à déduire un type de nombre différent. La
+raison de cette erreur est que Rust ne peut pas comparer une chaîne de
+caractères à un nombre.
+
 <!--
 Ultimately, we want to convert the `String` the program reads as input into a
 real number type so we can compare it numerically to the secret number. We can
 do that by adding the following two lines to the `main` function body:
 -->
 
+Au final, nous voulons convertir le type `String` que le programme récupère de
+la saisie utilisateur en un type de nombre, ainsi nous pouvons le comparer
+numériquement au nombre secret. Nous pouvons faire ceci en ajoutant les deux
+lignes suivantes dans le corps de la fonction `main` :
+
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
+<span class="filename">Nom du fichier : src/main.rs</span>
+
+<!--
 ```rust,ignore
 // --snip--
 
@@ -1333,10 +1565,34 @@ do that by adding the following two lines to the `main` function body:
     }
 }
 ```
+-->
+
+```rust,ignore
+// -- code inchangé masqué ici --
+
+    let mut deduction = String::new();
+
+    io::stdin().read_line(&mut deduction)
+        .expect("Echec de la lecture de l'entrée utilisateur");
+
+    let deduction: u32 = deduction.trim().parse()
+        .expect("Veuillez rentrer un nombre !");
+
+    println!("Votre nombre : {}", deduction);
+
+    match deduction.cmp(&nombre_secret) {
+        Ordering::Less => println!("C'est plus !"),
+        Ordering::Greater => println!("C'est moins !"),
+        Ordering::Equal => println!("Vous avez gagné !"),
+    }
+}
+```
 
 <!--
 The two new lines are:
 -->
+
+Les deux nouvelles lignes sont :
 
 <!--
 ```rust,ignore
@@ -1344,6 +1600,11 @@ let guess: u32 = guess.trim().parse()
     .expect("Please type a number!");
 ```
 -->
+
+```rust,ignore
+let deduction: u32 = deduction.trim().parse()
+    .expect("Veuillez rentrer un nombre !");
+```
 
 <!--
 We create a variable named `guess`. But wait, doesn’t the program already have
@@ -1354,6 +1615,16 @@ us reuse the `guess` variable name rather than forcing us to create two unique
 variables, such as `guess_str` and `guess` for example. (Chapter 3 covers
 shadowing in more detail.)
 -->
+
+Nous créons une variable qui s'appelle `deduction`. Mais attendez, le programme
+n'a-t-il pas déjà une variable qui s'appelle `deduction` ? C'est le cas, mais
+Rust nous permet de créer un *fantôme (shadow)* de la valeur précédente de
+`deduction` dans une nouvelle variable. Cette fonctionnalité est souvent
+utilisée lors de situations pour lesquelles vous voulez convertir une valeur
+d'un type en un autre. La création de fantôme nous permet de réutiliser le nom
+de variable `deduction` plutôt que de nous forcer à créer deux variables
+distinctes, telles que `deduction_str` et `deduction` par exemple. (Le chapitre
+3 expliquera plus en détail la création de fantômes.)
 
 <!--
 We bind `guess` to the expression `guess.trim().parse()`. The `guess` in the
@@ -1369,6 +1640,19 @@ pressing <span class="keystroke">enter</span>. The `trim` method eliminates
 `\n`, resulting in just `5`.
 -->
 
+Nous définissons `deduction` avec l'expression `deduction.trim().parse()`. Le
+`deduction` dans l'expression se réfère à le `deduction` initial qui était un
+`String` qui contenait la saisie utilisateur. La méthode `trim` sur une instance
+de `String` va enlever les espaces au début et à la fin. Même si `u32` ne
+contient que des chiffres, l'utilisateur a eu besoin d'appuyer sur <span 
+class="keystroke">entrée</span> pour terminer `read_line`. Quand l'utilisateur a
+appuyé sur <span class="keystroke">entrée</span>, un caractère de nouvelle ligne
+a été ajouté dans la chaîne de caractères. Par exemple, si l'utilisateur écrit
+<span class="keystroke">5</span> et appuyé sur <span class="keystroke">
+entrée</span>, `deduction` avait cette valeur : `5\n`. Le `\n` représente une
+nouvelle ligne, qui résulte de l'appui sur <span class="keystroke">enter</span>.
+La méthode `trim` enleve `\n`, il ne reste plus que `5`.
+
 <!--
 The [`parse` method on strings][parse]<!-- ignore -- > parses a string into some
 kind of number. Because this method can parse a variety of number types, we
@@ -1381,6 +1665,19 @@ this example program and the comparison with `secret_number` means that Rust
 will infer that `secret_number` should be a `u32` as well. So now the
 comparison will be between two values of the same type!
 -->
+
+La [méthode `parse` des chaînes de caractères][parse]<!-- ignore --> interprète
+une chaîne de caractères en une sorte de nombre. Comme cette méthode peut
+interpréter un grand nombre de type de nombres, nous devons indiquer à Rust le
+type exact de nombre que nous voulons en utilisant `let deduction: u32`. Les
+deux-ponts (`:`) après `deduction` indique à Rust que nous voulons préciser le
+type de la variable. Rust embarque quelques types de nombres; le `u32` ici est
+un entier encodé sur 32 bits sans signe (toujours positif). C'est un bon choix
+par défaut pour un petit nombre positif. Vous découvrirez d'autres types de
+nombres dans le chapitre 3. De plus, l'annotation `u32` dans ce programme
+d'exemple et la comparaison avec `nombre_secret` permet à Rust d'en déduire que
+`nombre_secret` doit être lui aussi un `u32`. Donc maintenant la comparaison se
+fera donc maintenant entre deux valeurs du même type !
 
 [parse]: ../std/primitive.str.html#method.parse
 
@@ -1398,9 +1695,24 @@ it will return the `Ok` variant of `Result`, and `expect` will return the
 number that we want from the `Ok` value.
 -->
 
+L'utilisation de `parse` peut facilement produire une erreur. Si par exemple, le
+texte contient `A👍%`, il ne sera pas possible de le convertir en nombre. Comme
+elle peut échouer, la méthode `parse` retourne un type `Result`, comme celui que
+la méthode `read_line` retourne (comme nous l'avons vu plus tôt dans [“Gérer les
+potentielles erreurs avec le type `Result`”](#gérer-les-potentielles-erreurs-avec-le-type-result)<!-- ignore-->).
+Nous allons gérer ce `Result` de la même manière avec à nouveau la méthode
+`expect`. Si `parse` retourne une variante `Err` de `Result` car elle ne peut
+pas créer un nombre à partir de la chaîne de caractères, l'utilisation de
+`expect` va faire planter le jeu et afficher le message que nous lui avons donné
+en paramètre. Si `parse` arrive à convertir la chaîne de caractères en nombre,
+elle retournera la variante `Ok` de `Result`, et `expect` va retourner le nombre
+dont nous avons besoin à partir de la valeur dans la variante `Ok`.
+
 <!--
 Let’s run the program now!
 -->
+
+Exécutons ce programme, maintenant !
 
 <!--
 ```text
@@ -1417,6 +1729,19 @@ Too big!
 ```
 -->
 
+```text
+$ cargo run
+   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.43 secs
+     Running `target/debug/guessing_game`
+Devinez le nombre !
+Le nombre secret est : 58
+Veuillez entrer un nombre.
+  76
+Votre nombre : 76
+C'est moins !
+```
+
 <!--
 Nice! Even though spaces were added before the guess, the program still figured
 out that the user guessed 76. Run the program a few times to verify the
@@ -1424,23 +1749,39 @@ different behavior with different kinds of input: guess the number correctly,
 guess a number that is too high, and guess a number that is too low.
 -->
 
+Très bien ! Même si des espaces ont été ajoutés avant la déduction, le programme
+a quand même compris que l'utilisateur a saisi 76. Lancez le programme plusieurs
+fois pour vérifier qu'il se comporte correctement avec différentes saisies :
+devinez le nombre correctement, saisissez un nombre qui est trop grand, et
+saisissez un nombre qui est trop petit.
+
 <!--
 We have most of the game working now, but the user can make only one guess.
 Let’s change that by adding a loop!
 -->
 
+La majeure partie du jeu fonctionne désormais, mais l'utilisateur ne peut saisir
+qu'une seule fois. Corrigeons cela en ajoutant une boucle !
+
 <!--
 ## Allowing Multiple Guesses with Looping
 -->
+
+## Permettre plusieurs suppositions avec les boucles
 
 <!--
 The `loop` keyword creates an infinite loop. We’ll add that now to give users
 more chances at guessing the number:
 -->
 
+Le mot-clé `loop` crée une boucle infinie. C'est ce que nous allons ajouter pour
+donner plus de chances aux utilisateurs pour deviner le nombre :
+
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
+
+<span class="filename">Nom de fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -1463,6 +1804,25 @@ more chances at guessing the number:
 ```
 -->
 
+```rust,ignore
+// -- code inchangé masqué ici --
+
+    println!("Le nombre secret est : {}", secret_number);
+
+    loop {
+        println!("Veuillez entrer un nombre.");
+
+        // -- code inchangé masqué ici --
+
+        match deduction.cmp(&nombre_secret) {
+            Ordering::Less => println!("C'est plus !"),
+            Ordering::Greater => println!("C'est moins !"),
+            Ordering::Equal => println!("Vous avez gagné !"),
+        }
+    }
+}
+```
+
 <!--
 As you can see, we’ve moved everything into a loop from the guess input prompt
 onward. Be sure to indent the lines inside the loop another four spaces each
@@ -1470,6 +1830,13 @@ and run the program again. Notice that there is a new problem because the
 program is doing exactly what we told it to do: ask for another guess forever!
 It doesn’t seem like the user can quit!
 -->
+
+Comme vous pouvez le remarquer, nous avons tout déplacé dans une boucle afin que
+l'invite de saisie continue à s'afficher. Assurez-vous d'indenter les lignes
+dans la boucle avec quatre espaces chacune, et lancez à nouveau le programme.
+Notez bien qu'il y a un nouveau problème car le programme fait exactement ce que
+nous lui avons demandé de faire : demander un nombre pour toujours ! Il n'est
+pas possible pour l'utiliser de l'arrêter !
 
 <!--
 The user could always interrupt the program by using the keyboard shortcut <span
@@ -1479,6 +1846,13 @@ Guess to the Secret Number”](#comparing-the-guess-to-the-secret-number)<!--
 ignore -- >: if the user enters a non-number answer, the program will crash. The
 user can take advantage of that in order to quit, as shown here:
 -->
+
+L'utilisateur peut toujours interrompre le programme en utilisant un raccourci 
+clavier comme <span class="keystroke">ctrl-c</span>. Mais il y a une autre façon
+d'échapper à ce monstre insatiable, comme nous l'avons abordé dans la partie
+[“Comparer la déduction avec le nombre secret”](#comparer-la-déduction-avec-le-nombre-secret)<!-- ignore --> : si l'utilisateur
+saisit quelque chose qui n'est pas un nombre, le programme va planter.
+L'utilisateur peut utiliser ceci pour le quitter, comme ci-dessous :
 
 <!--
 ```text
@@ -1508,23 +1882,60 @@ error: Process didn't exit successfully: `target/debug/guess` (exit code: 101)
 ```
 -->
 
+```text
+$ cargo run
+   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.50 secs
+     Running `target/debug/guessing_game`
+Devinez le nombre !
+Le nombre secret est : 59
+Veuillez entrer un nombre.
+45
+Votre nombre : 45
+C'est plus !
+Veuillez entrer un nombre.
+60
+Votre nombre : 60
+C'est moins !
+Veuillez entrer un nombre.
+59
+Votre nombre : 59
+Vous avez gagné !
+Veuillez entrer un nombre.
+quit
+thread 'main' panicked at 'Please type a number!: ParseIntError { kind: InvalidDigit }', src/libcore/result.rs:785
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+error: Process didn't exit successfully: `target/debug/guess` (exit code: 101)
+```
+
 <!--
 Typing `quit` actually quits the game, but so will any other non-number input.
 However, this is suboptimal to say the least. We want the game to automatically
 stop when the correct number is guessed.
 -->
 
+Écrire `quit` ferme bien le jeu, mais toute autre saisie qui n'est pas un nombre
+le fera aussi. Cependant, c'est assez inadapté. Nous voudrions que le jeu
+s'arrête automatiquement lorsque le bon nombre est deviné.
+
 <!--
 ### Quitting After a Correct Guess
 -->
+
+### Arrêter le programme après avoir gagné
 
 <!--
 Let’s program the game to quit when the user wins by adding a `break` statement:
 -->
 
+Faisons en sorte que le jeu s'arrête quand le joueur gagne en ajoutant
+l'instruction `break` :
+
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
+
+<span class="filename">Nom du fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -1543,15 +1954,37 @@ Let’s program the game to quit when the user wins by adding a `break` statemen
 ```
 -->
 
+```rust,ignore
+// -- code inchangé masqué ici --
+
+        match deduction.cmp(&nombre_secret) {
+            Ordering::Less => println!("C'est plus !"),
+            Ordering::Greater => println!("C'est moins !"),
+            Ordering::Equal => {
+                println!("Vous avez gagné !");
+                break;
+            }
+        }
+    }
+}
+```
+
 <!--
 Adding the `break` line after `You win!` makes the program exit the loop when
 the user guesses the secret number correctly. Exiting the loop also means
 exiting the program, because the loop is the last part of `main`.
 -->
 
+Ajouter la ligne `break` après `Vous avez gagné !` fait en sorte que le
+programme sort de la boucle quand le joueur a correctement deviné le nombre
+secret. Quitter la boucle fait aussi terminer le programme, car la boucle est la
+dernière partie du `main`.
+
 <!--
 ### Handling Invalid Input
 -->
+
+### Gérer les saisies invalides
 
 <!--
 To further refine the game’s behavior, rather than crashing the program when
@@ -1560,9 +1993,17 @@ user can continue guessing. We can do that by altering the line where `guess`
 is converted from a `String` to a `u32`, as shown in Listing 2-5.
 -->
 
+Pour améliorer le comportement du jeu, plutôt que de faire planter le programme
+quand l'utilisateur saisit quelque chose qui n'est pas un nombre, faisons en
+sorte que le jeu ignore ce qui n'est pas un nombre afin que l'utilisateur puisse
+continuer à deviner. Nous pouvons faire ceci en modifiant la ligne où
+`deduction` est converti d'un `String` vers un `u32`, comme dans l'encart 2-5 :
+
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
+
+<span class="filename">Nom du fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -1582,10 +2023,29 @@ println!("You guessed: {}", guess);
 ```
 -->
 
+```rust,ignore
+// -- code inchangé masqué ici --
+
+io::stdin().read_line(&mut deduction)
+    .expect("Echec de la lecture de l'entrée utilisateur");
+
+let deduction: u32 = match guess.trim().parse() {
+    Ok(nombre) => nombre,
+    Err(_) => continue,
+};
+
+println!("Votre nombre : {}", guess);
+
+// -- code inchangé masqué ici --
+```
+
 <!--
 <span class="caption">Listing 2-5: Ignoring a non-number guess and asking for
 another guess instead of crashing the program</span>
 -->
+
+<span class="caption">Encart 2-5: ignorer une saisie qui n'est pas un chiffre et
+demander un nouveau nombre plutôt que de faire planter le programme</span>
 
 <!--
 Switching from an `expect` call to a `match` expression is how you generally
@@ -1595,6 +2055,12 @@ returns a `Result` type and `Result` is an enum that has the variants `Ok` or
 result of the `cmp` method.
 -->
 
+Changer un appel à `expect` par une expression `match` est souvent une manière
+de changer des crashs à l'erreur par une gestion d'erreur. Souvenez-vous que
+`parse` retourne un type `Result` et que `Result` est un énumérateur qui a pour
+variantes `Ok` ou `Err`. Nous utilisons ici une expression `match` comme nous
+l'avons déjà utilisé avec le résultat de type `Ordering` de la méthode `cmp`.
+
 <!--
 If `parse` is able to successfully turn the string into a number, it will
 return an `Ok` value that contains the resulting number. That `Ok` value will
@@ -1602,6 +2068,13 @@ match the first arm’s pattern, and the `match` expression will just return the
 `num` value that `parse` produced and put inside the `Ok` value. That number
 will end up right where we want it in the new `guess` variable we’re creating.
 -->
+
+Si `parse` arrive à convertir la chaîne de caractères en nombre, cela va
+retourner la variante `Ok` qui contient le nombre qui en résulte. Cette variante
+va correspondre au motif de la première branche, et l'expression `match` va
+simplement retourner la valeur de `nombre` que `parse` a trouvé et qu'elle a mis
+dans la variante `Ok`. Ce nombre va remonter exactement où nous en avons besoin
+dans la variable `deduction` que nous avons créé.
 
 <!--
 If `parse` is *not* able to turn the string into a number, it will return an
@@ -1615,9 +2088,22 @@ next iteration of the `loop` and ask for another guess. So, effectively, the
 program ignores all errors that `parse` might encounter!
 -->
 
+Si `parse` n'arrive *pas* à convertir la chaîne de caractères en nombre, elle
+va retourner la variante `Err` qui contient plus d'informations sur l'erreur. La
+variante `Err` ne correspond pas au motif `Ok(nombre)` de la première branche,
+mais elle correspond au motif `Err(_)` de la seconde branche. Le trait de
+soulignement, `_`, est une valeur passe-partout; dans notre exemple, nous disons
+que nous voulons correspondre à toutes les valeurs de `Err`, peu importe quelle
+information elles ont à l'intérieur d'elles-mêmes. Donc le programme va exécuter
+le code de la seconde branche, `continue`, qui indique au programme de se rendre
+à la prochaine itération de `loop` et de demander un nouveau nombre. Ainsi, le
+programme ignore toutes les erreurs que `parse` pourrait rencontrer !
+
 <!--
 Now everything in the program should work as expected. Let’s try it:
 -->
+
+Maintenant, le programme devrait fonctionner correctement. Essayons-le :
 
 <!--
 ```text
@@ -1643,6 +2129,28 @@ You win!
 ```
 -->
 
+```text
+$ cargo run
+   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+     Running `target/debug/guessing_game`
+Devinez le nombre !
+Le nombre secret est : 61
+Veuillez entrer un nombre.
+10
+Votre nombre : 10
+C'est plus !
+Veuillez entrer un nombre.
+99
+Votre nombre : 99
+C'est moins !
+Veuillez entrer un nombre.
+foo
+Veuillez entrer un nombre.
+61
+Votre nombre : 61
+Vous avez gagné !
+```
+
 <!--
 Awesome! With one tiny final tweak, we will finish the guessing game. Recall
 that the program is still printing the secret number. That worked well for
@@ -1650,9 +2158,16 @@ testing, but it ruins the game. Let’s delete the `println!` that outputs the
 secret number. Listing 2-6 shows the final code.
 -->
 
+Super ! Avec notre petite touche finale, nous avons fini notre jeu de
+devinettes. Rappellez-vous que le programme affiche toujours le nombre secret.
+C'était pratique pour les tests, mais cela gâche le jeu. Supprimons le
+`println!` qui affiche le nombre secret. L'encart 2-6 représente le code final.
+
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
+
+<span class="filename">Nom du fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -1693,17 +2208,61 @@ fn main() {
 ```
 -->
 
+```rust,ignore
+use std::io;
+use std::cmp::Ordering;
+use rand::Rng;
+
+fn main() {
+    println!("Devinez le nombre !");
+
+    let secret_number = rand::thread_rng().gen_range(1, 101);
+
+    loop {
+        println!("Veuillez entrer un nombre.");
+
+        let mut deduction = String::new();
+
+        io::stdin().read_line(&mut deduction)
+            .expect("Echec de la lecture de l'entrée utilisateur");
+
+        let deduction: u32 = match deduction.trim().parse() {
+            Ok(nombre) => nombre,
+            Err(_) => continue,
+        };
+
+        println!("Votre nombre : {}", deduction);
+
+        match deduction.cmp(&nombre_secret) {
+            Ordering::Less => println!("C'est plus !"),
+            Ordering::Greater => println!("C'est moins !"),
+            Ordering::Equal => {
+                println!("Vous avez gagné !");
+                break;
+            }
+        }
+    }
+}
+```
+
 <!--
 <span class="caption">Listing 2-6: Complete guessing game code</span>
 -->
+
+<span class="caption">Encart 2-6: le code complet du jeu de devinettes</span>
 
 <!--
 ## Summary
 -->
 
+## Résumé
+
 <!--
 At this point, you’ve successfully built the guessing game. Congratulations!
 -->
+
+Si vous êtes arrivé jusqu'ici, c'est que vous avez construit avec succès le jeu
+de devinettes. Félicitations !
 
 <!--
 This project was a hands-on way to introduce you to many new Rust concepts:
@@ -1715,6 +2274,17 @@ Chapter 4 explores ownership, a feature that makes Rust different from other
 languages. Chapter 5 discusses structs and method syntax, and Chapter 6
 explains how enums work.
 -->
+
+Ce projet était une mise en pratique pour vous initier à de nombreux concepts de
+Rust : `let`, `match`, les méthodes, les fonctions associées, l'utilisation de
+*crates* externes, et bien plus. Dans les prochains chapitres, vous allez
+apprendre ces notions plus en détail. Le chapitre 3 va traiter des concepts
+utilisés que la plupart des langages de programmation ont déjà, comme les
+variables, les types de données, et les fonctions, et vous montrera comment les
+utiliser avec Rust. Le Chapitre 4 expliquera la possession *(ownership)*, qui
+est une fonctionnalité qui différencie Rust des autres langages. Le chapitre 5
+abordera les structures et syntaxes de méthodes, et le chapitre 6 expliquera
+comment les énumérateurs fonctionnent.
 
 <!--
 [variables-and-mutability]:
