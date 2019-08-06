@@ -53,10 +53,19 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | script | script |
 | PATH | PATH |
 | terminal | terminal |
-| shell | terminal |
+| shell | terminal/invite de commande |
 | linker | linker |
 | commit | commit |
 | hash | hachage |
 | standard library | bibliothèque standard |
 | Application Programming Interface (API) | interface de programmation applicative (API) |
 | Rustaceans | Rustacés |
+| Integrated Development Environment (IDE) | Integrated Development Environment (IDE) |
+| underscore | trait de soulignement "_" |
+| Listing | section |
+| Troubleshooting | Dépannage |
+| Hello, world! | Hello, world! |
+| main | main |
+| curly brackets | accolades |
+| macro | macro |
+| ahead-of-time compiled language | langage compilé à la volée |
