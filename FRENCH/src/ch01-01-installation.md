@@ -268,7 +268,7 @@ que Rust est présent dans votre variable d'environnement système `%PATH%`. Si
 tout est correcte et que Rust ne fonctionne toujours pas, il y a quelques
 endroits où vous pourrez trouver de l'aider. Le plus accessible est le
 canal #beginners sur le [Discord officiel de Rust][discord]. Là-bas, vous pouvez
-dialoguer en ligne avec d'autre *Rustaceans* (un surnom ridicule que nous nous
+dialoguer en ligne avec d'autre *Rustacés* (un surnom ridicule que nous nous
 donnons entre nous) qui pourront vous aider. D'autres bonnes sources de données
 sont [le forum d'utilisateurs][users] et [Stack Overflow][stackoverflow].
 
