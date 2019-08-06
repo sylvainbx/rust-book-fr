@@ -113,7 +113,7 @@ Now open the *main.rs* file you just created and enter the code in Listing 1-1.
 -->
 
 Maintenant, ouvrez le fichier *main.rs* que vous venez de créer et utilisez le
-code dans la Section 1-1.
+code dans l'encart 1-1.
 
 <!--
 <span class="filename">Filename: main.rs</span>
@@ -130,7 +130,7 @@ fn main() {
 <!--
 <span class="caption">Listing 1-1: A program that prints `Hello, world!`</span>
 -->
-<span class="caption">Section 1-1 : Un programme qui affiche `Hello, world!`
+<span class="caption">Encart 1-1 : Un programme qui affiche `Hello, world!`
 </span>
 
 <!--
