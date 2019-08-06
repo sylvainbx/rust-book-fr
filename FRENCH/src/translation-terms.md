@@ -4,77 +4,76 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 
 | Anglais | Français | Observation(s) |
 | ------- | ------ | ------ |
-| module  | module | - |
-| procedural macros | macroprocédures | - |
-| raw identifiers | identificateurs primaires | - |
-| systems-level | niveau-systèmes | - |
-| low-level | bas-niveau | - |
-| memory management | gestion de mémoire | - |
-| data representation | modèle de données | - |
-| exploits | failles | - |
-| crashes | plantages | - |
-| corruption | être corrompu | - |
-| parallelism | parallélisme | - |
-| code review | revue de code | - |
-| high-level | haut-niveau | - |
-| concurrency | concurrence | - |
+| ahead-of-time compiled language | langage compilé à la volée | - |
+| Application Programming Interface (API) | interface de programmation applicative (API) | - |
 | bug | bogue | - |
-| systems-level code | code système | - |
-| systems concepts | notions système | - |
-| DevOps | DevOps | - |
-| machine learning | apprentissage automatique | - |
-| IOT | internet des objets (IOT) | - |
-| libraries | bibliothèques | - |
-| refactoring | remaniement | - |
-| legacy code | code instable que le programme a hérité avec le temps | - |
-| zero-cost abstractions | abstractions sans coût | - |
-| concept chapters | chapitres théoriques | - |
-| project chapters | chapitre de projet | - |
-| ownership | possession | - |
-| structs | structures | - |
-| enums | énumérations | - |
-| control flow construct | structure de contrôle | - |
-| Application Programming Interface (API) | Application Programming Interface (API) | - |
-| vectors | vecteurs | - |
-| strings | chaînes de caractères | - |
-| hash maps | tables de hachage | - |
-| generics | génériques | - |
-| traits | traits | - |
-| lifetimes | durées de vie | - |
-| closures | fermetures | - |
-| iterators | itérateurs | - |
+| build system | système de compilation | - |
 | Cargo | Cargo | - |
-| smart pointers | pointeurs intelligents | - |
+| closures | fermetures | - |
+| code review | revue de code | - |
+| commit | commit | - |
+| concept chapters | chapitres théoriques | - |
+| concurrency | concurrence | - |
 | concurrent | concurrent | - |
+| control flow construct | structure de contrôle | - |
+| corruption | être corrompu | - |
+| crashes | plantages | - |
+| crates | crates | - |
+| curly brackets | accolades | - |
+| data representation | modèle de données | - |
+| dependencies | dépendances | - |
+| DevOps | DevOps | - |
+| enums | énumérations | - |
+| exploits | failles | - |
+| flag | drapeau | (pour les lignes de commande / CLI) |
+| generics | génériques | - |
+| guessing game | jeu de devinettes | - |
+| hash | hachage | - |
+| hash maps | tables de hachage | - |
+| Hello, world! | Hello, world! | - |
+| high-level | haut-niveau | - |
+| Integrated Development Environment (IDE) | Integrated Development Environment (IDE) | - |
+| IOT | internet des objets (IOT) | - |
+| iterators | itérateurs | - |
+| legacy code | code instable que le programme a hérité avec le temps | - |
+| libraries | bibliothèques | - |
+| lifetimes | durées de vie | - |
+| linker | linker | - |
+| Listing | Encart | - |
+| low-level | bas-niveau | - |
+| machine learning | apprentissage automatique | - |
+| macro | macro | - |
+| main | main | - |
+| memory management | gestion de mémoire | - |
+| module  | module | - |
+| operating system | système d'exploitation | - |
+| ownership | possession | - |
+| package manager | système de gestion de paquets | - |
+| panic | panique(r) | - |
+| parallelism | parallélisme | - |
+| PATH | PATH | - |
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |
-| unsafe | code non sécurisé | - |
-| panic | panique(r) | - |
-| script | script | - |
-| PATH | PATH | - |
-| terminal | terminal | - |
-| shell | terminal/invite de commande | - |
-| linker | linker | - |
-| commit | commit | - |
-| hash | hachage | - |
-| standard library | bibliothèque standard | - |
-| Application Programming Interface (API) | interface de programmation applicative (API) | - |
-| Rustaceans | Rustacés | - |
-| Integrated Development Environment (IDE) | Integrated Development Environment (IDE) | - |
-| underscore | trait de soulignement "_" | - |
-| Troubleshooting | Dépannage | - |
-| Hello, world! | Hello, world! | - |
-| main | main | - |
-| curly brackets | accolades | - |
-| macro | macro | - |
-| ahead-of-time compiled language | langage compilé à la volée | - |
-| build system | système de compilation | - |
-| package manager | système de gestion de paquets | - |
-| dependencies | dépendances | - |
-| operating system | système d'exploitation | - |
-| version control system (VCS) | système de gestion de version (VCS) | - |
-| flag | drapeau | (pour les lignes de commande / CLI) |
-| Listing | Encart | - |
-| crates | crates | - |
+| procedural macros | macroprocédures | - |
+| project chapters | chapitre de projet | - |
+| raw identifiers | identificateurs primaires | - |
 | README | README | - |
-| guessing game | jeu de devinettes | - |
+| refactoring | remaniement | - |
+| Rustaceans | Rustacés | - |
+| script | script | - |
+| shell | terminal/invite de commande | - |
+| smart pointers | pointeurs intelligents | - |
+| standard library | bibliothèque standard | - |
+| strings | chaînes de caractères | - |
+| structs | structures | - |
+| systems concepts | notions système | - |
+| systems-level | niveau-systèmes | - |
+| systems-level code | code système | - |
+| terminal | terminal | - |
+| traits | traits | - |
+| Troubleshooting | Dépannage | - |
+| underscore | trait de soulignement "_" | - |
+| unsafe | code non sécurisé | - |
+| vectors | vecteurs | - |
+| version control system (VCS) | système de gestion de version (VCS) | - |
+| zero-cost abstractions | abstractions sans coût | - |
