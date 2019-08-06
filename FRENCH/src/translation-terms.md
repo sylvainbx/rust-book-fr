@@ -1,38 +1,52 @@
-| English | French | First occurence |
-| ------- | ------ | --------------- |
-| code review | revue de code | ch00-00 |
-| low-level | bas-niveau | ch00-00 |
-| high-level | haut-niveau | ch00-00 |
-| concurrency | concurrence | ch00-00 |
-| bug | bogue | ch00-00 |
-| systems-level code | code système | ch00-00 |
-| systems concepts | notions système | ch00-00 |
-| DevOps | DevOps | ch00-00 |
-| machine learning | apprentissage automatique | ch00-00 |
-| IOT | internet des objets (IOT) | ch00-00 |
-| libraries | bibliothèques | ch00-00 |
-| refactoring | remaniement | ch00-00 |
-| legacy code | code instable que le programme a hérité avec le temps | ch00-00 |
-| zero-cost abstractions | abstractions sans coût | ch00-00 |
-| concept chapters | chapitres théoriques | ch00-00 |
-| project chapters | chapitre de projet | ch00-00 |
-| ownership | possession | ch00-00 |
-| structs | structures | ch00-00 |
-| enums | énumérations | ch00-00 |
-| control flow construct | structure de contrôle | ch00-00 |
-| Application Programming Interface (API) | Application Programming Interface (API) | ch00-00 |
-| vectors | vecteurs | ch00-00 |
-| strings | chaînes de caractères | ch00-00 |
-| hash maps | tables de hachage | ch00-00 |
-| generics | génériques | ch00-00 |
-| traits | traits | ch00-00 |
-| lifetimes | durées de vie | ch00-00 |
-| closures | fermetures | ch00-00 |
-| iterators | itérateurs | ch00-00 |
-| Cargo | Cargo | ch00-00 |
-| smart pointers | pointeurs intelligents | ch00-00 |
-| concurrent | concurrent | ch00-00 |
-| pattern | motif | ch00-00 |
-| pattern-matching | filtrage par motif | ch00-00 |
-| unsafe | code non sécurisé | ch00-00 |
-| panic | panique(r) | ch00-00 |
+# Traduction des termes
+
+Voici les principaux termes techniques qui ont été traduits de l'Anglais vers le Français.
+
+| Anglais | Français |
+| ------- | ------ |
+| module  | module |
+| procedural macros | macroprocédures |
+| raw identifiers | identificateurs primaires |
+| systems-level | niveau-systèmes |
+| low-level | bas-niveau |
+| memory management | gestion de mémoire |
+| data representation | modèle de données |
+| exploits | failles |
+| crashes | plantages |
+| corruption | être corrompu |
+| parallelism | parallélisme |
+| code review | revue de code |
+| high-level | haut-niveau |
+| concurrency | concurrence |
+| bug | bogue |
+| systems-level code | code système |
+| systems concepts | notions système |
+| DevOps | DevOps |
+| machine learning | apprentissage automatique |
+| IOT | internet des objets (IOT) |
+| libraries | bibliothèques |
+| refactoring | remaniement |
+| legacy code | code instable que le programme a hérité avec le temps |
+| zero-cost abstractions | abstractions sans coût |
+| concept chapters | chapitres théoriques |
+| project chapters | chapitre de projet |
+| ownership | possession |
+| structs | structures |
+| enums | énumérations |
+| control flow construct | structure de contrôle |
+| Application Programming Interface (API) | Application Programming Interface (API) |
+| vectors | vecteurs |
+| strings | chaînes de caractères |
+| hash maps | tables de hachage |
+| generics | génériques |
+| traits | traits |
+| lifetimes | durées de vie |
+| closures | fermetures |
+| iterators | itérateurs |
+| Cargo | Cargo |
+| smart pointers | pointeurs intelligents |
+| concurrent | concurrent |
+| pattern | motif |
+| pattern-matching | filtrage par motif |
+| unsafe | code non sécurisé |
+| panic | panique(r) |
