@@ -50,3 +50,13 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | pattern-matching | filtrage par motif |
 | unsafe | code non sécurisé |
 | panic | panique(r) |
+| script | script |
+| PATH | PATH |
+| terminal | terminal |
+| shell | terminal |
+| linker | linker |
+| commit | commit |
+| hash | hachage |
+| standard library | bibliothèque standard |
+| Application Programming Interface (API) | interface de programmation applicative (API) |
+| Rustaceans | Rustacés |
