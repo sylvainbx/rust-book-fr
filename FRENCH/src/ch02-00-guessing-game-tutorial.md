@@ -13,12 +13,12 @@ these ideas in more detail. In this chapter, you’ll practice the fundamentals.
 -->
 
 Entrons dans le vif du sujet en travaillant ensemble sur un projet concret !
-Ce chapitre présente quelques concepts couramment utilisés en Rust en vous
+Ce chapitre présente quelques concepts couramment utilisés avec Rust en vous
 montrant comment les utiliser dans un véritable programme. Nous aborderons
 notamment les instructions `let` et `match`, les méthodes et fonctions
 associées, l'utilisation des *crates*, et bien plus encore ! Dans les chapitres
-suivants nous apprendrons ces notions plus en détails. Dans ce chapitre, vous
-n'allez exercer que les principes de base.
+suivants, nous approfondirons ces notions. Dans ce chapitre, vous n'allez
+exercer que les principes de base.
 
 <!--
 We’ll implement a classic beginner programming problem: a guessing game. Here’s
@@ -31,8 +31,8 @@ correct, the game will print a congratulatory message and exit.
 Nous allons créer un programme fréquemment réalisé par les débutants en
 programmation : un jeu de devinettes. Le principe de ce jeu est le suivant :
 le programme va générer un nombre aléatoire entre 1 et 100. Ce sera ensuite au
-joueur d'entrer un nombre qu'il pense deviner. Après la saisie, le programme
-indiquera si le nombre fourni par le joueur est trop grand ou trop petit. Si le
+joueur de saisir un nombre qu'il pense deviner. Après la saisie, le programme
+indiquera si le nombre saisi par le joueur est trop grand ou trop petit. Si le
 nombre saisi est le bon, le jeu affichera un message de félicitations et se
 fermera.
 
@@ -214,7 +214,7 @@ fn main() {
 prints it</span>
 -->
 
-<span class="caption">Encart 2-1 : Code permettant d'obtenir une saisie
+<span class="caption">Encart 2-1 : Code permettant de récupérer une saisie
 utilisateur et de l'afficher</span>
 
 <!--
@@ -243,11 +243,11 @@ features, including the ability to accept user input.
 -->
 
 Par défaut, Rust n'importe que très peu de types dans les programmes, qui sont
-présents dans [*l'étape préliminaire (prelude)*][prelude]<!-- ignore -->. Si
+présents dans [*l'étape préliminaire (the prelude)*][prelude]<!-- ignore -->. Si
 vous voulez utiliser un type qui ne s'y trouve pas, vous devrez l'importer
 explicitement avec l'instruction `use`. L'utilisation de la bibliothèque
-`std::io` vous apporte de nombreuses fonctionnalités utiles, comme la capacité
-d'obtenir une saisie utilisateur.
+`std::io` vous apporte de nombreuses fonctionnalités utiles, comme ici la
+possibilité de récupérer une saisie utilisateur.
 
 [prelude]: ../std/prelude/index.html
 
@@ -306,14 +306,14 @@ demande au joueur d'entrer un nombre.
 ### Storing Values with Variables
 -->
 
-### Enregistrer des données grâce aux variables
+### Enregistrer des données dans des variables
 
 <!--
 Next, we’ll create a place to store the user input, like this:
 -->
 
 Créons maintenant un endroit pour enregistrer la saisie de l'utilisateur, comme
-ceci:
+ceci :
 
 <!--
 ```rust,ignore
@@ -333,7 +333,7 @@ line. Notice that this is a `let` statement, which is used to create a
 
 Le programme commence à devenir intéressant ! Il se passe beaucoup de choses
 dans cette petite ligne. Vous remarquerez qu'elle commence par le mot clé `let`,
-qui sert à créer une *variable*. En voici un autre exemple :
+qui sert à créer une *variable*. Voici un autre exemple :
 
 ```rust,ignore
 let foo = bar;
@@ -351,9 +351,9 @@ a variable mutable:
 Cette ligne permet de créer une nouvelle variable nommée `foo` et à lui
 assigner la valeur de `bar`. Par défaut en Rust, les variables sont immuables.
 Nous aborderons plus en détail cette notion dans la section [“Variables et
-Mutabilité”][variables-and-mutability]<!-- ignore --> du chapitre 3. L'exemple
+Mutabilité”][variables-and-mutability]<!-- ignore --> au chapitre 3. L'exemple
 suivant montre comment utiliser le mot clé `mut` avant le nom de la variable
-pour rendre une variable mutable *(= modifiable)* :
+pour rendre une variable mutable *(c'est à dire modifiable)* :
 
 <!--
 ```rust,ignore
@@ -373,9 +373,9 @@ let mut bar = 5; // mutable, modifiable
 > in Chapter 3.
 -->
 
-> Note: La syntaxe `//` permettent de commencer un commentaire qui s'étend
+> Remarque : La syntaxe `//` permet de commencer un commentaire qui s'étend
 > jusqu'à la fin de la ligne. Rust ignore tout ce qu'il y a dans un commentaire,
-> ce qui sera développé plus en détail dans le chapitre 3.
+> ceci sera développé plus en détail dans le chapitre 3.
 
 <!--
 Let’s return to the guessing game program. You now know that `let mut guess`
@@ -387,13 +387,13 @@ library that is a growable, UTF-8 encoded bit of text.
 -->
 
 Mais revenons à notre jeu de devinettes. Vous comprenez donc maintenant que la
-ligne `let mut deduction` permet de créer une variable mutable/modifiable nommée
+ligne `let mut deduction` permet de créer une variable mutable nommée
 `deduction`. De l'autre côté du signe égal (`=`) se trouve la valeur de cette
-variable, et ici il s'agit du résultat de l'utilisation de `String::new`, qui
+variable, et il s'agit ici du résultat de l'utilisation de `String::new`, qui
 est une fonction qui retourne une nouvelle instance d'un `String`.
 [`String`][string]<!-- ignore --> est un type de chaine de caractères, qui nous
 est fourni par la bibliothèque standard, qui est du texte encodé en UTF-8 et qui
-peut grossir après déclaration pour accueillir plus de caractères.
+peut s'agrandir après déclaration pour accueillir plus de caractères.
 
 [string]: ../std/string/struct.String.html
 
@@ -426,8 +426,8 @@ variable that is currently bound to a new, empty instance of a `String`. Whew!
 -->
 
 Pour résumer, la ligne `let mut deduction = String::new();` a crée une nouvelle
-variable mutable/modifiable qui contient une nouvelle chaine de caractères vide,
-une instance de `String`. Ouf !
+variable mutable qui contient une nouvelle chaine de caractères vide, une
+instance de `String`. Ouf !
 
 <!--
 Recall that we included the input/output functionality from the standard
@@ -474,10 +474,10 @@ get input from the user. We’re also passing one argument to `read_line`: `&mut
 guess`.
 -->
 
-La ligne suivante, `.read_line(&mut deduction)`, appelle la méthode
-[`read_line`][read_line]<!-- ignore --> de notre référence vers l'entrée
-standard, afin d'obtenir la saisie utilisateur. De plus, on donne à la méthode
-`read_line` un argument : `&mut deduction`.
+La partie suivante du code, `.read_line(&mut deduction)`, appelle la méthode
+[`read_line`][read_line]<!-- ignore --> sur l'entrée standard, afin d'obtenir
+la saisie utilisateur. De plus, on passe à la méthode le paramètre
+`&mut deduction`.
 
 [read_line]: ../std/io/struct.Stdin.html#method.read_line
 
@@ -490,9 +490,9 @@ content by adding the user input.
 
 L'objectif de `read_line` est de récupérer tout ce que l'utilisateur écrit dans
 l'entrée standard, et de l'enregistrer dans une chaine de caractères, c'est
-pourquoi on la donne à la méthode via cet argument. Elle doit être modifiable
+pourquoi on la passe à la méthode via cet argument. Elle doit être modifiable
 pour que `read_line` puisse modifier la chaine de caractères afin de changer son
-contenu en ajoutant la saisie de l'utilisateur.
+contenu en y ajoutant la saisie de l'utilisateur.
 
 <!--
 The `&` indicates that this argument is a *reference*, which gives you a way to
@@ -510,11 +510,11 @@ Le `&` indique que cet argument est une *référence*, ce qui permet de laisser
 plusieurs morceaux de votre code accéder à une même donnée sans avoir besoin
 de copier ces données dans la mémoire plusieurs fois. Les références sont une
 fonctionnalité complexe, et un des avantages majeurs de Rust est qu'il rend sûr
-et simple l'utilisation des références. Il est inutile de détailler plus que
-nécessaire les références pour terminer ce programme. Pour l'instant, tout ce
+et simple l'utilisation des références. Il est inutile pour l'instant de plus
+détailler les références pour terminer ce programme. Pour l'instant, tout ce
 que vous devez savoir est que comme les variables, les références sont immuables
 par défaut. D'où la nécessité d'écrire `&mut deduction` au lieu de `&deduction`
-pour la rendre modifiable. (Le chapitre 4 va expliquer plus en détail les
+pour la rendre modifiable. (Le chapitre 4 expliquera plus en détail les
 références.)
 
 <!--
@@ -550,8 +550,8 @@ written this code as:
 -->
 
 Lorsque l'on appelle une méthode avec la syntaxe `.foo()`, il est généralement
-préférable d'ajouter une nouvelle ligne puis d'indenter à l'aide de caractères
-espace, afin de séparer les longues lignes de code. Nous aurions pu écrire ce
+préférable d'ajouter une nouvelle ligne puis de l'indenter'indenter à l'aide
+d'espaces, afin de séparer les longues lignes de code. Nous aurions pu écrire ce
 code de cette manière :
 
 <!--
@@ -586,8 +586,8 @@ dans la variable qu'on lui passe en argument, mais cette fonction retourne
 aussi une valeur - dans notre cas de type
 [`io::Result`][ioresult]<!-- ignore -->. Il existe plusieurs types nommés
 `Result` dans la bibliothèque standard de Rust : un type générique
-[`Result`][result]<!-- ignore --> ainsi que des versions spécifiques à des
-sous-modules, comme `io::Result`.
+[`Result`][result]<!-- ignore --> ainsi que des déclinaisons spécifiques à
+des sous-modules, comme `io::Result`.
 
 [ioresult]: ../std/io/type.Result.html
 [result]: ../std/result/enum.Result.html
@@ -634,10 +634,10 @@ entered into standard input.
 
 L'objectif de ces types `Result` est de structurer les informations utiles à la
 gestion des erreurs. Les types `Result`, comme tous les types, ont des méthodes
-qui leur sont associées. Par exemple, une instance de `io::Result` a une
+qui leurs sont associées. Par exemple, une instance de `io::Result` a une
 [méthode `expect`][expect]<!-- ignore --> que vous pouvez utiliser. Si cette
 instance de `io::Result` a pour valeur la variante `Err`, l'appel à `expect`
-causera un crash du programme et affichera le message que vous aurez passé en
+causera un plantage du programme et affichera le message que vous aurez passé en
 argument de `expect`. Si l'appel à `read_line` retourne une variante `Err`, ce
 sera probablement dû à une erreur d'un élément du système d'exploitation. Si par
 contre `read_line` a pour valeur la variante `Ok`, `expect` récupèrera le
@@ -720,7 +720,7 @@ values in one call to `println!` would look like this:
 -->
 
 Cette ligne affiche la chaine de caractères qui représente ce que notre
-utilisateur saisi. Les accolades `{}` représente un espace réservé : imaginez
+utilisateur saisi. Les accolades `{}` représentent un espace réservé : imaginez
 que ce sont des pinces de crabes qui gardent la place d'une valeur. Vous pouvez
 afficher plus d'une seule valeur en les listant après la chaîne de caractère qui
 représente le format, les secondes accolades `{}` afficheront la valeur du
