@@ -654,6 +654,7 @@ If you don’t call `expect`, the program will compile, but you’ll get a warni
 Si nous n'appellons pas `expect`, le programme compilera, mais avec un
 avertissement :
 
+<!--
 ```text
 $ cargo build
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
@@ -662,6 +663,19 @@ warning: unused `std::result::Result` which must be used
    |
 10 |     io::stdin().read_line(&mut guess);
    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: #[warn(unused_must_use)] on by default
+```
+-->
+
+```text
+$ cargo build
+   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+warning: unused `std::result::Result` which must be used
+  -- > src/main.rs:10:5
+   |
+10 |     io::stdin().read_line(&mut deduction);
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
    |
    = note: #[warn(unused_must_use)] on by default
 ```
@@ -1378,7 +1392,7 @@ fn main() {
 
     // --- code inchangé masqué ici ---
 
-    println!("Votre nombre : {}", guess);
+    println!("Votre nombre : {}", deduction);
 
     match deduction.cmp(&nombre_secret) {
         Ordering::Less => println!("C'est plus !"),
@@ -1486,6 +1500,7 @@ However, the code in Listing 2-4 won’t compile yet. Let’s try it:
 Cependant, notre code dans l'encart 2-4 ne se compile pas encore. Essayons de le
 faire :
 
+<!--
 ```text
 $ cargo build
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
@@ -1494,6 +1509,23 @@ error[E0308]: mismatched types
    |
 23 |     match guess.cmp(&secret_number) {
    |                     ^^^^^^^^^^^^^^ expected struct `std::string::String`, found integral variable
+   |
+   = note: expected type `&std::string::String`
+   = note:    found type `&{integer}`
+
+error: aborting due to previous error
+Could not compile `guessing_game`.
+```
+-->
+
+```text
+$ cargo build
+   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+error[E0308]: mismatched types
+  -- > src/main.rs:23:21
+   |
+23 |     match deduction.cmp(&nombre_secret) {
+   |                         ^^^^^^^^^^^^^^ expected struct `std::string::String`, found integral variable
    |
    = note: expected type `&std::string::String`
    = note:    found type `&{integer}`
@@ -1524,7 +1556,7 @@ le `nombre_secret` est du type nombre. Quelques types de nombres peuvent avoir
 un nombre entre 1 et 100 : `i32`, un nombre encodé sur 32 bits, `u32`, un nombre
 encodé sur 32 bits et sans signe (toujours positif); `i64`, un nombre encodé sur
 64 bits; parmi tant d'autres. Rust utilise par défaut un `i32`, qui est le type
-de `secret_number`, à moins que vous précisiez quelque part une information de
+de `nombre_secret`, à moins que vous précisiez quelque part une information de
 type qui amènerait Rust à déduire un type de nombre différent. La raison de
 cette erreur est que Rust ne peut pas comparer une chaîne de caractères à un
 nombre.
@@ -1811,7 +1843,7 @@ donner plus de chances aux utilisateurs pour deviner le nombre :
 ```rust,ignore
 // -- code inchangé masqué ici --
 
-    println!("Le nombre secret est : {}", secret_number);
+    println!("Le nombre secret est : {}", nombre_secret);
 
     loop {
         println!("Veuillez entrer un nombre.");
@@ -1910,7 +1942,7 @@ Veuillez entrer un nombre.
 quit
 thread 'main' panicked at 'Please type a number!: ParseIntError { kind: InvalidDigit }', src/libcore/result.rs:785
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
-error: Process didn't exit successfully: `target/debug/guess` (exit code: 101)
+error: Process didn't exit successfully: `target/debug/deduction` (exit code: 101)
 ```
 
 <!--
@@ -2034,12 +2066,12 @@ println!("You guessed: {}", guess);
 io::stdin().read_line(&mut deduction)
     .expect("Echec de la lecture de l'entrée utilisateur");
 
-let deduction: u32 = match guess.trim().parse() {
+let deduction: u32 = match deduction.trim().parse() {
     Ok(nombre) => nombre,
     Err(_) => continue,
 };
 
-println!("Votre nombre : {}", guess);
+println!("Votre nombre : {}", deduction);
 
 // -- code inchangé masqué ici --
 ```
@@ -2221,7 +2253,7 @@ use rand::Rng;
 fn main() {
     println!("Devinez le nombre !");
 
-    let secret_number = rand::thread_rng().gen_range(1, 101);
+    let nombre_secret = rand::thread_rng().gen_range(1, 101);
 
     loop {
         println!("Veuillez entrer un nombre.");
