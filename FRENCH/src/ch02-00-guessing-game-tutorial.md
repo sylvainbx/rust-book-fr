@@ -1001,7 +1001,7 @@ du code.
 #### Ensuring Reproducible Builds with the *Cargo.lock* File
 -->
 
-#### Assurer la reproductivité des compilations avec le fichier *Cargo.lock*
+#### Assurer la reproductibilité des compilations avec le fichier *Cargo.lock*
 
 <!--
 Cargo has a mechanism that ensures you can rebuild the same artifact every time
@@ -1517,7 +1517,7 @@ cannot compare a string and a number type.
 
 Le message d'erreur nous indique que nous sommes dans un cas de types non
 compatibles *(mismatched types)*. Rust a un système de types robuste et rigide.
-Cependant, il a aussi une fonctionnalité de déduction de type. Quand nous avons
+Cependant, il a aussi une fonctionnalité d'inférence de type. Quand nous avons
 écrit `let mut deduction = String::new()`, Rust a pu en déduire que `deduction`
 devait être un `String` et ne nous a pas demandé d'écrire le type. D'autre part,
 le `nombre_secret` est du type nombre. Quelques types de nombres peuvent avoir
