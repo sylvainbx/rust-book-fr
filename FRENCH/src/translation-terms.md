@@ -3,7 +3,7 @@
 Voici les principaux termes techniques qui ont été traduits de l'anglais vers le
 français.
 
-| Anglais | Français | Observations |
+| Anglais | Français | Remarques |
 | ------- | ------ | ------ |
 | ahead-of-time compilation | compilation anticipée | sigle : AOT |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
@@ -14,6 +14,7 @@ français.
 | binary crate | crate binaire | s'utilise au féminin |
 | *n*-bit number | nombre encodé sur *n* bits | - |
 | boolean | booléen | - |
+| borrow | emprunt(er) | - |
 | bug | bogue | - |
 | build system | système de compilation | - |
 | byte | octet | - |
@@ -21,6 +22,7 @@ français.
 | catchall value | valeur passe-partout | - |
 | closure | fermeture | - |
 | code review | revue de code | - |
+| command | commande | dans un terminal |
 | commit | commit | - |
 | concept chapter | chapitre théorique | - |
 | concurrency | concurrence | - |
@@ -33,8 +35,12 @@ français.
 | crate | crate | nom féminin (une *crate*) |
 | curly bracket | accolade | - |
 | data representation | modèle de données | - |
+| debug | déboguer | - |
+| debugging | débogage | - |
 | dependency | dépendance | - |
+| destructure | déstructurer | - |
 | DevOps | DevOps | - |
+| dot notation | la notation avec un point | - |
 | enum | énumération | - |
 | enumeration | énumération | - |
 | enum’s variant | variante d'énumération | - |
@@ -51,6 +57,8 @@ français.
 | Hello, world! | Hello, world! | - |
 | high-level | haut niveau | - |
 | identifier | identificateur | - |
+| instance | instance | - |
+| instantiate | instancier | créer une instance |
 | Integrated Development Environment (IDE) | environnement de développement intégré (IDE) | - |
 | IOT | internet des objets (IOT) | - |
 | immutable | immuable | - |
@@ -68,6 +76,7 @@ français.
 | macro | macro | - |
 | main | main | - |
 | memory management | gestion de mémoire | - |
+| method | méthode | - |
 | module | module | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
@@ -102,9 +111,11 @@ français.
 | shell | terminal / invite de commande | - |
 | shorthand | abréviation | - |
 | sidebar | barre latérale | - |
+| signature | signature | d'une fonction |
 | signed | signé | - |
 | smart pointer | pointeur intelligent | - |
 | snip | code inchangé masqué ici | dans un encart |
+| space | espace | ce mot est féminin quand on parle du caractère typographique |
 | standard | standard *(adj. inv.)* / norme *(n.f.)* | - |
 | standard error | erreur standard | - |
 | standard input | entrée standard | - |
@@ -120,9 +131,14 @@ français.
 | terminal | terminal | - |
 | trait | trait | - |
 | troubleshooting | dépannage | - |
+| tuple | tuple | - |
+| tuple struct | structure tuple | - |
 | type inference | inférence de types | - |
 | underlying operating system | système d'exploitation sous-jacent | - |
 | underscore | tiret bas | le caractère `_` |
+| unit-like struct | structure unitaire | - |
+| unit type | type unité | - |
+| unit value | valeur unité | - |
 | unsafe | non sécurisé | - |
 | unsigned | non signé | - |
 | user input | saisie utilisateur | - |
