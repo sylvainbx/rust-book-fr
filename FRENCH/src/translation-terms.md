@@ -5,6 +5,8 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | Anglais | Français | Observation(s) |
 | ------- | ------ | ------ |
 | ahead-of-time compiled language | langage compilé à la volée | - |
+| allocated | alloué | - |
+| annotate | indiquer | - |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
 | arguments | arguments/paramètres | - |
 | arms | branches | explication de match |
@@ -19,13 +21,17 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | catchall value | valeur passe-partout | - |
 | closures | fermetures | - |
 | code review | revue de code | - |
+| collection | collection | - |
 | commit | commit | - |
+| compound | composés | - |
 | concept chapters | chapitres théoriques | - |
 | concurrency | concurrence | - |
 | concurrent | concurrent | - |
+| constant | constante | - |
 | control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
 | corruption | être corrompu | - |
+| CPU | processeur | - |
 | crashes | plantages | - |
 | crates | crates | - |
 | curly brackets | accolades | - |
@@ -38,13 +44,19 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | exploits | failles | - |
 | expression | expression | explication de match |
 | flag | drapeau | (pour les lignes de commande / CLI) |
+| float | nombre à virgule flottante | - |
+| floating-point number | nombre à virgule flottante | - |
+| functional programming | programmation fonctionnelle | - |
 | generics | génériques | - |
+| global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |
 | handle | référence | - |
 | hash | hachage | - |
 | hash maps | tables de hachage | - |
 | Hello, world! | Hello, world! | - |
 | high-level | haut-niveau | - |
+| integer literal | entiers littéral | - |
+| integer overflow | dépassement d'entier | - |
 | Integrated Development Environment (IDE) | Integrated Development Environment (IDE) | - |
 | IOT | internet des objets (IOT) | - |
 | immutable | immuable | - |
@@ -60,9 +72,11 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | macro | macro | - |
 | main | main | - |
 | memory management | gestion de mémoire | - |
+| modern | récent | - |
 | module  | module | - |
 | mutability | mutabilité | - |
 | mutable | mutable/modifiable | - |
+| mutate | muter | - |
 | Note | Remarque | - |
 | numerical characters | chiffres | - |
 | operating system | système d'exploitation | - |
@@ -88,6 +102,8 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | Rustaceans | Rustacés | - |
 | section header | entête de section | - |
 | semantic version | version sémantique | - |
+| scalar | scalaire | - |
+| scope | portée | - |
 | script | script | - |
 | shadow | créer un fantôme | explication variable type inference |
 | Shadowing | La création de fantôme | variable type inference |
@@ -99,6 +115,7 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | standard | une convention/une norme | - |
 | standard library | bibliothèque standard | - |
 | statement | instruction/mot-clé | - |
+| statically typed | statiquement typé | - |
 | strings | chaînes de caractères | - |
 | structs | structures | - |
 | submodules | sous-modules | - |
@@ -108,12 +125,17 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | terminal | terminal | - |
 | traits | traits | - |
 | Troubleshooting | Dépannage | - |
+| type | type | - |
+| type annotation | annotation de type | - |
 | type inference | déduction de type | - |
+| two’s complement | complément à deux | - |
+| two’s complement wrapping | rebouclage du complément à deux | - |
 | underlying operating system | élément du système d'exploitation | - |
 | underscore | trait de soulignement "_" | - |
 | unsafe | code non sécurisé | - |
 | unsigned | sans signe (toujours positif) | - |
 | user input | saisie utilisateur | - |
+| variable | variable | - |
 | variants | variantes | - |
 | vectors | vecteurs | - |
 | version control system (VCS) | système de gestion de version (VCS) | - |

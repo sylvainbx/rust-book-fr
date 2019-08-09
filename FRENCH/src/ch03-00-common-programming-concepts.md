@@ -2,7 +2,7 @@
 # Common Programming Concepts
 -->
 
-# Concepts courants de programmation
+# Les concepts courants de programmation
 
 <!--
 This chapter covers concepts that appear in almost every programming language
@@ -12,11 +12,11 @@ but we’ll discuss them in the context of Rust and explain the conventions
 around using these concepts.
 -->
 
-Ce chapitre couvre des concepts qui apparaissent dans presque tous les langages
-de programmation et la manière dont ils fonctionnent en Rust. De nombreux
-langages partagent à la base des concepts communs. Aucun de ceux présentés dans
-ce chapitre ne sont uniques à Rust, mais nous en discuterons dans le contexte
-de Rust et nous en expliquerons les conventions.
+Ce chapitre explique des concepts qui apparaissent dans presque tous les
+langages de programmation, et la manière dont ils fonctionnent en Rust. De
+nombreux langages sont basés sur des concepts communs. Dans ce chapitre, nous
+n'allons présenter aucun concept spécifique à Rust, mais nous les appliquerons
+à Rust et nous expliquerons les conventions qui leur sont liés.
 
 <!--
 Specifically, you’ll learn about variables, basic types, functions, comments,
@@ -24,10 +24,10 @@ and control flow. These foundations will be in every Rust program, and learning
 them early will give you a strong core to start from.
 -->
 
-Plus spécifiquement, vous allez apprendre les concepts de variables, de types
-de base, de fonctions, de commentaires, et de flot d'exécution. Ces
-fondamentaux seront présents dans chaque programme Rust, et les apprendre dès
-maintenant vous procurera de solides bases pour débuter.
+Plus précisément, vous allez apprendre les concepts de variables, les types de
+base, les fonctions, les commentaires, et les structures de contrôle. Ces
+notions fondamentales seront présentes dans tous les programmes Rust, et les
+apprendre dès le début vous procurera de solides bases pour débuter.
 
 <!--
 > #### Keywords
@@ -41,14 +41,13 @@ maintenant vous procurera de solides bases pour débuter.
 > can find a list of the keywords in Appendix A.
 -->
 
-
-> ### Mot-clés
+> #### Mot-clés
 >
-> Le langage Rust possède un ensemble de *mot-clés* qui ont été réservés pour
+> Le langage Rust possède un ensemble de *mots-clés* qui ont été réservés pour
 > l'usage exclusif du langage, tout comme le font d'autres langages. Gardez à
-> l'esprit que vous ne pouvez pas utiliser ces mots comme noms de variables ou
-> de fonctions. La plupart des mots-clés ont une signification spéciale, et
-> vous les utiliserez pour réaliser de nombreuses tâches dans vos programmes
-> Rust; quelques-uns n'ont pour le moment aucune fonctionnalité leur étant
-> associée, mais ont été réservés pour un usage futur. Vous pouvez trouver une
-> liste de ces mots-clés dans l'Annexe A.
+> l'esprit que vous ne pouvez pas utiliser ces mots pour des noms de variables
+> ou de fonctions. La plupart des mots-clés ont une signification spéciale, et
+> vous les utiliserez pour réaliser de différentes tâches dans vos programmes
+> Rust; quelques-uns n'ont aucune fonctionnalité active pour le moment, mais ont
+> été réservés pour être ajoutés plus tard à Rust. Vous pouvez trouver la liste
+> de ces mots-clés dans l'Annexe A.

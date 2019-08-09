@@ -2,7 +2,7 @@
 ## Data Types
 -->
 
-## Types de données
+## Les types de données
 
 <!--
 Every value in Rust is of a certain *data type*, which tells Rust what kind of
@@ -10,11 +10,10 @@ data is being specified so it knows how to work with that data. We’ll look at
 two data type subsets: scalar and compound.
 -->
 
-Toutes les valeurs en Rust sont d'un certain *type*, qui indique à Rust quels
-type de donnée est en train d'être spécifié afin qu'il puisse savoir comment
-traiter la donnée. Dans cette section, nous allons nous intéresser à certains
-types de données inclus dans langage. Nous divisions habituellement chaque type
-dans deux catégories : les scalaires et les composés.
+Chaque valeur en Rust est d'un *type* bien déterminé, qui indique à Rust quel
+type de données il manipule afin qu'il puisse savoir comment travailler avec.
+Nous allons nous intéresser à deux catégories de types de données : les
+scalaires et les composés.
 
 <!--
 Keep in mind that Rust is a *statically typed* language, which means that it
@@ -26,13 +25,14 @@ Number”][comparing-the-guess-to-the-secret-number]<!-- ignore -- > section in
 Chapter 2, we must add a type annotation, like this:
 -->
 
-Tout au long de cette section, gardez à l'esprit que Rust est langage
-*statiquement typé*, ce qui signifie qu'il doit connaître les types de toutes
-les variables lors de la compilation. Le compilateur peut souvent déduire quel
-type utiliser en se basant sur la valeur et comment elle est utilisée. Dans les
-cas où plusieurs types sont envisageables, comme lorsque nous avons converti
-une `String` en un type numérique en utilisant `parse` dans le Chapitre 2, nous
-devons ajouter une annotation de type, comme ceci :
+Gardez à l'esprit que Rust est langage *statiquement typé*, ce qui signifie
+qu'il doit connaître les types de toutes les variables au moment de la
+compilation. Le compilateur peut souvent déduire quel type utiliser en se basant
+sur la valeur et comment elle est utilisée. Dans les cas où plusieurs types sont
+envisageables, comme lorsque nous avons converti une chaîne de caractères en un
+type numérique en utilisant `parse` dans la section
+[“Comparer le nombre saisi avec le nombre secret”][comparing-the-guess-to-the-secret-number]<!-- ignore -- >
+du Chapitre 2, nous devons ajouter une annotation de type, comme ceci :
 
 <!--
 ```rust
@@ -41,7 +41,7 @@ let guess: u32 = "42".parse().expect("Not a number!");
 -->
 
 ```rust
-let guess: u32 = "42".parse().expect("Not a number!");
+let deduction: u32 = "42".parse().expect("Ce n'est pas un nombre !");
 ```
 
 <!--
@@ -52,7 +52,7 @@ type we want to use:
 
 Si nous n'ajoutons pas l'annotation de type ici, Rust affichera l'erreur
 suivante, signifiant que le compilateur a besoin de plus d'informations pour
-déterminer quel type nous souhaitons utiliser :
+déterminer quel type nous souhaitons utiliser :
 
 <!--
 ```text
@@ -71,11 +71,11 @@ error[E0282]: type annotations needed
 error[E0282]: type annotations needed
  --> src/main.rs:2:9
   |
-2 |     let guess = "42".parse().expect("Not a number!");
-  |         ^^^^^
+2 |     let deduction = "42".parse().expect("Ce n'est pas un nombre !");
+  |         ^^^^^^^^^
   |         |
   |         cannot infer type for `_`
-  |         consider giving `guess` a type
+  |         consider giving `deduction` a type
 ```
 
 <!--
@@ -83,7 +83,7 @@ You’ll see different type annotations for other data types.
 -->
 
 Vous découvrirez différentes annotations de type au fur et à mesure que nous
-discuterons des nombreux types de données.
+aborderons les autres types de données.
 
 <!--
 ### Scalar Types
@@ -98,15 +98,15 @@ these from other programming languages. Let’s jump into how they work in Rust.
 -->
 
 Un type *scalaire* représente une seule valeur. Rust possède quatre types
-scalaires principaux : les entiers, les nombres à virgule flottante, les
-Booléens et les caractères. Vous les reconnaîtrez surement d'autres langages de
-programmation, mais allons voir comment ils fonctionnent en Rust.
+principaux de scalaires : les entiers, les nombres à virgule flottante, les
+booléens et les caractères. Vous les connaissez surement d'autres langages de
+programmation. Regardons comment ils fonctionnent avec Rust.
 
 <!--
 #### Integer Types
 -->
 
-#### Types entiers
+#### Types de nombres entiers
 
 <!--
 An *integer* is a number without a fractional component. We used one integer
@@ -119,20 +119,20 @@ value.
 -->
 
 Un *entier* est un nombre sans partie décimale. Nous avons utilisé un entier
-plus tôt dans ce chapitre, le type `u32`. Cette déclaration de type indique 
-que la valeur à laquelle elle est associée doit être un entier non signé
-prenant 32 bits d'espace mémoire (le u de `u32` étant un raccourci pour
-*unsigned*, "non signé", au contraire du `i32` pouvant prendre des valeurs 
-négatives, le i signifiant simplement *integer*, "entier"). Le Tableau 3-1 
-montre les types d'entiers inclus dans le langage. Chaque variante dans les
-colonnes "Signé" et "Non Signé" (par exemple, *i16*) peut être utilisé pour
-déclarer le type d'une valeur entière.
+précédemment dans le chapitre 2, le type `u32`. Cette déclaration de type
+indique que la valeur à laquelle elle est associée doit être un entier non signé
+encodé sur 32 bits dans la mémoire (les entiers pouvant prendre des valeurs
+négatives commencent par un `i`, le i signifiant *integer* (entier), au lieu du
+`u`, le u signifiant *unsigned* : "non signé"). Le Tableau 3-1 montre les types
+d'entiers intégrés au langage. Chaque variante dans les colonnes "Signé" et
+"Non Signé" (par exemple `i16`) peut être utilisé pour déclarer le type d'une
+valeur entière.
 
 <!--
 <span class="caption">Table 3-1: Integer Types in Rust</span>
 -->
 
-<span class="caption">Tableau 3-1: Les types d'entier en Rust</span>
+<span class="caption">Tableau 3-1 : les types d'entier dans Rust</span>
 
 <!--
 | Length  | Signed  | Unsigned |
@@ -145,13 +145,14 @@ déclarer le type d'une valeur entière.
 | arch    | `isize` | `usize`  |
 -->
 
-| Taille | Signé  | Non signé |
-|--------|--------|-----------|
-| 8-bit  | i8     | u8        |
-| 16-bit | i16    | u16       |
-| 32-bit | i32    | u32       |
-| 64-bit | i64    | u64       |
-| arch   | isize  | usize     |
+| Taille  | Signé   | Non signé |
+|---------|---------|-----------|
+| 8-bit   | `i8`    | `u8`      |
+| 16-bit  | `i16`   | `u16`     |
+| 32-bit  | `i32`   | `u32`     |
+| 64-bit  | `i64`   | `u64`     |
+| 128-bit | `i128`  | `u128`    |
+| arch    | `isize` | `usize`   |
 
 <!--
 Each variant can be either signed or unsigned and has an explicit size.
@@ -165,16 +166,14 @@ Signed numbers are stored using [two’s complement](https://en.wikipedia.org/wi
 -->
 
 Chaque variante peut-être signée ou non-signée et possède une taille explicite.
-Signée et non-signée indique s'il est possible ou non d'être négatif ou positif
-; en d'autres termes, si l'on peut lui attribuer un signe (signé) ou s'il sera
-toujours positif et que l'on peut donc le représenter sans un signe
-(non-signé). C'est comme écrire des nombres sur le papier : quand le signe
-importe, un nombre est écrit avec un signe plus ou un signe moins ; en
-revanche, quand on peut supposer que le nombre est positif, il est écrit sans
-son signe. Les nombres signés sont stockés en utilisant le complément à deux
-(si vous n'êtes pas sûr de ce qu'est le complément à deux, vous pouvez le
-rechercher sur internet ; une telle explication ne fait pas partie de
-l'objectif de ce livre).
+*Signée* et *non-signée* veut dire respectivement que le nombre est possible ou
+non d'être négatif et positif — en d'autres termes, si l'on peut lui attribuer
+un signe (signé) ou s'il sera toujours positif et que l'on peut donc le
+représenter sans un signe (non-signé). C'est comme écrire des nombres sur un
+papier : quand le signe est important, le nombre est écrit avec un signe plus
+ou un signe moins ; en revanche, quand le nombre est positif, on peut l'écrire
+sans son signe. Les nombres signés sont stockés en utilisant un [complément à
+deux](https://fr.wikipedia.org/wiki/Compl%C3%A9ment_%C3%A0_deux).
 
 <!--
 Each signed variant can store numbers from -(2<sup>n - 1</sup>) to 2<sup>n -
@@ -187,9 +186,9 @@ so a `u8` can store numbers from 0 to 2<sup>8</sup> - 1, which equals 0 to 255.
 Chaque variante signée peut stocker des nombres allant de -(2<sup>n - 1</sup>)
 à 2<sup>n - 1</sup> - 1 inclus, où `n` est le nombre de bits que cette variante
 utilise. Un `i8` peut donc stocker des nombres allant de -(2<sup>7</sup>) à
-2<sup>7</sup> - 1, ce qui est égal à -128 jusqu'à 127.  Les variantes non
-signées pouvant aller de 0 à 2<sup>n</sup> - 1, un `u8` peut donc stocker des
-nombres allant de 0 à 2<sup>8</sup> - 1, ce qui équivaut à 0 jusqu'à 255.
+2<sup>7</sup> - 1, ce qui vaut -128 jusqu'à 127. Les variantes non signées
+peuvent stocker des nombres de 0 à 2<sup>n</sup> - 1, donc un `u8` peut stocker
+des nombres allant de 0 à 2<sup>8</sup> - 1, c'est-à-dire de 0 à 255.
 
 <!--
 Additionally, the `isize` and `usize` types depend on the kind of computer your
@@ -198,7 +197,7 @@ if you’re on a 32-bit architecture.
 -->
 
 De plus, les types `isize` et `usize` dépendent du type d'ordinateur sur lequel
-votre programme va s'exécuter: 64-bits si vous utilisez une architecture 64-bit
+votre programme va s'exécuter : 64-bits si vous utilisez une architecture 64-bit
 ou 32-bits si vous utilisez une architecture 32-bit.
 
 <!--
@@ -207,13 +206,16 @@ that all number literals except the byte literal allow a type suffix, such as
 `57u8`, and `_` as a visual separator, such as `1_000`.
 -->
 
-Vous pouvez écrire des nombres entiers littérals dans chacune des formes décrites dans le Tableau 3-2. Notez que chaque nombre littéral excepté l'octet accepte un suffixe de type, comme `57u8`, et `_` comme séparateur visuel, par exemple `1_000`.
+Vous pouvez écrire des entiers littéraux dans chacune des formes décrites dans
+le Tableau 3-2. Notez que chaque nombre littéral excepté l'octet accepte un
+suffixe de type, comme `57u8`, et `_` comme séparateur visuel, comme par exemple
+`1_000`.
 
 <!--
 <span class="caption">Table 3-2: Integer Literals in Rust</span>
 -->
 
-<span class="caption">Tableau 3-2: Les Entiers Littérals en Rust</span>
+<span class="caption">Tableau 3-2: Les entiers littéraux en Rust</span>
 
 <!--
 | Number literals  | Example       |
@@ -225,7 +227,7 @@ Vous pouvez écrire des nombres entiers littérals dans chacune des formes décr
 | Byte (`u8` only) | `b'A'`        |
 -->
 
-| Nombre litéral         | Exemple       |
+| Nombre littéral        | Exemple       |
 |------------------------|---------------|
 | Décimal                | `98_222`      |
 | Hexadécimal            | `0xff`        |
@@ -240,11 +242,11 @@ type is generally the fastest, even on 64-bit systems. The primary situation in
 which you’d use `isize` or `usize` is when indexing some sort of collection.
 -->
 
-Comment pouvez-vous déterminer le type d'entier à utiliser? Si vous n'êtes pas
+Comment pouvez-vous déterminer le type d'entier à utiliser ? Si vous n'êtes pas
 sûr, les choix par défaut de Rust sont généralement de bons choix, et le type
-d'entier par défaut est `i32` : c'est souvent le plus rapide, même sur des
-systèmes 64-bit. La principale raison pour laquelle on utilise un `isize` ou un
-`usize` serait lorsque que l'on indexe une quelconque collection.
+d'entier par défaut est le `i32` : c'est souvent le plus rapide, même sur des
+systèmes 64-bit. La principale utilisation d'un `isize` ou d'un `usize` est
+lorsque l'on indexe une quelconque collection.
 
 <!--
 > ##### Integer Overflow
@@ -270,11 +272,37 @@ systèmes 64-bit. La principale raison pour laquelle on utilise un `isize` ou un
 > wrap explicitly, you can use the standard library type [`Wrapping`][wrapping].
 -->
 
+> ##### Dépassement d'entier
+>
+> Imaginons que vous avez une variable de type `u8` qui peut stocker des
+> valeurs entre 0 et 255. Si vous essayez de changer la variable pour une valeur
+> en dehors de cette intervalle, comme 256, vous allez faire un dépassement
+> d'entier *(integer overflow)*. Rust embarque quelques règles intéressantes
+> concernant ce comportement. Quand vous compilez en mode déboguage, Rust
+> embarque des vérifications pour détecter les cas de dépassements d'entiers qui
+> pourraient faire *paniquer* votre programme à l'exécution si ce phénomène se
+> produit. Rust utilise utilise le terme paniquer quand un programme se termine
+> avec une erreur; nous verrons plus en détail les *paniques* dans une section
+> du [chapitre 9](ch09-01-unrecoverable-errors-with-panic.html).
+>
+> Lorsque vous compilez en mode publication *(release)* avec le drapeau
+> `--release`, Rust ne va *pas* vérifier les potentiels dépassements d'entier
+> qui peuvent faire paniquer le programme. En revanche, en cas de dépassement,
+> Rust va effectuer un *rebouclage du complément à deux*. Pour faire simple, les
+> valeurs supérieures la valeur maximale du type sera "enroulé" depuis la
+> valeur minimale que le type peut stocker. Dans cas d'un `u8`, 256 devient 0,
+> 257 devient 1, et ainsi de suite. Le programme ne va pas faire de panic, mais
+> la variable va avoir une valeur qui n'est probablement pas ce que vous
+> attendez à avoir. Le fait de se fier au comportement de *l'enroulage lors du
+> dépassement d'entier* est considéré comme une faute. Si vous voulez enrouler
+> explicitement, vous pouvez utiliser le type [`Wrapping`][wrapping] de la
+> bibliothèque standard.
+
 <!--
 #### Floating-Point Types
 -->
 
-#### Types à Virgule Flottante
+#### Types de nombres à virgule flottante
 
 <!--
 Rust also has two primitive types for *floating-point numbers*, which are
@@ -285,23 +313,23 @@ more precision.
 -->
 
 Rust possède également deux types primitifs pour les *nombres à virgule
-flottante*, les nombres à virgule. Les types à virgule flottante de Rust sont
-les `f32` et les `f64`, qui ont respectivement une taille de 32 bits et 64
-bits. Le type par défaut est le `f64` car sur nos processeurs modernes un tel
-type est quasiment aussi rapide qu'un `f32` mais est capable d'une plus grande
-précision.
+flottante*, qui sont des nombres avec des décimales. Les types à virgule
+flottante avec Rust sont les `f32` et les `f64`, qui ont respectivement une
+taille en mémoire de 32 bits et 64 bits. Le type par défaut est le `f64` car sur
+les processeurs récents ce type est quasiment aussi rapide qu'un `f32` mais est
+plus précis.
 
 <!--
 Here’s an example that shows floating-point numbers in action:
 -->
 
-Voici un exemple montrant un nombre à virgule flottante en action :
+Voici un exemple montrant l'utilisation d'un nombre à virgule flottante :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Ficher: src/main.rs</span>
+<span class="filename">Nom du ficher: src/main.rs</span>
 
 ```rust
 fn main() {
@@ -316,9 +344,9 @@ Floating-point numbers are represented according to the IEEE-754 standard. The
 `f32` type is a single-precision float, and `f64` has double precision.
 -->
 
-Les nombres à virgule flottante sont représentés en accord avec le standard
-IEEE-754. Le type `f32` est un *float* à simple précision, et le `f64` est à
-double précision.
+Les nombres à virgule flottante sont représentés selon le standard IEEE-754. Le
+type `f32` est un nombre à virgule flottante à simple précision, et le `f64` est
+à double précision.
 
 <!--
 #### Numeric Operations
@@ -691,9 +719,15 @@ kind of error by immediately exiting instead of allowing the memory access and
 continuing. Chapter 9 discusses more of Rust’s error handling.
 -->
 
+<!--
 [comparing-the-guess-to-the-secret-number]:
 ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
+[unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html
+-->
+
+[comparing-the-guess-to-the-secret-number]:
+ch02-00-guessing-game-tutorial.html#comparer-le-nombre-saisi-avec-le-nombre-secret
+
 [control-flow]: ch03-05-control-flow.html#control-flow
 [strings]: ch08-02-strings.html#storing-utf-8-encoded-text-with-strings
-[unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html
 [wrapping]: ../std/num/struct.Wrapping.html
