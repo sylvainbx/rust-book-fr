@@ -6,3 +6,4 @@
 
 - [Prise en main](ch01-00-getting-started.md)
     - [Installation](ch01-01-installation.md)
+    - [Hello, world!](ch01-02-hello-world.md)
