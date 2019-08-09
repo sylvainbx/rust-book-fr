@@ -1,3 +1,8 @@
 # Le langage de programmation Rust
 
-[Installation](ch01-01-installation.md)
+[Introduction](ch00-00-introduction.md)
+
+## Prise en main
+
+- [Prise en main](ch01-00-getting-started.md)
+    - [Installation](ch01-01-installation.md)
