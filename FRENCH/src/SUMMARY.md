@@ -5,4 +5,4 @@
     - [Les types de données](ch03-02-data-types.md)
     - [Les fonctions](ch03-03-how-functions-work.md)
     - [Les commentaires](ch03-04-comments.md)
-    - [Les structure de contrôle](ch03-05-control-flow.md)
+    - [Les structures de contrôle](ch03-05-control-flow.md)
