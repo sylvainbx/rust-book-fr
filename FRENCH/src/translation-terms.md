@@ -84,6 +84,7 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | package manager | système de gestion de paquets | - |
 | panic | panique(r) | - |
 | parallelism | parallélisme | - |
+| parameter | paramètre | - |
 | PATH | PATH | - |
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |
@@ -110,11 +111,14 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | shell | terminal/invite de commande | - |
 | shorthand | abréviation | - |
 | sidebar | volet latéral | - |
+| signature | signature | d'une fonction |
 | smart pointers | pointeurs intelligents | - |
+| snake case | snake case | - |
 | snip | code inchangé masqué ici | inside Listings |
 | standard | une convention/une norme | - |
 | standard library | bibliothèque standard | - |
 | statement | instruction/mot-clé | - |
+| statement | déclaration | - |
 | statically typed | statiquement typé | - |
 | strings | chaînes de caractères | - |
 | structs | structures | - |
