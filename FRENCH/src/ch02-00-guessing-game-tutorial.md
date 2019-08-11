@@ -76,7 +76,7 @@ Regardons le fichier *Cargo.toml* qui a été généré :
 <span class="filename">Filename: Cargo.toml</span>
 -->
 
-<span class="filename">Nom du fichier : Cargo.toml</span>
+<span class="filename">Fichier : Cargo.toml</span>
 
 ```toml
 [package]
@@ -108,7 +108,7 @@ programme *“Hello, world!”* pour vous. Ouvrez le fichier *src/main.rs* :
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 ```rust
 fn main() {
@@ -171,7 +171,7 @@ code de l'encart 2-1 dans le fichier *src/main.rs*.
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -868,7 +868,7 @@ l'entête de section `[dependencies]` que Cargo a créé pour vous :
 <span class="filename">Filename: Cargo.toml</span>
 -->
 
-<span class="filename">Nom du fichier : Cargo.toml</span>
+<span class="filename">Fichier : Cargo.toml</span>
 
 ```toml
 [dependencies]
@@ -1165,7 +1165,7 @@ l'encart 2-3.
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -1360,7 +1360,7 @@ que le code ne se compile pas encore, nous allons l'expliquer par la suite.
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore,does_not_compile
@@ -1576,7 +1576,7 @@ lignes suivantes dans le corps de la fonction `main` :
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -1817,7 +1817,7 @@ donner plus de chances aux utilisateurs pour deviner le nombre :
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -1972,7 +1972,7 @@ l'instruction `break` :
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -2040,7 +2040,7 @@ continuer à deviner. Nous pouvons faire ceci en modifiant la ligne où
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -2204,7 +2204,7 @@ C'était pratique pour les tests, mais cela gâche le jeu. Supprimons le
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
