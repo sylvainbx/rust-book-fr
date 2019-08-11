@@ -43,7 +43,7 @@ remplacez son code par le code suivant qui ne compile pas pour le moment :
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore,does_not_compile
@@ -176,7 +176,7 @@ Par exemple, modifions *src/main.rs* par :
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -389,7 +389,7 @@ en réutilisant le mot-clé `let` comme ci-dessous :
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
