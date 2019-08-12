@@ -362,7 +362,7 @@ doit être mise à jour à l'avenir.
 ### Shadowing
 -->
 
-### *Shadowing*
+### Le masquage
 
 <!--
 As you saw in the guessing game tutorial in the [“Comparing the Guess to the
@@ -378,12 +378,12 @@ of the `let` keyword as follows:
 Comme nous l'avons vu dans la section
 [“Comparer le nombre saisi avec le nombre secret”][comparing-the-guess-to-the-secret-number]<!-- ignore -->
 du jeu de devinettes au chapitre 2, nous pouvons déclarer de nouvelles variables
-avec le même nom qu'une variable précédente, et que la nouvelle variable sera un
-fantôme de la première. Les Rustacés disent que la première variable est *un
-fantôme* de la seconde, ce qui signifie que la valeur de la seconde variable
-sera ce que nous obtiendrons lorsque nous utiliserons cette variable. Nous
-pouvons créer un fantôme d'une variable en utilisant le même nom de variable et
-en réutilisant le mot-clé `let` comme ci-dessous :
+avec le même nom qu'une variable précédente, et que la nouvelle variable
+masquera la première. Les Rustacés disent que la première variable est *masquée*
+par la seconde, ce qui signifie que la valeur de la seconde variable sera ce que
+nous obtiendrons lorsque nous utiliserons cette variable. Nous pouvons créer un
+masque d'une variable en utilisant le même nom de variable et en réutilisant le
+mot-clé `let` comme ci-dessous :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -425,10 +425,10 @@ previous value by `2` to give `x` a final value of `12`. When we run this
 program, it will output the following:
 -->
 
-Au début, ce programme lie `x` à la valeur `5`. Puis il crée un fantôme de `x`
+Au début, ce programme lie `x` à la valeur `5`. Puis il crée un masque de `x`
 en répétant `let x =`, ce qui récupère la valeur originale et lui ajoute `1` :
 la valeur de `x` est désormais `6`. La troisième instruction `let` crée un autre
-fantôme de `x`, en récupérant la précédente valeur et en la multipliant par `2`
+masque de `x`, en récupérant la précédente valeur et en la multipliant par `2`
 pour donner à `x` la valeur finale de `12`. Lorsque nous exécutons ce programme,
 nous obtenons ceci :
 
@@ -458,7 +458,7 @@ on a value but have the variable be immutable after those transformations have
 been completed.
 -->
 
-La création de fantôme est différente que de marquer une variable comme `mut`,
+La création d'un masque est différent que de marquer une variable comme `mut`,
 car à moins d'utiliser une nouvelle fois le mot-clé `let`, nous obtiendrons une
 erreur de compilation si nous essayons de réassigner cette variable oar
 accident. Nous pouvons effectuer quelques transformations sur une valeur avec
@@ -474,7 +474,7 @@ inputting space characters, but we really want to store that input as a number:
 -->
 
 Comme nous créons une nouvelle variable lorsque nous utilisons le mot-clé `let`
-une nouvelle fois, l'autre différence entre le `mut` et la création de fantôme
+une nouvelle fois, l'autre différence entre le `mut` et la création d'un masque
 est que cela nous permet de changer le type de la valeur, mais en réutilisant
 le même nom. Par exemple, imaginons un programme qui affiche le nombre d'espaces
 que saisit l'utilisateur, mais que nous voulons vraiment enregistrer cela sous
@@ -504,7 +504,7 @@ try to use `mut` for this, as shown here, we’ll get a compile-time error:
 Cette solution est autorisée car la première variable `espaces` est du type
 chaîne de caractères *(string)*, alors que la seconde variable `espaces`, qui
 est une toute nouvelle variable qui se trouve avoir le même nom que la première,
-est du type nombre. L'utilisation de fantômes nous évite ainsi d'avoir à trouver
+est du type nombre. L'utilisation du masquage nous évite ainsi d'avoir à trouver
 des noms différents, comme `espaces_str` et `espaces_num` ; nous pouvons plutôt
 simplement utiliser le nom de `espaces`. Cependant, si nous essayons d'utiliser
 `mut` pour faire ceci, comme ci-dessous, nous avons une erreur de compilation :
