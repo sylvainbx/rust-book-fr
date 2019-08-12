@@ -110,6 +110,7 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | shell | terminal/invite de commande | - |
 | shorthand | abréviation | - |
 | sidebar | volet latéral | - |
+| slashes | barre oblique | - |
 | smart pointers | pointeurs intelligents | - |
 | snip | code inchangé masqué ici | inside Listings |
 | standard | une convention/une norme | - |
