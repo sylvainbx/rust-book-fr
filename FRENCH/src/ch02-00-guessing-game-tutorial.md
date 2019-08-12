@@ -1652,13 +1652,13 @@ shadowing in more detail.)
 
 Nous créons une variable qui s'appelle `deduction`. Mais attendez, le programme
 n'a-t-il pas déjà une variable qui s'appelle `deduction` ? C'est le cas, mais
-Rust nous permet de créer un *fantôme* de la valeur précédente de `deduction`
+Rust nous permet de créer un *masque* de la valeur précédente de `deduction`
 dans une nouvelle variable. Cette fonctionnalité est souvent utilisée lors de
 situations pour lesquelles on veut convertir une valeur d'un type en un autre.
-La création de fantôme nous permet de réutiliser le nom de variable `deduction`,
+La création de masque nous permet de réutiliser le nom de variable `deduction`,
 plutôt que de nous forcer à créer deux variables distinctes, telles que
 `deduction_str` et `deduction` par exemple. (Le chapitre 3 expliquera plus en
-détail la création de fantômes.)
+détail la création de masques.)
 
 <!--
 We bind `guess` to the expression `guess.trim().parse()`. The `guess` in the
