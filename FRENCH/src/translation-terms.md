@@ -9,7 +9,7 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | annotate | indiquer | - |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
 | arguments | arguments/paramètres | - |
-| arms | branches | explication de match |
+| arm | branche | explication de match et de if |
 | artifact | artéfact | - |
 | associated functions | fonctions associées | - |
 | binary crate | crate binaire | - |
@@ -28,6 +28,7 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | concurrency | concurrence | - |
 | concurrent | concurrent | - |
 | constant | constante | - |
+| construct | instruction | - |
 | control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
 | corruption | être corrompu | - |
@@ -58,10 +59,12 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | integer literal | entiers littéral | - |
 | integer overflow | dépassement d'entier | - |
 | Integrated Development Environment (IDE) | Integrated Development Environment (IDE) | - |
+| interrupt signal | signal d'arrêt | - |
 | IOT | internet des objets (IOT) | - |
 | immutable | immuable | - |
 | iterators | itérateurs | - |
 | legacy code | code instable que le programme a hérité avec le temps | - |
+| loop | boucle | - |
 | libraries | bibliothèques | - |
 | library crate | crate de bibliothèque | - |
 | lifetimes | durées de vie | - |
