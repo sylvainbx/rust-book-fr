@@ -1,5 +1,6 @@
 # Le langage de programmation Rust
 
+[Avant-propos](foreword.md)
 [Introduction](ch00-00-introduction.md)
 
 ## Prise en main
