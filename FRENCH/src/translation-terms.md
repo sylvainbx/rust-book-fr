@@ -49,6 +49,7 @@ français.
 | field | champ | d'une structure |
 | flag | drapeau | pour les programmes en ligne de commande |
 | function | fonction | - |
+| garbage collector | ramasse-miettes | - |
 | generics | génériques / généricité | - |
 | guessing game | jeu de devinettes | - |
 | handle | référence | - |
@@ -113,6 +114,7 @@ français.
 | sidebar | barre latérale | - |
 | signature | signature | d'une fonction |
 | signed | signé | - |
+| slice | slice | - |
 | smart pointer | pointeur intelligent | - |
 | snip | code inchangé masqué ici | dans un encart |
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
