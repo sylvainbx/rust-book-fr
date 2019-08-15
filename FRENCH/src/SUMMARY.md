@@ -1,5 +1,6 @@
 # Le langage de programmation Rust
 
+[Le langage de programmation Rust](title-page.md)
 [Avant-propos](foreword.md)
 [Introduction](ch00-00-introduction.md)
 
