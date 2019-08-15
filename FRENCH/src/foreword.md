@@ -26,7 +26,7 @@ even those who practice it do so with caution, lest their code be open to
 exploits, crashes, or corruption.
 -->
 
-Prenez par exemple les éléments de “niveau système” qui traitent de
+Prenez par exemple la gestion des éléments au “niveau système” qui traite de
 détails bas niveau de gestion de mémoire, de modèles de données, et de
 concurrence. Traditionnellement, ce domaine de la programmation est jugé
 ésotérique, compréhensible uniquement par une poignée de personnes qui ont
@@ -46,7 +46,7 @@ and memory usage.
 -->
 
 Rust fait tomber ces obstacles en éliminant les vieux pièges et en apportant un
-ensemble d'outils fignolés et conviviaux pour vous aider sur votre chemin.
+ensemble d'outils soignés et conviviaux pour vous aider sur votre chemin.
 Les développeurs qui ont besoin de "se plonger" dans le contrôle de plus
 bas niveau peuvent ainsi le faire avec Rust, sans prendre le risque habituel
 de plantages ou de failles de sécurité, et sans avoir à apprendre les subtilités
