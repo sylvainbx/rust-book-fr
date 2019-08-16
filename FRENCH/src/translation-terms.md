@@ -27,8 +27,8 @@ français.
 | concept chapter | chapitre théorique | - |
 | concurrency | concurrence | - |
 | concurrent | concurrent | - |
-| control flow construct | structure de contrôle | - |
 | constant | constant / constante | - |
+| control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
 | corruption | corruption / être corrompu | - |
 | crash | plantage | - |
@@ -57,11 +57,11 @@ français.
 | Hello, world! | Hello, world! | - |
 | high-level | haut niveau | - |
 | identifier | identificateur | - |
+| immutable | immuable | - |
 | instance | instance | - |
 | instantiate | instancier | créer une instance |
 | Integrated Development Environment (IDE) | environnement de développement intégré (IDE) | - |
 | IOT | internet des objets (IOT) | - |
-| immutable | immuable | - |
 | iterator | itérateur | - |
 | just-in-time compilation | compilation à la volée | sigle : JIT |
 | keyword | mot-clé | - |
@@ -103,9 +103,9 @@ français.
 | reproducible build | compilation reproductible | - |
 | run | exécuter | pour les programmes |
 | Rustacean | Rustacé | - |
+| script | script | - |
 | section header | entête de section | - |
 | semantic version | version sémantique | - |
-| script | script | - |
 | shadow | masquer | remplacer une variable par une autre de même nom |
 | shadowing | masquage | - |
 | shell | terminal / invite de commande | - |
