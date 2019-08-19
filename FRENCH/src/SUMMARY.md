@@ -10,3 +10,5 @@
     - [Installation](ch01-01-installation.md)
     - [Hello, world!](ch01-02-hello-world.md)
     - [Hello, Cargo!](ch01-03-hello-cargo.md)
+
+- [Qu'est-ce que la possession ?](ch04-01-what-is-ownership.md)

@@ -6,13 +6,17 @@ français.
 | Anglais | Français | Remarques |
 | ------- | ------ | ------ |
 | ahead-of-time compilation | compilation anticipée | sigle : AOT |
+| allocation | affectation | - |
+| annotate | annoter | - |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
+| assign | assigner | - |
 | argument | argument / paramètre | - |
 | arm | branche | dans une expression `match` |
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
 | binary crate | crate binaire | s'utilise au féminin |
 | *n*-bit number | nombre encodé sur *n* bits | - |
+| blob | blob | - |
 | boolean | booléen | - |
 | borrow | emprunt(er) | - |
 | bug | bogue | - |
@@ -37,16 +41,19 @@ français.
 | data representation | modèle de données | - |
 | debug | déboguer | - |
 | debugging | débogage | - |
+| deep copy | copie en profondeur | - |
 | dependency | dépendance | - |
 | destructure | déstructurer | - |
 | DevOps | DevOps | - |
 | dot notation | la notation avec un point | - |
+| double free | double libération | - |
 | enum | énumération | - |
 | enumeration | énumération | - |
 | enum’s variant | variante d'énumération | - |
 | exploit | faille | - |
 | expression | expression | - |
 | field | champ | d'une structure |
+| Figure | Illustration | - |
 | flag | drapeau | pour les programmes en ligne de commande |
 | function | fonction | - |
 | generics | génériques / généricité | - |
@@ -54,12 +61,14 @@ français.
 | handle | référence | - |
 | hash | hash / relatif au hachage | - |
 | hash map | table de hachage | - |
+| heap | (le) tas | - |
 | Hello, world! | Hello, world! | - |
 | high-level | haut niveau | - |
 | identifier | identificateur | - |
 | instance | instance | - |
 | instantiate | instancier | créer une instance |
 | Integrated Development Environment (IDE) | environnement de développement intégré (IDE) | - |
+| invalidate | neutraliser | - |
 | IOT | internet des objets (IOT) | - |
 | immutable | immuable | - |
 | iterator | itérateur | - |
@@ -78,11 +87,15 @@ français.
 | memory management | gestion de mémoire | - |
 | method | méthode | - |
 | module | module | - |
+| move | déplacement | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
+| namespace | espace de nom | - |
+| namespacing | l'espace de nom | - |
 | Note | Remarque | - |
 | numerical characters | chiffres | - |
 | operating system | système d'exploitation | - |
+| owner | propriétaire | - |
 | ownership | possession | - |
 | package manager | système de gestion de paquets | - |
 | panic | panique(r) | - |
@@ -91,9 +104,12 @@ français.
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |
 | placeholder | espace réservé | `{}` pour `fmt` |
+| pointer | pointeur | - |
+| popping off the stack | retirer de la pile | - |
 | prelude | étape préliminaire | - |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
+| pushing onto the stack | déposer sur la pile | - |
 | raw identifier | identificateur brut | - |
 | README | README | - |
 | refactoring | remaniement | - |
@@ -101,13 +117,16 @@ français.
 | registry | registre | - |
 | regression | régression | - |
 | reproducible build | compilation reproductible | - |
+| Resource Acquisition Is Initialization (RAII) | l'acquisition d'une ressource est une initialisation (RAII) | - |
 | run | exécuter | pour les programmes |
 | Rustacean | Rustacé | - |
 | section header | entête de section | - |
 | semantic version | version sémantique | - |
+| scope | portée | - |
 | script | script | - |
 | shadow | masquer | remplacer une variable par une autre de même nom |
 | shadowing | masquage | - |
+| shallow copy | copie superficielle | - |
 | shell | terminal / invite de commande | - |
 | shorthand | abréviation | - |
 | sidebar | barre latérale | - |
@@ -116,6 +135,7 @@ français.
 | smart pointer | pointeur intelligent | - |
 | snip | code inchangé masqué ici | dans un encart |
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
+| stack | (la) pile | - |
 | standard | standard *(adj. inv.)* / norme *(n.f.)* | - |
 | standard error | erreur standard | - |
 | standard input | entrée standard | - |
@@ -123,6 +143,7 @@ français.
 | standard output | sortie standard | - |
 | statement | instruction | - |
 | string | chaîne de caractères | - |
+| string literal | chaîne de caractères pure | - |
 | struct | structure | - |
 | submodule | sous-module | - |
 | systems concept | notion système | - |
