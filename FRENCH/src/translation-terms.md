@@ -6,9 +6,11 @@ français.
 | Anglais | Français | Remarques |
 | ------- | ------ | ------ |
 | ahead-of-time compilation | compilation anticipée | sigle : AOT |
+| Appendix | annexe | tout en minuscule (sauf en début de phrase) |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
 | argument | argument / paramètre | - |
 | arm | branche | dans une expression `match` |
+| array | tableau | - |
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
 | binary crate | crate binaire | s'utilise au féminin |
@@ -20,6 +22,7 @@ français.
 | byte | octet | - |
 | Cargo | Cargo | - |
 | catchall value | valeur passe-partout | - |
+| Chapter | chapitre | tout en minuscule (sauf en début de phrase) |
 | closure | fermeture | - |
 | code review | revue de code | - |
 | command | commande | dans un terminal |
@@ -48,18 +51,23 @@ français.
 | expression | expression | - |
 | field | champ | d'une structure |
 | flag | drapeau | pour les programmes en ligne de commande |
+| floating-point number | nombre à virgule flottante | - |
 | function | fonction | - |
 | generics | génériques / généricité | - |
 | guessing game | jeu de devinettes | - |
-| handle | référence | - |
+| handle | référence abstraite | - |
 | hash | hash / relatif au hachage | - |
 | hash map | table de hachage | - |
+| heap | tas | - |
 | Hello, world! | Hello, world! | - |
 | high-level | haut niveau | - |
 | identifier | identificateur | - |
+| immutability | immuabilité | - |
 | immutable | immuable | - |
+| input/output | entrée/sortie | sigle : IO |
 | instance | instance | - |
 | instantiate | instancier | créer une instance |
+| integer overflow | dépassement d'entier | - |
 | Integrated Development Environment (IDE) | environnement de développement intégré (IDE) | - |
 | IOT | internet des objets (IOT) | - |
 | iterator | itérateur | - |
@@ -70,7 +78,7 @@ français.
 | library crate | crate de bibliothèque | s'utilise au féminin |
 | lifetime | durée de vie | - |
 | linker | linker | - |
-| Listing | encart | - |
+| Listing | encart | tout en minuscule (sauf en début de phrase) |
 | low-level | bas niveau | - |
 | machine learning | apprentissage automatique | - |
 | macro | macro | - |
@@ -80,7 +88,7 @@ français.
 | module | module | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
-| Note | Remarque | - |
+| Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
 | operating system | système d'exploitation | - |
 | ownership | possession | - |
@@ -100,12 +108,15 @@ français.
 | reference | référence | - |
 | registry | registre | - |
 | regression | régression | - |
+| remainder | modulo | opération `%` |
 | reproducible build | compilation reproductible | - |
+| return | retourner | - |
 | run | exécuter | pour les programmes |
 | Rustacean | Rustacé | - |
 | script | script | - |
-| section header | entête de section | - |
+| section header | en-tête de section | - |
 | semantic version | version sémantique | - |
+| semantic versioning | versionnage sémantique | abréviation : SemVer |
 | shadow | masquer | remplacer une variable par une autre de même nom |
 | shadowing | masquage | - |
 | shell | terminal / invite de commande | - |
@@ -116,6 +127,7 @@ français.
 | smart pointer | pointeur intelligent | - |
 | snip | code inchangé masqué ici | dans un encart |
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
+| stack | pile | - |
 | standard | standard *(adj. inv.)* / norme *(n.f.)* | - |
 | standard error | erreur standard | - |
 | standard input | entrée standard | - |
@@ -123,6 +135,7 @@ français.
 | standard output | sortie standard | - |
 | statement | instruction | - |
 | string | chaîne de caractères | - |
+| `String` | `String` | nom féminin (une `String`) |
 | struct | structure | - |
 | submodule | sous-module | - |
 | systems concept | notion système | - |
@@ -146,4 +159,5 @@ français.
 | variant | variante | d'une énumération |
 | vector | vecteur | - |
 | version control system (VCS) | système de gestion de versions (VCS) | - |
+| warning | avertissement | - |
 | zero-cost abstraction | abstraction sans coût | - |
