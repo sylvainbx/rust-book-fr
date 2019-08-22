@@ -556,7 +556,7 @@ written this code as:
 
 Lorsque l'on appelle une méthode avec la syntaxe `.foo()`, il est généralement
 préférable d'ajouter un retour à la ligne puis d'indenter à l'aide d'espaces
-pour couper les longues lignes de code.
+pour décomposer les longues lignes de code.
 Nous aurions pu écrire ce code de cette manière :
 
 <!--
@@ -651,7 +651,7 @@ sera probablement dû à une erreur du système d'exploitation. Si en revanche
 `read_line` a pour valeur la variante `Ok`, `expect` récupèrera le
 contenu du `Ok`, qui est le résultat de l'opération, et vous le retournera afin
 que vous puissiez l'utiliser. Dans notre exemple, ce résultat est le nombre
-d'octets que l'utilisateur a saisis dans l'entrée standard.
+d'octets que l'utilisateur a saisi dans l'entrée standard.
 
 <!-- [expect]: ../std/result/enum.Result.html#method.expect -->
 [expect]: https://doc.rust-lang.org/std/result/enum.Result.html#method.expect
@@ -1041,7 +1041,7 @@ your code?
 Cargo embarque une fonctionnalité qui garantie que vous pouvez recompiler le
 même artéfact à chaque fois que vous ou quelqu'un d'autre compile votre code :
 Cargo va utiliser uniquement les versions de dépendances que vous avez
-spécifiées jusqu'à ce que vous indiquiez le contraire.
+utilisées jusqu'à ce que vous indiquiez le contraire.
 Par exemple, que se passe-t-il si la semaine prochaine, la version 0.3.15 de la
 *crate* `rand` est publiée et qu'elle apporte une correction importante, mais
 aussi qu'elle produit une régression qui va casser votre code ?
@@ -1283,7 +1283,7 @@ nombre entre 1 et 100.
 > d'une *crate* se trouvent dans la documentation propre à chaque *crate*. Une
 > autre fonctionnalité intéressante de Cargo est que vous pouvez utiliser la
 > commande `cargo doc --open`, qui va construire localement la documentation
-> fournie par toutes vos dépendances et va l'ouvrir dans votre navigateur.
+> intégrée par toutes vos dépendances et va l'ouvrir dans votre navigateur.
 > Si vous vous intéressez à d'autres fonctionnalités de la *crate* `rand`,
 > par exemple, vous pouvez lancer `cargo doc --open` et cliquer sur `rand`
 > dans la barre latérale sur la gauche.
@@ -1509,7 +1509,7 @@ elle ignore donc le code de cette branche et passe à la suivante.
 Le motif de la branche suivante, `Ordering::Greater`, correspond à
 `Ordering::Greater` ! Le code associé à cette branche va être exécuté et va
 afficher à l'écran `C'est moins !`. L'expression `match` se termine ensuite, car
-elle n'a pas besoin de consulter les autres branches dans ce scénario.
+elle n'a pas besoin de consulter les autres branches de ce scénario.
 
 <!--
 However, the code in Listing 2-4 won’t compile yet. Let’s try it:
