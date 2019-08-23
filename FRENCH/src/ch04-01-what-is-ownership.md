@@ -1247,12 +1247,12 @@ fn calculate_length(s: String) -> (String, usize) {
 fn main() {
     let s1 = String::from("hello");
 
-    let (s2, len) = calculer_taille(s1);
+    let (s2, len) = calculer_longueur(s1);
 
     println!("La taille de '{}' est {}.", s2, len);
 }
 
-fn calculer_taille(s: String) -> (String, usize) {
+fn calculer_longueur(s: String) -> (String, usize) {
     let length = s.len(); // len() renvoie le nombre de caractères d'un String.
 
     (s, length)
