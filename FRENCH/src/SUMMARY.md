@@ -13,3 +13,5 @@
     - [Hello, Cargo!](ch01-03-hello-cargo.md)
 
 - [Programmer un jeu de devinettes](ch02-00-guessing-game-tutorial.md)
+
+- [Utiliser les structures pour structurer des données associées](ch05-00-structs.md)

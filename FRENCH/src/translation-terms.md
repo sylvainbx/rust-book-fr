@@ -13,6 +13,7 @@ français.
 | array | tableau | - |
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
+| attributes | attributs | - |
 | binary crate | crate binaire | s'utilise au féminin |
 | *n*-bit number | nombre encodé sur *n* bits | - |
 | boolean | booléen | - |
@@ -90,6 +91,7 @@ français.
 | mutable | mutable | modifiable |
 | Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
+| object-oriented language | langage orienté objet | - |
 | operating system | système d'exploitation | - |
 | ownership | possession | - |
 | package manager | système de gestion de paquets | - |
