@@ -15,7 +15,7 @@ time type checking.
 -->
 
 Une *struct*, ou *structure*, est un type de données personnalisé qui vous
-permet de nommer et de rassembler plusieures valeurs associées qui forment
+permet de nommer et de rassembler plusieurs valeurs associées qui forment
 un groupe cohérent.
 Si vous êtes familier avec un langage orienté objet, une structure ressemble à
 l'ensemble des attributs d'un objet.
