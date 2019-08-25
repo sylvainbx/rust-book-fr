@@ -34,10 +34,14 @@ français.
 | crash | plantage | - |
 | crate | crate | nom féminin (une *crate*) |
 | curly bracket | accolade | - |
+| dangling (reference) | (référence) sautillante | - |
+| data race | accès concurrent | - |
 | data representation | modèle de données | - |
+| deallocate | désalloué | - |
 | debug | déboguer | - |
 | debugging | débogage | - |
 | dependency | dépendance | - |
+| dereferencing | déréférencement | - |
 | destructure | déstructurer | - |
 | DevOps | DevOps | - |
 | dot notation | la notation avec un point | - |
@@ -87,6 +91,7 @@ français.
 | package manager | système de gestion de paquets | - |
 | panic | panique(r) | - |
 | parallelism | parallélisme | - |
+| parameter | paramètre | - |
 | PATH | PATH | - |
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |
@@ -94,6 +99,7 @@ français.
 | prelude | étape préliminaire | - |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
+| race condition | situation de concurrence | - |
 | raw identifier | identificateur brut | - |
 | README | README | - |
 | refactoring | remaniement | - |
@@ -113,6 +119,7 @@ français.
 | sidebar | barre latérale | - |
 | signature | signature | d'une fonction |
 | signed | signé | - |
+| slice | découpage | - |
 | smart pointer | pointeur intelligent | - |
 | snip | code inchangé masqué ici | dans un encart |
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
@@ -123,6 +130,7 @@ français.
 | standard output | sortie standard | - |
 | statement | instruction | - |
 | string | chaîne de caractères | - |
+| String | String | le type de chaines de caractères de Rust, qui est féminin |
 | struct | structure | - |
 | submodule | sous-module | - |
 | systems concept | notion système | - |
