@@ -124,6 +124,8 @@ français.
 | sidebar | barre latérale | - |
 | signature | signature | d'une fonction |
 | signed | signé | - |
+| `Slice` | `Slice` | - |
+| slice | découpage | - |
 | smart pointer | pointeur intelligent | - |
 | snip | code inchangé masqué ici | dans un encart |
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
