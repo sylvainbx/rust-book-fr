@@ -64,6 +64,7 @@ français.
 | identifier | identificateur | - |
 | immutability | immuabilité | - |
 | immutable | immuable | - |
+| index | indice | - |
 | input/output | entrée/sortie | sigle : IO |
 | instance | instance | - |
 | instantiate | instancier | créer une instance |
@@ -137,6 +138,7 @@ français.
 | standard output | sortie standard | - |
 | statement | instruction | - |
 | string | chaîne de caractères | - |
+| string literal | chaîne de caractères pure | - |
 | `String` | `String` | nom féminin (une `String`) |
 | struct | structure | - |
 | submodule | sous-module | - |

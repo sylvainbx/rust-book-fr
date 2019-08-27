@@ -14,4 +14,4 @@
 
 - [Programmer un jeu de devinettes](ch02-00-guessing-game-tutorial.md)
 
-- [Le type Slice](ch04-03-slices.md)
+- [Le type de découpage](ch04-03-slices.md)
