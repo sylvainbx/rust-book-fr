@@ -13,3 +13,5 @@
     - [Hello, Cargo!](ch01-03-hello-cargo.md)
 
 - [Programmer un jeu de devinettes](ch02-00-guessing-game-tutorial.md)
+
+- [Les énumérations et le filtrage par motif](ch06-00-enums.md)
