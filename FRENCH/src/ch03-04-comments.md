@@ -21,7 +21,7 @@ pour les personnes qui lisent le code source.
 Here’s a simple comment:
 -->
 
-Voici un simple commentaire :
+Voici un simple commentaire :
 
 ```rust
 // hello, world
@@ -35,7 +35,7 @@ line. For comments that extend beyond a single line, you’ll need to include
 
 Avec Rust, les commentaires commencent avec deux barres obliques et continue
 jusqu'à la fin de la ligne. Pour des commentaires qui ont plus d'une seule
-ligne, vous aurez besoin d'ajouter `//` sur chaque ligne, comme ceci :
+ligne, vous aurez besoin d'ajouter `//` sur chaque ligne, comme ceci :
 
 <!--
 ```rust
@@ -56,13 +56,13 @@ Comments can also be placed at the end of lines containing code:
 -->
 
 Les commentaires peuvent aussi être aussi ajoutés à la fin de la ligne qui
-contient du code :
+contient du code :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -84,13 +84,13 @@ separate line above the code it’s annotating:
 -->
 
 Mais parfois vous pourrez les voir utilisés de cette manière, avec le
-commentaire sur une ligne séparée au-dessus du code qu'il annote :
+commentaire sur une ligne séparée au-dessus du code qu'il annote :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
