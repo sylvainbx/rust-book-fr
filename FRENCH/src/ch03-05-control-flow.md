@@ -31,7 +31,7 @@ of code. If the condition is not met, do not run this block of code.”
 -->
 
 Une expression `if` vous permet de diviser votre code en fonction de conditions.
-Vous précisez une condition et vous choisissez ensuite : "si cette condition est
+Vous précisez une condition et vous choisissez ensuite : "si cette condition est
 remplie, alors exécuter ce bloc de code. Si votre condition n'est pas remplie,
 ne pas exécuter ce bloc de code."
 
@@ -41,13 +41,13 @@ the `if` expression. In the *src/main.rs* file, input the following:
 -->
 
 Créez un nouveau projet appelé *branches* dans votre dossier *projects* pour
-découvrir les expressions `if`. Dans le fichier *src/main.rs*, écrivez ceci :
+découvrir les expressions `if`. Dans le fichier *src/main.rs*, écrivez ceci :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -116,7 +116,7 @@ prochain morceau de code.
 Try running this code; you should see the following output:
 -->
 
-Essayez d'exécuter ce code, vous verrez ceci :
+Essayez d'exécuter ce code, vous verrez ceci :
 
 <!--
 ```text
@@ -142,7 +142,7 @@ Let’s try changing the value of `number` to a value that makes the condition
 -->
 
 Essayons de changer la valeur de `nombre` pour une valeur qui rend la condition
-non vérifiée pour voir ce qui se passe :
+non vérifiée pour voir ce qui se passe :
 
 <!--
 ```rust,ignore
@@ -158,7 +158,7 @@ let nombre = 7;
 Run the program again, and look at the output:
 -->
 
-Exécutez à nouveau le programme, et regardez le résultat :
+Exécutez à nouveau le programme, et regardez le résultat :
 
 <!--
 ```text
@@ -186,13 +186,13 @@ following code:
 
 Il est aussi intéressant de noter que la condition dans ce code *doit* être un
 `bool`. Si la condition n'est pas un `bool`, nous aurons une erreur. Par
-exemple, essayez d'exécuter le code suivant :
+exemple, essayez d'exécuter le code suivant :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore,does_not_compile
@@ -221,7 +221,7 @@ The `if` condition evaluates to a value of `3` this time, and Rust throws an
 error:
 -->
 
-La condition `if` vaut `3` cette fois, et Rust lève une erreur :
+La condition `if` vaut `3` cette fois, et Rust lève une erreur :
 
 <!--
 ```text
@@ -262,7 +262,7 @@ ne va pas essayer de convertir automatiquement les types non booléens en
 booléen. Vous devez être précis et toujours fournir un booléen à la condition
 d'un `if`. Si nous voulons que le bloc de code du `if` soit exécuté quand le
 nombre est différent de `0`, par exemple, nous pouvons changer l'expression `if`
-par la suivante :
+par la suivante :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -310,13 +310,13 @@ expression. For example:
 -->
 
 Vous pouvez utiliser plusieurs conditions en combinant `if` et `else` dans une
-expression `else if`. Par exemple :
+expression `else if`. Par exemple :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -358,7 +358,7 @@ see the following output:
 -->
 
 Ce programme peut choisir entre quatre chemins différents. Après l'avoir
-exécuté, vous devriez voir le résultat suivant :
+exécuté, vous devriez voir le résultat suivant :
 
 <!--
 ```text
@@ -422,7 +422,7 @@ déclaration `let`, comme dans l'encart 3-2.
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -457,7 +457,7 @@ fn main() {
 to a variable</span>
 -->
 
-<span class="caption">Encart 3-2 : assigner le résultat d'une expression `if` à
+<span class="caption">Encart 3-2 : assigner le résultat d'une expression `if` à
 une variable</span>
 
 <!--
@@ -466,7 +466,7 @@ expression. Run this code to see what happens:
 -->
 
 La variable `nombre` va avoir la valeur du résultat de l'expression `if`.
-Exécutez ce code pour découvrir ce qui va se passer :
+Exécutez ce code pour découvrir ce qui va se passer :
 
 <!--
 ```text
@@ -503,13 +503,13 @@ elle va exécuter. Cela veut dire que chaque valeur qui peut être le résultat 
 chaque branche du `if` doivent être du même type; dans l'encart 3-2, les
 résultats de la branche de `if` et de `else` sont chacun des entier `i32`. Si
 les types ne sont pas accordés, comme dans l'exemple suivant, nous allons
-obtenir une erreur :
+obtenir une erreur :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore,does_not_compile
@@ -549,7 +549,7 @@ find the problem in the program:
 
 Lorsque nous essayons de compiler ce code, nous obtenons une erreur. Les
 branches `if` et `else` ont des types de valeurs qui ne sont pas compatibles, et
-Rust indique exactement où trouver le problème dans le programme :
+Rust indique exactement où trouver le problème dans le programme :
 
 <!--
 ```text
@@ -628,7 +628,7 @@ début. Pour tester les boucles, créons un nouveau projet appelé *loops*.
 Rust has three kinds of loops: `loop`, `while`, and `for`. Let’s try each one.
 -->
 
-Rust a trois types de boucles : `loop`, `while`, et `for`. Essayons chacune
+Rust a trois types de boucles : `loop`, `while`, et `for`. Essayons chacune
 d'elles.
 
 <!--
@@ -658,7 +658,7 @@ ceci :
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -767,7 +767,7 @@ aurez peut-être besoin de passer le résultat de l'opération au reste de votre
 code. Pour faire ainsi, vous pouvez ajouter la valeur que vous voulez retourner
 après l'expression `break` que vous utilisez pour stopper la boucle; cette
 valeur sera retournée de la boucle pour que vous puissiez l'utiliser, comme
-ci-dessous :
+ci-dessous :
 
 <!--
 ```rust
@@ -851,14 +851,14 @@ another message and exits.
 
 Cependant, cette utilisation est si fréquente que Rust a une instruction pour
 cela, intégrée dans le langage, qui s'appelle une boucle `while`. L'encart 3-3
-utilise `while` : le programme va boucler trois fois, en décrémentant à chaque
+utilise `while` : le programme va boucler trois fois, en décrémentant à chaque
 fois, et ensuite, après la boucle, il va afficher un message et se fermer.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -927,7 +927,7 @@ Vous pouvez utiliser l'instruction `while` pour itérer créer une boucle sur le
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -962,7 +962,7 @@ fn main() {
 using a `while` loop</span>
 -->
 
-<span class="caption">Encart 3-4 : boucle pour chaque élément d'une collection en
+<span class="caption">Encart 3-4 : boucle pour chaque élément d'une collection en
 utilisant une boucle `while`</span>
 
 <!--
@@ -975,7 +975,7 @@ in the array:
 Ici, le code va compter à partir du nombre d'éléments dans le tableau. Il
 commence à l'indice `0`, et ensuite boucle jusqu'à ce qu'il atteigne l'indice
 final du tableau (ce qui correspond au moment où la condition `index < 5` n'est
-plus vraie). Exécuter ce code va afficher chaque élément du tableau :
+plus vraie). Exécuter ce code va afficher chaque élément du tableau :
 
 <!--
 ```text
@@ -1038,7 +1038,7 @@ s'utilise comme dans le code de l'encart 3-5.
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -1067,7 +1067,7 @@ fn main() {
 using a `for` loop</span>
 -->
 
-<span class="caption">Encart 3-5 : itérer pour chaque élément d'une collection
+<span class="caption">Encart 3-5 : itérer pour chaque élément d'une collection
 en utilisant une boucle `for`</span>
 
 <!--
@@ -1120,13 +1120,13 @@ we’ve not yet talked about, `rev`, to reverse the range:
 -->
 
 Voici ce que le décompte aurait donné en utilisant une boucle `for` et une autre
-méthode que nous n'avons pas encore vu, `rev`, qui inverse le sens des données :
+méthode que nous n'avons pas encore vu, `rev`, qui inverse le sens des données :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -1167,11 +1167,11 @@ you want to practice with the concepts discussed in this chapter, try building
 programs to do the following:
 -->
 
-Vous y êtes arrivé ! C'était un chapitre important : vous avez appris les
+Vous y êtes arrivé ! C'était un chapitre important : vous avez appris les
 variables, les types scalaires et composés, les fonctions, les commentaires, les
 expressions `if`, et les boucles ! Si vous voulez pratiquer un peu les concepts
 abordés dans ce chapitre, voici quelques programmes que vous pouvez essayer de
-créer :
+créer :
 
 <!--
 * Convert temperatures between Fahrenheit and Celsius.
