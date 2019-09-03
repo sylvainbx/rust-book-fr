@@ -25,13 +25,13 @@ Here’s a program that contains an example function definition:
 Le code Rust utilise le *snake case* comme convention de style de nom des
 fonctions et des variables. Avec le *snake case*, toutes les lettres sont en
 minuscule et on utilise des tirets bas pour séparer les mots. Voici un programme
-qui est un exemple de définition de fonction :
+qui est un exemple de définition de fonction :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -94,7 +94,7 @@ should see the following output:
 
 Créons un nouveau projet de binaire qui s'appelera *functions* afin d'en
 apprendre plus sur les fonctions. Ajoutez l'exemple `une_autre_fonction` dans le
-*src/main.rs* et exécutez-le. Vous devriez avoir ceci :
+*src/main.rs* et exécutez-le. Vous devriez avoir ceci :
 
 <!--
 ```text
@@ -157,13 +157,13 @@ look like in Rust:
 -->
 
 La version réécrite de `une_autre_fonction` montre comment utiliser un paramètre
-avec Rust :
+avec Rust :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -231,7 +231,7 @@ the code to figure out what you mean.
 -->
 
 Dans la signature d'une fonction, vous *devez* déclarer le type de chaque
-paramètre. C'est un choix délibéré de conception de Rust : demander l'annotation
+paramètre. C'est un choix délibéré de conception de Rust : demander l'annotation
 de type dans la définition d'une fonction fait en sorte que le compilateur n'a
 presque plus besoin que vous les utilisiez autre part pour qu'il comprenne ce
 que vous voulez faire.
@@ -242,13 +242,13 @@ declarations with commas, like this:
 -->
 
 Lorsque vous souhaitez qu'une fonction ait plusieurs paramètres, séparez les
-paramètres avec des virgules, comme ceci :
+paramètres avec des virgules, comme ceci :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -294,7 +294,7 @@ run`:
 
 Essayons d'exécuter ce code. Remplacez le programme présent actuellement dans
 votre fichier *src/main.rs* de votre projet *functions* par l'exemple précédent
-et lancez-le en utilisant `cargo run` :
+et lancez-le en utilisant `cargo run` :
 
 <!--
 ```text
@@ -371,7 +371,7 @@ déclaration. Dans l'encart 3-1, `let y = 6;` est une déclaration.
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 ```rust
 fn main() {
@@ -383,7 +383,7 @@ fn main() {
 <span class="caption">Listing 3-1: A `main` function declaration containing one statement</span>
 -->
 
-<span class="caption">Encart 3-1 : une fonction `main` qui contient une
+<span class="caption">Encart 3-1 : une fonction `main` qui contient une
 déclaration</span>
 
 <!--
@@ -401,13 +401,13 @@ to another variable, as the following code tries to do; you’ll get an error:
 
 Une déclaration ne retourne pas de valeur. Ainsi, vous ne pouvez pas assigner
 le résultat d'une déclaration `let` à une autre variable, comme le code suivant
-essaye de le faire; car vous allez tomber sur une erreur :
+essaye de le faire; car vous allez tomber sur une erreur :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 ```rust,ignore,does_not_compile
 fn main() {
@@ -461,17 +461,17 @@ new scopes, `{}`, is an expression, for example:
 Les expressions sont évaluées et composent la plupart de ce que vous allez
 écrire en Rust. Prenez une simple opération mathématique, comme `5 + 6`, qui est
 une expression qui s'évalue à la valeur `11`. Les expressions peuvent faire
-partie d'une déclaration : dans l'encart 3-1, le `6` dans la déclaration
+partie d'une déclaration : dans l'encart 3-1, le `6` dans la déclaration
 `let y = 6;` est une expression qui s'évalue à la valeur `6`. Appeler une
 fonction est aussi une expression. Appeler une macro est une expression. Le
 bloc que nous utilisons pour créer une nouvelle portée, `{}`, est une
-expression, par exemple :
+expression, par exemple :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -555,13 +555,13 @@ est liée à la valeur de l'expression finale dans le corps de la fonction. Vous
 pouvez sortir prématurément d'une fonction en utilisant le mot-clé `return` et
 en précisant une valeur, mais la plupart des fonctions vont retourner
 implicitement la dernière expression. Voici un exemple d'une fonction qui
-retourne une valeur :
+retourne une valeur :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -600,7 +600,7 @@ Il n'y a pas d'appel de fonction, de macro, même de déclaration `let` dans la
 fonction `cinq` — uniquement le nombre `5` tout seul. C'est une fonction
 parfaitement valide avec Rust. Remarquez que le type de retour de la fonction a
 été précisé aussi, avec `-> i32`. Essayez d'exécuter ce code; le résultat
-devrait ressembler à ceci :
+devrait ressembler à ceci :
 
 <!--
 ```text
@@ -630,9 +630,9 @@ that line is the same as the following:
 
 Le `5` dans `cinq` est la valeur de retour de la fonction, ce qui explique le
 type de retour de `i32`. Regardons cela plus en détail. Il y a deux éléments
-importants : premièrement, la ligne `let x = cinq();` dit que nous utilisons
+importants : premièrement, la ligne `let x = cinq();` dit que nous utilisons
 la valeur de retour de la fonction pour initialiser la variable. Comme la
-fonction `cinq` retourne un `5`, cette ligne revient à faire ceci :
+fonction `cinq` retourne un `5`, cette ligne revient à faire ceci :
 
 ```rust
 let x = 5;
@@ -658,7 +658,7 @@ Regardons un autre exemple :
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -700,7 +700,7 @@ d'une expression à une déclaration, nous obtenons une erreur.
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore,does_not_compile
@@ -732,7 +732,7 @@ fn plus_un(x: i32) -> i32 {
 Compiling this code produces an error, as follows:
 -->
 
-Compiler ce code va produire une erreur, comme ci-dessous :
+Compiler ce code va produire une erreur, comme ci-dessous :
 
 <!--
 ```text
@@ -781,6 +781,6 @@ coeur du problème de ce code. La définition de la fonction `plus_un` dit qu'el
 va retourner un `i32`, mais les déclarations ne retournent pas de valeur, ceci
 est donc représenté par `()`, un *tuple* vide. Par conséquent, rien n'est
 retourné, ce qui contredit la définition de la fonction et provoque une erreur.
-Rust affiche un message qui peut aider à corriger ce problème : il suggère
+Rust affiche un message qui peut aider à corriger ce problème : il suggère
 d'enlever le point-virgule, ce qui va résoudre notre problème.
     
