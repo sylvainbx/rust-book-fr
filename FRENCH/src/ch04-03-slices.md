@@ -21,7 +21,7 @@ space in the string, the whole string must be one word, so the entire string
 should be returned.
 -->
 
-Voici un petit problème de programmation : écrire une fonction qui prend une
+Voici un petit problème de programmation : écrire une fonction qui prend une
 chaîne de caractères et retourne le premier mot qu'elle trouve dans cette
 chaîne. Si la fonction ne trouve pas d'espace dans la chaîne, cela veut dire
 que toute la chaîne est un seul mot, donc la chaîne en entier doit être
@@ -31,7 +31,7 @@ retournée.
 Let’s think about the signature of this function:
 -->
 
-Imaginons la signature de cette fonction :
+Imaginons la signature de cette fonction :
 
 <!--
 ```rust,ignore
@@ -52,15 +52,15 @@ end of the word. Let’s try that, as shown in Listing 4-7.
 
 Cette fonction, `premier_mot`, prend un `&String` comme paramètre. Nous ne
 voulons pas en prendre possession, donc c'est ce qu'il nous faut. Mais que
-devons-nous retourner ? Nous n'avons pas de moyens de désigner une *partie*
+devons-nous retourner ? Nous n'avons pas de moyens de désigner une *partie*
 d'une chaîne de caractères. Cependant, nous pouvons retourner l'indice de la
-fin du mot. Essayons cela, dans l'encart 4-7 :
+fin du mot. Essayons cela, dans l'encart 4-7 :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -97,7 +97,7 @@ fn premier_mot(s: &String) -> usize {
 byte index value into the `String` parameter</span>
 -->
 
-<span class="caption">Encart 4-7 : La fonction `premier_mot` qui retourne un
+<span class="caption">Encart 4-7 : La fonction `premier_mot` qui retourne un
 indice d'octet provenant du paramètre `String`</span>
 
 <!--
@@ -108,7 +108,7 @@ a value is a space, we’ll convert our `String` to an array of bytes using the
 
 Comme nous avons besoin de parcourir la `String` élément par élément et de
 vérifier si la valeur est un espace, nous allons convertir notre `String` en un
-tableau d'octets en utilisant la méthode `as_bytes` :
+tableau d'octets en utilisant la méthode `as_bytes` :
 
 <!--
 ```rust,ignore
@@ -125,7 +125,7 @@ Next, we create an iterator over the array of bytes using the `iter` method:
 -->
 
 Ensuite, nous créons un itérateur sur le tableau d'octets en utilisant la
-méthode `iter` :
+méthode `iter` :
 
 <!--
 ```rust,ignore
@@ -177,7 +177,7 @@ Otherwise, we return the length of the string by using `s.len()`:
 Avec la boucle `for`, nous recherchons l'octet qui représente l'espace en
 utilisant la syntaxe des mots binaires. Si nous trouvons un espace, nous
 retournons sa position. Sinon, nous retournons la taille de la chaîne en
-utilisant `s.len()` :
+utilisant `s.len()` :
 
 <!--
 ```rust,ignore
@@ -213,13 +213,13 @@ dans la chaîne de caractères, mais il y a un problème. Nous retournons un
 `usize` tout seul, mais il n'a du sens que lorsqu'il est lié au `&String`.
 Autrement dit, comme il a une valeur séparée de la `String`, il n'y a pas de
 garantie qu'il restera toujours valide dans le futur. Imaginons le programme
-dans l'encart 4-8 qui utilise la fonction `premier_mot` de l'encart 4-7 :
+dans l'encart 4-8 qui utilise la fonction `premier_mot` de l'encart 4-7 :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -269,7 +269,7 @@ fn main() {
     s.clear(); // ceci vide la String, elle vaut maintenant "".
 
     // mot a toujours la valeur 5 ici, mais il n'y a plus de chaîne qui donne
-    // du sens à la valeur 5. mot est maintenant complètement invalide !
+    // du sens à la valeur 5. mot est maintenant complètement invalide !
 }
 ```
 
@@ -278,7 +278,7 @@ fn main() {
 `first_word` function and then changing the `String` contents</span>
 -->
 
-<span class="caption">Encart 4-8 : On stocke le résultat de l'appel à la
+<span class="caption">Encart 4-8 : On stocke le résultat de l'appel à la
 fonction `premier_mot` et ensuite on change le contenu de la `String`</span>
 
 <!--
@@ -304,8 +304,8 @@ we write a `second_word` function. Its signature would have to look like this:
 
 Se préoccuper en permanence que l'indice présent dans `mot` ne soit plus
 synchronisé avec les données présentes dans `s` est fastidieux et source
-d'erreur ! La gestion de ces indices est encore plus risquée si nous écrivons
-une fonction `second_mot`. Sa signature ressemblerait à ceci :
+d'erreur ! La gestion de ces indices est encore plus risquée si nous écrivons
+une fonction `second_mot`. Sa signature ressemblerait à ceci :
 
 <!--
 ```rust,ignore
@@ -333,7 +333,7 @@ isolées qui ont besoin d'être maintenues à jour.
 Luckily, Rust has a solution to this problem: string slices.
 -->
 
-Heureusement, Rust a une solution pour ce problème : les découpages de chaînes
+Heureusement, Rust a une solution pour ce problème : les découpages de chaînes
 de caractères.
 
 <!--
@@ -347,7 +347,7 @@ A *string slice* is a reference to part of a `String`, and it looks like this:
 -->
 
 Un *découpage de chaîne de caractère* est une référence à une partie
-d'une `String`, et ressemble à ceci :
+d'une `String`, et ressemble à ceci :
 
 <!--
 ```rust
@@ -411,7 +411,7 @@ L'illustration 4-6 montre ceci dans un schéma.
 `String`</span>
 -->
 
-<span class="caption">Illustration 4-6 : Un découpage d'une chaîne qui pointe
+<span class="caption">Illustration 4-6 : Un découpage d'une chaîne qui pointe
 vers une partie d'une `String`</span>
 
 <!--
@@ -421,7 +421,7 @@ you can drop the value before the two periods. In other words, these are equal:
 
 Avec la syntaxe d'intervalle `..` de Rust, si vous voulez commencer au premier
 indice (zéro), vous pouvez ne rien mettre avant les deux points. Autrement dit,
-ceci est identique :
+ceci est identique :
 
 <!--
 ```rust
@@ -446,7 +446,7 @@ can drop the trailing number. That means these are equal:
 
 De la même manière, si votre découpage contient les derniers octets de la
 `String`, vous pouvez ne rien mettre à la fin. Cela veut dire que ces deux
-ceci revient au même :
+ceci revient au même :
 
 <!--
 ```rust
@@ -474,7 +474,7 @@ are equal:
 -->
 
 Vous pouvez aussi ne mettre aucune limite pour créer un découpage de toute la
-chaîne de caractères. Ces deux cas sont donc identiques :
+chaîne de caractères. Ces deux cas sont donc identiques :
 
 <!--
 ```rust
@@ -505,7 +505,7 @@ let decoupage = &s[..];
 > Text with Strings”][strings]<!-- ignore -- > section of Chapter 8.
 -->
 
-> Remarque : Les indices de l'intervalle d'un découpage d'une chaîne de
+> Remarque : Les indices de l'intervalle d'un découpage d'une chaîne de
 > caractères doivent toujours se trouver dans les zones acceptables de
 > séparation des caractères encodés en UTF-8. Si vous essayez de créer un
 > découpage d'une chaîne de caractères qui s'arrête au milieu d'un caractère
@@ -521,13 +521,13 @@ slice. The type that signifies “string slice” is written as `&str`:
 
 Maintenant que nous savons tout cela, essayons de ré-écrire `premier_mot` pour
 retourner un découpage. Le type pour les “découpages de chaînes de caractères”
-s'écrit `&str` :
+s'écrit `&str` :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -587,7 +587,7 @@ découpage.
 Returning a slice would also work for a `second_word` function:
 -->
 
-Retourner un découpage fonctionnerait aussi pour une fonction `second_mot` :
+Retourner un découpage fonctionnerait aussi pour une fonction `second_mot` :
 
 <!--
 ```rust,ignore
@@ -615,19 +615,19 @@ Nous avons maintenant une API simple qui est bien plus difficile à perturber,
 puisque le compilateur va s'assurer que les références dans la `String` seront
 toujours en vigueur. Souvenez-vous du bogue du programme de l'encart 4-8,
 lorsque nous avions un indice vers la fin du premier mot mais qu'ensuite nous
-avions vidé la chaîne de caractères et que notre index n'était plus valide ? Ce
+avions vidé la chaîne de caractères et que notre index n'était plus valide ? Ce
 code était logiquement incorrect, mais ne montrait pas immédiatement une erreur.
 Les problèmes apparaîtront plus tard si nous essayons d'utiliser l'indice du
 premier mot avec une chaîne de caractère qui a été vidée. Les découpages rendent
 ce bogue impossible et nous signale bien plus tôt que nous avons un problème
 avec notre code. Utiliser la version avec le découpage de `premier_mot` va
-afficher une erreur au moment de la compilation :
+afficher une erreur au moment de la compilation :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore,does_not_compile
@@ -649,9 +649,9 @@ fn main() {
 
     let mot = premier_mot(&s);
 
-    s.clear(); // Erreur !
+    s.clear(); // Erreur !
 
-    println!("Le premier mot est : {}", mot);
+    println!("Le premier mot est : {}", mot);
 }
 ```
 
@@ -659,7 +659,7 @@ fn main() {
 Here’s the compiler error:
 -->
 
-Voici l'erreur du compilateur :
+Voici l'erreur du compilateur :
 
 <!--
 ```text
@@ -684,10 +684,10 @@ error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immuta
 16 |     let mot = premier_mot(&s);
    |                           -- immutable borrow occurs here
 17 |
-18 |     s.clear(); // Erreur !
+18 |     s.clear(); // Erreur !
    |     ^^^^^^^^^ mutable borrow occurs here
 19 |
-20 |     println!("Le premier mot est : {}", mot);
+20 |     println!("Le premier mot est : {}", mot);
    |                                        --- immutable borrow later used here
 ```
 
@@ -704,7 +704,7 @@ immuable vers quelque chose, nous ne pouvons pas avoir une référence mutable
 en même temps. Etant donné que `clear` a besoin de modifier la `String`, il a
 besoin d'une référence mutable. Rust interdit cette situation, et la compilation
 échoue. Non seulement Rust a simplifié l'utilisation de notre API, mais il a
-aussi éliminé une catégorie entière d'erreurs au moment de la compilation !
+aussi éliminé une catégorie entière d'erreurs au moment de la compilation !
 
 <!--
 #### String Literals Are Slices
@@ -737,7 +737,7 @@ the binary. This is also why string literals are immutable; `&str` is an
 immutable reference.
 -->
 
-Ici, le type de `s` est un `&str` : c'est un découpage qui pointe vers un
+Ici, le type de `s` est un `&str` : c'est un découpage qui pointe vers un
 endroit précis du binaire. C'est aussi la raison pour laquelle les chaînes de
 caractères pures sont immuables; `&str` est une référence immuable.
 
@@ -754,7 +754,7 @@ one more improvement on `first_word`, and that’s its signature:
 
 Savoir que vous pouvez utiliser des découpages de chaînes de caractères pures et
 des `String` nous invite à apporter une petite amélioration sur `premier_mot`,
-dont voici sa signature :
+dont voici sa signature :
 
 <!--
 ```rust,ignore
@@ -774,7 +774,7 @@ and `&str` values.
 
 Un Rustacé plus expérimenté écrirait plutôt la signature de l'encart 4_9, car
 cela nous permet d'utiliser la même fonction sur les `&String` et aussi les
-`&str` :
+`&str` :
 
 <!--
 ```rust,ignore
@@ -791,7 +791,7 @@ fn premier_mot(s: &str) -> &str {
 a string slice for the type of the `s` parameter</span>
 -->
 
-<span class="caption">Encart 4-9 : Amélioration de la fonction `premier_mot` en
+<span class="caption">Encart 4-9 : Amélioration de la fonction `premier_mot` en
 utilisant un découpage de chaîne de caractère comme type du paramètre `s`</span>
 
 <!--
@@ -805,13 +805,13 @@ Si nous avons un découpage de chaîne de caractères, nous pouvons lui donner
 directement. Si nous avons une `String`, nous pouvons envoyer un découpage de
 toute la `String`. Concevoir une fonction afin de prendre un découpage de chaîne
 de caractères plutôt qu'une référence à une `String` rend notre API plus
-générique et plus utile sans perdre aucune fonctionnalité :
+générique et plus utile sans perdre aucune fonctionnalité :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -869,7 +869,7 @@ fn main() {
 
     // Comme les chaînes de caractères pures *sont* déjà des découpages de
     // chaînes de caractères, cela fonctionne aussi, sans la syntaxe de
-    // découpage !
+    // découpage !
     let mot = premier_mot(ma_chaine_pure);
 }
 ```
@@ -887,7 +887,7 @@ more general slice type, too. Consider this array:
 
 Les découpages de chaînes de caractères, comme vous pouvez l'imaginer, sont
 spécifiques aux chaînes de caractères. Mais il existe aussi un type plus
-générique. Imaginons ce tableau de données :
+générique. Imaginons ce tableau de données :
 
 <!--
 ```rust
@@ -906,7 +906,7 @@ to part of an array. We’d do so like this:
 
 Comme nous pouvons nous référer à un échantillon d'une chaîne de caractères,
 nous pouvons nous référer à une partie d'un tableau. Nous pouvons le faire comme
-ceci :
+ceci :
 
 <!--
 ```rust
