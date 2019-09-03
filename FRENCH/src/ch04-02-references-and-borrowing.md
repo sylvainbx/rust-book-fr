@@ -24,13 +24,13 @@ value:
 
 Voici comment déclarer et utiliser une fonction `calculer_longueur` qui prend
 une *référence* à un objet en paramètre plutôt que de prendre possession de la
-valeur :
+valeur :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -90,7 +90,7 @@ un schéma.
 s1`</span>
 -->
 
-<span class="caption">Illustration 4-5 : Un schéma de la `&String s` qui pointe
+<span class="caption">Illustration 4-5 : Un schéma de la `&String s` qui pointe
 vers la `String s1`</span>
 
 <!--
@@ -100,7 +100,7 @@ vers la `String s1`</span>
 > Chapter 15.
 -->
 
-> Remarque : l'opposé de la création de références avec `&` est le
+> Remarque : l'opposé de la création de références avec `&` est le
 > *déréférencement*, qui s'effectue avec l'opérateur de déréférencement, `*`.
 > Nous allons voir quelques utilisations de l'opérateur de déréférencement dans
 > le chapitre 8 et nous aborderons les détails du déréférencement dans le
@@ -110,7 +110,7 @@ vers la `String s1`</span>
 Let’s take a closer look at the function call here:
 -->
 
-Regardons de plus près l'appel à la fonction :
+Regardons de plus près l'appel à la fonction :
 
 <!--
 ```rust
@@ -150,7 +150,7 @@ the parameter `s` is a reference. Let’s add some explanatory annotations:
 
 De la même manière, la signature de la fonction utilise `&` pour indiquer que
 le type du paramètre `s` est une référence. Ajoutons quelques commentaires
-explicatifs :
+explicatifs :
 
 <!--
 ```rust
@@ -200,14 +200,14 @@ Listing 4-6. Spoiler alert: it doesn’t work!
 -->
 
 Donc qu'est-ce qui se passe si nous essayons de modifier quelque chose que nous
-empruntons ? Essayez le code dans l'encart 4-6. Attention, spoiler : cela ne
-fonctionne pas !
+empruntons ? Essayez le code dans l'encart 4-6. Attention, spoiler : cela ne
+fonctionne pas !
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore,does_not_compile
@@ -239,14 +239,14 @@ fn changer(texte: &String) {
 <span class="caption">Listing 4-6: Attempting to modify a borrowed value</span>
 -->
 
-<span class="caption">Entrée 4-6 : Tentative de modification d'une valeur
+<span class="caption">Entrée 4-6 : Tentative de modification d'une valeur
 empruntée.</span>
 
 <!--
 Here’s the error:
 -->
 
-Voici l'erreur :
+Voici l'erreur :
 
 <!--
 ```text
@@ -290,13 +290,13 @@ We can fix the error in the code from Listing 4-6 with just a small tweak:
 -->
 
 Nous pouvons résoudre l'erreur du code de l'encart 4-6 avec une petite
-modification :
+modification :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -340,15 +340,15 @@ reference to a particular piece of data in a particular scope. This code will
 fail:
 -->
 
-Mais les références mutables ont une grosse contrainte : vous ne pouvez avoir
+Mais les références mutables ont une grosse contrainte : vous ne pouvez avoir
 qu'une seule référence mutable pour chaque donnée dans chaque portée. Le code
-suivant va échouer :
+suivant va échouer :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore,does_not_compile
@@ -374,7 +374,7 @@ println!("{}, {}", r1, r2);
 Here’s the error:
 -->
 
-Voici l'erreur :
+Voici l'erreur :
 
 ```text
 error[E0499]: cannot borrow `s` as mutable more than once at a time
@@ -407,7 +407,7 @@ these three behaviors occur:
 
 L'avantage d'avoir cette contrainte est que Rust peut empêcher les accès
 concurrent au moment de la compilation. Un *accès concurrent* est une situation
-de concurrence qui se produit lorsque ces trois facteurs se combinent :
+de concurrence qui se produit lorsque ces trois facteurs se combinent :
 
 <!--
 * Two or more pointers access the same data at the same time.
@@ -428,7 +428,7 @@ from happening because it won’t even compile code with data races!
 L'accès concurrent provoque des comportements incontrôlés et rend difficile le
 diagnostic et la résolution de problèmes lorsque vous essayez de les reproduire
 au moment de l'exécution; Rust évite ce problème parce qu'il ne va pas compiler
-le code avec un accès concurrent !
+le code avec un accès concurrent !
 
 <!--
 As always, we can use curly brackets to create a new scope, allowing for
@@ -437,7 +437,7 @@ multiple mutable references, just not *simultaneous* ones:
 
 Comme d'habitude, nous pouvons utiliser des accolades pour créer une nouvelle
 portée, pour nous permettre d'avoir plusieurs références mutables, mais pas en
-*simultané* :
+*simultané* :
 
 <!--
 ```rust
@@ -470,7 +470,7 @@ results in an error:
 -->
 
 Une règle similaire existe pour combiner les références immuables et mutables.
-Ce code va mener à une erreur :
+Ce code va mener à une erreur :
 
 <!--
 ```rust,ignore,does_not_compile
@@ -498,7 +498,7 @@ println!("{}, {}, and {}", r1, r2, r3);
 Here’s the error:
 -->
 
-Voici l'erreur :
+Voici l'erreur :
 
 <!--
 ```text
@@ -538,9 +538,9 @@ who is just reading the data has the ability to affect anyone else’s reading o
 the data.
 -->
 
-Ouah ! Nous ne pouvons pas *non plus* avoir une référence mutable pendant que
+Ouah ! Nous ne pouvons pas *non plus* avoir une référence mutable pendant que
 nous en avons une autre immuable. Les utilisateurs d'une référence immuable ne
-s'attendent pas à ce que se valeur change soudainement ! Cependant,
+s'attendent pas à ce que se valeur change soudainement ! Cependant,
 l'utilisation de plusieurs références immuables ne pose pas de problème, car
 personne de n'a la possibilité de modifier la lecture de la donnée par les
 autres.
@@ -555,7 +555,7 @@ mutable reference is introduced:
 Notez bien que la portée d'une référence commence dès qu'elle est introduite et
 se poursuit jusqu'au dernier endroit où cette référence est utilisée. Par
 exemple, le code suivant va se compiler car la dernière utilisation de la
-référence immuable est située avant l'introduction de la référence mutable :
+référence immuable est située avant l'introduction de la référence mutable :
 
 <!-- This example is being ignored because there's a bug in rustdoc making the
 edition2018 not work. The bug is currently fixed in nightly, so when we update
@@ -632,7 +632,7 @@ un *pointeur sautillant*, qui est un pointeur qui désigne un endroit dans la
 mémoire qui a été donné à quelqu'un d'autre, en libérant de la mémoire tout en
 conservant un pointeur vers cette mémoire. En revanche, avec Rust, le
 compilateur garantit que les références ne seront jamais des références
-sautillantes : si nous avons une référence vers des données, le compilateur va
+sautillantes : si nous avons une référence vers des données, le compilateur va
 s'assurer que cette donnée ne va pas sortir de la portée avant que la référence
 vers cette donnée en soit elle-même sortie.
 
@@ -642,13 +642,13 @@ compile-time error:
 -->
 
 Essayons de créer une référence sautillante, que Rust va empêcher avec une
-erreur au moment de la compilation :
+erreur au moment de la compilation :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore,does_not_compile
@@ -680,7 +680,7 @@ fn sautillante() -> &String {
 Here’s the error:
 -->
 
-Voici l'erreur :
+Voici l'erreur :
 
 <!--
 ```text
@@ -715,9 +715,9 @@ about lifetimes, the message does contain the key to why this code is a problem:
 -->
 
 Ce message d'erreur fait référence à une fonctionnalité que nous n'avons pas
-encore vu : les *durées de vie*. Nous allons aborder les durées de vie dans le
+encore vu : les *durées de vie*. Nous allons aborder les durées de vie dans le
 chapitre 10. Mais, si vous mettez de côté les parties qui parlent de la durée de
-vie, le message donne la clé de la raison qui pose problème :
+vie, le message donne la clé de la raison qui pose problème :
 
 <!--
 ```text
@@ -731,7 +731,7 @@ this function's return type contains a borrowed value, but there is no value
 for it to be borrowed from.
 ```
 
-Qui peut se traduire par :
+Qui peut se traduire par :
 
 ```text
 Le type de retour de cette fonction contient une valeur empruntée, mais il n'y a
@@ -744,13 +744,13 @@ Let’s take a closer look at exactly what’s happening at each stage of our
 -->
 
 Regardons de plus près ce qui se passe exactement à chaque étape de notre code
-de `sautillante` :
+de `sautillante` :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Fichier : src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust,ignore
@@ -771,7 +771,7 @@ fn sautillante() -> &String { // sautillante retourne une référence vers un St
     let s = String::from("hello"); // s est une nouvelle String
 
     &s // nous retournons une référence vers la String, s
-} // Ici, s sort de la portée, et est libéré. Sa mémoire disparait. C'est dangereux !
+} // Ici, s sort de la portée, et est libéré. Sa mémoire disparait. C'est dangereux !
 ```
 
 <!--
@@ -790,7 +790,7 @@ référence vers elle. Cela veut dire que cette référence va pointer vers une
 The solution here is to return the `String` directly:
 -->
 
-Ici la solution est de renvoyer la `String` directement :
+Ici la solution est de renvoyer la `String` directement :
 
 <!--
 ```rust
@@ -828,7 +828,7 @@ désalloué.
 Let’s recap what we’ve discussed about references:
 -->
 
-Récapitulons ce que nous avons vu à propos des références :
+Récapitulons ce que nous avons vu à propos des références :
 
 <!--
 * At any given time, you can have *either* one mutable reference *or* any
@@ -844,5 +844,5 @@ Récapitulons ce que nous avons vu à propos des références :
 Next, we’ll look at a different kind of reference: slices.
 -->
 
-A l'étape suivante, nous allons aborder un autre type de référence : les
+A l'étape suivante, nous allons aborder un autre type de référence : les
 découpages.
