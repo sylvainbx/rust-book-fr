@@ -1,6 +1,6 @@
 <!-- # Using Structs to Structure Related Data -->
 
-# Utiliser les structures pour structurer des données associées
+# Utiliser les structures pour structurer des données apparentées
 
 <!--
 A *struct*, or *structure*, is a custom data type that lets you name and
@@ -17,8 +17,8 @@ time type checking.
 Une *struct*, ou *structure*, est un type de données personnalisé qui vous
 permet de nommer et de rassembler plusieurs valeurs associées qui forment
 un groupe cohérent.
-Si vous êtes familier avec un langage orienté objet, une structure ressemble à
-l'ensemble des attributs d'un objet.
+Si vous êtes familier avec un langage orienté objet, une structure est en
+quelque sorte l'ensemble des attributs d'un objet.
 Dans ce chapitre, nous comparerons les tuples avec les structures, nous
 montrerons comment utiliser les structures et nous aborderons la définition des
 méthodes et des fonctions associées pour spécifier le comportement associé aux
