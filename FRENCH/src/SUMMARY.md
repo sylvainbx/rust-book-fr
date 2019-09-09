@@ -14,4 +14,8 @@
 
 - [Programmer un jeu de devinettes](ch02-00-guessing-game-tutorial.md)
 
+- [Les concepts courants de programmation](ch03-00-common-programming-concepts.md)
+    - [Les variables et la mutabilité](ch03-01-variables-and-mutability.md)
+    - [Les types de données](ch03-02-data-types.md)
+
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)

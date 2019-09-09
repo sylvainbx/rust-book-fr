@@ -6,6 +6,8 @@ français.
 | Anglais | Français | Remarques |
 | ------- | ------ | ------ |
 | ahead-of-time compilation | compilation anticipée | sigle : AOT |
+| allocated | alloué | - |
+| annotate | indiquer | - |
 | Appendix | annexe | tout en minuscule (sauf en début de phrase) |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
 | argument | argument / paramètre | - |
@@ -26,15 +28,19 @@ français.
 | Chapter | chapitre | tout en minuscule (sauf en début de phrase) |
 | closure | fermeture | - |
 | code review | revue de code | - |
+| collection | collection | - |
 | command | commande | dans un terminal |
 | commit | commit | - |
+| compound | composé | - |
 | concept chapter | chapitre théorique | - |
 | concurrency | concurrence | - |
 | concurrent | concurrent | - |
+| conditional | structure conditionnelle | - |
 | constant | constant / constante | - |
 | control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
 | corruption | corruption / être corrompu | - |
+| CPU | processeur | - |
 | crash | plantage | - |
 | crate | crate | nom féminin (une *crate*) |
 | curly bracket | accolade | - |
@@ -52,9 +58,12 @@ français.
 | expression | expression | - |
 | field | champ | d'une structure |
 | flag | drapeau | pour les programmes en ligne de commande |
+| float | nombre à virgule flottante | - |
 | floating-point number | nombre à virgule flottante | - |
 | function | fonction | - |
+| functional programming | programmation fonctionnelle | - |
 | generics | génériques / généricité | - |
+| global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |
 | handle | référence abstraite | - |
 | hash | hash / relatif au hachage | - |
@@ -65,9 +74,12 @@ français.
 | identifier | identificateur | - |
 | immutability | immuabilité | - |
 | immutable | immuable | - |
+| index | indice | - |
+| indexing | indexation | - |
 | input/output | entrée/sortie | sigle : IO |
 | instance | instance | - |
 | instantiate | instancier | créer une instance |
+| integer literal | littéral d'entiers | - |
 | integer overflow | dépassement d'entier | - |
 | Integrated Development Environment (IDE) | environnement de développement intégré (IDE) | - |
 | IOT | internet des objets (IOT) | - |
@@ -86,9 +98,11 @@ français.
 | main | main | - |
 | memory management | gestion de mémoire | - |
 | method | méthode | - |
+| modern | récent | - |
 | module | module | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
+| mutate | muter | - |
 | Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
 | object-oriented language | langage orienté objet | - |
@@ -115,6 +129,10 @@ français.
 | return | retourner | - |
 | run | exécuter | pour les programmes |
 | Rustacean | Rustacé | - |
+| section header | entête de section | - |
+| semantic version | version sémantique | - |
+| scalar | scalaire | - |
+| scope | portée | - |
 | script | script | - |
 | section header | en-tête de section | - |
 | semantic version | version sémantique | - |
@@ -129,6 +147,7 @@ français.
 | smart pointer | pointeur intelligent | - |
 | snip | code inchangé masqué ici | dans un encart |
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
+| square brackets | crochets | - |
 | stack | pile | - |
 | standard | standard *(adj. inv.)* / norme *(n.f.)* | - |
 | standard error | erreur standard | - |
@@ -136,6 +155,7 @@ français.
 | standard library | bibliothèque standard | - |
 | standard output | sortie standard | - |
 | statement | instruction | - |
+| statically typed | statiquement typé | - |
 | string | chaîne de caractères | - |
 | `String` | `String` | nom féminin (une `String`) |
 | struct | structure | - |
@@ -148,13 +168,18 @@ français.
 | troubleshooting | dépannage | - |
 | tuple | tuple | - |
 | tuple struct | structure tuple | - |
+| type | type | - |
+| type annotation | annotation de type | - |
 | type inference | inférence de types | - |
+| two’s complement | complément à deux | - |
+| two’s complement wrapping | rebouclage du complément à deux | - |
 | underlying operating system | système d'exploitation sous-jacent | - |
 | underscore | tiret bas | le caractère `_` |
 | unit-like struct | structure unitaire | - |
 | unit type | type unité | - |
 | unit value | valeur unité | - |
 | unsafe | non sécurisé | - |
+| unsigned | sans signe (toujours positif) | - |
 | unsigned | non signé | - |
 | user input | saisie utilisateur | - |
 | variable | variable | - |
