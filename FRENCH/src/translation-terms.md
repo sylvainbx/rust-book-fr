@@ -8,6 +8,7 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | allocated | alloué | - |
 | annotate | indiquer | - |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
+| array | tableau | - |
 | arguments | arguments/paramètres | - |
 | arms | branches | explication de match |
 | artifact | artéfact | - |
@@ -23,10 +24,11 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | code review | revue de code | - |
 | collection | collection | - |
 | commit | commit | - |
-| compound | composés | - |
+| compound | composé | - |
 | concept chapters | chapitres théoriques | - |
 | concurrency | concurrence | - |
 | concurrent | concurrent | - |
+| conditionals | structures conditionnelles | - |
 | constant | constante | - |
 | control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
@@ -37,6 +39,7 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | curly brackets | accolades | - |
 | data representation | modèle de données | - |
 | dependencies | dépendances | - |
+| destructure | destructurer | - |
 | DevOps | DevOps | - |
 | enums | énumérations | - |
 | enumerations | énumérations | - |
@@ -53,6 +56,7 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | handle | référence | - |
 | hash | hachage | - |
 | hash maps | tables de hachage | - |
+| heap | le tas | - |
 | Hello, world! | Hello, world! | - |
 | high-level | haut-niveau | - |
 | integer literal | entiers littéral | - |
@@ -60,6 +64,8 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | Integrated Development Environment (IDE) | Integrated Development Environment (IDE) | - |
 | IOT | internet des objets (IOT) | - |
 | immutable | immuable | - |
+| index | indice | - |
+| indexing | indexation | - |
 | iterators | itérateurs | - |
 | legacy code | code instable que le programme a hérité avec le temps | - |
 | libraries | bibliothèques | - |
@@ -97,6 +103,7 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | reference | réference | - |
 | registry | registre | - |
 | regression | régression | - |
+| remainder | reliquat | - |
 | reproducible builds | compilation reproductive | - |
 | run | exécuter | pour les programmes |
 | Rustaceans | Rustacés | - |
@@ -110,8 +117,10 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | shell | terminal/invite de commande | - |
 | shorthand | abréviation | - |
 | sidebar | volet latéral | - |
+| square brackets | crochets | - |
 | smart pointers | pointeurs intelligents | - |
 | snip | code inchangé masqué ici | inside Listings |
+| stack | la pile | - |
 | standard | une convention/une norme | - |
 | standard library | bibliothèque standard | - |
 | statement | instruction/mot-clé | - |
@@ -125,6 +134,7 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | terminal | terminal | - |
 | traits | traits | - |
 | Troubleshooting | Dépannage | - |
+| tuple | tuple | - |
 | type | type | - |
 | type annotation | annotation de type | - |
 | type inference | déduction de type | - |
