@@ -7,8 +7,10 @@ français.
 | ------- | ------ | ------ |
 | ahead-of-time compilation | compilation anticipée | sigle : AOT |
 | allocated | alloué | - |
+| angle bracket | chevrons | - |
 | annotate | indiquer | - |
 | Appendix | annexe | tout en minuscule (sauf en début de phrase) |
+| append | ajouter | - |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
 | argument | argument / paramètre | - |
 | arm | branche | dans une expression `match` |
@@ -20,6 +22,7 @@ français.
 | *n*-bit number | nombre encodé sur *n* bits | - |
 | boolean | booléen | - |
 | borrow | emprunt(er) | - |
+| borrow checker | vérificateur d'emprunt | - |
 | bug | bogue | - |
 | build system | système de compilation | - |
 | byte | octet | - |
@@ -28,6 +31,7 @@ français.
 | Chapter | chapitre | tout en minuscule (sauf en début de phrase) |
 | closure | fermeture | - |
 | code review | revue de code | - |
+| coercion | extrapolation | - |
 | collection | collection | - |
 | command | commande | dans un terminal |
 | commit | commit | - |
@@ -48,6 +52,8 @@ français.
 | debug | déboguer | - |
 | debugging | débogage | - |
 | dependency | dépendance | - |
+| dereference operator | opérateur de déréférencement | - |
+| deref coercion | extrapolation de déréferencement | - |
 | destructure | déstructurer | - |
 | DevOps | DevOps | - |
 | dot notation | la notation avec un point | - |
@@ -96,6 +102,7 @@ français.
 | machine learning | apprentissage automatique | - |
 | macro | macro | - |
 | main | main | - |
+| map | tableau associatif | - |
 | memory management | gestion de mémoire | - |
 | method | méthode | - |
 | modern | récent | - |
