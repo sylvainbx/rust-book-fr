@@ -753,7 +753,7 @@ de `sautillante` :
 <span class="filename">Fichier : src/main.rs</span>
 
 <!--
-```rust,ignore
+```rust,ignore,does_not_compile
 fn dangle() -> &String { // dangle returns a reference to a String
 
     let s = String::from("hello"); // s is a new String
@@ -765,7 +765,7 @@ fn dangle() -> &String { // dangle returns a reference to a String
 -->
 
 
-```rust,ignore
+```rust,ignore,does_not_compile
 fn sautillante() -> &String { // sautillante retourne une référence vers un String
 
     let s = String::from("hello"); // s est une nouvelle String
