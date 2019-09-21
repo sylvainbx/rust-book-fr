@@ -6,14 +6,17 @@ français.
 | Anglais | Français | Remarques |
 | ------- | ------ | ------ |
 | ahead-of-time compilation | compilation anticipée | sigle : AOT |
-| allocation | affectation | - |
-| annotate | annoter | - |
+| allocated | alloué | - |
+| annotate | indiquer | - |
+| Appendix | annexe | tout en minuscule (sauf en début de phrase) |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
 | assign | assigner | - |
 | argument | argument / paramètre | - |
 | arm | branche | dans une expression `match` |
+| array | tableau | - |
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
+| attributes | attributs | - |
 | binary crate | crate binaire | s'utilise au féminin |
 | *n*-bit number | nombre encodé sur *n* bits | - |
 | blob | blob | - |
@@ -24,17 +27,22 @@ français.
 | byte | octet | - |
 | Cargo | Cargo | - |
 | catchall value | valeur passe-partout | - |
+| Chapter | chapitre | tout en minuscule (sauf en début de phrase) |
 | closure | fermeture | - |
 | code review | revue de code | - |
+| collection | collection | - |
 | command | commande | dans un terminal |
 | commit | commit | - |
+| compound | composé | - |
 | concept chapter | chapitre théorique | - |
 | concurrency | concurrence | - |
 | concurrent | concurrent | - |
-| control flow construct | structure de contrôle | - |
+| conditional | structure conditionnelle | - |
 | constant | constant / constante | - |
+| control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
 | corruption | corruption / être corrompu | - |
+| CPU | processeur | - |
 | crash | plantage | - |
 | crate | crate | nom féminin (une *crate*) |
 | curly bracket | accolade | - |
@@ -55,22 +63,32 @@ français.
 | field | champ | d'une structure |
 | Figure | Illustration | - |
 | flag | drapeau | pour les programmes en ligne de commande |
+| float | nombre à virgule flottante | - |
+| floating-point number | nombre à virgule flottante | - |
 | function | fonction | - |
+| functional programming | programmation fonctionnelle | - |
 | generics | génériques / généricité | - |
+| global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |
-| handle | référence | - |
+| handle | référence abstraite | - |
 | hash | hash / relatif au hachage | - |
 | hash map | table de hachage | - |
-| heap | (le) tas | - |
+| heap | tas | - |
 | Hello, world! | Hello, world! | - |
 | high-level | haut niveau | - |
 | identifier | identificateur | - |
+| immutability | immuabilité | - |
+| immutable | immuable | - |
+| index | indice | - |
+| indexing | indexation | - |
+| input/output | entrée/sortie | sigle : IO |
 | instance | instance | - |
 | instantiate | instancier | créer une instance |
+| integer literal | littéral d'entiers | - |
+| integer overflow | dépassement d'entier | - |
 | Integrated Development Environment (IDE) | environnement de développement intégré (IDE) | - |
 | invalidate | neutraliser | - |
 | IOT | internet des objets (IOT) | - |
-| immutable | immuable | - |
 | iterator | itérateur | - |
 | just-in-time compilation | compilation à la volée | sigle : JIT |
 | keyword | mot-clé | - |
@@ -79,21 +97,24 @@ français.
 | library crate | crate de bibliothèque | s'utilise au féminin |
 | lifetime | durée de vie | - |
 | linker | linker | - |
-| Listing | encart | - |
+| Listing | encart | tout en minuscule (sauf en début de phrase) |
 | low-level | bas niveau | - |
 | machine learning | apprentissage automatique | - |
 | macro | macro | - |
 | main | main | - |
 | memory management | gestion de mémoire | - |
 | method | méthode | - |
+| modern | récent | - |
 | module | module | - |
 | move | déplacement | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
 | namespace | espace de nom | - |
 | namespacing | l'espace de nom | - |
-| Note | Remarque | - |
+| mutate | muter | - |
+| Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
+| object-oriented language | langage orienté objet | - |
 | operating system | système d'exploitation | - |
 | owner | propriétaire | - |
 | ownership | possession | - |
@@ -116,14 +137,20 @@ français.
 | reference | référence | - |
 | registry | registre | - |
 | regression | régression | - |
+| remainder | modulo | opération `%` |
 | reproducible build | compilation reproductible | - |
 | Resource Acquisition Is Initialization (RAII) | l'acquisition d'une ressource est une initialisation (RAII) | - |
+| return | retourner | - |
 | run | exécuter | pour les programmes |
 | Rustacean | Rustacé | - |
 | section header | entête de section | - |
 | semantic version | version sémantique | - |
+| scalar | scalaire | - |
 | scope | portée | - |
 | script | script | - |
+| section header | en-tête de section | - |
+| semantic version | version sémantique | - |
+| semantic versioning | versionnage sémantique | abréviation : SemVer |
 | shadow | masquer | remplacer une variable par une autre de même nom |
 | shadowing | masquage | - |
 | shallow copy | copie superficielle | - |
@@ -135,15 +162,18 @@ français.
 | smart pointer | pointeur intelligent | - |
 | snip | code inchangé masqué ici | dans un encart |
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
-| stack | (la) pile | - |
+| square brackets | crochets | - |
+| stack | pile | - |
 | standard | standard *(adj. inv.)* / norme *(n.f.)* | - |
 | standard error | erreur standard | - |
 | standard input | entrée standard | - |
 | standard library | bibliothèque standard | - |
 | standard output | sortie standard | - |
 | statement | instruction | - |
+| statically typed | statiquement typé | - |
 | string | chaîne de caractères | - |
 | string literal | chaîne de caractères pure | - |
+| `String` | `String` | nom féminin (une `String`) |
 | struct | structure | - |
 | submodule | sous-module | - |
 | systems concept | notion système | - |
@@ -154,17 +184,23 @@ français.
 | troubleshooting | dépannage | - |
 | tuple | tuple | - |
 | tuple struct | structure tuple | - |
+| type | type | - |
+| type annotation | annotation de type | - |
 | type inference | inférence de types | - |
+| two’s complement | complément à deux | - |
+| two’s complement wrapping | rebouclage du complément à deux | - |
 | underlying operating system | système d'exploitation sous-jacent | - |
 | underscore | tiret bas | le caractère `_` |
 | unit-like struct | structure unitaire | - |
 | unit type | type unité | - |
 | unit value | valeur unité | - |
 | unsafe | non sécurisé | - |
+| unsigned | sans signe (toujours positif) | - |
 | unsigned | non signé | - |
 | user input | saisie utilisateur | - |
 | variable | variable | - |
 | variant | variante | d'une énumération |
 | vector | vecteur | - |
 | version control system (VCS) | système de gestion de versions (VCS) | - |
+| warning | avertissement | - |
 | zero-cost abstraction | abstraction sans coût | - |

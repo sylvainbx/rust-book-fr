@@ -348,16 +348,16 @@ données.
 
 <!--
 We’ll use `String` as the example here and concentrate on the parts of `String`
-that relate to ownership. These aspects also apply to other complex data types
-provided by the standard library and that you create. We’ll discuss `String` in
-more depth in Chapter 8.
+that relate to ownership. These aspects also apply to other complex data types,
+whether they are provided by the standard library or created by you. We’ll
+discuss `String` in more depth in Chapter 8.
 -->
 
 Nous allons utiliser ici `String` pour l'exemple et nous concentrer sur les
 éléments de `String` qui sont liés à la possession. Ces caractéristiques
-s'appliquent également à d'autres types de données complexes fournies par la
-bibliothèque standard et celles que vous créez. Nous verrons `String` plus en
-détail dans le chapitre 8.
+s'appliquent également à d'autres types de données complexes, qu'elles soient
+fournies par la bibliothèque standard ou qu'elle soit créées par vous. Nous
+verrons `String` plus en détail dans le chapitre 8.
 
 <!--
 We’ve already seen string literals, where a string value is hardcoded into our

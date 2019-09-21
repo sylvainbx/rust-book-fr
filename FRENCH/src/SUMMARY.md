@@ -3,6 +3,7 @@
 [Le langage de programmation Rust](title-page.md)
 [Avant-propos](foreword.md)
 [Introduction](ch00-00-introduction.md)
+[Traduction des termes](translation-terms.md)
 
 ## Prise en main
 
@@ -11,4 +12,12 @@
     - [Hello, world!](ch01-02-hello-world.md)
     - [Hello, Cargo!](ch01-03-hello-cargo.md)
 
-- [Qu'est-ce que la possession ?](ch04-01-what-is-ownership.md)
+- [Programmer un jeu de devinettes](ch02-00-guessing-game-tutorial.md)
+
+- [Les concepts courants de programmation](ch03-00-common-programming-concepts.md)
+    - [Les variables et la mutabilité](ch03-01-variables-and-mutability.md)
+    - [Les types de données](ch03-02-data-types.md)
+
+    - [Qu'est-ce que la possession ?](ch04-01-what-is-ownership.md)
+
+- [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
