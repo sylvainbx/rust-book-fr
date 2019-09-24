@@ -63,6 +63,7 @@ français.
 | function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
 | generics | génériques / généricité | - |
+| grapheme cluster | groupe de graphèmes  | - |
 | global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |
 | handle | référence abstraite | - |
