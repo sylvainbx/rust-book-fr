@@ -11,10 +11,10 @@ extra explanation is warranted. In these cases, programmers leave notes, or
 reading the source code may find useful.
 -->
 
-Tous les développeurs s'efforcent de rendre code facile à comprendre, mais
-parfois il est nécessaire d'écrire plus d'explications. Dans ce cas, les
-développeurs laissent des notes, appelées *commentaires*, dans leur code source
-que le compilateur va ignorer mais que les personnes qui peuvent être utiles
+Tous les développeurs s'efforcent de rendre leur code facile à comprendre, mais
+parfois il est nécessaire d'écrire des explications supplémentaires.
+Dans ce cas, les développeurs laissent des notes, appelées *commentaires*, dans
+leur code source que le compilateur va ignorer mais qui peuvent être utiles
 pour les personnes qui lisent le code source.
 
 <!--
@@ -33,8 +33,8 @@ line. For comments that extend beyond a single line, you’ll need to include
 `//` on each line, like this:
 -->
 
-Avec Rust, les commentaires commencent avec deux barres obliques et continue
-jusqu'à la fin de la ligne. Pour des commentaires qui ont plus d'une seule
+Avec Rust, les commentaires commencent avec deux barres obliques et continuent
+jusqu'à la fin de la ligne. Pour les commentaires qui font plus d'une seule
 ligne, vous aurez besoin d'ajouter `//` sur chaque ligne, comme ceci :
 
 <!--
@@ -47,7 +47,7 @@ ligne, vous aurez besoin d'ajouter `//` sur chaque ligne, comme ceci :
 
 ```rust
 // Donc ici on fait quelque chose de compliqué, tellement long que nous avons
-// besoin de plusieurs lignes de commentaires pour le faire ! Heureusement,
+// besoin de plusieurs lignes de commentaires pour le faire ! Heureusement,
 // ce commentaire va expliquer ce qui se passe.
 ```
 
@@ -55,7 +55,7 @@ ligne, vous aurez besoin d'ajouter `//` sur chaque ligne, comme ceci :
 Comments can also be placed at the end of lines containing code:
 -->
 
-Les commentaires peuvent aussi être aussi ajoutés à la fin de la ligne qui
+Les commentaires peuvent aussi être aussi ajoutés à la fin d'une ligne qui
 contient du code :
 
 <!--
@@ -74,7 +74,7 @@ fn main() {
 
 ```rust
 fn main() {
-    let nombre_chanceux = 7; // Je me sent chanceux aujourd'hui
+    let nombre_chanceux = 7; // Je me sens chanceux aujourd'hui
 }
 ```
 
@@ -83,7 +83,7 @@ But you’ll more often see them used in this format, with the comment on a
 separate line above the code it’s annotating:
 -->
 
-Mais parfois vous pourrez les voir utilisés de cette manière, avec le
+Mais parfois, vous pourrez les voir utilisés de cette manière, avec le
 commentaire sur une ligne séparée au-dessus du code qu'il annote :
 
 <!--
@@ -103,7 +103,7 @@ fn main() {
 
 ```rust
 fn main() {
-    // Je me sent chanceux aujourd'hui
+    // Je me sens chanceux aujourd'hui
     let nombre_chanceux = 7;
 }
 ```
@@ -114,4 +114,4 @@ discuss in the “Publishing a Crate to Crates.io” section of Chapter 14.
 -->
 
 Rust a aussi un autre type de commentaire, les commentaires de documentation,
-que nous allons aborder au chapitre 14.
+que nous aborderons au chapitre 14.
