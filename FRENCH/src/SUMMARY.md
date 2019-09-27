@@ -19,3 +19,5 @@
     - [Les types de données](ch03-02-data-types.md)
 
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
+
+- [Stocker des clés associées à des valeurs dans des tables de hachage](ch08-03-hash-maps.md)
