@@ -19,3 +19,5 @@
     - [Les types de données](ch03-02-data-types.md)
 
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
+
+- [Erreurs Irrécupérables avec `panic!`](ch09-01-unrecoverable-errors-with-panic.md)
