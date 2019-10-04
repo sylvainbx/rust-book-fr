@@ -111,6 +111,7 @@ français.
 | package manager | système de gestion de paquets | - |
 | panic | panique(r) | - |
 | parallelism | parallélisme | - |
+| parameter | paramètre | - |
 | PATH | PATH | - |
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |
@@ -141,11 +142,12 @@ français.
 | shadowing | masquage | - |
 | shell | terminal / invite de commande | - |
 | shorthand | abréviation | - |
-| sidebar | barre latérale | - |
+| sidebar | volet latéral | - |
 | signature | signature | d'une fonction |
 | signed | signé | - |
 | smart pointer | pointeur intelligent | - |
-| snip | code inchangé masqué ici | dans un encart |
+| snake case | snake case | - |
+| snip | partie masquée ici | dans un encart |
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
 | square brackets | crochets | - |
 | stack | pile | - |
