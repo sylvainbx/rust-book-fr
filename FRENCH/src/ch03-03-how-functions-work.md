@@ -12,7 +12,7 @@ declare new functions.
 -->
 
 Les fonctions sont omniprésentes dans le code Rust. Vous avez déjà vu l'une des
-fonctions les plus importantes du langage : la fonction `main`, qui est le point
+fonctions les plus importantes du langage : la fonction `main`, qui est le point
 d'entrée de beaucoup de programmes. Vous avez aussi vu le mot-clé `fn`, qui vous
 permet de déclarer des nouvelles fonctions.
 
@@ -65,7 +65,7 @@ after the function name. The curly brackets tell the compiler where the
 function body begins and ends.
 -->
 
-La définition d'une fonction avec Rust commence par `fn` et a un jeu de
+La définition d'une fonction avec Rust commence par `fn` et a une paire de
 parenthèses après le nom de la fonction. Les accolades indiquent au compilateur
 où le corps de la fonction commence et où il se termine.
 
@@ -78,12 +78,12 @@ as well. Rust doesn’t care where you define your functions, only that they’r
 defined somewhere.
 -->
 
-Nous pouvons appeler n'importe quelle fonction que nous avons déclaré en
-utilisant son nom, suivi d'un jeu de parenthèses. Comme `une_autre_fonction`
+Nous pouvons appeler n'importe quelle fonction que nous avons définie en
+utilisant son nom, suivi d'une paire de parenthèses. Comme `une_autre_fonction`
 est définie dans le programme, elle peut être appelée à l'intérieur de la
-fonction `main`. Remarquez que nous avons déclaré `une_autre_fonction` *après*
-la fonction `main` dans le code source; nous aurions aussi pu la déclarer avant.
-Rust ne se soucie pas de l'endroit où vous déclarez vos fonctions, du moment
+fonction `main`. Remarquez que nous avons défini `une_autre_fonction` *après*
+la fonction `main` dans le code source ; nous aurions aussi pu la définir avant.
+Rust ne se soucie pas de l'endroit où vous définissez vos fonctions, du moment
 qu'elles sont bien définies quelque part.
 
 <!--
@@ -92,7 +92,7 @@ further. Place the `another_function` example in *src/main.rs* and run it. You
 should see the following output:
 -->
 
-Créons un nouveau projet de binaire qui s'appelera *functions* afin d'en
+Créons un nouveau projet de binaire qui s'appellera *functions* afin d'en
 apprendre plus sur les fonctions. Ajoutez l'exemple `une_autre_fonction` dans le
 *src/main.rs* et exécutez-le. Vous devriez avoir ceci :
 
@@ -142,14 +142,14 @@ variables in a function’s definition or the concrete values passed in when you
 call a function.
 -->
 
-Les fonctions peuvent aussi être déclarées avec des *paramètres*, qui sont des
+Les fonctions peuvent aussi être définies avec des *paramètres*, qui sont des
 variables spéciales qui font partie de la signature de la fonction. Quand une
 fonction a des paramètres, vous pouvez lui fournir des valeurs concrètes avec
 ces paramètres. Techniquement, ces valeurs concrètes sont appelées des
-*arguments*, mais dans une conversation courante, les personnes ont tendance à
+*arguments*, mais dans une conversation courante, on a tendance à
 confondre les termes *paramètres* et *arguments* pour désigner soit les
 variables dans la définition d'une fonction, soit les valeurs concrètes passées
-quand on utilise une fonction.
+quand on appelle une fonction.
 
 <!--
 The following rewritten version of `another_function` shows what parameters
@@ -183,7 +183,7 @@ fn main() {
 }
 
 fn une_autre_fonction(x: i32) {
-    println!("La valeur de x est : {}", x);
+    println!("La valeur de x est : {}", x);
 }
 ```
 
@@ -191,7 +191,7 @@ fn une_autre_fonction(x: i32) {
 Try running this program; you should get the following output:
 -->
 
-En exécutant ce programme, vous devriez obtenir ceci :
+En exécutant ce programme, vous devriez obtenir ceci :
 
 <!--
 ```text
@@ -208,7 +208,7 @@ $ cargo run
    Compiling functions v0.1.0 (file:///projects/functions)
     Finished dev [unoptimized + debuginfo] target(s) in 1.21 secs
      Running `target/debug/functions`
-La valeur de x est : 5
+La valeur de x est : 5
 ```
 
 <!--
@@ -218,10 +218,10 @@ The declaration of `another_function` has one parameter named `x`. The type of
 string.
 -->
 
-La déclaration de `une_autre_fonction` a un paramètre appellé `x`. Le type de
+La déclaration de `une_autre_fonction` a un paramètre nommé `x`. Le type de
 `x` a été déclaré comme `i32`. Quand `5` est passé à `une_autre_fonction`, la
-macro `println!` place `5` où la paire d'accolades `{}` a été placée dans le
-texte de formatage.
+macro `println!` place `5` là où la paire d'accolades `{}` a été placée dans la
+chaîne de formatage.
 
 <!--
 In function signatures, you *must* declare the type of each parameter. This is
@@ -231,7 +231,7 @@ the code to figure out what you mean.
 -->
 
 Dans la signature d'une fonction, vous *devez* déclarer le type de chaque
-paramètre. C'est un choix délibéré de conception de Rust : demander l'annotation
+paramètre. C'est un choix délibéré de conception de Rust : exiger l'annotation
 de type dans la définition d'une fonction fait en sorte que le compilateur n'a
 presque plus besoin que vous les utilisiez autre part pour qu'il comprenne ce
 que vous voulez faire.
@@ -269,8 +269,8 @@ fn main() {
 }
 
 fn une_autre_fonction(x: i32, y: i32) {
-    println!("La valeur de x est : {}", x);
-    println!("La valeur de y est : {}", y);
+    println!("La valeur de x est : {}", x);
+    println!("La valeur de y est : {}", y);
 }
 ```
 
@@ -282,7 +282,7 @@ in this example.
 -->
 
 Cet exemple crée une fonction avec deux paramètres, chacun d'eux sont du type
-`i32`. La fonction affiche ensuite les valeurs valeurs de ses deux paramètres.
+`i32`. La fonction affiche ensuite les valeurs de ses deux paramètres.
 Notez que les paramètres des fonctions n'ont pas besoin d'être du même type,
 nous sommes dans cette situation uniquement pour les besoins de notre exemple.
 
@@ -312,8 +312,8 @@ $ cargo run
    Compiling functions v0.1.0 (file:///projects/functions)
     Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
      Running `target/debug/functions`
-La valeur de x est : 5
-La valeur de y est : 6
+La valeur de x est : 5
+La valeur de y est : 6
 ```
 
 <!--
@@ -321,14 +321,14 @@ Because we called the function with `5` as the value for  `x` and `6` is passed
 as the value for `y`, the two strings are printed with these values.
 -->
 
-Comme nous avons appellé la fonction avec la valeur `5` pour `x` et `6` pour
+Comme nous avons appelé la fonction avec la valeur `5` pour `x` et `6` pour
 `y`, deux lignes sont affichées avec ces valeurs.
 
 <!--
 ### Function Bodies Contain Statements and Expressions
 -->
 
-### Corps de fonction avec des déclarations et des expressions
+### Corps de fonction avec des instructions et des expressions
 
 <!--
 Function bodies are made up of a series of statements optionally ending in an
@@ -340,12 +340,12 @@ statements and expressions are and how their differences affect the bodies of
 functions.
 -->
 
-Les corps de fonctions sont constitués d'une série de déclarations qui se
-terminent éventuellement par une expression. Jusqu'à présent, nous avons vu des
+Les corps de fonctions sont constitués d'une série d'instructions qui se
+termine éventuellement par une expression. Jusqu'à présent, nous avons vu des
 fonctions sans expression à la fin, mais vous avez déjà vu une expression faire
-partie d'une déclaration. Comme Rust est un langage basé sur des expressions,
-il est important de faire la distinction. Les autres langages ne font pas de
-telles distinctions, donc penchons-nous sur ce que sont les déclarations et les
+partie d'une instruction. Comme Rust est un langage basé sur des expressions,
+il est important de faire la distinction. D'autres langages ne font pas de
+telles distinctions, donc penchons-nous sur ce que sont les instructions et les
 expressions et comment leurs différences influent sur le corps des fonctions.
 
 <!--
@@ -354,9 +354,9 @@ instructions that perform some action and do not return a value. *Expressions*
 evaluate to a resulting value. Let’s look at some examples.
 -->
 
-Nous avons déjà utilisé les déclarations et les expressions. Les *déclarations*
-sont des instructions qui déclenchent certaines actions et qui ne retournent
-aucune valeur. Les *expressions* sont évaluées pour retourner un résultat.
+Nous avons déjà utilisé des instructions et des expressions. Les *instructions*
+effectuent des actions et ne retournent aucune valeur.
+Les *expressions* sont évaluées pour retourner une valeur comme résultat.
 Voyons quelques exemples.
 
 <!--
@@ -364,8 +364,8 @@ Creating a variable and assigning a value to it with the `let` keyword is a
 statement. In Listing 3-1, `let y = 6;` is a statement.
 -->
 
-Créez une variable et assignez-lui une valeur avec le mot-clé `let` qui fait une
-déclaration. Dans l'encart 3-1, `let y = 6;` est une déclaration.
+Créer une variable en lui assignant une valeur avec le mot-clé `let` constitue
+une instruction. Dans l'encart 3-1, `let y = 6;` est une instruction.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -384,24 +384,24 @@ fn main() {
 -->
 
 <span class="caption">Encart 3-1 : une fonction `main` qui contient une
-déclaration</span>
+instruction</span>
 
 <!--
 Function definitions are also statements; the entire preceding example is a
 statement in itself.
 -->
 
-La définition d'une fonction est aussi une déclaration; l'intégralité de
-l'exemple précédent est une déclaration à elle toute seule.
+La définition d'une fonction est aussi une instruction ; l'intégralité de
+l'exemple précédent est une instruction à elle toute seule.
 
 <!--
 Statements do not return values. Therefore, you can’t assign a `let` statement
 to another variable, as the following code tries to do; you’ll get an error:
 -->
 
-Une déclaration ne retourne pas de valeur. Ainsi, vous ne pouvez pas assigner
-le résultat d'une déclaration `let` à une autre variable, comme le code suivant
-essaye de le faire; car vous allez tomber sur une erreur :
+Une instruction ne retourne pas de valeur. Ainsi, vous ne pouvez pas assigner
+le résultat d'une instruction `let` à une autre variable, comme le code suivant
+essaye de le faire, car vous obtiendrez une erreur :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -420,7 +420,7 @@ When you run this program, the error you’ll get looks like this:
 -->
 
 Quand vous exécutez ce programme, l'erreur que vous obtenez devrait ressembler à
-ceci :
+ceci :
 
 ```text
 $ cargo run
@@ -442,11 +442,11 @@ languages, you can write `x = y = 6` and have both `x` and `y` have the value
 `6`; that is not the case in Rust.
 -->
 
-La déclaration `let y = 6` ne retourne pas de valeur, donc cela ne peut pas
+L'instruction `let y = 6` ne retourne pas de valeur, donc cela ne peut pas
 devenir une valeur de `x`. Ceci est différent d'autres langages, comme le C ou
-le Ruby, où les déclarations retournent la valeur de la déclaration. Dans ces
+Ruby, où l'assignation retourne la valeur de l'assignation. Dans ces
 langages, vous pouvez écrire `x = y = 6` et avoir ainsi `x` et `y` qui ont
-chacun la valeur `6`; cela n'est pas possible avec Rust.
+chacun la valeur `6` ; cela n'est pas possible avec Rust.
 
 <!--
 Expressions evaluate to something and make up most of the rest of the code that
@@ -458,14 +458,14 @@ expression. Calling a macro is an expression. The block that we use to create
 new scopes, `{}`, is an expression, for example:
 -->
 
-Les expressions sont évaluées et composent la plupart de ce que vous allez
-écrire en Rust. Prenez une simple opération mathématique, comme `5 + 6`, qui est
-une expression qui s'évalue à la valeur `11`. Les expressions peuvent faire
-partie d'une déclaration : dans l'encart 3-1, le `6` dans la déclaration
-`let y = 6;` est une expression qui s'évalue à la valeur `6`. Appeler une
-fonction est aussi une expression. Appeler une macro est une expression. Le
-bloc que nous utilisons pour créer une nouvelle portée, `{}`, est une
-expression, par exemple :
+Les expressions sont évaluées et seront ce que vous écrirez le plus en Rust
+(hormis les instructions). Prenez une simple opération mathématique, comme
+`5 + 6`, qui est une expression qui s'évalue à la valeur `11`. Les expressions
+peuvent faire partie d'une instruction : dans l'encart 3-1, le `6` dans
+l'instruction `let y = 6;` est une expression qui s'évalue à la valeur `6`.
+L'appel de fonction est aussi une expression. L'appel de macro est une
+expression. Le bloc que nous utilisons pour créer une nouvelle portée, `{}`,
+est une expression, par exemple :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -497,7 +497,7 @@ fn main() {
         x + 1
     };
 
-    println!("La valeur de y est : {}", y);
+    println!("La valeur de y est : {}", y);
 }
 ```
 
@@ -505,7 +505,7 @@ fn main() {
 This expression:
 -->
 
-L'expression suivante ...
+L'expression suivante…
 
 ```rust,ignore
 {
@@ -523,14 +523,14 @@ expression, you turn it into a statement, which will then not return a value.
 Keep this in mind as you explore function return values and expressions next.
 -->
 
-... est un bloc qui, dans ce cas, s'évalue à 4. Cette valeur est attribuée à `y`
-dans le cadre de la déclaration avec `let`. Remarquez la ligne `x + 1` qui ne se
-termine pas par un point-virgule à la fin, ce qui est différent de la plupart
-des lignes que vous avez vu précédemment. Les expressions n'ont pas de
-points-virgules de fin de ligne. Si vous ajoutez un point-virgule à la fin de
-l'expression, vous la transformez en déclaration, qui ne va donc pas retourner
-de valeur. Gardez ceci à l'esprit quand vous aborderez prochainement les valeurs
-de retour des fonctions ainsi que les expressions.
+… est un bloc qui, dans ce cas, s'évalue à `4`. Cette valeur est assignée à `y`
+dans le cadre de l'instruction `let`. Remarquez la ligne `x + 1` qui ne se
+termine pas par un point-virgule, ce qui est différent de la plupart
+des lignes que vous avez vues jusque là. Les expressions n'ont pas de
+point-virgule de fin de ligne. Si vous ajoutez un point-virgule à la fin de
+l'expression, vous la transformez en instruction, qui ne va donc pas retourner
+de valeur. Gardez ceci à l'esprit quand nous aborderons prochainement les
+valeurs de retour des fonctions ainsi que les expressions.
 
 <!--
 ### Functions with Return Values
@@ -548,14 +548,14 @@ the last expression implicitly. Here’s an example of a function that returns a
 value:
 -->
 
-Les fonctions peuvent retourner des valeurs au code qui les appellent. Nous
-n'avons pas besoin de nommer les valeurs de retour, mais nous devons déclarer
-leur type après une flèche (`->`). Dans Rust, la valeur de retour de la fonction
-est liée à la valeur de l'expression finale dans le corps de la fonction. Vous
-pouvez sortir prématurément d'une fonction en utilisant le mot-clé `return` et
-en précisant une valeur, mais la plupart des fonctions vont retourner
-implicitement la dernière expression. Voici un exemple d'une fonction qui
-retourne une valeur :
+Les fonctions peuvent retourner des valeurs au code qui les appelle.
+Nous ne nommons pas les valeurs de retour, mais nous devons déclarer
+leur type après une flèche (`->`). En Rust, la valeur de retour de la fonction
+est la même que la valeur de l'expression finale dans le corps de la fonction.
+Vous pouvez sortir prématurément d'une fonction en utilisant le mot-clé `return`
+et en précisant la valeur de retour, mais la plupart des fonctions vont
+retourner implicitement la dernière expression.
+Voici un exemple d'une fonction qui retourne une valeur :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -585,7 +585,7 @@ fn cinq() -> i32 {
 fn main() {
     let x = cinq();
 
-    println!("La valeur de x est : {}", x);
+    println!("La valeur de x est : {}", x);
 }
 ```
 
@@ -596,10 +596,10 @@ Rust. Note that the function’s return type is specified too, as `-> i32`. Try
 running this code; the output should look like this:
 -->
 
-Il n'y a pas d'appel de fonction, de macro, même de déclaration `let` dans la
+Il n'y a pas d'appel de fonction, de macro, ni même d'instruction `let` dans la
 fonction `cinq` — uniquement le nombre `5` tout seul. C'est une fonction
 parfaitement valide avec Rust. Remarquez que le type de retour de la fonction a
-été précisé aussi, avec `-> i32`. Essayez d'exécuter ce code; le résultat
+été précisé aussi, avec `-> i32`. Essayez d'exécuter ce code ; le résultat
 devrait ressembler à ceci :
 
 <!--
@@ -617,7 +617,7 @@ $ cargo run
    Compiling functions v0.1.0 (file:///projects/functions)
     Finished dev [unoptimized + debuginfo] target(s) in 0.30 secs
      Running `target/debug/functions`
-La valeur de x est : 5
+La valeur de x est : 5
 ```
 
 <!--
@@ -644,15 +644,15 @@ return value, but the body of the function is a lonely `5` with no semicolon
 because it’s an expression whose value we want to return.
 -->
 
-Ensuite, la fonction `cinq` n'a pas de paramètre et déclare le type de valeur
-de retour, mais le corps de la fonction est un simple `5` sans point-virgule car
-c'est une expression dont nous voulons retourner la valeur.
+Deuxièmement, la fonction `cinq` n'a pas de paramètre et déclare le type de
+valeur de retour, mais le corps de la fonction est un simple `5` sans
+point-virgule car c'est une expression dont nous voulons retourner la valeur.
 
 <!--
 Let’s look at another example:
 -->
 
-Regardons un autre exemple :
+Regardons un autre exemple :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -678,7 +678,7 @@ fn plus_one(x: i32) -> i32 {
 fn main() {
     let x = plus_un(5);
 
-    println!("La valeur de x est : {}", x);
+    println!("La valeur de x est : {}", x);
 }
 
 fn plus_un(x: i32) -> i32 {
@@ -692,9 +692,9 @@ semicolon at the end of the line containing `x + 1`, changing it from an
 expression to a statement, we’ll get an error.
 -->
 
-Exécuter ce code va afficher `La valeur de x est : 6`. Mais si nous ajoutons un
+Exécuter ce code va afficher `La valeur de x est : 6`. Mais si nous ajoutons un
 point-virgule à la fin de la ligne qui contient `x + 1`, ce qui la transforme
-d'une expression à une déclaration, nous obtenons une erreur.
+d'une expression à une instruction, nous obtenons une erreur.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -720,7 +720,7 @@ fn plus_one(x: i32) -> i32 {
 fn main() {
     let x = plus_un(5);
 
-    println!("La valeur de x est : {}", x);
+    println!("La valeur de x est : {}", x);
 }
 
 fn plus_un(x: i32) -> i32 {
@@ -777,10 +777,9 @@ would fix the error.
 -->
 
 Le message d'erreur principal, “mismatched types” *(types inadéquats)* donne le
-coeur du problème de ce code. La définition de la fonction `plus_un` dit qu'elle
-va retourner un `i32`, mais les déclarations ne retournent pas de valeur, ceci
+cœur du problème de ce code. La définition de la fonction `plus_un` dit qu'elle
+va retourner un `i32`, mais les instructions ne retournent pas de valeur, ceci
 est donc représenté par `()`, un *tuple* vide. Par conséquent, rien n'est
 retourné, ce qui contredit la définition de la fonction et provoque une erreur.
 Rust affiche un message qui peut aider à corriger ce problème : il suggère
 d'enlever le point-virgule, ce qui va résoudre notre problème.
-    
