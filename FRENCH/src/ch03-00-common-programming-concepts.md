@@ -14,9 +14,9 @@ around using these concepts.
 
 Ce chapitre explique des concepts qui apparaissent dans presque tous les
 langages de programmation, et la manière dont ils fonctionnent en Rust. De
-nombreux langages sont basés sur des concepts communs. Dans ce chapitre, nous
-n'allons présenter aucun concept spécifique à Rust, mais nous les appliquerons
-à Rust et nous expliquerons les conventions qui leur sont liés.
+nombreux langages sont basés sur des concepts communs. Les concepts présentés
+dans ce chapitre ne sont pas spécifiques à Rust, mais nous les appliquerons
+à Rust et nous expliquerons les conventions qui leur sont liées.
 
 <!--
 Specifically, you’ll learn about variables, basic types, functions, comments,
@@ -41,13 +41,13 @@ apprendre dès le début vous procurera de solides bases pour débuter.
 > can find a list of the keywords in Appendix A.
 -->
 
-> #### Mot-clés
+> #### Mots-clés
 >
 > Le langage Rust possède un ensemble de *mots-clés* qui ont été réservés pour
 > l'usage exclusif du langage, tout comme le font d'autres langages. Gardez à
 > l'esprit que vous ne pouvez pas utiliser ces mots pour des noms de variables
 > ou de fonctions. La plupart des mots-clés ont une signification spéciale, et
 > vous les utiliserez pour réaliser de différentes tâches dans vos programmes
-> Rust; quelques-uns n'ont aucune fonctionnalité active pour le moment, mais ont
-> été réservés pour être ajoutés plus tard à Rust. Vous pouvez trouver la liste
-> de ces mots-clés dans l'Annexe A.
+> Rust ; quelques-uns n'ont aucune fonctionnalité active pour le moment, mais
+> ont été réservés pour être ajoutés plus tard à Rust.
+> Vous pouvez trouver la liste de ces mots-clés dans l'annexe A.
