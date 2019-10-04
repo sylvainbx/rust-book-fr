@@ -145,6 +145,7 @@ français.
 | sidebar | volet latéral | - |
 | signature | signature | d'une fonction |
 | signed | signé | - |
+| slash | barre oblique | - |
 | smart pointer | pointeur intelligent | - |
 | snake case | snake case | - |
 | snip | partie masquée ici | dans un encart |
