@@ -1,84 +1,111 @@
 # Traduction des termes
 
-Voici les principaux termes techniques qui ont été traduits de l'Anglais vers le Français.
+Voici les principaux termes techniques qui ont été traduits de l'anglais vers le
+français.
 
-| Anglais | Français | Observation(s) |
+| Anglais | Français | Remarques |
 | ------- | ------ | ------ |
-| ahead-of-time compiled language | langage compilé à la volée | - |
+| ahead-of-time compilation | compilation anticipée | sigle : AOT |
 | allocated | alloué | - |
 | annotate | indiquer | - |
+| Appendix | annexe | tout en minuscule (sauf en début de phrase) |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
-| arguments | arguments/paramètres | - |
-| arms | branches | explication de match |
+| argument | argument / paramètre | - |
+| arm | branche | dans une expression `match` |
+| array | tableau | - |
 | artifact | artéfact | - |
-| associated functions | fonctions associées | - |
-| binary crate | crate binaire | - |
-| X-bit number | nombre encodé sur X bits | - |
+| associated function | fonction associée | - |
+| attributes | attributs | - |
+| binary crate | crate binaire | s'utilise au féminin |
+| *n*-bit number | nombre encodé sur *n* bits | - |
+| boolean | booléen | - |
+| borrow | emprunt(er) | - |
 | bug | bogue | - |
 | build system | système de compilation | - |
-| bytes | octets | - |
+| byte | octet | - |
 | Cargo | Cargo | - |
 | catchall value | valeur passe-partout | - |
-| closures | fermetures | - |
+| Chapter | chapitre | tout en minuscule (sauf en début de phrase) |
+| closure | fermeture | - |
 | code review | revue de code | - |
 | collection | collection | - |
+| command | commande | dans un terminal |
 | commit | commit | - |
-| compound | composés | - |
-| concept chapters | chapitres théoriques | - |
+| compound | composé | - |
+| concept chapter | chapitre théorique | - |
 | concurrency | concurrence | - |
 | concurrent | concurrent | - |
-| constant | constante | - |
+| conditional | structure conditionnelle | - |
+| constant | constant / constante | - |
 | control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
-| corruption | être corrompu | - |
+| corruption | corruption / être corrompu | - |
 | CPU | processeur | - |
-| crashes | plantages | - |
-| crates | crates | - |
-| curly brackets | accolades | - |
+| crash | plantage | - |
+| crate | crate | nom féminin (une *crate*) |
+| curly bracket | accolade | - |
 | data representation | modèle de données | - |
-| dependencies | dépendances | - |
+| debug | déboguer | - |
+| debugging | débogage | - |
+| dependency | dépendance | - |
+| destructure | déstructurer | - |
 | DevOps | DevOps | - |
-| enums | énumérations | - |
-| enumerations | énumérations | - |
-| enum’s variants | variantes d'énumération | - |
-| exploits | failles | - |
-| expression | expression | explication de match |
-| flag | drapeau | (pour les lignes de commande / CLI) |
+| dot notation | la notation avec un point | - |
+| enum | énumération | - |
+| enumeration | énumération | - |
+| enum’s variant | variante d'énumération | - |
+| exploit | faille | - |
+| expression | expression | - |
+| field | champ | d'une structure |
+| flag | drapeau | pour les programmes en ligne de commande |
 | float | nombre à virgule flottante | - |
 | floating-point number | nombre à virgule flottante | - |
+| function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
-| generics | génériques | - |
+| generics | génériques / généricité | - |
 | global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |
-| handle | référence | - |
-| hash | hachage | - |
-| hash maps | tables de hachage | - |
+| handle | référence abstraite | - |
+| hash | hash / relatif au hachage | - |
+| hash map | table de hachage | - |
+| heap | tas | - |
 | Hello, world! | Hello, world! | - |
-| high-level | haut-niveau | - |
-| integer literal | entiers littéral | - |
-| integer overflow | dépassement d'entier | - |
-| Integrated Development Environment (IDE) | Integrated Development Environment (IDE) | - |
-| IOT | internet des objets (IOT) | - |
+| high-level | haut niveau | - |
+| identifier | identificateur | - |
+| immutability | immuabilité | - |
 | immutable | immuable | - |
-| iterators | itérateurs | - |
+| index | indice | - |
+| indexing | indexation | - |
+| input/output | entrée/sortie | sigle : IO |
+| instance | instance | - |
+| instantiate | instancier | créer une instance |
+| integer literal | littéral d'entiers | - |
+| integer overflow | dépassement d'entier | - |
+| Integrated Development Environment (IDE) | environnement de développement intégré (IDE) | - |
+| IOT | internet des objets (IOT) | - |
+| iterator | itérateur | - |
+| just-in-time compilation | compilation à la volée | sigle : JIT |
+| keyword | mot-clé | - |
 | legacy code | code instable que le programme a hérité avec le temps | - |
-| libraries | bibliothèques | - |
-| library crate | crate de bibliothèque | - |
-| lifetimes | durées de vie | - |
+| library | bibliothèque | - |
+| library crate | crate de bibliothèque | s'utilise au féminin |
+| lifetime | durée de vie | - |
 | linker | linker | - |
-| Listing | Encart | - |
-| low-level | bas-niveau | - |
+| Listing | encart | tout en minuscule (sauf en début de phrase) |
+| low-level | bas niveau | - |
 | machine learning | apprentissage automatique | - |
 | macro | macro | - |
 | main | main | - |
 | memory management | gestion de mémoire | - |
+| method | méthode | - |
 | modern | récent | - |
-| module  | module | - |
+| module | module | - |
 | mutability | mutabilité | - |
-| mutable | mutable/modifiable | - |
+| mutable | mutable | modifiable |
 | mutate | muter | - |
-| Note | Remarque | - |
+| Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
+| object-oriented language | langage orienté objet | - |
 | operating system | système d'exploitation | - |
 | ownership | possession | - |
 | package manager | système de gestion de paquets | - |
@@ -88,59 +115,78 @@ Voici les principaux termes techniques qui ont été traduits de l'Anglais vers 
 | PATH | PATH | - |
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |
-| placeholder | espace réservé | - |
+| placeholder | espace réservé | `{}` pour `fmt` |
 | prelude | étape préliminaire | - |
-| procedural macros | macroprocédures | - |
-| project chapters | chapitre de projet | - |
-| raw identifiers | identificateurs primaires | - |
+| procedural macro | macro procédurale | - |
+| project chapter | chapitre de projet | - |
+| raw identifier | identificateur brut | - |
 | README | README | - |
 | refactoring | remaniement | - |
-| reference | réference | - |
+| reference | référence | - |
 | registry | registre | - |
 | regression | régression | - |
-| reproducible builds | compilation reproductive | - |
+| remainder | modulo | opération `%` |
+| reproducible build | compilation reproductible | - |
+| return | retourner | - |
 | run | exécuter | pour les programmes |
-| Rustaceans | Rustacés | - |
+| Rustacean | Rustacé | - |
 | section header | entête de section | - |
 | semantic version | version sémantique | - |
 | scalar | scalaire | - |
 | scope | portée | - |
 | script | script | - |
-| shadow | créer un fantôme | explication variable type inference |
-| Shadowing | La création de fantôme | variable type inference |
-| shell | terminal/invite de commande | - |
+| section header | en-tête de section | - |
+| semantic version | version sémantique | - |
+| semantic versioning | versionnage sémantique | abréviation : SemVer |
+| shadow | masquer | remplacer une variable par une autre de même nom |
+| shadowing | masquage | - |
+| shell | terminal / invite de commande | - |
 | shorthand | abréviation | - |
 | sidebar | volet latéral | - |
 | signature | signature | d'une fonction |
-| smart pointers | pointeurs intelligents | - |
+| signed | signé | - |
+| smart pointer | pointeur intelligent | - |
 | snake case | snake case | - |
-| snip | code inchangé masqué ici | inside Listings |
-| standard | une convention/une norme | - |
+| snip | partie masquée ici | dans un encart |
+| space | espace | ce mot est féminin quand on parle du caractère typographique |
+| square brackets | crochets | - |
+| stack | pile | - |
+| standard | standard *(adj. inv.)* / norme *(n.f.)* | - |
+| standard error | erreur standard | - |
+| standard input | entrée standard | - |
 | standard library | bibliothèque standard | - |
-| statement | instruction/mot-clé | - |
-| statement | déclaration | - |
+| standard output | sortie standard | - |
+| statement | instruction | - |
 | statically typed | statiquement typé | - |
-| strings | chaînes de caractères | - |
-| structs | structures | - |
-| submodules | sous-modules | - |
-| systems concepts | notions système | - |
-| systems-level | niveau-systèmes | - |
+| string | chaîne de caractères | - |
+| `String` | `String` | nom féminin (une `String`) |
+| struct | structure | - |
+| submodule | sous-module | - |
+| systems concept | notion système | - |
+| systems-level | niveau système | - |
 | systems-level code | code système | - |
 | terminal | terminal | - |
-| traits | traits | - |
-| Troubleshooting | Dépannage | - |
+| trait | trait | - |
+| troubleshooting | dépannage | - |
+| tuple | tuple | - |
+| tuple struct | structure tuple | - |
 | type | type | - |
 | type annotation | annotation de type | - |
-| type inference | déduction de type | - |
+| type inference | inférence de types | - |
 | two’s complement | complément à deux | - |
 | two’s complement wrapping | rebouclage du complément à deux | - |
-| underlying operating system | élément du système d'exploitation | - |
-| underscore | trait de soulignement "_" | - |
-| unsafe | code non sécurisé | - |
+| underlying operating system | système d'exploitation sous-jacent | - |
+| underscore | tiret bas | le caractère `_` |
+| unit-like struct | structure unitaire | - |
+| unit type | type unité | - |
+| unit value | valeur unité | - |
+| unsafe | non sécurisé | - |
 | unsigned | sans signe (toujours positif) | - |
+| unsigned | non signé | - |
 | user input | saisie utilisateur | - |
 | variable | variable | - |
-| variants | variantes | - |
-| vectors | vecteurs | - |
-| version control system (VCS) | système de gestion de version (VCS) | - |
-| zero-cost abstractions | abstractions sans coût | - |
+| variant | variante | d'une énumération |
+| vector | vecteur | - |
+| version control system (VCS) | système de gestion de versions (VCS) | - |
+| warning | avertissement | - |
+| zero-cost abstraction | abstraction sans coût | - |
