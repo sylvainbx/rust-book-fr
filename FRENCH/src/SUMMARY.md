@@ -19,3 +19,5 @@
     - [Les types de données](ch03-02-data-types.md)
 
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
+
+- [Des erreurs récupérables avec `Result`](ch09-02-recoverable-errors-with-result.md)

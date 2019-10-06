@@ -118,6 +118,7 @@ français.
 | prelude | étape préliminaire | - |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
+| propagate | propager | - |
 | raw identifier | identificateur brut | - |
 | README | README | - |
 | refactoring | remaniement | - |
@@ -165,6 +166,7 @@ français.
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | trait | trait | - |
+| trait object | objet trait | - |
 | troubleshooting | dépannage | - |
 | tuple | tuple | - |
 | tuple struct | structure tuple | - |
