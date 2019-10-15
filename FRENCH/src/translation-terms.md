@@ -63,6 +63,7 @@ français.
 | function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
 | generics | génériques / généricité | - |
+| getter | accesseur | - |
 | global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |
 | handle | référence abstraite | - |
@@ -112,6 +113,7 @@ français.
 | panic | panique(r) | - |
 | parallelism | parallélisme | - |
 | parameter | paramètre | - |
+| parse | interpréter | - |
 | PATH | PATH | - |
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |

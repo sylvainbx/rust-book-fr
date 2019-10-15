@@ -1,10 +1,8 @@
-<!-- TODO bonpatron.com -->
-
 <!--
 ## To `panic!` or Not to `panic!`
 -->
 
-## To `panic!` or Not to `panic!`
+## Paniquer ou ne pas paniquer, telle est la question ...
 
 <!--
 So how do you decide when you should call `panic!` and when you should return
@@ -20,18 +18,18 @@ unrecoverable one. Therefore, returning `Result` is a good default choice when
 you’re defining a function that might fail.
 -->
 
-Donc, comment décider quand on doit faire un `panic!` et quand nous devons
-retourner un `Result` ? Quand un code fait un panic, il n'y a pas de moyen de
-continuer l'exécution. Vous pourriez faire appel à `panic!` pour n'importe
-quelle situation d'erreur, peux importe s'il est possible de continuer
-l'exécution ou non, mais alors vous prenez la décision de tout arrêter à la
-place du code appelant. Quand vous choisissez de retourner une valeur `Result`,
-vous donnez plus de choix au code appelant plutôt que si vous preniez des
-décisions à sa place. Le code appelant peut choisir d'essayer de récupérer
-l'erreur de manière appropriée à cette situation, ou il peut décider que dans
-ce cas une valeur `Err` est irrécupérable, donc utiliser `panic!` et changer
-votre erreur récupérable en erreur irrécupérable. Ainsi, retourner `Result` est
-un bon choix par défaut quand vous construisez une fonction qui peut échouer.
+Comment décider si vous devez utiliser `panic!` ou si vous devez retourner un
+`Result` ? Quand un code panique, il n'y a pas de moyen de récupérer la
+situation. Vous pourriez utiliser `panic!` pour n'importe quelle situation
+d'erreur, peu importe s'il est possible de récupérer la situation ou non, mais
+vous prenez alors la décision de tout arrêter à la place du code qui appelle
+votre code. Lorsque vous choisissez de retourner une valeur `Result`, vous
+donnez plus de choix au code appelant plutôt que de prendre des décisions à sa
+place. Le code appelant peut choisir d'essayer de récupérer l'erreur de manière
+appropriée à la situation, ou il peut décider que dans ce cas une valeur `Err`
+est irrécupérable, il va donc utiliser `panic!` et convertir votre erreur
+récupérable en erreur irrécupérable. Ainsi, retourner `Result` est un bon choix
+par défaut lorsque vous définissez une fonction qui peut échouer.
 
 <!--
 In rare situations, it’s more appropriate to write code that panics instead of
@@ -42,20 +40,19 @@ conclude with some general guidelines on how to decide whether to panic in
 library code.
 -->
 
-Dans quelques situations, c'est plus approprié d'écrire du code qui fait un
-panic au lieu de retourner un `Result`, mais elles sont moins fréquentes.
-Voyons pourquoi il est approprié pourquoi il est plus approprié de faire un
-panic dans des exemples, des prototypes, et des tests; ensuite des situations
-où vous savez qu'en tant qu'humain qu'une méthode ne peut pas échouer, mais que
-le compilateur n'a pas de raison de le faire; et nous allons conclure par
-quelques lignes conductrices générales sur comment décider s'il faut paniquer
-dans le code des librairies.
+Dans certaines situations, il est plus approprié d'écrire du code qui panique
+plutôt que de retourner un `Result`. Nous allons voir pourquoi il est approprié
+de paniquer dans les exemples, les prototypes, et les tests. Ensuite, nous
+verrons des situations dans lesquelles vous savez qu'en tant qu'humain qu'un
+code ne peut pas échouer mais que le compilateur ne peut pas le déduire par
+lui-même. Puis nous allons conclure le chapitre par quelques lignes directrices
+générales pour décider s'il faut paniquer dans le code des librairies.
 
 <!--
 ### Examples, Prototype Code, and Tests
 -->
 
-### Les exemples, prototypes, et les tests sont les endroits parfaits pour Panic
+### Les exemples, prototypes, et les tests
 
 <!--
 When you’re writing an example to illustrate some concept, having robust
@@ -65,12 +62,12 @@ panic is meant as a placeholder for the way you’d want your application to
 handle errors, which can differ based on what the rest of your code is doing.
 -->
 
-Quand vous écrivez un exemple pour illustrer un concept, avoir un code de
-gestion des erreurs très résilient peut rendre l'exemple moins clair. Dans les
-exemples, il est courant d'utiliser une méthode comme `unwrap` qui peut faire
-un `panic!` qui remplace le code de gestion de l'erreur que vous utiliseriez
-dans votre application, qui peut changer en fonction de ce que le reste de
-votre code va faire.
+Lorsque vous écrivez un exemple pour illustrer un concept, avoir un code de
+gestion des erreurs très résilient peut nuire à la clarté de l'exemple. Dans
+les exemples, il est courant d'utiliser une méthode comme `unwrap` (qui peut
+faire un `panic!`) pour remplacer le code de gestion de l'erreur que vous
+utiliseriez en temps normal dans votre application, et qui peut changer en
+fonction de ce que le reste de votre code va faire.
 
 <!--
 Similarly, the `unwrap` and `expect` methods are very handy when prototyping,
@@ -79,9 +76,9 @@ your code for when you’re ready to make your program more robust.
 -->
 
 De la même manière, les méthodes `unwrap` et `expect` sont très pratiques pour
-coder des prototypes, avant de décider comment gérer les erreurs. Ce sont des
-indicateurs claires dans votre code pour plus tard quand vous serez prêt à
-rendre votre code plus résilient aux échecs.
+coder des prototypes, avant même de décider comment gérer les erreurs. Ce sont
+des indicateurs clairs dans votre code pour plus tard quand vous serez prêt à
+rendre votre code plus résiliant aux échecs.
 
 <!--
 If a method call fails in a test, you’d want the whole test to fail, even if
@@ -92,7 +89,7 @@ happen.
 
 Si l'appel à une méthode échoue dans un test, nous voulons que tout le test
 échoue, même si cette méthode n'est pas la fonctionnalité que nous testons.
-Parce que `panic!` est la manière de le marquer un échec, utiliser `unwrap` ou
+Comme `panic!` est la manière de le marquer un échec, utiliser `unwrap` ou
 `expect` est exactement ce qui est nécessaire.
 
 <!--
@@ -112,23 +109,14 @@ have an `Err` variant, it’s perfectly acceptable to call `unwrap`. Here’s an
 example:
 -->
 
-Il peut parfois être approprié d'utiliser `unwrap` quand vous avez un code
-logique qui garantie que `Result` aura toujours une valeur de type `Ok`, mais
-que c'est une logique que le compilateur ne comprend pas. Vous travaillez
-toujours une valeur de type `Result` que vous devez gérer : quel que soit
-l'instruction que vous appelez, elle a toujours la possibilité d'échouer,
-même si dans ce cas particulier, c'est logiquement impossible. Si vous êtes
-sûr en inspectant le code manuellement que vous n'allez jamais obtenir une
-variante de `Err`, il est tout à fait acceptable d'utiliser `unwrap`. Voici un
-exemple :
-
-<!--
-```rust
-use std::net::IpAddr;
-
-let home: IpAddr = "127.0.0.1".parse().unwrap();
-```
--->
+Vous pouvez utiliser `unwrap` lorsque vous avez une logique qui garantit que
+`Result` sera toujours une valeur `Ok`, mais le compilateur n'est pas conçu pour
+comprendre ce genre de logique. Vous devrez toujours travailler avec des valeurs
+de type `Result` : de manière générale, toutes les opérations que vous utilisez
+peuvent toujours échouer, même si dans votre cas c'est logiquement impossible.
+Si en inspectant manuellement le code vous vous rendez compte que vous n'aurez
+jamais une variante `Err`, vous pouvez tout à fait utiliser `unwrap`. Voici un
+exemple :
 
 ```rust
 use std::net::IpAddr;
@@ -148,17 +136,17 @@ hardcoded into the program and therefore *did* have a possibility of failure,
 we’d definitely want to handle the `Result` in a more robust way instead.
 -->
 
-Nous créons une instance de `IpAddr` en parsant une chaine de caractères pure.
-Nous savons que `127.0.0.1` est une adresse IP valide, donc il est convenable
-d'utiliser `unwrap` ici. Toutefois, avoir une chaine de caractères valide,
-codée en dur ne change jamais le type de retour de la méthode `parse` : nous
-obtenons toujours une valeur de type `Result`, et le compilateur va nous faire
-gérer le `Result` comme si la variante `Err` est toujours probable car le
-compilateur n'est pas encore suffisamment intelligent pour analyser que cette
-chaine de caractères est toujours une adresse IP valide. Si le texte de
-l'adresse IP provient de l'utilisateur plutôt que d'être codé en dur dans le
-programme, et fait en sorte qu'il y a désormais une possibilité d'erreur, nous
-devrions désormais gérer le `Result` de manière plus résiliente.
+Nous créons une instance de `IpAddr` en interprétant une chaîne de caractères
+codée en dur dans le code. Nous savons que `127.0.0.1` est une adresse IP
+valide, donc il est acceptable d'utiliser `unwrap` ici. Toutefois, avoir une
+chaîne de caractères valide, codée en dur ne change jamais le type de retour de
+la méthode `parse` : nous obtenons toujours une valeur de type `Result`, et le
+compilateur va nous demander de gérer le `Result` au cas où nous obtenons la
+variante `Err` car le compilateur n'est pas encore suffisamment intelligent pour
+comprendre que cette chaîne de caractères est toujours une adresse IP valide. Si
+le texte de l'adresse IP provient de l'utilisateur plutôt que d'être codé en dur
+dans le programme fait qu'il y a désormais une possibilité d'erreur, alors nous
+devrions vouloir gérer le `Result` de manière plus résilient.
 
 <!--
 ### Guidelines for Error Handling
@@ -174,11 +162,11 @@ invalid values, contradictory values, or missing values are passed to your
 code—plus one or more of the following:
 -->
 
-Il est recommandé de faire un `panic!` dans votre code lorsqu'il s'exécute dans
-de mauvaises conditions. Dans ce sens, les mauvaises conditions sont lorsque un
-postulat, une garantie, un contrat ou une invariante a été rompue, comme des
-valeurs invalides, contradictoires ou manquantes fournis à votre code, par un
-ou plusieurs des éléments suivants :
+Il est recommandé de faire paniquer votre code dès qu'il s'exécutera dans de
+mauvaises conditions. Dans ce cas, une *mauvaise condition* est lorsqu'un
+postulat, une garantie, un contrat ou un invariant a été rompu, comme des
+valeurs invalides, contradictoires ou manquantes qui sont fournies à votre code,
+ainsi qu'un ou plusieurs des éléments suivants :
 
 <!--
 * The bad state is not something that’s *expected* to happen occasionally.
@@ -186,10 +174,10 @@ ou plusieurs des éléments suivants :
 * There’s not a good way to encode this information in the types you use.
 -->
 
-* Ces mauvaises conditions ne sont pas *prévues* pour surgir de temps en temps.
+* Ces mauvaises conditions ne sont pas *censées* apparaître par intermittence.
 * Après cette instruction, votre code a besoin de ne pas être dans ces
 mauvaises conditions.
-* Il n'y a pas de bonne façon de coder ces informations dans les types que vous
+* Il n'y a pas de bonne façon d'encoder l'information dans les types que vous
 utilisez.
 
 <!--
@@ -201,11 +189,12 @@ and it returns an invalid state that you have no way of fixing.
 -->
 
 Si quelqu'un utilise votre code et lui fournit des valeurs qui n'ont pas de
-sens, la meilleure des choses à faire et de faire un `panic!` et avertir
-le développeur de votre librairie du bogue dans leur code afin qu'il le résoud
-pendant la phase de développement. De la même manière, `panic!` est parfois
-approprié si vous appelez un code externe dont vous n'avez pas la main dessus,
-et qu'il retourne de mauvaises conditions que vous ne pouvez pas corriger.
+sens, la meilleure des choses à faire et d'utiliser `panic!` et d'avertir la
+personne qui utilise votre librairie du bogue dans leur code afin qu'il le
+règle pendant la phase de développement. De la même manière, `panic!` est
+parfois approprié si vous appelez du code externe dont vous n'avez pas la main
+dessus, et qu'il retourne de mauvaises conditions que vous ne pouvez pas
+corriger.
 
 <!--
 However, when failure is expected, it’s more appropriate to return a `Result`
@@ -215,15 +204,13 @@ limit. In these cases, returning a `Result` indicates that failure is an
 expected possibility that the calling code must decide how to handle.
 -->
 
-Lorsque les conditions sont mauvaises, mais qui est prévu que cela arrive peu
-importe la façon dont vous écrivez votre code, il est plus approprié de
+Cependant, lorsque un potentiel échec est prévisible, il est plus approprié de
 retourner un `Result` plutôt que faire appel à `panic!`. Il peut s'agir par
-exemple d'un parseur qui reçoit des données erronées, ou une requête HTTP
-qui renvoie un statut qui indique que vous avez atteint une limite de débit.
-Dans ce cas, vous devriez que cet échec est une possibilité en retournant un
-`Result` pour propager ces mauvaises conditions vers le haut pour que le code
-appelant puisse décider quoi faire pour gérer le problème. Faire un `panic!` ne
-serait pas la manière la plus appropriée ici pour gérer ces problèmes.
+exemple d'un interpréteur qui reçoit des données erronées, ou une requête HTTP
+qui retourne un statut qui indique que vous avez atteint une limite de débit.
+Dans ces cas-ci, vous devriez indiquer qu'il est possible que cela puisse
+échouer en retournant un `Result` afin que le code appelant puisse décider quoi
+faire pour gérer le problème.
 
 <!--
 When your code performs operations on values, your code should verify the
@@ -244,21 +231,21 @@ documentation for the function.
 
 Lorsque votre code effectue des opérations sur des valeurs, votre code devrait
 d'abord vérifier que ces valeurs sont valides, et faire un `panic!` si les
-valeurs ne sont sont pas correctes. C'est pour essentiellement des raisons de
-sécurité : tenter de travailler avec des données invalides peut exposer votre
+valeurs ne sont pas correctes. C'est pour essentiellement des raisons de
+sécurité : tenter de travailler avec des données invalides peut exposer votre
 code à des vulnérabilités. C'est la raison principale pour laquelle la
-librairie standard va faire un `panic!` si vous essayez d'accéder d'accéder à
-la mémoire en dehors des limites : essayer d'accéder à de la mémoire qui n'a
+bibliothèque standard va faire un `panic!` si vous essayez d'accéder d'accéder à
+la mémoire en dehors des limites : essayer d'accéder à de la mémoire qui n'a
 pas de rapport avec la structure des données actuelle est un problème de
-sécurité courant. Les fonctions ont parfois des *contrats* : leur comportement
+sécurité fréquent. Les fonctions ont parfois des *contrats* : leur comportement
 est garanti uniquement si les données d'entrée remplissent des conditions
-particulières. Faire un panic quand le contrat est violé est sensé, car une
-violation de contrat indique toujours un bogue du côté de l'appelant, et ce
-n'est le genre d'erreur que vous voulez que le code appelant gère
-explicitement. En fait, il n'y a aucun moyen raisonnable de récupérer le code
-d'appel : le *développeur* du code appelant doit corriger le code. Les contrats
-de fonction, en particulier quand une violation va faire un panic, doivent être
-expliqués dans la documentation de l'API pour la fonction.
+particulières. Paniquer lorsque le contrat est violé est justifié, car une
+violation de contrat signifie toujours un bogue du côté de l'appelant, et ce
+n'est le genre d'erreur que vous voulez que le code appelant gère explicitement.
+En fait, il n'y a aucun moyen rationnel pour que le code appelant se corrige :
+le *développeur* du code appelant doit corriger le code. Les contrats pour les
+fonctions, en particulier lorsque une violation va faire paniquer, doivent être
+expliqués dans la documentation de l'API des dites fonctions.
 
 <!--
 However, having lots of error checks in all of your functions would be verbose
@@ -276,24 +263,24 @@ the parameter is never negative.
 -->
 
 Cependant, avoir beaucoup de vérifications d'erreurs dans toutes vos fonctions
-risque d'être verbeux et ennuyeux. Heureusement, vous pouvez utiliser le
-système de type de Rust (et donc la vérification de type du compilateur) pour
-faire une partie des vérifications à votre place. Si votre fonction un
-paramètre d'un type particulier, vous pouvez continuer à écrire votre code en
-sachant que le compilateur s'est déjà assuré que vous avez une valeur valide.
-Par exemple, si vous avez un type de valeur plutôt qu'un `Option`, votre
-programme s'attend d'avoir *autre chose* plutôt que *rien*. Votre code n'a
-donc pas à gérer les deux cas de variantes `Some` et `None` : il n'aura qu'un
-seul cas pour avoir une valeur. Du code qui essaye de ne rien fournir à votre
+risque d'être verbeux et ennuyant. Heureusement, vous pouvez utiliser le système
+de type de Rust (et donc la vérification de type que fait le compilateur) pour
+assurer une partie des vérifications à votre place. Si votre fonction a un
+paramètre d'un type précis, vous pouvez continuer à écrire votre code en sachant
+que le compilateur s'est déjà assuré que vous avez une valeur valide. Par
+exemple, si vous obtenez un type de valeur plutôt qu'une `Option`, votre
+programme s'attend à obtenir *quelque chose* plutôt que *rien*. Votre code n'a
+donc pas à gérer les deux cas de variantes `Some` et `None` : il n'aura qu'une
+seule possibilité de valeur. Du code qui essaye de ne rien fournir à votre
 fonction ne compilera même pas, donc votre fonction n'a pas besoin de vérifier
-ce cas-ci lors de l'exécution. Un autre exemple est d'utiliser un type unsigned
-integer comme `u32`, qui garantit que le paramètre n'est jamais négatif.
+ce cas-ci lors de l'exécution. Un autre exemple est d'utiliser un type d'entier
+sans signe comme `u32`, qui garantit que le paramètre n'est jamais négatif.
 
 <!--
 ### Creating Custom Types for Validation
 -->
 
-### Créer des types personnalisés pour la Validation
+### Créer des types personnalisés pour la vérification
 
 <!--
 Let’s take the idea of using Rust’s type system to ensure we have a valid value
@@ -309,17 +296,17 @@ types, for example, letters instead.
 -->
 
 Allons plus loin dans l'idée d'utiliser le système de types de Rust pour
-assurer d'avoir une valeur valide en créant un type personnalisé pour
-validation. Souvenez-vous du jeu du plus ou du moins du Chapitre 2 où notre
-code demandait à l'utilisateur de deviner un nombre entre 1 et 100. Nous
-n'avons jamais validé que le nombre fourni par l'utilisateur était entre ces
-nombres avant de le comparer à notre nombre secret; nous avons seulement validé
-que le nombre était positif. Dans ce cas, les conséquences ne sont pas très
-graves : notre résultat "Too high" ou "Too low" sera toujours correct. Ce
-serait une amélioration utile pour guider les suppositions de l'utilisateur
-vers des valeurs valides et d'avoir différents comportements quand un
-utilisateur propose un nombre en dehors des limites versus quand un utilisateur
-renseigne, par exemple, des lettres à la place.
+s'assurer d'avoir une valeur valide en créant un type personnalisé pour la
+vérification. Souvenez-vous du jeu du plus ou du moins du chapitre 2 dans lequel
+notre code demandait à l'utilisateur de deviner un nombre entre 1 et 100. Nous
+n'avons jamais validé que le nombre saisi par l'utilisateur était entre ces
+nombres avant de le comparer à notre nombre secret ; nous avons seulement
+vérifié que le nombre était positif. Dans ce cas, les conséquences ne sont pas
+très graves : notre résultat “C'est plus !” ou “C'est moins !” sera toujours
+correct. Mais ce serait une amélioration utile pour guider les suppositions de
+l'utilisateur vers des valeurs valides et pour avoir des comportements
+différents lorsqu'un utilisateur propose un nombre en dehors des limites ou, par
+exemple, lorsqu'un utilisateur saisit des lettres à la place.
 
 <!--
 One way to do this would be to parse the guess as an `i32` instead of only a
@@ -327,10 +314,9 @@ One way to do this would be to parse the guess as an `i32` instead of only a
 number being in range, like so:
 -->
 
-Une façon de faire cela serait de faire un parse du nombre renseigné en un
-`i32` plutôt que seulement un `u32` pour permettre des potentiels nombres
-négatifs, et ensuite vérifier que le nombre est dans la plage autorisée, comme
-ceci :
+Une façon de faire cela serait stocker le nombre saisi dans un `i32` plutôt que
+dans un `u32` afin de permettre d'obtenir potentiellement des nombres négatifs,
+et ensuite vérifier que le nombre est dans la plage autorisée, comme ceci :
 
 <!--
 ```rust,ignore
@@ -355,20 +341,20 @@ loop {
 
 ```rust,ignore
 loop {
-    // --snip--
+    // -- partie masquée ici --
 
-    let guess: i32 = match guess.trim().parse() {
-        Ok(num) => num,
+    let supposition: i32 = match supposition.trim().parse() {
+        Ok(nombre) => nombre,
         Err(_) => continue,
     };
 
-    if guess < 1 || guess > 100 {
-        println!("The secret number will be between 1 and 100.");
+    if supposition < 1 || supposition > 100 {
+        println!("Le nombre secret est entre 1 et 100.");
         continue;
     }
 
-    match guess.cmp(&secret_number) {
-    // --snip--
+    match supposition.cmp(&nombre_secret) {
+    // -- partie masquée ici --
 }
 ```
 
@@ -380,11 +366,12 @@ comparisons between `guess` and the secret number knowing that `guess` is
 between 1 and 100.
 -->
 
-L'expression du `if` vérifie si nous valeur est en dehors des limites, et
-informe l'utilisateur du problème, et utilise `continue` pour passer à la
-prochaine itération de la boucle et demander un nouveau nombre à deviner. Après
-l'expression `if`, nous pouvons continuer avec la comparaison entre `guess` et
-le nombre secret en sachant que `guess` est entre 1 et 100.
+L'expression `if` vérifie si la valeur est en dehors des limites, et informe
+l'utilisateur du problème le cas échéant, puis utilise `continue` pour passer à
+la prochaine itération de la boucle et ainsi demander un nouveau nombre à
+deviner. Après l'expression `if`, nous pouvons continuer avec la comparaison
+entre `supposition` et le nombre secret tout en sachant que `supposition` est
+entre 1 et 100.
 
 <!--
 However, this is not an ideal solution: if it was absolutely critical that the
@@ -393,11 +380,11 @@ with this requirement, having a check like this in every function would be
 tedious (and might impact performance).
 -->
 
-Cependant, ce n'est pas une solution idéale : si c'était absolument critique
+Cependant, ce n'est pas une solution idéale : si c'était absolument critique
 que le programme travaille avec des valeurs entre 1 et 100, et qu'il aurait de
-nombreuses fonctions qui exige cela, cela pourrait être fastidieux (et cela
-impacterait potentiellement la performance) de faire une validation comme
-celle-ci dans chaque fonction.
+nombreuses fonctions qui reposent sur cette condition, cela pourrait être
+fastidieux (et cela impacterait potentiellement la performance) de faire une
+vérification comme celle-ci dans chacune de ces fonctions.
 
 <!--
 Instead, we can make a new type and put the validations in a function to create
@@ -409,12 +396,12 @@ receives a value between 1 and 100.
 -->
 
 A la place, nous pourrions construire un nouveau type et y intégrer les
-validations dans une fonction pour créer une instance de ce type plutôt que de
-répliquer les validations partout. De cette manière, c'est plus sûr pour les
-fonctions d'utiliser le nouveau type dans leurs signatures et d'utiliser avec
-confiance les valeurs qu'ils reçoivent. L'entrée 9-9 montre une façon de
-définir un type `Guess` qui ne créera une instance de `Guess` uniquement si la
-fonction `new` reçoit une valeur entre 1 et 100 :
+vérifications dans la fonction de création d'une instance de ce type plutôt que
+de répéter partout les vérifications. Il est ainsi plus sûr pour les fonctions
+d'utiliser ce nouveau type dans leurs signatures et d'utiliser avec confiance
+les valeurs qu'ils reçoivent. L'entrée 9-10 montre une façon de définir un type
+`Supposition` qui ne créera une instance de `Supposition` que si la fonction
+`new` reçoit une valeur entre 1 et 100 :
 
 <!--
 ```rust
@@ -441,23 +428,23 @@ impl Guess {
 -->
 
 ```rust
-pub struct Guess {
-    value: i32,
+pub struct Supposition {
+    valeur: i32,
 }
 
-impl Guess {
-    pub fn new(value: i32) -> Guess {
-        if value < 1 || value > 100 {
-            panic!("Guess value must be between 1 and 100, got {}.", value);
+impl Supposition {
+    pub fn new(valeur: i32) -> Supposition {
+        if valeur < 1 || valeur > 100 {
+            panic!("La supposition doit se trouver entre 1 et 100, et nous avons {}.", valeur);
         }
 
         Guess {
-            value
+            valeur
         }
     }
 
-    pub fn value(&self) -> i32 {
-        self.value
+    pub fn valeur(&self) -> i32 {
+        self.valeur
     }
 }
 ```
@@ -467,16 +454,17 @@ impl Guess {
 values between 1 and 100</span>
 -->
 
-<span class="caption">Entrée 9-9: un type `Guess` qui ne va continuer
-uniquement si la valeur est entre 1 et 100</span>
+<span class="caption">Entrée 9-10 : un type `Supposition` qui ne va continuer
+que si la valeur est entre 1 et 100</span>
 
 <!--
 First, we define a struct named `Guess` that has a field named `value` that
 holds an `i32`. This is where the number will be stored.
 -->
 
-Premièrement, nous définissons un struct qui s'appelle `Guess` qui a un champ
-`value` qui stocke un `u32`. C'est là que le nombre sera stocké.
+Premièrement, nous définissons une structure qui s'appelle `Supposition` qui a
+un champ `valeur` qui stocke un `i32`. C'est dans ce dernier que le nombre sera
+stocké.
 
 <!--
 Then we implement an associated function named `new` on `Guess` that creates
@@ -494,19 +482,20 @@ of a `panic!` in the API documentation that you create in Chapter 14. If
 to the `value` parameter and return the `Guess`.
 -->
 
-Ensuite, nous ajoutons une fonction associée `new` sur `Guess` qui crée des
-instances de `Guess`. La fonction `new` est conçue pour avoir un paramètre
-`value` de type `u32` et de retourner un `Guess`. Le code dans le corps de la
-fonction `new` vérifie `value` pour s'assurer que c'est bien entre 1 et 100.
-Si `value` échoue à ce test, nous faisons un `panic!`, qui alertera le
-développeur qui écrit le code appelant qu'il a un bogue qu'il a besoin de
-régler, car créer un `Guess` avec un `value` en dehors de cette plage va violer
-le contrat sur lequel `Guess::new` s'appuie. Les conditions dans lesquels
-`Guess::new` va faire un panic devrait être explicité dans sa documentation sur
-l'API ouverte au public; nous verrons les conventions de documentation pour
-indiquer un `panic!` lorsque vous créerez votre documentation d'API au
-Chapitre 14. Si `value` réussit le test, nous allons créer un nouveau `Guess`
-avec son champ `value` assigné au paramètre `value` et retourner le `Guess`.
+Deuxièmement, nous implémentons une fonction associée `new` sur `Supposition`
+qui crée des instances de `Supposition`. La fonction `new` est conçue pour
+recevoir un paramètre `valeur` de type `i32` et retourner une `Supposition`. Le
+code dans le corps de la fonction `new` teste `valeur` pour s'assurer qu'elle
+est bien entre 1 et 100. Si `valeur` échoue à ce test, nous faisons appel à
+`panic!`, qui alertera le développeur qui écrit le code appelant qu'il a un
+bogue qu'il doit régler, car créer une `Supposition` avec `valeur` en dehors de
+cette plage va violer le contrat sur lequel s'appuie `Supposition::new`. Les
+conditions dans lesquels `Supposition::new` va paniquer devraient être
+expliquées dans la documentation sur l'API publique ; nous verrons les
+conventions pour indiquer l'éventualité d'un `panic!` dans la documentation de
+l'API que vous allez créer au chapitre 14. Si `valeur` passe le test, nous
+créons une nouvelle `Supposition` avec son champ `valeur` qui prend la valeur du
+paramètre `valeur` et retourne cette `Supposition`.
 
 <!--
 Next, we implement a method named `value` that borrows `self`, doesn’t have any
@@ -520,16 +509,17 @@ the module *must* use the `Guess::new` function to create an instance of
 hasn’t been checked by the conditions in the `Guess::new` function.
 -->
 
-Ensuite, nous implémentons une méthode `value` qui emprunte `self`, qui n'a
-aucun autre paramètre, et retourne un `u32`. C'est un type de méthode qui est
-parfois appelé un *getter*, car sa fonction est de récupérer (NdT: get) des
-données des champs et de les retourner. Cette méthode publique est nécessaire,
-car le champ `value` du struct `Guess` est privé. C'est important que le champ
-`value` soit privé pour que le code qui utilise la struct `Guess` ne puisse pas
-assigner `value` directement : le code en dehors du module *doit* utiliser la
-fonction `Guess::new` pour créer une instance de `Guess`, qui s'assure qu'il
-n'y a pas de façon pour un `Guess` d'avoir un `value` qui n'a pas été vérifié
-par les fonctions dans la fonction `Guess:new`.
+Ensuite, nous implémentons une méthode `valeur` qui emprunte `self`, elle n'a
+aucun autre paramètre, et retourne un `i32`. Ce genre de méthode est parfois
+appelé un *accesseur*, car son rôle est d'accéder aux données des champs et de
+les retourner. Cette méthode publique est nécessaire car le champ `valeur` de la
+structure `Supposition` est privé. Il est important que le champ `valeur` soit
+privé pour que le code qui utilise la structure `Supposition` ne puisse pas
+directement assigner une valeur à `valeur` : le code en dehors du module *doit*
+utiliser la fonction `Supposition::new` pour créer une instance de
+`Supposition`, qui se charge de rendre impossible la création d'une
+`Supposition` avec un champ `valeur` qui n'a pas été vérifié par les conditions
+dans la fonction `Supposition:new`.
 
 <!--
 A function that has a parameter or returns only numbers between 1 and 100 could
@@ -537,10 +527,10 @@ then declare in its signature that it takes or returns a `Guess` rather than an
 `i32` and wouldn’t need to do any additional checks in its body.
 -->
 
-Une fonction qui a un paramètre ou qui retourne des nombres uniquement entre 1
-et 100 peut ensuite utiliser dans sa signature qu'elle prend en paramètre ou
-retourne un `Guess` plutôt qu'un `u32` et n'aura pas besoin de faire des
-vérifications supplémentaires dans son code.
+Une fonction qui prend en paramètre ou qui retourne des nombres uniquement entre
+1 et 100 peut ensuite déclarer dans sa signature qu'elle prend en paramètre ou
+qu'elle retourne une `Supposition` plutôt qu'un `i32` et n'aura pas besoin de
+faire de vérifications supplémentaires dans son corps.
 
 <!--
 ## Summary
@@ -563,11 +553,11 @@ Les fonctionnalités de gestion d'erreurs de Rust sont conçues pour vous aider 
 écrire du code plus résilient. La macro `panic!` signale que votre programme
 fonctionne dans de mauvaises conditions qu'il ne peut pas gérer et vous permet
 de dire au processus de s'arrêter au lieu d'essayer de continuer avec des
-valeurs invalides ou incorrectes. Le enum `Result` utilise le système de type
-de Rust pour avertir que l'opération peut échouer d'une manière que votre code
-pourrait corriger. Vous pouvez utiliser `Result` pour dire au code qui appelle
-votre code qu'il a besoin de gérer le résultat et aussi les potentielles
-erreurs. Utiliser `panic!` et `Result` de manière appropriée va faire de votre
+valeurs invalides ou incorrectes. L'énumération `Result` utilise le système de
+type de Rust pour signaler que l'opération peut échouer de sorte que votre code
+puisse rattraper l'erreur. Vous pouvez utiliser `Result` pour dire au code qui
+appelle votre code qu'il a besoin de gérer le résultat et aussi les potentielles
+erreurs. Utiliser `panic!` et `Result` de manière appropriée va rendre votre
 code plus fiable face à des problèmes inévitables.
 
 <!--
@@ -576,7 +566,7 @@ the `Option` and `Result` enums, we’ll talk about how generics work and how yo
 can use them in your code.
 -->
 
-Maintenant que vous avez vu les pratiques utiles que la librairie standard
-utilise avec les enums `Option` et `Result`, nous allons voir au chapitre
-suivant comment les génériques fonctionnent et comment vous pouvez les utiliser
-dans votre code.
+Maintenant que vous avez vu les pratiques utiles que la bibliothèque standard
+utilise avec les énumérations génériques `Option` et `Result`, nous allons voir
+comment les génériques fonctionnent et comment vous pouvez les utiliser dans
+votre code.
