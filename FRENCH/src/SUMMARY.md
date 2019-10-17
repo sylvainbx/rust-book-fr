@@ -17,5 +17,8 @@
 - [Les concepts courants de programmation](ch03-00-common-programming-concepts.md)
     - [Les variables et la mutabilité](ch03-01-variables-and-mutability.md)
     - [Les types de données](ch03-02-data-types.md)
+    - [Les fonctions](ch03-03-how-functions-work.md)
+    - [Les commentaires](ch03-04-comments.md)
+    - [Les structures de contrôle](ch03-05-control-flow.md)
 
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)

@@ -37,6 +37,7 @@ français.
 | concurrent | concurrent | - |
 | conditional | structure conditionnelle | - |
 | constant | constant / constante | - |
+| construct | instruction | - |
 | control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
 | corruption | corruption / être corrompu | - |
@@ -82,6 +83,7 @@ français.
 | integer literal | littéral d'entiers | - |
 | integer overflow | dépassement d'entier | - |
 | Integrated Development Environment (IDE) | environnement de développement intégré (IDE) | - |
+| interrupt signal | signal d'arrêt | - |
 | IOT | internet des objets (IOT) | - |
 | iterator | itérateur | - |
 | just-in-time compilation | compilation à la volée | sigle : JIT |
@@ -92,6 +94,7 @@ français.
 | lifetime | durée de vie | - |
 | linker | linker | - |
 | Listing | encart | tout en minuscule (sauf en début de phrase) |
+| loop | boucle | - |
 | low-level | bas niveau | - |
 | machine learning | apprentissage automatique | - |
 | macro | macro | - |
