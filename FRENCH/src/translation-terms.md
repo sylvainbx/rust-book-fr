@@ -63,6 +63,7 @@ français.
 | floating-point number | nombre à virgule flottante | - |
 | function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
+| garbage collector | ramasse-miettes | - |
 | generics | génériques / généricité | - |
 | global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |
@@ -149,6 +150,7 @@ français.
 | signature | signature | d'une fonction |
 | signed | signé | - |
 | slash | barre oblique | - |
+| slice | slice | - |
 | smart pointer | pointeur intelligent | - |
 | snake case | snake case | - |
 | snip | partie masquée ici | dans un encart |
