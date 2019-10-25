@@ -126,11 +126,11 @@ français.
 | pattern-matching | filtrage par motif | - |
 | placeholder | espace réservé | `{}` pour `fmt` |
 | pointer | pointeur | - |
-| popping off the stack | retirer de la pile | - |
+| popping off the stack | dépiler | - |
 | prelude | étape préliminaire | - |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
-| pushing onto the stack | déposer sur la pile | - |
+| pushing onto the stack | empiler | - |
 | raw identifier | identificateur brut | - |
 | README | README | - |
 | refactoring | remaniement | - |
@@ -172,7 +172,7 @@ français.
 | statement | instruction | - |
 | statically typed | statiquement typé | - |
 | string | chaîne de caractères | - |
-| string literal | chaîne de caractères pure | - |
+| string literal | un littéral de chaîne de caractères | - |
 | `String` | `String` | nom féminin (une `String`) |
 | struct | structure | - |
 | submodule | sous-module | - |
