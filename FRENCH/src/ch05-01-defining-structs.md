@@ -12,12 +12,12 @@ names, structs are more flexible than tuples: you don’t have to rely on the
 order of the data to specify or access the values of an instance.
 -->
 
-Les structures sont similaires aux tuples, qu'on a abordés au chapitre 3.
-Comme pour les tuples, les morceaux d'une structure peuvent être de types
-différents. Contrairement aux tuples, on nomme chaque morceau de données pour
-expliciter le rôle de chaque valeur. En conséquence de ces noms, les structures
-sont plus flexibles que les tuples : on n'a pas à se fier à l'ordre des données
-pour spécifier ou accéder aux valeurs d'une instance.
+Les structures sont similaires aux tuples, qu'on a vu au chapitre 3. Comme pour
+les tuples, les éléments d'une structure peuvent être de différents types.
+Contrairement aux tuples, on doit nommer chaque élément des données afin de
+clarifier le rôle de chaque valeur. Grâce à ces noms, les structures sont plus
+flexibles que les tuples : on n'a pas à utiliser l'ordre des données pour
+spécifier ou accéder aux valeurs d'une instance.
 
 <!--
 To define a struct, we enter the keyword `struct` and name the entire struct. A
@@ -27,12 +27,12 @@ the pieces of data, which we call *fields*. For example, Listing 5-1 shows a
 struct that stores information about a user account.
 -->
 
-Pour définir une structure, on tape le mot-clé `struct` et on nomme la structure
-tout entière. Le nom d'une structure devrait décrire l'importance des morceaux
-de données regroupés. Puis, entre des accolades, on définit le nom et le type de
-chaque morceau de données, qu'on appelle un *champ*. Par exemple, l'encart 5-1
-montre une structure qui stocke des informations à propos d'un compte
-d'utilisateur.
+Pour définir une structure, on tape le mot-clé `struct` et on donne un nom à
+toute la structure. Le nom d'une structure devrait décrire l'utilisation des
+éléments des données regroupées. Ensuite, entre des accolades, on définit le nom
+et le type de chaque élément des données, qu'on appelle un *champ*. Par exemple,
+l'encart 5-1 montre une structure qui stocke des informations à propos d'un
+compte d'utilisateur.
 
 <!--
 ```rust
@@ -58,8 +58,8 @@ struct Utilisateur {
 <span class="caption">Listing 5-1: A `User` struct definition</span>
 -->
 
-<span class="caption">Encart 5-1 : La définition d'une 
-structure `Utilisateur`</span>
+<span class="caption">Encart 5-1 : La définition d'une structure
+`Utilisateur`</span>
 
 <!--
 To use a struct after we’ve defined it, we create an *instance* of that struct
@@ -75,14 +75,14 @@ example, we can declare a particular user as shown in Listing 5-2.
 
 Pour utiliser une structure après l'avoir définie, on crée une *instance* de
 cette structure en indiquant des valeurs concrètes pour chacun des champs.
-On crée une instance en énonçant le nom de la structure puis en ajoutant des
-accolades qui contiennent des paires `clé: valeur`, où les clés sont les noms
+On crée une instance en évoquant le nom de la structure puis en ajoutant des
+accolades qui contiennent des paires de `clé: valeur`, où les clés sont les noms
 des champs et les valeurs sont les données que l'on souhaite stocker dans ces
-champs. Il n'est pas nécessaire de spécifier les champs dans le même ordre qu'on
-les a déclarés dans la structure. En d'autres termes, la définition de la
-structure forme un gabarit pour le type, et les instances remplissent ce gabarit
-avec des données en particulier pour créer des valeurs de ce type. Par exemple,
-on peut déclarer un utilisateur en particulier comme dans l'encart 5-2.
+champs. Nous n'avons pas à préciser les champs dans le même ordre qu'on les a
+déclarés dans la structure. En d'autres termes, la définition de la structure
+décrit un gabarit pour le type, et les instances remplissent ce gabarit avec des
+données précises pour créer des valeurs de ce type. Par exemple, nous pouvons
+déclarer un utilisateur précis comme dans l'encart 5-2.
 
 <!--
 ```rust
@@ -123,8 +123,8 @@ let utilisateur1 = Utilisateur {
 struct</span>
 -->
 
-<span class="caption">Encart 5-2 : Création d'une instance de 
-la structure `Utilisateur`</span>
+<span class="caption">Encart 5-2 : Création d'une instance de la structure
+`Utilisateur`</span>
 
 <!--
 To get a specific value from a struct, we can use dot notation. If we wanted
@@ -135,12 +135,12 @@ to change the value in the `email` field of a mutable `User` instance.
 -->
 
 Pour obtenir une valeur spécifique depuis une structure, on utilise la notation
-avec un point. Si nous voulions seulement l'adresse e-mail de cet utilisateur,
+avec le point. Si nous voulions seulement l'adresse e-mail de cet utilisateur,
 on pourrait utiliser `utilisateur1.email` partout où on voudrait utiliser cette
-valeur. Si l'instance est mutable, on peut changer une valeur en utilisant la
-notation avec un point et en assignant une valeur à un champ en particulier.
-L'encart 5-3 montre comment changer la valeur du champ `email` d'une instance
-mutable de `Utilisateur`.
+valeur. Si l'instance est mutable, nous pourrions changer une valeur en
+utilisant la notation avec le point et assigner une valeur à ce champ en
+particulier. L'encart 5-3 montre comment changer la valeur du champ `email`
+d'une instance mutable de `Utilisateur`.
 
 <!--
 ```rust
@@ -185,8 +185,8 @@ utilisateur1.email = String::from("unautremail@example.com");
 `User` instance</span>
 -->
 
-<span class="caption">Encart 5-3 : Changement de la valeur du champ
-`email` d'une instance de `Utilisateur`</span>
+<span class="caption">Encart 5-3 : Changement de la valeur du champ `email`
+d'une instance de `Utilisateur`</span>
 
 <!--
 Note that the entire instance must be mutable; Rust doesn’t allow us to mark
@@ -207,8 +207,8 @@ the given email and username. The `active` field gets the value of `true`, and
 the `sign_in_count` gets a value of `1`.
 -->
 
-L'encart 5-4 montre une fonction `creer_utilisateur` qui renvoie une instance
-de `Utilisateur` avec une adresse e-mail et un pseudo donnés. Le champ `actif`
+L'encart 5-4 montre une fonction `creer_utilisateur` qui retourne une instance
+de `Utilisateur` avec l'adresse e-mail et le pseudo fournis. Le champ `actif`
 prend la valeur `true` et le `nombre_de_connexions` prend la valeur `1`.
 
 <!--
@@ -255,8 +255,8 @@ and username and returns a `User` instance</span>
 -->
 
 <span class="caption">Encart 5-4 : Une fonction `creer_utilisateur` qui prend
-en entrée une adresse e-mail et un pseudo et retourne une instance
-de `Utilisateur`</span>
+en entrée une adresse e-mail et un pseudo et retourne une instance de
+`Utilisateur`</span>
 
 <!--
 It makes sense to name the function parameters with the same name as the struct
@@ -284,11 +284,11 @@ Listing 5-4, we can use the *field init shorthand* syntax to rewrite
 repetition of `email` and `username`, as shown in Listing 5-5.
 -->
 
-Puisque les noms de paramètres et les noms de champs de la structure sont
+Puisque les noms des paramètres et les noms de champs de la structure sont
 exactement les mêmes dans l'encart 5-4, on peut utiliser la syntaxe de
 *raccourci d'initialisation des champs* pour réécrire `creer_utilisateur` de
 sorte qu'elle se comporte exactement de la même façon sans avoir à répéter
-les mots `email` et `pseudo`, comme le montre l'encart 5-5.
+`email` et `pseudo`, comme le montre l'encart 5-5.
 
 <!--
 ```rust
@@ -348,9 +348,9 @@ than `email: email`.
 
 Ici, on crée une nouvelle instance de la structure `Utilisateur`, qui possède
 un champ nommé `email`. On veut donner au champ `email` la valeur du paramètre
-`email` de la fonction `creer_utilisateur`.
-Puisque le champ `email` et le paramètre `email` possèdent le même nom,
-on a uniquement besoin d'écrire `email` plutôt que `email: email`.
+`email` de la fonction `creer_utilisateur`. Comme le champ `email` et le
+paramètre `email` ont le même nom, on a uniquement besoin d'écrire `email`
+plutôt que `email: email`.
 
 <!--
 ### Creating Instances From Other Instances With Struct Update Syntax
@@ -364,8 +364,8 @@ instance’s values but changes some. You’ll do this using *struct update synt
 -->
 
 Il est souvent utile de créer une nouvelle instance de structure qui utilise la
-plupart des valeurs d'une ancienne instance tout en en changeant certaines.
-On utilisera la *syntaxe de mise à jour de structure* pour ce faire.
+plupart des valeurs d'une ancienne instance tout en en changeant certaines. On
+utilisera pour cela la *syntaxe de mise à jour de structure*.
 
 <!--
 First, Listing 5-6 shows how we create a new `User` instance in `user2` without
@@ -432,8 +432,8 @@ let utilisateur2 = Utilisateur {
 the values from `user1`</span>
 -->
 
-<span class="caption">Encart 5-6 : Création d'une nouvelle instance de `User`
-en utilisant certaines valeurs de `user1`.</span>
+<span class="caption">Encart 5-6 : Création d'une nouvelle instance de
+`Utilisateur` en utilisant certaines valeurs de `utilisateur1`.</span>
 
 <!--
 Using struct update syntax, we can achieve the same effect with less code, as
@@ -442,9 +442,9 @@ explicitly set should have the same value as the fields in the given instance.
 -->
 
 En utilisant la syntaxe de mise à jour de structure, on peut produire le même
-effet avec moins de code, comme le montre l'encart 5-7. La syntaxe `..` indique
-que les champs restants auxquels on ne donne pas de valeur explicite devraient
-avoir la même valeur que dans l'instance donnée.
+résultat avec moins de code, comme le montre l'encart 5-7. La syntaxe `..`
+indique que les autres champs auxquels on ne donne pas explicitement de valeur
+devraient avoir la même valeur que dans l'instance précisée.
 
 <!--
 ```rust
@@ -499,9 +499,9 @@ values from the fields of the instance in the `user1` variable</span>
 -->
 
 <span class="caption">Encart 5-7 : Utilisation de la syntaxe de mise à jour de
-structure pour assigner de nouvelles valeurs à `email` et `pseudo` pour une
-instance de `Utilisateur` tout en utilisant les autres valeurs des champs de
-l'instance de la variable `utilisateur1`</span>
+structure pour assigner de nouvelles valeurs à `email` et `pseudo` à une
+nouvelle instance de `Utilisateur` tout en utilisant les autres valeurs des
+champs de l'instance de la variable `utilisateur1`</span>
 
 <!--
 The code in Listing 5-7 also creates an instance in `user2` that has a
@@ -531,9 +531,9 @@ field as in a regular struct would be verbose or redundant.
 On peut aussi définir des structures qui ressemblent à des tuples, appelées
 *structures tuples*. La signification d'une structure tuple est donnée par son
 nom. En revanche, ses champs ne sont pas nommés ; on ne précise que leurs types.
-Les structures tuples sont utiles quand on veut donner un nom à un tuple pour
-qu'il ait un type différent des autres tuples, mais que nommer chaque champ
-comme dans une structure classique serait verbeux ou redondant.
+Les structures tuples servent lorsqu'on veut donner un nom à un tuple pour qu'il
+ait un type différent des autres tuples, mais que nommer chaque champ comme dans
+une structure classique serait trop verbeux ou redondant.
 
 <!--
 To define a tuple struct, start with the `struct` keyword and the struct name
@@ -542,8 +542,8 @@ usages of two tuple structs named `Color` and `Point`:
 -->
 
 La définition d'une structure tuple commence par le mot-clé `struct` et le nom
-de la structure suivis des types des champs du tuple. Par exemple, voici
-comment définir et utiliser deux structures tuples nommées `Couleur` et
+de la structure suivis des types des champs du tuple. Par exemple, voici une
+définition et une utilisation de deux structures tuples nommées `Couleur` et
 `Point` :
 
 <!--
@@ -575,15 +575,15 @@ individual pieces, you can use a `.` followed by the index to access an
 individual value, and so on.
 -->
 
-À noter que les valeurs `noir` et `origine` sont de types différents parce que
-ce sont des instances de structures tuples différentes. Chaque structure que
-l'on définit constitue son propre type, même si les champs au sein de la
-structure ont les mêmes types. Par exemple, une fonction qui prend un paramètre
-de type `Couleur` ne peut pas prendre un argument de type `Point` à la place,
-bien que les deux types soient constitués de trois valeurs `i32`. En dehors de
-ça, les instances de stuctures tuples se comportent comme des tuples : on peut
-les déstructurer en morceaux individuels, on peut utiliser un `.` suivi de
-l'indice pour accéder à une valeur individuelle, et ainsi de suite.
+Notez que les valeurs `noir` et `origine` sont de types différents parce que ce
+sont des instances de structures tuples différentes. Chaque structure que l'on
+définit constitue son propre type, même si les champs au sein de la structure
+ont les mêmes types. Par exemple, une fonction qui prend un paramètre de type
+`Couleur` ne peut pas prendre un argument de type `Point` à la place, bien que
+ces deux types soient tous les deux constitués de trois valeurs `i32`. Mis à
+part cela, les instances de stuctures tuples se comportent comme des tuples : on
+peut les déstructurer en éléments individuels, en utilisant un `.` suivi de
+l'indice pour accéder individuellement à une valeur, et ainsi de suite.
 
 <!--
 ### Unit-Like Structs Without Any Fields
@@ -599,51 +599,28 @@ trait on some type but don’t have any data that you want to store in the type
 itself. We’ll discuss traits in Chapter 10.
 -->
 
-On peut aussi définir des structures qui n'ont pas de champs ! On les appelle
-des *structures unitaires* parce qu'elles se comportent d'une façon analogue
-au type unité `()`. Les structures unitaires peuvent être utiles quand on doit
-implémenter un trait sur un type mais qu'on n'a pas de données à stocker dans
-le type lui-même. Nous aborderons les traits au chapitre 10.
+On peut aussi définir des structures qui n'ont pas de champs ! Cela s'appelle
+des *structures unitaires* parce qu'elles se comportent d'une façon analogue au
+type unitaire, `()`. Les structures unitaires sont utiles lorsqu'on doit
+implémenter un trait sur un type mais qu'on n'a aucune donnée à stocker dans
+le type en lui-même. Nous aborderons les traits au chapitre 10.
 
-> <!-- ### Ownership of Struct Data -->
-> ### Possession des données d'une structure
+<!--
+> ### Ownership of Struct Data
 >
-> <!--
 > In the `User` struct definition in Listing 5-1, we used the owned `String`
 > type rather than the `&str` string slice type. This is a deliberate choice
 > because we want instances of this struct to own all of its data and for that
 > data to be valid for as long as the entire struct is valid.
-> -->
 >
-> Dans la définition de la structure `Utilisateur` dans l'encart 5-1, nous
-> avions utilisé le type possédé `String` plutôt que le type de *slice* de
-> chaîne de caractères `&str`. Il s'agit d'un choix délibéré puisque nous
-> voulons que les instances de cette structure possèdent toutes leurs données et
-> que ces données soient valides tant que la structure tout entière est valide.
->
-> <!--
 > It’s possible for structs to store references to data owned by something else,
 > but to do so requires the use of *lifetimes*, a Rust feature that we’ll
 > discuss in Chapter 10. Lifetimes ensure that the data referenced by a struct
 > is valid for as long as the struct is. Let’s say you try to store a reference
 > in a struct without specifying lifetimes, like this, which won’t work:
-> -->
 >
-> Il est possible pour les structures de stocker des références à des données
-> possédées par autre chose, mais cela nécessiterait d'utiliser des
-> *durées de vie*, une fonctionnalité de Rust que nous aborderons au
-> chapitre 10. Les durées de vie s'assurent que les données référencées par une
-> structure sont valides aussi longtemps que la structure est valide aussi.
-> Disons que vous essayiez de stocker une référence dans une structure sans
-> indiquer de durées de vie, comme ceci, ce qui ne fonctionnera pas :
->
-> <!--
 > <span class="filename">Filename: src/main.rs</span>
-> -->
 >
-> <span class="filename">Fichier : src/main.rs</span>
->
-> <!--
 > ```rust,ignore,does_not_compile
 > struct User {
 >     username: &str,
@@ -661,7 +638,46 @@ le type lui-même. Nous aborderons les traits au chapitre 10.
 >     };
 > }
 > ```
-> -->
+>
+>
+> The compiler will complain that it needs lifetime specifiers:
+>
+> ```text
+> error[E0106]: missing lifetime specifier
+>  -- >
+>   |
+> 2 |     username: &str,
+>   |               ^ expected lifetime parameter
+>
+> error[E0106]: missing lifetime specifier
+>  -- >
+>   |
+> 3 |     email: &str,
+>   |            ^ expected lifetime parameter
+> ```
+>
+> In Chapter 10, we’ll discuss how to fix these errors so you can store
+> references in structs, but for now, we’ll fix errors like these using owned
+> types like `String` instead of references like `&str`.
+-->
+
+> ### La possession des données d'une structure
+>
+> Dans la définition de la structure `Utilisateur` de l'encart 5-1, nous avions
+> utilisé le type possédé `String` plutôt que le type de *slice* de chaîne de
+> caractères `&str`. Il s'agit d'un choix délibéré puisque nous voulons que les
+> instances de cette structure possèdent toutes leurs données et que ces données
+> restent valides tant que la structure tout entière est valide.
+>
+> Il est possible pour les structures de stocker des références vers des données
+> possédées par autre chose, mais cela nécessiterait d'utiliser des
+> *durées de vie*, une fonctionnalité de Rust que nous aborderons au
+> chapitre 10. Les durées de vie assurent que les données référencées par une
+> structure restent valides tant que la structure l'est aussi. Disons que vous
+> essayiez de stocker une référence dans une structure sans indiquer de durées
+> de vie, comme ceci, ce qui ne fonctionnera pas :
+>
+> <span class="filename">Fichier : src/main.rs</span>
 >
 > ```rust,ignore,does_not_compile
 > struct Utilisateur {
@@ -681,11 +697,7 @@ le type lui-même. Nous aborderons les traits au chapitre 10.
 > }
 > ```
 >
-> <!--
-> The compiler will complain that it needs lifetime specifiers:
-> -->
->
-> Le compilateur se plaindra qu'il a besoin de spécificateurs de durées de vie :
+> Le compilateur réclamera l'ajout des durées de vie :
 >
 > ```text
 > error[E0106]: missing lifetime specifier
@@ -701,13 +713,7 @@ le type lui-même. Nous aborderons les traits au chapitre 10.
 >   |            ^ expected lifetime parameter
 > ```
 >
-> <!--
-> In Chapter 10, we’ll discuss how to fix these errors so you can store
-> references in structs, but for now, we’ll fix errors like these using owned
-> types like `String` instead of references like `&str`.
-> -->
->
 > Au chapitre 10, nous aborderons la façon de corriger ces erreurs pour qu'on
 > puisse stocker des références dans des structures, mais pour le moment, nous
-> corrigerons les erreurs comme celles-ci en utilisant des types possédés comme
+> résoudrons les erreurs comme celles-ci en utilisant des types possédés comme
 > `String` plutôt que des références comme `&str`.
