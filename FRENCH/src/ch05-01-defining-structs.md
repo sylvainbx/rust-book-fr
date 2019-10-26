@@ -12,7 +12,7 @@ names, structs are more flexible than tuples: you don’t have to rely on the
 order of the data to specify or access the values of an instance.
 -->
 
-Les structures sont similaires aux tuples, qu'on a vu au chapitre 3. Comme pour
+Les structures sont similaires aux tuples, qu'on a vus au chapitre 3. Comme pour
 les tuples, les éléments d'une structure peuvent être de différents types.
 Contrairement aux tuples, on doit nommer chaque élément des données afin de
 clarifier le rôle de chaque valeur. Grâce à ces noms, les structures sont plus
@@ -29,7 +29,7 @@ struct that stores information about a user account.
 
 Pour définir une structure, on tape le mot-clé `struct` et on donne un nom à
 toute la structure. Le nom d'une structure devrait décrire l'utilisation des
-éléments des données regroupées. Ensuite, entre des accolades, on définit le nom
+éléments des données regroupés. Ensuite, entre des accolades, on définit le nom
 et le type de chaque élément des données, qu'on appelle un *champ*. Par exemple,
 l'encart 5-1 montre une structure qui stocke des informations à propos d'un
 compte d'utilisateur.
@@ -75,7 +75,7 @@ example, we can declare a particular user as shown in Listing 5-2.
 
 Pour utiliser une structure après l'avoir définie, on crée une *instance* de
 cette structure en indiquant des valeurs concrètes pour chacun des champs.
-On crée une instance en évoquant le nom de la structure puis en ajoutant des
+On crée une instance en indiquant le nom de la structure puis en ajoutant des
 accolades qui contiennent des paires de `clé: valeur`, où les clés sont les noms
 des champs et les valeurs sont les données que l'on souhaite stocker dans ces
 champs. Nous n'avons pas à préciser les champs dans le même ordre qu'on les a
@@ -582,14 +582,14 @@ ont les mêmes types. Par exemple, une fonction qui prend un paramètre de type
 `Couleur` ne peut pas prendre un argument de type `Point` à la place, bien que
 ces deux types soient tous les deux constitués de trois valeurs `i32`. Mis à
 part cela, les instances de stuctures tuples se comportent comme des tuples : on
-peut les déstructurer en éléments individuels, en utilisant un `.` suivi de
+peut les déstructurer en éléments individuels, on peut utiliser un `.` suivi de
 l'indice pour accéder individuellement à une valeur, et ainsi de suite.
 
 <!--
 ### Unit-Like Structs Without Any Fields
 -->
 
-### Les structures unitaires sans champs
+### Les structures unité sans champs
 
 <!--
 You can also define structs that don’t have any fields! These are called
@@ -600,10 +600,10 @@ itself. We’ll discuss traits in Chapter 10.
 -->
 
 On peut aussi définir des structures qui n'ont pas de champs ! Cela s'appelle
-des *structures unitaires* parce qu'elles se comportent d'une façon analogue au
-type unitaire, `()`. Les structures unitaires sont utiles lorsqu'on doit
-implémenter un trait sur un type mais qu'on n'a aucune donnée à stocker dans
-le type en lui-même. Nous aborderons les traits au chapitre 10.
+des *structures unité* parce qu'elles se comportent d'une façon analogue au type
+unité, `()`. Les structures unité sont utiles lorsqu'on doit implémenter un
+trait sur un type mais qu'on n'a aucune donnée à stocker dans le type en
+lui-même. Nous aborderons les traits au chapitre 10.
 
 <!--
 > ### Ownership of Struct Data
