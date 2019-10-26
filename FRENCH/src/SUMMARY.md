@@ -21,5 +21,7 @@
     - [Les commentaires](ch03-04-comments.md)
     - [Les structures de contrôle](ch03-05-control-flow.md)
 
+- [Comprendre la possession](ch04-00-understanding-ownership.md)
+
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
     - [Définir et instancier des structures](ch05-01-defining-structs.md)
