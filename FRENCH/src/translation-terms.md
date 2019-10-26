@@ -39,6 +39,7 @@ français.
 | concurrent | concurrent | - |
 | conditional | structure conditionnelle | - |
 | constant | constant / constante | - |
+| construct | instruction | - |
 | control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
 | corruption | corruption / être corrompu | - |
@@ -67,6 +68,7 @@ français.
 | floating-point number | nombre à virgule flottante | - |
 | function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
+| garbage collector | ramasse-miettes | - |
 | generics | génériques / généricité | - |
 | global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |
@@ -87,6 +89,7 @@ français.
 | integer literal | littéral d'entiers | - |
 | integer overflow | dépassement d'entier | - |
 | Integrated Development Environment (IDE) | environnement de développement intégré (IDE) | - |
+| interrupt signal | signal d'arrêt | - |
 | invalidate | neutraliser | - |
 | IOT | internet des objets (IOT) | - |
 | iterator | itérateur | - |
@@ -98,6 +101,7 @@ français.
 | lifetime | durée de vie | - |
 | linker | linker | - |
 | Listing | encart | tout en minuscule (sauf en début de phrase) |
+| loop | boucle | - |
 | low-level | bas niveau | - |
 | machine learning | apprentissage automatique | - |
 | macro | macro | - |
@@ -121,6 +125,7 @@ français.
 | package manager | système de gestion de paquets | - |
 | panic | panique(r) | - |
 | parallelism | parallélisme | - |
+| parameter | paramètre | - |
 | PATH | PATH | - |
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |
@@ -156,11 +161,14 @@ français.
 | shallow copy | copie superficielle | - |
 | shell | terminal / invite de commande | - |
 | shorthand | abréviation | - |
-| sidebar | barre latérale | - |
+| sidebar | volet latéral | - |
 | signature | signature | d'une fonction |
 | signed | signé | - |
+| slash | barre oblique | - |
+| slice | slice | - |
 | smart pointer | pointeur intelligent | - |
-| snip | code inchangé masqué ici | dans un encart |
+| snake case | snake case | - |
+| snip | partie masquée ici | dans un encart |
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
 | square brackets | crochets | - |
 | stack | pile | - |
