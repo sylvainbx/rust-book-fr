@@ -199,7 +199,7 @@ français.
 | two’s complement wrapping | rebouclage du complément à deux | - |
 | underlying operating system | système d'exploitation sous-jacent | - |
 | underscore | tiret bas | le caractère `_` |
-| unit-like struct | structure unitaire | - |
+| unit-like struct | structure unité | - |
 | unit type | type unité | - |
 | unit value | valeur unité | - |
 | unsafe | non sécurisé | - |

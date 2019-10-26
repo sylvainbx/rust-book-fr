@@ -26,3 +26,4 @@
     - [Qu'est-ce que la possession ?](ch04-01-what-is-ownership.md)
 
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
+    - [Définir et instancier des structures](ch05-01-defining-structs.md)
