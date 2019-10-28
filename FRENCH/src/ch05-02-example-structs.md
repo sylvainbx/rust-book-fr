@@ -1,8 +1,10 @@
+<!-- TODO bonpatron.fr -->
+
 <!--
 ## An Example Program Using Structs
 -->
 
-## Un programme d'exemple qui utilise des structures
+## Un exemple de programme qui utilise des structures
 
 <!--
 To understand when we might want to use structs, let’s write a program that
@@ -10,9 +12,10 @@ calculates the area of a rectangle. We’ll start with single variables, and the
 refactor the program until we’re using structs instead.
 -->
 
-Pour comprendre dans quels cas on voudrait utiliser des structures, écrivons un
-programme qui calcule l'aire d'un rectangle. Nous commencerons avec de simples
-variables, puis on remaniera le code jusqu'à utiliser des structures à la place.
+Pour comprendre dans quels cas nous voudrions utiliser des structures, écrivons
+un programme qui calcule l'aire d'un rectangle. Nous commencerons avec de
+simples variables, puis on remaniera le code jusqu'à utiliser des structures à
+la place.
 
 <!--
 Let’s make a new binary project with Cargo called *rectangles* that will take
@@ -23,14 +26,14 @@ exactly that in our project’s *src/main.rs*.
 
 Créons un nouveau projet binaire avec Cargo nommé *rectangles* qui prendra la
 largeur et la hauteur en pixels d'un rectangle et qui calculera l'aire de ce
-rectangle. L'encart 5-8 montre un court programme qui effectue cette tâche d'une
+rectangle. L'encart 5-8 montre un petit programme qui effectue cette tâche d'une
 certaine manière dans le *src/main.rs* de notre projet.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-Nom de fichier : src/main.rs
+<span class="filename">Fichier: src/main.rs</span>
 
 <!--
 ```rust
@@ -72,7 +75,7 @@ specified by separate width and height variables</span>
 -->
 
 <span class="caption">Encart 5-8 : Calcul de l'aire d'un rectangle défini par
-des variables séparées de largeur et de hauteur</span>
+les variables distinctes largeur et hauteur</span>
 
 <!--
 Now, run this program using `cargo run`:
@@ -99,13 +102,14 @@ rectangle.
 
 Bien que l'encart 5-8 fonctionne et détermine l'aire du rectangle en appelant
 la fonction `aire` avec chaque dimension, on peut faire mieux. La largeur et la
-hauteur sont liées entre elles car elles décrivent un rectangle à elles deux.
+hauteur sont couplées entre elles car elles décrivent toutes les deux un
+rectangle.
 
 <!--
 The issue with this code is evident in the signature of `area`:
 -->
 
-Le problème de ce code transparaît dans la signature de `aire` :
+Le problème de ce code se voit dans la signature de `aire` :
 
 <!--
 ```rust,ignore
@@ -122,16 +126,16 @@ The `area` function is supposed to calculate the area of one rectangle, but the
 function we wrote has two parameters. The parameters are related, but that’s
 not expressed anywhere in our program. It would be more readable and more
 manageable to group width and height together. We’ve already discussed one way
-we might do that in [“The Tuple Type”][the-tuple-type]<!−− ignore −−> section
+we might do that in [“The Tuple Type”][the-tuple-type]<!−− ignore −− > section
 of Chapter 3: by using tuples.
 -->
 
 La fonction `aire` est censée calculer l'aire d'un rectangle, mais la fonction
 que nous avons écrite a deux paramètres. Les paramètres sont liés, mais ce n'est
 exprimé nulle part dans notre programme. Il serait plus lisible et plus gérable
-de regrouper la largeur et la hauteur. Nous avons déjà vu une façon de le
-faire dans la section [“Le type *tuple*”][the-tuple-type]<!-- ignore --> du
-chapitre 3 : en utilisant des tuples.
+de regrouper ensemble la largeur et la hauteur. Nous avons déjà vu dans la
+section [“Le type *tuple*”][the-tuple-type]<!-- ignore --> du chapitre 3 une
+façon qui nous permettrait de le faire : en utilisant des tuples.
 
 <!--
 ### Refactoring with Tuples
@@ -189,8 +193,8 @@ fn aire(dimensions: (u32, u32)) -> u32 {
 rectangle with a tuple</span>
 -->
 
-<span class="caption">Encart 5-9 : Spécifier la largeur et la hauteur du
-rectangle avec un tuple</span>
+<span class="caption">Encart 5-9 : Renseigner la largeur et la hauteur du
+rectangle dans un tuple</span>
 
 <!--
 In one way, this program is better. Tuples let us add a bit of structure, and
@@ -199,7 +203,7 @@ clear: tuples don’t name their elements, so our calculation has become more
 confusing because we have to index into the parts of the tuple.
 -->
 
-D'une certaine façon, ce programme est mieux. Les tuples nous permettent de
+D'une certaine façon, ce programme est meilleur. Les tuples nous permettent de
 structurer un peu plus et nous ne passons plus qu'un argument. Mais d'une autre
 façon, cette version est moins claire : les tuples ne donnent pas de noms à
 leurs éléments, donc notre calcul est devenu plus déroutant puisqu'il faut
@@ -217,17 +221,18 @@ our code.
 
 Ce n'est pas grave de confondre la largeur et la hauteur pour calculer l'aire,
 mais si on voulait afficher le rectangle à l'écran, cela serait problématique !
-Il faudrait garder à l'esprit que la `largeur` est l'élément d'indice 0 du tuple
-et que la `hauteur` est l'élément d'indice 1. Si quelqu'un d'autre travaillait
-sur ce code, il devrait le deviner et s'en souvenir aussi. Il serait facile
-d'oublier ou de confondre ces valeurs et ainsi de provoquer des erreurs, parce
-qu'on n'a pas exprimé la signification de nos données dans le code.
+Il nous faut garder à l'esprit que la `largeur` est l'élément à l'indice 0 du
+tuple et que la `hauteur` est l'élément à l'indice 1. Si quelqu'un d'autre
+travaillait sur ce code, il devrait le déduire et s'en souvenir aussi. Il est
+facile d'oublier ou de confondre ces valeurs et par conséquent provoquer des
+erreurs, parce qu'on n'a pas exprimé la signification de nos données dans notre
+code.
 
 <!--
 ### Refactoring with Structs: Adding More Meaning
 -->
 
-### Remanier avec des structures : donner du sens
+### Remanier avec des structures : donner plus de sens
 
 <!--
 We use structs to add meaning by labeling the data. We can transform the tuple
@@ -235,9 +240,10 @@ we’re using into a data type with a name for the whole as well as names for th
 parts, as shown in Listing 5-10.
 -->
 
-On utilise des structures pour rendre les données significatives en leur donnant
-des noms. On peut transformer notre tuple en type de donnée nommé dont les
-parties sont nommées elles aussi, comme le montre l'encart 5-10.
+On utilise des structures pour rendre les données plus expressives en leur
+donnant des noms. On peut transformer le tuple que nous avons utilisé en un type
+de donnée nommé dont ses éléments sont aussi nommés, comme le montre l'encart
+5-10.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -303,8 +309,8 @@ that has a width of 30 and a height of 50.
 
 Ici, on a défini une structure et on l'a appelée `Rectangle`. Entre les
 accolades, on a défini les champs `largeur` et `hauteur`, tous deux du type
-`u32`. Puis dans `main`, on crée une instance particulière de `Rectangle` de
-largeur 30 et de hauteur 50.
+`u32`. Puis dans `main`, on crée une instance de `Rectangle` avec une largeur de
+30 et de hauteur 50.
 
 <!--
 Our `area` function is now defined with one parameter, which we’ve named
@@ -317,7 +323,7 @@ where we call the function.
 
 Notre fonction `aire` est désormais définie avec un unique paramètre, nommé
 `rectangle`, et dont le type est une référence immuable vers une instance de la
-structure `Rectangle`. Comme mentionné au chapitre 4, on veut emprunter la
+structure `Rectangle`. Comme mentionné au chapitre 4, on préfère emprunter la
 structure au lieu d'en prendre possession. Ainsi, elle reste en possession de
 `main` qui peut continuer à utiliser `rect1` ; c'est pourquoi on utilise le `&`
 dans la signature de la fonction ainsi que dans l'appel de fonction.
@@ -334,9 +340,9 @@ and `1`. This is a win for clarity.
 La fonction `aire` accède aux champs `largeur` et `hauteur` de l'instance de
 `Rectangle`. Notre signature de fonction pour `aire` est enfin explicite :
 calculer l'aire d'un `Rectangle` en utilisant ses champs `largeur` et `hauteur`.
-Cela reflète que la largeur et la hauteur sont liées entre elles, et cela donne
-des noms descriptifs aux valeurs plutôt que d'utiliser les valeurs d'indices `0`
-et `1`. On gagne en clarté.
+Cela explique que la largeur et la hauteur sont liées entre elles, et cela donne
+des noms descriptifs aux valeurs plutôt que d'utiliser les valeurs du tuple avec
+les indices `0` et `1`. On gagne en clarté.
 
 <!--
 ### Adding Useful Functionality with Derived Traits
@@ -351,10 +357,10 @@ using the `println!` macro as we have used in previous chapters. This won’t
 work, however.
 -->
 
-Il serait bien de pouvoir afficher une instance de `Rectangle` pendant qu'on
+Cela serait bien de pouvoir afficher une instance de `Rectangle` pendant qu'on
 débogue notre programme et de voir la valeur de chacun de ses champs. L'encart
-5-11 essaie de le faire en utilisant la macro `println!` comme on l'a fait
-dans les chapitres précédents. Cependant, cela ne fonctionnera pas.
+5-11 essaye de le faire en utilisant la macro `println!` comme on l'a fait
+dans les chapitres précédents. Cependant, cela ne fonctionne pas.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -402,7 +408,7 @@ instance</span>
 When we run this code, we get an error with this core message:
 -->
 
-Quand on exécute ce code, on obtient ce message d'erreur qui nous informe que
+Lorsqu'on exécute ce code, on obtient ce message d'erreur qui nous informe que
 `Rectangle` n'implémente pas le trait `std::fmt::Display` :
 
 ```text
@@ -422,16 +428,16 @@ doesn’t try to guess what we want, and structs don’t have a provided
 implementation of `Display`.
 -->
 
-La macro `println!` peut faire toutes sortes de formatages de texte, et par
+La macro `println!` peut faire toutes sortes de formatages textuels, et par
 défaut, les accolades demandent à `println!` d'utiliser le formatage appelé
-`Display`, pour du texte destiné à être vu par l'utilisateur final. Les types
-primitifs qu'on a vus jusqu'ici implémentent `Display` par défaut puisqu'il
-n'existe qu'une seule façon d'afficher un `1` ou tout autre type primitif à
-l'utilisateur. Mais pour les structures, la façon dont `println!` devrait
-formater la sortie est moins claire car il y a plus de possibilités
+`Display`, pour convertir en texte destiné à être vu par l'utilisateur final.
+Les types primaires qu'on a vus jusqu'ici implémentent `Display` par défaut
+puisqu'il n'existe qu'une seule façon d'afficher un `1` ou tout autre type
+primaire à l'utilisateur. Mais pour les structures, la façon dont `println!`
+devrait formater son résultat est moins claire car il y a plus de possibilités
 d'affichage : Voulez-vous des virgules ? Voulez-vous afficher les accolades ?
-Tous les champs devraient-ils être affichés ? À cause de cette ambigüité, Rust
-n'essaie pas de deviner ce qu'on veut, et les structures n'implémentent pas
+Est-ce que tous les champs devraient être affichés ? À cause de ces ambigüités,
+Rust n'essaye pas de deviner ce qu'on veut, et les structures n'implémentent pas
 `Display` par défaut.
 
 <!--
@@ -446,7 +452,7 @@ Si nous continuons de lire les erreurs, nous trouvons cette remarque utile :
 ```
 
 Le compilateur nous informe que dans notre chaîne de formatage, on est peut-être
-en mesure d'utiliser `{:?}` (ou `{:#?}` pour l'affichage élégant).
+en mesure d'utiliser `{:?}` (ou `{:#?}` pour un affichage plus élégant).
 
 <!--
 Let’s try it! The `println!` macro call will now look like `println!("rect1 is
@@ -456,11 +462,11 @@ enables us to print our struct in a way that is useful for developers so we can
 see its value while we’re debugging our code.
 -->
 
-Essayons ! L'appel de la macro `println!` ressemble maintenant à
-`println!("rect1 est {:?}", rect1);`. Mettre le spécificateur `:?` entre les
-accolades permet d'informer `println!` que nous voulons utiliser le formatage
+Essayons cela ! L'appel de la macro `println!` ressemble maintenant à
+`println!("rect1 est {:?}", rect1);`. Insérer le sélecteur `:?` entre les
+accolades permet d'indiquer à `println!` que nous voulons utiliser le formatage
 appelé `Debug`. Le trait `Debug` nous permet d'afficher notre structure d'une
-façon utile aux dévelopeurs pour qu'on puisse voir sa valeur pendant qu'on
+manière utile aux développeurs pour qu'on puisse voir sa valeur pendant qu'on
 débogue le code.
 
 <!--
@@ -485,7 +491,7 @@ Mais une nouvelle fois, le compilateur nous fait une remarque utile :
 = note: add `#[derive(Debug)]` or manually implement `std::fmt::Debug`
 ```
 
-Il nous conseille d'ajouter `#[derive(Debug)]` ou d'implémenter manuellement 
+Il nous conseille d'ajouter `#[derive(Debug)]` ou d'implémenter manuellement
 `std::fmt::Debug`.
 
 <!--
@@ -495,10 +501,10 @@ To do that, we add the annotation `#[derive(Debug)]` just before the struct
 definition, as shown in Listing 5-12.
 -->
 
-Rust inclut bel et bien une fonctionnalité pour afficher des informations de
-débogage, mais nous devons l'activer explicitement pour la rendre disponible
-à notre structure. Pour ce faire, on ajoute l'annotation `#[derive(Debug)]`
-juste avant la définition de la structure, comme le montre l'encart 5-12.
+Rust *inclut* bel et bien une fonctionnalité pour afficher des informations de
+débogage, mais nous devons l'activer explicitement pour la rendre disponible sur
+notre structure. Pour ce faire, on ajoute l'annotation `#[derive(Debug)]` juste
+avant la définition de la structure, comme le montre l'encart 5-12.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -571,12 +577,12 @@ those cases, we can use `{:#?}` instead of `{:?}` in the `println!` string.
 When we use the `{:#?}` style in the example, the output will look like this:
 -->
 
-Chouette ! C'est n'est pas le plus beau des affichages, mais cela montre les
+Super ! C'est n'est pas le plus beau des affichages, mais cela montre les
 valeurs de tous les champs de cette instance, ce qui serait assurément utile
 lors du débogage. Quand on a des structures plus grandes, il serait bien d'avoir
 un affichage un peu plus lisible ; dans ces cas-là, on pourra utiliser `{:#?}`
 au lieu de `{:?}` dans la chaîne de formatage. Quand on utilise `{:#?}` dans cet
-exemple, l'affichage sera plutôt comme ceci :
+exemple, l'affichage donnera plutôt ceci :
 
 <!--
 ```text
@@ -617,7 +623,7 @@ continue to refactor this code by turning the `area` function into an `area`
 
 Notre fonction `aire` est très spécifique : elle ne fait que calculer l'aire
 d'un rectangle. Il serait utile de lier un peu plus ce comportement à notre
-structure `Rectangle`, puisque cela ne fonctionnera pas avec tout autre type.
+structure `Rectangle`, puisque cela ne fonctionnera pas avec un autre type.
 Voyons comment on peut continuer de remanier ce code en transformant la fonction
 `aire` en *méthode* `aire` définie sur notre type `Rectangle`.
 
