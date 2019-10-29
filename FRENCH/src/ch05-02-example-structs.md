@@ -1,5 +1,3 @@
-<!-- TODO bonpatron.fr -->
-
 <!--
 ## An Example Program Using Structs
 -->
@@ -434,9 +432,9 @@ défaut, les accolades demandent à `println!` d'utiliser le formatage appelé
 Les types primaires qu'on a vus jusqu'ici implémentent `Display` par défaut
 puisqu'il n'existe qu'une seule façon d'afficher un `1` ou tout autre type
 primaire à l'utilisateur. Mais pour les structures, la façon dont `println!`
-devrait formater son résultat est moins claire car il y a plus de possibilités
+devrait formater son résultat est moins clair car il y a plus de possibilités
 d'affichage : Voulez-vous des virgules ? Voulez-vous afficher les accolades ?
-Est-ce que tous les champs devraient être affichés ? À cause de ces ambigüités,
+Est-ce que tous les champs devraient être affichés ? À cause de ces ambiguïtés,
 Rust n'essaye pas de deviner ce qu'on veut, et les structures n'implémentent pas
 `Display` par défaut.
 
@@ -556,7 +554,7 @@ Now when we run the program, we won’t get any errors, and we’ll see the
 following output:
 -->
 
-Maintenant, quand on exécute le programme, nous n'avons plus d'erreur et ce
+Maintenant, quand on exécute le programme, nous n'avons plus d'erreurs et ce
 texte s'affiche à l'écran :
 
 <!--
@@ -577,7 +575,7 @@ those cases, we can use `{:#?}` instead of `{:?}` in the `println!` string.
 When we use the `{:#?}` style in the example, the output will look like this:
 -->
 
-Super ! C'est n'est pas le plus beau des affichages, mais cela montre les
+Super ! Ce n'est pas le plus beau des affichages, mais cela montre les
 valeurs de tous les champs de cette instance, ce qui serait assurément utile
 lors du débogage. Quand on a des structures plus grandes, il serait bien d'avoir
 un affichage un peu plus lisible ; dans ces cas-là, on pourra utiliser `{:#?}`
