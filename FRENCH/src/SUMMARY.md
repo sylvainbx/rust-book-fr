@@ -22,3 +22,5 @@
     - [Les structures de contrôle](ch03-05-control-flow.md)
 
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
+
+- [Les types génériques, les traits et les durées de vies](ch10-00-generics.md)
