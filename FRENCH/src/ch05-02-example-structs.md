@@ -73,7 +73,7 @@ specified by separate width and height variables</span>
 -->
 
 <span class="caption">Encart 5-8 : Calcul de l'aire d'un rectangle défini par
-les variables distinctes largeur et hauteur</span>
+les variables distinctes `largeur` et `hauteur`</span>
 
 <!--
 Now, run this program using `cargo run`:
@@ -100,8 +100,7 @@ rectangle.
 
 Bien que l'encart 5-8 fonctionne et détermine l'aire du rectangle en appelant
 la fonction `aire` avec chaque dimension, on peut faire mieux. La largeur et la
-hauteur sont couplées entre elles car elles décrivent toutes les deux un
-rectangle.
+hauteur sont couplées entre elles car elles décrivent toutes les deux un rectangle.
 
 <!--
 The issue with this code is evident in the signature of `area`:
@@ -307,8 +306,8 @@ that has a width of 30 and a height of 50.
 
 Ici, on a défini une structure et on l'a appelée `Rectangle`. Entre les
 accolades, on a défini les champs `largeur` et `hauteur`, tous deux du type
-`u32`. Puis dans `main`, on crée une instance de `Rectangle` avec une largeur de
-30 et de hauteur 50.
+`u32`. Puis dans `main`, on crée une instance de `Rectangle` de largeur 30 et de
+hauteur 50.
 
 <!--
 Our `area` function is now defined with one parameter, which we’ve named
@@ -429,10 +428,10 @@ implementation of `Display`.
 La macro `println!` peut faire toutes sortes de formatages textuels, et par
 défaut, les accolades demandent à `println!` d'utiliser le formatage appelé
 `Display`, pour convertir en texte destiné à être vu par l'utilisateur final.
-Les types primaires qu'on a vus jusqu'ici implémentent `Display` par défaut
+Les types primitifs qu'on a vus jusqu'ici implémentent `Display` par défaut
 puisqu'il n'existe qu'une seule façon d'afficher un `1` ou tout autre type
-primaire à l'utilisateur. Mais pour les structures, la façon dont `println!`
-devrait formater son résultat est moins clair car il y a plus de possibilités
+primitif à l'utilisateur. Mais pour les structures, la façon dont `println!`
+devrait formater son résultat est moins claire car il y a plus de possibilités
 d'affichage : Voulez-vous des virgules ? Voulez-vous afficher les accolades ?
 Est-ce que tous les champs devraient être affichés ? À cause de ces ambiguïtés,
 Rust n'essaye pas de deviner ce qu'on veut, et les structures n'implémentent pas
