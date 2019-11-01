@@ -285,14 +285,14 @@ sont [le forum d'utilisateurs][users] et [Stack Overflow][stackoverflow].
 ### Documentation en local
 
 <!--
-The installer also includes a copy of the documentation locally, so you can
-read it offline. Run `rustup doc` to open the local documentation in your
-browser.
+The installation of Rust also includes a copy of the documentation locally, so
+you can read it offline. Run `rustup doc` to open the local documentation in
+your browser.
 -->
 
-L'installateur embarque aussi une copie de la documentation en local pour que
-vous puissiez la lire hors ligne. Lancez `rustup doc` afin
-d'ouvrir la documentation locale dans votre navigateur.
+L'installation de Rust embarque aussi une copie de la documentation en local
+pour que vous puissiez la lire hors ligne. Lancez `rustup doc` afin d'ouvrir la
+documentation locale dans votre navigateur.
 
 <!--
 Any time a type or function is provided by the standard library and you’re not

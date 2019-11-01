@@ -560,9 +560,9 @@ a deux types composés de base : les *tuples* et les tableaux *(arrays)*.
 #### Le type *tuple*
 
 <!--
-A tuple is a general way of grouping together some number of other values
-with a variety of types into one compound type. Tuples have a fixed length:
-once declared, they cannot grow or shrink in size.
+A tuple is a general way of grouping together a number of values with a variety
+of types into one compound type. Tuples have a fixed length: once declared,
+they cannot grow or shrink in size.
 -->
 
 Un *tuple* est une manière générale de regrouper plusieurs valeurs
@@ -692,13 +692,13 @@ fn main() {
 
 <!--
 This program creates a tuple, `x`, and then makes new variables for each
-element by using their index. As with most programming languages, the first
-index in a tuple is 0.
+element by using their respective indices. As with most programming languages,
+the first index in a tuple is 0.
 -->
 
 Ce programme crée un tuple, `x`, puis crée une nouvelle variable pour
-chaque élément en utilisant leur indice. Comme dans de nombreux langages de
-programmation, le premier indice d'un tuple est 0.
+chaque élément en utilisant leur indices respectifs. Comme dans de nombreux
+langages de programmation, le premier indice d'un tuple est 0.
 
 <!--
 #### The Array Type
@@ -762,7 +762,7 @@ chapitre 8 expliquera les vecteurs.
 An example of when you might want to use an array rather than a vector is in a
 program that needs to know the names of the months of the year. It’s very
 unlikely that such a program will need to add or remove months, so you can use
-an array because you know it will always contain 12 items:
+an array because you know it will always contain 12 elements:
 -->
 
 Un exemple de cas où vous pourriez avoir recours à un tableau plutôt qu'à un
@@ -800,7 +800,7 @@ let a: [i32; 5] = [1, 2, 3, 4, 5];
 
 <!--
 Here, `i32` is the type of each element. After the semicolon, the number `5`
-indicates the element contains five items.
+indicates the array contains five elements.
 -->
 
 Ici, `i32` est le type de chaque élément. Après le point-virgule, le nombre `5`

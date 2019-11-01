@@ -272,7 +272,7 @@ avez appris précédemment. Les chapitres 2, 12 et 20 sont des chapitres de
 projet ; les autres sont des chapitres théoriques.
 
 <!--
-Chapter 1 explains how to install Rust, how to write a Hello, world! program,
+Chapter 1 explains how to install Rust, how to write a “Hello, world!” program,
 and how to use Cargo, Rust’s package manager and build tool. Chapter 2 is a
 hands-on introduction to the Rust language. Here we cover concepts at a high
 level, and later chapters will provide additional detail. If you want to get
