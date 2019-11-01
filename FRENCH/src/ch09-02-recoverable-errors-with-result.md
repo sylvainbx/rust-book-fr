@@ -997,25 +997,24 @@ le contenu dans cette `String`, et la retourne. Evidemment, l'utilisation de
 des erreurs, donc nous utiliserons d'abord la façon qui est plus longue.
 
 <!--
-#### The `?` Operator Can Only Be Used in Functions That Return `Result`
+#### The `?` Operator Can Be Used in Functions That Return `Result`
 -->
 
-#### L'opérateur `?` ne peut être utilisé uniquement dans des fonctions qui retournent `Result`
+#### L'opérateur `?` peut être utilisé dans des fonctions qui retournent un `Result`
 
 <!--
-The `?` operator can only be used in functions that have a return type of
+The `?` operator can be used in functions that have a return type of
 `Result`, because it is defined to work in the same way as the `match`
 expression we defined in Listing 9-6. The part of the `match` that requires a
 return type of `Result` is `return Err(e)`, so the return type of the function
-must be a `Result` to be compatible with this `return`.
+can be a `Result` to be compatible with this `return`.
 -->
 
-L'opérateur `?` peut uniquement être utilisé dans des fonctions qui ont un
-type de retour `Result`, car il est conçu pour fonctionner de la même manière
-que l'expression `match` que nous avons utilisé dans l'encart 9-6. La partie du
-`match` qui nécessite le type de retour `Result` est `return Err(e)`, donc le
-type de retour de cette fonction doit être `Result` pour être compatible avec ce
-`return`.
+L'opérateur `?` peut être utilisé dans des fonctions qui ont un type de retour
+`Result`, car il est conçu pour fonctionner de la même manière que l'expression
+`match` que nous avons utilisé dans l'encart 9-6. La partie du `match` qui
+nécessite le type de retour `Result` est `return Err(e)`, donc le type de retour
+de cette fonction peut être `Result` pour être compatible avec ce `return`.
 
 <!--
 Let’s look at what happens if we use the `?` operator in the `main` function,
@@ -1055,24 +1054,25 @@ error[E0277]: the `?` operator can only be used in a function that returns
 
 <!--
 This error points out that we’re only allowed to use the `?` operator in a
-function that returns `Result<T, E>`. When you’re writing code in a function
-that doesn’t return `Result<T, E>`, and you want to use `?` when you call other
-functions that return `Result<T, E>`, you have two choices to fix this problem.
-One technique is to change the return type of your function to be `Result<T,
-E>` if you have no restrictions preventing that. The other technique is to use
-a `match` or one of the `Result<T, E>` methods to handle the `Result<T, E>` in
-whatever way is appropriate.
+function that returns `Result` or `Option` or another type that implements
+`std::ops::Try`. When you’re writing code in a function that doesn’t return
+one of these types, and you want to use `?` when you call other functions that
+return `Result<T, E>`, you have two choices to fix this problem. One technique
+is to change the return type of your function to be `Result<T, E>` if you have
+no restrictions preventing that. The other technique is to use a `match` or one
+of the `Result<T, E>` methods to handle the `Result<T, E>` in whatever way is
+appropriate.
 -->
 
 Cette erreur explique que nous sommes uniquement autorisés à utiliser
-l'opérateur `?` dans une fonction qui retourne `Result<T, E>`. Lorsque vous
-écrivez du code dans une fonction qui ne retourne pas `Result<T, E>`, et que
-vous souhaitez utiliser `?` lorsque vous appelez d'autres fonctions qui
-retournent `Result<T, E>`, vous avez deux façons de régler le problème. La
-première est de changer le type de retour de votre fonction en `Result<T, E>` si
-vous pouvez le faire. L'autre solution est d'utiliser un `match` ou une des
-méthodes de `Result<T, E>` pour gérer le `Result<T, E>` de la manière la plus
-appropriée.
+l'opérateur `?` dans une fonction qui retourne `Result` ou `Option` ou un autre
+type qui implémente `std::ops::Try`. Lorsque vous écrivez du code dans une
+fonction qui ne retourne pas un de ces types, et que vous souhaitez utiliser `?`
+lorsque vous appelez d'autres fonctions qui retournent `Result<T, E>`, vous avez
+deux façons de régler le problème. La première est de changer le type de retour
+de votre fonction en `Result<T, E>` si vous pouvez le faire. L'autre solution
+est d'utiliser un `match` ou une des méthodes de `Result<T, E>` pour gérer le
+`Result<T, E>` de la manière la plus appropriée.
 
 <!--
 The `main` function is special, and there are restrictions on what its return
