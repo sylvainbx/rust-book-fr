@@ -10,7 +10,7 @@ are useful and more appropriate than structs in this case. Say we need to work
 with IP addresses. Currently, two major standards are used for IP addresses:
 version four and version six. These are the only possibilities for an IP
 address that our program will come across: we can *enumerate* all possible
-values, which is where enumeration gets its name.
+variants, which is where enumeration gets its name.
 -->
 
 Imaginons une situation que nous voudrions exprimer avec du code et regardons
@@ -19,12 +19,12 @@ dans ce cas. Disons que nous avons besoin de travailler avec des adresses IP.
 Pour le moment, il existe deux normes principales pour les adresses IP : la
 version quatre et la version six. Ce seront les seules possibilités d'adresse
 IP que notre programme va rencontrer : nous pouvons *énumérer* toutes les
-valeurs possibles, d'où vient le nom de l'énumération.
+variantes possibles, d'où vient le nom de l'énumération.
 
 <!--
 Any IP address can be either a version four or a version six address, but not
 both at the same time. That property of IP addresses makes the enum data
-structure appropriate, because enum values can only be one of the variants.
+structure appropriate, because enum values can only be one of its variants.
 Both version four and version six addresses are still fundamentally IP
 addresses, so they should be treated as the same type when the code is handling
 situations that apply to any kind of IP address.
@@ -40,14 +40,13 @@ des situations qui s'appliquent à n'importe quel type d'adresses IP.
 
 <!--
 We can express this concept in code by defining an `IpAddrKind` enumeration and
-listing the possible kinds an IP address can be, `V4` and `V6`. These are known
-as the *variants* of the enum:
+listing the possible kinds an IP address can be, `V4` and `V6`. These are the
+variants of the enum:
 -->
 
 Nous pouvons exprimer ce concept dans le code en définissant une énumération
-`TypeAdresseIp` et en listant les différents types possibles d'adresses IP qu'elle
-peut avoir, `V4` et `V6`. Ce sont ce que l'on appelle les *variantes* de
-l'énumération :
+`TypeAdresseIp` et en listant les différents types possibles d'adresses IP
+qu'elle peut avoir, `V4` et `V6`. Ce sont les variantes de l'énumération :
 
 <!--
 ```rust
