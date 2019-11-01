@@ -304,7 +304,7 @@ nombre dans deux listes différentes.
 fn largest(list: &[i32]) -> i32 {
     let mut largest = list[0];
 
-    for &item in list.iter() {
+    for &item in list {
         if item > largest {
             largest = item;
         }
@@ -333,7 +333,7 @@ fn main() {
 fn le_plus_grand(liste: &[i32]) -> i32 {
     let mut le_plus_grand = liste[0];
 
-    for &element in liste.iter() {
+    for &element in liste {
         if element > le_plus_grand {
             le_plus_grand = element;
         }
