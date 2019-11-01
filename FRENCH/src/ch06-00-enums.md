@@ -6,7 +6,7 @@
 
 <!--
 In this chapter we’ll look at *enumerations*, also referred to as *enums*.
-Enums allow you to define a type by enumerating its possible values. First,
+Enums allow you to define a type by enumerating its possible *variants*. First,
 we’ll define and use an enum to show how an enum can encode meaning along with
 data. Next, we’ll explore a particularly useful enum, called `Option`, which
 expresses that a value can be either something or nothing. Then we’ll look at
@@ -17,7 +17,7 @@ enums in your code.
 -->
 
 Dans ce chapitre, nous allons aborder les *énumérations*, aussi appelés *enums*.
-Les énumérations vous permettent de définir un type en énumérant ses valeurs
+Les énumérations vous permettent de définir un type en énumérant ses *variantes*
 possibles. Pour commencer, nous allons définir et utiliser un énumérateur pour
 voir comment un énumérateur peut donner du sens aux données. Derrière, nous
 allons découvrir  un énumérateur particulière utilise, qui s'appelle `Option` et
