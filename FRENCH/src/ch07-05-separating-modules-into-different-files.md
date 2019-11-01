@@ -197,7 +197,7 @@ code qui correspondrait à ce module.
 ## Résumé
 
 <!--
-Rust lets you organize your packages into crates and your crates into modules
+Rust lets you split a package into multiple crates and a crate into modules
 so you can refer to items defined in one module from another module. You can do
 this by specifying absolute or relative paths. These paths can be brought into
 scope with a `use` statement so you can use a shorter path for multiple uses of
@@ -205,13 +205,13 @@ the item in that scope. Module code is private by default, but you can make
 definitions public by adding the `pub` keyword.
 -->
 
-Rust vous permet d'organiser vos paquets en crates et nos crates en modules afin
-que vous puissiez réutiliser vos éléments d'un module à un autre. Vous pouvez
-faire cela en utilisant des chemins absolus ou relatifs. Ces chemins peuvent
-être importés dans la portée avec une instruction `use` afin d'avoir un chemin
-plus court pour pouvoir l'utiliser plusieurs fois cet élément dans la portée. Le
-code du module est privé par défaut, mais vous pouvez rendre public des
-définitions en ajoutant le mot-clé `pub`.
+Rust vous permet de décomposer un paquet dans plusieurs crates et un crate en
+modules afin que vous puissiez réutiliser vos éléments d'un module à un autre.
+Vous pouvez faire cela en utilisant des chemins absolus ou relatifs. Ces chemins
+peuvent être importés dans la portée avec une instruction `use` afin d'avoir un
+chemin plus court pour pouvoir l'utiliser plusieurs fois cet élément dans la
+portée. Le code du module est privé par défaut, mais vous pouvez rendre public
+des définitions en ajoutant le mot-clé `pub`.
 
 <!--
 In the next chapter, we’ll look at some collection data structures in the
