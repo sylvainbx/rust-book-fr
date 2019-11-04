@@ -27,3 +27,5 @@
 
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
     - [Définir et instancier des structures](ch05-01-defining-structs.md)
+
+    - [Les types de données génériques](ch10-01-syntax.md)

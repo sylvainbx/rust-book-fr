@@ -7,6 +7,7 @@ français.
 | ------- | ------ | ------ |
 | ahead-of-time compilation | compilation anticipée | sigle : AOT |
 | allocated | alloué | - |
+| angle brackets | chevrons | - |
 | annotate | indiquer | - |
 | Appendix | annexe | tout en minuscule (sauf en début de phrase) |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
@@ -110,6 +111,7 @@ français.
 | method | méthode | - |
 | modern | récent | - |
 | module | module | - |
+| monomorphization | monomorphisation | - |
 | move | déplacement | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
