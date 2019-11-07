@@ -364,7 +364,7 @@ impl ThreadPool {
 ```
 
 We still use the `()` after `FnOnce` because this `FnOnce` represents a closure
-that takes no parameters and doesn’t return a value. Just like function
+that takes no parameters and returns the unit type `()`. Just like function
 definitions, the return type can be omitted from the signature, but even if we
 have no parameters, we still need the parentheses.
 
@@ -895,7 +895,7 @@ at Listing 20-19.
 # use std::sync::mpsc;
 # struct Worker {}
 
-type Job = Box<FnOnce() + Send + 'static>;
+type Job = Box<dyn FnOnce() + Send + 'static>;
 
 impl ThreadPool {
     // --snip--
