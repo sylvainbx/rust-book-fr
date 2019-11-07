@@ -13,8 +13,8 @@ call to `calculate_length`, because the `String` was moved into
 
 La difficulté avec le code du tuple à la fin de la section précédente est que
 nous avons besoin de retourner la `String` au code appelant pour qu'il puisse
-continuer à utiliser la `String` après l'appel à `calculer_longueur`, car la
-`String` a été déplacée dans `calculer_longueur`.
+continuer à utiliser la `String` après l'appel à `calculer_taille`, car la
+`String` a été déplacée dans `calculer_taille`.
 
 <!--
 Here is how you would define and use a `calculate_length` function that has a
@@ -22,8 +22,8 @@ reference to an object as a parameter instead of taking ownership of the
 value:
 -->
 
-Voici comment déclarer et utiliser une fonction `calculer_longueur` qui prend
-une *référence* à un objet en paramètre plutôt que de prendre possession de la
+Voici comment définir et utiliser une fonction `calculer_taille` qui prend une
+*référence* à un objet en paramètre plutôt que de prendre possession de la
 valeur :
 
 <!--
@@ -52,12 +52,12 @@ fn calculate_length(s: &String) -> usize {
 fn main() {
     let s1 = String::from("hello");
 
-    let long = calculer_longeur(&s1);
+    let long = calculer_taille(&s1);
 
-    println!("La longueur de '{}' est {}.", s1, long);
+    println!("La taille de '{}' est {}.", s1, long);
 }
 
-fn calculer_longueur(s: &String) -> usize {
+fn calculer_taille(s: &String) -> usize {
     s.len()
 }
 ```
@@ -71,8 +71,8 @@ function return value is gone. Second, note that we pass `&s1` into
 
 Premièrement, on peut observer que tout le code des *tuples* dans la déclaration
 des variables et dans la valeur de retour de la fonction a été enlevé.
-Deuxièmement, remarquez que nous passons `&s1` dans `calculer_longueur`, et que
-dans sa déclaration, nous utilisons `&String` plutôt que `String`.
+Deuxièmement, remarquez que nous passons `&s1` à `calculer_taille`, et que dans
+sa définition, nous utilisons `&String` plutôt que `String`.
 
 <!--
 These ampersands are *references*, and they allow you to refer to some value
@@ -124,12 +124,12 @@ let len = calculate_length(&s1);
 -->
 
 ```rust
-# fn calculer_longueur(s: &String) -> usize {
+# fn calculer_taille(s: &String) -> usize {
 #     s.len()
 # }
 let s1 = String::from("hello");
 
-let long = calculer_longueur(&s1);
+let long = calculer_taille(&s1);
 ```
 
 <!--
@@ -139,8 +139,8 @@ not be dropped when the reference goes out of scope.
 -->
 
 La syntaxe `&s1` nous permet de créer une référence qui se *réfère* à la valeur
-de `s1` mais n'en pas possession. Et comme elle n'en pas possession, la valeur
-sur laquelle elle pointe désigne ne sera pas libérée quand cette référence
+de `s1` mais n'en prend pas possession. Et comme elle ne la possède pas, la
+valeur vers laquelle elle pointe ne sera pas libérée quand cette référence
 sortira de la portée.
 
 <!--
@@ -162,9 +162,9 @@ fn calculate_length(s: &String) -> usize { // s is a reference to a String
 -->
 
 ```rust
-fn calculer_longueur(s: &String) -> usize { // s est une référence à une String
+fn calculer_taille(s: &String) -> usize { // s est une référence à une String
     s.len()
-} // Ici, s sort de la portée. Mais comme elle ne prend pas possession ce dont
+} // Ici, s sort de la portée. Mais comme elle ne prend pas possession de ce
   // à quoi elle fait référence, il ne se passe rien.
 ```
 
@@ -178,7 +178,7 @@ order to give back ownership, because we never had ownership.
 
 La portée dans laquelle la variable `s` est en vigueur est la même que toute
 portée d'un paramètre de fonction, mais nous ne libérons pas ce sur quoi cette
-référence pointe quand elle sort de la portée, car nous ne nous n'en prenons pas
+référence pointe quand elle sort de la portée, car nous n'en prenons pas
 possession. Lorsque les fonctions ont des références en paramètres au lieu des
 valeurs réelles, nous n'avons pas besoin de retourner les valeurs pour les
 rendre, car nous n'en avons jamais pris possession.
@@ -191,8 +191,8 @@ have to give it back.
 
 Quand nous avons des références dans les paramètres d'une fonction, nous
 appelons cela *l'emprunt*. Comme dans la vie réelle, quand un objet appartient
-à quelqu'un, vous pouvez lui emprunter. Et quand vous avez fini, vous devez lui
-rendre.
+à quelqu'un, vous pouvez le lui emprunter. Et quand vous avez fini, vous devez
+le lui rendre.
 
 <!--
 So what happens if we try to modify something we’re borrowing? Try the code in
@@ -330,7 +330,7 @@ reference with `&mut s` and accept a mutable reference with `some_string: &mut
 String`.
 -->
 
-D'abord, nous avons dû modifier `s` pour être `mut`. Ensuite, nous avons dû
+D'abord, nous avons dû préciser que `s` est `mut`. Ensuite, nous avons dû
 créer une référence mutable avec `&mut s` et accepter de prendre une référence
 mutable avec `texte: &mut String`.
 
@@ -406,7 +406,7 @@ these three behaviors occur:
 -->
 
 L'avantage d'avoir cette contrainte est que Rust peut empêcher les accès
-concurrent au moment de la compilation. Un *accès concurrent* est une situation
+concurrents au moment de la compilation. Un *accès concurrent* est une situation
 de concurrence qui se produit lorsque ces trois facteurs se combinent :
 
 <!--
@@ -417,7 +417,7 @@ de concurrence qui se produit lorsque ces trois facteurs se combinent :
 
 * Deux pointeurs ou plus accèdent à la même donnée au même moment.
 * Au moins un des pointeurs est utilisé pour écrire dans cette donnée.
-* On n'utilise aucun système pour synchroniser l'accès aux données.
+* On n'utilise aucun mécanisme pour synchroniser l'accès aux données.
 
 <!--
 Data races cause undefined behavior and can be difficult to diagnose and fix
@@ -425,10 +425,10 @@ when you’re trying to track them down at runtime; Rust prevents this problem
 from happening because it won’t even compile code with data races!
 -->
 
-L'accès concurrent provoque des comportements incontrôlés et rend difficile le
+L'accès concurrent provoque des comportements indéfinis et rend difficile le
 diagnostic et la résolution de problèmes lorsque vous essayez de les reproduire
-au moment de l'exécution; Rust évite ce problème parce qu'il ne va pas compiler
-le code avec un accès concurrent !
+au moment de l'exécution ; Rust évite ce problème parce qu'il ne va pas compiler
+du code avec des accès concurrents !
 
 <!--
 As always, we can use curly brackets to create a new scope, allowing for
@@ -436,8 +436,8 @@ multiple mutable references, just not *simultaneous* ones:
 -->
 
 Comme d'habitude, nous pouvons utiliser des accolades pour créer une nouvelle
-portée, pour nous permettre d'avoir plusieurs références mutables, mais pas en
-*simultané* :
+portée, pour nous permettre d'avoir plusieurs références mutables, mais pas
+*en même temps* :
 
 <!--
 ```rust
@@ -540,9 +540,9 @@ the data.
 
 Ouah ! Nous ne pouvons pas *non plus* avoir une référence mutable pendant que
 nous en avons une autre immuable. Les utilisateurs d'une référence immuable ne
-s'attendent pas à ce que se valeur change soudainement ! Cependant,
+s'attendent pas à ce que sa valeur change soudainement ! Cependant,
 l'utilisation de plusieurs références immuables ne pose pas de problème, car
-personne de n'a la possibilité de modifier la lecture de la donnée par les
+simplement lire une donnée ne va pas affecter la lecture de la donnée par les
 autres.
 
 <!--
@@ -594,7 +594,7 @@ created. These scopes don’t overlap, so this code is allowed.
 -->
 
 Les portées des références immuables `r1` et `r2` se terminent après le
-`println!` où elles sont utilisées pour la dernière fois, qui se situe avant que
+`println!` où elles sont utilisées pour la dernière fois, c'est-à-dire avant que
 la référence mutable `r3` soit créée. Ces portées ne se chevauchent pas, donc ce
 code est autorisé.
 
@@ -605,17 +605,17 @@ than at runtime) and showing you exactly where the problem is. Then you don’t
 have to track down why your data isn’t what you thought it was.
 -->
 
-Même si ces erreurs d'emprunt peuvent parfois être frustrantes, souvenez-vous
-que le compilateur de Rust nous fait signale un potentiel bogue avant l'heure
-(au moment de la compilation plutôt que l'exécution) et vous montre où est
-exactement le problème. Ainsi, vous n'avez plus à chercher pourquoi vos données
-ne correspondent pas à ce que vous pensiez qu'elles devraient être.
+Même si ces erreurs d'emprunt peuvent parfois être frustrantes, n'oubliez pas
+que le compilateur de Rust nous signale un bogue potentiel en avance (au moment
+de la compilation plutôt que l'exécution) et vous montre où se situe exactement
+le problème. Ainsi, vous n'avez pas à chercher pourquoi vos données ne
+correspondent pas à ce que vous pensiez qu'elles devraient être.
 
 <!--
 ### Dangling References
 -->
 
-### Les références sautillantes
+### Les références pendouillantes
 
 <!--
 In languages with pointers, it’s easy to erroneously create a *dangling
@@ -628,11 +628,11 @@ reference to the data does.
 -->
 
 Avec les langages qui utilisent les pointeurs, il est facile de créer par erreur
-un *pointeur sautillant*, qui est un pointeur qui désigne un endroit dans la
-mémoire qui a été donné à quelqu'un d'autre, en libérant de la mémoire tout en
-conservant un pointeur vers cette mémoire. En revanche, avec Rust, le
-compilateur garantit que les références ne seront jamais des références
-sautillantes : si nous avons une référence vers des données, le compilateur va
+un *pointeur pendouillant* (*dangling pointer*), qui est un pointeur qui pointe
+vers un emplacement mémoire qui a été donné à quelqu'un d'autre, en libérant de
+la mémoire tout en conservant un pointeur vers cette mémoire. En revanche, avec
+Rust, le compilateur garantit que les références ne seront jamais des références
+pendouillantes : si nous avons une référence vers une donnée, le compilateur va
 s'assurer que cette donnée ne va pas sortir de la portée avant que la référence
 vers cette donnée en soit elle-même sortie.
 
@@ -641,7 +641,7 @@ Let’s try to create a dangling reference, which Rust will prevent with a
 compile-time error:
 -->
 
-Essayons de créer une référence sautillante, que Rust va empêcher avec une
+Essayons de créer une référence pendouillante, ce que Rust va empêcher avec une
 erreur au moment de la compilation :
 
 <!--
@@ -666,10 +666,10 @@ fn dangle() -> &String {
 
 ```rust,ignore,does_not_compile
 fn main() {
-    let reference_vers_rien = sautillante();
+    let reference_vers_rien = pendouille();
 }
 
-fn sautillante() -> &String {
+fn pendouille() -> &String {
     let s = String::from("hello");
 
     &s
@@ -700,8 +700,8 @@ error[E0106]: missing lifetime specifier
 error[E0106]: missing lifetime specifier
  --> main.rs:5:16
   |
-5 | fn sautillante() -> &String {
-  |                     ^ expected lifetime parameter
+5 | fn pendouille() -> &String {
+  |                    ^ expected lifetime parameter
   |
   = help: this function's return type contains a borrowed value, but there is
   no value for it to be borrowed from
@@ -715,9 +715,9 @@ about lifetimes, the message does contain the key to why this code is a problem:
 -->
 
 Ce message d'erreur fait référence à une fonctionnalité que nous n'avons pas
-encore vu : les *durées de vie*. Nous allons aborder les durées de vie dans le
-chapitre 10. Mais, si vous mettez de côté les parties qui parlent de la durée de
-vie, le message donne la clé de la raison qui pose problème :
+encore vue : les *durées de vie*. Nous aborderons les durées de vie dans le
+chapitre 10. Mais, si vous mettez de côté les parties qui parlent de durées de
+vie, le message explique pourquoi le code pose problème :
 
 <!--
 ```text
@@ -731,7 +731,7 @@ this function's return type contains a borrowed value, but there is no value
 for it to be borrowed from.
 ```
 
-Qui peut se traduire par :
+Ce qui peut se traduire par :
 
 ```text
 Le type de retour de cette fonction contient une valeur empruntée, mais il n'y a
@@ -744,7 +744,7 @@ Let’s take a closer look at exactly what’s happening at each stage of our
 -->
 
 Regardons de plus près ce qui se passe exactement à chaque étape de notre code
-de `sautillante` :
+de `pendouille` :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -764,14 +764,14 @@ fn dangle() -> &String { // dangle returns a reference to a String
 ```
 -->
 
-
 ```rust,ignore,does_not_compile
-fn sautillante() -> &String { // sautillante retourne une référence vers un String
+fn pendouille() -> &String { // pendouille retourne une référence vers une String
 
     let s = String::from("hello"); // s est une nouvelle String
 
     &s // nous retournons une référence vers la String, s
-} // Ici, s sort de la portée, et est libéré. Sa mémoire disparait. C'est dangereux !
+} // Ici, s sort de la portée, et est libéré. Sa mémoire disparaît.
+  // Attention, danger !
 ```
 
 <!--
@@ -781,9 +781,9 @@ this reference would be pointing to an invalid `String`. That’s no good! Rust
 won’t let us do this.
 -->
 
-Comme `s` est créé dans `sautillante`, lorsque le code de `sautillante` est
-terminé, `s` va être désallouée. Mais nous avons essayé de retourner une
-référence vers elle. Cela veut dire que cette référence va pointer vers une
+Comme `s` est créé dans `pendouille`, lorsque le code de `pendouille` est
+terminé, la variable `s` sera désallouée. Mais nous avons essayé de retourner
+une référence vers elle. Cela veut dire que cette référence va pointer vers une
 `String` invalide. Ce n'est pas bon ! Rust ne nous laissera pas faire cela.
 
 <!--
@@ -803,7 +803,7 @@ fn no_dangle() -> String {
 -->
 
 ```rust
-fn pas_sautillante() -> String {
+fn ne_pendouille_pas() -> String {
     let s = String::from("hello");
 
     s
@@ -815,8 +815,8 @@ This works without any problems. Ownership is moved out, and nothing is
 deallocated.
 -->
 
-Cela fonctionne sans problème. La possession est déplacée, et rien n'est
-désalloué.
+Cela fonctionne sans problème. La possession est transférée à la valeur de
+retour de la fonction, et rien n'est désalloué.
 
 <!--
 ### The Rules of References
@@ -836,7 +836,7 @@ Récapitulons ce que nous avons vu à propos des références :
 * References must always be valid.
 -->
 
-* Au même moment, vous pouvez avoir *soit* une référence mutable, *soit* un
+* À un instant donné, vous pouvez avoir *soit* une référence mutable, *soit* un
   nombre quelconque de références immuables.
 * Les références doivent toujours être en vigueur.
 
@@ -844,5 +844,4 @@ Récapitulons ce que nous avons vu à propos des références :
 Next, we’ll look at a different kind of reference: slices.
 -->
 
-A l'étape suivante, nous allons aborder un autre type de référence : les
-découpages.
+Ensuite, nous aborderons un autre type de référence : les *slices*.

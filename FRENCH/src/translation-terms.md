@@ -47,7 +47,7 @@ français.
 | crash | plantage | - |
 | crate | crate | nom féminin (une *crate*) |
 | curly bracket | accolade | - |
-| dangling (reference) | (référence) sautillante | - |
+| dangling | pendouillant | - |
 | data race | accès concurrent | - |
 | data representation | modèle de données | - |
 | deallocate | désalloué | - |

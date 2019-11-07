@@ -23,7 +23,6 @@
 
 - [Comprendre la possession](ch04-00-understanding-ownership.md)
     - [Qu'est-ce que la possession ?](ch04-01-what-is-ownership.md)
-
     - [Les références et l'emprunt](ch04-02-references-and-borrowing.md)
 
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
