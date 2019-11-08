@@ -1529,6 +1529,7 @@ However, the code in Listing 2-4 won’t compile yet. Let’s try it:
 Cependant, notre code dans l'encart 2-4 ne compile pas encore. Essayons de le
 faire :
 
+<!-- markdownlint-disable -->
 <!--
 ```text
 $ cargo build
@@ -1546,6 +1547,7 @@ error: aborting due to previous error
 Could not compile `guessing_game`.
 ```
 -->
+<!-- markdownlint-restore -->
 
 ```text
 $ cargo build
@@ -1769,7 +1771,8 @@ L'utilisation de `parse` peut facilement mener à une erreur. Si par exemple,
 le texte contient `A👍%`, il ne sera pas possible de le convertir en nombre.
 Comme elle peut échouer, la méthode `parse` retourne un type `Result`, comme
 celui que la méthode `read_line` retourne (comme nous l'avons vu plus tôt dans
-[“Gérer les erreurs potentielles avec le type `Result`”](#gérer-les-erreurs-potentielles-avec-le-type-result)<!-- ignore-->).
+[“Gérer les erreurs potentielles avec le type
+`Result`”](#gérer-les-erreurs-potentielles-avec-le-type-result)<!-- ignore-->).
 Nous allons gérer ce `Result` de la même manière, avec à nouveau la méthode
 `expect`. Si `parse` retourne une variante `Err` de `Result` car elle ne peut
 pas créer un nombre à partir de la chaîne de caractères, l'appel à
@@ -1922,11 +1925,12 @@ user can take advantage of that in order to quit, as shown here:
 L'utilisateur pourrait quand même interrompre le programme en utilisant le
 raccourci clavier <span class="keystroke">ctrl-c</span>.
 Mais il y a une autre façon d'échapper à ce monstre insatiable, comme nous
-l'avons abordé dans la partie
-[“Comparer le nombre saisi au nombre secret”](#comparer-le-nombre-saisi-au-nombre-secret)<!-- ignore --> :
-si l'utilisateur saisit quelque chose qui n'est pas un nombre, le programme va
+l'avons abordé dans la partie [“Comparer le nombre saisi au nombre
+secret”](#comparer-le-nombre-saisi-au-nombre-secret)<!-- ignore --> : si
+l'utilisateur saisit quelque chose qui n'est pas un nombre, le programme va
 planter. L'utilisateur peut procéder ainsi pour le quitter, comme ci-dessous :
 
+<!-- markdownlint-disable -->
 <!--
 ```text
 $ cargo run
@@ -1954,6 +1958,7 @@ note: Run with `RUST_BACKTRACE=1` for a backtrace.
 error: Process didn't exit successfully: `target/debug/guess` (exit code: 101)
 ```
 -->
+<!-- markdownlint-restore -->
 
 ```text
 $ cargo run

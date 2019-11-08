@@ -178,7 +178,8 @@ les outils de compilation est d'installer
 
 [install]: https://www.rust-lang.org/tools/install
 <!--
-[visualstudio]: https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2019
+[visualstudio]:
+https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2019
 FR translation: the website redirects to French version, we lose the "id" link.
 Fix is directly below:
 -->

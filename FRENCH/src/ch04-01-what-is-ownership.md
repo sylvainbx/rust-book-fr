@@ -401,8 +401,8 @@ fonction spécifique dans l'espace de nom du type `String` plutôt que d'utilise
 un nom comme `string_from`. Nous verrons cette syntaxe plus en détail dans la
 section [“Syntaxe de méthode”][method-syntax]<!-- ignore --> du chapitre 5 et
 lorsque nous aborderons les espaces de noms dans la section
-[“Les chemins pour désigner un élément dans l'arborescence de module”][paths-module-tree]<!-- ignore -->
-du chapitre 7.
+[“Les chemins pour désigner un élément dans l'arborescence de
+module”][paths-module-tree]<!-- ignore --> du chapitre 7.
 
 <!--
 This kind of string *can* be mutated:
@@ -663,7 +663,13 @@ un pointeur vers la mémoire qui contient le contenu de la chaîne de caractère
 une taille, et une capacité. Ce groupe de données est stocké sur la pile. À
 droite, nous avons la mémoire sur le tas qui contient les données.
 
-<img alt="String in memory" src="img/trpl04-01.svg" class="center" style="width: 50%;" />
+<!--
+<img alt="String in memory" src="img/trpl04-01.svg" class="center"
+style="width: 50%;" />
+-->
+
+<img alt="Une string en mémoire" src="img/trpl04-01.svg" class="center"
+style="width: 50%;" />
 
 <!--
 <span class="caption">Figure 4-1: Representation in memory of a `String`
@@ -700,7 +706,13 @@ stockés sur la pile. Nous ne copions pas les données stockées sur le tas
 auxquelles le pointeur se réfère. Autrement dit, la représentation des données
 dans la mémoire ressemble à l'illustration 4-2.
 
-<img alt="s1 and s2 pointing to the same value" src="img/trpl04-02.svg" class="center" style="width: 50%;" />
+<!--
+<img alt="s1 and s2 pointing to the same value" src="img/trpl04-02.svg"
+class="center" style="width: 50%;" />
+-->
+
+<img alt="s1 et s2 qui pointent vers la même valeur" src="img/trpl04-02.svg"
+class="center" style="width: 50%;" />
 
 <!--
 <span class="caption">Figure 4-2: Representation in memory of the variable `s2`
@@ -723,7 +735,13 @@ mémoire si Rust avait aussi copié les données sur le tas. Si Rust faisait cec
 l'opération `s2 = s1` pourrait potentiellement être très coûteuse en termes de
 performances d'exécution si les données sur le tas étaient volumineuses.
 
-<img alt="s1 and s2 to two places" src="img/trpl04-03.svg" class="center" style="width: 50%;" />
+<!--
+<img alt="s1 and s2 to two places" src="img/trpl04-03.svg" class="center"
+style="width: 50%;" />
+-->
+
+<img alt="s1 et s2 à deux endroits" src="img/trpl04-03.svg" class="center"
+style="width: 50%;" />
 
 <!--
 <span class="caption">Figure 4-3: Another possibility for what `s2 = s1` might
@@ -815,7 +833,13 @@ lieu d'appeler cela une copie superficielle, on appelle cela un *déplacement*.
 Ici, nous pourrions dire que `s1` a été *déplacé* dans `s2`. Donc ce qui se
 passe réellement est décrit par l'illustration 4-4.
 
-<img alt="s1 moved to s2" src="img/trpl04-04.svg" class="center" style="width: 50%;" />
+<!--
+<img alt="s1 moved to s2" src="img/trpl04-04.svg" class="center"
+style="width: 50%;" />
+-->
+
+<img alt="s1 déplacé dans s2" src="img/trpl04-04.svg" class="center"
+style="width: 50%;" />
 
 <!--
 <span class="caption">Figure 4-4: Representation in memory after `s1` has been
@@ -858,7 +882,7 @@ programming languages, you’ve probably seen them before.
 -->
 
 Si nous *voulons* faire une copie profonde des données sur le tas d'une
-`String`, et pas seulement des données sur la pile, nous pouvons utiliser une 
+`String`, et pas seulement des données sur la pile, nous pouvons utiliser une
 méthode commune qui s'appelle `clone`. Nous aborderons la syntaxe des méthodes
 au chapitre 5, mais comme les méthodes sont des outils courants dans de
 nombreux langages, vous les avez probablement utilisées auparavant.
@@ -1048,7 +1072,7 @@ fn makes_copy(some_integer: i32) { // some_integer comes into scope
 -->
 
 ```rust
-fn main() { 
+fn main() {
     let s = String::from("hello");  // s rentre dans la portée.
 
     prendre_possession(s);  // La valeur de s est déplacée dans la fonction…
@@ -1281,7 +1305,8 @@ c'est ce qu'on appelle les *références*.
 [data-types]: ch03-02-data-types.html#data-types
 [derivable-traits]: appendix-03-derivable-traits.html
 [method-syntax]: ch05-03-method-syntax.html#method-syntax
-[paths-module-tree]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html
+[paths-module-tree]:
+ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html
 -->
 
 [data-types]: ch03-02-data-types.html
