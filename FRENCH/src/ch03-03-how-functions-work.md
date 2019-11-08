@@ -379,10 +379,11 @@ fn main() {
 }
 ```
 
+<!-- markdownlint-disable -->
 <!--
-<span class="caption">Listing 3-1: A `main` function declaration containing one
-statement</span>
+<span class="caption">Listing 3-1: A `main` function declaration containing one statement</span>
 -->
+<!-- markdownlint-restore -->
 
 <span class="caption">Encart 3-1 : une fonction `main` qui contient une
 instruction</span>

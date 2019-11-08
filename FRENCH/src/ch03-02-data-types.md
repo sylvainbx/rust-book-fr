@@ -155,6 +155,7 @@ valeur entière.
 | 128 bits| `i128`  | `u128`    |
 | archi   | `isize` | `usize`   |
 
+<!-- markdownlint-disable -->
 <!--
 Each variant can be either signed or unsigned and has an explicit size.
 *Signed* and *unsigned* refer to whether it’s possible for the number to be
@@ -163,9 +164,9 @@ with it (signed) or whether it will only ever be positive and can therefore be
 represented without a sign (unsigned). It’s like writing numbers on paper: when
 the sign matters, a number is shown with a plus sign or a minus sign; however,
 when it’s safe to assume the number is positive, it’s shown with no sign.
-Signed numbers are stored using [two’s
-complement](https://en.wikipedia.org/wiki/Two%27s_complement) representation.
+Signed numbers are stored using [two’s complement](https://en.wikipedia.org/wiki/Two%27s_complement) representation.
 -->
+<!-- markdownlint-restore -->
 
 Chaque variante peut-être signée ou non signée et possède une taille explicite.
 *Signé* et *non signé* veut dire respectivement que le nombre peut prendre ou

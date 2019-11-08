@@ -663,10 +663,11 @@ un pointeur vers la mémoire qui contient le contenu de la chaîne de caractère
 une taille, et une capacité. Ce groupe de données est stocké sur la pile. À
 droite, nous avons la mémoire sur le tas qui contient les données.
 
+<!-- markdownlint-disable -->
 <!--
-<img alt="String in memory" src="img/trpl04-01.svg" class="center"
-style="width: 50%;" />
+<img alt="String in memory" src="img/trpl04-01.svg" class="center" style="width: 50%;" />
 -->
+<!-- markdownlint-restore -->
 
 <img alt="Une string en mémoire" src="img/trpl04-01.svg" class="center"
 style="width: 50%;" />
@@ -706,10 +707,11 @@ stockés sur la pile. Nous ne copions pas les données stockées sur le tas
 auxquelles le pointeur se réfère. Autrement dit, la représentation des données
 dans la mémoire ressemble à l'illustration 4-2.
 
+<!-- markdownlint-disable -->
 <!--
-<img alt="s1 and s2 pointing to the same value" src="img/trpl04-02.svg"
-class="center" style="width: 50%;" />
+<img alt="s1 and s2 pointing to the same value" src="img/trpl04-02.svg" class="center" style="width: 50%;" />
 -->
+<!-- markdownlint-restore -->
 
 <img alt="s1 et s2 qui pointent vers la même valeur" src="img/trpl04-02.svg"
 class="center" style="width: 50%;" />
@@ -735,10 +737,11 @@ mémoire si Rust avait aussi copié les données sur le tas. Si Rust faisait cec
 l'opération `s2 = s1` pourrait potentiellement être très coûteuse en termes de
 performances d'exécution si les données sur le tas étaient volumineuses.
 
+<!-- markdownlint-disable -->
 <!--
-<img alt="s1 and s2 to two places" src="img/trpl04-03.svg" class="center"
-style="width: 50%;" />
+<img alt="s1 and s2 to two places" src="img/trpl04-03.svg" class="center" style="width: 50%;" />
 -->
+<!-- markdownlint-restore -->
 
 <img alt="s1 et s2 à deux endroits" src="img/trpl04-03.svg" class="center"
 style="width: 50%;" />
@@ -833,10 +836,11 @@ lieu d'appeler cela une copie superficielle, on appelle cela un *déplacement*.
 Ici, nous pourrions dire que `s1` a été *déplacé* dans `s2`. Donc ce qui se
 passe réellement est décrit par l'illustration 4-4.
 
+<!-- markdownlint-disable -->
 <!--
-<img alt="s1 moved to s2" src="img/trpl04-04.svg" class="center"
-style="width: 50%;" />
+<img alt="s1 moved to s2" src="img/trpl04-04.svg" class="center" style="width: 50%;" />
 -->
+<!-- markdownlint-restore -->
 
 <img alt="s1 déplacé dans s2" src="img/trpl04-04.svg" class="center"
 style="width: 50%;" />
@@ -1301,13 +1305,14 @@ Mais c'est trop laborieux et beaucoup de travail pour un principe qui devrait
 être banal. Heureusement pour nous, Rust a une fonctionnalité pour ce principe,
 c'est ce qu'on appelle les *références*.
 
+<!-- markdownlint-disable -->
 <!--
 [data-types]: ch03-02-data-types.html#data-types
 [derivable-traits]: appendix-03-derivable-traits.html
 [method-syntax]: ch05-03-method-syntax.html#method-syntax
-[paths-module-tree]:
-ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html
+[paths-module-tree]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html
 -->
+<!-- markdownlint-restore -->
 
 [data-types]: ch03-02-data-types.html
 [derivable-traits]: appendix-03-derivable-traits.html
