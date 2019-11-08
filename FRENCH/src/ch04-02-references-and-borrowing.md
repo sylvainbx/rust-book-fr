@@ -83,7 +83,13 @@ Ces esperluettes sont des *références*, et elles permettent de vous référer 
 une valeur sans en prendre possession. L'illustration 4-5 nous montre cela dans
 un schéma.
 
-<img alt="&String s qui pointe vers la String s1" src="img/trpl04-05.svg" class="center" />
+<!--
+<img alt="&String s pointing at String s1" src="img/trpl04-05.svg"
+class="center" />
+-->
+
+<img alt="&String s qui pointe vers la String s1" src="img/trpl04-05.svg"
+class="center" />
 
 <!--
 <span class="caption">Figure 4-5: A diagram of `&String s` pointing at `String
