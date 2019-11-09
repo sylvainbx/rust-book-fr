@@ -443,6 +443,7 @@ il ne compile pas ! Assurez-vous d'avoir lu le texte autour pour savoir si
 l'exemple que vous tentez de compiler doit échouer. Ferris va aussi vous aider
 à identifier du code qui ne devrait pas fonctionner :
 
+<!-- markdownlint-disable -->
 <!--
 | Ferris                                                                 | Meaning                                          |
 |------------------------------------------------------------------------|--------------------------------------------------|
@@ -451,6 +452,7 @@ l'exemple que vous tentez de compiler doit échouer. Ferris va aussi vous aider
 | <img src="img/ferris/unsafe.svg" class="ferris-explain"/>              | This code block contains unsafe code.            |
 | <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/>| This code does not produce the desired behavior. |
 -->
+<!-- markdownlint-restore -->
 
 | Ferris                                                                 | Signification                                    |
 |------------------------------------------------------------------------|--------------------------------------------------|

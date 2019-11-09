@@ -31,7 +31,8 @@ compilation. Le compilateur peut souvent déduire quel type utiliser en se basan
 sur la valeur et sur la façon dont elle est utilisée. Dans les cas où plusieurs
 types sont envisageables, comme lorsque nous avons converti une chaîne de
 caractères en un type numérique en utilisant `parse` dans la section
-[“Comparer le nombre saisi au nombre secret”][comparing-the-guess-to-the-secret-number]<!-- ignore -->
+[“Comparer le nombre saisi au nombre
+secret”][comparing-the-guess-to-the-secret-number]<!-- ignore -->
 du chapitre 2, nous devons ajouter une annotation de type, comme ceci :
 
 <!--
@@ -154,6 +155,7 @@ valeur entière.
 | 128 bits| `i128`  | `u128`    |
 | archi   | `isize` | `usize`   |
 
+<!-- markdownlint-disable -->
 <!--
 Each variant can be either signed or unsigned and has an explicit size.
 *Signed* and *unsigned* refer to whether it’s possible for the number to be
@@ -164,6 +166,7 @@ the sign matters, a number is shown with a plus sign or a minus sign; however,
 when it’s safe to assume the number is positive, it’s shown with no sign.
 Signed numbers are stored using [two’s complement](https://en.wikipedia.org/wiki/Two%27s_complement) representation.
 -->
+<!-- markdownlint-restore -->
 
 Chaque variante peut-être signée ou non signée et possède une taille explicite.
 *Signé* et *non signé* veut dire respectivement que le nombre peut prendre ou

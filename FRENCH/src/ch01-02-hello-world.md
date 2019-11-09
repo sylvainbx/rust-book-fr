@@ -81,7 +81,6 @@ For Windows CMD, enter this:
 
 Avec CMD sous Windows, écrivez ceci :
 
-
 ```cmd
 > mkdir "%USERPROFILE%\projects"
 > cd /d "%USERPROFILE%\projects"

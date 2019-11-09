@@ -176,12 +176,16 @@ pour Visual Studio 2013 ou plus récent. La méthode la plus facile pour obtenir
 les outils de compilation est d'installer
 [Build Tools pour Visual Studio 2019][visualstudio].
 
-[install]: https://www.rust-lang.org/tools/install
+<!-- markdownlint-disable -->
 <!--
+[install]: https://www.rust-lang.org/tools/install
 [visualstudio]: https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2019
 FR translation: the website redirects to French version, we lose the "id" link.
 Fix is directly below:
 -->
+<!-- markdownlint-restore -->
+
+[install]: https://www.rust-lang.org/tools/install
 [visualstudio]: https://www.visualstudio.com/fr/downloads/#build-tools-for-visual-studio-2019
 
 <!--
