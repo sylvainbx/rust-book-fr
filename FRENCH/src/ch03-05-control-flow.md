@@ -742,10 +742,9 @@ guessing the correct number.
 Heureusement, Rust fournit un autre moyen, plus fiable, de sortir d'une boucle.
 Vous pouvez ajouter le mot-clé `break` à l'intérieur de la boucle pour demander
 au programme d'arrêter la boucle. Souvenez-vous que nous avions fait ceci dans
-le jeu de devinettes, dans la section
-[“Arrêter le programme après avoir gagné”][quitting-after-a-correct-guess]<!-- ignore -->
-du chapitre 2 afin de quitter le programme quand l'utilisateur gagne le jeu en
-devinant le bon nombre.
+le jeu de devinettes, dans la section [“Arrêter le programme après avoir
+gagné”][quitting-after-a-correct-guess]<!-- ignore --> du chapitre 2 afin de
+quitter le programme quand l'utilisateur gagne le jeu en devinant le bon nombre.
 
 <!--
 #### Returning Values from Loops
