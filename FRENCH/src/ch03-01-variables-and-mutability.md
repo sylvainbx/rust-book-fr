@@ -375,8 +375,8 @@ can shadow a variable by using the same variable’s name and repeating the use
 of the `let` keyword as follows:
 -->
 
-Comme nous l'avons vu dans la section
-[“Comparer le nombre saisi au nombre secret”][comparing-the-guess-to-the-secret-number]<!-- ignore -->
+Comme nous l'avons vu dans la section [“Comparer le nombre saisi au nombre
+secret”][comparing-the-guess-to-the-secret-number]<!-- ignore -->
 du jeu de devinettes au chapitre 2, on peut déclarer une nouvelle variable
 avec le même nom qu'une variable précédente, et la nouvelle variable
 masquera la première. Les Rustacés disent que la première variable est *masquée*
