@@ -47,11 +47,15 @@ français.
 | crash | plantage | - |
 | crate | crate | nom féminin (une *crate*) |
 | curly bracket | accolade | - |
+| dangling | pendouillant | - |
+| data race | accès concurrent | - |
 | data representation | modèle de données | - |
+| deallocate | désalloué | - |
 | debug | déboguer | - |
 | debugging | débogage | - |
 | deep copy | copie en profondeur | - |
 | dependency | dépendance | - |
+| dereferencing | déréférencement | - |
 | destructure | déstructurer | - |
 | DevOps | DevOps | - |
 | dot notation | la notation avec un point | - |
@@ -135,6 +139,7 @@ français.
 | prelude | étape préliminaire | - |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
+| race condition | situation de concurrence | - |
 | pushing onto the stack | empiler | - |
 | raw identifier | identificateur brut | - |
 | README | README | - |
