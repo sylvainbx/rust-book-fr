@@ -157,7 +157,7 @@ But mutability can be very useful. Variables are immutable only by default; as
 you did in Chapter 2, you can make them mutable by adding `mut` in front of the
 variable name. In addition to allowing this value to change, `mut` conveys
 intent to future readers of the code by indicating that other parts of the code
-will be changing this variable's value.
+will be changing this variable’s value.
 -->
 
 Mais la mutabilité peut s'avérer très utile. Les variables sont immuables par
@@ -375,8 +375,8 @@ can shadow a variable by using the same variable’s name and repeating the use
 of the `let` keyword as follows:
 -->
 
-Comme nous l'avons vu dans la section
-[“Comparer le nombre saisi au nombre secret”][comparing-the-guess-to-the-secret-number]<!-- ignore -->
+Comme nous l'avons vu dans la section [“Comparer le nombre saisi au nombre
+secret”][comparing-the-guess-to-the-secret-number]<!-- ignore -->
 du jeu de devinettes au chapitre 2, on peut déclarer une nouvelle variable
 avec le même nom qu'une variable précédente, et la nouvelle variable
 masquera la première. Les Rustacés disent que la première variable est *masquée*
