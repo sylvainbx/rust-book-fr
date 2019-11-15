@@ -19,6 +19,7 @@ français.
 | attributes | attributs | - |
 | binary crate | crate binaire | s'utilise au féminin |
 | *n*-bit number | nombre encodé sur *n* bits | - |
+| blanket implementation | implémentation générale | - |
 | blob | blob | - |
 | boolean | booléen | - |
 | borrow | emprunt(er) | - |
@@ -189,6 +190,7 @@ français.
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | trait | trait | - |
+| trait bound | trait lié | - |
 | troubleshooting | dépannage | - |
 | tuple | tuple | - |
 | tuple struct | structure tuple | - |

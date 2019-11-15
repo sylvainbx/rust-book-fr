@@ -27,3 +27,5 @@
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
     - [Définir et instancier des structures](ch05-01-defining-structs.md)
     - [Un exemple de programme qui utilise des structures](ch05-02-example-structs.md)
+
+    - [Définir des comportements partagés avec les traits](ch10-02-traits.md)
