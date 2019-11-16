@@ -365,6 +365,7 @@ Cela ressemble à une référence pour toute la `String`, mais avec la partie
 `[0..5]` en plus. Plutôt que d'être une référence vers toute la `String`, c'est
 une référence vers une partie de la `String`.
 
+<!-- markdownlint-disable -->
 <!--
 We can create slices using a range within brackets by specifying
 `[starting_index..ending_index]`, where `starting_index` is the first position
@@ -372,8 +373,9 @@ in the slice and `ending_index` is one more than the last position in the
 slice. Internally, the slice data structure stores the starting position and
 the length of the slice, which corresponds to `ending_index` minus
 `starting_index`. So in the case of `let world = &s[6..11];`, `world` would be
-a slice that contains a pointer to the 7th byte of `s` with a length value of 5.
+a slice that contains a pointer to the 7th byte (counting from 1) of `s` with a length value of 5.
 -->
+<!-- markdownlint-enable -->
 
 Nous pouvons créer des slices en utilisant un intervalle entre crochets en
 spécifiant `[indice_debut..indice_fin]`, où `indice_debut` est la position du
@@ -381,8 +383,8 @@ premier octet de la slice et `indice_fin` est la position juste après le dernie
 octet de la slice. En interne, la structure de données de la slice stocke la
 position de départ et la longueur de la slice, ce qui correspond à `indice_fin`
 moins `indice_debut`. Donc dans le cas de `let world = &s[6..11];`, `world` est
-une slice qui contient un pointeur vers l'octet d'indice 6 de `s` et une
-longueur de 5.
+une slice qui contient un pointeur vers le septième octet (en comptant à partir
+de 1) de `s` et une longueur de 5.
 
 <!--
 Figure 4-6 shows this in a diagram.
