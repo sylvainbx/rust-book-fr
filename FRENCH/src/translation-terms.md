@@ -22,12 +22,14 @@ français.
 | blob | blob | - |
 | boolean | booléen | - |
 | borrow | emprunt(er) | - |
+| borrow checker | vérificateur d'emprunt | - |
 | bug | bogue | - |
 | build system | système de compilation | - |
 | byte | octet | - |
 | Cargo | Cargo | - |
 | catchall value | valeur passe-partout | - |
 | Chapter | chapitre | tout en minuscule (sauf en début de phrase) |
+| clause | clause | - |
 | closure | fermeture | - |
 | code review | revue de code | - |
 | collection | collection | - |
@@ -60,6 +62,7 @@ français.
 | DevOps | DevOps | - |
 | dot notation | la notation avec un point | - |
 | double free | double libération | - |
+| elision | élision | - |
 | enum | énumération | - |
 | enumeration | énumération | - |
 | enum’s variant | variante d'énumération | - |
@@ -124,6 +127,7 @@ français.
 | numerical characters | chiffres | - |
 | object-oriented language | langage orienté objet | - |
 | operating system | système d'exploitation | - |
+| output | sortie | - |
 | owner | propriétaire | - |
 | ownership | possession | - |
 | package manager | système de gestion de paquets | - |
@@ -194,6 +198,7 @@ français.
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | trait | trait | - |
+| trait object | objet de trait | - |
 | troubleshooting | dépannage | - |
 | tuple | tuple | - |
 | tuple struct | structure tuple | - |
