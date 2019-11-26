@@ -1,5 +1,3 @@
-<!-- TODO : bonpatron.fr -->
-
 <!--
 # Writing Automated Tests
 -->
