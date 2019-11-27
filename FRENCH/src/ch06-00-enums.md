@@ -16,17 +16,17 @@ construct is another convenient and concise idiom available to you to handle
 enums in your code.
 -->
 
-Dans ce chapitre, nous allons aborder les *énumérations*, aussi appelés *enums*.
-Les énumérations vous permettent de définir un type en énumérant ses *variantes*
-possibles. Pour commencer, nous allons définir et utiliser un énumérateur pour
-voir comment un énumérateur peut donner du sens aux données. Derrière, nous
-allons découvrir  un énumérateur particulière utilise, qui s'appelle `Option` et
-permet de décrir des situations où la valeur peut être quelque chose ou rien.
-Ensuite, nous regarderons comment le filtrage par motif avec l'expression
-`match` peut faciliter l'exécution de codes différents pour chaque valeur d'un
-énumérateur. Enfin, nous analyserons pourquoi la construction `if let` est un
-autre outil convivial et concis à votre disposition pour traiter les
-énumérations dans votre code.
+Dans ce chapitre, nous allons aborder les *énumérations*, aussi appelées
+*enums*. Les énumérations vous permettent de définir un type en énumérant ses
+*variantes* possibles. Pour commencer, nous allons définir et utiliser une
+énumération pour voir comment une énumération peut donner du sens aux données.
+Ensuite, nous examinerons une énumération particulièrement utile qui s'appelle
+`Option` et qui permet de décrire des situations où la valeur peut être soit
+quelque chose, soit rien. Ensuite, nous regarderons comment le filtrage par
+motif avec l'expression `match` peut faciliter l'exécution de codes différents
+pour chaque valeur d'une énumération. Enfin, nous analyserons pourquoi la
+construction `if let` est un autre outil commode et concis à votre disposition
+pour traiter les énumérations dans votre code.
 
 <!--
 Enums are a feature in many languages, but their capabilities differ in each
@@ -35,6 +35,6 @@ languages, such as F#, OCaml, and Haskell.
 -->
 
 Les énumérations sont des fonctionnalités présentes dans de nombreux langages,
-mais leurs aptitudes varient d'un langage à l'autre. Les énumérateurs de Rust
+mais leurs aptitudes varient d'un langage à l'autre. Les énumérations de Rust
 sont plus proches des *types de données algébriques* des langages fonctionnels,
-comme le F#, le OCaml et le Haskell.
+comme F#, OCaml et Haskell.
