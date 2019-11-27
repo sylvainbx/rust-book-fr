@@ -30,3 +30,5 @@
     - [Définir et instancier des structures](ch05-01-defining-structs.md)
     - [Un exemple de programme qui utilise des structures](ch05-02-example-structs.md)
     - [La syntaxe des méthodes](ch05-03-method-syntax.md)
+
+- [Les énumérations et le filtrage par motif](ch06-00-enums.md)
