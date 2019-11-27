@@ -2,7 +2,7 @@
 ## Method Syntax
 -->
 
-## La syntaxe de méthode
+## La syntaxe des méthodes
 
 <!--
 *Methods* are similar to functions: they’re declared with the `fn` keyword and
@@ -17,11 +17,11 @@ instance of the struct the method is being called on.
 Les *méthodes* sont similaires aux fonctions : on les déclare avec le mot-clé
 `fn` et leur nom, elles peuvent avoir des paramètres et une valeur de retour, et
 elles contiennent du code qui est exécuté quand on les appelle depuis un autre
-endroit. Cependant, les méthodes diffèrent des fonctions en ce qu'elles sont
+endroit. Cependant, les méthodes diffèrent des fonctions parce qu'elles sont
 définies dans le contexte d'une structure (ou d'une énumération ou d'un objet de
 trait, que nous aborderons respectivement aux chapitres 6 et 17) et que leur
 premier paramètre est toujours `self`, un mot-clé qui représente l'instance de
-la structure dont on appelle la méthode.
+la structure sur laquelle on appelle la méthode.
 
 <!--
 ### Defining Methods
@@ -114,13 +114,13 @@ name, parentheses, and any arguments.
 
 Pour définir la fonction dans le contexte de `Rectangle`, nous démarrons un bloc
 `impl` (*implémentation*). Puis nous déplaçons la fonction `aire` entre les
-accolades du `impl` et nous remplaçons le premier (et dans notre cas, le seul)
-paramètre par `self` dans la signature et dans tout le corps. Dans `main`, où
+accolades du `impl` et nous remplaçons le premier paramètre (et dans notre cas,
+le seul) par `self` dans la signature et dans tout le corps. Dans `main`, où
 nous avons appelé la fonction `aire` et passé `rect1` en argument, nous pouvons
-à la place utiliser la *syntaxe de méthode* pour appeler la méthode `aire` sur
-notre instance de `Rectangle`. La syntaxe de méthode vient après l'instance : on
-ajoute un point suivi du nom de la méthode et des parenthèses contenant les
-arguments s'il y en a.
+utiliser à la place la *syntaxe des méthodes* pour appeler la méthode `aire` sur
+notre instance de `Rectangle`. La syntaxe des méthodes se place après
+l'instance : on ajoute un point suivi du nom de la méthode et des parenthèses
+contenant les arguments s'il y en a.
 
 <!--
 In the signature for `area`, we use `&self` instead of `rectangle: &Rectangle`
@@ -134,7 +134,7 @@ just as they can any other parameter.
 Dans la signature de `aire`, nous utilisons `&self` à la place de
 `rectangle: &Rectangle` parce que Rust sait que le type de `self` est
 `Rectangle` puisque la méthode se trouve au sein du contexte `impl Rectangle`.
-Veuillez noter qu'il nous faut quand même utiliser le `&` avant `self`, comme
+Veuillez noter qu'il nous faut quand même utiliser le `&` avant le `self`, comme
 nous l'avions fait pour `&Rectangle`. Les méthodes peuvent prendre possession de
 `self`, emprunter `self` de façon immuable comme nous l'avons fait ici, ou
 emprunter `self` de façon mutable, comme pour n'importe quel autre paramètre.
@@ -154,11 +154,12 @@ Nous avons choisi `&self` ici pour la même raison que nous avions utilisé
 `&Rectangle` quand il s'agissait d'une fonction ; nous ne voulons pas en prendre
 possession, et nous voulons seulement lire les données de la structure, pas les
 modifier. Si nous voulions que la méthode modifie l'instance sur laquelle on
-l'appelle, on utiliserait `&mut self` comme premier paramètre. Avoir une méthode
-qui prend possession de l'instance en passant juste `self` comme premier
-argument est rare ; cette technique est généralement utilisée lorsque la méthode
-transforme `self` en autre chose et que vous voulez empêcher le code appelant
-d'utiliser l'instance d'origine après la transformation.
+l'appelle, on utiliserait `&mut self` comme premier paramètre. Il est rare
+d'avoir une méthode qui prend possession de l'instance en utilisant uniquement
+`self` comme premier argument ; cette technique est généralement utilisée
+lorsque la méthode transforme `self` en quelque chose d'autre et que vous voulez
+empêcher le code appelant d'utiliser l'instance d'origine après la
+transformation.
 
 <!--
 The main benefit of using methods instead of functions, in addition to using
@@ -169,13 +170,13 @@ code search for capabilities of `Rectangle` in various places in the library we
 provide.
 -->
 
-Le principal avantage de l'utilisation de méthodes plutôt que de fonctions,
-outre l'utilisation de la syntaxe de méthode et le fait de ne pas être obligé de
-répéter le type de `self` dans la signature de chaque méthode, est
+Outre l'utilisation de la syntaxe des méthodes et le fait de ne pas être obligé
+de répéter le type de `self` dans la signature de chaque méthode, le principal
+avantage de l'utilisation de méthodes plutôt que de fonctions est pour
 l'organisation. Nous avons mis tout ce qu'on pouvait faire avec une instance de
-notre type dans un bloc `impl` plutôt que de contraindre les futurs utilisateurs
-de notre code à chercher les capacités de `Rectangle` à divers endroits de la
-bibliothèque que nous fournissons.
+notre type dans un bloc `impl` plutôt que d'imposer aux futurs utilisateurs de
+notre code à rechercher les fonctionnalités de `Rectangle` à divers endroits de
+la bibliothèque que nous fournissons.
 
 <!--
 > ### Where’s the `->` Operator?
@@ -233,11 +234,12 @@ bibliothèque que nous fournissons.
 >
 > Rust n'a pas d'équivalent à l'opérateur `->` ; à la place, Rust a une
 > fonctionnalité appelée *référencement et déréférencement automatiques*.
-> L'appel de méthodes est l'un des rares endroits de Rust qui a ce comportement.
+> L'appel de méthodes est l'un des rares endroits de Rust où on retrouve ce
+> comportement.
 >
 > Voilà comment cela fonctionne : quand on appelle une méthode avec
-> `objet.methode()`, Rust ajoute automatiquement `&`, `&mut` ou `*` pour que
-> `objet` corresponde à la signature de la méthode. En d'autres termes, ces deux
+> `objet.methode()`, Rust ajoute automatiquement le `&`, `&mut` ou `*` pour que
+> `objet` corresponde à la signature de la méthode. Autrement dit, ces deux
 > lignes sont identiques :
 >
 > ```rust
@@ -261,14 +263,14 @@ bibliothèque que nous fournissons.
 > (&p1).distance(&p2);
 > ```
 >
-> La première ligne paraît bien plus propre. Ce comportement de
-> (dé)référencement automatique fonctionne parce que les méthodes ont un
-> destinataire clair — le type de `self`. Compte tenu du nom de la méthode et
-> de l'instance sur laquelle elle s'applique, Rust peut déterminer assurément si
-> la méthode lit (`&self`), modifie (`&mut self`) ou consomme (`self`)
-> l'instance. Le fait que Rust rende implicite l'emprunt pour les instances dont
-> on appelle les méthodes joue un grand rôle dans l'ergornomie de la possession
-> en pratique.
+> La première ligne semble bien plus propre. Ce comportement du
+> (dé)référencement automatique fonctionne parce que les méthodes ont une
+> cible claire : le type de `self`. Compte tenu du nom de la méthode et
+> de l'instance sur laquelle elle s'applique, Rust peut déterminer de manière
+> irréfutable si la méthode lit (`&self`), modifie (`&mut self`) ou consomme
+> (`self`) l'instance. Le fait que Rust rend implicite l'emprunt pour les
+> instances sur lesquelles on appelle les méthodes améliore significativement
+> l'ergonomie de la possession.
 
 <!--
 ### Methods with More Parameters
@@ -288,9 +290,10 @@ method.
 Entraînons-nous à utiliser des méthodes en implémentant une seconde méthode sur
 la structure `Rectangle`. Cette fois-ci, nous voulons qu'une instance de
 `Rectangle` prenne une autre instance de `Rectangle` et qu'on retourne `true` si
-le second `Rectangle` peut tenir complètement dans `self` ; sinon, on renverra
-`false`. En d'autres termes, on veut pouvoir écrire le programme de
-l'encart 5-14 une fois qu'on aura défini la méthode `peut_contenir`.
+le second `Rectangle` peut se dessiner intégralement à l'intérieur de `self` ;
+sinon, on renverra `false`. En d'autres termes, on veut pouvoir écrire le
+programme de l'encart 5-14 une fois qu'on aura défini la méthode
+`peut_contenir`.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -445,13 +448,13 @@ parameters in functions.
 Lorsque nous exécutons ce code avec la fonction `main` de l'encart 5-14, nous
 obtenons l'affichage attendu. Les méthodes peuvent prendre plusieurs paramètres
 qu'on peut ajouter à la signature après le paramètre `self`, et ces paramètres
-fonctionnent comme des paramètres de fonctions.
+fonctionnent de la même manière que les paramètres des fonctions.
 
 <!--
 ### Associated Functions
 -->
 
-### Fonctions associées
+### Les fonctions associées
 
 <!--
 Another useful feature of `impl` blocks is that we’re allowed to define
@@ -478,17 +481,16 @@ specify the same value twice:
 -->
 
 Les fonctions associées sont souvent utilisées comme constructeurs qui vont
-retourner une nouvelle instande de la structure. Par exemple, on pourrait écrire
+retourner une nouvelle instance de la structure. Par exemple, on pourrait écrire
 une fonction associée qui prend une unique dimension en paramètre et l'utilise
-aussi bien pour la largeur que pour la hauteur, ce qui rend plus aisé la
-création d'un `Rectangle` carré plutôt que d'avoir à indiquer la même valeur
-deux fois :
+à la fois pour la largeur et pour la hauteur, ce qui rend plus aisé la création
+d'un `Rectangle` carré plutôt que d'avoir à indiquer la même valeur deux fois :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Fichier : src/main.rs</span>
 
 <!--
 ```rust
@@ -627,9 +629,9 @@ instance available.
 
 Les structures vous permettent de créer des types personnalisés significatifs
 pour votre domaine. En utilisant des structures, on peut relier entre elles
-des données associées et donner à chaque donnée un nom pour rendre le code plus
-clair. Les méthodes vous permettent de définir le comportement des instances de
-vos structures, et les fonctions associées vous permettent de cloisonner dans un
+des données associées et nommer chaque donnée pour rendre le code plus clair.
+Les méthodes vous permettent de définir le comportement des instances de vos
+structures, et les fonctions associées vous permettent de cloisonner dans un
 espace de noms des fonctionnalités qui sont spécifiques à votre structure sans
 avoir besoin d'une instance disponible.
 
@@ -639,5 +641,5 @@ Rust’s enum feature to add another tool to your toolbox.
 -->
 
 Mais les structures ne sont pas le seul moyen de créer des types personnalisés :
-tournons-nous vers les énumérations de Rust, une fonctionnalité que vous pourrez
-ajouter à votre boîte à outils.
+nous allons maintenant voir les énumérations de Rust, une fonctionnalité que
+vous pourrez bientôt ajouter à votre boîte à outils.
