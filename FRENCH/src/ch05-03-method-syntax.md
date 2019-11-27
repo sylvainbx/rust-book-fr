@@ -16,7 +16,7 @@ instance of the struct the method is being called on.
 
 Les *méthodes* sont similaires aux fonctions : on les déclare avec le mot-clé
 `fn` et leur nom, elles peuvent avoir des paramètres et une valeur de retour, et
-elles contiennent du code qui est exécuté quand on les utilise depuis un autre
+elles contiennent du code qui est exécuté quand on les appelle depuis un autre
 endroit. Cependant, les méthodes diffèrent des fonctions parce qu'elles sont
 définies dans le contexte d'une structure (ou d'une énumération ou d'un objet de
 trait, que nous aborderons respectivement aux chapitres 6 et 17) et que leur
@@ -117,8 +117,8 @@ Pour définir la fonction dans le contexte de `Rectangle`, nous démarrons un bl
 accolades du `impl` et nous remplaçons le premier paramètre (et dans notre cas,
 le seul) par `self` dans la signature et dans tout le corps. Dans `main`, où
 nous avons appelé la fonction `aire` et passé `rect1` en argument, nous pouvons
-utiliser à la place la *syntaxe de la méthode* pour appeler la méthode `aire`
-sur notre instance de `Rectangle`. La syntaxe de la méthode se place après
+utiliser à la place la *syntaxe des méthodes* pour appeler la méthode `aire` sur
+notre instance de `Rectangle`. La syntaxe des méthodes se place après
 l'instance : on ajoute un point suivi du nom de la méthode et des parenthèses
 contenant les arguments s'il y en a.
 
@@ -170,7 +170,7 @@ code search for capabilities of `Rectangle` in various places in the library we
 provide.
 -->
 
-Outre l'utilisation de la syntaxe de la méthode et le fait de ne pas être obligé
+Outre l'utilisation de la syntaxe des méthodes et le fait de ne pas être obligé
 de répéter le type de `self` dans la signature de chaque méthode, le principal
 avantage de l'utilisation de méthodes plutôt que de fonctions est pour
 l'organisation. Nous avons mis tout ce qu'on pouvait faire avec une instance de
