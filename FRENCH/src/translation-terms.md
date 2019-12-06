@@ -10,13 +10,15 @@ français.
 | annotate | indiquer | - |
 | Appendix | annexe | tout en minuscule (sauf en début de phrase) |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
+| assertion | vérification | - |
 | assign | assigner | - |
 | argument | argument / paramètre | - |
 | arm | branche | dans une expression `match` |
 | array | tableau | - |
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
-| attributes | attributs | - |
+| attribute | attribut | - |
+| benchmark | benchmark | - |
 | binary crate | crate binaire | s'utilise au féminin |
 | *n*-bit number | nombre encodé sur *n* bits | - |
 | blob | blob | - |
@@ -70,6 +72,7 @@ français.
 | flag | drapeau | pour les programmes en ligne de commande |
 | float | nombre à virgule flottante | - |
 | floating-point number | nombre à virgule flottante | - |
+| framework | environnement de développement | - |
 | function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
 | garbage collector | ramasse-miettes | - |
@@ -119,6 +122,7 @@ français.
 | mutable | mutable | modifiable |
 | namespace | espace de nom | - |
 | namespacing | l'espace de nom | - |
+| nightly Rust | version expérimentale de Rust | - |
 | mutate | muter | - |
 | Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
