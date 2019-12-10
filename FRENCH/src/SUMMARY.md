@@ -32,3 +32,5 @@
     - [La syntaxe des méthodes](ch05-03-method-syntax.md)
 
 - [Les énumérations et le filtrage par motif](ch06-00-enums.md)
+
+    - [L'organisation des tests](ch11-03-test-organization.md)
