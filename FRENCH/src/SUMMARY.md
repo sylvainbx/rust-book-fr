@@ -32,3 +32,5 @@
     - [La syntaxe des méthodes](ch05-03-method-syntax.md)
 
 - [Les énumérations et le filtrage par motif](ch06-00-enums.md)
+
+- [Un projet d'entrée/sortie : construire un programme en ligne de commande](ch12-00-an-io-project.md)
