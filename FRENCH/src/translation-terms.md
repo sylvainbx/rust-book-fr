@@ -8,6 +8,7 @@ français.
 | ahead-of-time compilation | compilation anticipée | sigle : AOT |
 | allocated | alloué | - |
 | annotate | indiquer | - |
+| anti-pattern | anti-patron | - |
 | Appendix | annexe | tout en minuscule (sauf en début de phrase) |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
 | assign | assigner | - |
@@ -130,6 +131,7 @@ français.
 | panic | panique(r) | - |
 | parallelism | parallélisme | - |
 | parameter | paramètre | - |
+| parse | interprêter | - |
 | PATH | PATH | - |
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |
@@ -137,6 +139,7 @@ français.
 | pointer | pointeur | - |
 | popping off the stack | dépiler | - |
 | prelude | étape préliminaire | - |
+| primitive obsession | obsession primitive | - |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
 | race condition | situation de concurrence | - |
@@ -205,7 +208,7 @@ français.
 | underlying operating system | système d'exploitation sous-jacent | - |
 | underscore | tiret bas | le caractère `_` |
 | unit-like struct | structure unité | - |
-| unit type | type unité | - |
+| unit type | type unité | le `()` |
 | unit value | valeur unité | - |
 | unsafe | non sécurisé | - |
 | unsigned | sans signe (toujours positif) | - |
@@ -215,5 +218,6 @@ français.
 | variant | variante | d'une énumération |
 | vector | vecteur | - |
 | version control system (VCS) | système de gestion de versions (VCS) | - |
+| vertical pipe | barre verticale | la barre `|` |
 | warning | avertissement | - |
 | zero-cost abstraction | abstraction sans coût | - |

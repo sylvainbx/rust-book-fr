@@ -32,3 +32,5 @@
     - [La syntaxe des méthodes](ch05-03-method-syntax.md)
 
 - [Les énumérations et le filtrage par motif](ch06-00-enums.md)
+
+    - [Remanier le code pour améliorer sa modularité et la gestion des erreurs](ch12-03-improving-error-handling-and-modularity.md)
