@@ -32,3 +32,4 @@
     - [La syntaxe des méthodes](ch05-03-method-syntax.md)
 
 - [Les énumérations et le filtrage par motif](ch06-00-enums.md)
+    - [Définir une énumération](ch06-01-defining-an-enum.md)
