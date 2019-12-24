@@ -76,10 +76,10 @@ or binary.
 Lorsque nous avons saisi la commande, Cargo a créé un fichier *Cargo.toml*, qui
 définit un paquet. Si on regarde le contenu de *Cargo.toml*, le fichier
 *src/main.rs* n'est pas mentionné car Cargo obéit à une convention selon
-laquelle *src/main.rs* est la crate racine d'une crate binaire portant le même
-nom que le paquet. Ainsi, Cargo sait que si le répertoire du paquet contient
-*src/lib.rs*, alors le paquet continent une crate de bibliothèque qui a le même
-nom que le paquet, et que *src/lib.rs* est sa crate racine. Cargo transmet les
+laquelle *src/main.rs* est la racine de la crate binaire portant le même
+nom que le paquet. Ainsi, Cargo sait que si le dossier du paquet contient
+*src/lib.rs*, alors le paquet contient une crate de bibliothèque qui a le même
+nom que le paquet, et que *src/lib.rs* est sa racine. Cargo transmet les
 fichiers de la crate racine à `rustc` pour compiler la bibliothèque ou le
 binaire.
 
@@ -108,10 +108,10 @@ functionality provided by the `rand` crate is accessible through the crate’s
 name, `rand`.
 -->
 
-Une crate regroupera plusieurs fonctionnalités associées ensemble dans une
+Une crate regroupe plusieurs fonctionnalités associées ensemble dans une
 portée afin que les fonctionnalités soient faciles à partager entre plusieurs
 projets. Par exemple, la crate `rand` que nous avons utilisé dans
-[le chapitre 2][rand]<!-- ignore --> nous fournit une fonctionnalité qui génère
+[le chapitre 2][rand]<!-- ignore --> nous permet de générer
 des nombres aléatoires. Nous pouvons utiliser cette fonctionnalité dans notre
 propre projet en important la crate `rand` dans la portée de notre projet.
 Toutes les fonctionnalités fournies par la crate `rand` seront accessibles via
