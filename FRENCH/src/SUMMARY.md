@@ -34,3 +34,5 @@
 - [Les énumérations et le filtrage par motif](ch06-00-enums.md)
     - [Définir une énumération](ch06-01-defining-an-enum.md)
     - [La structure de contrôle `match`](ch06-02-match.md)
+
+    - [Travailler avec des variables d'environnement](ch12-05-working-with-environment-variables.md)
