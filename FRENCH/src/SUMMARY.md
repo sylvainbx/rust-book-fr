@@ -35,3 +35,8 @@
     - [Définir une énumération](ch06-01-defining-an-enum.md)
     - [La structure de contrôle `match`](ch06-02-match.md)
     - [Une structure de contrôle concise : `if let`](ch06-03-if-let.md)
+
+
+## Connaissances de base sur Rust
+
+- [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
