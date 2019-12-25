@@ -59,6 +59,7 @@ français.
 | dereferencing | déréférencement | - |
 | destructure | déstructurer | - |
 | DevOps | DevOps | - |
+| directory | dossier | - |
 | dot notation | la notation avec un point | - |
 | double free | double libération | - |
 | enum | énumération | - |
@@ -117,6 +118,7 @@ français.
 | method | méthode | - |
 | modern | récent | - |
 | module | module | - |
+| module system | système de modules | - |
 | move | déplacement | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
@@ -139,6 +141,7 @@ français.
 | pointer | pointeur | - |
 | popping off the stack | dépiler | - |
 | prelude | étape préliminaire | - |
+| privacy | protection | explication de la protection des éléments d'un module |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
 | race condition | situation de concurrence | - |
@@ -197,6 +200,7 @@ français.
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | trait | trait | - |
+| tree | arborescence | - |
 | troubleshooting | dépannage | - |
 | tuple | tuple | - |
 | tuple struct | structure tuple | - |
