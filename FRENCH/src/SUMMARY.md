@@ -40,3 +40,8 @@
 ## Connaissances de base sur Rust
 
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
+
+
+## Repenser les choses en Rust
+
+- [Les fonctionnalités des langages fonctionnels : les itérateurs et les fermetures](ch13-00-functional-features.md)
