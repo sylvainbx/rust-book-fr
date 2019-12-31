@@ -41,4 +41,4 @@
 
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
 
-    - [Les fermetures : des fonctions anonymes qui peuvent utiliser leur environnement](ch13-01-closures.md)
+    - [Les fermetures : fonctions anonymes qui peuvent utiliser leur environnement](ch13-01-closures.md)

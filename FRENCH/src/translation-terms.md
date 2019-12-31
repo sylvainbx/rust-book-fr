@@ -17,6 +17,7 @@ français.
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
 | attributes | attributs | - |
+| backend | application dorsale | - |
 | binary crate | crate binaire | s'utilise au féminin |
 | *n*-bit number | nombre encodé sur *n* bits | - |
 | blob | blob | - |
@@ -72,6 +73,7 @@ français.
 | flag | drapeau | pour les programmes en ligne de commande |
 | float | nombre à virgule flottante | - |
 | floating-point number | nombre à virgule flottante | - |
+| frontend | application frontale | - |
 | function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
 | garbage collector | ramasse-miettes | - |
