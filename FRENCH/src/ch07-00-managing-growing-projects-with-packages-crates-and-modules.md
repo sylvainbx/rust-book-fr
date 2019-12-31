@@ -84,7 +84,7 @@ même portée ; cependant des outils existent pour résoudre les conflits de no
 Rust has a number of features that allow you to manage your code’s
 organization, including which details are exposed, which details are private,
 and what names are in each scope in your programs. These features, sometimes
-collectively referred to as the *module system*, and include:
+collectively referred to as the *module system*, include:
 -->
 
 Rust a de nombreuses fonctionnalités qui vous permettent de gérer l'organisation
