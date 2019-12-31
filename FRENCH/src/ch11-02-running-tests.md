@@ -277,45 +277,56 @@ correspondante au résumé des tests, qui affiche aussi les causes de l'échec
 du test.
 
 <!--
-If we want to see printed values for passing tests as well, we can disable the
-output capture behavior by using the `--nocapture` flag:
+If we want to see printed values for passing tests as well, we can tell Rust
+to also show the output of successful tests at the end with `--show-output`.
 -->
 
 Si nous voulons aussi voir les valeurs affichées pour les tests réussis, nous
-pouvons désactiver le comportement de capture de la sortie avec le drapeau
-`--nocapture` :
+pouvons demander à Rust d'afficher également la sortie des tests fructueux en
+lui rajoutant à la fin `--show-output`.
 
 <!--
 ```text
-$ cargo test -- --nocapture
+$ cargo test -- --show-output
 ```
 -->
 
 ```text
-$ cargo test -- --nocapture
+$ cargo test -- --show-output
 ```
 
 <!--
-When we run the tests in Listing 11-10 again with the `--nocapture` flag, we
+When we run the tests in Listing 11-10 again with the `--show-output` flag, we
 see the following output:
 -->
 
 Lorsque nous lançons à nouveau les tests de l'encart 11-10 avec le drapeau
-`--nocapture`, nous voyons la sortie suivante :
+`--show-output`, nous voyons la sortie suivante :
 
 <!--
 ```text
 running 2 tests
-I got the value 4
-I got the value 8
 test tests::this_test_will_pass ... ok
+test tests::this_test_will_fail ... FAILED
+
+successes:
+
+---- tests::this_test_will_pass stdout ----
+I got the value 4
+
+
+successes:
+    tests::this_test_will_pass
+
+failures:
+
+---- tests::this_test_will_fail stdout ----
+I got the value 8
 thread 'tests::this_test_will_fail' panicked at 'assertion failed: `(left == right)`
   left: `5`,
  right: `10`', src/lib.rs:19:9
-note: Run with `RUST_BACKTRACE=1` for a backtrace.
-test tests::this_test_will_fail ... FAILED
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
 
-failures:
 
 failures:
     tests::this_test_will_fail
@@ -326,35 +337,33 @@ test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out
 
 ```text
 running 2 tests
-J'ai obtenu la valeur 4
-J'ai obtenu la valeur 8
 test tests::ce_test_reussit ... ok
+test tests::ce_test_echoue ... FAILED
+
+successes:
+
+---- tests::ce_test_reussit stdout ----
+J'ai obtenu la valeur 4
+
+
+successes:
+    tests::ce_test_reussit
+
+failures:
+
+---- tests::ce_test_echoue stdout ----
+J'ai obtenu la valeur 8
 thread 'tests::ce_test_echoue' panicked at 'assertion failed: `(left == right)`
   left: `5`,
  right: `10`', src/lib.rs:19:9
-note: Run with `RUST_BACKTRACE=1` for a backtrace.
-test tests::ce_test_echoue ... FAILED
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
 
-failures:
 
 failures:
     tests::ce_test_echoue
 
 test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out
 ```
-
-<!--
-Note that the output for the tests and the test results are interleaved; the
-reason is that the tests are running in parallel, as we talked about in the
-previous section. Try using the `--test-threads=1` option and the `--nocapture`
-flag, and see what the output looks like then!
--->
-
-Notez bien que la sortie pour tests et les résultats des tests sont
-entrelacés ; c'est parce que les tests sont exécutés en parallèle, comme nous
-l'avons vu dans la section précédente. Essayez d'utiliser l'option
-`--test-threads=1` et le drapeau `--nocapture`, et voyez alors à quoi ressemble
-la sortie !
 
 <!--
 ### Running a Subset of Tests by Name
