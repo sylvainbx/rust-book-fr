@@ -15,10 +15,10 @@ that describes how to build those crates.
 -->
 
 La première partie du système de modules que nous allons aborder concerne les
-paquets et les *crates*. Une crate est un binaire ou une bibliothèque. La racine
-de la *crate* est un fichier source à partir duquel le compilateur Rust commence
-et crée le module racine de votre *crate* (nous verrons les modules plus en
-détail dans la [section suivante][modules]<!-- ignore -->).
+paquets et les *crates*. Une crate est un binaire ou une bibliothèque. Pour la
+compiler, le compilateur Rust part d'un fichier source, la racine de la *crate*,
+à partir duquel est alors créé le *module racine* de votre *crate* (nous verrons
+les modules plus en détail dans la [section suivante][modules]<!-- ignore -->).
 
 <!--
 Several rules determine what a package can contain. A package *must* contain
@@ -27,10 +27,10 @@ as you’d like, but it must contain at least one crate (either library or
 binary).
 -->
 
-Il y a plusieurs règles qui déterminent ce qu'un paquet peut contenir. Un paquet
-*doit* contenir entre zéro et une crate de bibliothèque, et pas plus. Il peut
-contenir autant de crates binaires que vous le souhaitez, mais il doit contenir
-au moins une crate (que ce soit une bibliothèque ou un binaire).
+Il y a plusieurs règles qui déterminent ce qu'un paquet peut contenir. il doit
+contenir une seule crate de bibliothèque, ou aucune. Il peut contenir autant de
+crates binaires que vous le souhaitez, mais il doit contenir au moins une crate
+(que ce soit une bibliothèque ou un binaire).
 
 <!--
 Let’s walk through what happens when we create a package. First, we enter the
@@ -77,9 +77,9 @@ Lorsque nous avons saisi la commande, Cargo a créé un fichier *Cargo.toml*, qu
 définit un paquet. Si on regarde le contenu de *Cargo.toml*, le fichier
 *src/main.rs* n'est pas mentionné car Cargo obéit à une convention selon
 laquelle *src/main.rs* est la racine de la crate binaire portant le même
-nom que le paquet. Ainsi, Cargo sait que si le dossier du paquet contient
-*src/lib.rs*, alors le paquet contient une crate de bibliothèque qui a le même
-nom que le paquet, et que *src/lib.rs* est sa racine. Cargo transmet les
+nom que le paquet. De la même façon, Cargo sait que si le dossier du paquet
+contient *src/lib.rs*, alors le paquet contient une crate de bibliothèque qui a
+le même nom que le paquet, et que *src/lib.rs* est sa racine. Cargo transmet les
 fichiers de la crate racine à `rustc` pour compiler la bibliothèque ou le
 binaire.
 
@@ -128,9 +128,9 @@ our crate, it refers to the `struct Rng` that we defined. We would access the
 `Rng` trait from the `rand` crate as `rand::Rng`.
 -->
 
-Garder une fonctionnalité d'une crate dans sa propre portée clarifie si une
+Ranger une fonctionnalité d'une crate dans sa propre portée clarifie si une
 fonctionnalité précise est définie dans notre crate ou dans la crate `rand` et
-évite ainsi des potentiels conflits. Par exemple, la crate `rand` fournit un
+évite ainsi de potentiels conflits. Par exemple, la crate `rand` fournit un
 *trait* qui s'appelle `Rng`. Nous pouvons nous aussi définir une structure qui
 s'appelle `Rng` dans notre propre crate. Comme les fonctionnalités des crates
 sont dans la portée de leur propre espace de nom, quand nous ajoutons `rand` en
