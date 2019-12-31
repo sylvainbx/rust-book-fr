@@ -20,6 +20,7 @@ français.
 | binary crate | crate binaire | s'utilise au féminin |
 | *n*-bit number | nombre encodé sur *n* bits | - |
 | blob | blob | - |
+| boilerplate code | code standard | - |
 | boolean | booléen | - |
 | borrow | emprunt(er) | - |
 | bug | bogue | - |
@@ -58,6 +59,7 @@ français.
 | dereferencing | déréférencement | - |
 | destructure | déstructurer | - |
 | DevOps | DevOps | - |
+| directory | dossier | - |
 | dot notation | la notation avec un point | - |
 | double free | double libération | - |
 | enum | énumération | - |
@@ -74,6 +76,7 @@ français.
 | functional programming | programmation fonctionnelle | - |
 | garbage collector | ramasse-miettes | - |
 | generics | génériques / généricité | - |
+| generic type parameter | paramètre de type générique | - |
 | global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |
 | handle | référence abstraite | - |
@@ -104,6 +107,7 @@ français.
 | library crate | crate de bibliothèque | s'utilise au féminin |
 | lifetime | durée de vie | - |
 | linker | linker | - |
+| literal value | valeur litérale | - |
 | Listing | encart | tout en minuscule (sauf en début de phrase) |
 | loop | boucle | - |
 | low-level | bas niveau | - |
@@ -114,12 +118,12 @@ français.
 | method | méthode | - |
 | modern | récent | - |
 | module | module | - |
+| module system | système de modules | - |
 | move | déplacement | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
-| namespace | espace de nom | - |
-| namespacing | l'espace de nom | - |
 | mutate | muter | - |
+| namespace | espace de nom | - |
 | Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
 | object-oriented language | langage orienté objet | - |
@@ -137,6 +141,7 @@ français.
 | pointer | pointeur | - |
 | popping off the stack | dépiler | - |
 | prelude | étape préliminaire | - |
+| privacy | protection | explication de la protection des éléments d'un module |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
 | race condition | situation de concurrence | - |
@@ -189,11 +194,13 @@ français.
 | `String` | `String` | nom féminin (une `String`) |
 | struct | structure | - |
 | submodule | sous-module | - |
+| syntax sugar | sucre syntaxique | - |
 | systems concept | notion système | - |
 | systems-level | niveau système | - |
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | trait | trait | - |
+| tree | arborescence | - |
 | troubleshooting | dépannage | - |
 | tuple | tuple | - |
 | tuple struct | structure tuple | - |
@@ -216,4 +223,5 @@ français.
 | vector | vecteur | - |
 | version control system (VCS) | système de gestion de versions (VCS) | - |
 | warning | avertissement | - |
+| wildcard | joker | - |
 | zero-cost abstraction | abstraction sans coût | - |
