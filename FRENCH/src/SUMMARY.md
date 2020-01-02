@@ -27,6 +27,7 @@
     - [Le type slice](ch04-03-slices.md)
 
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
+
     - [Définir et instancier des structures](ch05-01-defining-structs.md)
     - [Un exemple de programme qui utilise des structures](ch05-02-example-structs.md)
     - [La syntaxe des méthodes](ch05-03-method-syntax.md)
@@ -40,3 +41,4 @@
 ## Connaissances de base sur Rust
 
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
+    - [Les paquets et les crates](ch07-01-packages-and-crates.md)
