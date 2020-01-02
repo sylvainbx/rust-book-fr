@@ -5,6 +5,7 @@ français.
 
 | Anglais | Français | Remarques |
 | ------- | ------ | ------ |
+| adaptor | adaptateur | - |
 | ahead-of-time compilation | compilation anticipée | sigle : AOT |
 | allocated | alloué | - |
 | annotate | indiquer | - |
@@ -41,6 +42,7 @@ français.
 | conditional | structure conditionnelle | - |
 | constant | constant / constante | - |
 | construct | instruction | - |
+| consuming adaptor | adaptateur de consommation | - |
 | control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
 | corruption | corruption / être corrompu | - |
@@ -100,8 +102,10 @@ français.
 | invalidate | neutraliser | - |
 | IOT | internet des objets (IOT) | - |
 | iterator | itérateur | - |
+| iterator adaptor | adaptateur d'itération | - |
 | just-in-time compilation | compilation à la volée | sigle : JIT |
 | keyword | mot-clé | - |
+| lazy | évaluation paresseuse | comportement d'un itérateur |
 | legacy code | code instable que le programme a hérité avec le temps | - |
 | library | bibliothèque | - |
 | library crate | crate de bibliothèque | s'utilise au féminin |

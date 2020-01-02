@@ -40,3 +40,5 @@
 ## Connaissances de base sur Rust
 
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
+
+    - [Traiter une série d'éléments avec un itérateur](ch13-02-iterators.md)
