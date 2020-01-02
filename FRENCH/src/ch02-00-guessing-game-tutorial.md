@@ -1133,8 +1133,8 @@ If you wanted to use `rand` version `0.6.0` or any version in the `0.6.x`
 series, you’d have to update the *Cargo.toml* file to look like this instead:
 -->
 
-Si vous vouliez utiliser `rand` en version `0.4.0` ou toute autre version dans
-la série des `0.4.x`, il vous faut mettre à jour le fichier *Cargo.toml* comme
+Si vous vouliez utiliser `rand` en version `0.6.0` ou toute autre version dans
+la série des `0.6.x`, il vous faut mettre à jour le fichier *Cargo.toml* comme
 ceci :
 
 ```toml
