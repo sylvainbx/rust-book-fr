@@ -10,6 +10,7 @@ français.
 | annotate | indiquer | - |
 | Appendix | annexe | tout en minuscule (sauf en début de phrase) |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
+| assign | assigner | - |
 | argument | argument / paramètre | - |
 | arm | branche | dans une expression `match` |
 | array | tableau | - |
@@ -18,6 +19,8 @@ français.
 | attributes | attributs | - |
 | binary crate | crate binaire | s'utilise au féminin |
 | *n*-bit number | nombre encodé sur *n* bits | - |
+| blob | blob | - |
+| boilerplate code | code standard | - |
 | boolean | booléen | - |
 | borrow | emprunt(er) | - |
 | bug | bogue | - |
@@ -37,6 +40,7 @@ français.
 | concurrent | concurrent | - |
 | conditional | structure conditionnelle | - |
 | constant | constant / constante | - |
+| construct | instruction | - |
 | control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
 | corruption | corruption / être corrompu | - |
@@ -44,25 +48,35 @@ français.
 | crash | plantage | - |
 | crate | crate | nom féminin (une *crate*) |
 | curly bracket | accolade | - |
+| dangling | pendouillant | - |
+| data race | accès concurrent | - |
 | data representation | modèle de données | - |
+| deallocate | désalloué | - |
 | debug | déboguer | - |
 | debugging | débogage | - |
+| deep copy | copie en profondeur | - |
 | dependency | dépendance | - |
+| dereferencing | déréférencement | - |
 | destructure | déstructurer | - |
 | DevOps | DevOps | - |
+| directory | dossier | - |
 | dot notation | la notation avec un point | - |
+| double free | double libération | - |
 | enum | énumération | - |
 | enumeration | énumération | - |
 | enum’s variant | variante d'énumération | - |
 | exploit | faille | - |
 | expression | expression | - |
 | field | champ | d'une structure |
+| Figure | Illustration | - |
 | flag | drapeau | pour les programmes en ligne de commande |
 | float | nombre à virgule flottante | - |
 | floating-point number | nombre à virgule flottante | - |
 | function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
+| garbage collector | ramasse-miettes | - |
 | generics | génériques / généricité | - |
+| generic type parameter | paramètre de type générique | - |
 | global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |
 | handle | référence abstraite | - |
@@ -82,6 +96,8 @@ français.
 | integer literal | littéral d'entiers | - |
 | integer overflow | dépassement d'entier | - |
 | Integrated Development Environment (IDE) | environnement de développement intégré (IDE) | - |
+| interrupt signal | signal d'arrêt | - |
+| invalidate | neutraliser | - |
 | IOT | internet des objets (IOT) | - |
 | iterator | itérateur | - |
 | just-in-time compilation | compilation à la volée | sigle : JIT |
@@ -91,7 +107,9 @@ français.
 | library crate | crate de bibliothèque | s'utilise au féminin |
 | lifetime | durée de vie | - |
 | linker | linker | - |
+| literal value | valeur litérale | - |
 | Listing | encart | tout en minuscule (sauf en début de phrase) |
+| loop | boucle | - |
 | low-level | bas niveau | - |
 | machine learning | apprentissage automatique | - |
 | macro | macro | - |
@@ -100,24 +118,34 @@ français.
 | method | méthode | - |
 | modern | récent | - |
 | module | module | - |
+| module system | système de modules | - |
+| move | déplacement | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
 | mutate | muter | - |
+| namespace | espace de nom | - |
 | Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
 | object-oriented language | langage orienté objet | - |
 | operating system | système d'exploitation | - |
+| owner | propriétaire | - |
 | ownership | possession | - |
 | package manager | système de gestion de paquets | - |
 | panic | panique(r) | - |
 | parallelism | parallélisme | - |
+| parameter | paramètre | - |
 | PATH | PATH | - |
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |
 | placeholder | espace réservé | `{}` pour `fmt` |
+| pointer | pointeur | - |
+| popping off the stack | dépiler | - |
 | prelude | étape préliminaire | - |
+| privacy | protection | explication de la protection des éléments d'un module |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
+| race condition | situation de concurrence | - |
+| pushing onto the stack | empiler | - |
 | raw identifier | identificateur brut | - |
 | README | README | - |
 | refactoring | remaniement | - |
@@ -126,6 +154,7 @@ français.
 | regression | régression | - |
 | remainder | modulo | opération `%` |
 | reproducible build | compilation reproductible | - |
+| Resource Acquisition Is Initialization (RAII) | l'acquisition d'une ressource est une initialisation (RAII) | - |
 | return | retourner | - |
 | run | exécuter | pour les programmes |
 | Rustacean | Rustacé | - |
@@ -139,13 +168,17 @@ français.
 | semantic versioning | versionnage sémantique | abréviation : SemVer |
 | shadow | masquer | remplacer une variable par une autre de même nom |
 | shadowing | masquage | - |
+| shallow copy | copie superficielle | - |
 | shell | terminal / invite de commande | - |
 | shorthand | abréviation | - |
-| sidebar | barre latérale | - |
+| sidebar | volet latéral | - |
 | signature | signature | d'une fonction |
 | signed | signé | - |
+| slash | barre oblique | - |
+| slice | slice | - |
 | smart pointer | pointeur intelligent | - |
-| snip | code inchangé masqué ici | dans un encart |
+| snake case | snake case | - |
+| snip | partie masquée ici | dans un encart |
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
 | square brackets | crochets | - |
 | stack | pile | - |
@@ -157,14 +190,17 @@ français.
 | statement | instruction | - |
 | statically typed | statiquement typé | - |
 | string | chaîne de caractères | - |
+| string literal | un littéral de chaîne de caractères | - |
 | `String` | `String` | nom féminin (une `String`) |
 | struct | structure | - |
 | submodule | sous-module | - |
+| syntax sugar | sucre syntaxique | - |
 | systems concept | notion système | - |
 | systems-level | niveau système | - |
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | trait | trait | - |
+| tree | arborescence | - |
 | troubleshooting | dépannage | - |
 | tuple | tuple | - |
 | tuple struct | structure tuple | - |
@@ -175,7 +211,7 @@ français.
 | two’s complement wrapping | rebouclage du complément à deux | - |
 | underlying operating system | système d'exploitation sous-jacent | - |
 | underscore | tiret bas | le caractère `_` |
-| unit-like struct | structure unitaire | - |
+| unit-like struct | structure unité | - |
 | unit type | type unité | - |
 | unit value | valeur unité | - |
 | unsafe | non sécurisé | - |
@@ -187,4 +223,5 @@ français.
 | vector | vecteur | - |
 | version control system (VCS) | système de gestion de versions (VCS) | - |
 | warning | avertissement | - |
+| wildcard | joker | - |
 | zero-cost abstraction | abstraction sans coût | - |
