@@ -24,6 +24,7 @@ français.
 | boolean | booléen | - |
 | borrow | emprunt(er) | - |
 | bug | bogue | - |
+| build | compilation | - |
 | build system | système de compilation | - |
 | byte | octet | - |
 | Cargo | Cargo | - |
@@ -150,6 +151,7 @@ français.
 | README | README | - |
 | refactoring | remaniement | - |
 | reference | référence | - |
+| release | publication | - |
 | registry | registre | - |
 | regression | régression | - |
 | remainder | modulo | opération `%` |
@@ -224,4 +226,5 @@ français.
 | version control system (VCS) | système de gestion de versions (VCS) | - |
 | warning | avertissement | - |
 | wildcard | joker | - |
+| workspace | espace de travail | - |
 | zero-cost abstraction | abstraction sans coût | - |
