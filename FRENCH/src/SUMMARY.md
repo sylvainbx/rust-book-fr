@@ -42,3 +42,5 @@
 
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
     - [Les paquets et les crates](ch07-01-packages-and-crates.md)
+
+    - [Publier une crate sur crates.io](ch14-02-publishing-to-crates-io.md)
