@@ -12,7 +12,7 @@
     - [Hello, world!](ch01-02-hello-world.md)
     - [Hello, Cargo!](ch01-03-hello-cargo.md)
 
-- [Programmer un jeu de devinettes](ch02-00-guessing-game-tutorial.md)
+- [Programmer le jeu du plus ou du moins](ch02-00-guessing-game-tutorial.md)
 
 - [Les concepts courants de programmation](ch03-00-common-programming-concepts.md)
     - [Les variables et la mutabilité](ch03-01-variables-and-mutability.md)

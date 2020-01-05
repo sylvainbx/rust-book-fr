@@ -2,7 +2,7 @@
 # Programming a Guessing Game
 -->
 
-# Programmer un jeu de devinettes
+# Programmer le jeu du plus ou du moins
 
 <!--
 Let’s jump into Rust by working through a hands-on project together! This
@@ -29,12 +29,12 @@ correct, the game will print a congratulatory message and exit.
 -->
 
 Nous allons coder un programme fréquemment réalisé par les débutants en
-programmation : un jeu de devinettes. Le principe de ce jeu est le suivant :
-le programme va tirer au sort un nombre entre 1 et 100. Il invitera ensuite le
-joueur à saisir un nombre qu'il pense deviner. Après la saisie, le programme
-indiquera si le nombre saisi par le joueur est trop grand ou trop petit. Si le
-nombre saisi est le bon, le jeu affichera un message de félicitations et se
-fermera.
+programmation : *le jeu du plus ou du moins*. Le principe de ce jeu est le
+suivant : le programme va tirer au sort un nombre entre 1 et 100. Il invitera
+ensuite le joueur à saisir un nombre qu'il pense deviner. Après la saisie, le
+programme indiquera si le nombre saisi par le joueur est trop grand ou trop
+petit. Si le nombre saisi est le bon, le jeu affichera un message de
+félicitations et se fermera.
 
 <!--
 ## Setting Up a New Project
@@ -52,8 +52,8 @@ vous avez créé au chapitre 1 et utilisez Cargo pour créer votre projet, comme
 ceci :
 
 ```text
-$ cargo new guessing_game
-$ cd guessing_game
+$ cargo new jeu_du_plus_ou_du_moins
+$ cd jeu_du_plus_ou_du_moins
 ```
 
 <!--
@@ -63,8 +63,8 @@ directory.
 -->
 
 La première commande, `cargo new`, prend comme premier argument le nom de notre
-projet (`guessing_game`). La seconde commande nous déplace dans le dossier de
-notre nouveau projet créé par Cargo.
+projet (`jeu_du_plus_ou_du_moins`). La seconde commande nous déplace dans le
+dossier de notre nouveau projet créé par Cargo.
 
 <!--
 Look at the generated *Cargo.toml* file:
@@ -78,11 +78,23 @@ Regardons le fichier *Cargo.toml* qui a été généré :
 
 <span class="filename">Fichier : Cargo.toml</span>
 
+<!--
 ```toml
 [package]
 name = "guessing_game"
 version = "0.1.0"
 authors = ["Your Name <you@example.com>"]
+edition = "2018"
+
+[dependencies]
+```
+-->
+
+```toml
+[package]
+name = "jeu_du_plus_ou_du_moins"
+version = "0.1.0"
+authors = ["Votre nom <adresse@exemple.com>"]
 edition = "2018"
 
 [dependencies]
@@ -124,11 +136,21 @@ using the `cargo run` command:
 Maintenant, lançons la compilation de ce programme “Hello, world!” et
 son exécution en une seule commande avec `cargo run` :
 
+<!--
 ```text
 $ cargo run
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
     Finished dev [unoptimized + debuginfo] target(s) in 1.50 secs
      Running `target/debug/guessing_game`
+Hello, world!
+```
+-->
+
+```text
+$ cargo run
+   Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
+    Finished dev [unoptimized + debuginfo] target(s) in 1.50 secs
+     Running `target/debug/jeu_du_plus_ou_du_moins`
 Hello, world!
 ```
 
@@ -387,8 +409,8 @@ calling `String::new`, a function that returns a new instance of a `String`.
 library that is a growable, UTF-8 encoded bit of text.
 -->
 
-Mais revenons à notre jeu de devinettes. Vous comprenez donc maintenant que la
-ligne `let mut supposition` permet de créer une variable mutable nommée
+Mais revenons à notre jeu du plus ou du moins. Vous comprenez donc maintenant
+que la ligne `let mut supposition` permet de créer une variable mutable nommée
 `supposition`. De l'autre côté du signe égal (`=`) se trouve la valeur de cette
 variable, et il s'agit ici du résultat de l'utilisation de `String::new`, qui
 est une fonction qui retourne une nouvelle instance de `String`.
@@ -666,7 +688,7 @@ avertissement :
 <!--
 ```text
 $ cargo build
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+   Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
 warning: unused `std::result::Result` which must be used
   -- > src/main.rs:10:5
    |
@@ -679,7 +701,7 @@ warning: unused `std::result::Result` which must be used
 
 ```text
 $ cargo build
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+   Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
 warning: unused `std::result::Result` which must be used
   -- > src/main.rs:10:5
    |
@@ -801,9 +823,9 @@ You guessed: 6
 
 ```text
 $ cargo run
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+   Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
     Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
-     Running `target/debug/guessing_game`
+     Running `target/debug/jeu_du_plus_ou_du_moins`
 Devinez le nombre !
 Veuillez entrer un nombre.
 6
@@ -926,6 +948,7 @@ Listing 2-2.
 Maintenant, sans apporter le moindre changement au code, lançons une compilation
 du projet, comme dans l'encart 2-2 :
 
+<!--
 ```text
 $ cargo build
     Updating crates.io index
@@ -940,6 +963,24 @@ $ cargo build
    Compiling rand_core v0.2.2
    Compiling rand v0.5.5
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.53 s
+```
+-->
+
+```text
+$ cargo build
+    Updating crates.io index
+  Downloaded rand v0.5.5
+  Downloaded libc v0.2.62
+  Downloaded rand_core v0.2.2
+  Downloaded rand_core v0.3.1
+  Downloaded rand_core v0.4.2
+   Compiling rand_core v0.4.2
+   Compiling libc v0.2.62
+   Compiling rand_core v0.3.1
+   Compiling rand_core v0.2.2
+   Compiling rand v0.5.5
+   Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
     Finished dev [unoptimized + debuginfo] target(s) in 2.53 s
 ```
 
@@ -1016,9 +1057,17 @@ Si vous ouvrez le fichier *src/main.rs*, faites un changement très simple,
 enregistrez le fichier, et relancez la compilation, vous verrez s'afficher
 uniquement deux lignes :
 
+<!--
 ```text
 $ cargo build
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.53s
+```
+-->
+
+```text
+$ cargo build
+   Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
     Finished dev [unoptimized + debuginfo] target(s) in 2.53s
 ```
 
@@ -1073,10 +1122,10 @@ file.
 
 La réponse à ce problème est le fichier *Cargo.lock*, qui a été créé la première
 fois que vous avez utilisé `cargo build` et qui se trouve désormais dans votre
-dossier *guessing_game*. Quand vous compilez un projet pour la première fois,
-Cargo détermine toutes les versions de dépendances qui correspondent à vos
-critères et les écrit dans le fichier *Cargo.lock*.
-Quand vous recompilerez votre projet plus tard, Cargo verra que le fichier
+dossier *jeu_du_plus_ou_du_moins*. Quand vous compilez un projet pour la
+première fois, Cargo détermine toutes les versions de dépendances qui
+correspondent à vos critères et les écrit dans le fichier *Cargo.lock*. Quand
+vous recompilerez votre projet plus tard, Cargo verra que le fichier
 *Cargo.lock* existe et utilisera les versions précisées à l'intérieur au lieu
 de recommencer à déterminer toutes les versions demandées.
 Ceci vous permet d'avoir automatiquement des compilations reproductibles.
@@ -1340,16 +1389,16 @@ You guessed: 5
 
 ```text
 $ cargo run
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+   Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
     Finished dev [unoptimized + debuginfo] target(s) in 2.53 secs
-     Running `target/debug/guessing_game`
+     Running `target/debug/jeu_du_plus_ou_du_moins`
 Devinez le nombre !
 Le nombre secret est : 7
 Veuillez entrer un nombre.
 4
 Votre nombre : 4
 $ cargo run
-     Running `target/debug/guessing_game`
+     Running `target/debug/jeu_du_plus_ou_du_moins`
 Devinez le nombre !
 Le nombre secret est : 83
 Veuillez entrer un nombre.
@@ -1551,7 +1600,7 @@ Could not compile `guessing_game`.
 
 ```text
 $ cargo build
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+   Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
 error[E0308]: mismatched types
   -- > src/main.rs:23:21
    |
@@ -1562,7 +1611,7 @@ error[E0308]: mismatched types
    = note:    found type `&{integer}`
 
 error: aborting due to previous error
-Could not compile `guessing_game`.
+Could not compile `jeu_du_plus_ou_du_moins`.
 ```
 
 <!--
@@ -1804,9 +1853,9 @@ Too big!
 
 ```text
 $ cargo run
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+   Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
     Finished dev [unoptimized + debuginfo] target(s) in 0.43 secs
-     Running `target/debug/guessing_game`
+     Running `target/debug/jeu_du_plus_ou_du_moins`
 Devinez le nombre !
 Le nombre secret est : 58
 Veuillez entrer un nombre.
@@ -1962,9 +2011,9 @@ error: Process didn't exit successfully: `target/debug/guess` (exit code: 101)
 
 ```text
 $ cargo run
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+   Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
     Finished dev [unoptimized + debuginfo] target(s) in 1.50 secs
-     Running `target/debug/guessing_game`
+     Running `target/debug/jeu_du_plus_ou_du_moins`
 Devinez le nombre !
 Le nombre secret est : 59
 Veuillez entrer un nombre.
@@ -2212,8 +2261,8 @@ You win!
 
 ```text
 $ cargo run
-   Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
-     Running `target/debug/guessing_game`
+   Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
+     Running `target/debug/jeu_du_plus_ou_du_moins`
 Devinez le nombre !
 Le nombre secret est : 61
 Veuillez entrer un nombre.
@@ -2239,10 +2288,10 @@ testing, but it ruins the game. Let’s delete the `println!` that outputs the
 secret number. Listing 2-6 shows the final code.
 -->
 
-Super ! Avec notre petite touche finale, nous avons fini notre jeu de
-devinettes. Rappelez-vous que le programme affiche toujours le nombre secret.
-C'était pratique pour les tests, mais cela gâche le jeu. Supprimons le
-`println!` qui affiche le nombre secret. L'encart 2-6 représente le code final.
+Super ! Avec notre petite touche finale, nous avons fini notre jeu du plus ou du
+moins. Rappelez-vous que le programme affiche toujours le nombre secret. C'était
+pratique pour les tests, mais cela gâche le jeu. Supprimons le `println!` qui
+affiche le nombre secret. L'encart 2-6 représente le code final.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -2330,7 +2379,8 @@ fn main() {
 <span class="caption">Listing 2-6: Complete guessing game code</span>
 -->
 
-<span class="caption">Encart 2-6 : Code complet du jeu de devinettes</span>
+<span class="caption">Encart 2-6 : Code complet du jeu du plus ou du moins
+</span>
 
 <!--
 ## Summary
@@ -2343,7 +2393,7 @@ At this point, you’ve successfully built the guessing game. Congratulations!
 -->
 
 Si vous êtes arrivé jusqu'ici, c'est que vous avez construit avec succès le jeu
-de devinettes. Félicitations !
+du plus ou du moins. Félicitations !
 
 <!--
 This project was a hands-on way to introduce you to many new Rust concepts:
