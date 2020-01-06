@@ -42,3 +42,5 @@
 
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
     - [Les paquets et les crates](ch07-01-packages-and-crates.md)
+
+    - [Les espaces de travail de cargo](ch14-03-cargo-workspaces.md)
