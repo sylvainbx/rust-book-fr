@@ -23,6 +23,7 @@ français.
 | boilerplate code | code standard | - |
 | boolean | booléen | - |
 | borrow | emprunt(er) | - |
+| box | boite | - |
 | bug | bogue | - |
 | build system | système de compilation | - |
 | byte | octet | - |
@@ -39,6 +40,7 @@ français.
 | concurrency | concurrence | - |
 | concurrent | concurrent | - |
 | conditional | structure conditionnelle | - |
+| cons list | liste de construction | - |
 | constant | constant / constante | - |
 | construct | instruction | - |
 | control flow construct | structure de contrôle | - |
@@ -148,6 +150,7 @@ français.
 | pushing onto the stack | empiler | - |
 | raw identifier | identificateur brut | - |
 | README | README | - |
+| recursive type | type récursif | - |
 | refactoring | remaniement | - |
 | reference | référence | - |
 | registry | registre | - |
