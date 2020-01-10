@@ -56,6 +56,8 @@ français.
 | debugging | débogage | - |
 | deep copy | copie en profondeur | - |
 | dependency | dépendance | - |
+| deref coercion | coercition de déréférencement | - |
+| dereference operator | opérateur de déréférencement | - |
 | dereferencing | déréférencement | - |
 | destructure | déstructurer | - |
 | DevOps | DevOps | - |

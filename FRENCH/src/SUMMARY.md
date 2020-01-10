@@ -42,3 +42,5 @@
 
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
     - [Les paquets et les crates](ch07-01-packages-and-crates.md)
+
+    - [Considérer les pointeurs intelligents comme des références grâce au trait `Deref`](ch15-02-deref.md)
