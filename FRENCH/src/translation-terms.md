@@ -29,6 +29,7 @@ français.
 | Cargo | Cargo | - |
 | catchall value | valeur passe-partout | - |
 | Chapter | chapitre | tout en minuscule (sauf en début de phrase) |
+| cleanup | nettoyage | - |
 | closure | fermeture | - |
 | code review | revue de code | - |
 | collection | collection | - |
@@ -41,6 +42,7 @@ français.
 | conditional | structure conditionnelle | - |
 | constant | constant / constante | - |
 | construct | instruction | - |
+| constructor | constructeur | - |
 | control flow construct | structure de contrôle | - |
 | core of the error | message d'erreur | - |
 | corruption | corruption / être corrompu | - |
@@ -57,11 +59,13 @@ français.
 | deep copy | copie en profondeur | - |
 | dependency | dépendance | - |
 | dereferencing | déréférencement | - |
+| destructor | destructeur | - |
 | destructure | déstructurer | - |
 | DevOps | DevOps | - |
 | directory | dossier | - |
 | dot notation | la notation avec un point | - |
 | double free | double libération | - |
+| drop | libérér | - |
 | enum | énumération | - |
 | enumeration | énumération | - |
 | enum’s variant | variante d'énumération | - |
