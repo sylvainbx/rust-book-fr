@@ -1,12 +1,15 @@
-# French translation of the book "The Rust Programming Language"
+> # Le langage de programmation Rust
+>
+> **This is the french translation of the book "The Rust Programming Language"**
+>
+> *English Book : [https://github.com/rust-lang/book](https://github.com/rust-lang/book)*
+>
+> Translations are inside `/FRENCH/` folder. Everything else should be remaing as the English Book (except this README.md).
+>
+> Want to help to translate ?
+> Please read the file
+> [/FRENCH/CONTRIBUTING.md](https://github.com/Jimskapt/rust-book-fr/blob/french-release/FRENCH/CONTRIBUTING.md) !
 
-*English Book : [https://github.com/rust-lang/book](https://github.com/rust-lang/book)*
-
-Translations are inside `/FRENCH/` folder. Everything else should be remaing as the English Book (except this README.md).
-
-Want to help to translate ? Please read the file [/FRENCH/CONTRIBUTING.md](https://github.com/Jimskapt/rust-book-fr/blob/french-release/FRENCH/CONTRIBUTING.md) !
-
-<!--
 # The Rust Programming Language
 
 [![Build Status](https://travis-ci.com/rust-lang/book.svg?branch=master)](https://travis-ci.com/rust-lang/book)
@@ -113,4 +116,3 @@ script. It needs a dictionary of valid words, which is provided in
 `dictionary.txt`. If the script produces a false positive (say, you used word
 `BTreeMap` which the script considers invalid), you need to add this word to
 `dictionary.txt` (keep the sorted order for consistency).
--->

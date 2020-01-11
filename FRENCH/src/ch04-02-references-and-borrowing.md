@@ -564,12 +564,8 @@ se poursuit jusqu'au dernier endroit où cette référence est utilisée. Par
 exemple, le code suivant va se compiler car la dernière utilisation de la
 référence immuable est située avant l'introduction de la référence mutable :
 
-<!-- This example is being ignored because there's a bug in rustdoc making the
-edition2018 not work. The bug is currently fixed in nightly, so when we update
-the book to >= 1.35, `ignore` can be removed from this example. -->
-
 <!--
-```rust,edition2018,ignore
+```rust,edition2018
 let mut s = String::from("hello");
 
 let r1 = &s; // no problem
