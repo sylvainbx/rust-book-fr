@@ -199,6 +199,7 @@ français.
 | systems-level | niveau système | - |
 | systems-level code | code système | - |
 | terminal | terminal | - |
+| thread | processus | - |
 | trait | trait | - |
 | tree | arborescence | - |
 | troubleshooting | dépannage | - |

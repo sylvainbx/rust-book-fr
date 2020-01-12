@@ -42,3 +42,5 @@
 
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
     - [Les paquets et les crates](ch07-01-packages-and-crates.md)
+
+    - [`Rc<T>`, le pointeur intelligent qui compte les références](ch15-04-rc.md)
