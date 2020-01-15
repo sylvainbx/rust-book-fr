@@ -116,6 +116,7 @@ français.
 | main | main | - |
 | memory management | gestion de mémoire | - |
 | method | méthode | - |
+| mock object | mock object | - |
 | modern | récent | - |
 | module | module | - |
 | module system | système de modules | - |
@@ -199,6 +200,7 @@ français.
 | systems-level | niveau système | - |
 | systems-level code | code système | - |
 | terminal | terminal | - |
+| test double | double de test | - |
 | trait | trait | - |
 | tree | arborescence | - |
 | troubleshooting | dépannage | - |

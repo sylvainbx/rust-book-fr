@@ -42,3 +42,5 @@
 
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
     - [Les paquets et les crates](ch07-01-packages-and-crates.md)
+
+    - [`RefCell<T>` et le motif de mutabilité interne](ch15-05-interior-mutability.md)
