@@ -25,7 +25,7 @@ more complex Rust programs, you’ll add dependencies, and if you start a projec
 using Cargo, adding dependencies will be much easier to do.
 -->
 
-Des programmes Rust très simples, comme le petit que nous avons précédemment,
+Des programmes Rust très simples, comme le petit que nous avons écrit précédemment,
 n'ont pas de dépendance. Donc si nous avions compilé le projet “Hello, world!”
 avec Cargo, cela n'aurait fait appel qu'à la fonctionnalité de Cargo qui
 s'occupe de la compilation de votre code. Quand vous écrirez des programmes Rust
