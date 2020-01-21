@@ -43,3 +43,5 @@
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
     - [Les paquets et les crates](ch07-01-packages-and-crates.md)
     - [Définir des modules pour gérer la portée et la protection](ch07-02-defining-modules-to-control-scope-and-privacy.md)
+
+    - [Les boucles de références qui peuvent provoquer des fuites de mémoire](ch15-06-reference-cycles.md)

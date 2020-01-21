@@ -114,6 +114,7 @@ français.
 | machine learning | apprentissage automatique | - |
 | macro | macro | - |
 | main | main | - |
+| memory leak | fuite de mémoire | - |
 | memory management | gestion de mémoire | - |
 | method | méthode | - |
 | modern | récent | - |
@@ -150,6 +151,7 @@ français.
 | README | README | - |
 | refactoring | remaniement | - |
 | reference | référence | - |
+| reference cyle | boucle de références | - |
 | registry | registre | - |
 | regression | régression | - |
 | remainder | modulo | opération `%` |
@@ -182,6 +184,7 @@ français.
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
 | square brackets | crochets | - |
 | stack | pile | - |
+| stack overflow | débordement de pile | - |
 | standard | standard *(adj. inv.)* / norme *(n.f.)* | - |
 | standard error | erreur standard | - |
 | standard input | entrée standard | - |
@@ -223,5 +226,6 @@ français.
 | vector | vecteur | - |
 | version control system (VCS) | système de gestion de versions (VCS) | - |
 | warning | avertissement | - |
+| weak reference | pointeur faible | - |
 | wildcard | joker | - |
 | zero-cost abstraction | abstraction sans coût | - |
