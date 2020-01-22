@@ -38,6 +38,7 @@ français.
 | concept chapter | chapitre théorique | - |
 | concurrency | concurrence | - |
 | concurrent | concurrent | - |
+| concurrent programming | programmation concurrente | - |
 | conditional | structure conditionnelle | - |
 | constant | constant / constante | - |
 | construct | instruction | - |
@@ -115,6 +116,7 @@ français.
 | macro | macro | - |
 | main | main | - |
 | memory management | gestion de mémoire | - |
+| message-passing | passage de messages | - |
 | method | méthode | - |
 | modern | récent | - |
 | module | module | - |
@@ -133,6 +135,7 @@ français.
 | package manager | système de gestion de paquets | - |
 | panic | panique(r) | - |
 | parallelism | parallélisme | - |
+| parallel programming | parallélisme | - |
 | parameter | paramètre | - |
 | PATH | PATH | - |
 | pattern | motif | - |
