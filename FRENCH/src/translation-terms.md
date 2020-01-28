@@ -28,6 +28,7 @@ français.
 | byte | octet | - |
 | Cargo | Cargo | - |
 | catchall value | valeur passe-partout | - |
+| channel | canal | - |
 | Chapter | chapitre | tout en minuscule (sauf en début de phrase) |
 | closure | fermeture | - |
 | code review | revue de code | - |
