@@ -26,7 +26,7 @@ s'envoient des messages. Il a inventé le terme *programmation orientée objet* 
 s'opposent ; Rust est considéré comme orienté objet selon certaines définitions
 mais pas par d'autres. Dans ce chapitre, nous examinerons certaines
 caractéristiques généralement considérées comme orientées objet et nous verrons
-comment ces caractéristiques se traduisent en code Rust idiomatique. Puis nous
+comment ces caractéristiques se traduisent en code Rust traditionnel. Puis nous
 vous montrerons comment implémenter un patron de conception orienté objet en
 Rust et nous comparerons les avantages et inconvénients de faire cela plutôt que
 d'implémenter une solution qui utilise quelques points forts de Rust.
