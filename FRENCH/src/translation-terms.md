@@ -114,6 +114,7 @@ français.
 | machine learning | apprentissage automatique | - |
 | macro | macro | - |
 | main | main | - |
+| match guard | contrôle de correspondance | - |
 | memory management | gestion de mémoire | - |
 | method | méthode | - |
 | modern | récent | - |
