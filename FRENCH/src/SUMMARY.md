@@ -43,3 +43,5 @@
     - [Les paquets et les crates](ch07-01-packages-and-crates.md)
     - [Définir des modules pour gérer la portée et la protection](ch07-02-defining-modules-to-control-scope-and-privacy.md)
     - [Désigner un élément dans l'arborescence de modules](ch07-03-paths-for-referring-to-an-item-in-the-module-tree.md)
+
+    - [La réfutabilité : lorsqu'un motif peut échouer à correspondre](ch18-02-refutability.md)
