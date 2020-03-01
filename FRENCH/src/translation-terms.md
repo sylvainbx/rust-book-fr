@@ -72,6 +72,7 @@ français.
 | flag | drapeau | pour les programmes en ligne de commande |
 | float | nombre à virgule flottante | - |
 | floating-point number | nombre à virgule flottante | - |
+| fully qualified syntax | syntaxe totalement définie | - |
 | function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
 | garbage collector | ramasse-miettes | - |
@@ -194,6 +195,7 @@ français.
 | `String` | `String` | nom féminin (une `String`) |
 | struct | structure | - |
 | submodule | sous-module | - |
+| supertrait | supertrait | - |
 | syntax sugar | sucre syntaxique | - |
 | systems concept | notion système | - |
 | systems-level | niveau système | - |
