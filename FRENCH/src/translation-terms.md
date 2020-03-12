@@ -100,6 +100,7 @@ français.
 | invalidate | neutraliser | - |
 | IOT | internet des objets (IOT) | - |
 | iterator | itérateur | - |
+| job | mission | - |
 | just-in-time compilation | compilation à la volée | sigle : JIT |
 | keyword | mot-clé | - |
 | legacy code | code instable que le programme a hérité avec le temps | - |
@@ -224,4 +225,5 @@ français.
 | version control system (VCS) | système de gestion de versions (VCS) | - |
 | warning | avertissement | - |
 | wildcard | joker | - |
+| worker | opérateur | - |
 | zero-cost abstraction | abstraction sans coût | - |
