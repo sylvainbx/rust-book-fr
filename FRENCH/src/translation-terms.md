@@ -151,7 +151,7 @@ français.
 | README | README | - |
 | refactoring | remaniement | - |
 | reference | référence | - |
-| reference cyle | boucle de références | - |
+| reference cycle | boucle de références | - |
 | registry | registre | - |
 | regression | régression | - |
 | remainder | modulo | opération `%` |
