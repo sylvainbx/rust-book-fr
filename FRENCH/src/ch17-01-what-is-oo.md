@@ -68,7 +68,7 @@ le *Gang of Four*.
 ### Encapsulation that Hides Implementation Details
 -->
 
-### L'encapsulation qui cache les détails d'implémentation
+### L'encapsulation qui masque les détails d'implémentation
 
 <!--
 Another aspect commonly associated with OOP is the idea of *encapsulation*,
@@ -397,7 +397,7 @@ objets entre eux à l'exécution s'ils partagent certaines caractéristiques.
 >
 > À la place, Rust utilise la généricité pour abstraire les différents types et
 > traits liés possibles pour imposer des contraintes sur ce que ces types
-> doivent fournir. Ceci est parfois appelé *polymorphisme paramétrique borné*.
+> doivent fournir. Cela est parfois appelé *polymorphisme paramétrique borné*.
 
 <!--
 Inheritance has recently fallen out of favor as a programming design solution
