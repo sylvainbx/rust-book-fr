@@ -1,19 +1,22 @@
-# French translation of the book "The Rust Programming Language"
+> # Le langage de programmation Rust
+>
+> **This is the french translation of the book "The Rust Programming Language"**
+>
+> *English Book : [https://github.com/rust-lang/book](https://github.com/rust-lang/book)*
+>
+> Translations are inside `/FRENCH/` folder. Everything else should be remaing as the English Book (except this README.md).
+>
+> Want to help to translate ?
+> Please read the file
+> [/FRENCH/CONTRIBUTING.md](https://github.com/Jimskapt/rust-book-fr/blob/french-release/FRENCH/CONTRIBUTING.md) !
 
-*English Book : [https://github.com/rust-lang/book](https://github.com/rust-lang/book)*
-
-Translations are inside `/FRENCH/` folder. Everything else should be remaing as the English Book (except this README.md).
-
-Want to help to translate ? Please read the file [/FRENCH/CONTRIBUTING.md](https://github.com/Jimskapt/rust-book-fr/blob/french-release/FRENCH/CONTRIBUTING.md) !
-
-<!--
 # The Rust Programming Language
 
 [![Build Status](https://travis-ci.com/rust-lang/book.svg?branch=master)](https://travis-ci.com/rust-lang/book)
 
 This repository contains the source of "The Rust Programming Language" book.
 
-[The book is available in dead-tree form from No Starch Press][nostarch]
+[The book is available in dead-tree form from No Starch Press][nostarch].
 
 [nostarch]: https://nostarch.com/rust
 
@@ -26,9 +29,13 @@ releases are updated less frequently.
 [beta]: https://doc.rust-lang.org/beta/book/
 [nightly]: https://doc.rust-lang.org/nightly/book/
 
+See the [releases] to download just the code of all the code listings that appear in the book.
+
+[releases]: https://github.com/rust-lang/book/releases
+
 ## Requirements
 
-Building the book requires [mdBook], ideally the same 0.2.x version that
+Building the book requires [mdBook], ideally the same 0.3.x version that
 rust-lang/rust uses in [this file][rust-mdbook]. To get it:
 
 [mdBook]: https://github.com/rust-lang-nursery/mdBook
@@ -109,4 +116,3 @@ script. It needs a dictionary of valid words, which is provided in
 `dictionary.txt`. If the script produces a false positive (say, you used word
 `BTreeMap` which the script considers invalid), you need to add this word to
 `dictionary.txt` (keep the sorted order for consistency).
--->
