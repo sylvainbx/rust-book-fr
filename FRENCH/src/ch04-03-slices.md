@@ -348,6 +348,15 @@ A *string slice* is a reference to part of a `String`, and it looks like this:
 Une *slice de chaîne de caractères* (ou *slice de chaîne*) est une référence à
 une partie d'une `String`, et ressemble à ceci :
 
+<!--
+```rust
+let s = String::from("hello world");
+
+let hello = &s[0..5];
+let world = &s[6..11];
+```
+-->
+
 ```rust
 let s = String::from("hello world");
 
@@ -417,6 +426,15 @@ you can drop the value before the two periods. In other words, these are equal:
 Avec la syntaxe d'intervalle `..` de Rust, si vous voulez commencer au premier
 indice (zéro), vous pouvez ne rien mettre avant les deux points. Autrement dit,
 ces deux cas sont identiques :
+
+<!--
+```rust
+let s = String::from("hello");
+
+let slice = &s[0..2];
+let slice = &s[..2];
+```
+-->
 
 ```rust
 let s = String::from("hello");
@@ -706,6 +724,12 @@ Rappelez-vous lorsque nous avons appris que les littéraux de chaîne de
 caractères étaient enregistrés dans le binaire. Maintenant que nous connaissons
 les slices, nous pouvons désormais comprendre les littéraux de chaîne.
 
+<!--
+```rust
+let s = "Hello, world!";
+```
+-->
+
 ```rust
 let s = "Hello, world!";
 ```
@@ -866,6 +890,12 @@ Les slices de chaînes de caractères, comme vous pouvez l'imaginer, sont
 spécifiques aux chaînes de caractères. Mais il existe aussi un type de slice
 plus générique. Imaginons ce tableau de données :
 
+<!--
+```rust
+let a = [1, 2, 3, 4, 5];
+```
+-->
+
 ```rust
 let a = [1, 2, 3, 4, 5];
 ```
@@ -878,6 +908,14 @@ to part of an array. We’d do so like this:
 Tout comme nous pouvons nous référer à une partie d'une chaîne de caractères,
 nous pouvons nous référer à une partie d'un tableau. Nous pouvons le faire comme
 ceci :
+
+<!--
+```rust
+let a = [1, 2, 3, 4, 5];
+
+let slice = &a[1..3];
+```
+-->
 
 ```rust
 let a = [1, 2, 3, 4, 5];

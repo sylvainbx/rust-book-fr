@@ -327,6 +327,12 @@ nommage des constantes est de les écrire tout en majuscule avec des tirets bas
 entre les mots, et des tirets bas peuvent être ajoutés entre les nombres pour
 améliorer la lisibilité) :
 
+<!--
+```rust
+const MAX_POINTS: u32 = 100_000;
+```
+-->
+
 ```rust
 const MAX_POINTS: u32 = 100_000;
 ```

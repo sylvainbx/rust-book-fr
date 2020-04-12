@@ -34,6 +34,12 @@ Listing 8-1.
 Pour créer un nouveau vecteur vide, nous pouvons appeler la fonction
 `Vec::new`, comme dans l'encart 8-1.
 
+<!--
+```rust
+let v: Vec<i32> = Vec::new();
+```
+-->
+
 ```rust
 let v: Vec<i32> = Vec::new();
 ```
@@ -125,6 +131,17 @@ as shown in Listing 8-3.
 
 Pour créer un vecteur et ensuite lui ajouter des éléments, nous pouvons utiliser
 la méthode `push`, comme dans l'encart 8-3.
+
+<!--
+```rust
+let mut v = Vec::new();
+
+v.push(5);
+v.push(6);
+v.push(7);
+v.push(8);
+```
+-->
 
 ```rust
 let mut v = Vec::new();
@@ -494,6 +511,15 @@ indices. L'encart 8-8 nous montre comment utiliser une boucle `for` pour obtenir
 des références immuables pour chacun des éléments dans un vecteur de `i32`, et
 les afficher.
 
+<!--
+```rust
+let v = vec![100, 32, 57];
+for i in &v {
+    println!("{}", i);
+}
+```
+-->
+
 ```rust
 let v = vec![100, 32, 57];
 for i in &v {
@@ -518,6 +544,15 @@ will add `50` to each element.
 Nous pouvons aussi itérer avec des références mutables pour chacun des éléments
 d'un vecteur mutable afin de modifier tous les éléments. La boucle `for` de
 l'encart 8-9 va ajouter `50` à chacun des éléments.
+
+<!--
+```rust
+let mut v = vec![100, 32, 57];
+for i in &mut v {
+    *i += 50;
+}
+```
+-->
 
 ```rust
 let mut v = vec![100, 32, 57];

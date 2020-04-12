@@ -144,10 +144,10 @@ Let’s move on and talk about the module system!
 
 Continuons d'avancer et parlons maintenant du système de modules !
 
-[modules]: ch07-02-defining-modules-to-control-scope-and-privacy.html
-
 <!--
+[modules]: ch07-02-defining-modules-to-control-scope-and-privacy.html
 [rand]: ch02-00-guessing-game-tutorial.html#generating-a-random-number
 -->
 
+[modules]: ch07-02-defining-modules-to-control-scope-and-privacy.html
 [rand]: ch02-00-guessing-game-tutorial.html#générer-le-nombre-secret

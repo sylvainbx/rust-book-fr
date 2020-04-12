@@ -473,6 +473,12 @@ Examinons la première exécution de `plus_un` en détail. Lorsque nous appellon
 `plus_un(cinq)`, la variable `x` dans le corps de `plus_un` aura la valeur
 `Some(5)`. Ensuite, nous comparons cela à chaque branche du `match`.
 
+<!--
+```rust,ignore
+None => None,
+```
+-->
+
 ```rust,ignore
 None => None,
 ```
@@ -484,6 +490,12 @@ next arm.
 
 La valeur `Some(5)` ne correspond pas au motif `None`, donc nous continuons à la
 prochaine branche.
+
+<!--
+```rust,ignore
+Some(i) => Some(i + 1),
+```
+-->
 
 ```rust,ignore
 Some(i) => Some(i + 1),
@@ -509,6 +521,12 @@ Now let’s consider the second call of `plus_one` in Listing 6-5, where `x` is
 
 Maintenant, regardons le second appel à `plus_un` dans l'encart 6-5, où `x` vaut
 `None`. Nous entrons dans le `match` et nous le comparons à la première branche.
+
+<!--
+```rust,ignore
+None => None,
+```
+-->
 
 ```rust,ignore
 None => None,
@@ -580,6 +598,16 @@ error:
 Nous n'avons pas géré le cas du `None`, donc ce code va générer un bogue.
 Heureusement, c'est un bogue que Rust sait gérer. Si nous essayons de compiler
 ce code, nous allons obtenir cette erreur :
+
+<!--
+```text
+error[E0004]: non-exhaustive patterns: `None` not covered
+ -- >
+  |
+6 |         match x {
+  |               ^ pattern `None` not covered
+```
+-->
 
 ```text
 error[E0004]: non-exhaustive patterns: `None` not covered

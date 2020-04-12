@@ -411,6 +411,14 @@ essaye de le faire, car vous obtiendrez une erreur :
 
 <span class="filename">Fichier : src/main.rs</span>
 
+<!--
+```rust,ignore,does_not_compile
+fn main() {
+    let x = (let y = 6);
+}
+```
+-->
+
 ```rust,ignore,does_not_compile
 fn main() {
     let x = (let y = 6);
@@ -423,6 +431,20 @@ When you run this program, the error you’ll get looks like this:
 
 Quand vous exécutez ce programme, l'erreur que vous obtenez devrait ressembler à
 ceci :
+
+<!--
+```text
+$ cargo run
+   Compiling functions v0.1.0 (file:///projects/functions)
+error: expected expression, found statement (`let`)
+ -- > src/main.rs:2:14
+  |
+2 |     let x = (let y = 6);
+  |              ^^^
+  |
+  = note: variable declaration using `let` is a statement
+```
+-->
 
 ```text
 $ cargo run
@@ -635,6 +657,12 @@ type de retour de `i32`. Regardons cela plus en détail. Il y a deux éléments
 importants : premièrement, la ligne `let x = cinq();` dit que nous utilisons
 la valeur de retour de la fonction pour initialiser la variable. Comme la
 fonction `cinq` retourne un `5`, cette ligne revient à faire ceci :
+
+<!--
+```rust
+let x = 5;
+```
+-->
 
 ```rust
 let x = 5;

@@ -255,6 +255,12 @@ Pour le premier exemple de possession, nous allons analyser la *portée* de
 certaines variables. Une portée est une zone dans un programme dans laquelle un
 élément est en vigueur. Imaginons que nous ayons la variable suivante :
 
+<!--
+```rust
+let s = "hello";
+```
+-->
+
 ```rust
 let s = "hello";
 ```
@@ -382,6 +388,12 @@ second type de chaîne de caractères, `String`. Ce type est alloué sur le tas 
 est ainsi capable de stocker une quantité de texte qui nous est inconnue au
 moment de la compilation. Vous pouvez créer une `String` à partir d'un littéral
 de chaîne de caractères en utilisant la fonction `from`, comme ceci :
+
+<!--
+```rust
+let s = String::from("hello");
+```
+-->
 
 ```rust
 let s = String::from("hello");
@@ -600,6 +612,13 @@ Let’s look at an example using an integer in Listing 4-2.
 Plusieurs variables peuvent interagir avec les mêmes données de différentes
 manières en Rust. Regardons un exemple avec un entier dans l'encart 4-2 :
 
+<!--
+```rust
+let x = 5;
+let y = x;
+```
+-->
+
 ```rust
 let x = 5;
 let y = x;
@@ -632,6 +651,13 @@ Now let’s look at the `String` version:
 -->
 
 Maintenant, essayons une nouvelle version avec `String` :
+
+<!--
+```rust
+let s1 = String::from("hello");
+let s2 = s1;
+```
+-->
 
 ```rust
 let s1 = String::from("hello");
@@ -790,6 +816,15 @@ besoin de libérer quoi que ce soit lorsque `s1` sort de la portée. Regardez ce
 qu'il se passe quand vous essayez d'utiliser `s1` après que `s2` est créé,
 cela ne va pas fonctionner :
 
+<!--
+```rust,ignore,does_not_compile
+let s1 = String::from("hello");
+let s2 = s1;
+
+println!("{}, world!", s1);
+```
+-->
+
 ```rust,ignore,does_not_compile
 let s1 = String::from("hello");
 let s2 = s1;
@@ -804,6 +839,22 @@ invalidated reference:
 
 Vous allez avoir une erreur comme celle-ci, car Rust vous défend d'utiliser la
 référence qui n'est plus en vigueur :
+
+<!--
+```text
+error[E0382]: use of moved value: `s1`
+ -- > src/main.rs:5:28
+  |
+3 |     let s2 = s1;
+  |         -- value moved here
+4 |
+5 |     println!("{}, world!", s1);
+  |                            ^^ value used here after move
+  |
+  = note: move occurs because `s1` has type `std::string::String`, which does
+  not implement the `Copy` trait
+```
+-->
 
 ```text
 error[E0382]: use of moved value: `s1`
@@ -897,6 +948,15 @@ Here’s an example of the `clone` method in action:
 
 Voici un exemple d'utilisation de la méthode `clone` :
 
+<!--
+```rust
+let s1 = String::from("hello");
+let s2 = s1.clone();
+
+println!("s1 = {}, s2 = {}", s1, s2);
+```
+-->
+
 ```rust
 let s1 = String::from("hello");
 let s2 = s1.clone();
@@ -936,6 +996,15 @@ part of which was shown in Listing 4-2, works and is valid:
 Il y a un autre détail dont on n'a pas encore parlé. Le code suivant utilise
 des entiers, et on en a vu une partie dans l'encart 4-2 ; il fonctionne et
 est correct :
+
+<!--
+```rust
+let x = 5;
+let y = x;
+
+println!("x = {}, y = {}", x, y);
+```
+-->
 
 ```rust
 let x = 5;

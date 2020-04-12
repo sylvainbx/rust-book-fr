@@ -51,6 +51,13 @@ Pour créer un nouveau projet, rendez-vous dans le dossier *projects* que
 vous avez créé au chapitre 1 et utilisez Cargo pour créer votre projet, comme
 ceci :
 
+<!--
+```text
+$ cargo new guessing_game
+$ cd guessing_game
+```
+-->
+
 ```text
 $ cargo new jeu_du_plus_ou_du_moins
 $ cd jeu_du_plus_ou_du_moins
@@ -121,6 +128,14 @@ programme *“Hello, world!”* pour vous. Ouvrez le fichier *src/main.rs* :
 -->
 
 <span class="filename">Fichier : src/main.rs</span>
+
+<!--
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+-->
 
 ```rust
 fn main() {
@@ -253,6 +268,12 @@ besoin d'importer la bibliothèque `io` (pour *input/output*, entrée/sortie) af
 de pouvoir l'utiliser. La bibliothèque `io` provient de la bibliothèque standard
 (qui est aussi connue sous le nom de `std`).
 
+<!--
+```rust,ignore
+use std::io;
+```
+-->
+
 ```rust,ignore
 use std::io;
 ```
@@ -282,6 +303,12 @@ program:
 
 Comme vous l'avez vu au chapitre 1, la fonction `main` est le point d'entrée
 du programme :
+
+<!--
+```rust,ignore
+fn main() {
+```
+-->
 
 ```rust,ignore
 fn main() {
@@ -357,6 +384,12 @@ line. Notice that this is a `let` statement, which is used to create a
 Le programme commence à devenir intéressant ! Il se passe beaucoup de choses
 dans cette petite ligne. Vous remarquerez qu'elle commence par le mot-clé `let`,
 qui sert à créer une *variable*. Voici un autre exemple :
+
+<!--
+```rust,ignore
+let foo = bar;
+```
+-->
 
 ```rust,ignore
 let foo = bar;
@@ -616,9 +649,12 @@ aussi une valeur − dans notre cas, de type
 [`Result`][result]<!-- ignore --> ainsi que des déclinaisons spécifiques à
 des sous-modules, comme `io::Result`.
 
-<!-- [ioresult]: ../std/io/type.Result.html -->
+<!--
+[ioresult]: ../std/io/type.Result.html
+[result]: ../std/result/enum.Result.html
+-->
+
 [ioresult]: https://doc.rust-lang.org/std/io/type.Result.html
-<!-- [result]: ../std/result/enum.Result.html -->
 [result]: https://doc.rust-lang.org/std/result/enum.Result.html
 
 <!--
@@ -632,6 +668,10 @@ Les types `Result` sont des [*énumérations*][enums]<!-- ignore -->, aussi
 appelées *enums*. Une énumération est un type qui peut avoir un certain nombre
 de valeurs prédéfinies, et ces valeurs sont appelées des *variantes*
 d'énumération. Le chapitre 6 explorera les énumérations plus en détail.
+
+<!--
+[enums]: ch06-00-enums.html
+-->
 
 [enums]: ch06-00-enums.html
 
@@ -862,6 +902,10 @@ l'instant de fonctionnalité de génération de nombres aléatoires dans sa
 bibliothèque standard. Cependant, l'équipe de Rust propose une
 [*crate* `rand`][randcrate].
 
+<!--
+[randcrate]: https://crates.io/crates/rand
+-->
+
 [randcrate]: https://crates.io/crates/rand
 
 <!--
@@ -897,10 +941,12 @@ Avant d'écrire le code qui utilisera `rand`, il nous faut éditer le fichier
 maintenant ce fichier et ajoutez la ligne suivante à la fin, en dessous de
 l'en-tête de section `[dependencies]` que Cargo a créé pour vous :
 
+<!--
 <!-- When updating the version of `rand` used, also update the version of
 `rand` used in these files so they all match:
 * ch07-04-bringing-paths-into-scope-with-the-use-keyword.md
 * ch14-03-cargo-workspaces.md
+-- >
 -->
 
 <!--
@@ -908,6 +954,14 @@ l'en-tête de section `[dependencies]` que Cargo a créé pour vous :
 -->
 
 <span class="filename">Fichier : Cargo.toml</span>
+
+<!--
+```toml
+[dependencies]
+
+rand = "0.5.5"
+```
+-->
 
 ```toml
 [dependencies]
@@ -937,6 +991,10 @@ sémantique `0.5.5`. Cargo arrive à interpréter le
 est une convention d'écriture de numéros de version. En réalité, `0.5.5` est
 une abréviation pour `^0.5.5`, ce qui signifie “toute version qui propose une
 API publique compatible avec la version 0.5.5”.
+
+<!--
+[semver]: http://semver.org
+-->
 
 [semver]: http://semver.org
 
@@ -1014,6 +1072,10 @@ version de tout ce qui nous faut depuis le *registre*, qui est une copie des
 données de [Crates.io][cratesio]. Crates.io est là où les développeurs de
 l'écosystème Rust publient leurs projets open source afin de les rendre
 disponibles aux autres.
+
+<!--
+[cratesio]: https://crates.io/
+-->
 
 [cratesio]: https://crates.io/
 
@@ -1162,6 +1224,14 @@ Mais par défaut, Cargo va rechercher uniquement les versions plus grandes que
 nouvelles versions, `0.5.6` et `0.6.0`, alors vous verrez ceci si vous
 lancez `cargo update` :
 
+<!--
+```text
+$ cargo update
+    Updating crates.io index
+    Updating rand v0.5.5 -> v0.5.6
+```
+-->
+
 ```text
 $ cargo update
     Updating crates.io index
@@ -1185,6 +1255,13 @@ series, you’d have to update the *Cargo.toml* file to look like this instead:
 Si vous vouliez utiliser `rand` en version `0.6.0` ou toute autre version dans
 la série des `0.6.x`, il vous faut mettre à jour le fichier *Cargo.toml* comme
 ceci :
+
+<!--
+```toml
+[dependencies]
+rand = "0.6.0"
+```
+-->
 
 ```toml
 [dependencies]
@@ -1215,6 +1292,11 @@ mais pour l'instant, c'est tout ce qu'il vous faut savoir. Cargo
 facilite la réutilisation des bibliothèques, pour que les Rustacés soient
 capables d'écrire des petits projets issus d'un assemblage d'un certain
 nombre de paquets.
+
+<!--
+[doccargo]: http://doc.crates.io
+[doccratesio]: http://doc.crates.io/crates-io.html
+-->
 
 [doccargo]: http://doc.crates.io
 [doccratesio]: http://doc.crates.io/crates-io.html
@@ -1519,6 +1601,10 @@ importée avec l'instruction `use`. Nous utilisons une expression
 [`match`][match]<!-- ignore --> pour décider quoi faire ensuite en fonction de
 quelle variante de `Ordering` a été retournée à l'appel de `cmp` avec
 `supposition` et `nombre_secret`.
+
+<!--
+[match]: ch06-02-match.html
+-->
 
 [match]: ch06-02-match.html
 

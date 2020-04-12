@@ -443,6 +443,13 @@ If we continue reading the errors, we’ll find this helpful note:
 
 Si nous continuons de lire les erreurs, nous trouvons cette remarque utile :
 
+<!--
+```text
+= help: the trait `std::fmt::Display` is not implemented for `Rectangle`
+= note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
+```
+-->
+
 ```text
 = help: the trait `std::fmt::Display` is not implemented for `Rectangle`
 = note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
@@ -473,6 +480,12 @@ Run the code with this change. Drat! We still get an error:
 Exécutez le code avec ce changement. Zut ! On a encore une erreur, nous
 informant cette fois-ci que `Rectangle` n'implémente pas `std::fmt::Debug` :
 
+<!--
+```text
+error[E0277]: `Rectangle` doesn't implement `std::fmt::Debug`
+```
+-->
+
 ```text
 error[E0277]: `Rectangle` doesn't implement `std::fmt::Debug`
 ```
@@ -482,6 +495,13 @@ But again, the compiler gives us a helpful note:
 -->
 
 Mais une nouvelle fois, le compilateur nous fait une remarque utile :
+
+<!--
+```text
+= help: the trait `std::fmt::Debug` is not implemented for `Rectangle`
+= note: add `#[derive(Debug)]` or manually implement `std::fmt::Debug`
+```
+-->
 
 ```text
 = help: the trait `std::fmt::Debug` is not implemented for `Rectangle`

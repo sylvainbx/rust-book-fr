@@ -333,7 +333,17 @@ Voici un exemple montrant l'utilisation de nombres à virgule flottante :
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du ficher: src/main.rs</span>
+<span class="filename">Ficher : src/main.rs</span>
+
+<!--
+```rust
+fn main() {
+    let x = 2.0; // f64
+
+    let y: f32 = 3.0; // f32
+}
+```
+-->
 
 ```rust
 fn main() {
@@ -592,6 +602,14 @@ optionnel :
 
 <span class="filename">Fichier : src/main.rs</span>
 
+<!--
+```rust
+fn main() {
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+}
+```
+-->
+
 ```rust
 fn main() {
     let tup: (i32, f64, u8) = (500, 6.4, 1);
@@ -735,6 +753,14 @@ liste séparée par des virgules entre des crochets :
 
 <span class="filename">Fichier : src/main.rs</span>
 
+<!--
+```rust
+fn main() {
+    let a = [1, 2, 3, 4, 5];
+}
+```
+-->
+
 ```rust
 fn main() {
     let a = [1, 2, 3, 4, 5];
@@ -797,6 +823,12 @@ Vous pouvez écrire le type d'un tableau en utilisant des crochets, et entre ces
 crochets y ajouter le type de chaque élément, un point-virgule, et ensuite le
 nombre d'éléments dans le tableau, comme ceci :
 
+<!--
+```rust
+let a: [i32; 5] = [1, 2, 3, 4, 5];
+```
+-->
+
 ```rust
 let a: [i32; 5] = [1, 2, 3, 4, 5];
 ```
@@ -821,6 +853,12 @@ pour initialiser un tableau : si vous voulez créer un tableau qui contient la
 même valeur pour chaque élément, vous pouvez préciser la valeur initiale, suivie
 par un point-virgule, et ensuite la taille du tableau, le tout entre crochets,
 comme ci-dessous :
+
+<!--
+```rust
+let a = [3; 5];
+```
+-->
 
 ```rust
 let a = [3; 5];

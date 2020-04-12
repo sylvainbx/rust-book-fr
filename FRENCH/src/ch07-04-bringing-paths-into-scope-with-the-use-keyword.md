@@ -265,6 +265,17 @@ standard dans la portée d'une crate binaire.
 
 <span class="filename">Fichier : src/main.rs</span>
 
+<!--
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let mut map = HashMap::new();
+    map.insert(1, 2);
+}
+```
+-->
+
 ```rust
 use std::collections::HashMap;
 
@@ -572,10 +583,12 @@ utilisait le paquet externe `rand` afin d'obtenir des nombres aléatoires.
 Pour pouvoir utiliser `rand` dans notre projet, nous avons ajouté cette ligne
 dans *Cargo.toml* :
 
+<!--
 <!-- When updating the version of `rand` used, also update the version of
 `rand` used in these files so they all match:
 * ch02-00-guessing-game-tutorial.md
 * ch14-03-cargo-workspaces.md
+-- >
 -->
 
 <!--
@@ -583,6 +596,13 @@ dans *Cargo.toml* :
 -->
 
 <span class="filename">Fichier : Cargo.toml</span>
+
+<!--
+```toml
+[dependencies]
+rand = "0.5.5"
+```
+-->
 
 ```toml
 [dependencies]
@@ -656,6 +676,12 @@ nous n'avons pas à modifier le *Cargo.toml* pour y inclure `std`. Mais nous
 devons utiliser `use` pour importer les éléments qu'y se trouvent dans la portée
 de notre paquet. Par exemple, pour `HashMap` nous pourrions utiliser cette
 ligne :
+
+<!--
+```rust
+use std::collections::HashMap;
+```
+-->
 
 ```rust
 use std::collections::HashMap;
@@ -775,6 +801,13 @@ dans la portée.
 
 <span class="filename">Fichier : src/lib.rs</span>
 
+<!--
+```rust
+use std::io;
+use std::io::Write;
+```
+-->
+
 ```rust
 use std::io;
 use std::io::Write;
@@ -803,6 +836,12 @@ nous pouvons utiliser `self` dans le chemin imbriqué, comme dans l'encart 7-20.
 -->
 
 <span class="filename">Fichier : src/lib.rs</span>
+
+<!--
+```rust
+use std::io::{self, Write};
+```
+-->
 
 ```rust
 use std::io::{self, Write};

@@ -721,6 +721,15 @@ standard][option]<!-- ignore --> comme ci-dessous :
 
 [option]: https://doc.rust-lang.org/std/option/enum.Option.html
 
+<!--
+```rust
+enum Option<T> {
+    Some(T),
+    None,
+}
+```
+-->
+
 ```rust
 enum Option<T> {
     Some(T),
