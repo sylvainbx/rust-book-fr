@@ -1,24 +1,24 @@
-struct User {
-    username: String,
+struct Utilisateur {
+    pseudo: String,
     email: String,
-    sign_in_count: u64,
-    active: bool,
+    nombre_de_connexions: u64,
+    actif: bool,
 }
 
 fn main() {
-    let user1 = User {
-        email: String::from("someone@example.com"),
-        username: String::from("someusername123"),
-        active: true,
-        sign_in_count: 1,
+    let utilisateur1 = Utilisateur {
+        email: String::from("quelquun@example.com"),
+        pseudo: String::from("pseudoquelconque123"),
+        actif: true,
+        nombre_de_connexions: 1,
     };
 
     // ANCHOR: here
-    let user2 = User {
-        email: String::from("another@example.com"),
-        username: String::from("anotherusername567"),
-        active: user1.active,
-        sign_in_count: user1.sign_in_count,
+    let utilisateur2 = Utilisateur {
+        email: String::from("quelquundautre@example.com"),
+        pseudo: String::from("autrepseudo567"),
+        actif: utilisateur1.actif,
+        nombre_de_connexions: utilisateur1.nombre_de_connexions,
     };
     // ANCHOR_END: here
 }

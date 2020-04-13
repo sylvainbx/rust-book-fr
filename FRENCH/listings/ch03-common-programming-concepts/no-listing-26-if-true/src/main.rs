@@ -1,9 +1,9 @@
 fn main() {
-    let number = 3;
+    let nombre = 3;
 
-    if number < 5 {
-        println!("condition was true");
+    if nombre < 5 {
+        println!("La condition est vérifiée");
     } else {
-        println!("condition was false");
+        println!("La condition n'est pas vérifiée");
     }
 }

@@ -1,3 +1,3 @@
-pub mod hosting {
-    pub fn add_to_waitlist() {}
+pub mod accueil {
+    pub fn ajouter_a_la_liste_attente() {}
 }

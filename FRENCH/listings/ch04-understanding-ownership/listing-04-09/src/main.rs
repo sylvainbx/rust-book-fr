@@ -1,10 +1,10 @@
 // ANCHOR: here
-fn first_word(s: &str) -> &str {
+fn premier_mot(s: &str) -> &str {
     // ANCHOR_END: here
-    let bytes = s.as_bytes();
+    let octets = s.as_bytes();
 
-    for (i, &item) in bytes.iter().enumerate() {
-        if item == b' ' {
+    for (i, &element) in octets.iter().enumerate() {
+        if element == b' ' {
             return &s[0..i];
         }
     }
@@ -14,18 +14,18 @@ fn first_word(s: &str) -> &str {
 
 // ANCHOR: usage
 fn main() {
-    let my_string = String::from("hello world");
+    let ma_string = String::from("hello world");
 
-    // first_word works on slices of `String`s
-    let word = first_word(&my_string[..]);
+    // premier_mot fonctionne avec les slices de `String`
+    let mot = premier_mot(&ma_string[..]);
 
-    let my_string_literal = "hello world";
+    let mon_litteral_de_chaine = "hello world";
 
-    // first_word works on slices of string literals
-    let word = first_word(&my_string_literal[..]);
+    // premier_mot fonctionne avec les slices de littéraux de chaîne
+    let mot = premier_mot(&mon_litteral_de_chaine[..]);
 
-    // Because string literals *are* string slices already,
-    // this works too, without the slice syntax!
-    let word = first_word(my_string_literal);
+    // Comme les littéraux de chaîne *sont* déjà des slices de chaînes,
+    // cela fonctionne aussi, sans la syntaxe de slice !
+    let mot = premier_mot(mon_litteral_de_chaine);
 }
 // ANCHOR_END: usage

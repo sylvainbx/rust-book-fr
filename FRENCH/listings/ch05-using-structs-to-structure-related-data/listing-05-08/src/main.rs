@@ -1,17 +1,17 @@
 // ANCHOR: all
 fn main() {
-    let width1 = 30;
-    let height1 = 50;
+    let largeur1 = 30;
+    let hauteur1 = 50;
 
     println!(
-        "The area of the rectangle is {} square pixels.",
-        area(width1, height1)
+        "L'aire du rectangle est de {} pixels carrés.",
+        aire(largeur1, hauteur1)
     );
 }
 
 // ANCHOR: here
-fn area(width: u32, height: u32) -> u32 {
+fn aire(largeur: u32, hauteur: u32) -> u32 {
     // ANCHOR_END: here
-    width * height
+    largeur * hauteur
 }
 // ANCHOR_END: all

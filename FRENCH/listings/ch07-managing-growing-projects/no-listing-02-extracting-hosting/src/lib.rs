@@ -1,9 +1,9 @@
-mod front_of_house;
+mod salle_a_manger;
 
-pub use crate::front_of_house::hosting;
+pub use crate::salle_a_manger::accueil;
 
-pub fn eat_at_restaurant() {
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
+pub fn manger_au_restaurant() {
+    accueil::ajouter_a_la_liste_attente();
+    accueil::ajouter_a_la_liste_attente();
+    accueil::ajouter_a_la_liste_attente();
 }

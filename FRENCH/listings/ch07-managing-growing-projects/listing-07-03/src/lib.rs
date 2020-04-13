@@ -1,13 +1,13 @@
-mod front_of_house {
-    mod hosting {
-        fn add_to_waitlist() {}
+mod salle_a_manger {
+    mod accueil {
+        fn ajouter_a_la_liste_attente() {}
     }
 }
 
-pub fn eat_at_restaurant() {
-    // Absolute path
-    crate::front_of_house::hosting::add_to_waitlist();
+pub fn manger_au_restaurant() {
+    // Chemin absolu
+    crate::salle_a_manger::accueil::ajouter_a_la_liste_attente();
 
-    // Relative path
-    front_of_house::hosting::add_to_waitlist();
+    // Chemin relatif
+    salle_a_manger::accueil::ajouter_a_la_liste_attente();
 }

@@ -43,38 +43,12 @@ qu'à utiliser `accueil::ajouter_a_la_liste_attente` pour appeler la fonction
 
 <!--
 ```rust
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-}
-
-use crate::front_of_house::hosting;
-
-pub fn eat_at_restaurant() {
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-}
-# fn main() {}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-11/src/lib.rs:here}}
 ```
 -->
 
 ```rust
-mod salle_a_manger {
-    pub mod accueil {
-        pub fn ajouter_a_la_liste_attente() {}
-    }
-}
-
-use crate::salle_a_manger::accueil;
-
-pub fn manger_au_restaurant() {
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-}
-# fn main() {}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-11/src/lib.rs:here}}
 ```
 
 <!--
@@ -118,38 +92,12 @@ chemin relatif pour obtenir le même résultat que l'encart 7-11.
 
 <!--
 ```rust
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-}
-
-use front_of_house::hosting;
-
-pub fn eat_at_restaurant() {
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-}
-# fn main() {}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-12/src/lib.rs:here}}
 ```
 -->
 
 ```rust
-mod salle_a_manger {
-    pub mod accueil {
-        pub fn ajouter_a_la_liste_attente() {}
-    }
-}
-
-use salle_a_manger::accueil;
-
-pub fn manger_au_restaurant() {
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-}
-# fn main() {}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-12/src/lib.rs:here}}
 ```
 
 <!--
@@ -187,38 +135,12 @@ pour avoir le même résultat, comme dans l'encart 7-13.
 
 <!--
 ```rust
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-}
-
-use crate::front_of_house::hosting::add_to_waitlist;
-
-pub fn eat_at_restaurant() {
-    add_to_waitlist();
-    add_to_waitlist();
-    add_to_waitlist();
-}
-# fn main() {}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-13/src/lib.rs:here}}
 ```
 -->
 
 ```rust
-mod salle_a_manger {
-    pub mod accueil {
-        pub fn ajouter_a_la_liste_attente() {}
-    }
-}
-
-use crate::salle_a_manger::accueil::ajouter_a_la_liste_attente;
-
-pub fn manger_au_restaurant() {
-    ajouter_a_la_liste_attente();
-    ajouter_a_la_liste_attente();
-    ajouter_a_la_liste_attente();
-}
-# fn main() {}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-13/src/lib.rs:here}}
 ```
 
 <!--
@@ -267,22 +189,12 @@ standard dans la portée d'une crate binaire.
 
 <!--
 ```rust
-use std::collections::HashMap;
-
-fn main() {
-    let mut map = HashMap::new();
-    map.insert(1, 2);
-}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-14/src/main.rs}}
 ```
 -->
 
 ```rust
-use std::collections::HashMap;
-
-fn main() {
-    let mut map = HashMap::new();
-    map.insert(1, 2);
-}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-14/src/main.rs}}
 ```
 
 <!--
@@ -323,34 +235,12 @@ sont distincts.
 
 <!--
 ```rust
-use std::fmt;
-use std::io;
-
-fn function1() -> fmt::Result {
-    // --snip--
-#     Ok(())
-}
-
-fn function2() -> io::Result<()> {
-    // --snip--
-#     Ok(())
-}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-15/src/lib.rs:here}}
 ```
 -->
 
 ```rust
-use std::fmt;
-use std::io;
-
-fn fonction1() -> fmt::Result {
-    // -- code masqué ici --
-#     Ok(())
-}
-
-fn fonction2() -> io::Result<()> {
-    // -- code masqué ici --
-#     Ok(())
-}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-15/src/lib.rs:here}}
 ```
 
 <!--
@@ -401,34 +291,12 @@ deux types `Result`.
 
 <!--
 ```rust
-use std::fmt::Result;
-use std::io::Result as IoResult;
-
-fn function1() -> Result {
-    // --snip--
-#     Ok(())
-}
-
-fn function2() -> IoResult<()> {
-    // --snip--
-#     Ok(())
-}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-16/src/lib.rs:here}}
 ```
 -->
 
 ```rust
-use std::fmt::Result;
-use std::io::Result as IoResult;
-
-fn fonction1() -> Result {
-    // -- code masqué ici --
-#     Ok(())
-}
-
-fn fonction2() -> IoResult<()> {
-    // -- code masqué ici --
-#     Ok(())
-}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-16/src/lib.rs:here}}
 ```
 
 <!--
@@ -489,38 +357,12 @@ a été remplacé par `pub use`.
 
 <!--
 ```rust
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-}
-
-pub use crate::front_of_house::hosting;
-
-pub fn eat_at_restaurant() {
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-}
-# fn main() {}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs:here}}
 ```
 -->
 
 ```rust
-mod salle_a_manger {
-    pub mod accueil {
-        pub fn ajouter_a_la_liste_attente() {}
-    }
-}
-
-pub use crate::salle_a_manger::accueil;
-
-pub fn manger_au_restaurant() {
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-}
-# fn main() {}
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs:here}}
 ```
 
 <!--
@@ -599,14 +441,12 @@ dans *Cargo.toml* :
 
 <!--
 ```toml
-[dependencies]
-rand = "0.5.5"
+{{#include ../listings/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:}}
 ```
 -->
 
 ```toml
-[dependencies]
-rand = "0.5.5"
+{{#include ../listings/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:}}
 ```
 
 <!--
@@ -636,18 +476,12 @@ appelé la fonction `rand::thread_rng` :
 
 <!--
 ```rust,ignore
-use rand::Rng;
-fn main() {
-    let secret_number = rand::thread_rng().gen_range(1, 101);
-}
+{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:ch07-04}}
 ```
 -->
 
 ```rust,ignore
-use rand::Rng;
-fn main() {
-    let nombre_secret = rand::thread_rng().gen_range(1, 101);
-}
+{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:ch07-04}}
 ```
 
 <!--
@@ -721,17 +555,13 @@ avions dans le jeu de devinettes, dans l'encart 2-4, importaient des éléments 
 <span class="filename">Fichier : src/main.rs</span>
 
 <!--
-```rust
-use std::io;
-use std::cmp::Ordering;
-// ---snip---
+```rust,ignore
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/no-listing-01-use-std-unnested/src/main.rs:here}}
 ```
 -->
 
-```rust
-use std::io;
-use std::cmp::Ordering;
-// --- code masqué ici ---
+```rust,ignore
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/no-listing-01-use-std-unnested/src/main.rs:here}}
 ```
 
 <!--
@@ -753,15 +583,13 @@ d'accolades autour d'une liste d'éléments du chemin, comme dans l'encart 7-18�
 <span class="filename">Fichier : src/main.rs</span>
 
 <!--
-```rust
-use std::{cmp::Ordering, io};
-// ---snip---
+```rust,ignore
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-18/src/main.rs:here}}
 ```
 -->
 
-```rust
-use std::{cmp::Ordering, io};
-// --- code masqué ici ---
+```rust,ignore
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-18/src/main.rs:here}}
 ```
 
 <!--
@@ -803,14 +631,12 @@ dans la portée.
 
 <!--
 ```rust
-use std::io;
-use std::io::Write;
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-19/src/lib.rs}}
 ```
 -->
 
 ```rust
-use std::io;
-use std::io::Write;
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-19/src/lib.rs}}
 ```
 
 <!--
@@ -839,12 +665,12 @@ nous pouvons utiliser `self` dans le chemin imbriqué, comme dans l'encart 7-20.
 
 <!--
 ```rust
-use std::io::{self, Write};
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-20/src/lib.rs}}
 ```
 -->
 
 ```rust
-use std::io::{self, Write};
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-20/src/lib.rs}}
 ```
 
 <!--

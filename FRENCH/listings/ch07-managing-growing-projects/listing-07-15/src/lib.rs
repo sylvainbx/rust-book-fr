@@ -2,15 +2,15 @@
 use std::fmt;
 use std::io;
 
-fn function1() -> fmt::Result {
-    // --snip--
+fn fonction1() -> fmt::Result {
+    // -- partie masquée ici --
     // ANCHOR_END: here
     Ok(())
     // ANCHOR: here
 }
 
-fn function2() -> io::Result<()> {
-    // --snip--
+fn fonction2() -> io::Result<()> {
+    // -- partie masquée ici --
     // ANCHOR_END: here
     Ok(())
     // ANCHOR: here

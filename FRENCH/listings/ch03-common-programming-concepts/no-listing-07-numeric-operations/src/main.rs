@@ -1,16 +1,16 @@
 fn main() {
     // addition
-    let sum = 5 + 10;
+    let somme = 5 + 10;
 
-    // subtraction
+    // soustraction
     let difference = 95.5 - 4.3;
 
     // multiplication
-    let product = 4 * 30;
+    let produit = 4 * 30;
 
     // division
     let quotient = 56.7 / 32.2;
 
-    // remainder
-    let remainder = 43 % 5;
+    // modulo
+    let reste = 43 % 5;
 }

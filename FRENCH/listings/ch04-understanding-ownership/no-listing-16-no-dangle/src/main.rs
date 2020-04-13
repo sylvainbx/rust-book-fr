@@ -3,7 +3,7 @@ fn main() {
 }
 
 // ANCHOR: here
-fn no_dangle() -> String {
+fn ne_pendouille_pas() -> String {
     let s = String::from("hello");
 
     s

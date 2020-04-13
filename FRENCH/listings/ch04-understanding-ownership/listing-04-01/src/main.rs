@@ -1,9 +1,9 @@
 fn main() {
     // ANCHOR: here
-    {                      // s is not valid here, it’s not yet declared
-        let s = "hello";   // s is valid from this point forward
+    {                    // s n'est pas en vigueur ici, elle n'est pas encore déclarée
+        let s = "hello"; // s est en vigueur à partir de ce point
 
-        // do stuff with s
-    }                      // this scope is now over, and s is no longer valid
+        // on fait des choses avec s ici
+    }                    // cette portée est maintenant terminée, et s n'est plus en vigueur
     // ANCHOR_END: here
 }

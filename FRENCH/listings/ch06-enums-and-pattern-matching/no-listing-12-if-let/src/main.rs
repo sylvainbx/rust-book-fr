@@ -1,8 +1,8 @@
 fn main() {
-    let some_u8_value = Some(0u8);
+    let une_valeur_u8 = Some(0u8);
     // ANCHOR: here
-    if let Some(3) = some_u8_value {
-        println!("three");
+    if let Some(3) = une_valeur_u8 {
+        println!("trois");
     }
     // ANCHOR_END: here
 }

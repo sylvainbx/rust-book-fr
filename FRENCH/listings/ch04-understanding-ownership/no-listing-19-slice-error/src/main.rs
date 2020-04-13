@@ -1,8 +1,8 @@
-fn first_word(s: &String) -> &str {
-    let bytes = s.as_bytes();
+fn premier_mot(s: &String) -> &str {
+    let octets = s.as_bytes();
 
-    for (i, &item) in bytes.iter().enumerate() {
-        if item == b' ' {
+    for (i, &element) in octets.iter().enumerate() {
+        if element == b' ' {
             return &s[0..i];
         }
     }
@@ -14,10 +14,10 @@ fn first_word(s: &String) -> &str {
 fn main() {
     let mut s = String::from("hello world");
 
-    let word = first_word(&s);
+    let mot = premier_mot(&s);
 
-    s.clear(); // error!
+    s.clear(); // Erreur !
 
-    println!("the first word is: {}", word);
+    println!("Le premier mot est : {}", mot);
 }
 // ANCHOR_END: here

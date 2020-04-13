@@ -4,7 +4,8 @@ fn main() {
 
     {
         let r1 = &mut s;
-    } // r1 goes out of scope here, so we can make a new reference with no problems.
+    } // r1 sort de la portée ici, donc nous pouvons créer une nouvelle référence
+      // sans problèmes.
 
     let r2 = &mut s;
     // ANCHOR_END: here

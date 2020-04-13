@@ -1,13 +1,13 @@
 // ANCHOR: here
-fn serve_order() {}
+fn servir_commande() {}
 
-mod back_of_house {
-    fn fix_incorrect_order() {
-        cook_order();
-        super::serve_order();
+mod cuisines {
+    fn corriger_commande_erronee() {
+        cuisiner_commande();
+        super::servir_commande();
     }
 
-    fn cook_order() {}
+    fn cuisiner_commande() {}
 }
 // ANCHOR_END: here
 

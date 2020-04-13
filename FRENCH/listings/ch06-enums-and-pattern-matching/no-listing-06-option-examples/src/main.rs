@@ -1,8 +1,8 @@
 fn main() {
     // ANCHOR: here
-    let some_number = Some(5);
-    let some_string = Some("a string");
+    let un_nombre = Some(5);
+    let une_chaine = Some("une chaîne");
 
-    let absent_number: Option<i32> = None;
+    let nombre_absent: Option<i32> = None;
     // ANCHOR_END: here
 }

@@ -1,23 +1,22 @@
 fn main() {
-    let s = String::from("hello");  // s comes into scope
+  let s = String::from("hello");  // s rentre dans la portée.
 
-    takes_ownership(s);             // s's value moves into the function...
-                                    // ... and so is no longer valid here
+  prendre_possession(s);  // La valeur de s est déplacée dans la fonction…
+                          // … et n'est plus en vigueur à partir d'ici
 
-    let x = 5;                      // x comes into scope
+  let x = 5;              // x rentre dans la portée.
 
-    makes_copy(x);                  // x would move into the function,
-                                    // but i32 is Copy, so it’s okay to still
-                                    // use x afterward
+  creer_copie(x);         // x va être déplacée dans la fonction,
+                          // mais i32 est Copy, donc on peut
+                          // utiliser x ensuite.
 
-} // Here, x goes out of scope, then s. But because s's value was moved, nothing
-  // special happens.
+} // Ici, x sort de la portée, puis ensuite s. Mais puisque la valeur de s a
+// été déplacée, il ne se passe rien de spécial.
 
-fn takes_ownership(some_string: String) { // some_string comes into scope
-    println!("{}", some_string);
-} // Here, some_string goes out of scope and `drop` is called. The backing
-  // memory is freed.
+fn prendre_possession(texte: String) { // texte rentre dans la portée.
+  println!("{}", texte);
+} // Ici, texte sort de la portée et `drop` est appelé. La mémoire est libérée.
 
-fn makes_copy(some_integer: i32) { // some_integer comes into scope
-    println!("{}", some_integer);
-} // Here, some_integer goes out of scope. Nothing special happens.
+fn creer_copie(entier: i32) { // entier rentre dans la portée.
+  println!("{}", entier);
+} // Ici, entier sort de la portée. Il ne se passe rien de spécial.

@@ -1,9 +1,9 @@
 // ANCHOR: here
-fn first_word(s: &String) -> &str {
-    let bytes = s.as_bytes();
+fn premier_mot(s: &String) -> &str {
+    let octets = s.as_bytes();
 
-    for (i, &item) in bytes.iter().enumerate() {
-        if item == b' ' {
+    for (i, &element) in octets.iter().enumerate() {
+        if element == b' ' {
             return &s[0..i];
         }
     }

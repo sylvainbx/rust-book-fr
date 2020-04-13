@@ -1,6 +1,6 @@
 fn main() {
-    for number in (1..4).rev() {
-        println!("{}!", number);
+    for nombre in (1..4).rev() {
+        println!("{} !", nombre);
     }
-    println!("LIFTOFF!!!");
+    println!("DÉCOLLAGE !!!");
 }

@@ -504,4 +504,8 @@ d'options et faciliter le partage de votre code. À la page suivante, nous allon
 découvrir l'outil Cargo, qui va vous aider à écrire des programmes Rust à
 l'épreuve de la réalité.
 
+<!--
 [troubleshooting]: ch01-01-installation.html#troubleshooting
+-->
+
+[troubleshooting]: ch01-01-installation.html#dépannage

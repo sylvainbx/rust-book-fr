@@ -112,15 +112,24 @@ avec le même nom.
 <!--
 Go into the *hello_cargo* directory and list the files. You’ll see that Cargo
 has generated two files and one directory for us: a *Cargo.toml* file and a
-*src* directory with a *main.rs* file inside. It has also initialized a new Git
-repository along with a *.gitignore* file.
+*src* directory with a *main.rs* file inside.
 -->
 
 Rendez-vous dans le dossier *hello_cargo* et afficher la liste des fichiers.
 Vous constaterez que Cargo a généré deux fichiers et un dossier pour nous : un
 fichier *Cargo.toml* et un dossier *src* avec un fichier *main.rs* à
-l'intérieur. Il a aussi créé un nouveau dépôt Git ainsi qu'un fichier
-*.gitignore*.
+l'intérieur.
+
+<!--
+It has also initialized a new Git repository along with a *.gitignore* file.
+Git files won’t be generated if you run `cargo new` within an existing Git
+repository; you can override this behavior by using `cargo new --vcs=git`.
+-->
+
+Il a aussi créé un nouveau dépôt Git ainsi qu'un fichier *.gitignore*. Les
+fichiers de Git ne seront pas générés si vous lancez `cargo new` au sein d'un
+dépôt Git ; vous pouvez désactiver ce comportement temporairement en utilisant
+`cargo new --vcs=git`.
 
 <!--
 > Note: Git is a common version control system. You can change `cargo new` to

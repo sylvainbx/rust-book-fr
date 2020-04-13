@@ -36,12 +36,12 @@ Pour créer un nouveau vecteur vide, nous pouvons appeler la fonction
 
 <!--
 ```rust
-let v: Vec<i32> = Vec::new();
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-01/src/main.rs:here}}
 ```
 -->
 
 ```rust
-let v: Vec<i32> = Vec::new();
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-01/src/main.rs:here}}
 ```
 
 <!--
@@ -79,7 +79,9 @@ store once you insert values, so you rarely need to do this type annotation.
 It’s more common to create a `Vec<T>` that has initial values, and Rust
 provides the `vec!` macro for convenience. The macro will create a new vector
 that holds the values you give it. Listing 8-2 creates a new `Vec<i32>` that
-holds the values `1`, `2`, and `3`.
+holds the values `1`, `2`, and `3`. The integer type is `i32` because that’s
+the default integer type, as we discussed in the [“Data Types”][data-types]<!--
+ignore -- > section of Chapter 3.
 -->
 
 Dans du code plus réaliste, Rust peut parfois deviner le type de la valeur que
@@ -88,16 +90,18 @@ souvent besoin de faire cette annotation de type. Il est plus fréquent de crée
 un `Vec<T>` qui a des valeurs initiales, et Rust fournit la macro `vec!` par
 commodité. La macro va créer un nouveau vecteur qui stockera les valeurs que
 vous lui donnerez. L'encart 8-2 crée un nouveau `Vec<i32>` qui stocke les
-valeurs `1`, `2` et `3`.
+valeurs `1`, `2` et `3`. Le type d'entier est `i32` car c'est le type d'entier
+par défaut, comme nous l'avons évoqué dans la section [“Les types de
+données”][data-types]<!-- ignore --> du chapitre 3.
 
 <!--
 ```rust
-let v = vec![1, 2, 3];
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-02/src/main.rs:here}}
 ```
 -->
 
 ```rust
-let v = vec![1, 2, 3];
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-02/src/main.rs:here}}
 ```
 
 <!--
@@ -134,22 +138,12 @@ la méthode `push`, comme dans l'encart 8-3.
 
 <!--
 ```rust
-let mut v = Vec::new();
-
-v.push(5);
-v.push(6);
-v.push(7);
-v.push(8);
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-03/src/main.rs:here}}
 ```
 -->
 
 ```rust
-let mut v = Vec::new();
-
-v.push(5);
-v.push(6);
-v.push(7);
-v.push(8);
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-03/src/main.rs:here}}
 ```
 
 <!--
@@ -189,22 +183,12 @@ portée, comme précisé dans l'encart 8-4.
 
 <!--
 ```rust
-{
-    let v = vec![1, 2, 3, 4];
-
-    // do stuff with v
-
-} // <- v goes out of scope and is freed here
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-04/src/main.rs:here}}
 ```
 -->
 
 ```rust
-{
-    let v = vec![1, 2, 3, 4];
-
-    // on fait des choses avec v
-
-} // <- v sort de la portée et est libéré ici
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-04/src/main.rs:here}}
 ```
 
 <!--
@@ -257,28 +241,12 @@ soit la syntaxe d'indexation, soit avec la méthode `get`.
 
 <!--
 ```rust
-let v = vec![1, 2, 3, 4, 5];
-
-let third: &i32 = &v[2];
-println!("The third element is {}", third);
-
-match v.get(2) {
-    Some(third) => println!("The third element is {}", third),
-    None => println!("There is no third element."),
-}
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-05/src/main.rs:here}}
 ```
 -->
 
 ```rust
-let v = vec![1, 2, 3, 4, 5];
-
-let troisieme: &i32 = &v[2];
-println!("Le troisième élément est {}", troisieme);
-
-match v.get(2) {
-    Some(troisieme) => println!("Le troisième élément est {}", troisieme),
-    None => println!("Il n'y a pas de troisième élément."),
-}
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-05/src/main.rs:here}}
 ```
 
 <!--
@@ -320,18 +288,12 @@ essaye d'accéder à l'élément à l'indice 100, comme dans l'encart 8-6.
 
 <!--
 ```rust,should_panic,panics
-let v = vec![1, 2, 3, 4, 5];
-
-let does_not_exist = &v[100];
-let does_not_exist = v.get(100);
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-06/src/main.rs:here}}
 ```
 -->
 
 ```rust,should_panic,panics
-let v = vec![1, 2, 3, 4, 5];
-
-let existe_pas = &v[100];
-let existe_pas = v.get(100);
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-06/src/main.rs:here}}
 ```
 
 <!--
@@ -399,24 +361,12 @@ d'ajouter un élément à la fin, ce qui ne fonctionne pas.
 
 <!--
 ```rust,ignore,does_not_compile
-let mut v = vec![1, 2, 3, 4, 5];
-
-let first = &v[0];
-
-v.push(6);
-
-println!("The first element is: {}", first);
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-07/src/main.rs:here}}
 ```
 -->
 
 ```rust,ignore,does_not_compile
-let mut v = vec![1, 2, 3, 4, 5];
-
-let premier = &v[0];
-
-v.push(6);
-
-println!("Le premier élément est : {}", premier);
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-07/src/main.rs:here}}
 ```
 
 <!--
@@ -435,21 +385,12 @@ Compiler ce code va nous mener à cette erreur :
 
 <!--
 ```text
-error[E0502]: cannot borrow `v` as mutable because it is also borrowed as immutable
- -- > src/main.rs:6:5
-  |
-4 |     let first = &v[0];
-  |                  - immutable borrow occurs here
-5 |
-6 |     v.push(6);
-  |     ^^^^^^^^^ mutable borrow occurs here
-7 |
-8 |     println!("The first element is: {}", first);
-  |                                          ----- immutable borrow later used here
+{{#include ../listings/ch08-common-collections/listing-08-07/output.txt}}
 ```
 -->
 
 ```text
+{{#include ../listings/ch08-common-collections/listing-08-07/output.txt}}
 error[E0502]: cannot borrow `v` as mutable because it is also borrowed as immutable
  --> src/main.rs:6:5
   |
@@ -485,12 +426,12 @@ au premier élément pourrait pointer sur de la mémoire supprimée. Les règles
 d'emprunt évitent aux programmes de se retrouver dans cette situation.
 
 <!--
-> Note: For more on the implementation details of the `Vec<T>` type, see “The
-> Rustonomicon” at https://doc.rust-lang.org/stable/nomicon/vec.html.
+> Note: For more on the implementation details of the `Vec<T>` type, see [“The
+> Rustonomicon”][nomicon].
 -->
 
 > Remarque : pour plus de détails sur l'implémentation du type `Vec<T>`,
-> consultez [“The Rustonomicon”](https://doc.rust-lang.org/stable/nomicon/vec.html)
+> consultez [“The Rustonomicon”][nomicon].
 
 <!--
 ### Iterating over the Values in a Vector
@@ -513,18 +454,12 @@ les afficher.
 
 <!--
 ```rust
-let v = vec![100, 32, 57];
-for i in &v {
-    println!("{}", i);
-}
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-08/src/main.rs:here}}
 ```
 -->
 
 ```rust
-let v = vec![100, 32, 57];
-for i in &v {
-    println!("{}", i);
-}
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-08/src/main.rs:here}}
 ```
 
 <!--
@@ -547,18 +482,12 @@ l'encart 8-9 va ajouter `50` à chacun des éléments.
 
 <!--
 ```rust
-let mut v = vec![100, 32, 57];
-for i in &mut v {
-    *i += 50;
-}
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-09/src/main.rs:here}}
 ```
 -->
 
 ```rust
-let mut v = vec![100, 32, 57];
-for i in &mut v {
-    *i += 50;
-}
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-09/src/main.rs:here}}
 ```
 
 <!--
@@ -624,32 +553,12 @@ cette technique est dans l'encart 8-10.
 
 <!--
 ```rust
-enum SpreadsheetCell {
-    Int(i32),
-    Float(f64),
-    Text(String),
-}
-
-let row = vec![
-    SpreadsheetCell::Int(3),
-    SpreadsheetCell::Text(String::from("blue")),
-    SpreadsheetCell::Float(10.12),
-];
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-10/src/main.rs:here}}
 ```
 -->
 
 ```rust
-enum Cellule {
-    Int(i32),
-    Float(f64),
-    Text(String),
-}
-
-let ligne = vec![
-    Cellule::Int(3),
-    Cellule::Text(String::from("bleu")),
-    Cellule::Float(10.12),
-];
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-10/src/main.rs:here}}
 ```
 
 <!--
@@ -709,7 +618,11 @@ retire et retourne le dernier élément. Intéressons-nous maintenant au prochai
 type de collection : les `String` !
 
 <!--
+[data-types]: ch03-02-data-types.html#data-types
+[nomicon]: ../nomicon/vec.html
 [deref]: ch15-02-deref.html#following-the-pointer-to-the-value-with-the-dereference-operator
 -->
 
+[data-types]: ch03-02-data-types.html
+[nomicon]: https://doc.rust-lang.org/nomicon/vec.html
 [deref]: ch15-02-deref.html

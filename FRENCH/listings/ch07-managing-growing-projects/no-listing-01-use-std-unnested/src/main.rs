@@ -1,31 +1,31 @@
 use rand::Rng;
 // ANCHOR: here
-// --snip--
+// -- partie masquée ici --
 use std::cmp::Ordering;
 use std::io;
-// --snip--
+// -- partie masquée ici --
 // ANCHOR_END: here
 
 fn main() {
-    println!("Guess the number!");
+    println!("Devinez le nombre !");
 
-    let secret_number = rand::thread_rng().gen_range(1, 101);
+    let nombre_secret = rand::thread_rng().gen_range(1, 101);
 
-    println!("The secret number is: {}", secret_number);
+    println!("Le nombre secret est : {}", nombre_secret);
 
-    println!("Please input your guess.");
+    println!("Veuillez entrer un nombre.");
 
-    let mut guess = String::new();
+    let mut supposition = String::new();
 
     io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+        .read_line(&mut supposition)
+        .expect("Échec de la lecture de l'entrée utilisateur");
 
-    println!("You guessed: {}", guess);
+    println!("Votre nombre : {}", supposition);
 
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("You win!"),
+    match supposition.cmp(&nombre_secret) {
+        Ordering::Less => println!("C'est plus !"),
+        Ordering::Greater => println!("C'est moins !"),
+        Ordering::Equal => println!("Vous avez gagné !");
     }
 }

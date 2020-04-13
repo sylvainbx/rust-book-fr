@@ -7,25 +7,25 @@ use std::io;
 fn main() {
     // ANCHOR_END: main
     // ANCHOR: print
-    println!("Guess the number!");
+    println!("Devinez le nombre !");
 
-    println!("Please input your guess.");
+    println!("Veuillez entrer un nombre.");
     // ANCHOR_END: print
 
     // ANCHOR: string
-    let mut guess = String::new();
+    let mut supposition = String::new();
     // ANCHOR_END: string
 
     // ANCHOR: read
     io::stdin()
-        .read_line(&mut guess)
+        .read_line(&mut supposition)
         // ANCHOR_END: read
         // ANCHOR: expect
-        .expect("Failed to read line");
+        .expect("Échec de la lecture de l'entrée utilisateur");
     // ANCHOR_END: expect
 
     // ANCHOR: print_guess
-    println!("You guessed: {}", guess);
+    println!("Votre nombre : {}", supposition);
     // ANCHOR_END: print_guess
 }
 // ANCHOR: all

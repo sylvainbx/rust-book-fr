@@ -1,20 +1,20 @@
 #[derive(Debug)]
 struct Rectangle {
-    width: u32,
-    height: u32,
+    largeur: u32,
+    hauteur: u32,
 }
 
 // ANCHOR: here
 impl Rectangle {
-    fn square(size: u32) -> Rectangle {
+    fn carre(cote: u32) -> Rectangle {
         Rectangle {
-            width: size,
-            height: size,
+            largeur: cote,
+            hauteur: cote
         }
     }
 }
 // ANCHOR_END: here
 
 fn main() {
-    let sq = Rectangle::square(3);
+    let mon_carre = Rectangle::carre(3);
 }

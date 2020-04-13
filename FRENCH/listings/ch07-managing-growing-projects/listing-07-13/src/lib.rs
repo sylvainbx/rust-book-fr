@@ -1,16 +1,16 @@
 // ANCHOR: here
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
+mod salle_a_manger {
+    pub mod accueil {
+        pub fn ajouter_a_la_liste_attente() {}
     }
 }
 
-use crate::front_of_house::hosting::add_to_waitlist;
+use crate::salle_a_manger::accueil::ajouter_a_la_liste_attente;
 
-pub fn eat_at_restaurant() {
-    add_to_waitlist();
-    add_to_waitlist();
-    add_to_waitlist();
+pub fn manger_au_restaurant() {
+    ajouter_a_la_liste_attente();
+    ajouter_a_la_liste_attente();
+    ajouter_a_la_liste_attente();
 }
 // ANCHOR_END: here
 

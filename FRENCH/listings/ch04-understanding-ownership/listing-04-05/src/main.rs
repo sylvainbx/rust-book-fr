@@ -1,13 +1,13 @@
 fn main() {
     let s1 = String::from("hello");
 
-    let (s2, len) = calculate_length(s1);
+    let (s2, taille) = calculer_taille(s1);
 
-    println!("The length of '{}' is {}.", s2, len);
+    println!("La taille de '{}' est {}.", s2, taille);
 }
 
-fn calculate_length(s: String) -> (String, usize) {
-    let length = s.len(); // len() returns the length of a String
+fn calculer_taille(s: String) -> (String, usize) {
+    let taille = s.len(); // len() retourne la taille d'une String.
 
-    (s, length)
+    (s, taille)
 }

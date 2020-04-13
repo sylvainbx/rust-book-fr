@@ -3,37 +3,37 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
-    println!("Guess the number!");
+    println!("Devinez le nombre !");
 
-    let secret_number = rand::thread_rng().gen_range(1, 101);
+    let nombre_secret = rand::thread_rng().gen_range(1, 101);
 
     // ANCHOR: here
-    // --snip--
+    // -- partie masquée ici --
 
-    println!("The secret number is: {}", secret_number);
+    println!("Le nombre secret est : {}", nombre_secret);
 
     loop {
-        println!("Please input your guess.");
+        println!("Veuillez entrer un nombre.");
 
-        // --snip--
+        // -- partie masquée ici --
 
         // ANCHOR_END: here
 
-        let mut guess = String::new();
+        let mut supposition = String::new();
 
         io::stdin()
-            .read_line(&mut guess)
-            .expect("Failed to read line");
+            .read_line(&mut supposition)
+            .expect("Échec de la lecture de l'entrée utilisateur");
 
-        let guess: u32 = guess.trim().parse().expect("Please type a number!");
+        let supposition: u32 = supposition.trim().parse().expect("Veuillez entrer un nombre !");
 
-        println!("You guessed: {}", guess);
+        println!("Votre nombre : {}", supposition);
 
         // ANCHOR: here
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => println!("You win!"),
+        match supposition.cmp(&nombre_secret) {
+            Ordering::Less => println!("C'est plus !"),
+            Ordering::Greater => println!("C'est moins !"),
+            Ordering::Equal => println!("Vous avez gagné !"),
         }
     }
 }

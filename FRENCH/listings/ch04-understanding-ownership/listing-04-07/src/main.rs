@@ -1,14 +1,14 @@
 // ANCHOR: here
-fn first_word(s: &String) -> usize {
+fn premier_mot(s: &String) -> usize {
     // ANCHOR: as_bytes
-    let bytes = s.as_bytes();
+    let octets = s.as_bytes();
     // ANCHOR_END: as_bytes
 
     // ANCHOR: iter
-    for (i, &item) in bytes.iter().enumerate() {
+    for (i, &element) in octets.iter().enumerate() {
         // ANCHOR_END: iter
         // ANCHOR: inside_for
-        if item == b' ' {
+        if element == b' ' {
             return i;
         }
     }

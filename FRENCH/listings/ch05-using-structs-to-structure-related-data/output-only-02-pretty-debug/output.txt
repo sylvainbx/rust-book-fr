@@ -2,7 +2,7 @@ $ cargo run
    Compiling structs v0.1.0 (file:///projects/structs)
     Finished dev [unoptimized + debuginfo] target(s) in 0.48s
      Running `target/debug/structs`
-rect1 is Rectangle {
-    width: 30,
-    height: 50,
+rect1 est Rectangle {
+    largeur: 30,
+    hauteur: 50,
 }

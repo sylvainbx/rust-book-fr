@@ -1,5 +1,5 @@
 fn main() {
     let c = 'z';
     let z = 'ℤ';
-    let heart_eyed_cat = '😻';
+    let chat_aux_yeux_de_coeur = '😻';
 }

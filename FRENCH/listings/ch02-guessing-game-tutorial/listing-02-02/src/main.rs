@@ -1,15 +1,15 @@
 use std::io;
 
 fn main() {
-    println!("Guess the number!");
+    println!("Devinez le nombre !");
 
-    println!("Please input your guess.");
+    println!("Veuillez entrer un nombre.");
 
-    let mut guess = String::new();
+    let mut supposition = String::new();
 
     io::stdin()
-        .read_line(&mut guess)
-        .expect("Failed to read line");
+        .read_line(&mut supposition)
+        .expect("Échec de la lecture de l'entrée utilisateur");
 
-    println!("You guessed: {}", guess);
+    println!("Votre nombre : {}", supposition);
 }

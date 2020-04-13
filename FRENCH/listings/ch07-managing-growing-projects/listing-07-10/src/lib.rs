@@ -1,11 +1,11 @@
-mod back_of_house {
-    pub enum Appetizer {
-        Soup,
-        Salad,
+mod cuisines {
+    pub enum AmuseBouche {
+        Soupe,
+        Salade,
     }
 }
 
-pub fn eat_at_restaurant() {
-    let order1 = back_of_house::Appetizer::Soup;
-    let order2 = back_of_house::Appetizer::Salad;
+pub fn manger_au_restaurant() {
+    let commande1 = cuisines::AmuseBouche::Soupe;
+    let commande2 = cuisines::AmuseBouche::Salade;
 }

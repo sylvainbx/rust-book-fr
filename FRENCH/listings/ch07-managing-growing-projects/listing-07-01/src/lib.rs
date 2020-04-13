@@ -1,17 +1,17 @@
 // ANCHOR: here
-mod front_of_house {
-    mod hosting {
-        fn add_to_waitlist() {}
+mod salle_a_manger {
+    mod accueil {
+        fn ajouter_a_la_liste_attente() {}
 
-        fn seat_at_table() {}
+        fn installer_a_une_table() {}
     }
 
-    mod serving {
-        fn take_order() {}
+    mod service {
+        fn prendre_commande() {}
 
-        fn serve_order() {}
+        fn servir_commande() {}
 
-        fn take_payment() {}
+        fn encaisser() {}
     }
 }
 // ANCHOR_END: here

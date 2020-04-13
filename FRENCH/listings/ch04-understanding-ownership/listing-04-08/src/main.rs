@@ -1,8 +1,8 @@
-fn first_word(s: &String) -> usize {
-    let bytes = s.as_bytes();
+fn premier_mot(s: &String) -> usize {
+    let octets = s.as_bytes();
 
-    for (i, &item) in bytes.iter().enumerate() {
-        if item == b' ' {
+    for (i, &element) in octets.iter().enumerate() {
+        if element == b' ' {
             return i;
         }
     }
@@ -14,11 +14,11 @@ fn first_word(s: &String) -> usize {
 fn main() {
     let mut s = String::from("hello world");
 
-    let word = first_word(&s); // word will get the value 5
+    let mot = premier_mot(&s); // la variable mot aura 5 comme valeur.
 
-    s.clear(); // this empties the String, making it equal to ""
+    s.clear(); // ceci vide la String, elle vaut maintenant "".
 
-    // word still has the value 5 here, but there's no more string that
-    // we could meaningfully use the value 5 with. word is now totally invalid!
+    // mot a toujours la valeur 5 ici, mais il n'y a plus de chaîne qui donne
+    // du sens à la valeur 5. mot est maintenant complètement invalide !
 }
 // ANCHOR_END: here

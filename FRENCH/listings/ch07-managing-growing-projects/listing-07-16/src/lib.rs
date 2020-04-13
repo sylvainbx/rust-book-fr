@@ -2,15 +2,15 @@
 use std::fmt::Result;
 use std::io::Result as IoResult;
 
-fn function1() -> Result {
-    // --snip--
+fn fonction1() -> Result {
+    // -- partie masquée ici --
     // ANCHOR_END: here
     Ok(())
     // ANCHOR: here
 }
 
-fn function2() -> IoResult<()> {
-    // --snip--
+fn fonction2() -> IoResult<()> {
+    // -- partie masquée ici --
     // ANCHOR_END: here
     Ok(())
     // ANCHOR: here

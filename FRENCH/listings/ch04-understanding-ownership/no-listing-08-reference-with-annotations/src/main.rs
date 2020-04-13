@@ -1,14 +1,14 @@
 fn main() {
     let s1 = String::from("hello");
 
-    let len = calculate_length(&s1);
+    let long = calculer_taille(&s1);
 
-    println!("The length of '{}' is {}.", s1, len);
+    println!("La taille de '{}' est {}.", s1, long);
 }
 
 // ANCHOR: here
-fn calculate_length(s: &String) -> usize { // s is a reference to a String
-    s.len()
-} // Here, s goes out of scope. But because it does not have ownership of what
-  // it refers to, nothing happens.
+fn calculer_taille(s: &String) -> usize { // s est une référence à une String
+  s.len()
+} // Ici, s sort de la portée. Mais comme elle ne prend pas possession de ce
+  // à quoi elle fait référence, il ne se passe rien.
 // ANCHOR_END: here

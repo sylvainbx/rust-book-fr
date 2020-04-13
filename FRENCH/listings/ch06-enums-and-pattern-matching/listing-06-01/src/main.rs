@@ -1,23 +1,23 @@
 fn main() {
     // ANCHOR: here
-    enum IpAddrKind {
+    enum SorteAdresseIp {
         V4,
         V6,
     }
 
-    struct IpAddr {
-        kind: IpAddrKind,
-        address: String,
+    struct AdresseIp {
+        sorte: SorteAdresseIp,
+        adresse: String,
     }
 
-    let home = IpAddr {
-        kind: IpAddrKind::V4,
-        address: String::from("127.0.0.1"),
+    let local = AdresseIp {
+        sorte: SorteAdresseIp::V4,
+        adresse: String::from("127.0.0.1"),
     };
-
-    let loopback = IpAddr {
-        kind: IpAddrKind::V6,
-        address: String::from("::1"),
+    
+    let rebouclage = AdresseIp {
+        sorte: SorteAdresseIp::V6,
+        adresse: String::from("::1"),
     };
     // ANCHOR_END: here
 }

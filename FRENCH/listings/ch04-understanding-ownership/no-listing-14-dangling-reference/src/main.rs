@@ -1,8 +1,8 @@
 fn main() {
-    let reference_to_nothing = dangle();
+    let reference_vers_rien = pendouille();
 }
 
-fn dangle() -> &String {
+fn pendouille() -> &String {
     let s = String::from("hello");
 
     &s

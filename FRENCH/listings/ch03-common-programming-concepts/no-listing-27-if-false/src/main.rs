@@ -1,11 +1,11 @@
 fn main() {
     // ANCHOR: here
-    let number = 7;
+    let nombre = 7;
     // ANCHOR_END: here
 
-    if number < 5 {
-        println!("condition was true");
+    if nombre < 5 {
+        println!("La condition est vérifiée");
     } else {
-        println!("condition was false");
+        println!("La condition n'est pas vérifiée");
     }
 }

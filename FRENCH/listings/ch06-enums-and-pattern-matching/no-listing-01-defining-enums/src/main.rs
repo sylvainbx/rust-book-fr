@@ -1,5 +1,5 @@
 // ANCHOR: def
-enum IpAddrKind {
+enum SorteAdresseIp {
     V4,
     V6,
 }
@@ -7,16 +7,16 @@ enum IpAddrKind {
 
 fn main() {
     // ANCHOR: instance
-    let four = IpAddrKind::V4;
-    let six = IpAddrKind::V6;
+    let quatre = SorteAdresseIp::V4;
+    let six = SorteAdresseIp::V6;
     // ANCHOR_END: instance
 
     // ANCHOR: fn_call
-    route(IpAddrKind::V4);
-    route(IpAddrKind::V6);
+    router(SorteAdresseIp::V4);
+    router(SorteAdresseIp::V6);
     // ANCHOR_END: fn_call
 }
 
 // ANCHOR: fn
-fn route(ip_kind: IpAddrKind) {}
+fn router(sorte_ip: SorteAdresseIp) { }
 // ANCHOR_END: fn

@@ -1,20 +1,17 @@
 struct Rectangle {
-    width: u32,
-    height: u32,
+    largeur: u32,
+    hauteur: u32,
 }
 
 fn main() {
-    let rect1 = Rectangle {
-        width: 30,
-        height: 50,
-    };
+    let rect1 = Rectangle { largeur: 30, hauteur: 50 };
 
     println!(
-        "The area of the rectangle is {} square pixels.",
-        area(&rect1)
+        "L'aire du rectangle est de {} pixels carrés.",
+        aire(&rect1)
     );
 }
 
-fn area(rectangle: &Rectangle) -> u32 {
-    rectangle.width * rectangle.height
+fn aire(rectangle: &Rectangle) -> u32 {
+    rectangle.largeur * rectangle.hauteur
 }

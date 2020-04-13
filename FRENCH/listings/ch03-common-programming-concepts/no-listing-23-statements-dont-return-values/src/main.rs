@@ -1,9 +1,9 @@
 fn main() {
-    let x = plus_one(5);
+    let x = plus_un(5);
 
-    println!("The value of x is: {}", x);
+    println!("La valeur de x est : {}", x);
 }
 
-fn plus_one(x: i32) -> i32 {
+fn plus_un(x: i32) -> i32 {
     x + 1;
 }

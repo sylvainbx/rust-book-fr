@@ -1,15 +1,15 @@
 $ cargo build
    Compiling restaurant v0.1.0 (file:///projects/restaurant)
-error[E0603]: module `hosting` is private
+error[E0603]: module `accueil` is private
  --> src/lib.rs:9:28
   |
-9 |     crate::front_of_house::hosting::add_to_waitlist();
+9 |     crate::salle_a_manger::accueil::ajouter_a_la_liste_attente();
   |                            ^^^^^^^
 
-error[E0603]: module `hosting` is private
+error[E0603]: module `accueil` is private
   --> src/lib.rs:12:21
    |
-12 |     front_of_house::hosting::add_to_waitlist();
+12 |     salle_a_manger::accueil::ajouter_a_la_liste_attente();
    |                     ^^^^^^^
 
 error: aborting due to 2 previous errors
