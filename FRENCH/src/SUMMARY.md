@@ -20,4 +20,4 @@
 
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
 
-- [Stocker du texte encodé en UTF-8 avec les chaînes de caractères](ch08-02-strings.md)
+- [Stocker du texte encodé en UTF-8 avec les Strings](ch08-02-strings.md)
