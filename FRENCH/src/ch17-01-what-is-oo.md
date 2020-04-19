@@ -395,7 +395,7 @@ objets entre eux à l'exécution s'ils partagent certaines caractéristiques.
 > des données de divers types. Pour l'héritage, ces types sont généralement des
 > classes filles (ou *sous-classes*).
 >
-> À la place, Rust utilise la généricité pour abstraire les différents types et
+> À la place, Rust utilise la généricité pour construire des abstractions des différents types et
 > traits liés possibles pour imposer des contraintes sur ce que ces types
 > doivent fournir. Cela est parfois appelé *polymorphisme paramétrique borné*.
 
