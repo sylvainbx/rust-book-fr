@@ -16,7 +16,7 @@ Rust supports it.
 
 Il n'y a aucun consensus parmi les programmeurs sur les fonctionnalités qu'un
 langage doit avoir pour être considéré orienté objet. Rust est influencé par
-beaucoup de paradigmes de programmation, y compris la POO ; par exemple, nous
+de nombreux paradigmes de programmation, y compris la POO ; par exemple, nous
 avons examiné les fonctionnalités issues de la programmation fonctionnelle au
 chapitre 13. On peut vraisemblablement dire que les langages orientés objet ont
 plusieurs caractéristiques en commun, à savoir les objets, l'encapsulation et
