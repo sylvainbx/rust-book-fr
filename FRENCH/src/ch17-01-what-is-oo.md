@@ -290,7 +290,7 @@ les mêmes, du code qui utilise `CollectionMoyennee` n'aurait pas besoin de
 changer. En revanche, si nous avions fait en sorte que `liste` soit publique, cela n'aurait pas été
 forcément le cas : `HashSet<i32>` et `Vec<i32>` ont des méthodes différentes
 pour ajouter et retirer des éléments, donc il aurait vraisemblablement fallu
-changer le code externe s'il modifiait `liste` directement.
+changer le code externe s'il modifiait directement `liste`.
 
 <!--
 If encapsulation is a required aspect for a language to be considered object
