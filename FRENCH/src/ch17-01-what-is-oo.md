@@ -140,7 +140,7 @@ collection</span>
 -->
 
 <span class="caption">Encart 17-1 : Une structure `CollectionMoyennee` qui
-maintient une liste d'entiers et la moyenne des éléments de la collection</span>
+contient une liste d'entiers et la moyenne des éléments de la collection</span>
 
 <!--
 The struct is marked `pub` so that other code can use it, but the fields within
