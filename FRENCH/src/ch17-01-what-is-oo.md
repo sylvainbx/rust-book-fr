@@ -27,7 +27,7 @@ les supporte.
 ### Objects Contain Data and Behavior
 -->
 
-### Les objets contiennent des données et du comportement
+### Les objets contiennent des données et suivent un comportement
 
 <!--
 The book *Design Patterns: Elements of Reusable Object-Oriented Software* by
