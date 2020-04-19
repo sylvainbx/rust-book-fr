@@ -351,7 +351,7 @@ implementation of a method inherited from a parent class.
 
 Il y a deux principales raisons de choisir l'héritage. La première raison est la
 réutilisation de code : vous pouvez implémenter un comportement particulier pour
-un type et l'héritage vous permet de réutiliser cette implémentation pour un
+un type, et l'héritage vous permet de réutiliser cette implémentation sur un
 autre type. À la place, vous pouvez partager du code Rust en utilisant des
 implémentations de méthodes de trait par défaut, comme nous l'avons vu dans
 l'encart 10-14 lorsque nous avons ajouté une implémentation par défaut de la
