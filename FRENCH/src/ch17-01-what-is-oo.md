@@ -427,6 +427,6 @@ For these reasons, Rust takes a different approach, using trait objects instead
 of inheritance. Let’s look at how trait objects enable polymorphism in Rust.
 -->
 
-Voilà pourquoi Rust prend une autre approche, en utilisant des objets de trait
+Voilà pourquoi Rust suit une autre approche, en utilisant des objets traits
 plutôt que l'héritage. Jetons un œil à la façon dont les objets de trait
 permettent le polymorphisme en Rust.
