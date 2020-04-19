@@ -359,7 +359,7 @@ méthode `resumer` sur le trait `Resumable`. La méthode `resumer` serait alors
 disponible sur tout type implémentant le trait `Resumable` sans avoir besoin de
 rajouter du code. C'est comme si vous aviez une classe mère avec
 l'implémentation d'une méthode et une classe fille avec une autre implémentation
-de cette méthode. On peut aussi masquer l'implémentation par défaut de la
+de cette méthode. On peut aussi remplacer l'implémentation par défaut de la
 méthode `resumer` quand on implémente le trait `Resumable`, un peu comme une
 classe fille qui masque l'implémentation d'une méthode héritée d'une classe
 mère.
