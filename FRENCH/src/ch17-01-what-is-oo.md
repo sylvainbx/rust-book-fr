@@ -60,7 +60,7 @@ functionality, according to the Gang of Four’s definition of objects.
 
 Si l'on se tient à cette définition, Rust est orienté objet : les structures et
 les énumérations ont des données, et les blocs `impl` leur fournissent des
-méthodes. Bien que les structures et les énumérations ne soient pas qualifiées
+méthodes. Bien que les structures et les énumérations avec des méthodes ne soient pas qualifiées
 d'objets, elles en ont les fonctionnalités, selon la définition des objets par
 le *Gang of Four*.
 
