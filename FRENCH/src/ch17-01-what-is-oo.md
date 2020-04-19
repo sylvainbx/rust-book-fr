@@ -85,7 +85,7 @@ qui signifie que les détails d'implémentation d'un objet ne sont pas accessibl
 au code utilisant cet objet. Ainsi, la seule façon d'interagir avec un objet est
 via son API publique ; le code qui utilise l'objet ne devrait pas pouvoir
 accéder aux éléments internes d'un objet et changer directement ses données ou
-son comportement. Cela permet au programmeur de changer et remanier les éléments
+son comportement. Cela permet au développeur de changer et remanier les éléments
 internes d'un objet sans avoir à changer le code qui utilise cet objet.
 
 <!--
