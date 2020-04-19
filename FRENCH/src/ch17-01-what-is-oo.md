@@ -20,7 +20,7 @@ de nombreux paradigmes de programmation, y compris la POO ; par exemple, nous
 avons examiné les fonctionnalités issues de la programmation fonctionnelle au
 chapitre 13. On peut vraisemblablement dire que les langages orientés objet ont
 plusieurs caractéristiques en commun, comme les objets, l'encapsulation et
-l'héritage. Examinons chacune de ces caractéristiques et déterminons si Rust
+l'héritage. Examinons chacune de ces caractéristiques et regardons si Rust
 les supporte.
 
 <!--
