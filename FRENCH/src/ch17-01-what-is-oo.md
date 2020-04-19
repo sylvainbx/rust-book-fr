@@ -428,5 +428,5 @@ of inheritance. Let’s look at how trait objects enable polymorphism in Rust.
 -->
 
 Voilà pourquoi Rust suit une autre approche, en utilisant des objets traits
-plutôt que l'héritage. Jetons un œil à la façon dont les objets de trait
+plutôt que l'héritage. Jetons un œil à la façon dont les objets traits
 permettent le polymorphisme en Rust.
