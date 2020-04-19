@@ -361,7 +361,7 @@ rajouter du code. C'est comme si vous aviez une classe mère avec
 l'implémentation d'une méthode et une classe fille avec une autre implémentation
 de cette méthode. On peut aussi remplacer l'implémentation par défaut de la
 méthode `resumer` quand on implémente le trait `Resumable`, un peu comme une
-classe fille qui masque l'implémentation d'une méthode héritée d'une classe
+classe fille qui remplace l'implémentation d'une méthode héritée d'une classe
 mère.
 
 <!--
