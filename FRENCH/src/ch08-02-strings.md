@@ -122,8 +122,14 @@ De nombreuses opérations disponibles avec `Vec<T>` sont aussi disponibles avec
 `String`, en commençant par la fonction `new` pour créer une `String`, utilisée
 dans l'encart 8-11.
 
+<!--
 ```rust
-let mut s = String::new();
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-11/src/main.rs:here}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-11/src/main.rs:here}}
 ```
 
 <!--
@@ -149,23 +155,12 @@ L'encart 8-12 nous montre deux exemples.
 
 <!--
 ```rust
-let data = "initial contents";
-
-let s = data.to_string();
-
-// the method also works on a literal directly:
-let s = "initial contents".to_string();
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-12/src/main.rs:here}}
 ```
 -->
 
 ```rust
-let donnee = "contenu initial";
-
-let s = donnee.to_string();
-
-// cette méthode fonctionne aussi directement sur une
-// chaîne de caractères pure :
-let s = "contenu initial".to_string();
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-12/src/main.rs:here}}
 ```
 
 <!--
@@ -194,12 +189,12 @@ Nous pouvons aussi utiliser la fonction `String::from` pour créer une `String`
 
 <!--
 ```rust
-let s = String::from("initial contents");
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-13/src/main.rs:here}}
 ```
 -->
 
 ```rust
-let s = String::from("contenu initial");
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-13/src/main.rs:here}}
 ```
 
 <!--
@@ -232,18 +227,14 @@ Souvenez-vous que les chaînes de caractères sont encodées en UTF-8, donc nous
 pouvons y intégrer n'importe quelle donnée valide, comme nous
 le voyons dans l'encart 8-14.
 
+<!--
 ```rust
-let hello = String::from("السلام عليكم");
-let hello = String::from("Dobrý den");
-let hello = String::from("Hello");
-let hello = String::from("שָׁלוֹם");
-let hello = String::from("नमस्ते");
-let hello = String::from("こんにちは");
-let hello = String::from("안녕하세요");
-let hello = String::from("你好");
-let hello = String::from("Olá");
-let hello = String::from("Здравствуйте");
-let hello = String::from("Hola");
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-14/src/main.rs:here}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-14/src/main.rs:here}}
 ```
 
 <!--
@@ -291,9 +282,14 @@ as shown in Listing 8-15.
 Nous pouvons agrandir un `String` en utilisant la méthode `push_str` pour
 ajouter une slice de chaîne de caractères, comme dans l'encart 8-15.
 
+<!--
 ```rust
-let mut s = String::from("foo");
-s.push_str("bar");
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-15/src/main.rs:here}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-15/src/main.rs:here}}
 ```
 
 <!--
@@ -319,18 +315,12 @@ montre une situation où il serait regrettable si nous ne pouvions plus utiliser
 
 <!--
 ```rust
-let mut s1 = String::from("foo");
-let s2 = "bar";
-s1.push_str(s2);
-println!("s2 is {}", s2);
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-16/src/main.rs:here}}
 ```
 -->
 
 ```rust
-let mut s1 = String::from("foo");
-let s2 = "bar";
-s1.push_str(s2);
-println!("s2 est {}", s2);
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-16/src/main.rs:here}}
 ```
 
 <!--
@@ -360,9 +350,14 @@ La méthode `push` prend un seul caractère en paramètre et l'ajoute au `String
 L'encart 8-17 nous montre du code qui ajoute la lettre *l* au `String` en
 utilisant la méthode `push`.
 
+<!--
 ```rust
-let mut s = String::from("lo");
-s.push('l');
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-17/src/main.rs:here}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-17/src/main.rs:here}}
 ```
 
 <!--
@@ -396,17 +391,12 @@ Une façon de faire cela est d'utiliser l'opérateur `+`, comme dans l'encart
 
 <!--
 ```rust
-let s1 = String::from("Hello, ");
-let s2 = String::from("world!");
-let s3 = s1 + &s2; // note s1 has been moved here and can no longer be used
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-18/src/main.rs:here}}
 ```
 -->
 
 ```rust
-let s1 = String::from("Hello, ");
-let s2 = String::from("world!");
-let s3 = s1 + &s2; // notez que s1 a été déplacé ici
-                   // et ne pourra plus être utilisé
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-18/src/main.rs:here}}
 ```
 
 <!--
@@ -431,6 +421,12 @@ avoir été ajouté et la raison pour laquelle nous utilisons une référence ve
 `s2` s'expliquent par la signature de la méthode qui est appelée lorsque nous
 utilisons l'opérateur `+`. L'opérateur `+` utilise la méthode `add`, dont la
 signature ressemble à ceci :
+
+<!--
+```rust,ignore
+fn add(self, s: &str) -> String {
+```
+-->
 
 ```rust,ignore
 fn add(self, s: &str) -> String {
@@ -512,12 +508,14 @@ gets unwieldy:
 Si nous avons besoin de concaténer plusieurs chaînes de caractères, le
 comportement de l'opérateur `+` devient difficile à utiliser :
 
+<!--
 ```rust
-let s1 = String::from("tic");
-let s2 = String::from("tac");
-let s3 = String::from("toe");
+{{#rustdoc_include ../listings/ch08-common-collections/no-listing-01-concat-multiple-strings/src/main.rs:here}}
+```
+-->
 
-let s = s1 + "-" + &s2 + "-" + &s3;
+```rust
+{{#rustdoc_include ../listings/ch08-common-collections/no-listing-01-concat-multiple-strings/src/main.rs:here}}
 ```
 
 <!--
@@ -530,12 +528,14 @@ Au final, `s` vaudra `tic-tac-toe`. Avec tous les caractères `+`et `"`, il est
 difficile de visualiser ce qu'il se passe. Pour une combinaison de chaînes de
 caractères plus complexes, nous pouvons utiliser la macro `format!` :
 
+<!--
 ```rust
-let s1 = String::from("tic");
-let s2 = String::from("tac");
-let s3 = String::from("toe");
+{{#rustdoc_include ../listings/ch08-common-collections/no-listing-02-format/src/main.rs:here}}
+```
+-->
 
-let s = format!("{}-{}-{}", s1, s2, s3);
+```rust
+{{#rustdoc_include ../listings/ch08-common-collections/no-listing-02-format/src/main.rs:here}}
 ```
 
 <!--
@@ -571,9 +571,14 @@ opération valide et courante. Cependant, si vous essayez d'accéder à des
 allez avoir une erreur. Nous tentons cela dans le code invalide de l'encart
 8-19.
 
+<!--
 ```rust,ignore,does_not_compile
-let s1 = String::from("hello");
-let h = s1[0];
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-19/src/main.rs:here}}
+```
+-->
+
+```rust,ignore,does_not_compile
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-19/src/main.rs:here}}
 ```
 
 <!--
@@ -590,14 +595,14 @@ This code will result in the following error:
 
 Ce code va produire l'erreur suivante :
 
+<!--
 ```text
-error[E0277]: the trait bound `std::string::String: std::ops::Index<{integer}>` is not satisfied
- -- >
-  |
-3 |     let h = s1[0];
-  |             ^^^^^ the type `std::string::String` cannot be indexed by `{integer}`
-  |
-  = help: the trait `std::ops::Index<{integer}>` is not implemented for `std::string::String`
+{{#include ../listings/ch08-common-collections/listing-08-19/output.txt}}
+```
+-->
+
+```text
+{{#include ../listings/ch08-common-collections/listing-08-19/output.txt}}
 ```
 
 <!--
@@ -626,8 +631,14 @@ Une `String` est une surcouche de `Vec<u8>`. Revenons sur certains exemples de
 chaînes de caractères correctement encodées en UTF-8 que nous avions dans
 l'encart 8-14. Premièrement, celle-ci :
 
+<!--
 ```rust
-let len = String::from("Hola").len();
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-14/src/main.rs:spanish}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-14/src/main.rs:spanish}}
 ```
 
 <!--
@@ -643,8 +654,14 @@ lorsqu'elles sont encodées en UTF-8. Mais que se passe-t-il à la ligne
 suivante ? (Notez que cette chaîne de caractères commence avec la lettre
 majuscule cyrillique Ze, et non pas le nombre arabe 3.)
 
+<!--
 ```rust
-let len = String::from("Здравствуйте").len();
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-14/src/main.rs:russian}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch08-common-collections/listing-08-14/src/main.rs:russian}}
 ```
 
 <!--
@@ -662,6 +679,13 @@ scalaire Unicode dans cette chaîne de caractères prend 2 octets en mémoire.
 Par conséquent, un indice dans les octets de la chaîne de caractères ne
 correspondra pas forcément à une valeur unicode valide. Pour démontrer cela,
 utilisons ce code Rust invalide :
+
+<!--
+```rust,ignore,does_not_compile
+let hello = "Здравствуйте";
+let answer = &hello[0];
+```
+-->
 
 ```rust,ignore,does_not_compile
 let hello = "Здравствуйте";
@@ -721,6 +745,13 @@ stored as a vector of `u8` values that looks like this:
 Si l'on considère le mot en Hindi “नमस्ते” écrit dans le style Devanagari, il est
 stocké comme un vecteur de valeurs `u8` qui sont les suivants :
 
+<!--
+```text
+[224, 164, 168, 224, 164, 174, 224, 164, 184, 224, 165, 141, 224, 164, 164,
+224, 165, 135]
+```
+-->
+
 ```text
 [224, 164, 168, 224, 164, 174, 224, 164, 184, 224, 165, 141, 224, 164, 164,
 224, 165, 135]
@@ -735,6 +766,12 @@ bytes look like this:
 Cela fait 18 octets et c'est ainsi que les ordinateurs stockeront cette donnée.
 Si nous les voyons comme des valeurs scalaires Unicode, ce qu'est le type `char`
 de Rust, ces octets seront les suivants :
+
+<!--
+```text
+['न', 'म', 'स', '्', 'त', 'े']
+```
+-->
 
 ```text
 ['न', 'म', 'स', '्', 'त', 'े']
@@ -751,6 +788,12 @@ Nous avons six valeurs `char` ici, mais la quatrième et sixième valeur ne sont
 pas des lettres : ce sont des signes diacritiques qui n'ont pas de sens employés seuls.
 Enfin, si nous les voyons comme des groupes de graphèmes, on obtient ce qu'une
 personne pourrait appeler les quatre lettres qui constituent le mot Hindi :
+
+<!--
+```text
+["न", "म", "स्", "ते"]
+```
+-->
 
 ```text
 ["न", "म", "स्", "ते"]
@@ -808,6 +851,14 @@ avec une intervalle d'indices pour créer une slice de chaîne de caractères
 contenant des octets bien précis, plutôt que d'utiliser `[]` avec un seul
 nombre :
 
+<!--
+```rust
+let hello = "Здравствуйте";
+
+let s = &hello[0..4];
+```
+-->
+
 ```rust
 let hello = "Здравствуйте";
 
@@ -833,8 +884,14 @@ Que se serait-il passé si nous avions utilisé `&hello[0..1]` ? Réponse : Ru
 aurait paniqué au moment de l'exécution de la même façon que si nous
 utiliserions un indice invalide pour accéder à un élément d'un vecteur :
 
+<!--
 ```text
-thread 'main' panicked at 'byte index 1 is not a char boundary; it is inside 'З' (bytes 0..2) of `Здравствуйте`', src/libcore/str/mod.rs:2188:4
+{{#include ../listings/ch08-common-collections/output-only-01-not-char-boundary/output.txt}}
+```
+-->
+
+```text
+{{#include ../listings/ch08-common-collections/output-only-01-not-char-boundary/output.txt}}
 ```
 
 <!--
@@ -870,6 +927,14 @@ une par une, la meilleure façon de procéder est d'utiliser la méthode `chars`
 Utiliser `chars` sur “नमस्ते” sépare et retourne six valeurs de type `char`, et
 vous pouvez itérer sur le résultat pour accéder sur chaque élément :
 
+<!--
+```rust
+for c in "नमस्ते".chars() {
+    println!("{}", c);
+}
+```
+-->
+
 ```rust
 for c in "नमस्ते".chars() {
     println!("{}", c);
@@ -881,6 +946,17 @@ This code will print the following:
 -->
 
 Ce code va afficher ceci :
+
+<!--
+```text
+न
+म
+स
+्
+त
+े
+```
+-->
 
 ```text
 न
@@ -899,6 +975,14 @@ domain:
 La méthode `bytes` va retourner chaque octet brut, ce qui sera peut-être plus
 utile selon ce que vous voulez faire :
 
+<!--
+```rust
+for b in "नमस्ते".bytes() {
+    println!("{}", b);
+}
+```
+-->
+
 ```rust
 for b in "नमस्ते".bytes() {
     println!("{}", b);
@@ -910,6 +994,16 @@ This code will print the 18 bytes that make up this `String`:
 -->
 
 Ce code va imprimer les 18 octets qui constituent cette `String` :
+
+<!--
+```text
+224
+164
+// --snip--
+165
+135
+```
+-->
 
 ```text
 224
