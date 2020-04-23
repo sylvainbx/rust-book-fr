@@ -35,9 +35,9 @@ complicated by the differences between how people and computers interpret
 Il est pertinent de présenter les chaînes de caractères comme des collections
 car les chaînes de caractères sont en réalité des ensembles d'octets, avec
 quelques méthodes supplémentaires qui sont utiles lorsque ces octets sont
-considérés comme du texte. Dans cette section, nous allons voir les opérations
-que les `String` ont en commun avec toutes les autres collections, comme la
-création, la modification, et la lecture. Nous verrons les raisons pour
+considérés comme du texte. Dans cette section, nous allons voir les points
+communs entre le fonctionnement des `String` et celui des autres collections,
+comme la création, la modification, et la lecture. Nous verrons les raisons pour
 lesquelles les `String` sont différents des autres collections, en particulier
 pourquoi l'indexation d'un `String` est compliquée à cause de la façon dont les
 gens et les ordinateurs interprètent les données d'une `String`.
@@ -59,12 +59,12 @@ string slices.
 
 Nous allons d'abord définir ce que nous entendons par le terme *chaîne de
 caractères*. Rust a un seul type de chaînes de caractères dans le noyau du
-langage, qui est le découpage de chaîne de caractères `str` qui est
-habituellement utilisée sous sa forme empruntée, `&str`. Dans le chapitre 4, nous
-avons abordé les *découpages de chaîne de caractères*, qui sont des références
-à une partie des données d'un chaîne de caractères encodée en UTF-8 qui sont
-stockés autre part. Les chaînes de caractères pures, par exemple, sont stockées
-dans le binaire du programme et sont des découpages de chaînes de caractères.
+langage, qui est la slice de chaîne de caractères `str` qui est habituellement
+utilisée sous sa forme empruntée, `&str`. Dans le chapitre 4, nous avons abordé
+les *slices de chaîne de caractères*, qui sont des références à une partie des
+données d'une chaîne de caractères encodée en UTF-8 qui sont stockés autre part.
+Les chaînes de caractères pures, par exemple, sont stockées dans le binaire du
+programme et sont des slices de chaînes de caractères.
 
 <!--
 The `String` type, which is provided by Rust’s standard library rather than
@@ -79,10 +79,10 @@ Le type `String`, qui est fourni par la bibliothèque standard de Rust plutôt q
 d'être intégré au noyau du langage, est un type de chaîne de caractères encodé
 en UTF-8 qui peut s'agrandir, être mutable, et être possédé. Lorsque les
 Rustacés parlent de “chaînes de caractères” en Rust, cela désigne le type
-`String` mais aussi le type de découpage de chaînes de caractères `&str`, et
-non pas un seul de ces types. Bien que cette section traite essentiellement de
-`String`, ces deux types sont utilisés massivement dans la bibliothèque standard
-de Rust, et tous les deux sont encodés en UTF-8.
+`String` mais aussi le type de slice de chaînes de caractères `&str`, et non pas
+un seul de ces types. Bien que cette section traite essentiellement de `String`,
+ces deux types sont utilisés massivement dans la bibliothèque standard de Rust,
+et tous les deux sont encodés en UTF-8.
 
 <!--
 Rust’s standard library also includes a number of other string types, such as
@@ -289,7 +289,7 @@ as shown in Listing 8-15.
 -->
 
 Nous pouvons agrandir un `String` en utilisant la méthode `push_str` pour
-ajouter un découpage de chaîne de caractères, comme dans l'encart 8-15.
+ajouter une slice de chaîne de caractères, comme dans l'encart 8-15.
 
 ```rust
 let mut s = String::from("foo");
@@ -301,8 +301,8 @@ s.push_str("bar");
 using the `push_str` method</span>
 -->
 
-<span class="caption">Encart 8-15 : Ajout d'un découpage de chaîne de
-caractères dans un `String` en utilisant la méthode `push_str`</span>
+<span class="caption">Encart 8-15 : Ajout d'une slice de chaîne de caractères
+dans un `String` en utilisant la méthode `push_str`</span>
 
 <!--
 After these two lines, `s` will contain `foobar`. The `push_str` method takes a
@@ -312,7 +312,7 @@ unfortunate if we weren’t able to use `s2` after appending its contents to `s1
 -->
 
 A l'issue de ces deux lignes, `s` va contenir `foobar`. La méthode `push_str`
-prend un découpage de chaîne de caractères car nous ne souhaitons pas forcément
+prend une slice de chaîne de caractères car nous ne souhaitons pas forcément
 prendre possession du paramètre. Par exemple, le code de l'encart 8-16 nous
 montre une situation où il serait regrettable si nous ne pouvions plus utiliser
 `s2` après avoir ajouté son contenu dans `s1`.
@@ -338,7 +338,7 @@ println!("s2 est {}", s2);
 contents to a `String`</span>
 -->
 
-<span class="caption">Encart 8-16 : Utilisation d'un découpage de chaîne de
+<span class="caption">Encart 8-16 : Utilisation d'une slice de chaîne de
 caractères après avoir ajouté son contenu dans une `String`</span>
 
 <!--
@@ -785,7 +785,7 @@ début jusqu'à l'indice pour déterminer combien il y a de caractères valides.
 ### Slicing Strings
 -->
 
-### Découpage des chaînes de caractères
+### Les slices de chaînes de caractères
 
 <!--
 Indexing into a string is often a bad idea because it’s not clear what the
@@ -799,14 +799,14 @@ range to create a string slice containing particular bytes:
 
 L'utilisation des indices sur une chaîne de caractères est souvent une mauvaise
 idée car le type de retour de l'opération n'est pas toujours évident : une
-valeur en octets, en caractères, un groupe de graphèmes, ou un découpage de
-chaîne de caractères. C'est pourquoi Rust vous demande d'être plus précis si
-vous avez vraiment besoin d'utiliser des indices pour créer un déoupage de
-chaîne de caractères. Afin d'être plus précis sur l'utilisation des indices et
-que vous souhaitez obtenir un découpage de chaine de caractères, vous pouvez
-utiliser `[]` avec une intervalle d'indices pour créer un découpage de chaîne
-de caractères contenant des octets bien précis, plutôt que d'utiliser `[]` avec
-un seul nombre :
+valeur en octets, en caractères, un groupe de graphèmes, ou une slice de chaîne
+de caractères. C'est pourquoi Rust vous demande d'être plus précis si vous avez
+vraiment besoin d'utiliser des indices pour créer un déoupage de chaîne de
+caractères. Afin d'être plus précis sur l'utilisation des indices et que vous
+souhaitez obtenir une slice de chaine de caractères, vous pouvez utiliser `[]`
+avec une intervalle d'indices pour créer une slice de chaîne de caractères
+contenant des octets bien précis, plutôt que d'utiliser `[]` avec un seul
+nombre :
 
 ```rust
 let hello = "Здравствуйте";
@@ -842,8 +842,8 @@ You should use ranges to create string slices with caution, because doing so
 can crash your program.
 -->
 
-Vous devriez utiliser les intervalles pour créer des découpages avec prudence,
-car cela peut provoquer un plantage de votre programme.
+Vous devriez utiliser les intervalles pour créer des slices avec prudence, car
+cela peut provoquer un plantage de votre programme.
 
 <!--
 ### Methods for Iterating Over Strings
