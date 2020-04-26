@@ -6,7 +6,7 @@
 ## Using Trait Objects That Allow for Values of Different Types
 -->
 
-## Utiliser les objets de trait pour permettre des valeurs de différents types
+## Utiliser les objets traits qui permettent des valeurs de types différents
 
 <!--
 In Chapter 8, we mentioned that one limitation of vectors is that they can
@@ -19,7 +19,7 @@ when our code is compiled.
 -->
 
 Au chapitre 8, nous avions mentionné qu'une limite des vecteurs est qu'ils ne
-peuvent stocker des éléments que d'un seul type. Nous avons contourné le
+peuvent stocker des éléments que d'un seul type. Nous avions contourné le
 problème dans l'encart 8-10 en définissant une énumération `Cellule` avec des
 variantes pouvant contenir des entiers, des flottants et du texte. Ainsi, on
 pouvait stocker différents types de données dans chaque cellule et quand même
@@ -41,14 +41,14 @@ instance, one programmer might add an `Image` and another might add a
 -->
 
 Cependant, nous avons parfois envie que l'utilisateur de notre bibliothèque
-puisse étendre l'ensemble de types valides dans une situation donnée. Pour
+puisse étendre l'ensemble des types valides dans une situation donnée. Pour
 montrer comment nous pourrions y parvenir, créons un exemple d'outil d'interface
 graphique (GUI) qui itère sur une liste d'éléments et appelle une méthode
-`afficher` sur chacun d'entre eux pour le dessiner à l'écran — une technique
+`afficher` sur chacun d'entre eux pour l'afficher à l'écran — une technique
 courante pour les outils d'interface graphique. Créons une *crate* de
 bibliothèque appelée `gui` qui contient la structure d'une bibliothèque
-d'interface graphique. Cette *crate* pourrait inclure des types que les gens
-pourront utiliser, tels que `Bouton` ou `ChampDeTexte`. En outre, les
+d'interface graphique. Cette *crate* pourrait inclure des types que les usagers
+pourront utiliser, tels que `Bouton` ou `ChampDeTexte`. De plus, les
 utilisateurs de `gui` voudront créer leurs propres types qui pourront être
 affichés : par exemple, un développeur pourrait ajouter une `Image` et un autre
 pourrait ajouter une `ListeDeroulante`.
@@ -66,12 +66,12 @@ just that the value will have that method available for us to call.
 Nous n'implémenterons pas une véritable bibliothèque d'interface graphique pour
 cet exemple, mais nous verrons comment les morceaux pourraient s'assembler. Au
 moment d'écrire la bibliothèque, nous ne pouvons pas savoir ni définir tous les
-types que les autres programmeurs auront envie de créer. Mais nous savons que
+types que les autres développeurs auront envie de créer. Mais nous savons que
 `gui` doit garder la trace de plusieurs valeurs de types différents et qu'il
 doit appeler la méthode `afficher` sur chacune de ces valeurs de types
 différents. Il n'a pas besoin de savoir exactement ce qui arrivera quand on
-appelle la méthode `afficher`, mais seulement de savoir que la valeur aura cette
-méthode que nous pourrons appeler.
+appellera la méthode `afficher`, mais seulement de savoir que la valeur aura
+cette méthode que nous pourrons appeler.
 
 <!--
 To do this in a language with inheritance, we might define a class named
@@ -85,13 +85,13 @@ allow users to extend it with new types.
 -->
 
 Pour faire ceci dans un langage avec de l'héritage, nous pourrions définir une
-classe nommée `Composant` avec une méthode nommée `dessiner`. Les autres
+classe nommée `Composant` avec une méthode nommée `afficher`. Les autres
 classes, telles que `Bouton`, `Image` et `ListeDeroulante`, hériteraient de
 `Composant` et hériteraient ainsi de la méthode `afficher`. Elles pourraient
 toutes redéfinir la méthode `afficher` avec leur comportement personnalisé,
 mais le framework pourrait considérer tous les types comme des instances de
 `Composant` et appeler `afficher` sur chacun d'entre eux. Mais puisque Rust n'a
-pas d'héritage, il nous faut un autre moyen de structure la bibliothèque `gui`
+pas d'héritage, il nous faut un autre moyen de structurer la bibliothèque `gui`
 pour permettre aux utilisateurs de l'élargir avec de nouveaux types.
 
 <!--
@@ -118,19 +118,19 @@ Consequently, we don’t need to know all the possible types at compile time.
 
 Pour implémenter le comportement que nous voulons donner à `gui`, nous
 définirons un trait nommé `Affichable` qui aura une méthode nommée `afficher`.
-Puis nous définirons un vecteur qui prend un *objet de trait*. Un objet de trait
+Puis nous définirons un vecteur qui prend un *objet trait*. Un objet trait
 pointe à la fois vers une instance d'un type implémentant le trait indiqué ainsi
 que vers une table utilisée pour chercher les méthodes de trait de ce type à
-l'exécution. Nous créons un objet de trait en indiquant une sorte de pointeur,
-tel qu'une référence `&` ou un pointeur intelligent `Box<T>`, puis le mot-clé
-`dyn` et enfin le trait en question. (Nous expliquerons pourquoi les objets de
-trait doivent utiliser un pointeur au chapitre 19 dans la section [“Les types à
-taille dynamique et le trait `Sized`”][dynamically-sized]<!-- ignore -->.) Nous
-pouvons utiliser des objets de trait à la place d'un type générique ou concret.
-Partout où nous utilisons un objet de trait, le système de types s'assurera à
-la compilation que n'importe quelle valeur utilisée dans ce contexte
-implémentera le trait de l'objet de trait. Ainsi, il n'est pas nécessaire de
-connaître tous les types possibles à la compilation.
+l'exécution. Nous créons un objet trait en indiquant une sorte de pointeur, tel
+qu'une référence `&` ou un pointeur intelligent `Box<T>`, puis le mot-clé `dyn`
+et enfin le trait en question. (Nous expliquerons pourquoi les objets traits
+doivent utiliser un pointeur au chapitre 19 dans la section [“Les types à taille
+dynamique et le trait `Sized`”][dynamically-sized]<!-- ignore -->.) Nous pouvons
+utiliser des objets traits à la place d'un type générique ou concret. Partout où
+nous utilisons un objet trait, le système de types s'assurera à la compilation
+que n'importe quelle valeur utilisée dans ce contexte implémentera le trait de
+l'objet trait. Ainsi, il n'est pas nécessaire de connaître tous les types
+possibles à la compilation.
 
 <!--
 We’ve mentioned that in Rust, we refrain from calling structs and enums
@@ -150,12 +150,12 @@ et énumérations d'*objets* pour les distinguer des objets des autres langages.
 Dans une structure ou une énumération, les données dans les champs de la
 structure et le comportement dans les blocs `impl` sont séparés, alors que dans
 d'autres langages, les données et le comportement se combinent en un concept
-souvent qualifié d'objet. Cependant, les objets de trait ressemblent davantage
-aux objets des autres langages dans le sens où ils combinent des données et du
-comportement. Mais les objets de trait diffèrent des objets traditionnels dans
-le sens où on ne peut pas ajouter des données à un objet de trait. Les objets
-de trait ne sont généralement pas aussi utiles que les objets des autres
-langages : leur but spécifique est de permettre d'abstraire des comportements
+souvent qualifié d'objet. Cependant, les objets traits ressemblent davantage aux
+objets des autres langages dans le sens où ils combinent des données et du
+comportement. Mais les objets traits diffèrent des objets traditionnels dans le
+sens où on ne peut pas ajouter des données à un objet trait. Les objets traits
+ne sont généralement pas aussi utiles que les objets des autres langages : leur
+but spécifique est de permettre de construire des abstractions des comportements
 communs.
 
 <!--
@@ -164,7 +164,7 @@ Listing 17-3 shows how to define a trait named `Draw` with one method named
 -->
 
 L'encart 17-3 illustre la façon de définir un trait nommé `Affichable` avec une
-méthode nommée `Afficher` :
+méthode nommée `afficher` :
 
 <!--
 <span class="filename">Filename: src/lib.rs</span>
@@ -203,8 +203,8 @@ a `Box` that implements the `Draw` trait.
 Cette syntaxe devrait vous rappeler nos discussions sur comment définir des
 traits au chapitre 10. Puis vient une nouvelle syntaxe : l'encart définit une
 structure nommée `Ecran` qui contient un vecteur nommé `composants`. Ce vecteur
-est du type `Box<dyn Affichable>`, qui est un objet de trait ; c'est un
-bouche-trou pour n'importe quel type au sein d'une `Box` qui implémente le trait
+est du type `Box<dyn Affichable>`, qui est un objet trait ; c'est un bouche-trou
+pour n'importe quel type au sein d'une `Box` qui implémente le trait
 `Affichable`.
 
 <!--
@@ -242,8 +242,8 @@ trait</span>
 -->
 
 <span class="caption">Encart 17-4 : Définition de la structure `Ecran` avec un
-champ `composants` contenant un vecteur d'objets de trait qui implémentent
-le trait `Affichable`</span>
+champ `composants` contenant un vecteur d'objets traits qui implémentent le
+trait `Affichable`</span>
 
 <!--
 On the `Screen` struct, we’ll define a method named `run` that will call the
@@ -286,7 +286,7 @@ impl Screen {
 # }
 #
 # pub struct Ecran {
-#     pub composants: Vec<Box<dyn Afficher>>,
+#     pub composants: Vec<Box<dyn Affichable>>,
 # }
 #
 impl Ecran {
@@ -318,9 +318,9 @@ as in Listing 17-6:
 Cela ne fonctionne pas de la même manière que d'utiliser une structure avec un
 paramètre de type générique avec des traits liés. Un paramètre de type générique
 ne peut être remplacé que par un seul type concret à la fois, tandis que les
-objets de trait permettent à plusieurs types concrets de remplacer l'objet de
-trait à l'exécution. Par exemple, nous aurions pu définir la structure `Ecran`
-en utilisant un type générique et un trait lié comme dans l'encart 17-6 :
+objets traits permettent à plusieurs types concrets de remplacer l'objet trait à
+l'exécution. Par exemple, nous aurions pu définir la structure `Ecran` en
+utilisant un type générique et un trait lié comme dans l'encart 17-6 :
 
 <!--
 <span class="filename">Filename: src/lib.rs</span>
@@ -354,7 +354,7 @@ impl<T> Screen<T>
 #     fn afficher(&self);
 # }
 #
-pub struct Ecran<T: Afficher> {
+pub struct Ecran<T: Affichable> {
     pub composants: Vec<T>,
 }
 
@@ -362,7 +362,7 @@ impl<T> Ecran<T>
     where T: Affichable {
     pub fn executer(&self) {
         for composant in self.composants.iter() {
-            composant.draw();
+            composant.afficher();
         }
     }
 }
@@ -457,10 +457,10 @@ impl Draw for Button {
 pub struct Bouton {
     pub largeur: u32,
     pub hauteur: u32,
-    pub label: String,
+    pub libelle: String,
 }
 
-impl Afficher for Bouton {
+impl Affichable for Bouton {
     fn afficher(&self) {
         // code servant vraiment à afficher un bouton
     }
@@ -544,7 +544,7 @@ struct ListeDeroulante {
 }
 
 impl Affichable for ListeDeroulante {
-    fn affichable(&self) {
+    fn afficher(&self) {
         // code servant vraiment à afficher une liste déroulante
     }
 }
@@ -569,7 +569,7 @@ components. Listing 17-9 shows this implementation:
 L'utilisateur de notre bibliothèque peut maintenant écrire leur fonction `main`
 pour créer une instance de `Ecran`. Ils peuvent ajouter à l'instance de `Ecran`
 une `ListeDeroulante` ou un `Bouton` en les mettant chacun dans une `Box<T>`
-pour en faire des objets de trait. Ils peuvent ensuite appeler la méthode
+pour en faire des objets traits. Ils peuvent ensuite appeler la méthode
 `executer` sur l'instance de `Ecran`, qui appellera `afficher` sur chacun de ses
 composants. L'encart 17-9 montre cette implémentation :
 
@@ -640,9 +640,8 @@ fn main() {
 different types that implement the same trait</span>
 -->
 
-<span class="caption">Encart 17-9 : Utiliser des objets de trait pour stocker
-pour stocker des valeurs de types différents qui implémentent le même
-trait</span>
+<span class="caption">Encart 17-9 : Utilisation d'objets traits pour stocker des
+valeurs de types différents qui implémentent le même trait</span>
 
 <!--
 When we wrote the library, we didn’t know that someone might add the
@@ -689,13 +688,12 @@ if a value doesn’t implement a method but we call it anyway. Rust won’t comp
 our code if the values don’t implement the traits that the trait objects need.
 -->
 
-L'avantage d'utiliser les objets de trait et le système de types de Rust pour
+L'avantage d'utiliser les objets traits et le système de types de Rust pour
 écrire du code plutôt que d'utiliser le *duck typing* est que nous n'avons
 jamais besoin de vérifier si une valeur implémente une méthode en particulier à
 l'exécution, ni de s'inquiéter d'avoir des erreurs si une valeur n'implémente
 pas une méthode mais qu'on l'appelle quand même. Rust ne compilera pas notre
-code si les valeurs n'implémentent pas les traits requis par les objets de
-trait.
+code si les valeurs n'implémentent pas les traits requis par les objets traits.
 
 <!--
 For example, Listing 17-10 shows what happens if we try to create a `Screen`
@@ -747,7 +745,7 @@ implement the trait object’s trait</span>
 -->
 
 <span class="caption">Encart 17-10 : Tentative d'utiliser un type qui
-n'implémente pas le trait de l'objet de trait</span>
+n'implémente pas le trait de l'objet trait</span>
 
 <!--
 We’ll get this error because `String` doesn’t implement the `Draw` trait:
@@ -774,7 +772,7 @@ error[E0277]: the trait bound `std::string::String: gui::Affichable` is not sati
   -- > src/main.rs:7:13
    |
  7 |             Box::new(String::from("Salut")),
-   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait gui::Affichable is not
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait gui::Affichable is not
    implemented for `std::string::String`
    |
    = note: required for the cast to the object type `gui::Affichable`
