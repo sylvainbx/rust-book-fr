@@ -66,7 +66,7 @@ just that the value will have that method available for us to call.
 Nous n'implémenterons pas une véritable bibliothèque d'interface graphique pour
 cet exemple, mais nous verrons comment les morceaux pourraient s'assembler. Au
 moment d'écrire la bibliothèque, nous ne pouvons pas savoir ni définir tous les
-types que les autres développeurs auront envie de créer. Mais nous savons que
+types que les autres développeurs auraient envie de créer. Mais nous savons que
 `gui` doit garder la trace de plusieurs valeurs de types différents et qu'il
 doit appeler la méthode `afficher` sur chacune de ces valeurs de types
 différents. Il n'a pas besoin de savoir exactement ce qui arrivera quand on
@@ -127,10 +127,10 @@ et enfin le trait en question. (Nous expliquerons pourquoi les objets traits
 doivent utiliser un pointeur au chapitre 19 dans la section [“Les types à taille
 dynamique et le trait `Sized`”][dynamically-sized]<!-- ignore -->.) Nous pouvons
 utiliser des objets traits à la place d'un type générique ou concret. Partout où
-nous utilisons un objet trait, le système de types s'assurera à la compilation
-que n'importe quelle valeur utilisée dans ce contexte implémentera le trait de
-l'objet trait. Ainsi, il n'est pas nécessaire de connaître tous les types
-possibles à la compilation.
+nous utilisons un objet trait, le système de types de Rust s'assurera à la
+compilation que n'importe quelle valeur utilisée dans ce contexte implémentera
+le trait de l'objet trait. Ainsi, il n'est pas nécessaire de connaître tous les
+types possibles à la compilation.
 
 <!--
 We’ve mentioned that in Rust, we refrain from calling structs and enums
@@ -150,12 +150,12 @@ et énumérations d'*objets* pour les distinguer des objets des autres langages.
 Dans une structure ou une énumération, les données dans les champs de la
 structure et le comportement dans les blocs `impl` sont séparés, alors que dans
 d'autres langages, les données et le comportement se combinent en un concept
-souvent qualifié d'objet. Cependant, les objets traits ressemblent davantage aux
-objets des autres langages dans le sens où ils combinent des données et du
+souvent qualifié d'objet. En revanche, les objets traits ressemblent davantage
+aux objets des autres langages dans le sens où ils combinent des données et du
 comportement. Mais les objets traits diffèrent des objets traditionnels dans le
 sens où on ne peut pas ajouter des données à un objet trait. Les objets traits
 ne sont généralement pas aussi utiles que les objets des autres langages : leur
-but spécifique est de permettre de construire des abstractions des comportements
+but spécifique est de permettre de construire des abstractions de comportements
 communs.
 
 <!--
@@ -201,10 +201,10 @@ a `Box` that implements the `Draw` trait.
 -->
 
 Cette syntaxe devrait vous rappeler nos discussions sur comment définir des
-traits au chapitre 10. Puis vient une nouvelle syntaxe : l'encart définit une
-structure nommée `Ecran` qui contient un vecteur nommé `composants`. Ce vecteur
-est du type `Box<dyn Affichable>`, qui est un objet trait ; c'est un bouche-trou
-pour n'importe quel type au sein d'une `Box` qui implémente le trait
+traits au chapitre 10. Puis vient une nouvelle syntaxe : l'encart 17-4 définit
+une structure nommée `Ecran` qui contient un vecteur nommé `composants`. Ce
+vecteur est du type `Box<dyn Affichable>`, qui est un objet trait ; c'est un
+bouche-trou pour n'importe quel type au sein d'une `Box` qui implémente le trait
 `Affichable`.
 
 <!--
@@ -250,8 +250,8 @@ On the `Screen` struct, we’ll define a method named `run` that will call the
 `draw` method on each of its `components`, as shown in Listing 17-5:
 -->
 
-Sur la structure `Ecran`, nous définirons une méthode nommé `executer` qui
-appellera la méthode sur chacun de ses `composants` comme l'illustre
+Sur la structure `Ecran`, nous allons définir une méthode nommée `executer` qui
+appellera la méthode `afficher` sur chacun de ses `composants`, comme l'illustre
 l'encart 17-5 :
 
 <!--
@@ -397,10 +397,10 @@ can hold a `Vec<T>` that contains a `Box<Button>` as well as a
 runtime performance implications.
 -->
 
-D'un autre côté, en utilisant des objets de trait, une instance de `Ecran` peut
+D'un autre côté, en utilisant des objets traits, une instance de `Ecran` peut
 contenir un `Vec<T>` qui contient à la fois un `Box<Bouton>` et un
 `Box<ChampDeTexte>`. Regardons comment cela fonctionne, puis nous parlerons
-ensuite des conséquences concernant les performances à l'exécution.
+ensuite du coût en performances à l'exécution.
 
 <!--
 ### Implementing the Trait
@@ -421,7 +421,7 @@ fournirons le type `Bouton`. Encore une fois, implémenter une vraie bibliothèq
 d'interface graphique dépasse la portée de ce livre, alors la méthode `afficher`
 n'aura pas d'implémentation utile dans son corps. Pour imaginer à quoi pourrait
 ressembler l'implémentation, une structure `Bouton` pourrait avoir des champs
-`largeur`, `hauteur` et `libelle`, comme le montre l'encart 17-7 :
+`largeur`, `hauteur` et `libelle`, comme l'illustre l'encart 17-7 :
 
 <!--
 <span class="filename">Filename: src/lib.rs</span>
@@ -489,8 +489,8 @@ methods won’t apply to types like `TextField`.
 
 Les champs `largeur`, `hauteur` et `libelle` de `Bouton` pourront ne pas être
 les mêmes que ceux d'autres composants, comme un type `ChampDeTexte`, qui
-pourraient avoir ces champs plus un champ `texte_de_substitution` à la place.
-Chacun des types que nous voulons afficher à l'écran implémentera le trait
+pourrait avoir ces champs plus un champ `texte_de_substitution` à la place.
+Chacun des types que nous voudrons afficher à l'écran implémentera le trait
 `Affichable` mais utilisera du code différent dans la méthode `afficher` pour
 définir comment afficher ce type en particulier, comme c'est le cas de `Bouton`
 ici (sans le vrai code d'implémentation, qui dépasse le cadre de ce chapitre).
@@ -567,11 +567,11 @@ components. Listing 17-9 shows this implementation:
 -->
 
 L'utilisateur de notre bibliothèque peut maintenant écrire leur fonction `main`
-pour créer une instance de `Ecran`. Ils peuvent ajouter à l'instance de `Ecran`
-une `ListeDeroulante` ou un `Bouton` en les mettant chacun dans une `Box<T>`
-pour en faire des objets traits. Ils peuvent ensuite appeler la méthode
-`executer` sur l'instance de `Ecran`, qui appellera `afficher` sur chacun de ses
-composants. L'encart 17-9 montre cette implémentation :
+pour créer une instance de `Ecran`. Il peut ajouter à l'instance de `Ecran` une
+`ListeDeroulante` ou un `Bouton` en les mettant chacun dans un `Box<T>` pour en
+faire des objets traits. Il peut ensuite appeler la méthode `executer` sur
+l'instance de `Ecran`, qui appellera `afficher` sur chacun de ses composants.
+L'encart 17-9 montre cette implémentation :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -650,10 +650,11 @@ new type and draw it because `SelectBox` implements the `Draw` trait, which
 means it implements the `draw` method.
 -->
 
-Quand nous écrivons la bibliothèque, nous ne savions pas que quelqu'un pourrait
-ajouter le type `ListeDeroulante`, mais notre implémentation de `Ecran` a pu
-opérer sur le nouveau type et l'afficher parce que `ListeDeroulante` implémente
-le trait `Affichable`, ce qui veut dire qu'elle veut la méthode `afficher`.
+Quand nous avons écrit la bibliothèque, nous ne savions pas que quelqu'un
+pourrait y ajouter le type `ListeDeroulante`, mais notre implémentation de
+`Ecran` a pu opérer sur le nouveau type et l'afficher parce que
+`ListeDeroulante` implémente le trait `Affichable`, ce qui veut dire qu'elle
+implémente la méthode `afficher`.
 
 <!--
 This concept—of being concerned only with the messages a value responds to
@@ -675,7 +676,7 @@ comme un canard et que ça fait coin-coin comme un canard, alors ça doit être 
 canard ! Dans l'implémentation de `executer` sur `Ecran` dans l'encart 17-5,
 `executer` n'a pas besoin de connaître le type concret de chaque composant. Elle
 ne vérifie pas si un composant est une instance de `Bouton` ou de
-`ListeDeroulante`, elle n'a besoin que d'appeler la méthode `afficher` sur le
+`ListeDeroulante`, elle ne fait qu'appeler la méthode `afficher` sur le
 composant. En spécifiant `Box<dyn Affichable>` comme type des valeurs dans le
 vecteur `composants`, nous avons défini que `Ecran` avait besoin de valeurs pour
 qu'on puisse appeler la méthode `afficher` dessus.
@@ -793,7 +794,7 @@ appeler `afficher` dessus.
 ### Trait Objects Perform Dynamic Dispatch
 -->
 
-### Les objets traits font du dispatch dynamique
+### Les objets traits effectuent du dispatch dynamique
 
 <!--
 Recall in the [“Performance of Code Using
@@ -843,7 +844,7 @@ utilise les pointeurs à l'intérieur de l'objet trait pour savoir quelle métho
 appeler. Il y a un coût à l'exécution lors de la recherche de cette méthode qui
 n'a pas lieu avec le dispatch statique. Le dispatch dynamique empêche en outre
 le compilateur de choisir de remplacer un appel de méthode par le code de cette
-méthode, ce qui empêche certaines optimisations à son tour. Cependant, cela a
+méthode, ce qui empêche par ricochet certaines optimisations. Cependant, cela a
 permis de rendre plus flexible le code que nous avons écrit dans l'encart 17-5
 et que nous avons pu supporter dans l'encart 17-9, donc c'est un compromis à
 envisager.
@@ -864,7 +865,7 @@ the trait have the following properties:
 On ne peut transformer en objets traits que les traits *sûrs au sens de
 l'objet* (*object-safe*). Quelques règles complexes régissent toutes les
 propriétés qui rendent un objet trait sûr au sens de l'objet, mais en pratique,
-seuls deux règles sont pertinentes. Un trait est sûr au sens de l'objet si
+seules deux règles sont pertinentes. Un trait est sûr au sens de l'objet si
 toutes les méthodes définies sur le trait ont les propriétés suivantes :
 
 <!--
@@ -889,7 +890,7 @@ generic type parameters with.
 -->
 
 Le mot-clé `Self` est un alias pour le type sur lequel nous implémentons les
-traits ou les méthodes. Les objets traits doivent êtres sûrs au sens de l'objet
+traits ou les méthodes. Les objets traits doivent être sûrs au sens de l'objet
 parce qu'une fois qu'on a utilisé un objet trait, Rust ne sait plus quel est le
 type concret qui implémente ce trait. Si une méthode de trait retourne le type
 concret `Self`, mais qu'un objet trait oublie le type exact représenté par
@@ -906,7 +907,7 @@ library’s `Clone` trait. The signature for the `clone` method in the `Clone`
 trait looks like this:
 -->
 
-Un exemple d'un trait dont les méthodes ne sont pas sûres au sens de l'objet est
+Un exemple de trait dont les méthodes ne sont pas sûres au sens de l'objet est
 le trait `Clone` de la bibliothèque standard. La signature de la méthode `clone`
 du trait `Clone` ressemble à ceci :
 
@@ -933,8 +934,8 @@ stand in for `Self`, because that’s the return type.
 -->
 
 Le type `String` implémente le trait `Clone`, et quand on appelle la méthode
-`clone` sur une instance de `String`, nous récupérons une instance de `String`.
-De même, si on appelle `clone` sur une instance de `Vec<T>`, nous récupérons une
+`clone` sur une instance de `String`, on récupère une instance de `String`. De
+même, si on appelle `clone` sur une instance de `Vec<T>`, on récupère une
 instance de `Vec<T>`. La signature de `clone` doit savoir à quel type correspond
 `Self`, puisqu'il s'agit du type de retour.
 
@@ -1002,9 +1003,10 @@ This error means you can’t use this trait as a trait object in this way. If
 you’re interested in more details on object safety, see [Rust RFC 255].
 -->
 
-Cette erreur signifie que l'on peut pas utiliser ce trait comme d'un objet trait
-de cette façon. Si vous souhaitez connaître plus de détails sur la sûreté au
-sens de l'objet, référez-vous à la [RFC 255 de Rust][rust-rfc-255] (en anglais).
+Cette erreur signifie que l'on ne peut pas utiliser ce trait comme d'un objet
+trait de cette façon. Si vous souhaitez connaître plus de détails sur la sûreté
+au sens de l'objet, référez-vous à la [RFC 255 de Rust][rust-rfc-255] (en
+anglais).
 
 <!-- markdownlint-disable -->
 <!--
