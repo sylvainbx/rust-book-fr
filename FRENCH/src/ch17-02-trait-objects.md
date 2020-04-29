@@ -1,7 +1,3 @@
-> # WORK IN PROGRESS
->
-> Cette traduction est encore à l'état de brouillon.
-
 <!--
 ## Using Trait Objects That Allow for Values of Different Types
 -->
@@ -204,7 +200,7 @@ Cette syntaxe devrait vous rappeler nos discussions sur comment définir des
 traits au chapitre 10. Puis vient une nouvelle syntaxe : l'encart 17-4 définit
 une structure nommée `Ecran` qui contient un vecteur nommé `composants`. Ce
 vecteur est du type `Box<dyn Affichable>`, qui est un objet trait ; c'est un
-bouche-trou pour n'importe quel type au sein d'une `Box` qui implémente le trait
+bouche-trou pour n'importe quel type au sein d'un `Box` qui implémente le trait
 `Affichable`.
 
 <!--
