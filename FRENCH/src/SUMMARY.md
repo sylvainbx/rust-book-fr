@@ -48,3 +48,5 @@
 
 - [Les collections standard](ch08-00-common-collections.md)
     - [Stocker des listes de valeurs avec des vecteurs](ch08-01-vectors.md)
+
+    - [Implémenter un patron de conception orienté-objet](ch17-03-oo-design-patterns.md)
