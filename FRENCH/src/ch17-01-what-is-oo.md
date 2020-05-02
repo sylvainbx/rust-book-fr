@@ -14,7 +14,7 @@ inheritance. Let’s look at what each of those characteristics means and whethe
 Rust supports it.
 -->
 
-Il n'y a aucun consensus parmi les programmeurs sur les fonctionnalités qu'un
+Les développeurs ne se sont jamais entendus sur les fonctionnalités qu'un
 langage doit avoir pour être considéré orienté objet. Rust est influencé par
 de nombreux paradigmes de programmation, y compris la POO ; par exemple, nous
 avons examiné les fonctionnalités issues de la programmation fonctionnelle au
