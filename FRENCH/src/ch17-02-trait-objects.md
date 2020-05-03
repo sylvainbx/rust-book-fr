@@ -120,8 +120,8 @@ que vers une table utilisée pour chercher les méthodes de trait de ce type à
 l'exécution. Nous créons un objet trait en indiquant une sorte de pointeur, tel
 qu'une référence `&` ou un pointeur intelligent `Box<T>`, puis le mot-clé `dyn`
 et enfin le trait en question. (Nous expliquerons pourquoi les objets traits
-doivent utiliser un pointeur au chapitre 19 dans la section [“Les types à taille
-dynamique et le trait `Sized`”][dynamically-sized]<!-- ignore -->.) Nous pouvons
+doivent utiliser un pointeur dans [une section][dynamically-sized]<!-- ignore -->
+du chapitre 19.) Nous pouvons
 utiliser des objets traits à la place d'un type générique ou concret. Partout où
 nous utilisons un objet trait, le système de types de Rust s'assurera à la
 compilation que n'importe quelle valeur utilisée dans ce contexte implémentera
