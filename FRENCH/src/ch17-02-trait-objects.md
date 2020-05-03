@@ -674,8 +674,8 @@ canard ! Dans l'implémentation de `executer` sur `Ecran` dans l'encart 17-5,
 ne vérifie pas si un composant est une instance de `Bouton` ou de
 `ListeDeroulante`, elle ne fait qu'appeler la méthode `afficher` sur le
 composant. En spécifiant `Box<dyn Affichable>` comme type des valeurs dans le
-vecteur `composants`, nous avons défini que `Ecran` avait besoin de valeurs pour
-qu'on puisse appeler la méthode `afficher` dessus.
+vecteur `composants`, nous avons défini que `Ecran` n'avait besoin que de valeurs
+sur lesquelles on peut appeler la méthode `afficher`.
 
 <!--
 The advantage of using trait objects and Rust’s type system to write code
