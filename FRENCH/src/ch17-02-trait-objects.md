@@ -562,7 +562,7 @@ by putting each in a `Box<T>` to become a trait object. They can then call the
 components. Listing 17-9 shows this implementation:
 -->
 
-L'utilisateur de notre bibliothèque peut maintenant écrire leur fonction `main`
+L'utilisateur de notre bibliothèque peut maintenant écrire sa fonction `main`
 pour créer une instance de `Ecran`. Il peut ajouter à l'instance de `Ecran` une
 `ListeDeroulante` ou un `Bouton` en les mettant chacun dans un `Box<T>` pour en
 faire des objets traits. Il peut ensuite appeler la méthode `executer` sur
