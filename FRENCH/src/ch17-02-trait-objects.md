@@ -943,7 +943,7 @@ implement the `Clone` trait instead of the `Draw` trait, like this:
 -->
 
 Le compilateur vous préviendra lorsque vous essayez de faire quelque chose qui
-enfreint les règles de sûreté au sens de l'objet vis-à-vis des objets traits.
+enfreint les règles de sûreté au sens de l'objet lors de l'utilisation des objets traits.
 Par exemple, supposons que nous avons essayé d'implémenter la structure `Ecran`
 de l'encart 17-4 en la faisant contenir des types qui implémentent le trait
 `Clone` plutôt que le trait `Affichable`, comme ceci :
