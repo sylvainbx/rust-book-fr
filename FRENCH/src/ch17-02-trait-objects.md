@@ -1017,4 +1017,4 @@ ch10-01-syntax.html#performance-of-code-using-generics
 [rust-rfc-255]: https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md
 
 [performance-of-code-using-generics]: ch10-01-syntax.html
-[dynamically-sized]: ch19-04-advanced-types.html#les-types-%C3%A0-taille-dynamique-et-le-trait-sized
+[dynamically-sized]: ch19-04-advanced-types.html
