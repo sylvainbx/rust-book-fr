@@ -636,7 +636,7 @@ fn main() {
 different types that implement the same trait</span>
 -->
 
-<span class="caption">Encart 17-9 : Utilisation d'objets traits pour stocker des
+<span class="caption">Encart 17-9 : utilisation d'objets traits pour stocker des
 valeurs de types différents qui implémentent le même trait</span>
 
 <!--
