@@ -806,8 +806,8 @@ you’re calling. In dynamic dispatch cases, the compiler emits code that at
 runtime will figure out which method to call.
 -->
 
-Rappelez-vous de notre discussion dans la section [“Performance du code
-utilisant les génériques”][performance-of-code-using-generics]<!-- ignore --> du
+Rappelez-vous de notre discussion dans [une
+section][performance-of-code-using-generics]<!-- ignore --> du
 chapitre 10 à propos du processus de monomorphisation effectué par le
 compilateur quand nous utilisons des traits liés sur des génériques : le
 compilateur génère des implémentations non génériques de fonctions et de
