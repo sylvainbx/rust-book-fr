@@ -835,7 +835,7 @@ to consider.
 Quand nous utilisons des objets traits, Rust doit utiliser du dispatch
 dynamique. Le compilateur ne connaît pas tous les types qui pourraient être
 utilisés avec le code qui utilise des objets traits, donc il ne sait pas quelle
-méthode implémentée sur quel type appeler. À la place, lors de l'exécution, Rust
+méthode implémentée sur quel type il doit appeler. À la place, lors de l'exécution, Rust
 utilise les pointeurs à l'intérieur de l'objet trait pour savoir quelle méthode
 appeler. Il y a un coût à l'exécution lors de la recherche de cette méthode qui
 n'a pas lieu avec le dispatch statique. Le dispatch dynamique empêche en outre
