@@ -551,7 +551,7 @@ impl Affichable for ListeDeroulante {
 the `Draw` trait on a `SelectBox` struct</span>
 -->
 
-<span class="caption">Encart 17-8 : Une autre *crate* utilisant `gui` et
+<span class="caption">Encart 17-8 : une autre *crate* utilisant `gui` et
 implémentant le trait `Affichable` sur une structure `ListeDeroulante`</span>
 
 <!--
