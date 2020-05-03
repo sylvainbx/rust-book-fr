@@ -81,7 +81,7 @@ allow users to extend it with new types.
 -->
 
 Pour faire ceci dans un langage avec de l'héritage, nous pourrions définir une
-classe nommée `Composant` avec une méthode nommée `afficher`. Les autres
+classe `Composant` qui a une méthode `afficher`. Les autres
 classes, telles que `Bouton`, `Image` et `ListeDeroulante`, hériteraient de
 `Composant` et hériteraient ainsi de la méthode `afficher`. Elles pourraient
 toutes redéfinir la méthode `afficher` avec leur comportement personnalisé,
