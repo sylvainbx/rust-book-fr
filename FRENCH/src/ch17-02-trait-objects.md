@@ -299,7 +299,7 @@ impl Ecran {
 `draw` method on each component</span>
 -->
 
-<span class="caption">Encart 17-5 : Une méthode `executer` sur `Ecran` qui
+<span class="caption">Encart 17-5 : une méthode `executer` sur `Ecran` qui
 appelle la méthode `afficher` sur chaque composant</span>
 
 <!--
