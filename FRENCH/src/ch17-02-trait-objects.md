@@ -468,7 +468,7 @@ impl Affichable for Bouton {
 `Draw` trait</span>
 -->
 
-<span class="caption">Encart 17-7 : Une structure `Bouton` qui implémente le
+<span class="caption">Encart 17-7 : une structure `Bouton` qui implémente le
 trait `Affichable`</span>
 
 <!--
