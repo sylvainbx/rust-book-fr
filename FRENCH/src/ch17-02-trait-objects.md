@@ -186,7 +186,7 @@ pub trait Affichable {
 <span class="caption">Listing 17-3: Definition of the `Draw` trait</span>
 -->
 
-<span class="caption">Encart 17-3 : Définition du trait `Affichable`</span>
+<span class="caption">Encart 17-3 : définition du trait `Affichable`</span>
 
 <!--
 This syntax should look familiar from our discussions on how to define traits
