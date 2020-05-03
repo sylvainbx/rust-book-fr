@@ -237,7 +237,7 @@ pub struct Ecran {
 trait</span>
 -->
 
-<span class="caption">Encart 17-4 : Définition de la structure `Ecran` avec un
+<span class="caption">Encart 17-4 : définition de la structure `Ecran` avec un
 champ `composants` contenant un vecteur d'objets traits qui implémentent le
 trait `Affichable`</span>
 
