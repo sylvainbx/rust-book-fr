@@ -369,7 +369,7 @@ impl<T> Ecran<T>
 struct and its `run` method using generics and trait bounds</span>
 -->
 
-<span class="caption">Encart 17-6 : Une implémentation alternative de la
+<span class="caption">Encart 17-6 : une implémentation différente de la
 structure `Ecran` et de sa méthode `executer` en utilisant la généricité et les
 traits liés</span>
 
