@@ -88,7 +88,7 @@ toutes redéfinir la méthode `afficher` avec leur comportement personnalisé,
 mais le framework pourrait considérer tous les types comme des instances de
 `Composant` et appeler `afficher` sur chacun d'entre eux. Mais puisque Rust n'a
 pas d'héritage, il nous faut un autre moyen de structurer la bibliothèque `gui`
-pour permettre aux utilisateurs de l'élargir avec de nouveaux types.
+pour permettre aux utilisateurs de la prolonger avec de nouveaux types.
 
 <!--
 ### Defining a Trait for Common Behavior
