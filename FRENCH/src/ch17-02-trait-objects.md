@@ -741,7 +741,7 @@ fn main() {
 implement the trait object’s trait</span>
 -->
 
-<span class="caption">Encart 17-10 : Tentative d'utiliser un type qui
+<span class="caption">Encart 17-10 : tentative d'utiliser un type qui
 n'implémente pas le trait de l'objet trait</span>
 
 <!--
