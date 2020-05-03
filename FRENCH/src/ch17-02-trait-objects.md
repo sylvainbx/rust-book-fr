@@ -85,7 +85,7 @@ classe `Composant` qui a une méthode `afficher`. Les autres
 classes, telles que `Bouton`, `Image` et `ListeDeroulante`, hériteraient de
 `Composant` et hériteraient ainsi de la méthode `afficher`. Elles pourraient
 toutes redéfinir la méthode `afficher` avec leur comportement personnalisé,
-mais le framework pourrait considérer tous les types comme des instances de
+mais l'environnement de développement pourrait considérer tous les types comme des instances de
 `Composant` et appeler `afficher` sur chacun d'entre eux. Mais puisque Rust n'a
 pas d'héritage, il nous faut un autre moyen de structurer la bibliothèque `gui`
 pour permettre aux utilisateurs de la prolonger avec de nouveaux types.
