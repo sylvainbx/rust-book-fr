@@ -63,7 +63,7 @@ Nous n'implémenterons pas une véritable bibliothèque d'interface graphique po
 cet exemple, mais nous verrons comment les morceaux pourraient s'assembler. Au
 moment d'écrire la bibliothèque, nous ne pouvons pas savoir ni définir tous les
 types que les autres développeurs auraient envie de créer. Mais nous savons que
-`gui` doit garder la trace de plusieurs valeurs de types différents et qu'il
+`gui` doit gérer plusieurs valeurs de types différents et qu'elle
 doit appeler la méthode `afficher` sur chacune de ces valeurs de types
 différents. Il n'a pas besoin de savoir exactement ce qui arrivera quand on
 appellera la méthode `afficher`, mais seulement de savoir que la valeur aura
