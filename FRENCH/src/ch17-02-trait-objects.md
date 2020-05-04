@@ -838,7 +838,7 @@ utilisés avec le code qui utilise des objets traits, donc il ne sait pas quelle
 méthode implémentée sur quel type il doit appeler. À la place, lors de l'exécution, Rust
 utilise les pointeurs à l'intérieur de l'objet trait pour savoir quelle méthode
 appeler. Il y a un coût à l'exécution lors de la recherche de cette méthode qui
-n'a pas lieu avec le dispatch statique. Le dispatch dynamique empêche en outre
+n'a pas lieu avec la répartition statique. La répartition dynamique empêche en outre
 le compilateur de choisir de remplacer un appel de méthode par le code de cette
 méthode, ce qui empêche par ricochet certaines optimisations. Cependant, cela a
 permis de rendre plus flexible le code que nous avons écrit dans l'encart 17-5
