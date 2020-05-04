@@ -790,7 +790,7 @@ appeler `afficher` dessus.
 ### Trait Objects Perform Dynamic Dispatch
 -->
 
-### Les objets traits effectuent du dispatch dynamique
+### Les objets traits effectuent de la répartition dynamique
 
 <!--
 Recall in the [“Performance of Code Using
