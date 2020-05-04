@@ -816,7 +816,7 @@ de type générique. Le code résultant de la monomorphisation effectue du
 *dispatch statique*, c'est-à-dire quand le compilateur sait quelle méthode
 vous appelez à la compilation. Cela s'oppose au *dispatch dynamique*,
 c'est-à-dire quand le compilateur ne peut pas déterminer à la compilation quelle
-méthode vous appelez. Dans les cas de dispatch dynamique, le compilateur émet du
+méthode vous appelez. Dans les cas de répartition dynamique, le compilateur émet du
 code qui devra déterminer à l'exécution quelle méthode appeler.
 
 <!--
