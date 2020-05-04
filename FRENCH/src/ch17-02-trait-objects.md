@@ -832,7 +832,7 @@ in Listing 17-5 and were able to support in Listing 17-9, so it’s a trade-off
 to consider.
 -->
 
-Quand nous utilisons des objets traits, Rust doit utiliser du dispatch
+Quand nous utilisons des objets traits, Rust doit utiliser de la répartition
 dynamique. Le compilateur ne connaît pas tous les types qui pourraient être
 utilisés avec le code qui utilise des objets traits, donc il ne sait pas quelle
 méthode implémentée sur quel type il doit appeler. À la place, lors de l'exécution, Rust
