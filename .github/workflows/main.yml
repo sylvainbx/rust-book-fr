@@ -24,6 +24,8 @@ jobs:
         rustup --version
         rustc -Vv
         mdbook --version
+    - name: Go into FRENCH folder
+      run: cd FRENCH
     - name: Run tests
       run: mdbook test
   lint:
@@ -50,12 +52,14 @@ jobs:
         mdbook --version
     - name: Spellcheck
       run: bash ci/spellcheck.sh list
+    - name: Go into FRENCH folder
+      run: cd FRENCH
     - name: Lint for local file paths
       run: |
         mdbook build
-        cargo run --bin lfp src
+        cargo run --bin ../lfp ./src
     - name: Validate references
-      run: bash ci/validate.sh
+      run: bash ../ci/validate.sh
     - name: Check for broken links
       run: |
         curl -sSLo linkcheck.sh \
