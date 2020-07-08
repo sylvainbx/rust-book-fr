@@ -21,7 +21,7 @@ d'une portée. Vous pouvez fournir une implémentation du trait `Drop` sur
 n'importe quel type, et le code que vous renseignez peut être utilisé pour
 libérer des ressources comme des fichiers ou des connections réseau. Nous
 présentons `Drop` dans le contexte des pointeurs intelligents car la
-fonctionnalité du trait `Drop` est quasiment utilisé systématiquement utilisé
+fonctionnalité du trait `Drop` est quasiment systématiquement utilisé
 lorsque nous implémentons un pointeur intelligent. Par exemple, `Box<T>`
 personnalise `Drop` pour désallouer l'espace occupé sur le tas sur lequel la
 boite pointe.
