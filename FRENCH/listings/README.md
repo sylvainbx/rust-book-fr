@@ -1,7 +1,7 @@
 # `/FRENCH/listings`
 
-Here are the translated code sources that we translated, used in book code
-listings for pedagogic purposes.
+Here are the code that we translated. It is used in book code listings for
+pedagogic purposes.
 
 Please also take look to [`/FRENCH/listings-sources`][] folder !
 
@@ -21,6 +21,15 @@ Consider the following Markdown code, in
 > [`/FRENCH/listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs`][]
 > 
 > ... between `// ANCHOR: io` and `// ANCHOR_END: io` tags.
+
+Potential processed result by `mdbook build` in the page which uses this
+Markdown :
+
+````markdown
+```rust,ignore
+use std::io;
+```
+````
 
 <!-- LINKS : -->
 
