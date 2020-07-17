@@ -17,9 +17,9 @@ Consider the following Markdown code, in
 ````
 
 > It should import and show code from file ...
-> 
+>
 > [`/FRENCH/listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs`][]
-> 
+>
 > ... between `// ANCHOR: io` and `// ANCHOR_END: io` tags.
 
 Potential processed result by `mdbook build` in the page which uses this
