@@ -31,7 +31,8 @@ compilation. Le compilateur peut souvent déduire quel type utiliser en se basan
 sur la valeur et sur la façon dont elle est utilisée. Dans les cas où plusieurs
 types sont envisageables, comme lorsque nous avons converti une chaîne de
 caractères en un type numérique en utilisant `parse` dans la section
-[“Comparer le nombre saisi au nombre secret”][comparing-the-guess-to-the-secret-number]<!-- ignore -->
+[“Comparer le nombre saisi au nombre
+secret”][comparing-the-guess-to-the-secret-number]<!-- ignore -->
 du chapitre 2, nous devons ajouter une annotation de type, comme ceci :
 
 <!--
@@ -55,27 +56,13 @@ suivante, signifiant que le compilateur a besoin de plus d'informations pour
 déterminer quel type nous souhaitons utiliser :
 
 <!--
-```text
-error[E0282]: type annotations needed
- -- > src/main.rs:2:9
-  |
-2 |     let guess = "42".parse().expect("Not a number!");
-  |         ^^^^^
-  |         |
-  |         cannot infer type for `_`
-  |         consider giving `guess` a type
+```console
+{{#include ../listings/ch03-common-programming-concepts/output-only-01-no-type-annotations/output.txt}}
 ```
 -->
 
-```text
-error[E0282]: type annotations needed
- --> src/main.rs:2:9
-  |
-2 |     let supposition = "42".parse().expect("Ce n'est pas un nombre !");
-  |         ^^^^^^^^^^^
-  |         |
-  |         cannot infer type for `_`
-  |         consider giving `supposition` a type
+```console
+{{#include ../listings/ch03-common-programming-concepts/output-only-01-no-type-annotations/output.txt}}
 ```
 
 <!--
@@ -154,6 +141,7 @@ valeur entière.
 | 128 bits| `i128`  | `u128`    |
 | archi   | `isize` | `usize`   |
 
+<!-- markdownlint-disable -->
 <!--
 Each variant can be either signed or unsigned and has an explicit size.
 *Signed* and *unsigned* refer to whether it’s possible for the number to be
@@ -164,6 +152,7 @@ the sign matters, a number is shown with a plus sign or a minus sign; however,
 when it’s safe to assume the number is positive, it’s shown with no sign.
 Signed numbers are stored using [two’s complement](https://en.wikipedia.org/wiki/Two%27s_complement) representation.
 -->
+<!-- markdownlint-restore -->
 
 Chaque variante peut-être signée ou non signée et possède une taille explicite.
 *Signé* et *non signé* veut dire respectivement que le nombre peut prendre ou
@@ -216,7 +205,7 @@ suffixe de type, comme `57u8`, et `_` comme séparateur visuel, comme par exempl
 <span class="caption">Table 3-2: Integer Literals in Rust</span>
 -->
 
-<span class="caption">Tableau 3-2 : Les littéraux d'entiers en Rust</span>
+<span class="caption">Tableau 3-2 : les littéraux d'entiers en Rust</span>
 
 <!--
 | Number literals  | Example       |
@@ -284,7 +273,7 @@ lorsque l'on indexe une quelconque collection.
 > pourraient faire *paniquer* votre programme à l'exécution si ce phénomène se
 > produit. Rust utilise le terme *paniquer* quand un programme se termine
 > avec une erreur ; nous verrons plus en détail les *paniques* dans une section
-> du [chapitre 9](ch09-01-unrecoverable-errors-with-panic.html).
+> du [chapitre 9][unrecoverable-errors-with-panic]<!-- ignore -->.
 >
 > Lorsque vous compilez en mode publication *(release)* avec le drapeau
 > `--release`, Rust ne va *pas* vérifier les potentiels dépassements d'entiers
@@ -330,14 +319,16 @@ Voici un exemple montrant l'utilisation de nombres à virgule flottante :
 <span class="filename">Filename: src/main.rs</span>
 -->
 
-<span class="filename">Nom du ficher: src/main.rs</span>
+<span class="filename">Ficher : src/main.rs</span>
+
+<!--
+```rust
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-06-floating-point/src/main.rs}}
+```
+-->
 
 ```rust
-fn main() {
-    let x = 2.0; // f64
-
-    let y: f32 = 3.0; // f32
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-06-floating-point/src/main.rs}}
 ```
 
 <!--
@@ -374,42 +365,12 @@ instruction `let` :
 
 <!--
 ```rust
-fn main() {
-    // addition
-    let sum = 5 + 10;
-
-    // subtraction
-    let difference = 95.5 - 4.3;
-
-    // multiplication
-    let product = 4 * 30;
-
-    // division
-    let quotient = 56.7 / 32.2;
-
-    // remainder
-    let remainder = 43 % 5;
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-07-numeric-operations/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    // addition
-    let somme = 5 + 10;
-
-    // soustraction
-    let difference = 95.5 - 4.3;
-
-    // multiplication
-    let produit = 4 * 30;
-
-    // division
-    let quotient = 56.7 / 32.2;
-
-    // modulo
-    let reste = 43 % 5;
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-07-numeric-operations/src/main.rs}}
 ```
 
 <!--
@@ -447,20 +408,12 @@ Par exemple :
 
 <!--
 ```rust
-fn main() {
-    let t = true;
-
-    let f: bool = false; // with explicit type annotation
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-08-boolean/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let t = true;
-
-    let f: bool = false; // avec une annotation de type explicite
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-08-boolean/src/main.rs}}
 ```
 
 <!--
@@ -501,20 +454,12 @@ contrairement aux chaînes, qui utilisent des guillemets doubles.)
 
 <!--
 ```rust
-fn main() {
-    let c = 'z';
-    let z = 'ℤ';
-    let heart_eyed_cat = '😻';
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-09-char/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let c = 'z';
-    let z = 'ℤ';
-    let chat_aux_yeux_de_coeur = '😻';
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-09-char/src/main.rs}}
 ```
 
 <!--
@@ -537,7 +482,7 @@ Rust. Les valeurs scalaires Unicode vont de `U+0000` à `U+D7FF` et de `U+E000` 
 `U+10FFFF` inclus. Cependant, le concept de “caractère” n'est pas clairement
 défini par Unicode, donc votre notion de “caractère” peut ne pas correspondre
 à ce qu'est un `char` en Rust. Nous aborderons ce sujet plus en détail au
-[chapitre 8](ch08-02-strings.html).
+[chapitre 8][strings]<!-- ignore -->.
 
 <!--
 ### Compound Types
@@ -560,9 +505,9 @@ a deux types composés de base : les *tuples* et les tableaux *(arrays)*.
 #### Le type *tuple*
 
 <!--
-A tuple is a general way of grouping together some number of other values
-with a variety of types into one compound type. Tuples have a fixed length:
-once declared, they cannot grow or shrink in size.
+A tuple is a general way of grouping together a number of values with a variety
+of types into one compound type. Tuples have a fixed length: once declared,
+they cannot grow or shrink in size.
 -->
 
 Un *tuple* est une manière générale de regrouper plusieurs valeurs
@@ -589,10 +534,14 @@ optionnel :
 
 <span class="filename">Fichier : src/main.rs</span>
 
+<!--
 ```rust
-fn main() {
-    let tup: (i32, f64, u8) = (500, 6.4, 1);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-10-tuples/src/main.rs}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-10-tuples/src/main.rs}}
 ```
 
 <!--
@@ -614,24 +563,12 @@ déstructurer ce tuple, comme ceci :
 
 <!--
 ```rust
-fn main() {
-    let tup = (500, 6.4, 1);
-
-    let (x, y, z) = tup;
-
-    println!("The value of y is: {}", y);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-11-destructuring-tuples/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let tup = (500, 6.4, 1);
-
-    let (x, y, z) = tup;
-
-    println!("La valeur de y est : {}", y);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-11-destructuring-tuples/src/main.rs}}
 ```
 
 <!--
@@ -666,39 +603,23 @@ l'indice de la valeur que nous souhaitons obtenir. Par exemple :
 
 <!--
 ```rust
-fn main() {
-    let x: (i32, f64, u8) = (500, 6.4, 1);
-
-    let five_hundred = x.0;
-
-    let six_point_four = x.1;
-
-    let one = x.2;
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-12-tuple-indexing/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let x: (i32, f64, u8) = (500, 6.4, 1);
-
-    let cinq_cents = x.0;
-
-    let six_virgule_quatre = x.1;
-
-    let un = x.2;
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-12-tuple-indexing/src/main.rs}}
 ```
 
 <!--
 This program creates a tuple, `x`, and then makes new variables for each
-element by using their index. As with most programming languages, the first
-index in a tuple is 0.
+element by using their respective indices. As with most programming languages,
+the first index in a tuple is 0.
 -->
 
 Ce programme crée un tuple, `x`, puis crée une nouvelle variable pour
-chaque élément en utilisant leur indice. Comme dans de nombreux langages de
-programmation, le premier indice d'un tuple est 0.
+chaque élément en utilisant leur indices respectifs. Comme dans de nombreux
+langages de programmation, le premier indice d'un tuple est 0.
 
 <!--
 #### The Array Type
@@ -732,10 +653,14 @@ liste séparée par des virgules entre des crochets :
 
 <span class="filename">Fichier : src/main.rs</span>
 
+<!--
 ```rust
-fn main() {
-    let a = [1, 2, 3, 4, 5];
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-13-arrays/src/main.rs}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-13-arrays/src/main.rs}}
 ```
 
 <!--
@@ -762,7 +687,7 @@ chapitre 8 expliquera les vecteurs.
 An example of when you might want to use an array rather than a vector is in a
 program that needs to know the names of the months of the year. It’s very
 unlikely that such a program will need to add or remove months, so you can use
-an array because you know it will always contain 12 items:
+an array because you know it will always contain 12 elements:
 -->
 
 Un exemple de cas où vous pourriez avoir recours à un tableau plutôt qu'à un
@@ -794,13 +719,19 @@ Vous pouvez écrire le type d'un tableau en utilisant des crochets, et entre ces
 crochets y ajouter le type de chaque élément, un point-virgule, et ensuite le
 nombre d'éléments dans le tableau, comme ceci :
 
+<!--
+```rust
+let a: [i32; 5] = [1, 2, 3, 4, 5];
+```
+-->
+
 ```rust
 let a: [i32; 5] = [1, 2, 3, 4, 5];
 ```
 
 <!--
 Here, `i32` is the type of each element. After the semicolon, the number `5`
-indicates the element contains five items.
+indicates the array contains five elements.
 -->
 
 Ici, `i32` est le type de chaque élément. Après le point-virgule, le nombre `5`
@@ -818,6 +749,12 @@ pour initialiser un tableau : si vous voulez créer un tableau qui contient la
 même valeur pour chaque élément, vous pouvez préciser la valeur initiale, suivie
 par un point-virgule, et ensuite la taille du tableau, le tout entre crochets,
 comme ci-dessous :
+
+<!--
+```rust
+let a = [3; 5];
+```
+-->
 
 ```rust
 let a = [3; 5];
@@ -855,22 +792,12 @@ aux éléments d'un tableau en utilisant l'indexation, comme ceci :
 
 <!--
 ```rust
-fn main() {
-    let a = [1, 2, 3, 4, 5];
-
-    let first = a[0];
-    let second = a[1];
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-14-array-indexing/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let a = [1, 2, 3, 4, 5];
-
-    let premier = a[0];
-    let second = a[1];
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-14-array-indexing/src/main.rs}}
 ```
 
 <!--
@@ -908,26 +835,12 @@ exécuté :
 
 <!--
 ```rust,ignore,panics
-fn main() {
-    let a = [1, 2, 3, 4, 5];
-    let index = 10;
-
-    let element = a[index];
-
-    println!("The value of element is: {}", element);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access/src/main.rs}}
 ```
 -->
 
 ```rust,ignore,panics
-fn main() {
-    let a = [1, 2, 3, 4, 5];
-    let indice = 10;
-
-    let element = a[indice];
-
-    println!("La valeur de l'élément est : {}", element);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access/src/main.rs}}
 ```
 
 <!--
@@ -936,14 +849,14 @@ Running this code using `cargo run` produces the following result:
 
 Exécuter ce code en utilisant `cargo run` va donner le résultat suivant :
 
-```text
-$ cargo run
-   Compiling arrays v0.1.0 (file:///projects/arrays)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
-     Running `target/debug/arrays`
-thread 'main' panicked at 'index out of bounds: the len is 5 but the index is
- 10', src/main.rs:5:19
-note: Run with `RUST_BACKTRACE=1` for a backtrace.
+<!--
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access/output.txt}}
+```
+-->
+
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access/output.txt}}
 ```
 
 <!--
@@ -980,12 +893,14 @@ Rust.
 [comparing-the-guess-to-the-secret-number]:
 ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
 [control-flow]: ch03-05-control-flow.html#control-flow
-[unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html
 [strings]: ch08-02-strings.html#storing-utf-8-encoded-text-with-strings
+[unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html
 [wrapping]: ../std/num/struct.Wrapping.html
 -->
 
 [comparing-the-guess-to-the-secret-number]:
 ch02-00-guessing-game-tutorial.html#comparer-le-nombre-saisi-au-nombre-secret
 [control-flow]: ch03-05-control-flow.html#les-structures-de-contrôle
+[strings]: ch08-02-strings.html
+[unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html
 [wrapping]: https://doc.rust-lang.org/std/num/struct.Wrapping.html
