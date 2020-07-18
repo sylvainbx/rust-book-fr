@@ -1,19 +1,26 @@
-# French translation of the book "The Rust Programming Language"
+> # 📖 Le langage de programmation Rust
+>
+> **🌐 This is the french translation of the book "The Rust Programming Language"**
+>
+> [👓 Click here to read this translated book online](https://jimskapt.github.io/rust-book-fr/)
+>
+> *[🔗 Click here to go to the English Book repository](https://github.com/rust-lang/book)*
+>
+> Translations are inside [`/FRENCH/`](https://github.com/Jimskapt/rust-book-fr/tree/french-release/FRENCH)
+> folder. Everything else should be remaining as the English Book *(except some
+> necessary files, like this README.md)*.
+>
+> Want to help to translate ?
+> Please read the file
+> [/FRENCH/CONTRIBUTING.md](https://github.com/Jimskapt/rust-book-fr/blob/french-release/FRENCH/CONTRIBUTING.md) !
 
-*English Book : [https://github.com/rust-lang/book](https://github.com/rust-lang/book)*
-
-Translations are inside `/FRENCH/` folder. Everything else should be remaing as the English Book (except this README.md).
-
-Want to help to translate ? Please read the file [/FRENCH/CONTRIBUTING.md](https://github.com/Jimskapt/rust-book-fr/blob/french-release/FRENCH/CONTRIBUTING.md) !
-
-<!--
 # The Rust Programming Language
 
-[![Build Status](https://travis-ci.com/rust-lang/book.svg?branch=master)](https://travis-ci.com/rust-lang/book)
+![Build Status](https://github.com/rust-lang/book/workflows/CI/badge.svg)
 
 This repository contains the source of "The Rust Programming Language" book.
 
-[The book is available in dead-tree form from No Starch Press][nostarch]
+[The book is available in dead-tree form from No Starch Press][nostarch].
 
 [nostarch]: https://nostarch.com/rust
 
@@ -25,6 +32,10 @@ releases are updated less frequently.
 [stable]: https://doc.rust-lang.org/stable/book/
 [beta]: https://doc.rust-lang.org/beta/book/
 [nightly]: https://doc.rust-lang.org/nightly/book/
+
+See the [releases] to download just the code of all the code listings that appear in the book.
+
+[releases]: https://github.com/rust-lang/book/releases
 
 ## Requirements
 
@@ -88,20 +99,6 @@ before we merge any in, but feel free to start!
 [Translations]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
 [mdbook support]: https://github.com/rust-lang-nursery/mdBook/issues/5
 
-## Graphviz dot
-
-We're using [Graphviz](http://graphviz.org/) for some of the diagrams in the
-book. The source for those files live in the `dot` directory. To turn a `dot`
-file, for example, `dot/trpl04-01.dot` into an `svg`, run:
-
-```bash
-$ dot dot/trpl04-01.dot -Tsvg > src/img/trpl04-01.svg
-```
-
-In the generated SVG, remove the width and the height attributes from the `svg`
-element and set the `viewBox` attribute to `0.00 0.00 1000.00 1000.00` or other
-values that don't cut off the image.
-
 ## Spellchecking
 
 To scan source files for spelling errors, you can use the `spellcheck.sh`
@@ -109,4 +106,3 @@ script. It needs a dictionary of valid words, which is provided in
 `dictionary.txt`. If the script produces a false positive (say, you used word
 `BTreeMap` which the script considers invalid), you need to add this word to
 `dictionary.txt` (keep the sorted order for consistency).
--->
