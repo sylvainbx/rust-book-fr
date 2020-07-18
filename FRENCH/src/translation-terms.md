@@ -6,9 +6,12 @@ français.
 | Anglais | Français | Remarques |
 | ------- | ------ | ------ |
 | ahead-of-time compilation | compilation anticipée | sigle : AOT |
+| alias | alias | - |
 | allocated | alloué | - |
+| angle bracket | chevrons | - |
 | annotate | indiquer | - |
 | Appendix | annexe | tout en minuscule (sauf en début de phrase) |
+| append | ajouter | - |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
 | assign | assigner | - |
 | argument | argument / paramètre | - |
@@ -21,8 +24,10 @@ français.
 | *n*-bit number | nombre encodé sur *n* bits | - |
 | blanket implementation | implémentation générale | - |
 | blob | blob | - |
+| boilerplate code | code standard | - |
 | boolean | booléen | - |
 | borrow | emprunt(er) | - |
+| borrow checker | vérificateur d'emprunt | - |
 | bug | bogue | - |
 | build system | système de compilation | - |
 | byte | octet | - |
@@ -31,6 +36,7 @@ français.
 | Chapter | chapitre | tout en minuscule (sauf en début de phrase) |
 | closure | fermeture | - |
 | code review | revue de code | - |
+| coercion | extrapolation | - |
 | collection | collection | - |
 | command | commande | dans un terminal |
 | commit | commit | - |
@@ -48,13 +54,20 @@ français.
 | crash | plantage | - |
 | crate | crate | nom féminin (une *crate*) |
 | curly bracket | accolade | - |
+| dangling | pendouillant | - |
+| data race | accès concurrent | - |
 | data representation | modèle de données | - |
+| deallocate | désalloué | - |
 | debug | déboguer | - |
 | debugging | débogage | - |
 | deep copy | copie en profondeur | - |
 | dependency | dépendance | - |
+| deref coercion | extrapolation de déréferencement | - |
+| dereference operator | opérateur de déréférencement | - |
+| dereferencing | déréférencement | - |
 | destructure | déstructurer | - |
 | DevOps | DevOps | - |
+| directory | dossier | - |
 | dot notation | la notation avec un point | - |
 | double free | double libération | - |
 | enum | énumération | - |
@@ -71,6 +84,9 @@ français.
 | functional programming | programmation fonctionnelle | - |
 | garbage collector | ramasse-miettes | - |
 | generics | génériques / généricité | - |
+| generic type parameter | paramètre de type générique | - |
+| grapheme cluster | groupe de graphèmes  | - |
+| glob | global | opérateur |
 | global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |
 | handle | référence abstraite | - |
@@ -80,6 +96,7 @@ français.
 | Hello, world! | Hello, world! | - |
 | high-level | haut niveau | - |
 | identifier | identificateur | - |
+| idiomatic | idéal | - |
 | immutability | immuabilité | - |
 | immutable | immuable | - |
 | index | indice | - |
@@ -101,22 +118,25 @@ français.
 | library crate | crate de bibliothèque | s'utilise au féminin |
 | lifetime | durée de vie | - |
 | linker | linker | - |
+| literal value | valeur litérale | - |
 | Listing | encart | tout en minuscule (sauf en début de phrase) |
 | loop | boucle | - |
 | low-level | bas niveau | - |
 | machine learning | apprentissage automatique | - |
 | macro | macro | - |
 | main | main | - |
+| map | tableau associatif | - |
 | memory management | gestion de mémoire | - |
 | method | méthode | - |
 | modern | récent | - |
 | module | module | - |
+| module system | système de modules | - |
 | move | déplacement | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
-| namespace | espace de nom | - |
-| namespacing | l'espace de nom | - |
 | mutate | muter | - |
+| namespace | espace de nom | - |
+| nested (path) | (chemin) imbriqué | - |
 | Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
 | object-oriented language | langage orienté objet | - |
@@ -134,8 +154,10 @@ français.
 | pointer | pointeur | - |
 | popping off the stack | dépiler | - |
 | prelude | étape préliminaire | - |
+| privacy | protection | explication de la protection des éléments d'un module |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
+| race condition | situation de concurrence | - |
 | pushing onto the stack | empiler | - |
 | raw identifier | identificateur brut | - |
 | README | README | - |
@@ -185,12 +207,14 @@ français.
 | `String` | `String` | nom féminin (une `String`) |
 | struct | structure | - |
 | submodule | sous-module | - |
+| syntax sugar | sucre syntaxique | - |
 | systems concept | notion système | - |
 | systems-level | niveau système | - |
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | trait | trait | - |
 | trait bound | trait lié | - |
+| tree | arborescence | - |
 | troubleshooting | dépannage | - |
 | tuple | tuple | - |
 | tuple struct | structure tuple | - |
@@ -213,4 +237,5 @@ français.
 | vector | vecteur | - |
 | version control system (VCS) | système de gestion de versions (VCS) | - |
 | warning | avertissement | - |
+| wildcard | joker | - |
 | zero-cost abstraction | abstraction sans coût | - |
