@@ -12,7 +12,7 @@ stack, and then quit. This most commonly occurs when a bug of some kind has
 been detected and it’s not clear to the programmer how to handle the error.
 -->
 
-Parfois, les choses se passent mal dans votre code, et vous ne pouvez rien y
+Parfois, des choses se passent mal dans votre code, et vous ne pouvez rien y
 faire. Pour ces cas-là, Rust a la macro `panic!`. Quand la macro `panic!`
 s'exécute, votre programme va afficher un message d'erreur, dérouler et nettoyer
 la pile, et ensuite fermer le programme. Cela se produit fréquemment lorsqu'un
@@ -41,7 +41,7 @@ erreur.
 
 > ### Dérouler la pile ou abandonner suite à un `panic!`
 >
-> Par défaut, quand un `panic!` se produit, le programme commence par
+> Par défaut, quand un `panic` se produit, le programme commence par
 > *dérouler*, ce qui veut dire que Rust retourne en arrière dans la pile et
 > nettoie les données de chaque fonction qu'il rencontre sur son passage. Mais
 > cette marche arrière et le nettoyage demande beaucoup de travail. Une
@@ -145,8 +145,8 @@ element by index in a vector.
 -->
 
 Analysons un autre exemple pour voir ce qui se passe lors d'un appel de
-`panic!` se produit dans un librairie à cause d'un bug dans notre code plutôt
-que d'appeler la macro directent. L'encart 9-1 montre du code qui essaye
+`panic!` qui se produit dans une bibliothèque à cause d'un bug dans notre code plutôt
+qu'un appel à la macro directement. L'encart 9-1 montre du code qui essaye
 d'accéder à un élément d'un vecteur via son indice :
 
 <!--
@@ -170,7 +170,7 @@ d'accéder à un élément d'un vecteur via son indice :
 end of a vector, which will cause a call to `panic!`</span>
 -->
 
-<span class="caption">Encart 9-1 : tentative d'accéder à un élément en dehors de
+<span class="caption">Encart 9-1 : tentative d'accès à un élément qui dépasse de
 l'intervalle d'un vecteur, ce qui provoque un `panic!`</span>
 
 <!--
@@ -183,7 +183,7 @@ would be correct.
 
 Ici, nous essayons d'accéder au centième élément de notre vecteur (qui est à
 l'indice 99 car l'indexation commence à zéro), mais le vecteur a seulement trois
-éléments. Dans ce cas, Rust va faire un panic. Utiliser `[]` est censé retourner
+éléments. Dans ce cas, Rust va paniquer. Utiliser `[]` est censé retourner
 un élément, mais si vous lui donnez un indice invalide, Rust ne pourra pas
 retourner un élément acceptable dans ce cas.
 
@@ -199,10 +199,10 @@ the data structure.
 
 En C, tenter de lire en dehors de la fin d'une structure de donnée suit un
 comportement non défini. Vous pourriez récupérer quelque chose à l'emplacement
-mémoire demandée qui pourrait correspondre à l'élément demandé de la structure
+mémoire demandé qui pourrait correspondre à l'élément demandé de la structure
 de données, même si cette partie de la mémoire n'appartient pas à cette
 structure de données. C'est ce qu'on appelle une *sur-lecture de tampon* et cela
-peut mener à une faille de sécurité si un attaquant à la possibilité de piloter
+peut mener à une faille de sécurité si un attaquant a la possibilité de contrôler
 l'indice de telle manière qu'il puisse lire les données qui ne devraient pas
 être lisibles en dehors de la structure de données.
 
@@ -233,7 +233,7 @@ we use `[]` on our vector `v` is in *libcore/slice/mod.rs*, and that is where
 the `panic!` is actually happening.
 -->
 
-Cette erreur se réfère à un fichier que nous n'avons pas codé,
+Cette erreur se réfère à un fichier que nous n'avons pas écrit,
 *libcore/slice/mod.rs*. C'est l'implémentation de `slice` dans la bibliothèque
 standard. Le code qui est lancé quand nous utilisons `[]` sur notre vecteur `v`
 est dans *libcore/slice/mod.rs*, et c'est ici que le `panic!` se produit dans
@@ -259,8 +259,8 @@ exactement passé pour mener à cette erreur. Un *re-traçage* consiste à liste
 toutes les fonctions qui ont été appelées pour arriver jusqu'à ce point. Avec
 Rust, le re-traçage fonctionne comme il le fait dans d'autres langages : le
 secret pour lire le re-traçage est de commencer d'en haut et lire jusqu'à ce
-que vous voyez les fichiers que vous avez écris. C'est l'endroit où s'est
-produit le problème. Les lignes avant celle qui mentionne vos fichier
+que vous voyiez les fichiers que vous avez écris. C'est l'endroit où s'est
+produit le problème. Les lignes avant celle qui mentionne vos fichiers
 représentent le code qu'à appelé votre code ; les lignes qui suivent
 représentent le code qui a appelé votre code. Ces lignes peuvent être du code
 du coeur de Rust, du code de la bibliothèque standard, ou des crates que vous
@@ -412,10 +412,10 @@ default when using `cargo build` or `cargo run` without the `--release` flag,
 as we have here.
 -->
 
-Cela fait beaucoup de contenu ! L'exactitude de votre retour qui est affiché
+Cela fait beaucoup de contenu ! Ce que vous voyez sur votre machine
 peut être différent en fonction de votre système d'exploitation et de votre
 version de Rust. Pour avoir le re-traçage avec ces informations, les instructions
-de déboguage doivent être activés. Les instructions de déboguage sont activées
+de déboguage doivent être activées. Les instructions de déboguage sont activées
 par défaut quand on utilise `cargo build` ou `cargo run` sans le drapeau
 `--release`, comme c'est le cas ici.
 
