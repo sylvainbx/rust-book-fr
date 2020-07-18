@@ -14,6 +14,11 @@
 > ebook chez [No Starch Press][nsp] à cette adresse :
 > [The Rust Programming Language][nsprust]
 
+<!--
+[nsprust]: https://nostarch.com/rust
+[nsp]: https://nostarch.com/
+-->
+
 [nsprust]: https://nostarch.com/rust
 [nsp]: https://nostarch.com/
 
@@ -272,7 +277,7 @@ avez appris précédemment. Les chapitres 2, 12 et 20 sont des chapitres de
 projet ; les autres sont des chapitres théoriques.
 
 <!--
-Chapter 1 explains how to install Rust, how to write a Hello, world! program,
+Chapter 1 explains how to install Rust, how to write a “Hello, world!” program,
 and how to use Cargo, Rust’s package manager and build tool. Chapter 2 is a
 hands-on introduction to the Rust language. Here we cover concepts at a high
 level, and later chapters will provide additional detail. If you want to get
@@ -369,7 +374,7 @@ principles you might be familiar with.
 -->
 
 Au chapitre 16, nous passerons en revue les différents modes de programmation
-concurrente et comment Rust nous aide à développer dans des processus parallèles
+concurrente et comment Rust nous aide à développer dans des tâches parallèles
 sans crainte. Le chapitre 17 comparera les fonctionnalités de Rust aux
 principes de programmation orientée objet, que vous connaissez peut-être.
 
@@ -393,7 +398,7 @@ multithreaded web server!
 -->
 
 Au chapitre 20, nous terminerons un projet dans lequel nous allons
-implémenter en bas-niveau un serveur web multi-processus !
+implémenter en bas-niveau un serveur web multitâches !
 
 <!--
 Finally, some appendixes contain useful information about the language in a
@@ -421,6 +426,10 @@ Il n'y a pas de mauvaise manière de lire ce livre : si vous voulez sauter des
 Vous devrez alors peut-être revenir sur les chapitres précédents si vous
 éprouvez des difficultés. Mais faites comme bon vous semble.
 
+<!--
+<span id="ferris"></span>
+-->
+
 <span id="ferris"></span>
 
 <!--
@@ -443,6 +452,7 @@ il ne compile pas ! Assurez-vous d'avoir lu le texte autour pour savoir si
 l'exemple que vous tentez de compiler doit échouer. Ferris va aussi vous aider
 à identifier du code qui ne devrait pas fonctionner :
 
+<!-- markdownlint-disable -->
 <!--
 | Ferris                                                                 | Meaning                                          |
 |------------------------------------------------------------------------|--------------------------------------------------|
@@ -451,6 +461,7 @@ l'exemple que vous tentez de compiler doit échouer. Ferris va aussi vous aider
 | <img src="img/ferris/unsafe.svg" class="ferris-explain"/>              | This code block contains unsafe code.            |
 | <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/>| This code does not produce the desired behavior. |
 -->
+<!-- markdownlint-restore -->
 
 | Ferris                                                                 | Signification                                    |
 |------------------------------------------------------------------------|--------------------------------------------------|
@@ -482,6 +493,10 @@ Les fichiers du code source qui a généré ce livre en anglais sont disponibles
 sur [GitHub][book].
 
 La version française est aussi disponible sur [GitHub][book-fr].
+
+<!--
+[book]: https://github.com/rust-lang/book/tree/master/src
+-->
 
 [book]: https://github.com/rust-lang/book/tree/master/src
 [book-fr]: https://github.com/Jimskapt/rust-book-fr
