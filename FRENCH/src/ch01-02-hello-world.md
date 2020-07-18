@@ -55,11 +55,11 @@ votre dossier utilisateur et de ranger tous vos projets là-dedans.
 
 <!--
 Open a terminal and enter the following commands to make a *projects* directory
-and a directory for the Hello, world! project within the *projects* directory.
+and a directory for the “Hello, world!” project within the *projects* directory.
 -->
 
 Ouvrez un terminal et écrivez les commandes suivantes pour créer un
-dossier *projects* et un dossier pour le projet *Hello, world!* à l'intérieur
+dossier *projects* et un dossier pour le projet “Hello, world!” à l'intérieur
 de ce dossier *projects*.
 
 <!--
@@ -68,7 +68,16 @@ For Linux, macOS, and PowerShell on Windows, enter this:
 
 Sous Linux, macOS et PowerShell sous Windows, écrivez ceci :
 
-```text
+<!--
+```console
+$ mkdir ~/projects
+$ cd ~/projects
+$ mkdir hello_world
+$ cd hello_world
+```
+-->
+
+```console
 $ mkdir ~/projects
 $ cd ~/projects
 $ mkdir hello_world
@@ -81,6 +90,14 @@ For Windows CMD, enter this:
 
 Avec CMD sous Windows, écrivez ceci :
 
+<!--
+```cmd
+> mkdir "%USERPROFILE%\projects"
+> cd /d "%USERPROFILE%\projects"
+> mkdir hello_world
+> cd hello_world
+```
+-->
 
 ```cmd
 > mkdir "%USERPROFILE%\projects"
@@ -121,6 +138,14 @@ code de l'encart 1-1.
 
 <span class="filename">Fichier : main.rs</span>
 
+<!--
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+-->
+
 ```rust
 fn main() {
     println!("Hello, world!");
@@ -141,7 +166,15 @@ the following commands to compile and run the file:
 Enregistrez le fichier et retournez dans votre terminal. Sur Linux
 ou macOS, écrivez les commandes suivantes pour compiler et exécuter le fichier :
 
-```text
+<!--
+```console
+$ rustc main.rs
+$ ./main
+Hello, world!
+```
+-->
+
+```console
 $ rustc main.rs
 $ ./main
 Hello, world!
@@ -152,6 +185,14 @@ On Windows, enter the command `.\main.exe` instead of `./main`:
 -->
 
 Sur Windows, écrivez la commande `.\main.exe` à la place de `.\main` :
+
+<!--
+```powershell
+> rustc main.rs
+> .\main.exe
+Hello, world!
+```
+-->
 
 ```powershell
 > rustc main.rs
@@ -186,12 +227,20 @@ programme Rust. Cela fait de vous un développeur Rust — bienvenue !
 ### Structure d'un programme Rust
 
 <!--
-Let’s review in detail what just happened in your Hello, world! program.
+Let’s review in detail what just happened in your “Hello, world!” program.
 Here’s the first piece of the puzzle:
 -->
 
-Regardons en détail ce qui s'est passé dans votre programme *Hello, world!*.
+Regardons en détail ce qui s'est passé dans votre programme “Hello, world!”.
 Voici le premier morceau du puzzle :
+
+<!--
+```rust
+fn main() {
+
+}
+```
+-->
 
 ```rust
 fn main() {
@@ -248,19 +297,30 @@ Inside the `main` function is the following code:
 
 À l'intérieur de la fonction `main`, nous avons le code suivant :
 
+<!--
+```rust
+    println!("Hello, world!");
+```
+-->
+
 ```rust
     println!("Hello, world!");
 ```
 
 <!--
 This line does all the work in this little program: it prints text to the
-screen. There are four important details to notice here. First, Rust style is
-to indent with four spaces, not a tab.
+screen. There are four important details to notice here.
 -->
 
 Cette ligne fait tout le travail dans ce petit programme : il écrit le texte à
-l'écran. Il y a quatre détails importants à noter ici. Premièrement, le style de
-Rust est d'indenter avec quatre espaces, et non pas avec une tabulation.
+l'écran. Il y a quatre détails importants à noter ici.
+
+<!--
+First, Rust style is to indent with four spaces, not a tab.
+-->
+
+Premièrement, le style de Rust est d'indenter avec quatre espaces, et non pas
+avec une tabulation.
 
 <!--
 Second, `println!` calls a Rust macro. If it called a function instead, it
@@ -318,7 +378,13 @@ Avant de lancer un programme Rust, vous devez le compiler en utilisant le
 compilateur Rust en entrant la commande `rustc` et en lui passant le nom de
 votre fichier source, comme ceci :
 
-```text
+<!--
+```console
+$ rustc main.rs
+```
+-->
+
+```console
 $ rustc main.rs
 ```
 
@@ -342,6 +408,13 @@ Avec Linux, macOS et PowerShell sous Windows, vous pouvez voir l'exécutable en
 utilisant la commande `ls` dans votre terminal. Avec Linux et macOS,
 vous devriez voir deux fichiers. Avec PowerShell sous Windows, vous devriez voir
 les trois mêmes fichiers que vous verriez en utilisant CMD.
+
+<!--
+```text
+$ ls
+main  main.rs
+```
+-->
 
 ```text
 $ ls
@@ -384,21 +457,21 @@ informations de débogage avec l'extension *.pdb*. Dans ce dossier, vous pouvez
 exécuter le fichier *main* ou *main.exe* comme ceci :
 
 <!--
-```text
+```console
 $ ./main # or .\main.exe on Windows
 ```
 -->
 
-```text
+```console
 $ ./main # ou .\main.exe sous Windows
 ```
 
 <!--
-If *main.rs* was your Hello, world! program, this line would print `Hello,
+If *main.rs* was your “Hello, world!” program, this line would print `Hello,
 world!` to your terminal.
 -->
 
-Si *main.rs* était votre programme *Hello, world!*, cette ligne devrait afficher
+Si *main.rs* était votre programme “Hello, world!”, cette ligne devrait afficher
 `Hello, world!` dans votre terminal.
 
 <!--
@@ -436,4 +509,8 @@ d'options et faciliter le partage de votre code. À la page suivante, nous allon
 découvrir l'outil Cargo, qui va vous aider à écrire des programmes Rust à
 l'épreuve de la réalité.
 
+<!--
 [troubleshooting]: ch01-01-installation.html#troubleshooting
+-->
+
+[troubleshooting]: ch01-01-installation.html#dépannage
