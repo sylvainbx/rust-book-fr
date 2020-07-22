@@ -372,7 +372,7 @@ fn main() {
     let ecouteur = TcpListener::bind("127.0.0.1:7878").unwrap();
 
     for flux in ecouteur.incoming() {
-        let flux = stream.unwrap();
+        let flux = flux.unwrap();
 
         gestion_connexion(flux);
     }
