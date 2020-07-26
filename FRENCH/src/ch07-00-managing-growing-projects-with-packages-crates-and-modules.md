@@ -84,7 +84,7 @@ même portée ; cependant des outils existent pour résoudre les conflits de no
 Rust has a number of features that allow you to manage your code’s
 organization, including which details are exposed, which details are private,
 and what names are in each scope in your programs. These features, sometimes
-collectively referred to as the *module system*, and include:
+collectively referred to as the *module system*, include:
 -->
 
 Rust a de nombreuses fonctionnalités qui vous permettent de gérer l'organisation
@@ -120,5 +120,9 @@ Dans ce chapitre, nous allons découvrir ces fonctionnalités, voir comment elle
 intéragissent, et expliquer comment les utiliser pour gérer les portées. À
 l'issue de ce chapitre, vous aurez de solides connaissances sur le système de
 modules et vous pourrez travailler avec les portées comme un pro !
+
+<!--
+[workspaces]: ch14-03-cargo-workspaces.html
+-->
 
 [workspaces]: ch14-03-cargo-workspaces.html
