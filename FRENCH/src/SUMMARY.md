@@ -27,7 +27,6 @@
     - [Le type slice](ch04-03-slices.md)
 
 - [Utiliser les structures pour structurer des données apparentées](ch05-00-structs.md)
-
     - [Définir et instancier des structures](ch05-01-defining-structs.md)
     - [Un exemple de programme qui utilise des structures](ch05-02-example-structs.md)
     - [La syntaxe des méthodes](ch05-03-method-syntax.md)
@@ -42,5 +41,13 @@
 
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
     - [Les paquets et les crates](ch07-01-packages-and-crates.md)
+    - [Définir des modules pour gérer la portée et la protection](ch07-02-defining-modules-to-control-scope-and-privacy.md)
+    - [Désigner un élément dans l'arborescence de modules](ch07-03-paths-for-referring-to-an-item-in-the-module-tree.md)
+    - [Importer des chemins dans la portée via le mot-clé `use`](ch07-04-bringing-paths-into-scope-with-the-use-keyword.md)
+    - [Séparer les modules dans différents fichiers](ch07-05-separating-modules-into-different-files.md)
+
+- [Les collections standard](ch08-00-common-collections.md)
+    - [Stocker des listes de valeurs avec des vecteurs](ch08-01-vectors.md)
+    - [Stocker du texte encodé en UTF-8 avec les Strings](ch08-02-strings.md)
 
     - [Les espaces de travail de cargo](ch14-03-cargo-workspaces.md)
