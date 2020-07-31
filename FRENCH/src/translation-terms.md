@@ -85,6 +85,7 @@ français.
 | garbage collector | ramasse-miettes | - |
 | generics | génériques / généricité | - |
 | generic type parameter | paramètre de type générique | - |
+| grapheme cluster | groupe de graphèmes  | - |
 | glob | global | opérateur |
 | global scope | portée globale | - |
 | guessing game | jeu de devinettes | - |

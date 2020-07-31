@@ -51,7 +51,7 @@ découvrir les expressions `if`. Dans le fichier *src/main.rs*, écrivez ceci :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-26-if-true/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-26-if-true/src/main.rs}}
 ```
 -->
 
@@ -103,12 +103,12 @@ Try running this code; you should see the following output:
 Essayez d'exécuter ce code ; vous verrez ceci :
 
 <!--
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-26-if-true/output.txt}}
 ```
 -->
 
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-26-if-true/output.txt}}
 ```
 
@@ -122,7 +122,7 @@ non vérifiée pour voir ce qui se passe :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-27-if-false/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-27-if-false/src/main.rs:here}}
 ```
 -->
 
@@ -137,12 +137,12 @@ Run the program again, and look at the output:
 Exécutez à nouveau le programme, et regardez le résultat :
 
 <!--
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-27-if-false/output.txt}}
 ```
 -->
 
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-27-if-false/output.txt}}
 ```
 
@@ -164,7 +164,7 @@ exemple, essayez d'exécuter le code suivant :
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/src/main.rs}}
 ```
 -->
 
@@ -180,12 +180,12 @@ error:
 La condition `if` vaut `3` cette fois, et Rust lève une erreur :
 
 <!--
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/output.txt}}
 ```
 -->
 
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/output.txt}}
 ```
 
@@ -214,7 +214,7 @@ par la suivante :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-29-if-not-equal-0/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-29-if-not-equal-0/src/main.rs}}
 ```
 -->
 
@@ -250,7 +250,7 @@ expression `else if`. Par exemple :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-30-else-if/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-30-else-if/src/main.rs}}
 ```
 -->
 
@@ -267,12 +267,12 @@ Ce programme peut choisir entre quatre chemins différents. Après l'avoir
 exécuté, vous devriez voir le résultat suivant :
 
 <!--
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-30-else-if/output.txt}}
 ```
 -->
 
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-30-else-if/output.txt}}
 ```
 
@@ -325,7 +325,7 @@ instruction `let`, comme dans l'encart 3-2.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-02/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/listing-03-02/src/main.rs}}
 ```
 -->
 
@@ -350,12 +350,12 @@ La variable `nombre` va avoir la valeur du résultat de l'expression `if`.
 Exécutez ce code pour découvrir ce qui va se passer :
 
 <!--
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/listing-03-02/output.txt}}
 ```
 -->
 
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/listing-03-02/output.txt}}
 ```
 
@@ -386,7 +386,7 @@ obtenir une erreur :
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-31-arms-must-return-same-type/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-31-arms-must-return-same-type/src/main.rs}}
 ```
 -->
 
@@ -405,12 +405,12 @@ branches `if` et `else` ont des types de valeurs qui ne sont pas compatibles, et
 Rust indique exactement où trouver le problème dans le programme :
 
 <!--
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-31-arms-must-return-same-type/output.txt}}
 ```
 -->
 
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-31-arms-must-return-same-type/output.txt}}
 ```
 
@@ -491,7 +491,7 @@ ceci :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-32-loop/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-32-loop/src/main.rs}}
 ```
 -->
 
@@ -521,7 +521,7 @@ CTRL-C
 -->
 
 <!--
-```text
+```console
 $ cargo run
    Compiling loops v0.1.0 (file:///projects/loops)
     Finished dev [unoptimized + debuginfo] target(s) in 0.29s
@@ -534,7 +534,7 @@ again!
 ```
 -->
 
-```text
+```console
 $ cargo run
    Compiling loops v0.1.0 (file:///projects/loops)
     Finished dev [unoptimized + debuginfo] target(s) in 0.29s
@@ -599,7 +599,7 @@ ci-dessous :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-33-return-value-from-loop/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-33-return-value-from-loop/src/main.rs}}
 ```
 -->
 
@@ -666,7 +666,7 @@ fois, et ensuite, après la boucle, il va afficher un message et se fermer.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-03/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/listing-03-03/src/main.rs}}
 ```
 -->
 
@@ -715,7 +715,7 @@ Vous pouvez utiliser la construction `while` pour itérer sur les
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-04/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/listing-03-04/src/main.rs}}
 ```
 -->
 
@@ -792,7 +792,7 @@ s'utilise comme dans le code de l'encart 3-5.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-05/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/listing-03-05/src/main.rs}}
 ```
 -->
 
@@ -869,7 +869,7 @@ méthode que nous n'avons pas encore vue, `rev`, qui inverse l'intervalle :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-34-for-range/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-34-for-range/src/main.rs}}
 ```
 -->
 

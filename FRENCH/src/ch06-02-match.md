@@ -53,7 +53,7 @@ centimes, comme ci-dessous dans l'encart 6-3.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-03/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/listing-06-03/src/main.rs:here}}
 ```
 -->
 
@@ -142,7 +142,7 @@ que la méthode est appellée avec une valeur `USACoin::Penny` mais va continuer
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-08-match-arm-multiple-lines/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/no-listing-08-match-arm-multiple-lines/src/main.rs:here}}
 ```
 -->
 
@@ -186,7 +186,7 @@ l'encart 6-4.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-04/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/listing-06-04/src/main.rs:here}}
 ```
 -->
 
@@ -229,7 +229,7 @@ cette branche, comme ceci :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-09-variable-in-pattern/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/no-listing-09-variable-in-pattern/src/main.rs:here}}
 ```
 -->
 
@@ -297,7 +297,7 @@ l'encart 6-5.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-05/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/listing-06-05/src/main.rs:here}}
 ```
 -->
 
@@ -325,7 +325,7 @@ Examinons la première exécution de `plus_un` en détail. Lorsque nous appellon
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-05/src/main.rs:first_arm}}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/listing-06-05/src/main.rs:first_arm}}
 ```
 -->
 
@@ -343,7 +343,7 @@ prochaine branche.
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-05/src/main.rs:second_arm}}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/listing-06-05/src/main.rs:second_arm}}
 ```
 -->
 
@@ -374,7 +374,7 @@ Maintenant, regardons le second appel à `plus_un` dans l'encart 6-5, où `x` va
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-05/src/main.rs:first_arm}}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/listing-06-05/src/main.rs:first_arm}}
 ```
 -->
 
@@ -423,7 +423,7 @@ version de notre fonction `plus_un` a un bogue et ne va pas se compiler :
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-10-non-exhaustive-match/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/no-listing-10-non-exhaustive-match/src/main.rs:here}}
 ```
 -->
 
@@ -442,12 +442,12 @@ Heureusement, c'est un bogue que Rust sait gérer. Si nous essayons de compiler
 ce code, nous allons obtenir cette erreur :
 
 <!--
-```text
+```console
 {{#include ../listings/ch06-enums-and-pattern-matching/no-listing-10-non-exhaustive-match/output.txt}}
 ```
 -->
 
-```text
+```console
 {{#include ../listings/ch06-enums-and-pattern-matching/no-listing-10-non-exhaustive-match/output.txt}}
 ```
 
@@ -490,7 +490,7 @@ n'avons pas à le faire : nous pouvons utiliser le motif spécial `_` :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-11-underscore-placeholder/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/no-listing-11-underscore-placeholder/src/main.rs:here}}
 ```
 -->
 
@@ -521,7 +521,7 @@ nous nous préoccupons uniquement *d'un seul* cas. Pour ce cas, Rust nous propos
 d'utiliser une autre structure, `if let`.
 
 <!--
-More about patterns, and matching can be found in [chapter 18][ch18-00-patterns].
+More about patterns and matching can be found in [chapter 18][ch18-00-patterns].
 -->
 
 Vous pouvez en apprendre plus sur les motifs et le filtrage par motif au

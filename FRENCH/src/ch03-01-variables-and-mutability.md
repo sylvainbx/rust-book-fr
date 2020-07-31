@@ -47,7 +47,7 @@ remplacez son code par le code suivant qui ne compile pas pour le moment :
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/src/main.rs}}
 ```
 -->
 
@@ -64,12 +64,12 @@ Sauvegardez et lancez le programme en utilisant `cargo run`. Vous devriez
 avoir un message d'erreur comme celui-ci :
 
 <!--
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/output.txt}}
 ```
 -->
 
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/output.txt}}
 ```
 
@@ -156,7 +156,7 @@ Par exemple, modifions *src/main.rs* ainsi :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-02-adding-mut/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-02-adding-mut/src/main.rs}}
 ```
 -->
 
@@ -171,18 +171,13 @@ When we run the program now, we get this:
 Lorsque nous exécutons le programme, nous obtenons :
 
 <!--
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-02-adding-mut/output.txt}}
 ```
 -->
 
-```text
-$ cargo run
-   Compiling variables v0.1.0 (file:///projects/variables)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.30 secs
-     Running `target/debug/variables`
-La valeur de x est : 5
-La valeur de x est : 6
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-02-adding-mut/output.txt}}
 ```
 
 <!--
@@ -360,7 +355,7 @@ mot-clé `let` comme ci-dessous :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-03-shadowing/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-03-shadowing/src/main.rs}}
 ```
 -->
 
@@ -384,12 +379,12 @@ pour donner à `x` la valeur finale de `12`. Lorsque nous exécutons ce programm
 nous obtenons ceci :
 
 <!--
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-03-shadowing/output.txt}}
 ```
 -->
 
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-03-shadowing/output.txt}}
 ```
 
@@ -425,7 +420,7 @@ des espaces, mais que nous voulons plutôt stocker cela sous forme de nombre :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-04-shadowing-can-change-types/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-04-shadowing-can-change-types/src/main.rs:here}}
 ```
 -->
 
@@ -452,7 +447,7 @@ simplement réutiliser le nom `espaces`. Cependant, si nous essayons d'utiliser
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/src/main.rs:here}}
 ```
 -->
 
@@ -467,12 +462,12 @@ The error says we’re not allowed to mutate a variable’s type:
 L'erreur indique que nous ne pouvons pas muter le type d'une variable :
 
 <!--
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/output.txt}}
 ```
 -->
 
-```text
+```console
 {{#include ../listings/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/output.txt}}
 ```
 
