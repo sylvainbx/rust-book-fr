@@ -8,17 +8,16 @@
 One increasingly popular approach to ensuring safe concurrency is *message
 passing*, where threads or actors communicate by sending each other messages
 containing data. Here’s the idea in a slogan from [the Go language
-documentation](http://golang.org/doc/effective_go.html): “Do not communicate by
-sharing memory; instead, share memory by communicating.”
+documentation](https://golang.org/doc/effective_go.html#concurrency): 
+“Do not communicate by sharing memory; instead, share memory by communicating.”
 -->
 
 Une approche de plus en plus populaire pour garantir la sécurité de la
 concurrence est l'*envoi de message*, avec lequel les tâches ou les acteurs
 communiquent en envoyant aux autres des messages contenant des données. Voici
-l'idée résumée, tirée d'un slogan provenant de
-[la documentation du langage Go](http://golang.org/doc/effective_go.html) :
-“Ne communiquez pas en partageant la mémoire ; partagez plutôt la mémoire en
-communiquant”.
+l'idée résumée, tirée d'un slogan provenant de [la documentation du langage
+Go](https://golang.org/doc/effective_go.html#concurrency) : “Ne communiquez pas
+en partageant la mémoire ; partagez plutôt la mémoire en communiquant”.
 
 <!--
 One major tool Rust has for accomplishing message-sending concurrency is the
@@ -93,20 +92,12 @@ canal.
 
 <!--
 ```rust,ignore,does_not_compile
-use std::sync::mpsc;
-
-fn main() {
-    let (tx, rx) = mpsc::channel();
-}
+{{#rustdoc_include ../listings-sources/ch16-fearless-concurrency/listing-16-06/src/main.rs}}
 ```
 -->
 
 ```rust,ignore,does_not_compile
-use std::sync::mpsc;
-
-fn main() {
-    let (tx, rx) = mpsc::channel();
-}
+{{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-06/src/main.rs}}
 ```
 
 <!--
@@ -182,32 +173,12 @@ instantané d'une tâche à une autre.
 
 <!--
 ```rust
-use std::thread;
-use std::sync::mpsc;
-
-fn main() {
-    let (tx, rx) = mpsc::channel();
-
-    thread::spawn(move || {
-        let val = String::from("hi");
-        tx.send(val).unwrap();
-    });
-}
+{{#rustdoc_include ../listings-sources/ch16-fearless-concurrency/listing-16-07/src/main.rs}}
 ```
 -->
 
 ```rust
-use std::thread;
-use std::sync::mpsc;
-
-fn main() {
-    let (tx, rx) = mpsc::channel();
-
-    thread::spawn(move || {
-        let valeur = String::from("salut");
-        tx.send(valeur).unwrap();
-    });
-}
+{{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-07/src/main.rs}}
 ```
 
 <!--
@@ -266,38 +237,12 @@ dans l'eau à la fin de la rivière, ou récupérer un message instantané.
 
 <!--
 ```rust
-use std::thread;
-use std::sync::mpsc;
-
-fn main() {
-    let (tx, rx) = mpsc::channel();
-
-    thread::spawn(move || {
-        let val = String::from("hi");
-        tx.send(val).unwrap();
-    });
-
-    let received = rx.recv().unwrap();
-    println!("Got: {}", received);
-}
+{{#rustdoc_include ../listings-sources/ch16-fearless-concurrency/listing-16-08/src/main.rs}}
 ```
 -->
 
 ```rust
-use std::thread;
-use std::sync::mpsc;
-
-fn main() {
-    let (tx, rx) = mpsc::channel();
-
-    thread::spawn(move || {
-        let valeur = String::from("salut");
-        tx.send(valeur).unwrap();
-    });
-
-    let recu = rx.recv().unwrap();
-    println!("On a reçu : {}", recu);
-}
+{{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-08/src/main.rs}}
 ```
 
 <!--
@@ -362,6 +307,12 @@ Lorsque nous exécutons le code de l'encart 16-8, nous allons voir la valeur
 s'afficher grâce à la tâche principale :
 
 <!--
+<!-- Not extracting output because changes to this output aren't significant;
+the changes are likely to be due to the threads running differently rather than
+changes in the compiler -- >
+-->
+
+<!--
 ```text
 Got: hi
 ```
@@ -410,40 +361,12 @@ pour découvrir pourquoi ce code n'est pas autorisé :
 
 <!--
 ```rust,ignore,does_not_compile
-use std::thread;
-use std::sync::mpsc;
-
-fn main() {
-    let (tx, rx) = mpsc::channel();
-
-    thread::spawn(move || {
-        let val = String::from("hi");
-        tx.send(val).unwrap();
-        println!("val is {}", val);
-    });
-
-    let received = rx.recv().unwrap();
-    println!("Got: {}", received);
-}
+{{#rustdoc_include ../listings-sources/ch16-fearless-concurrency/listing-16-09/src/main.rs}}
 ```
 -->
 
 ```rust,ignore,does_not_compile
-use std::thread;
-use std::sync::mpsc;
-
-fn main() {
-    let (tx, rx) = mpsc::channel();
-
-    thread::spawn(move || {
-        let valeur = String::from("salut");
-        tx.send(valeur).unwrap();
-        println!("valeur vaut {}", valeur);
-    });
-
-    let recu = rx.recv().unwrap();
-    println!("On a reçu : {}", recu);
-}
+{{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-09/src/main.rs}}
 ```
 
 <!--
@@ -472,31 +395,13 @@ inattendus à cause de données incohérentes ou manquantes. Toutefois, Rust nou
 affiche une erreur si nous essayons de compiler le code de l'encart 16-9 :
 
 <!--
-```text
-error[E0382]: use of moved value: `val`
-  -- > src/main.rs:10:31
-   |
-9  |         tx.send(val).unwrap();
-   |                 --- value moved here
-10 |         println!("val is {}", val);
-   |                               ^^^ value used here after move
-   |
-   = note: move occurs because `val` has type `std::string::String`, which does
-not implement the `Copy` trait
+```console
+{{#include ../listings-sources/ch16-fearless-concurrency/listing-16-09/output.txt}}
 ```
 -->
 
-```text
-error[E0382]: use of moved value: `valeur`
-  -- > src/main.rs:10:31
-   |
-9  |         tx.send(valeur).unwrap();
-   |                 ------ value moved here
-10 |         println!("valeur vaut {}", valeur);
-   |                                    ^^^^^^ value used here after move
-   |
-   = note: move occurs because `valeur` has type `std::string::String`, which does
-not implement the `Copy` trait
+```console
+{{#include ../listings/ch16-fearless-concurrency/listing-16-09/output.txt}}
 ```
 
 <!--
@@ -541,61 +446,12 @@ entre chaque message.
 
 <!--
 ```rust
-use std::thread;
-use std::sync::mpsc;
-use std::time::Duration;
-
-fn main() {
-    let (tx, rx) = mpsc::channel();
-
-    thread::spawn(move || {
-        let vals = vec![
-            String::from("hi"),
-            String::from("from"),
-            String::from("the"),
-            String::from("thread"),
-        ];
-
-        for val in vals {
-            tx.send(val).unwrap();
-            thread::sleep(Duration::from_secs(1));
-        }
-    });
-
-    for received in rx {
-        println!("Got: {}", received);
-    }
-}
+{{#rustdoc_include ../listings-sources/ch16-fearless-concurrency/listing-16-10/src/main.rs}}
 ```
 -->
 
 ```rust
-use std::thread;
-use std::sync::mpsc;
-use std::time::Duration;
-
-fn main() {
-    let (tx, rx) = mpsc::channel();
-
-    thread::spawn(move || {
-        let vals = vec![
-            String::from("salutations"),
-            String::from("à"),
-            String::from("partir"),
-            String::from("de la"),
-            String::from("nouvelle tâche"),
-        ];
-
-        for valeur in valeurs {
-            tx.send(valeur).unwrap();
-            thread::sleep(Duration::from_secs(1));
-        }
-    });
-
-    for recu in rx {
-        println!("On a reçu : {}", recu);
-    }
-}
+{{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-10/src/main.rs}}
 ```
 
 <!--
@@ -637,6 +493,12 @@ Lorsque nous exécutons le code de l'encart 16-10, nous devrions voir la sortie
 suivante, avec une pause de 1 seconde entre chaque ligne :
 
 <!--
+<!-- Not extracting output because changes to this output aren't significant;
+the changes are likely to be due to the threads running differently rather than
+changes in the compiler -- >
+-->
+
+<!--
 ```text
 Got: hi
 Got: from
@@ -647,8 +509,7 @@ Got: thread
 
 ```text
 On a reçu : salutations
-On a reçu : à
-On a reçu : partir
+On a reçu : à partir
 On a reçu : de la
 On a reçu : nouvelle tâche
 ```
@@ -690,99 +551,12 @@ valeurs au même récepteur. Nous pouvons faire ceci en clonant la partie
 
 <!--
 ```rust
-# use std::thread;
-# use std::sync::mpsc;
-# use std::time::Duration;
-#
-# fn main() {
-// --snip--
-
-let (tx, rx) = mpsc::channel();
-
-let tx1 = mpsc::Sender::clone(&tx);
-thread::spawn(move || {
-    let vals = vec![
-        String::from("hi"),
-        String::from("from"),
-        String::from("the"),
-        String::from("thread"),
-    ];
-
-    for val in vals {
-        tx1.send(val).unwrap();
-        thread::sleep(Duration::from_secs(1));
-    }
-});
-
-thread::spawn(move || {
-    let vals = vec![
-        String::from("more"),
-        String::from("messages"),
-        String::from("for"),
-        String::from("you"),
-    ];
-
-    for val in vals {
-        tx.send(val).unwrap();
-        thread::sleep(Duration::from_secs(1));
-    }
-});
-
-for received in rx {
-    println!("Got: {}", received);
-}
-
-// --snip--
-# }
+{{#rustdoc_include ../listings-sources/ch16-fearless-concurrency/listing-16-11/src/main.rs:here}}
 ```
 -->
 
 ```rust
-# use std::thread;
-# use std::sync::mpsc;
-# use std::time::Duration;
-#
-# fn main() {
-// -- partie masquée ici --
-
-let (tx, rx) = mpsc::channel();
-
-let tx1 = mpsc::Sender::clone(&tx);
-thread::spawn(move || {
-    let valeurs = vec![
-        String::from("salutations"),
-        String::from("à"),
-        String::from("partir"),
-        String::from("de la"),
-        String::from("nouvelle tâche"),
-    ];
-
-    for valeur in valeurs {
-        tx1.send(valeur).unwrap();
-        thread::sleep(Duration::from_secs(1));
-    }
-});
-
-thread::spawn(move || {
-    let valeurs = vec![
-        String::from("encore plus"),
-        String::from("de messages"),
-        String::from("pour"),
-        String::from("vous"),
-    ];
-
-    for valeur in valeurs {
-        tx.send(valeur).unwrap();
-        thread::sleep(Duration::from_secs(1));
-    }
-});
-
-for recu in rx {
-    println!("On a reçu : {}", received);
-}
-
-// -- partie masquée ici --
-# }
+{{#rustdoc_include ../listings/ch16-fearless-concurrency/listing-16-11/src/main.rs:here}}
 ```
 
 <!--
@@ -814,6 +588,12 @@ When you run the code, your output should look something like this:
 Lorsque vous exécuterez ce code, votre sortie devrait ressembler à ceci :
 
 <!--
+<!-- Not extracting output because changes to this output aren't significant;
+the changes are likely to be due to the threads running differently rather than
+changes in the compiler -- >
+-->
+
+<!--
 ```text
 Got: hi
 Got: more
@@ -829,10 +609,9 @@ Got: you
 ```text
 On a reçu : salutations
 On a reçu : encore plus
-On a reçu : à
 On a reçu : de messages
 On a reçu : pour
-On a reçu : partir
+On a reçu : à partir
 On a reçu : de la
 On a reçu : nouvelle tâche
 On a reçu : pour vous
