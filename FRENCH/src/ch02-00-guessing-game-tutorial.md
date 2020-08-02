@@ -1004,12 +1004,13 @@ avoir ajouté la *crate* `rand` comme dépendance</span>
 
 <!--
 You may see different version numbers (but they will all be compatible with
-the code, thanks to SemVer!), and the lines may be in a different order.
+the code, thanks to SemVer!), different lines (depending on the operating system), and the lines may be in a different order.
 -->
 
 Il est possible que vous ne voyiez pas exactement les mêmes numéros de version,
 (mais ils seront compatibles avec votre code, grâce au *versionnage
-sémantique* !), et les lignes ne seront pas forcément affichées dans le même
+sémantique* !), différentes lignes (en fonction de votre système
+d'exploitation), et les lignes ne seront pas forcément affichées dans le même
 ordre.
 
 <!--
