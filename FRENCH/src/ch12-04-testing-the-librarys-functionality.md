@@ -106,7 +106,7 @@ L'encart 12-15 montre ce test, qui ne se compile pas encore.
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch12-an-io-project/listing-12-15/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch12-an-io-project/listing-12-15/src/lib.rs:here}}
 ```
 -->
 
@@ -158,7 +158,7 @@ qui contient la ligne `"sécurité, rapidité, productivité."`
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch12-an-io-project/listing-12-16/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch12-an-io-project/listing-12-16/src/lib.rs:here}}
 ```
 -->
 
@@ -219,7 +219,7 @@ compiler cette fonction, nous allons obtenir cette erreur :
 
 <!--
 ```console
-{{#include ../listings/ch12-an-io-project/output-only-02-missing-lifetimes/output.txt}}
+{{#include ../listings-sources/ch12-an-io-project/output-only-02-missing-lifetimes/output.txt}}
 ```
 -->
 
@@ -262,7 +262,7 @@ Maintenant, exécutons le test :
 
 <!--
 ```console
-{{#include ../listings/ch12-an-io-project/listing-12-16/output.txt}}
+{{#include ../listings-sources/ch12-an-io-project/listing-12-16/output.txt}}
 ```
 -->
 
@@ -337,7 +337,7 @@ l'encart 12-17. Notez que cela ne se compile pas encore.
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch12-an-io-project/listing-12-17/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch12-an-io-project/listing-12-17/src/lib.rs:here}}
 ```
 -->
 
@@ -396,7 +396,7 @@ Notez qu'ici non plus nous ne pouvons pas encore compiler.
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch12-an-io-project/listing-12-18/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch12-an-io-project/listing-12-18/src/lib.rs:here}}
 ```
 -->
 
@@ -439,7 +439,7 @@ le vecteur, comme dans l'encart 12-19 :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch12-an-io-project/listing-12-19/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch12-an-io-project/listing-12-19/src/lib.rs:here}}
 ```
 -->
 
@@ -479,7 +479,7 @@ contiennent `recherche`, et notre test devrait réussir. Exécutons le test :
 
 <!--
 ```console
-{{#include ../listings/ch12-an-io-project/listing-12-19/output.txt}}
+{{#include ../listings-sources/ch12-an-io-project/listing-12-19/output.txt}}
 ```
 -->
 
@@ -537,7 +537,7 @@ en lisant le fichier. Ensuite, `run` devra afficher chaque ligne retournée par
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch12-an-io-project/no-listing-02-using-search-in-run/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch12-an-io-project/no-listing-02-using-search-in-run/src/lib.rs:here}}
 ```
 -->
 
@@ -563,7 +563,7 @@ d'Emily Dickinson, “frog” :
 
 <!--
 ```console
-{{#include ../listings/ch12-an-io-project/no-listing-02-using-search-in-run/output.txt}}
+{{#include ../listings-sources/ch12-an-io-project/no-listing-02-using-search-in-run/output.txt}}
 ```
 -->
 
@@ -580,7 +580,7 @@ comme “body” :
 
 <!--
 ```console
-{{#include ../listings/ch12-an-io-project/output-only-03-multiple-matches/output.txt}}
+{{#include ../listings-sources/ch12-an-io-project/output-only-03-multiple-matches/output.txt}}
 ```
 -->
 
@@ -598,7 +598,7 @@ un mot qui n'est nulle part dans le poème, comme “monomorphization” :
 
 <!--
 ```console
-{{#include ../listings/ch12-an-io-project/output-only-04-no-matches/output.txt}}
+{{#include ../listings-sources/ch12-an-io-project/output-only-04-no-matches/output.txt}}
 ```
 -->
 
