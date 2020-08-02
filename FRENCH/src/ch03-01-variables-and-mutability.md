@@ -47,7 +47,7 @@ remplacez son code par le code suivant qui ne compile pas pour le moment :
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/src/main.rs}}
 ```
 -->
 
@@ -65,7 +65,7 @@ avoir un message d'erreur comme celui-ci :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/output.txt}}
 ```
 -->
 
@@ -156,7 +156,7 @@ Par exemple, modifions *src/main.rs* ainsi :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-02-adding-mut/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-02-adding-mut/src/main.rs}}
 ```
 -->
 
@@ -172,7 +172,7 @@ Lorsque nous exécutons le programme, nous obtenons :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-02-adding-mut/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-02-adding-mut/output.txt}}
 ```
 -->
 
@@ -355,7 +355,7 @@ mot-clé `let` comme ci-dessous :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-03-shadowing/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-03-shadowing/src/main.rs}}
 ```
 -->
 
@@ -380,7 +380,7 @@ nous obtenons ceci :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-03-shadowing/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-03-shadowing/output.txt}}
 ```
 -->
 
@@ -420,12 +420,12 @@ des espaces, mais que nous voulons plutôt stocker cela sous forme de nombre :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-04-shadowing-can-change-types/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-04-shadowing-can-change-types/src/main.rs:here}}
 ```
 -->
 
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-04-shadowing-can-change-types/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-04-shadowing-can-change-types/src/main.rs:here}}
 ```
 
 <!--
@@ -447,7 +447,7 @@ simplement réutiliser le nom `espaces`. Cependant, si nous essayons d'utiliser
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/src/main.rs:here}}
 ```
 -->
 
@@ -463,7 +463,7 @@ L'erreur indique que nous ne pouvons pas muter le type d'une variable :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/output.txt}}
 ```
 -->
 
