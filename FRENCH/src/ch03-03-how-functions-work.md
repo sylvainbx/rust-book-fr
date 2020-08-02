@@ -35,7 +35,7 @@ qui est un exemple de définition de fonction :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-16-functions/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-16-functions/src/main.rs}}
 ```
 -->
 
@@ -82,7 +82,7 @@ apprendre plus sur les fonctions. Ajoutez l'exemple `une_autre_fonction` dans le
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-16-functions/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-16-functions/output.txt}}
 ```
 -->
 
@@ -141,7 +141,7 @@ avec Rust :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-17-functions-with-parameters/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-17-functions-with-parameters/src/main.rs}}
 ```
 -->
 
@@ -157,7 +157,7 @@ En exécutant ce programme, vous devriez obtenir ceci :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-17-functions-with-parameters/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-17-functions-with-parameters/output.txt}}
 ```
 -->
 
@@ -206,7 +206,7 @@ paramètres avec des virgules, comme ceci :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-18-functions-with-multiple-parameters/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-18-functions-with-multiple-parameters/src/main.rs}}
 ```
 -->
 
@@ -238,7 +238,7 @@ et lancez-le en utilisant `cargo run` :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-18-functions-with-multiple-parameters/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-18-functions-with-multiple-parameters/output.txt}}
 ```
 -->
 
@@ -305,7 +305,7 @@ une instruction. Dans l'encart 3-1, `let y = 6;` est une instruction.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-01/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/listing-03-01/src/main.rs}}
 ```
 -->
 
@@ -347,7 +347,7 @@ essaye de le faire, car vous obtiendrez une erreur :
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-19-statements-vs-expressions/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-19-statements-vs-expressions/src/main.rs}}
 ```
 -->
 
@@ -364,7 +364,7 @@ ceci :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-19-statements-vs-expressions/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-19-statements-vs-expressions/output.txt}}
 ```
 -->
 
@@ -413,7 +413,7 @@ est une expression, par exemple :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-20-blocks-are-expressions/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-20-blocks-are-expressions/src/main.rs}}
 ```
 -->
 
@@ -494,7 +494,7 @@ Voici un exemple d'une fonction qui retourne une valeur :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-21-function-return-values/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-21-function-return-values/src/main.rs}}
 ```
 -->
 
@@ -517,7 +517,7 @@ devrait ressembler à ceci :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-21-function-return-values/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-21-function-return-values/output.txt}}
 ```
 -->
 
@@ -573,7 +573,7 @@ Regardons un autre exemple :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-22-function-parameter-and-return/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-22-function-parameter-and-return/src/main.rs}}
 ```
 -->
 
@@ -599,7 +599,7 @@ d'une expression à une instruction, nous obtenons une erreur.
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-23-statements-dont-return-values/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-23-statements-dont-return-values/src/main.rs}}
 ```
 -->
 
@@ -615,7 +615,7 @@ Compiler ce code va produire une erreur, comme ci-dessous :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-23-statements-dont-return-values/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-23-statements-dont-return-values/output.txt}}
 ```
 -->
 
