@@ -81,7 +81,7 @@ décrit ce comportement.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-12/src/lib.rs}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-12/src/lib.rs}}
 ```
 -->
 
@@ -164,7 +164,7 @@ tweet, en supposant que le contenu du tweet est déjà limité à 280 caractère
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-13/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-13/src/lib.rs:here}}
 ```
 -->
 
@@ -212,7 +212,7 @@ classiques, comme ceci :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-01-calling-trait-method/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-01-calling-trait-method/src/main.rs:here}}
 ```
 -->
 
@@ -334,7 +334,7 @@ signature de la méthode, comme nous l'avons fait dans l'encart 10-12.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-14/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-14/src/lib.rs:here}}
 ```
 -->
 
@@ -375,7 +375,7 @@ pouvons toujours appeler la méthode `resumer` sur une instance de
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-02-calling-default-impl/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-02-calling-default-impl/src/main.rs:here}}
 ```
 -->
 
@@ -424,7 +424,7 @@ méthode `resumer` qui a une implémentation par défaut qui appelle la méthode
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-03-default-impl-calls-other-methods/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-03-default-impl-calls-other-methods/src/lib.rs:here}}
 ```
 -->
 
@@ -442,7 +442,7 @@ de définir `resumer_auteur` lorsqu'on implémente le trait sur le type :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-03-default-impl-calls-other-methods/src/lib.rs:impl}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-03-default-impl-calls-other-methods/src/lib.rs:impl}}
 ```
 -->
 
@@ -467,7 +467,7 @@ supplémentaire.
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-03-default-impl-calls-other-methods/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-03-default-impl-calls-other-methods/src/main.rs:here}}
 ```
 -->
 
@@ -520,7 +520,7 @@ la syntaxe `impl Trait`, comme ceci :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-04-traits-as-parameters/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-04-traits-as-parameters/src/lib.rs:here}}
 ```
 -->
 
@@ -776,7 +776,7 @@ de retourner une valeur d'un type qui implémente un trait, comme ci-dessous :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-05-returning-impl-trait/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-05-returning-impl-trait/src/lib.rs:here}}
 ```
 -->
 
@@ -828,7 +828,7 @@ fonctionner :
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-06-impl-trait-returns-one-type/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-06-impl-trait-returns-one-type/src/lib.rs:here}}
 ```
 -->
 
@@ -873,7 +873,7 @@ lancer ce code, nous avions l'erreur suivante :
 
 <!--
 ```text
-{{#include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-05/output.txt}}
+{{#include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-05/output.txt}}
 ```
 -->
 
@@ -903,7 +903,7 @@ ceci :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-07-fixing-listing-10-05/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-07-fixing-listing-10-05/src/main.rs:here}}
 ```
 -->
 
@@ -920,7 +920,7 @@ d'erreurs différent :
 
 <!--
 ```console
-{{#include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-07-fixing-listing-10-05/output.txt}}
+{{#include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-07-fixing-listing-10-05/output.txt}}
 ```
 -->
 
@@ -974,7 +974,7 @@ fonction implémente les traits `PartialOrd` *et* `Copy`, comme le font `i32` et
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-15/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-15/src/main.rs}}
 ```
 -->
 
@@ -1057,7 +1057,7 @@ implémente le trait `PartialOrd` qui active la comparaison *et* le trait
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-16/src/lib.rs}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-16/src/lib.rs}}
 ```
 -->
 
