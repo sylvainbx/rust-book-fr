@@ -54,7 +54,7 @@ slice.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-04/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-04/src/main.rs:here}}
 ```
 -->
 
@@ -162,7 +162,7 @@ encore, mais nous allons y remédier plus tard dans ce chapitre.
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-05/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-05/src/main.rs}}
 ```
 -->
 
@@ -188,7 +188,7 @@ suivante :
 
 <!--
 ```console
-{{#include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-05/output.txt}}
+{{#include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-05/output.txt}}
 ```
 -->
 
@@ -247,7 +247,7 @@ valeurs de coordonnées `x` et `y` de n'importe quel type.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-06/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-06/src/main.rs}}
 ```
 -->
 
@@ -300,7 +300,7 @@ compiler.
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-07/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-07/src/main.rs}}
 ```
 -->
 
@@ -331,7 +331,7 @@ type comme celle-ci :
 
 <!--
 ```console
-{{#include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-07/output.txt}}
+{{#include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-07/output.txt}}
 ```
 -->
 
@@ -360,7 +360,7 @@ et `U` où `x` est de type `T` et `y` est de type `U`.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-08/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-08/src/main.rs}}
 ```
 -->
 
@@ -523,7 +523,7 @@ implémentée sur cette dernière.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-09/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-09/src/main.rs}}
 ```
 -->
 
@@ -581,7 +581,7 @@ nous n'avons pas besoin de déclarer un type après `impl`.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-10/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-10/src/main.rs:here}}
 ```
 -->
 
@@ -641,7 +641,7 @@ instance de `Point` avec la valeur de `x` provenant du `self` `Point` (de type
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-11/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-11/src/main.rs}}
 ```
 -->
 
