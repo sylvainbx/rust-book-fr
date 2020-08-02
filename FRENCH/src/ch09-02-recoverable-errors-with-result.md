@@ -89,7 +89,7 @@ peut échouer. Dans l'encart 9-3 nous essayons d'ouvrir un fichier :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch09-error-handling/listing-09-03/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch09-error-handling/listing-09-03/src/main.rs}}
 ```
 -->
 
@@ -126,7 +126,7 @@ ensuite *quel est le type* de `f`. Essayons cela ! Nous savons que le retour de
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch09-error-handling/no-listing-02-ask-compiler-for-type/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch09-error-handling/no-listing-02-ask-compiler-for-type/src/main.rs:here}}
 ```
 -->
 
@@ -142,7 +142,7 @@ La compilation nous donne maintenant le résultat suivant :
 
 <!--
 ```console
-{{#include ../listings/ch09-error-handling/no-listing-02-ask-compiler-for-type/output.txt}}
+{{#include ../listings-sources/ch09-error-handling/no-listing-02-ask-compiler-for-type/output.txt}}
 ```
 -->
 
@@ -213,7 +213,7 @@ avons vu au chapitre 6.
 
 <!--
 ```rust,should_panic
-{{#rustdoc_include ../listings/ch09-error-handling/listing-09-04/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch09-error-handling/listing-09-04/src/main.rs}}
 ```
 -->
 
@@ -267,7 +267,7 @@ suivante suite à l'appel de la macro `panic!` :
 
 <!--
 ```text
-{{#include ../listings/ch09-error-handling/listing-09-04/output.txt}}
+{{#include ../listings-sources/ch09-error-handling/listing-09-04/output.txt}}
 ```
 -->
 
@@ -321,7 +321,7 @@ tests to fail lol -- >
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch09-error-handling/listing-09-05/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch09-error-handling/listing-09-05/src/main.rs}}
 ```
 -->
 
@@ -395,7 +395,7 @@ Rustacé plus habitué écrira ce code plutôt que celui de l'encart 9-5 :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch09-error-handling/no-listing-03-closures/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch09-error-handling/no-listing-03-closures/src/main.rs}}
 ```
 -->
 
@@ -451,7 +451,7 @@ l'expression `match` que nous avons écrit dans l'encart 9-4. Si la valeur de
 
 <!--
 ```rust,should_panic
-{{#rustdoc_include ../listings/ch09-error-handling/no-listing-04-unwrap/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch09-error-handling/no-listing-04-unwrap/src/main.rs}}
 ```
 -->
 
@@ -502,7 +502,7 @@ est la suivante :
 
 <!--
 ```rust,should_panic
-{{#rustdoc_include ../listings/ch09-error-handling/no-listing-05-expect/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch09-error-handling/no-listing-05-expect/src/main.rs}}
 ```
 -->
 
@@ -595,7 +595,7 @@ don't want to include it for rustdoc testing purposes. -- >
 
 <!--
 ```rust
-{{#include ../listings/ch09-error-handling/listing-09-06/src/main.rs:here}}
+{{#include ../listings-sources/ch09-error-handling/listing-09-06/src/main.rs:here}}
 ```
 -->
 
@@ -749,7 +749,7 @@ don't want to include it for rustdoc testing purposes. -- >
 
 <!--
 ```rust
-{{#include ../listings/ch09-error-handling/listing-09-07/src/main.rs:here}}
+{{#include ../listings-sources/ch09-error-handling/listing-09-07/src/main.rs:here}}
 ```
 -->
 
@@ -848,7 +848,7 @@ don't want to include it for rustdoc testing purposes. -- >
 
 <!--
 ```rust
-{{#include ../listings/ch09-error-handling/listing-09-08/src/main.rs:here}}
+{{#include ../listings-sources/ch09-error-handling/listing-09-08/src/main.rs:here}}
 ```
 -->
 
@@ -907,7 +907,7 @@ don't want to include it for rustdoc testing purposes. -- >
 
 <!--
 ```rust
-{{#include ../listings/ch09-error-handling/listing-09-09/src/main.rs:here}}
+{{#include ../listings-sources/ch09-error-handling/listing-09-09/src/main.rs:here}}
 ```
 -->
 
@@ -970,7 +970,7 @@ Voyons ce que ce passe si nous utilisons l'opérateur `?` dans la fonction
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch09-error-handling/no-listing-06-question-mark-in-main/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch09-error-handling/no-listing-06-question-mark-in-main/src/main.rs}}
 ```
 -->
 
@@ -986,7 +986,7 @@ Lorsque nous compilons ce code, nous obtenons le message d'erreur suivant :
 
 <!--
 ```console
-{{#include ../listings/ch09-error-handling/no-listing-06-question-mark-in-main/output.txt}}
+{{#include ../listings-sources/ch09-error-handling/no-listing-06-question-mark-in-main/output.txt}}
 ```
 -->
 
@@ -1029,7 +1029,7 @@ ci-dessous :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch09-error-handling/no-listing-07-main-returning-result/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch09-error-handling/no-listing-07-main-returning-result/src/main.rs}}
 ```
 -->
 
