@@ -57,7 +57,7 @@ déterminer quel type nous souhaitons utiliser :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/output-only-01-no-type-annotations/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/output-only-01-no-type-annotations/output.txt}}
 ```
 -->
 
@@ -851,7 +851,7 @@ Exécuter ce code en utilisant `cargo run` va donner le résultat suivant :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-15-invalid-array-access/output.txt}}
 ```
 -->
 
