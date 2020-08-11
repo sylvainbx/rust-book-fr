@@ -29,7 +29,7 @@ impl Resumable for Tweet {
 }
 
 // ANCHOR: here
-pub fn notifier(element: impl Resumable) {
+pub fn notifier(element: &impl Resumable) {
     println!("Flash-info ! {}", element.resumer());
 }
 // ANCHOR_END: here
