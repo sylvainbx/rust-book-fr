@@ -58,6 +58,7 @@ jobs:
       run: bash ci/validate.sh
     - name: Check for broken links
       run: |
+        cd FRENCH && mdbook build && cd ..
         curl -sSLo linkcheck.sh \
           https://raw.githubusercontent.com/rust-lang/rust/master/src/tools/linkchecker/linkcheck.sh
         # Cannot use --all here because of the generated redirect pages aren't available.
