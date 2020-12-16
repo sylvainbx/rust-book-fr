@@ -52,7 +52,7 @@ of detail you have to keep in your head.
 -->
 
 En plus de regrouper des fonctionnalités, les modules vous permettent
-d'encapsuler les détails de l'implémentation d'une opération : vous pouvez
+d'encapsuler les détails de l'implémentation d'une opération : vous pouvez
 écrire du code puis l'utiliser comme une abstraction à travers l'interface de
 programmation publique (API) du code sans se soucier de connaître les détails de
 son implémentation. La façon dont vous écrivez votre code définit quelles
@@ -91,7 +91,7 @@ Rust a de nombreuses fonctionnalités qui vous permettent de gérer l'organisati
 de votre code, grâce à ce que la communauté Rust appelle le *système de
 modules*. Ce système définit quels sont les éléments qui sont accessibles depuis
 l'extérieur de la bibliothèque (notion de privé ou public), ainsi que leur
-portée. Ces fonctionnalités comprennent :
+portée. Ces fonctionnalités comprennent :
 
 <!--
 * **Packages:** A Cargo feature that lets you build, test, and share crates
