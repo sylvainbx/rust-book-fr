@@ -625,7 +625,7 @@ a perfect time to discuss error handling. We’ll do that next!
 
 Nous nous lançons dans des programmes de plus en plus complexes dans lesquels
 les opérations peuvent échouer, c'est donc le moment idéal pour voir comment
-bien gérer les erreurs. C'est que nous allons faire au prochain chapitre !
+bien gérer les erreurs. C'est ce que nous allons faire au prochain chapitre !
 
 <!--
 [iterators]: ch13-02-iterators.html
