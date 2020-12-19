@@ -950,14 +950,14 @@ The `?` operator can be used in functions that have a return type of
 `Result`, because it is defined to work in the same way as the `match`
 expression we defined in Listing 9-6. The part of the `match` that requires a
 return type of `Result` is `return Err(e)`, so the return type of the function
-can be a `Result` to be compatible with this `return`.
+has to be a `Result` to be compatible with this `return`.
 -->
 
 L'opérateur `?` peut être utilisé dans des fonctions qui ont un type de retour
 `Result`, car il est conçu pour fonctionner de la même manière que l'expression
 `match` que nous avons utilisé dans l'encart 9-6. La partie du `match` qui
 nécessite le type de retour `Result` est `return Err(e)`, donc le type de retour
-de cette fonction peut être `Result` pour être compatible avec ce `return`.
+de cette fonction doit être un `Result` pour être compatible avec ce `return`.
 
 <!--
 Let’s look at what happens if we use the `?` operator in the `main` function,
