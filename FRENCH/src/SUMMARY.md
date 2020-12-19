@@ -53,3 +53,4 @@
 
 - [La gestion des erreurs](ch09-00-error-handling.md)
     - [Les erreurs irrécupérables avec `panic!`](ch09-01-unrecoverable-errors-with-panic.md)
+    - [Des erreurs récupérables avec `Result`](ch09-02-recoverable-errors-with-result.md)
