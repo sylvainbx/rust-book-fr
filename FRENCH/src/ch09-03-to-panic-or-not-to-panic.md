@@ -511,7 +511,7 @@ the `Option` and `Result` enums, we’ll talk about how generics work and how yo
 can use them in your code.
 -->
 
-Maintenant que vous avez vu les pratiques utiles dont la bibliothèque standard
-utilise les énumérations génériques `Option` et `Result`, nous allons voir
-comment les génériques fonctionnent et comment vous pouvez les utiliser dans
-votre code.
+Maintenant que vous avez vu les pratiques utiles suivies par la bibliothèque
+standard, comme les énumérations génériques `Option` et `Result`, nous allons
+voir comment les génériques fonctionnent et comment vous pouvez les utiliser
+dans votre code.
