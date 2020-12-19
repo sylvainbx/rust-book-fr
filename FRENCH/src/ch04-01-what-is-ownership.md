@@ -280,7 +280,7 @@ est en vigueur :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-01/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-01/src/main.rs:here}}
 ```
 -->
 
@@ -416,7 +416,7 @@ Ce type de chaîne de caractères *peut* être mutable :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-01-can-mutate-string/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/no-listing-01-can-mutate-string/src/main.rs:here}}
 ```
 -->
 
@@ -524,7 +524,7 @@ de chaîne de caractères :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-02-string-scope/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/no-listing-02-string-scope/src/main.rs:here}}
 ```
 -->
 
@@ -588,7 +588,7 @@ manières en Rust. Regardons un exemple avec un entier dans l'encart 4-2 :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-02/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-02/src/main.rs:here}}
 ```
 -->
 
@@ -626,7 +626,7 @@ Maintenant, essayons une nouvelle version avec `String` :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-03-string-move/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/no-listing-03-string-move/src/main.rs:here}}
 ```
 -->
 
@@ -788,7 +788,7 @@ cela ne va pas fonctionner :
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-04-cant-use-after-move/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/no-listing-04-cant-use-after-move/src/main.rs:here}}
 ```
 -->
 
@@ -806,7 +806,7 @@ référence qui n'est plus en vigueur :
 
 <!--
 ```console
-{{#include ../listings/ch04-understanding-ownership/no-listing-04-cant-use-after-move/output.txt}}
+{{#include ../listings-sources/ch04-understanding-ownership/no-listing-04-cant-use-after-move/output.txt}}
 ```
 -->
 
@@ -894,7 +894,7 @@ Voici un exemple d'utilisation de la méthode `clone` :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-05-clone/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/no-listing-05-clone/src/main.rs:here}}
 ```
 -->
 
@@ -927,17 +927,17 @@ passe quelque chose de différent.
 #### Données uniquement sur la pile : la copie
 
 <!--
-There’s another wrinkle we haven’t talked about yet. This code using integers,
-part of which was shown in Listing 4-2, works and is valid:
+There’s another wrinkle we haven’t talked about yet. This code using integers –
+part of which was shown in Listing 4-2 – works and is valid:
 -->
 
 Il y a un autre détail dont on n'a pas encore parlé. Le code suivant utilise
-des entiers, et on en a vu une partie dans l'encart 4-2 ; il fonctionne et
+des entiers - on en a vu une partie dans l'encart 4-2 - il fonctionne et
 est correct :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-06-copy/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/no-listing-06-copy/src/main.rs:here}}
 ```
 -->
 
@@ -974,54 +974,57 @@ et on peut s'en passer.
 <!--
 Rust has a special annotation called the `Copy` trait that we can place on
 types like integers that are stored on the stack (we’ll talk more about traits
-in Chapter 10). If a type has the `Copy` trait, an older variable is still
-usable after assignment. Rust won’t let us annotate a type with the `Copy`
-trait if the type, or any of its parts, has implemented the `Drop` trait. If
-the type needs something special to happen when the value goes out of scope and
-we add the `Copy` annotation to that type, we’ll get a compile-time error. To
-learn about how to add the `Copy` annotation to your type, see [“Derivable
-Traits”][derivable-traits]<!-- ignore -- > in Appendix C.
+in Chapter 10). If a type implements the `Copy` trait, an older variable is
+still usable after assignment. Rust won’t let us annotate a type with the
+`Copy` trait if the type, or any of its parts, has implemented the `Drop`
+trait. If the type needs something special to happen when the value goes out of
+scope and we add the `Copy` annotation to that type, we’ll get a compile-time
+error. To learn about how to add the `Copy` annotation to your type to
+implement the trait, see [“Derivable Traits”][derivable-traits]<!-- ignore -- >
+in Appendix C.
 -->
 
 Rust a une annotation spéciale appelée le trait `Copy` que nous pouvons utiliser
 sur des types comme les entiers qui sont stockés sur la pile (nous verrons les
-traits dans le chapitre 10). Si un type a le trait `Copy`, l'ancienne variable
-sera toujours utilisable après avoir été affectée. Rust ne nous autorisera pas à
-annoter un type avec le trait `Copy` si ce type, ou un de ses éléments, a
-implémenté le trait `Drop`. Si ce type a besoin que quelque chose de spécial se
-produise quand la valeur sort de la portée et que nous ajoutons l'annotation
-`Copy` sur ce type, nous aurons une erreur au moment de la compilation. Pour
-savoir comment ajouter l'annotation `Copy` sur votre type, référez-vous à
+traits dans le chapitre 10). Si un type implémente le trait `Copy`, l'ancienne
+variable sera toujours utilisable après avoir été affectée. Rust ne nous
+autorisera pas à annoter un type avec le trait `Copy` si ce type, ou un de ses
+éléments, a implémenté le trait `Drop`. Si ce type a besoin que quelque chose de
+spécial se produise quand la valeur sort de la portée et que nous ajoutons
+l'annotation `Copy` sur ce type, nous aurons une erreur au moment de la
+compilation. Pour savoir comment ajouter l'annotation `Copy` sur votre type pour
+implémenter le trait, référez-vous à
 [l'annexe C][derivable-traits]<!-- ignore --> sur les traits dérivables.
 
 <!--
-So what types are `Copy`? You can check the documentation for the given type to
-be sure, but as a general rule, any group of simple scalar values can be
-`Copy`, and nothing that requires allocation or is some form of resource is
-`Copy`. Here are some of the types that are `Copy`:
+So what types implement the `Copy` trait? You can check the documentation for
+the given type to be sure, but as a general rule, any group of simple scalar
+values can be implement `Copy`, and nothing that requires allocation or is some
+form of resource implement `Copy`. Here are some of the types that are `Copy`:
 -->
 
-Donc, quels sont les types qui sont `Copy` ? Vous pouvez regarder dans la
-documentation pour un type donné pour vous en assurer, mais de manière générale,
-tout groupe de valeur scalaire peut être `Copy`, et tout ce qui ne nécessite pas
-d'allocation de mémoire ou tout autre forme de ressource est `Copy`.
-Voici quelques types qui sont `Copy` :
+Donc, quels sont les types qui implémentent le trait `Copy` ? Vous pouvez
+regarder dans la documentation pour un type donné pour vous en assurer, mais de
+manière générale, tout groupe de valeur scalaire peut implémenter `Copy`, et
+tout ce qui ne nécessite pas d'allocation de mémoire ou tout autre forme de
+ressource est `Copy`. Voici quelques types qui implémentent `Copy` :
 
 <!--
 * All the integer types, such as `u32`.
 * The Boolean type, `bool`, with values `true` and `false`.
 * All the floating point types, such as `f64`.
 * The character type, `char`.
-* Tuples, if they only contain types that are also `Copy`. For example,
-  `(i32, i32)` is `Copy`, but `(i32, String)` is not.
+* Tuples, if they only contain types that also implement `Copy`. For example,
+  `(i32, i32)` implements `Copy`, but `(i32, String)` does not.
 -->
 
 * Tous les types d'entiers, comme `u32`.
 * Le type booléen, `bool`, avec les valeurs `true` et `false`.
 * Tous les types de flottants, comme `f64`.
 * Le type de caractère, `char`.
-* Les tuples, mais uniquement s'ils contiennent des types qui sont aussi `Copy`.
-  Par exemple, le `(i32, i32)` est `Copy`, mais pas `(i32, String)`.
+* Les tuples, mais uniquement s'ils contiennent des types qui implémentent
+  aussi `Copy`. Par exemple, le `(i32, i32)` implémente `Copy`, mais pas
+  `(i32, String)`.
 
 <!--
 ### Ownership and Functions
@@ -1050,7 +1053,7 @@ portée :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-03/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-03/src/main.rs}}
 ```
 -->
 
@@ -1101,7 +1104,7 @@ exemple avec des annotations similaires à celles de l'encart 4-3 :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-04/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-04/src/main.rs}}
 ```
 -->
 
@@ -1159,7 +1162,7 @@ Il est possible de retourner plusieurs valeurs à l'aide d'un tuple, comme ceci�
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-05/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-05/src/main.rs}}
 ```
 -->
 

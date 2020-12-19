@@ -119,7 +119,7 @@ français.
 | library crate | crate de bibliothèque | s'utilise au féminin |
 | lifetime | durée de vie | - |
 | linker | linker | - |
-| literal value | valeur litérale | - |
+| literal value | valeur littérale | - |
 | Listing | encart | tout en minuscule (sauf en début de phrase) |
 | loop | boucle | - |
 | low-level | bas niveau | - |
