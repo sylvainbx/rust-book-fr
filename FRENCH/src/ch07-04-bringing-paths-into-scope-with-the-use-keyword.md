@@ -42,13 +42,13 @@ qu'à utiliser `accueil::ajouter_a_la_liste_attente` pour appeler la fonction
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-11/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-11/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-11/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-11/src/lib.rs}}
 ```
 
 <!--
@@ -91,13 +91,13 @@ chemin relatif pour obtenir le même résultat que l'encart 7-11.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-12/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-12/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-12/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-12/src/lib.rs}}
 ```
 
 <!--
@@ -134,13 +134,13 @@ pour avoir le même résultat, comme dans l'encart 7-13.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-13/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-13/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-13/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-13/src/lib.rs}}
 ```
 
 <!--
@@ -189,7 +189,7 @@ standard dans la portée d'une crate binaire.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-14/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-14/src/main.rs}}
 ```
 -->
 
@@ -235,7 +235,7 @@ sont distincts.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-15/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-15/src/lib.rs:here}}
 ```
 -->
 
@@ -291,7 +291,7 @@ deux types `Result`.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-16/src/lib.rs:here}}
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-16/src/lib.rs:here}}
 ```
 -->
 
@@ -356,13 +356,13 @@ a été remplacé par `pub use`.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-17/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs}}
 ```
 
 <!--
@@ -441,7 +441,7 @@ dans *Cargo.toml* :
 
 <!--
 ```toml
-{{#include ../listings/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:}}
+{{#include ../listings-sources/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:}}
 ```
 -->
 
@@ -476,7 +476,7 @@ fonction `rand::thread_rng` :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:ch07-04}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:ch07-04}}
 ```
 -->
 
@@ -557,7 +557,7 @@ avions dans le jeu de devinettes, dans l'encart 2-4, importaient des éléments 
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/no-listing-01-use-std-unnested/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/no-listing-01-use-std-unnested/src/main.rs:here}}
 ```
 -->
 
@@ -585,7 +585,7 @@ d'accolades autour d'une liste d'éléments du chemin, comme dans l'encart 7-18�
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-18/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-18/src/main.rs:here}}
 ```
 -->
 
@@ -632,7 +632,7 @@ dans la portée.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-19/src/lib.rs}}
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-19/src/lib.rs}}
 ```
 -->
 
@@ -666,7 +666,7 @@ nous pouvons utiliser `self` dans le chemin imbriqué, comme dans l'encart 7-20.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-20/src/lib.rs}}
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-20/src/lib.rs}}
 ```
 -->
 
