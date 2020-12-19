@@ -51,4 +51,6 @@
     - [Stocker du texte encodé en UTF-8 avec les Strings](ch08-02-strings.md)
     - [Stocker des clés associées à des valeurs dans des tables de hachage](ch08-03-hash-maps.md)
 
+- [La gestion des erreurs](ch09-00-error-handling.md)
+    - [Les erreurs irrécupérables avec `panic!`](ch09-01-unrecoverable-errors-with-panic.md)
     - [Des erreurs récupérables avec `Result`](ch09-02-recoverable-errors-with-result.md)
