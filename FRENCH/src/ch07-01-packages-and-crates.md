@@ -19,7 +19,7 @@ paquets et les *crates*. Une crate est un binaire ou une bibliothèque. Pour la
 compiler, le compilateur Rust part d'un fichier source, la racine de la *crate*,
 à partir duquel est alors créé le *module racine* de votre *crate* (nous verrons
 les modules plus en détail dans la [section suivante][modules]<!-- ignore -->).
-Un paquet se compose d'une ou plusieurs crates qui fournissent un ensemble de
+Un *paquet* se compose d'une ou plusieurs crates qui fournissent un ensemble de
 fonctionnalités. Un paquet contient un fichier *Cargo.toml* qui décrit comment
 construire ces crates.
 
