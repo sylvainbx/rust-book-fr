@@ -11,7 +11,7 @@ pub struct ArticleDePresse {
 
 impl Resumable for ArticleDePresse {
     fn resumer(&self) -> String {
-        format!("{}, par {} ({})", self.headline, self.author, self.location)
+        format!("{}, par {} ({})", self.titre, self.auteur, self.lieu)
     }
 }
 
