@@ -65,7 +65,7 @@ a une portée externe et une portée interne.
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-17/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-17/src/main.rs:here}}
 ```
 -->
 
@@ -117,7 +117,7 @@ Voici le message d'erreur :
 
 <!--
 ```console
-{{#include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-17/output.txt}}
+{{#include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-17/output.txt}}
 ```
 -->
 
@@ -163,7 +163,7 @@ les durées de vies des variables.
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-18/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-18/src/main.rs:here}}
 ```
 -->
 
@@ -206,7 +206,7 @@ qu'il se compile sans erreur.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-19/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-19/src/main.rs:here}}
 ```
 -->
 
@@ -270,7 +270,7 @@ afficher `La plus grande chaîne est abcd`.
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-20/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-20/src/main.rs}}
 ```
 -->
 
@@ -320,7 +320,7 @@ Si nous essayons d'implémenter la fonction `la_plus_longue` comme dans l'encart
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-21/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-21/src/main.rs:here}}
 ```
 -->
 
@@ -346,7 +346,7 @@ A la place, nous obtenons l'erreur suivante qui nous parle de durées de vie :
 
 <!--
 ```console
-{{#include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-21/output.txt}}
+{{#include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-21/output.txt}}
 ```
 -->
 
@@ -508,7 +508,7 @@ dans l'encart 10-22.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-22/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-22/src/main.rs:here}}
 ```
 -->
 
@@ -623,7 +623,7 @@ concrètement différentes. L'encart 10-23 en est un exemple.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-23/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-23/src/main.rs:here}}
 ```
 -->
 
@@ -681,7 +681,7 @@ que la portée soit terminée. Le code de l'encart 10-24 ne va pas se compiler.
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-24/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-24/src/main.rs:here}}
 ```
 -->
 
@@ -705,7 +705,7 @@ Lorsque nous essayons de compiler ce code, nous aurons cette erreur :
 
 <!--
 ```console
-{{#include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-24/output.txt}}
+{{#include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-24/output.txt}}
 ```
 -->
 
@@ -790,7 +790,7 @@ code suivant se compile :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-08-only-one-reference-with-lifetime/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-08-only-one-reference-with-lifetime/src/main.rs:here}}
 ```
 -->
 
@@ -834,7 +834,7 @@ la fonction `la_plus_longue` qui ne se compile pas :
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-09-unrelated-lifetime/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-09-unrelated-lifetime/src/main.rs:here}}
 ```
 -->
 
@@ -856,7 +856,7 @@ Voici le message d'erreur que nous obtenons :
 
 <!--
 ```console
-{{#include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-09-unrelated-lifetime/output.txt}}
+{{#include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-09-unrelated-lifetime/output.txt}}
 ```
 -->
 
@@ -923,7 +923,7 @@ structure `ExtraitImportant` qui stocke une slice de chaîne de caractères.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-25/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-25/src/main.rs}}
 ```
 -->
 
@@ -999,7 +999,7 @@ compilait sans informations de durée de vie.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-26/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/listing-10-26/src/main.rs:here}}
 ```
 -->
 
@@ -1359,7 +1359,7 @@ pas une référence :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-10-lifetimes-on-methods/src/main.rs:1st}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-10-lifetimes-on-methods/src/main.rs:1st}}
 ```
 -->
 
@@ -1385,7 +1385,7 @@ Voici un exemple où la troisième règle d'élision des durées de vie s'appliq
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-10-lifetimes-on-methods/src/main.rs:3rd}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-10-lifetimes-on-methods/src/main.rs:3rd}}
 ```
 -->
 
@@ -1479,7 +1479,7 @@ génériques, les traits liés, et les durées de vies sur une seule fonction !
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-11-generics-traits-and-lifetimes/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch10-generic-types-traits-and-lifetimes/no-listing-11-generics-traits-and-lifetimes/src/main.rs:here}}
 ```
 -->
 
