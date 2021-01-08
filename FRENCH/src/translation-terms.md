@@ -20,7 +20,9 @@ français.
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
 | attributes | attributs | - |
+| backtrace | re-traçage | - |
 | binary crate | crate binaire | s'utilise au féminin |
+| buffer overread | sur-lecture de tampon | - |
 | *n*-bit number | nombre encodé sur *n* bits | - |
 | blob | blob | - |
 | boilerplate code | code standard | - |
@@ -84,9 +86,10 @@ français.
 | garbage collector | ramasse-miettes | - |
 | generics | génériques / généricité | - |
 | generic type parameter | paramètre de type générique | - |
-| grapheme cluster | groupe de graphèmes  | - |
+| getter | accesseur | - |
 | glob | global | opérateur |
 | global scope | portée globale | - |
+| grapheme cluster | groupe de graphèmes  | - |
 | guessing game | jeu de devinettes | - |
 | handle | référence abstraite | - |
 | hash | hash / relatif au hachage | - |
@@ -117,7 +120,7 @@ français.
 | library crate | crate de bibliothèque | s'utilise au féminin |
 | lifetime | durée de vie | - |
 | linker | linker | - |
-| literal value | valeur litérale | - |
+| literal value | valeur littérale | - |
 | Listing | encart | tout en minuscule (sauf en début de phrase) |
 | loop | boucle | - |
 | low-level | bas niveau | - |
@@ -147,6 +150,7 @@ français.
 | panic | panique(r) | - |
 | parallelism | parallélisme | - |
 | parameter | paramètre | - |
+| parse | interpréter | - |
 | PATH | PATH | - |
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |
@@ -157,8 +161,9 @@ français.
 | privacy | protection | explication de la protection des éléments d'un module |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
-| race condition | situation de concurrence | - |
+| propagate | propager | - |
 | pushing onto the stack | empiler | - |
+| race condition | situation de concurrence | - |
 | raw identifier | identificateur brut | - |
 | README | README | - |
 | refactoring | remaniement | - |
@@ -213,6 +218,7 @@ français.
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | trait | trait | - |
+| trait object | objet trait | - |
 | tree | arborescence | - |
 | troubleshooting | dépannage | - |
 | tuple | tuple | - |
@@ -230,6 +236,7 @@ français.
 | unsafe | non sécurisé | - |
 | unsigned | sans signe (toujours positif) | - |
 | unsigned | non signé | - |
+| unwind | dérouler | (la pile) |
 | user input | saisie utilisateur | - |
 | variable | variable | - |
 | variant | variante | d'une énumération |
