@@ -288,7 +288,7 @@ fn r#match(aiguille: &str, botte_de_foin: &str) -> bool {
 }
 
 fn main() {
-    assert!(r#match("lorem ipsum", "rem"));
+    assert!(r#match("rem", "lorem ipsum"));
 }
 ```
 
