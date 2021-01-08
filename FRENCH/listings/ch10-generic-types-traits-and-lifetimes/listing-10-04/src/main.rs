@@ -1,5 +1,5 @@
 // ANCHOR: here
-fn le_plus_grand_i32(liste: &[i32]) -> i32 {
+fn le_plus_grand_i32(liste: &[i32]) -> &i32 {
     let mut le_plus_grand = liste[0];
 
     for &element in liste.iter() {
@@ -11,7 +11,7 @@ fn le_plus_grand_i32(liste: &[i32]) -> i32 {
     le_plus_grand
 }
 
-fn le_plus_grand_caractere(liste: &[char]) -> char {
+fn le_plus_grand_caractere(liste: &[char]) -> &char {
     let mut le_plus_grand = liste[0];
 
     for &element in liste.iter() {
