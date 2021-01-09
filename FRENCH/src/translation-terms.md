@@ -157,7 +157,7 @@ français.
 | pointer | pointeur | - |
 | popping off the stack | dépiler | - |
 | prelude | étape préliminaire | - |
-| privacy | protection | explication de la protection des éléments d'un module |
+| privacy | visibilité | en parlant des éléments d'un module |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
 | propagate | propager | - |
