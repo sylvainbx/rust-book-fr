@@ -228,7 +228,7 @@ goes on in there is private to restaurant customers, but office managers can
 see and do everything in the restaurant in which they operate.
 -->
 
-Le fonctionnement de la visibilité en Rust est que tous les éléments (fonctions,
+La visibilité en Rust fait en sorte que tous les éléments (fonctions,
 méthodes, structures, énumérations, modules et constantes) sont privés par
 défaut. Les éléments dans un module parent ne peuvent pas utiliser les éléments
 privés dans les modules enfants, mais les éléments dans les modules enfants
