@@ -232,11 +232,11 @@ we use `[]` on our vector `v` is in *libcore/slice/mod.rs*, and that is where
 the `panic!` is actually happening.
 -->
 
-<!--
-The previous paragraph has been deleted and replaced by the following line at
-the start of the next paragraph:
->This error points at line 4 of our main.rs where we attempt to access index 99. 
--->
+Autrefois, cette erreur se référait à un fichier que nous n'avons pas écrit,
+*libcore/slice/mod.rs*. C'est l'implémentation de `slice` dans la bibliothèque
+standard. Le code qui est lancé quand nous utilisons `[]` sur notre vecteur `v`
+est dans *libcore/slice/mod.rs*, et c'est ici que le `panic!` se produit dans
+notre cas.
 
 <!--
 The next note line tells us that we can set the `RUST_BACKTRACE` environment
