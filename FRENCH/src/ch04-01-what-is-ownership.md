@@ -308,7 +308,7 @@ Autrement dit, il y a ici deux étapes importantes :
 -->
 
 * Quand `s` rentre *dans la portée*, elle est en vigueur.
-* Cela reste ainsi jusqu'à ce qu'elle *sort de la portée*.
+* Cela reste ainsi jusqu'à ce qu'elle *sorte de la portée*.
 
 <!--
 At this point, the relationship between scopes and when variables are valid is
