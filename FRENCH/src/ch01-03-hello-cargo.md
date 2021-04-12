@@ -571,7 +571,7 @@ $ cargo build
 -->
 
 ```console
-$ git clone example.com/projet_quelconque
+$ git clone example.org/projet_quelconque
 $ cd projet_quelconque
 $ cargo build
 ```
