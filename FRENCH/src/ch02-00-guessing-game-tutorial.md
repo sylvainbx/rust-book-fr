@@ -1734,9 +1734,9 @@ est ajouté à la chaîne de caractères. Par exemple, si l'utilisateur écrit
 <span class="keystroke">5</span> et appuie sur <span class="keystroke">
 entrée</span>, `supposition` aura alors cette valeur : `5\n`.
 Le `\n` représente une fin de ligne, qui résulte de l'appui sur
-<span class="keystroke">entrée</span>. (Sur Windows, appuyer sur
+<span class="keystroke">entrée</span> (à noter que sur Windows, appuyer sur
 <span class="keystroke">entrée</span> résulte en un retour chariot suivi d'une
-fin de ligne, `\r\n`.) La méthode `trim` enlève `\n` et `\r\n`, il ne reste donc
+fin de ligne, `\r\n`). La méthode `trim` enlève `\n` et `\r\n`, il ne reste donc
 plus que `5`.
 
 <!--
