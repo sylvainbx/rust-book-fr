@@ -744,12 +744,12 @@ final du tableau (ce qui correspond au moment où la condition `index < 5` n'est
 plus vraie). Exécuter ce code va afficher chaque élément du tableau :
 
 <!--
-```console
+```text
 {{#include ../listings-sources/ch03-common-programming-concepts/listing-03-04/output.txt}}
 ```
 -->
 
-```console
+```text
 {{#include ../listings/ch03-common-programming-concepts/listing-03-04/output.txt}}
 ```
 

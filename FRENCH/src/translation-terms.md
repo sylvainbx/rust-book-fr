@@ -20,9 +20,9 @@ français.
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
 | attributes | attributs | - |
-| backtrace | retraçage | - |
+| backtrace | re-traçage | - |
 | binary crate | crate binaire | s'utilise au féminin |
-| buffer overread | lecture hors limites | - |
+| buffer overread | sur-lecture de tampon | - |
 | *n*-bit number | nombre encodé sur *n* bits | - |
 | blob | blob | - |
 | boilerplate code | code standard | - |

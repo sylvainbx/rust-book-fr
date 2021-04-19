@@ -134,7 +134,9 @@ multiple-ownership method we discussed in Chapter 15.
 In Chapter 15, we gave a value multiple owners by using the smart pointer
 `Rc<T>` to create a reference counted value. Let’s do the same here and see
 what happens. We’ll wrap the `Mutex<T>` in `Rc<T>` in Listing 16-14 and clone
-the `Rc<T>` before moving ownership to the thread.
+the `Rc<T>` before moving ownership to the thread. Now that we’ve seen the
+errors, we’ll also switch back to using the `for` loop, and we’ll keep the
+`move` keyword with the closure.
 
 <span class="filename">Filename: src/main.rs</span>
 
