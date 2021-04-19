@@ -101,11 +101,11 @@ possible I/O errors. Many of the functions in `std::io` will be returning
 `Result<T, E>` where the `E` is `std::io::Error`, such as these functions in
 the `Write` trait:
 
-```rust,noplayground
+```rust
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-05-write-trait/src/lib.rs}}
 ```
 
-The `Result<..., Error>` is repeated a lot. As such, `std::io` has this type
+The `Result<..., Error>` is repeated a lot. As such, `std::io` has this type of
 alias declaration:
 
 ```rust,noplayground

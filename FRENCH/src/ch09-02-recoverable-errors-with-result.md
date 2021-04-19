@@ -266,12 +266,12 @@ répertoire actuel et que nous exécutons ce code, nous allons voir la sortie
 suivante suite à l'appel de la macro `panic!` :
 
 <!--
-```console
+```text
 {{#include ../listings-sources/ch09-error-handling/listing-09-04/output.txt}}
 ```
 -->
 
-```console
+```text
 {{#include ../listings/ch09-error-handling/listing-09-04/output.txt}}
 ```
 

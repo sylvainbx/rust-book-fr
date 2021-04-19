@@ -324,39 +324,26 @@ get the value `2` from index `[1]` in the array.
 ##### Invalid Array Element Access
 
 What happens if you try to access an element of an array that is past the end
-of the array? Say you change the example to the following, which uses code
-similar to the guessing game in Chapter 2 to get an array index from the user:
+of the array? Say you change the example to the following code, which will
+compile but exit with an error when it runs:
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,ignore,panics
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access/src/main.rs}}
 ```
 
-This code compiles successfully. If you run this code using `cargo run` and
-enter 0, 1, 2, 3, or 4, the program will print out the corresponding value at
-that index in the array. If you instead enter a number past the end of the
-array, such as 10, you'll see output like this:
-
-<!-- manual-regeneration
-cd listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access
-cargo run
-10
--->
+Running this code using `cargo run` produces the following result:
 
 ```console
-thread 'main' panicked at 'index out of bounds: the len is 5 but the index is 10', src/main.rs:19:19
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+{{#include ../listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access/output.txt}}
 ```
 
-The program resulted in a *runtime* error at the point of using an invalid
-value in the indexing operation. The program exited with an error message and
-didn't execute the final `println!` statement. When you attempt to access an
+The compilation didn’t produce any errors, but the program resulted in a
+*runtime* error and didn’t exit successfully. When you attempt to access an
 element using indexing, Rust will check that the index you’ve specified is less
-than the array length. If the index is greater than or equal to the length,
-Rust will panic. This check has to happen at runtime, especially in this case,
-because the compiler can't possibly know what value a user will enter when they
-run the code later.
+than the array length. If the index is greater than or equal to the array
+length, Rust will panic.
 
 This is the first example of Rust’s safety principles in action. In many
 low-level languages, this kind of check is not done, and when you provide an
