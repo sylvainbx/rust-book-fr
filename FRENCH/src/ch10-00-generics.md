@@ -15,9 +15,9 @@ without knowing what will be in their place when compiling and running the code.
 Tous les langages de programmation ont des outils pour gérer la duplication des
 concepts. En Rust, un de ces outils est la *généricité*. La généricité permet
 de remplacer des types concrets ou d'autres propriétés. Lorsque nous écrivons du
-code, nous pouvons exprimer le comportement des génériques ou comment ils
-interagissent avec d'autres génériques sans savoir ce qu'il y aura à leur place
-lors de la compilation et de l'exécution du code.
+code, nous pouvons exprimer le comportement des types génériques, ou comment ils
+interagissent avec d'autres types génériques sans savoir ce qu'il y aura à leur
+place lors de la compilation et de l'exécution du code.
 
 <!--
 Similar to the way a function takes parameters with unknown values to run the
@@ -32,10 +32,10 @@ De la même manière qu'une fonction prend des paramètres avec des valeurs
 inconnues pour exécuter le même code sur plusieurs valeurs concrètes, les
 fonctions peuvent prendre des paramètres de certains types génériques plutôt
 qu'un type concret comme le `i32`ou `String`. En fait, nous avons déjà utilisé
-les génériques au chapitre 6 avec `Option<T>`, au chapitre 8 avec `Vec<T>` et
-`HashMap<K, V>`, et au chapitre 9 avec `Result<T, E>`. Dans ce chapitre, nous
-allons voir comment définir nos propres types, fonctions, et méthodes avec les
-génériques !
+des types génériques au chapitre 6 avec `Option<T>`, au chapitre 8 avec `Vec<T>`
+et `HashMap<K, V>`, et au chapitre 9 avec `Result<T, E>`. Dans ce chapitre, nous
+allons voir comment définir nos propres types, fonctions, et méthodes utilisant
+des types génériques !
 
 <!--
 First, we’ll review how to extract a function to reduce code duplication. Next,
@@ -89,7 +89,7 @@ recognize duplicated code that can use generics.
 -->
 
 Avant de plonger dans la syntaxe des génériques, nous allons regarder comment
-supprimer les doublons, qui n'utilisent pas les types génériques, en extrayant
+supprimer les doublons, qui n'utilisent pas de types génériques, en extrayant
 une fonction. Ensuite, nous allons appliquer cette technique pour extraire une
 fonction générique ! De la même manière que vous détectez du code dupliqué pour
 l'extraire dans une fonction, vous allez commencer par reconnaître du code
@@ -100,8 +100,8 @@ Consider a short program that finds the largest number in a list, as shown in
 Listing 10-1.
 -->
 
-Imaginons un petit programme qui trouve le nombre le plus grand dans une liste, comme
-dans l'encart 10-1.
+Imaginons un petit programme qui trouve le nombre le plus grand dans une liste,
+comme dans l'encart 10-1.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -138,8 +138,8 @@ in the list. After considering all the numbers in the list, `largest` should
 hold the largest number, which in this case is 100.
 -->
 
-Ce code enregistre une liste d'entiers dans la variable `liste_de_nombres` et
-place le premier nombre de la liste dans une variable qui s'appelle
+Ce code enregistre une liste de nombres entiers dans la variable `liste_de_nombres`
+et place le premier nombre de la liste dans une variable qui s'appelle
 `le_plus_grand`. Ensuite, il parcourt tous les nombres dans la liste, et si le
 nombre courant est plus grand que le nombre stocké dans `le_plus_grand`, il
 remplace le nombre dans cette variable. Cependant, si le nombre courant est
@@ -154,7 +154,7 @@ the code in Listing 10-1 and use the same logic at two different places in the
 program, as shown in Listing 10-2.
 -->
 
-Pour trouver le nombre le plus grand dans deux différentes listes de nombres,
+Pour trouver le nombre le plus grand dans deux listes de nombres différentes,
 nous pourrions dupliquer le code de l'encart 10-1 et suivre la même logique à
 deux endroits différents du programme, comme dans l'encart 10-2.
 
@@ -199,10 +199,10 @@ largest number in a list abstractly.
 -->
 
 Pour éviter cette duplication, nous pouvons créer un niveau d'abstraction en
-définissant une fonction qui travaille avec n'importe quelle liste d'entier
-qu'on lui donne en paramètre. Cette solution rend notre code plus clair et nous
-permet d'exprimer le concept de trouver le nombre le plus grand dans une liste de manière
-abstraite.
+définissant une fonction qui travaille avec n'importe quelle liste de nombres
+entiers qu'on lui donne en paramètre. Cette solution rend notre code plus clair
+et nous permet d'exprimer le concept de trouver le nombre le plus grand dans une
+liste de manière abstraite.
 
 <!--
 In Listing 10-3, we extracted the code that finds the largest number into a
