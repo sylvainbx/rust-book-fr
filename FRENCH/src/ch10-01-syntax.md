@@ -112,7 +112,7 @@ between the name of the function and the parameter list, like this:
 
 Lorsqu'on utilise un paramètre dans le corps de la fonction, nous devons
 déclarer le nom du paramètre dans la signature afin que le compilateur puisse
-savoir à quoi ce réfère ce nom. De la même manière, lorsqu'on utilise un nom de
+savoir à quoi réfère ce nom. De la même manière, lorsqu'on utilise un nom de
 type de paramètre dans la signature d'une fonction, nous devons déclarer le nom
 du type de paramètre avant de pouvoir l'utiliser. Pour déclarer la fonction
 générique `le_plus_grand`, il faut placer la déclaration du nom du type entre
@@ -347,10 +347,10 @@ Listing 10-8, we can change the definition of `Point` to be generic over types
 -->
 
 Pour définir une structure `Point` où `x` et `y` sont tous les deux génériques
-mais peuvent avoir des types différents, nous pouvons utiliser les paramètres
-multiples de types génériques. Par exemple, dans l'encart 10-8, nous pouvons
-changer la définition de `Point` pour être générique en fonction des types `T`
-et `U` où `x` est de type `T` et `y` est de type `U`.
+mais peuvent avoir des types différents, nous pouvons utiliser plusieurs 
+paramètres de types génériques différents. Par exemple, dans l'encart 10-8, 
+nous pouvons changer la définition de `Point` pour être générique en 
+fonction des types `T` et `U` où `x` est de type `T` et `y` est de type `U`.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -479,7 +479,7 @@ the file was opened successfully and `E` was filled in with the type
 L'énumération `Result` est générique en fonction de deux types, `T` et `E`, et a
 deux variantes : `Ok`, qui contient une valeur de type `T`, et `Err`, qui
 contient une valeur de type `E`. Cette définition rend possible l'utilisation de
-l'énumération `Result` n'importe où nous avons opération qui peut réussir (et
+l'énumération `Result` n'importe où nous avons une opération qui peut réussir (et
 retourner une valeur du type `T`) ou échouer (et retourner une erreur du type
 `E`). En fait, c'est ce qui est utilisé pour ouvrir un fichier dans l'encart
 9-3, où `T` contenait un type `std::fs::File` lorsque le fichier était ouvert
@@ -609,8 +609,8 @@ operations that are available only for floating point types.
 
 Ce code signifie que le type `Point<f32>` va avoir une méthode qui s'appelle
 `distance_depuis_lorigine` et les autres instances de `Point<T>` où `T` n'est
-pas du type `f32` n'auront pas cette méthode de défini. Cette méthode calcule
-la distance entre notre point et la coordonnée (0.0, 0.0) et utilise des
+pas du type `f32` ne pourront pas appeler cette méthode. Cette méthode 
+calcule la distance entre notre point et la coordonnée (0.0, 0.0) et utilise des
 opérations mathématiques qui ne sont disponibles que pour les types de
 flottants.
 
@@ -624,7 +624,7 @@ instance with the `x` value from the `self` `Point` (of type `T`) and the `y`
 value from the passed-in `Point` (of type `W`).
 -->
 
-Les paramètres de type génériques dans une définition d'une structure ne sont
+Les paramètres de type génériques dans la définition d'une structure ne sont
 pas toujours les mêmes que ceux qui sont utilisés dans la signature des
 méthodes de cette structure. Par exemple, l'encart 10-11 définit la méthode
 `melange` sur la structure `Point<T, U>` de l'encart 10-8. La méthode prend un
@@ -647,31 +647,6 @@ instance de `Point` avec la valeur de `x` provenant du `self` `Point` (de type
 
 ```rust
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-11/src/main.rs}}
-```
-
-```rust
-struct Point<T, U> {
-    x: T,
-    y: U,
-}
-
-impl<T, U> Point<T, U> {
-    fn melange<V, W>(self, autre: Point<V, W>) -> Point<T, W> {
-        Point {
-            x: self.x,
-            y: autre.y,
-        }
-    }
-}
-
-fn main() {
-    let p1 = Point { x: 5, y: 10.4 };
-    let p2 = Point { x: "Hello", y: 'c'};
-
-    let p3 = p1.melange(p2);
-
-    println!("p3.x = {}, p3.y = {}", p3.x, p3.y);
-}
 ```
 
 <!--
