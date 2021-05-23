@@ -34,7 +34,7 @@ fn main() {
 
         io::stdin()
             .read_line(&mut supposition)
-            .expect("Echec de la lecture de la saisie");
+            .expect("Échec de la lecture de la saisie");
 
         let supposition: i32 = match supposition.trim().parse() {
             Ok(nombre) => nombre,
