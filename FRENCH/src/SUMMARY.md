@@ -41,7 +41,7 @@
 
 - [Gérer des projets grandissants avec les paquets, crates et modules](ch07-00-managing-growing-projects-with-packages-crates-and-modules.md)
     - [Les paquets et les crates](ch07-01-packages-and-crates.md)
-    - [Définir des modules pour gérer la portée et la protection](ch07-02-defining-modules-to-control-scope-and-privacy.md)
+    - [Définir des modules pour gérer la portée et la visibilité](ch07-02-defining-modules-to-control-scope-and-privacy.md)
     - [Désigner un élément dans l'arborescence de modules](ch07-03-paths-for-referring-to-an-item-in-the-module-tree.md)
     - [Importer des chemins dans la portée via le mot-clé `use`](ch07-04-bringing-paths-into-scope-with-the-use-keyword.md)
     - [Séparer les modules dans différents fichiers](ch07-05-separating-modules-into-different-files.md)
@@ -54,6 +54,6 @@
 - [La gestion des erreurs](ch09-00-error-handling.md)
     - [Les erreurs irrécupérables avec `panic!`](ch09-01-unrecoverable-errors-with-panic.md)
     - [Des erreurs récupérables avec `Result`](ch09-02-recoverable-errors-with-result.md)
-    - [Paniquer ou ne pas paniquer, telle est la question ...](ch09-03-to-panic-or-not-to-panic.md)
+    - [Paniquer ou ne pas paniquer, telle est la question](ch09-03-to-panic-or-not-to-panic.md)
 
 - [Les types génériques, les traits et les durées de vie](ch10-00-generics.md)
