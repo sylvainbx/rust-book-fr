@@ -55,3 +55,5 @@
     - [Les erreurs irrécupérables avec `panic!`](ch09-01-unrecoverable-errors-with-panic.md)
     - [Des erreurs récupérables avec `Result`](ch09-02-recoverable-errors-with-result.md)
     - [Paniquer ou ne pas paniquer, telle est la question](ch09-03-to-panic-or-not-to-panic.md)
+
+- [Les types génériques, les traits et les durées de vie](ch10-00-generics.md)
