@@ -247,13 +247,22 @@ nombre dans deux listes</span>
 The `largest` function has a parameter called `list`, which represents any
 concrete slice of `i32` values that we might pass into the function. As a
 result, when we call the function, the code runs on the specific values that we
-pass in.
+pass in. Don't worry about the syntax of the `for` loop for now. We aren't
+referencing a reference to an `i32` here; we're pattern matching and
+destructuring each `&i32` that the `for` loop gets so that `item` will be an
+`i32` inside the loop body. We'll cover pattern matching in detail in [Chapter
+18][ch18]<!-- ignore -- >.
 -->
 
 La fonction `le_plus_grand` a un paramètre qui s'appelle `liste`, qui représente
 n'importe quelle slice concrète de valeurs `i32` que nous pouvons passer à la
 fonction. Au final, lorsque nous appelons la fonction, le code s'exécute sur les
-valeurs précises que nous lui avons fournies.
+valeurs précises que nous lui avons fournies. Mais ne nous préoccupons pas de
+la syntaxe de la boucle `for` pour l'instant. Ici, nous n'utilisons pas une
+référence vers un `i32`, nous destructurons via le filtrage par motif chaque
+`&i32` afin que la boucle `for` utilise cet `element` en tant que `i32` dans le
+corps de la boucle. Nous parlerons plus en détails du filtrage par motif au
+[chapitre 18][ch18]<!-- ignore -->.
 
 <!--
 In sum, here are the steps we took to change the code from Listing 10-2 to
@@ -299,3 +308,9 @@ Par exemple, imaginons que nous ayons deux fonctions : une qui trouve l'éléme
 le plus grand dans une slice de valeurs `i32` et une qui trouve l'élément le
 plus grand dans une slice de valeurs `char`. Comment pourrions-nous éviter la
 duplication ? Voyons cela dès maintenant !
+
+<!--
+[ch18]: ch18-00-patterns.html
+-->
+
+[ch18]: ch18-00-patterns.html
