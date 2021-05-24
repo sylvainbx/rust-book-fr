@@ -32,7 +32,8 @@ more functionality to callers of our function while preventing code duplication.
 -->
 
 Lorsque nous définissons une fonction en utilisant la généricité, nous utilisons
-des génériques dans la signature de la fonction où nous précisons habituellement
+des types génériques dans la signature de la fonction où nous précisons
+habituellement
 les types de données des paramètres et de valeur de retour. Faire ainsi rend
 notre code plus flexible et apporte plus de fonctionnalités au code appelant
 notre fonction, tout en évitant la duplication de code.
