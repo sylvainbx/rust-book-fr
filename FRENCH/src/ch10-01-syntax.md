@@ -718,9 +718,9 @@ compiled.
 -->
 
 Rust accomplit cela en pratiquant la monomorphisation à la compilation du code
-qui utilise les génériques. La *monomorphisation* est un processus pour
-transformer du code générique en code spécifique qui les remplace par des types
-concrets qui sont utilisés au moment de la compilation.
+qui utilise les génériques. La *monomorphisation* est un processus qui transforme
+du code générique en code spécifique en définissant au moment de la compilation les
+types concrets utilisés dans le code.
 
 <!--
 In this process, the compiler does the opposite of the steps we used to create
