@@ -20,9 +20,9 @@ français.
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
 | attributes | attributs | - |
-| backtrace | re-traçage | - |
+| backtrace | retraçage | - |
 | binary crate | crate binaire | s'utilise au féminin |
-| buffer overread | sur-lecture de tampon | - |
+| buffer overread | lecture hors limites | - |
 | *n*-bit number | nombre encodé sur *n* bits | - |
 | blob | blob | - |
 | boilerplate code | code standard | - |
@@ -158,7 +158,7 @@ français.
 | pointer | pointeur | - |
 | popping off the stack | dépiler | - |
 | prelude | étape préliminaire | - |
-| privacy | protection | explication de la protection des éléments d'un module |
+| privacy | visibilité | en parlant des éléments d'un module |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
 | propagate | propager | - |
