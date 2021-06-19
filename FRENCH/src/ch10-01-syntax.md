@@ -12,7 +12,7 @@ generics. Then we’ll discuss how generics affect code performance.
 -->
 
 Nous pouvons utiliser la généricité pour créer des définitions pour des éléments
-comme les signatures de fonctions ou de structures, que nous pouvons ensuite
+comme les signatures de fonctions ou les structures, que nous pouvons ensuite
 utiliser sur de nombreux types de données concrets. Commençons par regarder
 comment définir des fonctions, des structures, des énumérations, et des méthodes
 en utilisant la généricité. Ensuite nous verrons comment la généricité impacte
@@ -32,9 +32,9 @@ more functionality to callers of our function while preventing code duplication.
 -->
 
 Lorsque nous définissons une fonction en utilisant la généricité, nous utilisons
-des types génériques dans la signature de la fonction où nous précisons
+des types génériques dans la signature de la fonction là où nous précisons
 habituellement
-les types de données des paramètres et de valeur de retour. Faire ainsi rend
+les types de données des paramètres et de la valeur de retour. Faire ainsi rend
 notre code plus flexible et apporte plus de fonctionnalités au code appelant
 notre fonction, tout en évitant la duplication de code.
 
@@ -69,7 +69,7 @@ names and the types in their signatures</span>
 -->
 
 <span class="caption">Encart 10-4 : deux fonctions qui se distinguent seulement
-par leurs noms et le type dans leur signature</span>
+par leur nom et le type dans leur signature</span>
 
 <!--
 The `largest_i32` function is the one we extracted in Listing 10-3 that finds
@@ -78,7 +78,7 @@ the largest `i32` in a slice. The `largest_char` function finds the largest
 the duplication by introducing a generic type parameter in a single function.
 -->
 
-La fonction `le_plus_grand_i32` est celle que nous avons extrait à l'encart 10-3
+La fonction `le_plus_grand_i32` est celle que nous avons construite à l'encart 10-3
 lorsqu'elle trouvait le plus grand `i32` dans une slice. La fonction
 `le_plus_grand_caractere` recherche le plus grand `char` dans une slice. Les
 corps des fonctions ont le même code, donc essayons d'éviter cette duplication
@@ -94,12 +94,12 @@ choice of most Rust programmers.
 -->
 
 Pour paramétrer les types dans la nouvelle fonction que nous allons définir,
-nous avons besoin de donner un nom au type de paramètre, comme nous l'avons
-fait pour les valeurs de paramètres des fonctions. Vous pouvez utiliser tout ce
-que vous souhaitez pour nommer le type de paramètres. Mais ici nous allons
-utiliser `T` par convention car les noms de paramètres en Rust sont courts,
-parfois même une seule lettre, et la convention de nommage des types en Rust est
-d'utiliser le CamelCase. Et ici la version courte de “type” c'est `T` et c'est
+nous avons besoin de donner un nom au paramètre de type, comme nous l'avons
+fait pour les paramètres de valeur des fonctions. Vous pouvez utiliser
+n'importe quel identificateur pour nommer le paramètre de type. Mais ici nous allons
+utiliser `T` car, par convention, les noms de paramètres en Rust sont courts,
+souvent même une seule lettre, et la convention de nommage des types en Rust est
+d'utiliser le CamelCase. Et puisque la version courte de “type” est `T`, c'est
 le choix par défaut de nombreux développeurs Rust.
 
 <!--
@@ -114,8 +114,8 @@ between the name of the function and the parameter list, like this:
 Lorsqu'on utilise un paramètre dans le corps de la fonction, nous devons
 déclarer le nom du paramètre dans la signature afin que le compilateur puisse
 savoir à quoi réfère ce nom. De la même manière, lorsqu'on utilise un nom de
-type de paramètre dans la signature d'une fonction, nous devons déclarer le nom
-du type de paramètre avant de pouvoir l'utiliser. Pour déclarer la fonction
+paramètre de type dans la signature d'une fonction, nous devons déclarer le nom
+du paramètre de type avant de pouvoir l'utiliser. Pour déclarer la fonction
 générique `le_plus_grand`, il faut placer la déclaration du nom du type entre
 des chevrons `<>`, le tout entre le nom de la fonction et la liste des
 paramètres, comme ceci :
@@ -213,11 +213,11 @@ parameters.
 La note cite `std::cmp::PartialOrd`, qui est un *trait*. Nous allons voir les
 traits dans la prochaine section. Pour le moment, cette erreur nous informe que
 le corps de `le_plus_grand` ne va pas fonctionner pour tous les types possibles
-que `T` peut représenter. Comme nous voulons comparer les valeurs de type `T`
+que `T` peut représenter. Comme nous voulons comparer des valeurs de type `T`
 dans le corps, nous pouvons utiliser uniquement des types dont les valeurs
-peuvent être triées dans l'ordre. Pour effectuer des comparaisons, la librairie
+peuvent être triées dans l'ordre. Pour effectuer des comparaisons, la bibliothèque
 standard propose le trait `std::cmp::PartialOrd` que vous pouvez implémenter sur
-des types (voir l'Annexe C pour en savoir plus sur ce trait). Vous allez
+des types (voir l'annexe C pour en savoir plus sur ce trait). Vous allez
 apprendre à indiquer qu'un type générique a un trait spécifique dans la section
 [“Des traits en paramètres”][traits-as-parameters]<!-- ignore -->, mais d'abord
 nous allons explorer d'autres manières d'utiliser les paramètres de types
@@ -236,7 +236,7 @@ struct to hold `x` and `y` coordinate values of any type.
 -->
 
 Nous pouvons aussi définir des structures en utilisant des paramètres de type
-générique dans un ou plusieurs champs en utilisant la syntaxe `<>`. L'encart
+génériques dans un ou plusieurs champs en utilisant la syntaxe `<>`. L'encart
 10-6 nous montre comment définir une structure `Point<T>` pour stocker des
 valeurs de coordonnées `x` et `y` de n'importe quel type.
 
@@ -273,10 +273,10 @@ types.
 -->
 
 La syntaxe pour l'utilisation des génériques dans les définitions de structures
-est similaire à celle utilisée dans la définition des fonctions. D'abord, on
-déclare le nom du type de paramètre entre des chevrons juste après le nom de la
+est similaire à celle utilisée dans les définitions de fonctions. D'abord, on
+déclare le nom du paramètre de type entre des chevrons juste après le nom de la
 structure. Ensuite, on peut utiliser le type générique dans la définition de la
-structure où nous utilisions précédemment des types de données précis.
+structure là où on indiquerait en temps normal des types de données concrets.
 
 <!--
 Note that because we’ve used only one generic type to define `Point<T>`, this
@@ -288,9 +288,9 @@ Listing 10-7, our code won’t compile.
 
 Notez que comme nous n'avons utilisé qu'un seul type générique pour définir
 `Point<T>`, cette définition dit que la structure `Point<T>` est générique en
-fonction du type `T`, et les champs `x` et `y` sont *tous les deux* du même
-type, quel que soit ce type. Si nous créons une instance de `Point<T>` qui a des
-valeurs de différents types, comme dans l'encart 10-7, notre code ne va pas se
+fonction d'un type `T`, et les champs `x` et `y` sont *tous les deux* de ce même
+type, quel qu'il soit. Si nous créons une instance de `Point<T>` qui a des
+valeurs de types différents, comme dans l'encart 10-7, notre code ne va pas se
 compiler.
 
 <!--
@@ -326,8 +326,8 @@ same type as `x`, we’ll get a type mismatch error like this:
 
 Dans cet exemple, lorsque nous assignons l'entier 5 à `x`, nous laissons
 entendre au compilateur que le type générique `T` sera un entier pour cette
-instance de `Point<T>`. Ensuite, lorsque assignons 4.0 à `y`, que nous avons
-défini comme ayant le même type que `x`, nous obtenons une erreur pour mauvais
+instance de `Point<T>`. Ensuite, lorsque nous assignons 4.0 à `y`, que nous avons
+défini comme ayant le même type que `x`, nous obtenons une erreur d'incompatibilité de
 type comme celle-ci :
 
 <!--
@@ -375,7 +375,7 @@ that `x` and `y` can be values of different types</span>
 -->
 
 <span class="caption">Encart 10-8: un `Point<T, U>` générique en fonction de
-deux types `x` et `y` qui peuvent être des valeurs de différents types</span>
+deux types `x` et `y` qui peuvent être des valeurs de types différents</span>
 
 <!--
 Now all the instances of `Point` shown are allowed! You can use as many generic
@@ -389,7 +389,7 @@ pouvez utiliser autant de paramètres de type génériques que vous souhaitez da
 la déclaration de la définition, mais en utiliser plus de quelques-uns rend
 votre code difficile à lire. Lorsque vous avez besoin de nombreux types
 génériques dans votre code, cela peut être un signe que votre code a besoin
-d'être remanié dans des éléments plus petits.
+d'être remanié en éléments plus petits.
 
 <!--
 ### In Enum Definitions
@@ -406,7 +406,7 @@ library provides, which we used in Chapter 6:
 Comme nous l'avons fait avec les structures, nous pouvons définir des
 énumérations qui utilisent des types de données génériques dans leurs variantes.
 Commençons par regarder à nouveau l'énumération `Option<T>` que fournit la
-bibliothèque standard, et que nous avons utilisé au chapitre 6 :
+bibliothèque standard, et que nous avons utilisée au chapitre 6 :
 
 <!--
 ```rust
@@ -433,7 +433,7 @@ optional value, and because `Option<T>` is generic, we can use this abstraction
 no matter what the type of the optional value is.
 -->
 
-Cette définition devrait avoir plus de sens pour vous. Comme vous pouvez le
+Cette définition devrait désormais avoir plus de sens pour vous. Comme vous pouvez le
 constater, `Option<T>` est une énumération qui est générique en fonction du type
 `T` et a deux variantes : `Some`, qui contient une valeur de type `T`, et une
 variante `None` qui ne contient aucune valeur. En utilisant l'énumération
@@ -446,8 +446,8 @@ Enums can use multiple generic types as well. The definition of the `Result`
 enum that we used in Chapter 9 is one example:
 -->
 
-Les énumérations peuvent utiliser aussi utiliser plusieurs types génériques. La
-définition de l'énumération `Result` que nous avons utilisé au chapitre 9 en est
+Les énumérations peuvent aussi utiliser plusieurs types génériques. La
+définition de l'énumération `Result` que nous avons utilisée au chapitre 9 en est
 un exemple :
 
 <!--
@@ -480,7 +480,7 @@ the file was opened successfully and `E` was filled in with the type
 L'énumération `Result` est générique en fonction de deux types, `T` et `E`, et a
 deux variantes : `Ok`, qui contient une valeur de type `T`, et `Err`, qui
 contient une valeur de type `E`. Cette définition rend possible l'utilisation de
-l'énumération `Result` n'importe où nous avons une opération qui peut réussir (et
+l'énumération `Result` partout où nous avons une opération qui peut réussir (et
 retourner une valeur du type `T`) ou échouer (et retourner une erreur du type
 `E`). En fait, c'est ce qui est utilisé pour ouvrir un fichier dans l'encart
 9-3, où `T` contenait un type `std::fs::File` lorsque le fichier était ouvert
@@ -513,7 +513,7 @@ struct we defined in Listing 10-6 with a method named `x` implemented on it.
 Nous pouvons implémenter des méthodes sur des structures et des énumérations
 (comme nous l'avons fait dans le chapitre 5) et aussi utiliser des types
 génériques dans leurs définitions. L'encart 10-9 montre la structure `Point<T>`
-que nous avons défini dans l'encart 10-6 avec une méthode qui s'appelle `x`
+que nous avons définie dans l'encart 10-6 avec une méthode qui s'appelle `x`
 implémentée sur cette dernière.
 
 <!--
@@ -629,9 +629,9 @@ Les paramètres de type génériques dans la définition d'une structure ne sont
 pas toujours les mêmes que ceux qui sont utilisés dans la signature des
 méthodes de cette structure. Par exemple, l'encart 10-11 définit la méthode
 `melange` sur la structure `Point<T, U>` de l'encart 10-8. La méthode prend un
-autre `Point` en paramètre, qui peut avoir des types différents du `self`
-`Point` sur lequel nous appelons `melange`. La méthode crée une nouvelle
-instance de `Point` avec la valeur de `x` provenant du `self` `Point` (de type
+autre `Point` en paramètre, qui peut avoir des types différents du `Point`
+`self` sur lequel nous appelons `melange`. La méthode crée une nouvelle
+instance de `Point` avec la valeur de `x` provenant du `Point` `self` (de type
 `T`) et la valeur de `y` provenant du `Point` en paramètre (de type `W`).
 
 <!--
@@ -672,7 +672,7 @@ Dans le `main`, nous avons défini un `Point` qui a un `i32` pour `x` (avec la
 valeur `5`) et un `f64` pour `y` (avec la valeur 10.4). La variable `p2` est une
 structure `Point` qui a une slice de chaine de caractères pour `x` (avec la
 valeur `"Hello"`) et un caractère `char` pour `y` (avec la valeur `c`). L'appel
-à `melange` sur p1 avec l'argument `p2` nous donne `p3`, qui aura un `i32` pour
+à `melange` sur `p1` avec l'argument `p2` nous donne `p3`, qui aura un `i32` pour
 `x`, car `x` provient de `p1`. La variable `p3` aura un caractère `char` pour
 `y`, car `y` provient de `p2`. L'appel à la macro `println!` va afficher
 `p3.x = 5, p3.y = c`.
@@ -685,7 +685,7 @@ because they go with the struct definition. The generic parameters `V` and `W`
 are declared after `fn mixup`, because they’re only relevant to the method.
 -->
 
-Le but de cet exemple est de monter une situation dans laquelle des paramètres
+Le but de cet exemple est de montrer une situation dans laquelle des paramètres
 génériques sont déclarés avec `impl` et d'autres sont déclarés dans la
 définition de la méthode. Ici, les paramètres génériques `T` et `U` sont
 déclarés après `impl`, car ils sont liés à la définition de la structure. Les
@@ -729,10 +729,10 @@ where generic code is called and generates code for the concrete types the
 generic code is called with.
 -->
 
-Dans ce processus, le compilateur fait l'inverse des étapes que nous avons suivi
+Dans ce processus, le compilateur fait l'inverse des étapes que nous avons suivies
 pour créer la fonction générique de l'encart 10-5 : le compilateur cherche tous
 les endroits où le code générique est utilisé et génère du code pour les types
-concrets avec lequel le code générique est appelé.
+concrets avec lesquels le code générique est appelé.
 
 <!--
 Let’s look at how this works with an example that uses the standard library’s
@@ -751,7 +751,7 @@ let float = Some(5.0);
 
 ```rust
 let entier = Some(5);
-let flotant = Some(5.0);
+let flottant = Some(5.0);
 ```
 
 <!--
@@ -765,7 +765,7 @@ the specific ones.
 
 Lorsque Rust compile ce code, il applique la monomorphisation. Pendant ce
 processus, le compilateur lit les valeurs qui ont été utilisées dans les
-instances de `Option<T>` et en déduit les deux types de `Option<T>` : une est
+instances de `Option<T>` et en déduit les deux sortes de `Option<T>` : une est
 `i32` et l'autre est `f64`. Ainsi, il décompose la définition générique de
 `Option<T>` en `Option_i32` et en `Option_f64`, remplaçant ainsi la définition
 générique par deux définitions concrètes.
@@ -815,8 +815,8 @@ enum Option_f64 {
 }
 
 fn main() {
-    let integer = Option_i32::Some(5);
-    let float = Option_f64::Some(5.0);
+    let entier = Option_i32::Some(5);
+    let flottant = Option_f64::Some(5.0);
 }
 ```
 
