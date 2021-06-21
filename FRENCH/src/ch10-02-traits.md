@@ -301,7 +301,7 @@ type, et Rust ne saura pas laquelle utiliser.
 ### Default Implementations
 -->
 
-### L'implémentation par défaut
+### Implémentations par défaut
 
 <!--
 Sometimes it’s useful to have default behavior for some or all of the methods
