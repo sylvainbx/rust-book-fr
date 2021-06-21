@@ -122,7 +122,7 @@ paramètres, comme ceci :
 
 <!--
 ```rust,ignore
-fn largest<T>(list: &[T]) -> &T {
+fn largest<T>(list: &[T]) -> T {
 ```
 -->
 
@@ -133,7 +133,7 @@ fn le_plus_grand<T>(liste: &[T]) -> &T {
 <!--
 We read this definition as: the function `largest` is generic over some type
 `T`. This function has one parameter named `list`, which is a slice of values
-of type `T`. The `largest` function will return a reference to a value of the
+of type `T`. The `largest` function will return a value of the
 same type `T`.
 -->
 
