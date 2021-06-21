@@ -133,6 +133,7 @@ français.
 | modern | récent | - |
 | module | module | - |
 | module system | système de modules | - |
+| monomorphization | monomorphisation | - |
 | move | déplacement | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
