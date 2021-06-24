@@ -55,7 +55,7 @@ avec l'attribut `test`. Les attributs sont des métadonnées sur des parties de
 code Rust ; un exemple est l'attribut `derive` que nous avons utilisé sur les
 structures au chapitre 5. Pour transformer une fonction en une fonction de test,
 il faut ajouter `#[test]` dans la ligne avant le `fn`. Lorsque vous lancez vos
-tests avec commande `cargo test`, Rust construit un binaire d'exécution de tests
+tests avec la commande `cargo test`, Rust construit un binaire d'exécution de tests
 qui exécute les fonctions marquées avec l'attribut `test` et fait un rapport sur
 quelles fonctions ont réussi ou échoué.
 
@@ -82,7 +82,7 @@ behavior is correct.
 -->
 
 Nous allons découvrir quelques aspects du fonctionnement des tests en
-expérimentant avec ce que modèle a généré pour nous, mais qui ne teste aucun
+expérimentant avec le modèle de test généré pour nous, mais qui ne teste aucun
 code pour le moment. Ensuite, nous écrirons quelques tests plus proches de la
 réalité, qui utilisera du code que nous avons écrit et qui validera son bon
 comportement.
@@ -205,7 +205,7 @@ reads `1 passed; 0 failed` totals the number of tests that passed or failed.
 
 Cargo a compilé et lancé le test. Après les lignes `Compiling`, `Finished`, et
 `Running`, on trouve la ligne `running 1 test`. La ligne suivante montre le nom
-de fonction de test `it_works`, qui a été généré précédemment, et le résultat de
+de la fonction de test `it_works`, qui a été généré précédemment, et le résultat de
 l'exécution de ce test, `ok`. Le résumé général de l'exécution des tests
 s'affiche ensuite. Le texte `test result: ok.` signifie que tous les tests ont
 réussi, et la partie `1 passed; 0 failed` compte le nombre total de tests qui
@@ -604,7 +604,7 @@ we need to negate that result before we pass it to the `assert!` macro. As a
 result, our test will pass if `can_hold` returns `false`:
 -->
 
-Comme dans cas le résultat correct de la fonction `peut_contenir` doit être
+Comme le résultat correct de la fonction `peut_contenir` dans ce cas doit être
 `false`, nous devons faire un négatif de cette fonction avant de l'envoyer à la
 macro `assert!`. Cela aura pour effet de faire réussir notre test si
 `peut_contenir` retourne `false` :
@@ -843,7 +843,7 @@ is changed depends on the day of the week that we run our tests, the best thing
 to assert might be that the output of the function is not equal to the input.
 -->
 
-Cette macro `assert_ne!` va réussir si les deux valeurs que nous lui donnons ne
+La macro `assert_ne!` va réussir si les deux valeurs que nous lui donnons ne
 sont pas égales et va échouer si elles sont égales. Cette macro est utile dans
 les cas où nous ne sommes pas sûr de ce que *devrait* valoir une valeur, mais
 que nous savons ce que la valeur ne devrait surtout *pas* être si notre code
@@ -871,7 +871,7 @@ Sous la surface, les macros `assert_eq!` et `assert_ne!` utilisent
 respectivement les opérateurs `==` et `!=`. Lorsque les vérifications échouent,
 ces macros affichent leurs arguments en utilisant le formatage de déboguage, ce
 qui veut dire que les valeurs comparées doivent implémenter les traits
-`PartialEq` et `Debug`. Tous les types de primitives et la plupart des types de
+`PartialEq` et `Debug`. Tous les types primitifs et la plupart des types de
 la bibliothèque standard implémentent ces traits. Concernant les structures et
 les énumérations que vous définissez, vous allez avoir besoin de leur
 implémenter `Debug` pour afficher les valeurs lorsque les vérifications
@@ -909,7 +909,7 @@ dans `assert!` ou les deux arguments obligatoires de `assert_eq!` et
 section du
 [chapitre
 8][concatenation-with-the--operator-or-the-format-macro]<!-- ignore -->), ainsi
-vous pouvez une chaine de caractères de formatage qui contient des espaces
+vous pouvez passer une chaine de caractères de formatage qui contient des espaces
 réservés `{}` et les valeurs iront dans ces espaces réservés. Les messages
 personnalisés sont utiles pour documenter ce que fait une vérification ;
 lorsqu'un test échoue, vous aurez une idée plus précise du problème avec ce
@@ -962,8 +962,8 @@ Let’s introduce a bug into this code by changing `greeting` to not include
 `name` to see what this test failure looks like:
 -->
 
-Introduisons un bogue dans ce code en changeant `accueil` pour de ne pas
-ajouter `nom` afin voir ce que donne l'échec de ce test :
+Introduisons un bogue dans ce code en changeant `accueil` pour ne pas
+ajouter `nom` afin de voir ce que donne l'échec de ce test :
 
 <!--
 ```rust,not_desired_behavior
@@ -1003,7 +1003,7 @@ Ce résultat indique simplement que la vérification a échoué, et à quel endr
 Le message d'échec serait plus utile dans notre cas s'il affichait la valeur
 que nous obtenons de la fonction `accueil`. Changeons la fonction de test, pour
 lui donner un message d'erreur personnalisé, qui est une chaîne de caractères
-de formatage avec un espace réservé qui contiendra la valeur que la valeur que
+de formatage avec un espace réservé qui contiendra la valeur que
 nous avons obtenue de la fonction `accueil` :
 
 <!--
@@ -1189,7 +1189,7 @@ different messages depending on whether the value is too small or too large.
 
 Les tests qui utilisent `should_panic` ne sont parfois pas assez explicites car
 ils indiquent seulement que le code a paniqué. Un test `should_panic` peut
-réussir, même si le test panique pour une raison différente à cette que nous
+réussir, même si le test panique pour une raison différente à celle que nous
 attendions. Pour rendre les tests `should_panic` plus précis, nous pouvons
 ajouter un paramètre optionnel `expected` à l'attribut `should_panic`. Le
 système de test va s'assurer que le message d'échec contient bien le texte
