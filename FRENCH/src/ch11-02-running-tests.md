@@ -20,7 +20,7 @@ tests qu'il produit. Vous pouvez rajouter des options en ligne de commande pour
 changer le comportement par défaut de `cargo test`. Par exemple, le
 comportement par défaut des binaires produits par `cargo test` est de lancer
 tous les tests en parallèle et de capturer la sortie pendant l'exécution des
-tests, ce qui évite la sortie d'être affichée sur l'écran pendant ce temps et
+tests, ce qui évite à la sortie d'être affichée sur l'écran pendant ce temps et
 facilite la lecture de la sortie concernant le résultat de l'exécution des
 tests.
 
@@ -36,7 +36,7 @@ can use after the separator `--`.
 Certaines options de la ligne de commande s'appliquent à `cargo test`, et
 certaines au binaire de tests qui en résulte. Pour séparer ces types
 d'arguments, il faut lister les arguments qui s'appliquent à `cargo test`,
-suivis du séparateur `--`, puis d'ajouter ceux qui s'appliquent au binaire
+suivis du séparateur `--`, puis ajouter ceux qui s'appliquent au binaire
 de tests. L'exécution de `cargo test --help` affiche les options que vous
 pouvez utiliser sur `cargo test`, et l'exécution de `cargo test -- --help`
 affiche les options que vous pouvez utiliser après le séparateur `--`.
@@ -60,7 +60,7 @@ Lorsque vous lancez de nombreux tests, par défaut ils s'exécutent en parallèl
 dans des tâches. Cela veut dire que tous les tests vont finir de s'exécuter plus
 rapidement afin que vous sachiez si votre code fonctionne ou non. Comme mes
 tests s'exécutent en même temps, il faut s'assurer que vos tests ne dépendent
-pas l'un de l'autre ou sur un état partagé, y compris un environnement partagé,
+pas l'un de l'autre ou d'un état partagé, y compris un environnement partagé,
 comme le dossier de travail actuel ou des variables d'environnement.
 
 <!--
@@ -81,10 +81,10 @@ fichier. Ensuite, chaque test lit les données de ce fichier et vérifie que le
 fichier contient une valeur précise, qui est différente dans chaque test. Comme
 les tests sont lancés en même temps, un test risque d'écraser le contenu du
 fichier entre le moment où un autre test lit et écrit sur ce fichier. Le second
-test va ensuite échouer, non pas parce que le code est incorrecte mais parce
+test va ensuite échouer, non pas parce que le code est incorrect mais parce
 que les tests se sont perturbés mutuellement pendant qu'ils s'exécutaient en
 parallèle. Une solution serait de s'assurer que chaque test écrit dans un
-fichier différent ; une autre serait de lancer les tests l'un après l'autre.
+fichier différent ; une autre serait de lancer les tests les uns après les autres.
 
 <!--
 If you don’t want to run the tests in parallel or if you want more fine-grained
