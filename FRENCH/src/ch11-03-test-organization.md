@@ -19,7 +19,7 @@ Comme nous l'avons évoqué au début du chapitre, le test est une discipline
 complexe, et différentes personnes utilisent des terminologies et organisations
 différentes. La communauté Rust a conçu les tests dans deux catégories
 principales : *les tests unitaires* et *les tests d'intégration*. Les tests
-unitaires sont petits et plus précis, et tester un module isolé à la fois, et
+unitaires sont petits et plus précis, testent un module isolé à la fois, et
 peuvent tester les interfaces privées. Les tests d'intégration sont uniquement
 externes à notre bibliothèque et consomme notre code exactement de la même
 manière que tout autre code externe le ferait, en utilisant uniquement
@@ -52,7 +52,7 @@ in each file to contain the test functions and to annotate the module with
 
 Le but des tests unitaires est de tester chaque élément du code de manière
 séparée du reste du code pour identifier rapidement où le code fonctionne
-fonctionne ou non comme prévu. Vous devriez insérer les tests unitaires dans le
+ou non comme prévu. Vous devriez insérer les tests unitaires dans le
 dossier *src* de chaque fichier, à côté du code qu'ils testent. La convention
 est de créer un module `tests` dans chaque fichier qui contient les fonctions
 de test et de marquer le module avec `cfg(test)`.
@@ -143,7 +143,7 @@ adhere to, Rust’s privacy rules do allow you to test private functions.
 Consider the code in Listing 11-12 with the private function `internal_adder`.
 -->
 
-Il existe un débat dans communauté des testeurs au sujet de la nécessité ou non
+Il existe un débat dans la communauté des testeurs au sujet de la nécessité ou non
 de tester directement les fonctions privées, et d'autres langages rendent
 difficile, voir impossible, de tester les fonctions privées. Quelle que soit
 votre approche des tests, les règles de protection de Rust vous permettent de
@@ -403,8 +403,8 @@ separate code into modules and files.
 Le fait que chaque fichier de test d'intégration soit sa propre crate est utile
 pour créer des portées séparées qui ressemblent à la manière dont les
 développeurs vont consommer votre crate. Cependant, cela veut aussi dire que
-les fichiers dans le dossier *tests* n'ont pas le même comportement que le
-ferraient les fichiers dans *src*, comme vous l'avez appris au chapitre 7 à
+les fichiers dans le dossier *tests* ne partagent pas le même comportement que les
+les fichiers dans *src*, comme vous l'avez appris au chapitre 7 à
 propos de la manière de séparer le code dans des modules et des fichiers.
 
 <!--
@@ -494,7 +494,7 @@ crates or have sections in the test output.
 -->
 
 Pour éviter que `commun` s'affiche sur la sortie de test, au lieu de créer le
-fichier *tests/commun.rs*, nous allons créer *tests/commun/mod.rs*. Cela est
+fichier *tests/commun.rs*, nous allons créer *tests/commun/mod.rs*. C'est
 une convention de nommage alternative que Rust comprends aussi. Nommer le
 fichier ainsi indique à Rust de ne pas traiter le module `commun` comme un
 fichier de test d'intégration. Lorsque nous déplaçons le code de la fonction
