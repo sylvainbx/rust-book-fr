@@ -339,22 +339,6 @@ chapitre 9, qui consiste à appeler la macro `panic!`. Ecrivez ce nouveau test,
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-03/src/lib.rs:here}}
 ```
 
-```rust,panics
-# fn main() {}
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn exploration() {
-        assert_eq!(2 + 2, 4);
-    }
-
-    #[test]
-    fn un_autre() {
-        panic!("Fait échouer ce test");
-    }
-}
-```
-
 <!--
 <span class="caption">Listing 11-3: Adding a second test that will fail because
 we call the `panic!` macro</span>
