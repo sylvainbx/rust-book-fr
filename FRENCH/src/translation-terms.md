@@ -24,6 +24,7 @@ français.
 | binary crate | crate binaire | s'utilise au féminin |
 | buffer overread | lecture hors limites | - |
 | *n*-bit number | nombre encodé sur *n* bits | - |
+| blanket implementation | implémentation générale | - |
 | blob | blob | - |
 | boilerplate code | code standard | - |
 | boolean | booléen | - |
@@ -218,6 +219,7 @@ français.
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | trait | trait | - |
+| trait bound | trait lié | - |
 | trait object | objet trait | - |
 | tree | arborescence | - |
 | troubleshooting | dépannage | - |
