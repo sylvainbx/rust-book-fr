@@ -445,11 +445,6 @@ test :
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-12-shared-test-code-problem/tests/common.rs}}
 ```
 
-```rust
-pub fn parametrage() {
-    // code de paramétrage spécifique à vos tests de votre bibliothèque ici
-}
-```
 
 <!--
 When we run the tests again, we’ll see a new section in the test output for the
