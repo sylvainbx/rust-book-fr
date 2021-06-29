@@ -164,7 +164,7 @@ lancer le programme, et *lib.rs* renferme toute la logique des tâches à
 accomplir. Comme vous ne pouvez pas directement tester la fonction `main`, cette
 structure vous permet de tester toute la logique de votre programme en les
 déplaçant dans des fonctions dans *lib.rs*. Le seul code qui restera dans le
-*main.rs* sera suffisamment petit pour s'assurer qu'il soit correcte en le
+*main.rs* sera suffisamment petit pour s'assurer qu'il soit correct en le
 lisant. Lançons-nous dans le remaniement de notre programme en suivant cette
 procédure.
 
@@ -242,7 +242,7 @@ often, to help identify the cause of problems when they occur.
 -->
 
 Ce remaniement peut sembler excessif pour notre petit programme, mais nous
-remanions avec de manière incrémentale par de petites étapes. Après avoir fait
+remanions de manière incrémentale par de petites étapes. Après avoir fait
 ces changements, lancez à nouveau le programme pour vérifier que l'envoi des
 arguments fonctionne toujours. C'est une bonne chose de vérifier souvent lorsque
 vous avancez, pour vous aider à mieux identifier les causes de problèmes
@@ -264,7 +264,7 @@ the right abstraction yet.
 Nous pouvons appliquer une nouvelle petite étape pour améliorer la fonction
 `interpreter_config`. Pour le moment, nous retournons un tuple, mais ensuite
 nous divisons immédiatement ce tuple à nouveau en plusieurs éléments. C'est un
-signe que nous n'avons peut-être la bonne approche.
+signe que nous n'avons peut-être pas la bonne approche.
 
 <!--
 Another indicator that shows there’s room for improvement is the `config` part
