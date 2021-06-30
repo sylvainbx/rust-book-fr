@@ -60,3 +60,5 @@
     - [Les types de données génériques](ch10-01-syntax.md)
     - [Définir des comportements partagés avec les traits](ch10-02-traits.md)
     - [La conformité des références avec les durées de vies](ch10-03-lifetime-syntax.md)
+
+- [Ecrire des tests automatisés](ch11-00-testing.md)
