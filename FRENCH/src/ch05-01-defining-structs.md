@@ -36,7 +36,7 @@ compte d'utilisateur.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-01/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-01/src/main.rs:here}}
 ```
 -->
 
@@ -76,7 +76,7 @@ déclarer un utilisateur précis comme dans l'encart 5-2.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-02/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-02/src/main.rs:here}}
 ```
 -->
 
@@ -110,7 +110,7 @@ d'une instance mutable de `Utilisateur`.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-03/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-03/src/main.rs:here}}
 ```
 -->
 
@@ -151,7 +151,7 @@ prend la valeur `true` et le `nombre_de_connexions` prend la valeur `1`.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-04/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-04/src/main.rs:here}}
 ```
 -->
 
@@ -202,7 +202,7 @@ sorte qu'elle se comporte exactement de la même façon sans avoir à répéter
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-05/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-05/src/main.rs:here}}
 ```
 -->
 
@@ -263,7 +263,7 @@ l'encart 5-2.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-06/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-06/src/main.rs:here}}
 ```
 -->
 
@@ -292,7 +292,7 @@ devraient avoir la même valeur que dans l'instance précisée.
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-07/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-07/src/main.rs:here}}
 ```
 -->
 
@@ -356,7 +356,7 @@ définition et une utilisation de deux structures tuples nommées `Couleur` et
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-01-tuple-structs/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/no-listing-01-tuple-structs/src/main.rs:here}}
 ```
 -->
 
@@ -450,7 +450,13 @@ lui-même. Nous aborderons les traits au chapitre 10.
 >  -- > src/main.rs:2:15
 >   |
 > 2 |     username: &str,
->   |               ^ expected lifetime parameter
+>   |               ^ expected named lifetime parameter
+>   |
+> help: consider introducing a named lifetime parameter
+>   |
+> 1 | struct User<'a> {
+> 2 |     username: &'a str,
+>   |
 >
 > error[E0106]: missing lifetime specifier
 >  -- > src/main.rs:3:12
@@ -461,7 +467,7 @@ lui-même. Nous aborderons les traits au chapitre 10.
 > error: aborting due to 2 previous errors
 >
 > For more information about this error, try `rustc --explain E0106`.
-> error: could not compile `structs`.
+> error: could not compile `structs`
 >
 > To learn more, run the command again with --verbose.
 > ```
@@ -517,19 +523,32 @@ lui-même. Nous aborderons les traits au chapitre 10.
 > error[E0106]: missing lifetime specifier
 >  --> src/main.rs:2:15
 >   |
-> 2 |     username: &str,
->   |               ^ expected lifetime parameter
+> 2 |     pseudo: &str,
+>   |             ^ expected named lifetime parameter
+>   |
+> help: consider introducing a named lifetime parameter
+>   |
+> 1 | struct Utilisateur<'a> {
+> 2 |     pseudo: &'a str,
+>   |
 >
 > error[E0106]: missing lifetime specifier
 >  --> src/main.rs:3:12
 >   |
 > 3 |     email: &str,
->   |            ^ expected lifetime parameter
+>   |            ^ expected named lifetime parameter
+>   |
+> help: consider introducing a named lifetime parameter
+>   |
+> 1 | struct Utilisateur<'a> {
+> 2 |     pseudo: &str,
+> 3 |     email: &'a str,
+>   |
 >
 > error: aborting due to 2 previous errors
 >
 > For more information about this error, try `rustc --explain E0106`.
-> error: could not compile `structs`.
+> error: could not compile `structs`
 >
 > To learn more, run the command again with --verbose.
 > ```

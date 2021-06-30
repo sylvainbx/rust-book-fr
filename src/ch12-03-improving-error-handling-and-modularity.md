@@ -119,7 +119,7 @@ Listing 12-6 shows the improvements to the `parse_config` function.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,should_panic
+```rust,should_panic,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-06/src/main.rs:here}}
 ```
 
@@ -187,7 +187,7 @@ shows the changes we need to make.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,should_panic
+```rust,should_panic,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-07/src/main.rs:here}}
 ```
 
@@ -277,10 +277,7 @@ next listing.
 `Config::new`</span>
 
 Our `new` function now returns a `Result` with a `Config` instance in the
-success case and a `&'static str` in the error case. Recall from [“The Static
-Lifetime”][the-static-lifetime]<!-- ignore --> section in Chapter 10 that
-`&'static str` is the type of string literals, which is our error message type
-for now.
+success case and a `&str` in the error case.
 
 We’ve made two changes in the body of the `new` function: instead of calling
 `panic!` when the user doesn’t pass enough arguments, we now return an `Err`
@@ -309,7 +306,7 @@ program that the program exited with an error state.
 <span class="caption">Listing 12-10: Exiting with an error code if creating a
 new `Config` fails</span>
 
-In this listing, we’ve used a method we haven’t covered before:
+In this listing, we’ve used a method we haven’t covered in detail yet:
 `unwrap_or_else`, which is defined on `Result<T, E>` by the standard library.
 Using `unwrap_or_else` allows us to define some custom, non-`panic!` error
 handling. If the `Result` is an `Ok` value, this method’s behavior is similar
@@ -318,7 +315,7 @@ is an `Err` value, this method calls the code in the *closure*, which is an
 anonymous function we define and pass as an argument to `unwrap_or_else`. We’ll
 cover closures in more detail in [Chapter 13][ch13]<!-- ignore -->. For now,
 you just need to know that `unwrap_or_else` will pass the inner value of the
-`Err`, which in this case is the static string `not enough arguments` that we
+`Err`, which in this case is the static string `"not enough arguments"` that we
 added in Listing 12-9, to our closure in the argument `err` that appears
 between the vertical pipes. The code in the closure can then use the `err`
 value when it runs.
@@ -498,7 +495,6 @@ Let’s take advantage of this newfound modularity by doing something that would
 have been difficult with the old code but is easy with the new code: we’ll
 write some tests!
 
-[the-static-lifetime]: ch10-03-lifetime-syntax.html#the-static-lifetime
 [ch13]: ch13-00-functional-features.html
 [ch9-custom-types]: ch09-03-to-panic-or-not-to-panic.html#creating-custom-types-for-validation
 [ch9-error-guidelines]: ch09-03-to-panic-or-not-to-panic.html#guidelines-for-error-handling

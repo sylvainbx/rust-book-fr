@@ -47,7 +47,7 @@ remplacez son code par le code suivant qui ne compile pas pour le moment :
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/src/main.rs}}
 ```
 -->
 
@@ -65,7 +65,7 @@ avoir un message d'erreur comme celui-ci :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-01-variables-are-immutable/output.txt}}
 ```
 -->
 
@@ -156,7 +156,7 @@ Par exemple, modifions *src/main.rs* ainsi :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-02-adding-mut/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-02-adding-mut/src/main.rs}}
 ```
 -->
 
@@ -172,7 +172,7 @@ Lorsque nous exécutons le programme, nous obtenons :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-02-adding-mut/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-02-adding-mut/output.txt}}
 ```
 -->
 
@@ -330,22 +330,20 @@ doit être mise à jour à l'avenir.
 As you saw in the guessing game tutorial in the [“Comparing the Guess to the
 Secret Number”][comparing-the-guess-to-the-secret-number]<!-- ignore -- >
 section in Chapter 2, you can declare a new variable with the same name as a
-previous variable, and the new variable shadows the previous variable.
-Rustaceans say that the first variable is *shadowed* by the second, which means
-that the second variable’s value is what appears when the variable is used. We
-can shadow a variable by using the same variable’s name and repeating the use
-of the `let` keyword as follows:
+previous variable. Rustaceans say that the first variable is *shadowed* by the
+second, which means that the second variable’s value is what appears when the
+variable is used. We can shadow a variable by using the same variable’s name
+and repeating the use of the `let` keyword as follows:
 -->
 
 Comme nous l'avons vu dans la section [“Comparer le nombre saisi au nombre
-secret”][comparing-the-guess-to-the-secret-number]<!-- ignore -->
-du jeu de devinettes au chapitre 2, on peut déclarer une nouvelle variable
-avec le même nom qu'une variable précédente, et la nouvelle variable
-masquera la première. Les Rustacés disent que la première variable est *masquée*
-par la seconde, ce qui signifie que la valeur de la seconde variable sera ce que
-nous obtiendrons lorsque nous utiliserons cette variable. Nous pouvons créer un
-masque d'une variable en utilisant le même nom de variable et en réutilisant le
-mot-clé `let` comme ci-dessous :
+secret”][comparing-the-guess-to-the-secret-number]<!-- ignore --> du jeu de
+devinettes au chapitre 2, on peut déclarer une nouvelle variable avec le même
+nom qu'une variable précédente. Les Rustacés disent que la première variable est
+*masquée* par la seconde, ce qui signifie que la valeur de la seconde variable
+sera ce que nous obtiendrons lorsque nous utiliserons cette variable. Nous
+pouvons créer un masque d'une variable en utilisant le même nom de variable et
+en réutilisant le mot-clé `let` comme ci-dessous :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -355,7 +353,7 @@ mot-clé `let` comme ci-dessous :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-03-shadowing/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-03-shadowing/src/main.rs}}
 ```
 -->
 
@@ -380,7 +378,7 @@ nous obtenons ceci :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-03-shadowing/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-03-shadowing/output.txt}}
 ```
 -->
 
@@ -420,7 +418,7 @@ des espaces, mais que nous voulons plutôt stocker cela sous forme de nombre :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-04-shadowing-can-change-types/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-04-shadowing-can-change-types/src/main.rs:here}}
 ```
 -->
 
@@ -447,7 +445,7 @@ simplement réutiliser le nom `espaces`. Cependant, si nous essayons d'utiliser
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/src/main.rs:here}}
 ```
 -->
 
@@ -463,7 +461,7 @@ L'erreur indique que nous ne pouvons pas muter le type d'une variable :
 
 <!--
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/output.txt}}
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-05-mut-cant-change-types/output.txt}}
 ```
 -->
 
