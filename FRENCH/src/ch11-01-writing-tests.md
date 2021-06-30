@@ -123,13 +123,13 @@ devrait ressembler à l'encart 11-1.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-01/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-01/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-01/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-01/src/lib.rs}}
 ```
 
 <!--
@@ -279,13 +279,13 @@ test. Changeons le nom de la fonction `it_works` pour un nom différent, comme
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-01-changing-test-name/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-01-changing-test-name/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-01-changing-test-name/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-01-changing-test-name/src/lib.rs}}
 ```
 
 <!--
@@ -330,12 +330,12 @@ chapitre 9, qui consiste à appeler la macro `panic!`. Ecrivez ce nouveau test,
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust,panics
+```rust,panics,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-03/src/lib.rs:here}}
 ```
 -->
 
-```rust,panics
+```rust,panics,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-03/src/lib.rs:here}}
 ```
 
@@ -357,12 +357,12 @@ ressembler à l'encart 11-4, qui va afficher que notre test `exploration` a
 réussi et que `un_autre` va échouer.
 
 <!--
-```text
+```console
 {{#include ../listings/ch11-writing-automated-tests/listing-11-03/output.txt}}
 ```
 -->
 
-```text
+```console
 {{#include ../listings/ch11-writing-automated-tests/listing-11-03/output.txt}}
 ```
 
@@ -458,12 +458,12 @@ tests en utilisant la macro `assert!`.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-05/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-05/src/lib.rs:here}}
 ```
 
@@ -497,12 +497,12 @@ hauteur de 1.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-06/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-06/src/lib.rs:here}}
 ```
 
@@ -573,12 +573,12 @@ petit rectangle ne peut contenir un rectangle plus grand :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-02-adding-another-rectangle-test/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-02-adding-another-rectangle-test/src/lib.rs:here}}
 ```
 
@@ -617,12 +617,12 @@ l'opérateur *plus grand que* par un *plus petit que* au moment de la comparaiso
 des largeurs :
 
 <!--
-```rust,not_desired_behavior
+```rust,not_desired_behavior,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-03-introducing-a-bug/src/lib.rs:here}}
 ```
 -->
 
-```rust,not_desired_behavior
+```rust,not_desired_behavior,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-03-introducing-a-bug/src/lib.rs:here}}
 ```
 
@@ -701,13 +701,13 @@ utilisant la macro `assert_eq!`.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-07/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-07/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-07/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-07/src/lib.rs}}
 ```
 
 <!--
@@ -756,12 +756,12 @@ qui utilise `assert_eq!` échoue. Changez l'implémentation de la fonction
 `ajouter_deux` pour ajouter plutôt `3` :
 
 <!--
-```rust,not_desired_behavior
+```rust,not_desired_behavior,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-04-bug-in-add-two/src/lib.rs:here}}
 ```
 -->
 
-```rust,not_desired_behavior
+```rust,not_desired_behavior,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-04-bug-in-add-two/src/lib.rs:here}}
 ```
 
@@ -915,13 +915,13 @@ apparaît dans le résultat :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-05-greeter/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-05-greeter/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-05-greeter/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-05-greeter/src/lib.rs}}
 ```
 
 <!--
@@ -950,12 +950,12 @@ Introduisons un bogue dans ce code en changeant `accueil` pour ne pas
 ajouter `nom` afin de voir ce que donne l'échec de ce test :
 
 <!--
-```rust,not_desired_behavior
+```rust,not_desired_behavior,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-06-greeter-with-bug/src/lib.rs:here}}
 ```
 -->
 
-```rust,not_desired_behavior
+```rust,not_desired_behavior,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-06-greeter-with-bug/src/lib.rs:here}}
 ```
 
@@ -1077,13 +1077,13 @@ L'encart 11-8 nous montre un test qui vérifie que les conditions d'erreur de
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-08/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-08/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-08/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-08/src/lib.rs}}
 ```
 
 <!--
@@ -1124,12 +1124,12 @@ la condition dans laquelle la fonction `new` panique lorsque la valeur est
 plus grande que 100 :
 
 <!--
-```rust,not_desired_behavior
+```rust,not_desired_behavior,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-08-guess-with-bug/src/lib.rs:here}}
 ```
 -->
 
-```rust,not_desired_behavior
+```rust,not_desired_behavior,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-08-guess-with-bug/src/lib.rs:here}}
 ```
 
@@ -1188,12 +1188,12 @@ valeur est trop petite ou trop grande.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-09/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-09/src/lib.rs:here}}
 ```
 
@@ -1298,13 +1298,13 @@ le test de l'encart 11-1, réécris pour utiliser `Result<T, E>` et retourner
 une `Err` au lieu de paniquer :
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-10-result-in-tests/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-10-result-in-tests/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-10-result-in-tests/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-10-result-in-tests/src/lib.rs}}
 ```
 
 <!--
