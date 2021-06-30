@@ -20,10 +20,11 @@ français.
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
 | attributes | attributs | - |
-| backtrace | re-traçage | - |
+| backtrace | retraçage | - |
 | binary crate | crate binaire | s'utilise au féminin |
-| buffer overread | sur-lecture de tampon | - |
+| buffer overread | lecture hors limites | - |
 | *n*-bit number | nombre encodé sur *n* bits | - |
+| blanket implementation | implémentation générale | - |
 | blob | blob | - |
 | boilerplate code | code standard | - |
 | boolean | booléen | - |
@@ -135,6 +136,7 @@ français.
 | modern | récent | - |
 | module | module | - |
 | module system | système de modules | - |
+| monomorphization | monomorphisation | - |
 | move | déplacement | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
@@ -160,7 +162,7 @@ français.
 | pointer | pointeur | - |
 | popping off the stack | dépiler | - |
 | prelude | étape préliminaire | - |
-| privacy | protection | explication de la protection des éléments d'un module |
+| privacy | visibilité | en parlant des éléments d'un module |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
 | propagate | propager | - |
@@ -220,6 +222,7 @@ français.
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | trait | trait | - |
+| trait bound | trait lié | - |
 | trait object | objet trait | - |
 | tree | arborescence | - |
 | troubleshooting | dépannage | - |
