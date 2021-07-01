@@ -265,12 +265,12 @@ le reste du programme. C'est que nous faisons dans l'encart 12-2.
 <span class="filename">Fichier : src/main.rs</span>
 
 <!--
-```rust,should_panic
+```rust,should_panic,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-02/src/main.rs}}
 ```
 -->
 
-```rust,should_panic
+```rust,should_panic,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-02/src/main.rs}}
 ```
 
