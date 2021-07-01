@@ -100,13 +100,13 @@ première section de ce chapitre, Cargo a généré ce code pour nous :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-01/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-01/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-01/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-01/src/lib.rs}}
 ```
 
 <!--
@@ -157,13 +157,13 @@ la fonction privée `addition_interne`.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-12/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-12/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-12/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-12/src/lib.rs}}
 ```
 
 <!--
@@ -314,14 +314,14 @@ unitaire (celui qui s'appelle `interne` que nous avons inséré dans l'encart
 
 <!--
 The integration tests section starts with the line `Running
-target/debug/deps/integration_test-ce99bcc2479f4607` (the hash at the end of
+target/debug/deps/integration_test-1082c4b063a8fbe6` (the hash at the end of
 your output will be different). Next, there is a line for each test function in
 that integration test and a summary line for the results of the integration
 test just before the `Doc-tests adder` section starts.
 -->
 
 La section des tests d'intégration commence avec la ligne `Running
-target/debug/deps/test_integration-ce99bcc2479f4607` (le hachage à la fin de
+target/debug/deps/test_integration-1082c4b063a8fbe6` (le hachage à la fin de
 votre sortie pourrait être différent). Ensuite, il y a une ligne pour chaque
 fonction de test présente dans ce test d'intégration et une ligne de résumé pour
 les résultats des tests d'intégration, juste avant que la section
