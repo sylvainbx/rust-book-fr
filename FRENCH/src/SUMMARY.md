@@ -65,3 +65,5 @@
     - [Comment écrire des tests](ch11-01-writing-tests.md)
     - [Gérer l'exécution des tests](ch11-02-running-tests.md)
     - [L'organisation des tests](ch11-03-test-organization.md)
+
+- [Un projet d'entrée/sortie : construire un programme en ligne de commande](ch12-00-an-io-project.md)
