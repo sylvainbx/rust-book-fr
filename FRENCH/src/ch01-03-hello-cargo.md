@@ -187,18 +187,12 @@ new`</span>
 new`</span>
 
 <!--
-This file is in the [*TOML*][toml]<!-- ignore -- > (*Tom’s Obvious, Minimal
-Language*) format, which is Cargo’s configuration format.
+This file is in the [*TOML*](https://toml.io)<!-- ignore -- > (*Tom’s Obvious,
+Minimal Language*) format, which is Cargo’s configuration format.
 -->
 
-Ce fichier est au format [*TOML*][toml]<!-- ignore --> (*Tom’s Obvious, Minimal
-Language*), qui est le format de configuration de Cargo.
-
-<!--
-[toml]: https://github.com/toml-lang/toml
--->
-
-[toml]: https://github.com/toml-lang/toml
+Ce fichier est au format [*TOML*](https://toml.io)<!-- ignore --> (*Tom’s
+Obvious, Minimal Language*), qui est le format de configuration de Cargo.
 
 <!--
 The first line, `[package]`, is a section heading that indicates that the
@@ -477,15 +471,14 @@ Let’s recap what we’ve learned so far about Cargo:
 
 Récapitulons ce que nous avons appris sur Cargo :
 
-<!-- markdownlint-disable -->
 <!--
 * We can build a project using `cargo build`.
 * We can build and run a project in one step using `cargo run`.
-* We can build a project without producing a binary to check for errors using `cargo check`.
+* We can build a project without producing a binary to check for errors using
+  `cargo check`.
 * Instead of saving the result of the build in the same directory as our code,
   Cargo stores it in the *target/debug* directory.
 -->
-<!-- markdownlint-restore -->
 
 * Nous pouvons compiler un projet en utilisant `cargo build`.
 * Nous pouvons compiler puis exécuter un projet en une seule fois en utilisant
@@ -571,14 +564,14 @@ déplacer dans le dossier projet et compiler :
 
 <!--
 ```console
-$ git clone someurl.com/someproject
+$ git clone example.org/someproject
 $ cd someproject
 $ cargo build
 ```
 -->
 
 ```console
-$ git clone example.com/projet_quelconque
+$ git clone example.org/projet_quelconque
 $ cd projet_quelconque
 $ cargo build
 ```

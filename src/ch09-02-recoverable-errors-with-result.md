@@ -103,7 +103,7 @@ The other arm of the `match` handles the case where we get an `Err` value from
 there’s no file named *hello.txt* in our current directory and we run this
 code, we’ll see the following output from the `panic!` macro:
 
-```text
+```console
 {{#include ../listings/ch09-error-handling/listing-09-04/output.txt}}
 ```
 
@@ -389,7 +389,7 @@ The `?` operator can be used in functions that have a return type of
 `Result`, because it is defined to work in the same way as the `match`
 expression we defined in Listing 9-6. The part of the `match` that requires a
 return type of `Result` is `return Err(e)`, so the return type of the function
-can be a `Result` to be compatible with this `return`.
+has to be a `Result` to be compatible with this `return`.
 
 Let’s look at what happens if we use the `?` operator in the `main` function,
 which you’ll recall has a return type of `()`:

@@ -8,7 +8,7 @@ use std::{cmp::Ordering, io};
 fn main() {
     println!("Devinez le nombre !");
 
-    let nombre_secret = rand::thread_rng().gen_range(1, 101);
+    let nombre_secret = rand::thread_rng().gen_range(1..101);
 
     println!("Le nombre secret est : {}", nombre_secret);
 
@@ -27,6 +27,6 @@ fn main() {
     match supposition.cmp(&nombre_secret) {
         Ordering::Less => println!("C'est plus !"),
         Ordering::Greater => println!("C'est moins !"),
-        Ordering::Equal => println!("Vous avez gagné !");
+        Ordering::Equal => println!("Vous avez gagné !"),
     }
 }
