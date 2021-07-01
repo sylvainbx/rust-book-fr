@@ -39,7 +39,7 @@ See the [releases] to download just the code of all the code listings that appea
 
 ## Requirements
 
-Building the book requires [mdBook], ideally the same 0.3.x version that
+Building the book requires [mdBook], ideally the same version that
 rust-lang/rust uses in [this file][rust-mdbook]. To get it:
 
 [mdBook]: https://github.com/rust-lang-nursery/mdBook
@@ -102,7 +102,8 @@ before we merge any in, but feel free to start!
 ## Spellchecking
 
 To scan source files for spelling errors, you can use the `spellcheck.sh`
-script. It needs a dictionary of valid words, which is provided in
-`dictionary.txt`. If the script produces a false positive (say, you used word
-`BTreeMap` which the script considers invalid), you need to add this word to
-`dictionary.txt` (keep the sorted order for consistency).
+script available in the `ci` directory. It needs a dictionary of valid words,
+which is provided in `ci/dictionary.txt`. If the script produces a false
+positive (say, you used word `BTreeMap` which the script considers invalid),
+you need to add this word to `ci/dictionary.txt` (keep the sorted order for
+consistency).
