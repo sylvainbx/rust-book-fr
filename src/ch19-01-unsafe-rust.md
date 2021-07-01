@@ -8,11 +8,12 @@ and works just like regular Rust, but gives us extra superpowers.
 Unsafe Rust exists because, by nature, static analysis is conservative. When
 the compiler tries to determine whether or not code upholds the guarantees,
 it’s better for it to reject some valid programs rather than accept some
-invalid programs. Although the code might be okay, as far as Rust is able to
-tell, it’s not! In these cases, you can use unsafe code to tell the compiler,
-“Trust me, I know what I’m doing.” The downside is that you use it at your own
-risk: if you use unsafe code incorrectly, problems due to memory unsafety, such
-as null pointer dereferencing, can occur.
+invalid programs. Although the code *might* be okay, if the Rust compiler
+doesn’t have enough information to be confident, it will reject the code. In
+these cases, you can use unsafe code to tell the compiler, “Trust me, I know
+what I’m doing.” The downside is that you use it at your own risk: if you use
+unsafe code incorrectly, problems due to memory unsafety, such as null pointer
+dereferencing, can occur.
 
 Another reason Rust has an unsafe alter ego is that the underlying computer
 hardware is inherently unsafe. If Rust didn’t let you do unsafe operations, you
@@ -408,11 +409,11 @@ that data accessed from different threads is done safely.
 
 ### Implementing an Unsafe Trait
 
-The final action that works only with `unsafe` is implementing an unsafe trait.
-A trait is unsafe when at least one of its methods has some invariant that the
-compiler can’t verify. We can declare that a trait is `unsafe` by adding the
-`unsafe` keyword before `trait` and marking the implementation of the trait as
-`unsafe` too, as shown in Listing 19-11.
+Another use case for `unsafe` is implementing an unsafe trait. A trait is
+unsafe when at least one of its methods has some invariant that the compiler
+can’t verify. We can declare that a trait is `unsafe` by adding the `unsafe`
+keyword before `trait` and marking the implementation of the trait as `unsafe`
+too, as shown in Listing 19-11.
 
 ```rust,unsafe
 {{#rustdoc_include ../listings/ch19-advanced-features/listing-19-11/src/main.rs}}
@@ -437,11 +438,12 @@ those checks manually and indicate as such with `unsafe`.
 
 ### Accessing Fields of a Union
 
-A `union` is similar to a `struct`, but only one declared field is used in a
-particular instance at one time. Unions are primarily used to interface with
-unions in C code. Accessing union fields is unsafe because Rust can’t guarantee
-the type of the data currently being stored in the union instance. You can
-learn more about unions in [the reference][reference].
+The final action that works only with `unsafe` is accessing fields of a
+*union*. A `union` is similar to a `struct`, but only one declared field is
+used in a particular instance at one time. Unions are primarily used to
+interface with unions in C code. Accessing union fields is unsafe because Rust
+can’t guarantee the type of the data currently being stored in the union
+instance. You can learn more about unions in [the reference][reference].
 
 ### When to Use Unsafe Code
 

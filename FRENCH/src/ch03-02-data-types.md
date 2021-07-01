@@ -258,8 +258,17 @@ lorsque l'on indexe une quelconque collection.
 > of the values the type can hold. In the case of a `u8`, 256 becomes 0, 257
 > becomes 1, and so on. The program won’t panic, but the variable will have a
 > value that probably isn’t what you were expecting it to have. Relying on
-> integer overflow’s wrapping behavior is considered an error. If you want to
-> wrap explicitly, you can use the standard library type [`Wrapping`][wrapping].
+> integer overflow’s wrapping behavior is considered an error.
+>
+> To explicitly handle the possibility of overflow, you can use these families
+> of methods that the standard library provides on primitive numeric types:
+>
+> - Wrap in all modes with the `wrapping_*` methods, such as `wrapping_add`
+> - Return the `None` value if there is overflow with the `checked_*` methods
+> - Return the value and a boolean indicating whether there was overflow with
+>   the `overflowing_*` methods
+> - Saturate at the value's minimum or maximum values with `saturating_*`
+>   methods
 -->
 
 > ##### Dépassement d'entier
@@ -284,9 +293,19 @@ lorsque l'on indexe une quelconque collection.
 > 257 devient 1, et ainsi de suite. Le programme ne va paniquer, mais
 > la variable va avoir une valeur qui n'est probablement pas ce que vous
 > attendez à avoir. Se fier au comportement du rebouclage lors du
-> dépassement d'entier est considéré comme une faute. Si vous voulez reboucler
-> explicitement, vous pouvez utiliser le type [`Wrapping`][wrapping] de la
-> bibliothèque standard.
+> dépassement d'entier est considéré comme une faute.
+>
+> Pour gérer explicitement le dépassement, vous pouvez utiliser les familles
+> de méthodes suivantes qu'offrent la bibliothèque standard sur les types de
+> nombres primitifs :
+>
+> - Enveloppez les opérations avec les méthodes `wrapping_*`, comme par exemple
+>   `wrapping_add`
+> - Retourner la valeur `None` s'il y a un dépassement avec des méthodes
+>   `checked_*`
+> - Retourner la valeur et un booléen qui indique s'il y a eu un dépassement
+>   avec des méthodes `overflowing_*`
+> - Saturer à la valeur minimale ou maximale avec des méthodes `saturating_*`
 
 <!--
 #### Floating-Point Types
@@ -375,12 +394,12 @@ instruction `let` :
 
 <!--
 Each expression in these statements uses a mathematical operator and evaluates
-to a single value, which is then bound to a variable. Appendix B contains a
+to a single value, which is then bound to a variable. [Appendix B][appendix_b]<!-- ignore -- > contains a
 list of all operators that Rust provides.
 -->
 
 Chaque expression de ces instructions utilise un opérateur mathématique et
-calcule une valeur unique, qui est ensuite attribuée à une variable. L'annexe B
+calcule une valeur unique, qui est ensuite attribuée à une variable. [L'annexe B][appendix_b]<!-- ignore -->
 présente une liste de tous les opérateurs que Rust fournit.
 
 <!--
@@ -818,14 +837,14 @@ récupèrera la valeur `2` depuis l'indice `[1]` du tableau.
 
 <!--
 What happens if you try to access an element of an array that is past the end
-of the array? Say you change the example to the following code, which will
-compile but exit with an error when it runs:
+of the array? Say you change the example to the following, which uses code
+similar to the guessing game in Chapter 2 to get an array index from the user:
 -->
 
 Que se passe-t-il quand vous essayez d'accéder à un élément d'un tableau qui se
 trouve après la fin du tableau ? Imaginons que vous changiez l'exemple par le
-code suivant, qui va compiler mais qui va quitter avec une erreur quand il sera
-exécuté :
+code suivant, similaire au jeu du plus ou du moins du chapitre 2, pour demander
+un indice de tableau à l'utilisateur :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -834,44 +853,58 @@ exécuté :
 <span class="filename">Fichier : src/main.rs</span>
 
 <!--
-```rust,ignore,does_not_compile
+```rust,ignore,panics
 {{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-15-invalid-array-access/src/main.rs}}
 ```
 -->
 
-```rust,ignore,does_not_compile
+```rust,ignore,panics
 {{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access/src/main.rs}}
 ```
 
 <!--
-Running this code using `cargo run` produces the following result:
+This code compiles successfully. If you run this code using `cargo run` and
+enter 0, 1, 2, 3, or 4, the program will print out the corresponding value at
+that index in the array. If you instead enter a number past the end of the
+array, such as 10, you'll see output like this:
 -->
 
-Exécuter ce code en utilisant `cargo run` va donner le résultat suivant :
+Ce code compile avec succès. Si vous exécutez ce code avec `cargo run` et que
+vous entrez 0, 1, 2, 3 ou 4, le programme affichera la valeur correspondante à
+cet indice dans le tableau. Si au contraire, vous entrez un indice après la fin
+du tableau tel que 10, ceci s'affichera :
 
 <!--
 ```console
-{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-15-invalid-array-access/output.txt}}
+thread 'main' panicked at 'index out of bounds: the len is 5 but the index is 10', src/main.rs:19:19
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
 -->
 
 ```console
-{{#include ../listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access/output.txt}}
+thread 'main' panicked at 'index out of bounds: the len is 5 but the index is 10', src/main.rs:19:19
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
 
 <!--
-The compilation didn’t produce any errors, but the program resulted in a
-*runtime* error and didn’t exit successfully. When you attempt to access an
+The program resulted in a *runtime* error at the point of using an invalid
+value in the indexing operation. The program exited with an error message and
+didn't execute the final `println!` statement. When you attempt to access an
 element using indexing, Rust will check that the index you’ve specified is less
-than the array length. If the index is greater than or equal to the array
-length, Rust will panic.
+than the array length. If the index is greater than or equal to the length,
+Rust will panic. This check has to happen at runtime, especially in this case,
+because the compiler can't possibly know what value a user will enter when they
+run the code later.
 -->
-
-La compilation n'a pas produit d'erreur, mais le programme a rencontré une
-erreur *à l'exécution* et ne s'est pas terminé avec succès. Quand vous essayez
+Le programme a rencontré une erreur *à l'exécution*, au moment d'utiliser une
+valeur invalide comme indice. Le programme s'est arrêté avec un message d'erreur
+et n'a pas exécuté la dernière instruction `println!`. Quand vous essayez
 d'accéder à un élément en utilisant l'indexation, Rust va vérifier que l'indice
 que vous avez demandé est plus petit que la taille du tableau. Si l'indice est
-supérieur ou égal à la taille du tableau, Rust va *paniquer*.
+supérieur ou égal à la taille du tableau, Rust va *paniquer*. Cette vérification
+doit avoir lieu à l'exécution, surtout dans ce cas, parce que le compilateur ne
+peut pas deviner la valeur qu'entrera l'utilisateur quand il exécutera le code
+plus tard.
 
 <!--
 This is the first example of Rust’s safety principles in action. In many
@@ -896,6 +929,7 @@ ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
 [strings]: ch08-02-strings.html#storing-utf-8-encoded-text-with-strings
 [unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html
 [wrapping]: ../std/num/struct.Wrapping.html
+[appendix_b]: appendix-02-operators.md
 -->
 
 [comparing-the-guess-to-the-secret-number]:
@@ -904,3 +938,4 @@ ch02-00-guessing-game-tutorial.html#comparer-le-nombre-saisi-au-nombre-secret
 [strings]: ch08-02-strings.html
 [unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html
 [wrapping]: https://doc.rust-lang.org/std/num/struct.Wrapping.html
+[appendix_b]: appendix-02-operators.md
