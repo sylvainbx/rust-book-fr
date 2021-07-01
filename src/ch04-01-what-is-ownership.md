@@ -215,8 +215,8 @@ from Listing 4-1 using a `String` instead of a string literal:
 ```
 
 There is a natural point at which we can return the memory our `String` needs
-to the allocator: when `s` goes out of scope. When a variable goes out
-of scope, Rust calls a special function for us. This function is called `drop`,
+to the allocator: when `s` goes out of scope. When a variable goes out of
+scope, Rust calls a special function for us. This function is called [`drop`],
 and it’s where the author of `String` can put the code to return the memory.
 Rust calls `drop` automatically at the closing curly bracket.
 
@@ -361,8 +361,8 @@ different is going on.
 
 #### Stack-Only Data: Copy
 
-There’s another wrinkle we haven’t talked about yet. This code using integers,
-part of which was shown in Listing 4-2, works and is valid:
+There’s another wrinkle we haven’t talked about yet. This code using integers –
+part of which was shown in Listing 4-2 – works and is valid:
 
 ```rust
 {{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-06-copy/src/main.rs:here}}
@@ -380,25 +380,27 @@ different from the usual shallow copying and we can leave it out.
 
 Rust has a special annotation called the `Copy` trait that we can place on
 types like integers that are stored on the stack (we’ll talk more about traits
-in Chapter 10). If a type has the `Copy` trait, an older variable is still
-usable after assignment. Rust won’t let us annotate a type with the `Copy`
-trait if the type, or any of its parts, has implemented the `Drop` trait. If
-the type needs something special to happen when the value goes out of scope and
-we add the `Copy` annotation to that type, we’ll get a compile-time error. To
-learn about how to add the `Copy` annotation to your type, see [“Derivable
-Traits”][derivable-traits]<!-- ignore --> in Appendix C.
+in Chapter 10). If a type implements the `Copy` trait, an older variable is
+still usable after assignment. Rust won’t let us annotate a type with the
+`Copy` trait if the type, or any of its parts, has implemented the `Drop`
+trait. If the type needs something special to happen when the value goes out of
+scope and we add the `Copy` annotation to that type, we’ll get a compile-time
+error. To learn about how to add the `Copy` annotation to your type to
+implement the trait, see [“Derivable Traits”][derivable-traits]<!-- ignore -->
+in Appendix C.
 
-So what types are `Copy`? You can check the documentation for the given type to
-be sure, but as a general rule, any group of simple scalar values can be
-`Copy`, and nothing that requires allocation or is some form of resource is
-`Copy`. Here are some of the types that are `Copy`:
+So what types implement the `Copy` trait? You can check the documentation for
+the given type to be sure, but as a general rule, any group of simple scalar
+values can implement `Copy`, and nothing that requires allocation or is some
+form of resource can implement `Copy`. Here are some of the types that
+implement `Copy`:
 
 * All the integer types, such as `u32`.
 * The Boolean type, `bool`, with values `true` and `false`.
 * All the floating point types, such as `f64`.
 * The character type, `char`.
-* Tuples, if they only contain types that are also `Copy`. For example,
-  `(i32, i32)` is `Copy`, but `(i32, String)` is not.
+* Tuples, if they only contain types that also implement `Copy`. For example,
+  `(i32, i32)` implements `Copy`, but `(i32, String)` does not.
 
 ### Ownership and Functions
 
@@ -464,3 +466,4 @@ common. Luckily for us, Rust has a feature for this concept, called
 [derivable-traits]: appendix-03-derivable-traits.html
 [method-syntax]: ch05-03-method-syntax.html#method-syntax
 [paths-module-tree]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html
+[`drop`]: ../std/ops/trait.Drop.html#tymethod.drop

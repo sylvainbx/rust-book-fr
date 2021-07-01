@@ -87,7 +87,7 @@ Regardons le fichier *Cargo.toml* qui a été généré :
 
 <!--
 ```toml
-{{#include ../listings/ch02-guessing-game-tutorial/no-listing-01-cargo-new/Cargo.toml}}
+{{#include ../listings-sources/ch02-guessing-game-tutorial/no-listing-01-cargo-new/Cargo.toml}}
 ```
 -->
 
@@ -119,7 +119,7 @@ programme *“Hello, world!”* pour vous. Ouvrez le fichier *src/main.rs* :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/no-listing-01-cargo-new/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/no-listing-01-cargo-new/src/main.rs}}
 ```
 -->
 
@@ -137,7 +137,7 @@ son exécution en une seule commande avec `cargo run` :
 
 <!--
 ```console
-{{#include ../listings/ch02-guessing-game-tutorial/no-listing-01-cargo-new/output.txt}}
+{{#include ../listings-sources/ch02-guessing-game-tutorial/no-listing-01-cargo-new/output.txt}}
 ```
 -->
 
@@ -189,7 +189,7 @@ code de l'encart 2-1 dans le fichier *src/main.rs*.
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:all}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:all}}
 ```
 -->
 
@@ -220,7 +220,7 @@ de pouvoir l'utiliser. La bibliothèque `io` provient de la bibliothèque standa
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:io}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:io}}
 ```
 -->
 
@@ -259,7 +259,7 @@ du programme :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:main}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:main}}
 ```
 -->
 
@@ -286,7 +286,7 @@ affiche une chaîne de caractères à l'écran :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:print}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:print}}
 ```
 -->
 
@@ -316,7 +316,7 @@ Ensuite, on crée un endroit où stocker la saisie de l'utilisateur, comme ceci�
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:string}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:string}}
 ```
 -->
 
@@ -451,7 +451,7 @@ module `io` :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:read}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:read}}
 ```
 -->
 
@@ -498,16 +498,16 @@ la saisie utilisateur. De plus, on passe à cette méthode l'argument
 
 <!--
 The job of `read_line` is to take whatever the user types into standard input
-and place that into a string, so it takes that string as an argument. The
-string argument needs to be mutable so the method can change the string’s
-content by adding the user input.
+and append that into a string (without overwriting its contents), so it takes
+that string as an argument. The string argument needs to be mutable so the
+method can change the string’s content by adding the user input.
 -->
 
 Le rôle de `read_line` est de récupérer tout ce que l'utilisateur écrit dans
-l'entrée standard et de le stocker dans une chaîne de caractères ; c'est
-pourquoi cette méthode prend une `String` comme argument. Cet argument doit être
-mutable pour que `read_line` puisse en modifier le contenu en y ajoutant
-la saisie de l'utilisateur.
+l'entrée standard et de l'ajouter à la fin d'une chaîne de caractères (sans
+écraser son contenu) ; c'est pourquoi cette méthode prend une `String` comme
+argument. Cet argument doit être mutable pour que `read_line` puisse en modifier
+le contenu en y ajoutant la saisie de l'utilisateur.
 
 <!--
 The `&` indicates that this argument is a *reference*, which gives you a way to
@@ -550,7 +550,7 @@ de code. Cette nouvelle partie rajoute cette méthode :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:expect}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:expect}}
 ```
 -->
 
@@ -684,7 +684,7 @@ avertissement :
 
 <!--
 ```console
-{{#include ../listings/ch02-guessing-game-tutorial/no-listing-02-without-expect/output.txt}}
+{{#include ../listings-sources/ch02-guessing-game-tutorial/no-listing-02-without-expect/output.txt}}
 ```
 -->
 
@@ -728,7 +728,7 @@ Mis à part l'accolade fermante, il ne nous reste plus qu'une seule ligne à
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:print_guess}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-01/src/main.rs:print_guess}}
 ```
 -->
 
@@ -881,14 +881,17 @@ Cargo’s use of external crates is where it really shines. Before we can write
 code that uses `rand`, we need to modify the *Cargo.toml* file to include the
 `rand` crate as a dependency. Open that file now and add the following line to
 the bottom beneath the `[dependencies]` section header that Cargo created for
-you:
+you. Be sure to specify `rand` exactly as we have here, or the code examples in
+this tutorial may not work.
 -->
 
 L'utilisation des *crates* externes est un domaine dans lequel Cargo excelle.
 Avant d'écrire le code qui utilisera `rand`, il nous faut éditer le fichier
 *Cargo.toml* pour y spécifier `rand` en tant que dépendance. Ouvrez donc
 maintenant ce fichier et ajoutez la ligne suivante à la fin, en dessous de
-l'en-tête de section `[dependencies]` que Cargo a créé pour vous :
+l'en-tête de section `[dependencies]` que Cargo a créé pour vous. Assurez-vous
+de spécifier `rand` exactement comme dans le bout de code suivant, ou sinon les
+exemples de code de ce tutoriel pourraient ne pas fonctionner.
 
 <!--
 <!-- When updating the version of `rand` used, also update the version of
@@ -906,7 +909,7 @@ l'en-tête de section `[dependencies]` que Cargo a créé pour vous :
 
 <!--
 ```toml
-{{#include ../listings/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:}}
+{{#include ../listings-sources/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:}}
 ```
 -->
 
@@ -919,11 +922,15 @@ In the *Cargo.toml* file, everything that follows a header is part of a section
 that continues until another section starts. The `[dependencies]` section is
 where you tell Cargo which external crates your project depends on and which
 versions of those crates you require. In this case, we’ll specify the `rand`
-crate with the semantic version specifier `0.5.5`. Cargo understands [Semantic
+crate with the semantic version specifier `0.8.3`. Cargo understands [Semantic
 Versioning][semver]<!-- ignore -- > (sometimes called *SemVer*), which is a
-standard for writing version numbers. The number `0.5.5` is actually shorthand
-for `^0.5.5`, which means “any version that has a public API compatible with
-version 0.5.5.”
+standard for writing version numbers. The number `0.8.3` is actually shorthand
+for `^0.8.3`, which means any version that is at least `0.8.3` but below
+`0.9.0`. Cargo considers these versions to have public APIs compatible with
+version `0.8.3`, and this specification ensures you'll get the latest patch
+release that will still compile with the code in this chapter. Any version
+`0.9.0` or greater is not guaranteed to have the same API as what the following
+examples use.
 -->
 
 Dans le fichier *Cargo.toml*, tout ce qui suit une en-tête fait partie de cette
@@ -931,11 +938,16 @@ section, et ce jusqu'à ce qu'une autre section débute. La section
 `[dependencies]` permet d'indiquer à Cargo de quelles *crates* externes votre
 projet dépend, et de quelle version de ces *crates* vous avez besoin.
 Dans notre cas, on ajoute comme dépendance la crate `rand` avec la version
-sémantique `0.5.5`. Cargo arrive à interpréter le
+sémantique `0.8.3`. Cargo arrive à interpréter le
 [versionnage sémantique][semver]<!-- ignore --> (aussi appelé *SemVer*), qui
-est une convention d'écriture de numéros de version. En réalité, `0.5.5` est
-une abréviation pour `^0.5.5`, ce qui signifie “toute version qui propose une
-API publique compatible avec la version 0.5.5”.
+est une convention d'écriture de numéros de version. En réalité, `0.8.3` est
+une abréviation pour `^0.8.3`, ce qui signifie “toute version ultérieure ou
+égale à `0.8.3` mais strictement antérieure à `0.9.0`”. Cargo considère que ces
+versions ont des API publiques compatibles avec la version `0.8.3`, et cette
+indication garantit que vous obtiendrez la dernière version de correction qui
+compilera encore avec le code de ce chapitre. Il n'est pas garanti que les
+versions `0.9.0` et ultérieures aient la même API que celle utilisée dans les
+exemples suivants.
 
 <!--
 [semver]: http://semver.org
@@ -962,16 +974,20 @@ cargo build -- >
 ```console
 $ cargo build
     Updating crates.io index
-  Downloaded rand v0.5.5
-  Downloaded libc v0.2.62
-  Downloaded rand_core v0.2.2
-  Downloaded rand_core v0.3.1
-  Downloaded rand_core v0.4.2
-   Compiling rand_core v0.4.2
-   Compiling libc v0.2.62
-   Compiling rand_core v0.3.1
-   Compiling rand_core v0.2.2
-   Compiling rand v0.5.5
+  Downloaded rand v0.8.3
+  Downloaded libc v0.2.86
+  Downloaded getrandom v0.2.2
+  Downloaded cfg-if v1.0.0
+  Downloaded ppv-lite86 v0.2.10
+  Downloaded rand_chacha v0.3.0
+  Downloaded rand_core v0.6.2
+   Compiling rand_core v0.6.2
+   Compiling libc v0.2.86
+   Compiling getrandom v0.2.2
+   Compiling cfg-if v1.0.0
+   Compiling ppv-lite86 v0.2.10
+   Compiling rand_chacha v0.3.0
+   Compiling rand v0.8.3
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
     Finished dev [unoptimized + debuginfo] target(s) in 2.53s
 ```
@@ -980,16 +996,20 @@ $ cargo build
 ```console
 $ cargo build
     Updating crates.io index
-  Downloaded rand v0.5.5
-  Downloaded libc v0.2.62
-  Downloaded rand_core v0.2.2
-  Downloaded rand_core v0.3.1
-  Downloaded rand_core v0.4.2
-   Compiling rand_core v0.4.2
-   Compiling libc v0.2.62
-   Compiling rand_core v0.3.1
-   Compiling rand_core v0.2.2
-   Compiling rand v0.5.5
+  Downloaded rand v0.8.3
+  Downloaded libc v0.2.86
+  Downloaded getrandom v0.2.2
+  Downloaded cfg-if v1.0.0
+  Downloaded ppv-lite86 v0.2.10
+  Downloaded rand_chacha v0.3.0
+  Downloaded rand_core v0.6.2
+   Compiling rand_core v0.6.2
+   Compiling libc v0.2.86
+   Compiling getrandom v0.2.2
+   Compiling cfg-if v1.0.0
+   Compiling ppv-lite86 v0.2.10
+   Compiling rand_chacha v0.3.0
+   Compiling rand v0.8.3
    Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
     Finished dev [unoptimized + debuginfo] target(s) in 2.53s
 ```
@@ -1004,12 +1024,14 @@ avoir ajouté la *crate* `rand` comme dépendance</span>
 
 <!--
 You may see different version numbers (but they will all be compatible with
-the code, thanks to SemVer!), and the lines may be in a different order.
+the code, thanks to SemVer!), different lines (depending on the operating
+system), and the lines may be in a different order.
 -->
 
 Il est possible que vous ne voyiez pas exactement les mêmes numéros de version,
 (mais ils seront compatibles avec votre code, grâce au *versionnage
-sémantique* !), et les lignes ne seront pas forcément affichées dans le même
+sémantique* !), différentes lignes (en fonction de votre système
+d'exploitation), et les lignes ne seront pas forcément affichées dans le même
 ordre.
 
 <!--
@@ -1034,17 +1056,17 @@ disponibles aux autres.
 <!--
 After updating the registry, Cargo checks the `[dependencies]` section and
 downloads any crates you don’t have yet. In this case, although we only listed
-`rand` as a dependency, Cargo also grabbed `libc` and `rand_core`, because
-`rand` depends on those to work. After downloading the crates, Rust compiles
-them and then compiles the project with the dependencies available.
+`rand` as a dependency, Cargo also grabbed other crates that `rand` depends on
+to work. After downloading the crates, Rust compiles them and then compiles the
+project with the dependencies available.
 -->
 
 Une fois le registre mis à jour, Cargo lit la section `[dependencies]` et se
 charge de télécharger les *crates* que vous n'avez pas encore. Dans notre cas,
 bien que nous n'ayons spécifié qu'une seule dépendance, `rand`, Cargo a aussi
-téléchargé la *crate* `libc` et `rand_core`, car `rand` dépend d'elles pour
-fonctionner. Une fois le téléchargement terminé des *crates*, Rust les compile,
-puis compile notre projet avec les dépendances disponibles.
+téléchargé d'autres *crates* dont dépend `rand` pour fonctionner. Une fois le
+téléchargement terminé des *crates*, Rust les compile, puis compile notre projet
+avec les dépendances disponibles.
 
 <!--
 If you immediately run `cargo build` again without making any changes, you
@@ -1115,7 +1137,7 @@ du code.
 Cargo has a mechanism that ensures you can rebuild the same artifact every time
 you or anyone else builds your code: Cargo will use only the versions of the
 dependencies you specified until you indicate otherwise. For example, what
-happens if next week version 0.5.6 of the `rand` crate comes out and
+happens if next week version 0.8.4 of the `rand` crate comes out and
 contains an important bug fix but also contains a regression that will break
 your code?
 -->
@@ -1124,7 +1146,7 @@ Cargo embarque une fonctionnalité qui garantie que vous pouvez recompiler le
 même artéfact à chaque fois que vous ou quelqu'un d'autre compile votre code :
 Cargo va utiliser uniquement les versions de dépendances que vous avez
 utilisées jusqu'à ce que vous indiquiez le contraire.
-Par exemple, que se passe-t-il si la semaine prochaine, la version 0.5.6 de la
+Par exemple, que se passe-t-il si la semaine prochaine, la version 0.8.4 de la
 *crate* `rand` est publiée et qu'elle apporte une correction importante, mais
 aussi qu'elle produit une régression qui va casser votre code ?
 
@@ -1137,7 +1159,7 @@ the *Cargo.lock* file. When you build your project in the future, Cargo will
 see that the *Cargo.lock* file exists and use the versions specified there
 rather than doing all the work of figuring out versions again. This lets you
 have a reproducible build automatically. In other words, your project will
-remain at `0.5.5` until you explicitly upgrade, thanks to the *Cargo.lock*
+remain at `0.8.3` until you explicitly upgrade, thanks to the *Cargo.lock*
 file.
 -->
 
@@ -1150,7 +1172,7 @@ vous recompilerez votre projet plus tard, Cargo verra que le fichier
 *Cargo.lock* existe et utilisera les versions précisées à l'intérieur au lieu
 de recommencer à déterminer toutes les versions demandées.
 Ceci vous permet d'avoir automatiquement des compilations reproductibles.
-En d'autres termes, votre projet va rester sur la version `0.5.5` jusqu'à ce
+En d'autres termes, votre projet va rester sur la version `0.8.3` jusqu'à ce
 que vous le mettiez à jour explicitement, grâce au fichier *Cargo.lock*.
 
 <!--
@@ -1173,21 +1195,21 @@ rechercher toutes les versions qui correspondent à vos critères dans
 fichier *Cargo.lock*.
 
 <!--
-But by default, Cargo will only look for versions greater than `0.5.5` and less
-than `0.6.0`. If the `rand` crate has released two new versions, `0.5.6` and
-`0.6.0`, you would see the following if you ran `cargo update`:
+But by default, Cargo will only look for versions greater than `0.8.3` and less
+than `0.9.0`. If the `rand` crate has released two new versions, `0.8.4` and
+`0.9.0`, you would see the following if you ran `cargo update`:
 -->
 
 Mais par défaut, Cargo va rechercher uniquement les versions plus grandes que
-`0.5.5` et inférieures à `0.6.0`. Si la *crate* `rand` a été publiée en deux
-nouvelles versions, `0.5.6` et `0.6.0`, alors vous verrez ceci si vous
+`0.8.3` et inférieures à `0.9.0`. Si la *crate* `rand` a été publiée en deux
+nouvelles versions, `0.8.4` et `0.9.0`, alors vous verrez ceci si vous
 lancez `cargo update` :
 
 <!--
 <!-- manual-regeneration
 cd listings/ch02-guessing-game-tutorial/listing-02-02/
 cargo update
-assuming there is a new 0.5.x version of rand; otherwise use another update
+assuming there is a new 0.8.x version of rand; otherwise use another update
 as a guide to creating the hypothetical output shown here -- >
 -->
 
@@ -1195,44 +1217,44 @@ as a guide to creating the hypothetical output shown here -- >
 ```console
 $ cargo update
     Updating crates.io index
-    Updating rand v0.5.5 -> v0.5.6
+    Updating rand v0.8.3 -> v0.8.4
 ```
 -->
 
 ```console
 $ cargo update
     Updating crates.io index
-    Updating rand v0.5.5 -> v0.5.6
+    Updating rand v0.8.3 -> v0.8.4
 ```
 
 <!--
 At this point, you would also notice a change in your *Cargo.lock* file noting
-that the version of the `rand` crate you are now using is `0.5.6`.
+that the version of the `rand` crate you are now using is `0.8.4`.
 -->
 
 À partir de ce moment, vous pouvez aussi constater un changement dans le fichier
 *Cargo.lock* indiquant que la version de la *crate* `rand` que vous utilisez
-maintenant est la `0.5.6`.
+maintenant est la `0.8.4`.
 
 <!--
-If you wanted to use `rand` version `0.6.0` or any version in the `0.6.x`
+If you wanted to use `rand` version `0.9.0` or any version in the `0.9.x`
 series, you’d have to update the *Cargo.toml* file to look like this instead:
 -->
 
-Si vous vouliez utiliser `rand` en version `0.6.0` ou toute autre version dans
-la série des `0.6.x`, il vous faut mettre à jour le fichier *Cargo.toml* comme
+Si vous vouliez utiliser `rand` en version `0.9.0` ou toute autre version dans
+la série des `0.9.x`, il vous faut mettre à jour le fichier *Cargo.toml* comme
 ceci :
 
 <!--
 ```toml
 [dependencies]
-rand = "0.6.0"
+rand = "0.9.0"
 ```
 -->
 
 ```toml
 [dependencies]
-rand = "0.6.0"
+rand = "0.9.0"
 ```
 
 <!--
@@ -1291,7 +1313,7 @@ l'encart 2-3.
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:all}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:all}}
 ```
 -->
 
@@ -1323,11 +1345,13 @@ Next, we’re adding two lines in the middle. The `rand::thread_rng` function
 will give us the particular random number generator that we’re going to use:
 one that is local to the current thread of execution and seeded by the
 operating system. Then we call the `gen_range` method on the random number
-generator. This method is defined by the `Rng` trait that we brought into
-scope with the `use rand::Rng` statement. The `gen_range` method takes two
-numbers as arguments and generates a random number between them. It’s inclusive
-on the lower bound but exclusive on the upper bound, so we need to specify `1`
-and `101` to request a number between 1 and 100.
+generator. This method is defined by the `Rng` trait that we brought into scope
+with the `use rand::Rng` statement. The `gen_range` method takes a range
+expression as an argument and generates a random number in the range. The kind
+of range expression we’re using here takes the form `start..end`. It’s
+inclusive on the lower bound but exclusive on the upper bound, so we need to
+specify `1..101` to request a number between 1 and 100. Alternatively, we could
+pass the range `1..=100`, which is equivalent.
 -->
 
 Ensuite, nous ajoutons deux lignes au milieu. La fonction `rand::thread_rng`
@@ -1336,10 +1360,12 @@ utiliser : il est propre au fil d'exécution courant et généré par le
 système d'exploitation. Ensuite, nous appelons la méthode `gen_range` sur le
 générateur de nombres aléatoires. Cette méthode est définie par le *trait* `Rng`
 que nous avons importé avec l'instruction `use rand::Rng`. La méthode
-`gen_range` prend deux nombres en paramètres et génère un nombre aléatoire entre
-ces deux bornes. Elle inclut la borne inférieure mais exclut la borne
-supérieure, nous avons donc besoin de préciser `1` et `101` pour demander un
-nombre entre 1 et 100.
+`gen_range` prend une expression d'intervalle en paramètre et génère un nombre
+aléatoire au sein de l'intervalle. Le genre d'expression d'intervalle utilisé
+ici est de la forme `début..fin`. Il inclut la borne inférieure mais exclut la
+borne supérieure, nous avons donc besoin de préciser `1..101` pour demander un
+nombre entre 1 et 100. De manière équivalente, nous pourrions également passer
+l'intervalle fermé `1..=100`
 
 <!--
 > Note: You won’t just know which traits to use and which methods and functions
@@ -1465,7 +1491,7 @@ que le code ne se compile pas encore, nous allons l'expliquer par la suite.
 
 <!--
 ```rust,ignore,does_not_compile
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-04/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-04/src/main.rs:here}}
 ```
 -->
 
@@ -1581,7 +1607,7 @@ faire :
 
 <!--
 ```console
-{{#include ../listings/ch02-guessing-game-tutorial/listing-02-04/output.txt}}
+{{#include ../listings-sources/ch02-guessing-game-tutorial/listing-02-04/output.txt}}
 ```
 -->
 
@@ -1636,7 +1662,7 @@ supplémentaire dans le corps de la fonction `main` :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/no-listing-03-convert-string-to-number/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/no-listing-03-convert-string-to-number/src/main.rs:here}}
 ```
 -->
 
@@ -1691,8 +1717,9 @@ the user must press <span class="keystroke">enter</span> to satisfy
 newline character is added to the string. For example, if the user types <span
 class="keystroke">5</span> and presses <span class="keystroke">enter</span>,
 `guess` looks like this: `5\n`. The `\n` represents “newline,” the result of
-pressing <span class="keystroke">enter</span>. The `trim` method eliminates
-`\n`, resulting in just `5`.
+pressing <span class="keystroke">enter</span> (On Windows, pressing <span
+class="keystroke">enter</span> results in a carriage return and a newline,
+`\r\n`). The `trim` method eliminates `\n` or `\r\n`, resulting in just `5`.
 -->
 
 Nous lions `supposition` à l'expression `supposition.trim().parse()`. Le
@@ -1707,8 +1734,10 @@ est ajouté à la chaîne de caractères. Par exemple, si l'utilisateur écrit
 <span class="keystroke">5</span> et appuie sur <span class="keystroke">
 entrée</span>, `supposition` aura alors cette valeur : `5\n`.
 Le `\n` représente une fin de ligne, qui résulte de l'appui sur
-<span class="keystroke">entrée</span>. La méthode `trim` enlève `\n`, il ne
-reste donc plus que `5`.
+<span class="keystroke">entrée</span> (à noter que sur Windows, appuyer sur
+<span class="keystroke">entrée</span> résulte en un retour chariot suivi d'une
+fin de ligne, `\r\n`). La méthode `trim` enlève `\n` et `\r\n`, il ne reste donc
+plus que `5`.
 
 <!--
 The [`parse` method on strings][parse]<!-- ignore -- > parses a string into some
@@ -1858,7 +1887,7 @@ donner aux utilisateurs plus de chances de deviner le nombre :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/no-listing-04-looping/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/no-listing-04-looping/src/main.rs:here}}
 ```
 -->
 
@@ -1933,7 +1962,7 @@ You guessed: 59
 You win!
 Please input your guess.
 quit
-thread 'main' panicked at 'Please type a number!: ParseIntError { kind: InvalidDigit }', src/libcore/result.rs:999:5
+thread 'main' panicked at 'Please type a number!: ParseIntError { kind: InvalidDigit }', src/main.rs:28:47
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
 ```
 -->
@@ -1960,7 +1989,7 @@ Votre nombre : 59
 Vous avez gagné !
 Veuillez entrer un nombre.
 quitter
-thread 'main' panicked at 'Veuillez entrer un nombre !: ParseIntError { kind: InvalidDigit }', src/libcore/result.rs:785
+thread 'main' panicked at 'Veuillez entrer un nombre !: ParseIntError { kind: InvalidDigit }', src/main.rs:28:47
 note: Run with `RUST_BACKTRACE=1` for a backtrace.
 ```
 
@@ -1996,7 +2025,7 @@ l'instruction `break` :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/no-listing-05-quitting/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/no-listing-05-quitting/src/main.rs:here}}
 ```
 -->
 
@@ -2042,7 +2071,7 @@ continuer à essayer de deviner. Nous pouvons faire ceci en modifiant la ligne o
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-05/src/main.rs:here}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-05/src/main.rs:here}}
 ```
 -->
 
@@ -2133,6 +2162,7 @@ foo
 ```console
 $ cargo run
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
+    Finished dev [unoptimized + debuginfo] target(s) in 4.45s
      Running `target/debug/guessing_game`
 Guess the number!
 The secret number is: 61
@@ -2156,6 +2186,7 @@ You win!
 ```console
 $ cargo run
    Compiling jeu_du_plus_ou_du_moins v0.1.0 (file:///projects/jeu_du_plus_ou_du_moins)
+    Finished dev [unoptimized + debuginfo] target(s) in 4.45s
      Running `target/debug/jeu_du_plus_ou_du_moins`
 Devinez le nombre !
 Le nombre secret est : 61
@@ -2195,7 +2226,7 @@ affiche le nombre secret. L'encart 2-6 représente le code final.
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-06/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-06/src/main.rs}}
 ```
 -->
 
