@@ -32,10 +32,10 @@
     - [La syntaxe des méthodes](ch05-03-method-syntax.md)
 
 - [Les énumérations et le filtrage par motif](ch06-00-enums.md)
+
     - [Définir une énumération](ch06-01-defining-an-enum.md)
     - [La structure de contrôle `match`](ch06-02-match.md)
     - [Une structure de contrôle concise : `if let`](ch06-03-if-let.md)
-
 
 ## Connaissances de base sur Rust
 
@@ -62,3 +62,5 @@
     - [La conformité des références avec les durées de vies](ch10-03-lifetime-syntax.md)
 
 - [Ecrire des tests automatisés](ch11-00-testing.md)
+    - [Comment écrire des tests](ch11-01-writing-tests.md)
+    - [Gérer l'exécution des tests](ch11-02-running-tests.md)
