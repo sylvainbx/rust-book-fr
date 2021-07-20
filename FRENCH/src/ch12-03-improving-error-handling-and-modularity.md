@@ -580,15 +580,6 @@ afficher un meilleur message d'erreur que le message `index out of bounds`.
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-08/src/main.rs:here}}
 ```
 
-```rust,ignore
-// -- partie masquée ici --
-fn new(args: &[String]) -> Config {
-    if args.len() < 3 {
-        panic!("il n'y a pas assez d'arguments");
-    }
-    // -- partie masquée ici --
-```
-
 <!--
 <span class="caption">Listing 12-8: Adding a check for the number of
 arguments</span>
