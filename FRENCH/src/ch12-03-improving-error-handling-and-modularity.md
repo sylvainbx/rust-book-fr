@@ -394,7 +394,7 @@ un compromis qui en vaut la peine.
 > n'est pas un problème de copier quelques chaînes de caractères pour continuer
 > à progresser car vous allez le faire une seule fois et votre `nom_fichier` et
 > `recherche` sont très courts. Il est plus important d'avoir un programme
-> fonctionnel qui est n'est très optimisé plutôt que d'essayer d'optimiser à
+> fonctionnel qui n'est pas très optimisé plutôt que d'essayer d'optimiser à
 > outrance le code dès sa première écriture. Plus vous deviendrez expérimenté
 > en Rust, plus il sera facile de commencer par la solution la plus
 > performante, mais pour le moment, il est parfaitement acceptable de faire
@@ -687,8 +687,8 @@ that this won’t compile until we update `main` as well, which we’ll do in th
 next listing.
 -->
 
-L'encart 12-9 nous montre les changements que nous devons faire pour à la
-valeur de retour de `Config::new` et le corps de la fonction qui doit retourner
+L'encart 12-9 nous montre les changements que nous devons apporter à la
+valeur de retour de `Config::new` et le corps de la fonction pour pouvoir retourner
 un `Result`. Notez que cela ne va pas se compiler tant que nous ne corrigeons
 pas aussi le `main`, ce que nous allons faire dans le prochain encart.
 
@@ -752,7 +752,7 @@ more cleanly in the error case.
 
 Retourner une valeur `Err` à partir de `Config::new` permet à la fonction
 `main` de gérer la valeur `Result` retournée par la fonction `new` et de
-terminer plus proprement le processus dans cas d'une erreur.
+terminer plus proprement le processus dans le cas d'une erreur.
 
 <!--
 #### Calling `Config::new` and Handling Errors
@@ -845,7 +845,7 @@ number that was passed as the exit status code. This is similar to the
 extra output. Let’s try it:
 -->
 
-Nous avons ajouté une nouvelle ligne `use` pour importer `porté` dans la portée
+Nous avons ajouté une nouvelle ligne `use` pour importer `process` dans la portée
 à partir de la bibliothèque standard. Le code dans la fermeture qui sera exécuté
 dans le cas d'une erreur fait uniquement deux lignes : nous affichons la valeur
 de `err` et nous appelons ensuite `process::exit`. La fonction `process::exit`
