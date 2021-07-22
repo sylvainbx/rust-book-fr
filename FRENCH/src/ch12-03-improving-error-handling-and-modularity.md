@@ -1008,9 +1008,9 @@ En ce qui concerne le type d'erreur, nous avons utilisé *l'objet trait*
 une instruction `use` en haut). Nous allons voir les objets trait dans le
 [chapitre 17][ch17]<!-- ignore -->. Pour l'instant, retenez juste que
 `Box<dyn Error>` signifie que la fonction va retourner un type qui implémente
-le trait `Error`, mais que nous n'avons pas à préciser quel sera précisément le
-type de la valeur de retour. Cela nous donne de la flexibilité sur les valeurs
-d'erreurs de retour qui peuvent être différentes dans différents cas d'erreurs.
+le trait `Error`, mais que nous n'avons pas à spécifier quel sera précisément le
+type de la valeur de retour. Cela nous donne la flexibilité de retourner des valeurs
+d'erreurs qui peuvent être de différents types dans différents cas d'erreurs.
 Le mot-clé `dyn` est un raccourci pour “dynamique”.
 
 <!--
@@ -1040,7 +1040,7 @@ fonction `run` était `()`, ce qui signifie que nous avons envelopper la valeur
 de type unité dans la valeur `Ok`. Cette syntaxe `Ok(())` peut sembler un peu
 étrange au départ, mais utiliser `()` de cette manière est la façon idéale
 d'indiquer que nous appelons `run` uniquement pour ses effets secondaires ; elle
-ne retourne pas de valeur que nous pourrions avoir besoin.
+ne retourne pas de valeur dont nous pourrions avoir besoin.
 
 <!--
 When you run this code, it will compile but will display a warning:
@@ -1113,7 +1113,7 @@ return the unwrapped value because it would only be `()`.
 -->
 
 Nous utilisons `if let` plutôt que `unwrap_or_else` pour vérifier si `run`
-retourne un valeure `Err` et appeler `process::exit(1)` le cas échéant. La
+retourne un valeur `Err` et appeler `process::exit(1)` le cas échéant. La
 fonction `run` ne retourne pas de valeur que nous avons besoin de `unwrap`
 comme nous l'avions fait avec le `Config::new` qui retournait une instance de
 `Config`. Comme `run` retourne `()` dans le cas d'un succès, nous nous
@@ -1143,7 +1143,7 @@ it and have a *src/main.rs* file with fewer responsibilities.
 
 Notre projet `minigrep` se présente plutôt bien pour le moment ! Maintenant,
 nous allons diviser notre fichier *src/main.rs* et déplacer du code dans le
-fichier *src/lib.rs* pour que nous puissions le tester et avoir fichier
+fichier *src/lib.rs* pour que nous puissions le tester et avoir un fichier
 *src/main.rs* qui héberge moins de fonctionnalités.
 
 <!--
