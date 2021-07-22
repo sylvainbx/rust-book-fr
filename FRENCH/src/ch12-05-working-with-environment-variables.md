@@ -39,7 +39,7 @@ tests, as shown in Listing 12-20.
 
 Nous souhaitons ajouter une nouvelle fonction `rechercher_insensible_casse` que
 nous allons appeler lorsque la variable d'environnement est active. Nous allons
-continuer à suivre le processus de TDD, donc la première étape et d'écrire à
+continuer à suivre le processus de TDD, donc la première étape est d'écrire à
 nouveau un test qui échoue. Nous allons ajouter un nouveau test pour la nouvelle
 fonction `rechercher_insensible_casse` et renommer notre ancien test
 `one_result` en `sensible_casse` pour clarifier les différences entre les deux
@@ -78,7 +78,7 @@ search functionality that we’ve already implemented. This test should pass now
 and should continue to pass as we work on the case-insensitive search.
 -->
 
-Remarquez aussi que nous avons aussi modifié le `contenu` des anciens tests.
+Remarquez que nous avons aussi modifié le `contenu` de l'ancien test.
 Nous avons ajouté une nouvelle ligne avec le texte `"Duct tape."` en utilisant
 un D majuscule qui ne devrait pas correspondre à la recherche `"duct"` lorsque
 nous recherchons de manière à être sensible à la casse. Ce changement de
@@ -491,7 +491,7 @@ variables.
 
 Très bien, nous avons aussi obtenu les lignes qui contiennent “To” ! Notre
 programme `minigrep` peut maintenant faire des recherches insensibles à la
-casse, pilotées par une variable d'environnement. Vous savez maintenant comment
+casse, contrôlées par une variable d'environnement. Vous savez maintenant comment
 gérer des options définies soit par des arguments en ligne de commande, soit
 par des variables d'environnement.
 
@@ -507,7 +507,7 @@ one set to case insensitive.
 
 Certains programmes permettent d'utiliser les arguments *et* les variables
 d'environnement pour un même réglage. Dans ce cas, le programme décide si l'un
-ou l'autre a la priorité. Pour vous exercer à nouveau, essayez de piloter la
+ou l'autre a la priorité. Pour vous exercer à nouveau, essayez de contrôler la
 sensibilité à la casse via un argument de ligne de commande ou une variable
 d'environnement. Vous devrez choisir si l'argument de la ligne de commande ou
 la variable d'environnement devrait être prioritaire si le programme est exécuté
