@@ -447,20 +447,6 @@ le vecteur, comme dans l'encart 12-19 :
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-19/src/lib.rs:here}}
 ```
 
-```rust,ignore
-pub fn rechercher<'a>(recherche: &str, contenu: &'a str) -> Vec<&'a str> {
-    let mut resultats = Vec::new();
-
-    for ligne in contenu.lines() {
-        if ligne.contains(recherche) {
-            resultats.push(ligne);
-        }
-    }
-
-    resultats
-}
-```
-
 <!--
 <span class="caption">Listing 12-19: Storing the lines that match so we can
 return them</span>
