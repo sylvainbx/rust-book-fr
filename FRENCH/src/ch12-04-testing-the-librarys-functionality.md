@@ -144,7 +144,7 @@ containing the line `"safe, fast, productive."`
 
 Nous ne pouvons pas encore exécuter ce test et vérifier s'il échoue car même le
 test ne peut pas se compiler : la fonction `rechercher` n'existe pas encore !
-Donc pour le moment nous allons ajouter juste assez de code pour quel le test
+Donc pour le moment nous allons ajouter juste assez de code pour que le test
 puisse compiler et s'exécuter en ajoutant une définition de la fonction
 `rechercher` qui retourne un vecteur vide, comme dans l'encart 12-16. Ensuite
 le test va compiler et échouer car un vecteur vide ne correspond pas au vecteur
@@ -189,7 +189,7 @@ définie dans la signature de `rechercher` et l'utiliser sur l'argument `contenu
 et la valeur de retour. Rappelez-vous que dans le
 [chapitre 10][ch10-lifetimes]<!-- ignore --> nous avions vu que les paramètres
 de durée de vie renseignent à quelle durée de vie des arguments sont connectées
-les durées de vie des valeurs de retour. Dans notre cas, nous indiquons que le
+aux durées de vie des valeurs de retour. Dans notre cas, nous indiquons que le
 vecteur retourné devrait contenir des slices de chaînes de caractères qui sont
 des slices de l'argument `contenu` (et non pas de l'argument `recherche`).
 
@@ -523,7 +523,7 @@ from our `run` function. We need to pass the `config.query` value and the
 will print each line returned from `search`:
 -->
 
-Maintenant que la fonction `rechercher` fonctionne et est testé, nous devons
+Maintenant que la fonction `rechercher` fonctionne et est testée, nous devons
 appeler `rechercher` dans notre fonction `run`. Nous devons passer à
 `rechercher` la valeur de `config.recherche`  et le `contenu` que `run` obtient
 en lisant le fichier. Ensuite, `run` devra afficher chaque ligne retournée par
@@ -625,7 +625,7 @@ useful when you’re writing command line programs.
 
 Pour clôturer ce projet, nous allons brièvement voir comment travailler avec les
 variables d'environnement et comment écrire sur la sortie standard des erreurs,
-qui sont tous les deux utiles lorsque nous écrivez des programmes en ligne de
+qui sont tous les deux utiles lorsque vous écrivez des programmes en ligne de
 commande.
 
 <!--
