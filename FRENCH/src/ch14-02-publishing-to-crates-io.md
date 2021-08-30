@@ -469,7 +469,7 @@ modules : un module `types` qui contient deux énumérations `CouleurPrimaire` 
 -->
 
 <span class="caption">Encart 14-3 : une bibliothèque `art` avec des éléments
-organisés selon les modules `types` and `utilitaires`</span>
+organisés selon les modules `types` et `utilitaires`</span>
 
 <!--
 Figure 14-3 shows what the front page of the documentation for this crate
