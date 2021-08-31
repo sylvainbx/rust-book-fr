@@ -96,13 +96,6 @@ cas, ce chemin est *additioneur* :
 {{#include ../listings/ch14-more-about-cargo/no-listing-01-workspace-with-adder-crate/ajout/Cargo.toml}}
 ```
 
-```toml
-[workspace]
-
-members = [
-    "additioneur",
-]
-```
 
 <!--
 Next, we’ll create the `adder` binary crate by running `cargo new` within the
@@ -201,7 +194,7 @@ Change the top-level *Cargo.toml* to specify the *add-one* path in the
 `members` list:
 -->
 
-Ensuite, créons un autre paquet, membre de l'espace de travail et appelons-la
+Ensuite, créons un autre paquet, membre de l'espace de travail et appelons-le
 `ajouter-un`. Changeons le *Cargo.toml* du niveau le plus haut pour renseigner
 le chemin vers *ajouter-un* dans la liste `members` :
 
@@ -477,7 +470,7 @@ plus haut de l'espace de travail plutôt que d'avoir un *Cargo.lock* dans chaque
 dossier de chaque crate. Cela garantit que toutes les crates utilisent la même
 version de toutes les dépendances. Si nous ajoutons le paquet `rand` aux
 fichiers *additioneur/Cargo.toml* et *ajouter-un/Cargo.toml*, cargo va réunir
-ces deux en une seule version de `rand` et enregistrer cela dans un seul
+les deux en une seule version de `rand` et enregistrer cela dans un seul
 *Cargo.lock*. Faire en sorte que toutes les crates de l'espace de travail
 utilisent la même dépendance signifie que les crates dans l'espace de travail
 seront toujours compatibles l'une avec l'autre. Ajoutons la crate `rand` à la
@@ -610,7 +603,7 @@ in the workspace will be compatible with each other.
 -->
 
 Pour corriger cela, modifiez le fichier *Cargo.toml* pour le paquet
-`additioneur` et rajouter-lui aussi un dépendance à `rand`. La compilation du
+`additioneur` et indiquez que `rand` est une dépendance de cette crate aussi. La compilation du
 paquet `additioneur` va rajouter `rand` à la liste des dépendances pour
 `additioneur` dans *Cargo.lock*, mais aucune copie supplémentaire de `rand` sera
 téléchargé. Cargo s'est assuré que toutes les crates de chaque paquet de
@@ -637,7 +630,7 @@ Afin de procéder à une autre amélioration, ajoutons un test de la fonction
 <span class="filename">Filename: add-one/src/lib.rs</span>
 -->
 
-<span class="filename">Fihcier : add-one/src/lib.rs</span>
+<span class="filename">Fichier : add-one/src/lib.rs</span>
 
 <!--
 ```rust
@@ -827,5 +820,5 @@ often changed at the same time.
 Au fur et à mesure que votre projet se développe, pensez à utiliser un espace
 de travail : il est plus facile de comprendre des composants individuels, plus
 petits, plutôt qu'un gros tas de code. De plus, garder les crates dans un
-espace de travail peut améliorer la collation entre elles si elles sont souvent
+espace de travail peut améliorer la coordination entre elles si elles sont souvent
 modifiées ensemble.
