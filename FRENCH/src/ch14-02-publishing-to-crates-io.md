@@ -611,7 +611,7 @@ and link re-exports on the front page, as shown in Figure 14-4, making the
 `PrimaryColor` and `SecondaryColor` types and the `mix` function easier to find.
 -->
 
-La documentation de l'API qui `cargo doc` a généré pour cette crate va
+La documentation de l'API que `cargo doc` a généré pour cette crate va
 maintenant lister et lier les ré-exportations sur la page d'accueil, comme dans
 l'illustration 14-4, ce qui rend les types `CouleurPrimaire` et
 `CouleurSecondaire` plus faciles à trouver.
@@ -763,8 +763,8 @@ to the `[package]` section of the crate’s *Cargo.toml* file.
 
 Maintenant que vous avez un compte, imaginons que vous avez une crate que vous
 souhaitez publier. Avant de la publier, vous aurez besoin d'ajouter quelques
-métadonnées à votre crate en les ajoutant à la section `[package]` de votre
-fichier *Cargo.toml* de la crate.
+métadonnées à votre crate en les ajoutant à la section `[package]` du fichier
+*Cargo.toml* de votre crate.
 
 <!--
 Your crate will need a unique name. While you’re working on a crate locally,
