@@ -147,7 +147,7 @@ wouldn’t be allowed to if we didn’t have boxes.
 -->
 
 Déposer une seule valeur sur le tas n'est pas très utile, donc vous n'utiliserez
-très rarement les boites de cette manière. Laisser les valeurs comme des `i32`
+que très rarement les boites de cette manière. Laisser les valeurs comme des `i32`
 indépendantes sur la pile, où elles sont stockées par défaut, reste plus
 approprié dans la majeure partie des situations. Regardons un cas où les boites
 nous permettent de définir des types que nous ne pourrions pas définir si nous
