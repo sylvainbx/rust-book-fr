@@ -35,8 +35,8 @@ qui se comporte comme `Box<T>`, et voir pourquoi l'opérateur de déréférencem
 ne fonctionne pas comme une référence sur notre type fraîchement défini. Nous
 allons découvrir comment implémenter le trait `Deref` de manière à ce qu'il soit
 possible que les pointeurs intelligents fonctionnent comme les références.
-Ensuite nous verons la fonctionnalité d'*extrapolation de déréférencement* de
-Rust et voir comment elle nous permet de travailler à la fois avec des
+Ensuite nous verrons la fonctionnalité d'*extrapolation de déréférencement* de
+Rust et comment elle nous permet de travailler à la fois avec des
 références et des pointeurs intelligents.
 
 <!--
@@ -729,13 +729,15 @@ assumption that converting an immutable reference to a mutable reference is
 possible.
 -->
 
-Le troisième cas est plus ardue : Rust va aussi procéder à une extrapolation de
-déréférencement d'une référence immuable vers une référence mutable. A cause des
-règles d'emprunt, si vous avez une référence mutable, cette référence mutable
-doit être la seule référence vers cette donnée (autrement, le programme ne peut
-pas être compilé). Convertir une référence mutable vers une référence immuable
-ne va jamais casser les règles d'emprunt. Convertir une référence immuable vers
-une référence mutable nécessite que la référence immuable initiale soit la seule
-référence immuable vers cette donnée, mais les règles d'emprunt n'empêchent pas
-cela. Ainsi, Rust ne peut pas déduire que la conversion d'une référence immuable
+Le troisième cas est plus ardu : Rust va aussi procéder à une extrapolation de
+déréférencement d'une référence mutable vers une référence immuable. Mais 
+l'inverse n'est *pas* possible: une extrapolation de déréférencement d'une 
+valeur immuable ne donnera jamais une référence mutable. A cause des règles
+d'emprunt, si vous avez une référence mutable, cette référence mutable doit être 
+la seule référence vers cette donnée (autrement, le programme ne peut pas être 
+compilé). Convertir une référence mutable vers une référence immuable ne va
+jamais casser les règles d'emprunt. Convertir une référence immuable vers une 
+référence mutable nécessite que la référence immuable initiale soit la seule 
+référence immuable vers cette donnée, mais les règles d'emprunt n'empêchent pas 
+cela. Ainsi, Rust ne peut pas déduire que la conversion d'une référence immuable 
 vers une référence mutable soit possible.
