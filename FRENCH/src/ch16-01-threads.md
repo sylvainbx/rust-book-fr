@@ -517,7 +517,7 @@ an attempt to create a vector in the main thread and use it in the spawned
 thread. However, this won’t yet work, as you’ll see in a moment.
 -->
 
-Remarquez dans l'encart 16-1 que la fermeture que nous donnons à `thread::span`
+Remarquez dans l'encart 16-1 que la fermeture que nous donnons à `thread::spawn`
 ne prends pas d'arguments : nous n'utilisons aucune donnée de la tâche
 principale dans le code de la nouvelle tâche. Pour utiliser des données de la
 tâche principale dans la nouvelle tâche, la fermeture de la nouvelle tâche doit
@@ -589,7 +589,7 @@ Listing 16-4 provides a scenario that’s more likely to have a reference to `v`
 that won’t be valid:
 -->
 
-L'encart 16-4 propose un scénario qui est plus encleint à avoir une référence à
+L'encart 16-4 propose un scénario qui est plus enclin à avoir une référence à
 `v` qui ne sera plus valide :
 
 <!--
