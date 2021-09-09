@@ -77,7 +77,7 @@ we’ll discuss in Chapter 19.
 
 Tous les types composés entièrement d'autres types qui implémentent `Send` sont
 automatiquement marqués comme `Send` eux-aussi. Presque la plupart des types
-primitifs sont `Send`, à part les pointeurs bruts, ce que nous avons verrons au
+primitifs sont `Send`, à part les pointeurs bruts, ce que nous verrons au
 chapitre 19.
 
 <!--
@@ -114,7 +114,7 @@ Threads”][sharing-a-mutext-between-multiple-threads]<!-- ignore -- > section.
 
 Le pointeur intelligent `Rc<T>` n'implémente pas non plus `Sync` pour les mêmes
 raisons qu'il n'implémente pas `Send`. Le type `RefCell<T>` (que nous avons vu
-au chapitre 15) la famille liée aux types `Cell<T>` n'implémentent pas `Sync`.
+au chapitre 15) et la famille liée aux types `Cell<T>` n'implémentent pas `Sync`.
 L'implémentation du vérificateur d'emprunt que fait `RefCell<T>` à l'exécution
 n'est pas sûre entre plusieurs tâches. Le pointeur intelligent `Mutex<T>`
 implémente `Sync` et peut être utilisé pour partager l'accès entre plusieurs
