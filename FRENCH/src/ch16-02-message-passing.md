@@ -33,7 +33,7 @@ concurrence est le *canal*, un concept de programmation dont la bibliothèque
 standard de Rust fournit une implémentation. Vous pouvez imaginer un canal de
 programmation comme étant un canal d'eau, comme un ruisseau ou une rivière. Si
 vous posez quelque chose comme un canard en plastique ou un bateau sur un
-ruisseau, il se déplacera en descendant le long la voie d'eau.
+ruisseau, il se déplacera en descendant le long de la voie d'eau.
 
 <!--
 A channel in programming has two halves: a transmitter and a receiver. The
@@ -124,7 +124,7 @@ signifie *multiple producer, single consumer*, c'est-à-dire
 *plusieurs producteurs, un seul consommateur*. En bref, la façon dont la
 bibliothèque standard de Rust a implémenté ces canaux permet d'avoir plusieurs
 extrémités *émettrices* qui produisent des valeurs, mais seulement une seule
-extrémité *réceptrice* qui consomme ces valeurs. Immaginez plusieurs ruisseaux
+extrémité *réceptrice* qui consomme ces valeurs. Imaginez plusieurs ruisseaux
 qui se rejoignent en une seule grosse rivière : tout ce qui est déposé sur les
 ruisseaux va finir dans une seule rivière à la fin. Nous allons commencer avec
 un seul producteur pour le moment, mais nous allons ajouter d'autres
@@ -142,7 +142,7 @@ pieces of the tuple returned by `mpsc::channel`.
 -->
 
 La fonction `mpsc::channel` retourne un tuple, le premier élément est celui qui
-permet d'envoyer et le second est celui qui reçoit. Les abbréviations `tx` et
+permet d'envoyer et le second est celui qui reçoit. Les abréviations `tx` et
 `rx` sont utilisés traditionnellement dans de nombreux domaines pour signifier
 respectivement *transmetteur* et *récepteur*, nous avons donc nommé nos
 variables comme ceci pour marquer chaque élément.  Nous utilisons une
@@ -198,7 +198,7 @@ messages through the channel.
 
 Nous utilisons à nouveau `thread::spawn` pour créer une nouvelle tâche et
 ensuite utiliser `move` pour déplacer `tx` dans la fermeture afin que la
-nouvelle tâche possède désormais ``tx`. La nouvelle tâche a besoin de posséder
+nouvelle tâche possède désormais `tx`. La nouvelle tâche a besoin de posséder
 la partie émettrice du canal pour être en capacité d'envoyer des messages
 dans ce canal.
 
