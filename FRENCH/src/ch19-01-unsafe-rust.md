@@ -11,9 +11,9 @@ that doesn’t enforce these memory safety guarantees: it’s called *unsafe Rus
 and works just like regular Rust, but gives us extra superpowers.
 -->
 
-Tout le code Rust dont nous avons abordé jusqu'à présent a bénéficié des
+Tout le code Rust que nous avons abordé jusqu'à présent a bénéficié des
 garanties de sécurité de la mémoire, vérifiées à la compilation. Cependant, Rust
-a un second langage caché en son sein qui n'appliquent pas ces vérifications
+a un second langage caché en son sein qui n'applique pas ces vérifications
 pour la sécurité de la mémoire : il s'appelle le *Rust non sécurisé* et
 fonctionne comme le Rust habituel, mais fournit quelques super-pouvoirs
 supplémentaires.
@@ -29,7 +29,7 @@ risk: if you use unsafe code incorrectly, problems due to memory unsafety, such
 as null pointer dereferencing, can occur.
 -->
 
-Le Rust non sécurisé existe car, par nature, l'analyse statique est conservatif.
+Le Rust non sécurisé existe car, par nature, l'analyse statique est conservative.
 Lorsque le compilateur essaye de déterminer si le code respecte ou non les
 garanties, il vaut mieux rejeter quelques programmes valides plutôt que
 d'accepter quelques programmes invalides. Bien que le code puisse être correct,
@@ -382,9 +382,9 @@ abstraction that uses unsafe code.
 -->
 
 Avec tous ces dangers, pourquoi vous risquer à utiliser les pointeurs bruts ?
-Une des utilisations majeures et lorsque nous nous interfacons avec du code
+Une des utilisations majeures est lorsque nous nous interfacons avec du code
 C, comme vous allez le découvrir dans la section suivante. Une autre
-utilisation est lorsque nous créons une abstraction sécurisée qui le
+utilisation est lorsque nous créons une abstraction sécurisée que le
 vérificateur d'emprunt ne comprends pas. Nous allons découvrir les fonctions
 non sécurisées et ensuite voir un exemple d'une abstraction sécurisée qui
 utilise du code non sécurisé.
@@ -408,7 +408,7 @@ responsibility for upholding the function’s contracts.
 
 Le second type d'opération qui nécessite un bloc `unsafe` est l'appel à des
 fonctions non sécurisées. Les fonctions et méthodes non sécurisées ressemblent
-exactement pareil que les méthodes et fonctions habituelles, mais ont un
+exactement aux méthodes et fonctions habituelles, mais ont un
 `unsafe` en plus devant le reste de leur définition. Le mot-clé `unsafe` dans
 ce cas signifie que la fonction a des exigences à respecter pour pouvoir y
 faire appel, car Rust ne peut pas garantir que nous avons rempli ces exigences.
@@ -742,10 +742,10 @@ that the slice this code creates contains valid `i32` values. Attempting to use
 `slice` as though it’s a valid slice results in undefined behavior.
 -->
 
-Nous ne possédons par la mémoire à cet emplacement arbitraire, et il n'y a
+Nous ne possédons pas la mémoire à cet emplacement arbitraire, et il n'y a
 aucune garantie que la slice créée par ce code contient des valeurs `i32`
-valides. La tentative d'utilisation `slice` sera soumis à un comportement
-imprévisible même si elle est une slice valide.
+valides. La tentative d'utilisation de `slice` sera soumise à un comportement
+imprévisible même si c'est une slice valide.
 
 <!--
 #### Using `extern` Functions to Call External Code
@@ -797,18 +797,6 @@ en toute sécurité revient au développeur.
 
 ```rust,unsafe
 {{#rustdoc_include ../listings/ch19-advanced-features/listing-19-08/src/main.rs}}
-```
-
-```rust,unsafe
-extern "C" {
-    fn abs(input: i32) -> i32;
-}
-
-fn main() {
-    unsafe {
-        println!("La valeur absolue de -3 selon le langage C : {}", abs(-3));
-    }
-}
 ```
 
 <!--
