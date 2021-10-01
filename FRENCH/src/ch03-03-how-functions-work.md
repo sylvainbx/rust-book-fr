@@ -5,13 +5,13 @@
 ## Les fonctions
 
 <!--
-Functions are pervasive in Rust code. You’ve already seen one of the most
+Functions are prevalent in Rust code. You’ve already seen one of the most
 important functions in the language: the `main` function, which is the entry
 point of many programs. You’ve also seen the `fn` keyword, which allows you to
 declare new functions.
 -->
 
-Les fonctions sont omniprésentes dans le code Rust. Vous avez déjà vu l'une des
+Les fonctions sont très utilisées dans le code Rust. Vous avez déjà vu l'une des
 fonctions les plus importantes du langage : la fonction `main`, qui est le point
 d'entrée de beaucoup de programmes. Vous avez aussi vu le mot-clé `fn`, qui vous
 permet de déclarer des nouvelles fonctions.
@@ -181,14 +181,14 @@ chaîne de formatage.
 In function signatures, you *must* declare the type of each parameter. This is
 a deliberate decision in Rust’s design: requiring type annotations in function
 definitions means the compiler almost never needs you to use them elsewhere in
-the code to figure out what you mean.
+the code to figure out what type you mean.
 -->
 
 Dans la signature d'une fonction, vous *devez* déclarer le type de chaque
 paramètre. C'est un choix délibéré de conception de Rust : exiger l'annotation
 de type dans la définition d'une fonction fait en sorte que le compilateur n'a
-presque plus besoin que vous les utilisiez autre part pour qu'il comprenne ce
-que vous voulez faire.
+presque plus besoin que vous les utilisiez autre part pour qu'il comprenne avec
+quel type vous souhaitez travailler.
 
 <!--
 When you want a function to have multiple parameters, separate the parameter
@@ -215,16 +215,16 @@ paramètres avec des virgules, comme ceci :
 ```
 
 <!--
-This example creates a function with two parameters, both of which are `i32`
-types. The function then prints the values in both of its parameters. Note that
-function parameters don’t all need to be the same type, they just happen to be
-in this example.
+This example creates a function named `print_labeled_measurement` with two
+parameters. The first parameter is named `value` and is an `i32`. The second is
+named `unit_label` and is type `char`. The function then prints text containing
+both the `value` and the `unit_label`.
 -->
 
-Cet exemple crée une fonction avec deux paramètres, chacun d'eux sont du type
-`i32`. La fonction affiche ensuite les valeurs de ses deux paramètres.
-Notez que les paramètres des fonctions n'ont pas besoin d'être du même type,
-nous sommes dans cette situation uniquement pour les besoins de notre exemple.
+Cet exemple crée la fonction `afficher_mesure_avec_unite` qui a deux paramètres.
+Le premier paramètre s'appelle `valeur` et est un `i32`. Le second, `nom_unite`,
+est de type `char`. La fonction affiche ensuite le texte qui contient les
+valeurs de `valeur` et de `nom_unite`.
 
 <!--
 Let’s try running this code. Replace the program currently in your *functions*
@@ -247,12 +247,12 @@ et lancez-le en utilisant `cargo run` :
 ```
 
 <!--
-Because we called the function with `5` as the value for  `x` and `6` is passed
-as the value for `y`, the two strings are printed with these values.
+Because we called the function with `5` as the value for `value` and `'h'` as
+the value for `unit_label`, the program output contains those values.
 -->
 
-Comme nous avons appelé la fonction avec la valeur `5` pour `x` et `6` pour
-`y`, deux lignes sont affichées avec ces valeurs.
+Comme nous avons appelé la fonction avec la valeur `5` pour `valeur` et `'h'`
+pour `nom_unite`, la sortie de ce programme contient ces valeurs.
 
 <!--
 ### Function Bodies Contain Statements and Expressions
@@ -387,20 +387,20 @@ langages, vous pouvez écrire `x = y = 6` et avoir ainsi `x` et `y` qui ont
 chacun la valeur `6` ; cela n'est pas possible avec Rust.
 
 <!--
-Expressions evaluate to something and make up most of the rest of the code that
-you’ll write in Rust. Consider a simple math operation, such as `5 + 6`, which
-is an expression that evaluates to the value `11`. Expressions can be part of
+Expressions evaluate to a value and make up most of the rest of the code that
+you’ll write in Rust. Consider a math operation, such as `5 + 6`, which is an
+expression that evaluates to the value `11`. Expressions can be part of
 statements: in Listing 3-1, the `6` in the statement `let y = 6;` is an
 expression that evaluates to the value `6`. Calling a function is an
 expression. Calling a macro is an expression. The block that we use to create
 new scopes, `{}`, is an expression, for example:
 -->
 
-Les expressions sont évaluées et seront ce que vous écrirez le plus en Rust
-(hormis les instructions). Prenez une simple opération mathématique, comme
-`5 + 6`, qui est une expression qui s'évalue à la valeur `11`. Les expressions
-peuvent faire partie d'une instruction : dans l'encart 3-1, le `6` dans
-l'instruction `let y = 6;` est une expression qui s'évalue à la valeur `6`.
+Les expressions sont calculées en tant que valeur et seront ce que vous écrirez
+le plus en Rust (hormis les instructions). Prenez une opération mathématique,
+comme `5 + 6`, qui est une expression qui s'évalue à la valeur `11`. Les
+expressions peuvent faire partie d'une instruction : dans l'encart 3-1, le `6`
+dans l'instruction `let y = 6;` est une expression qui s'évalue à la valeur `6`.
 L'appel de fonction est aussi une expression. L'appel de macro est une
 expression. Le bloc que nous utilisons pour créer une nouvelle portée, `{}`,
 est une expression, par exemple :
@@ -627,7 +627,7 @@ Compiler ce code va produire une erreur, comme ci-dessous :
 The main error message, “mismatched types,” reveals the core issue with this
 code. The definition of the function `plus_one` says that it will return an
 `i32`, but statements don’t evaluate to a value, which is expressed by `()`,
-an empty tuple. Therefore, nothing is returned, which contradicts the function
+the unit type. Therefore, nothing is returned, which contradicts the function
 definition and results in an error. In this output, Rust provides a message to
 possibly help rectify this issue: it suggests removing the semicolon, which
 would fix the error.
@@ -636,7 +636,7 @@ would fix the error.
 Le message d'erreur principal, “mismatched types” *(types inadéquats)* donne le
 cœur du problème de ce code. La définition de la fonction `plus_un` dit qu'elle
 va retourner un `i32`, mais les instructions ne retournent pas de valeur, ceci
-est donc représenté par `()`, un *tuple* vide. Par conséquent, rien n'est
+est donc représenté par `()`, le type unité. Par conséquent, rien n'est
 retourné, ce qui contredit la définition de la fonction et provoque une erreur.
 Rust affiche un message qui peut aider à corriger ce problème : il suggère
 d'enlever le point-virgule, ce qui va résoudre notre problème.

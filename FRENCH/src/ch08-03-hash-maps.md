@@ -119,9 +119,9 @@ the [”Processing a Series of Items with Iterators” section of Chapter
 13][iterators]<!-- ignore -- >. The `collect` method gathers data into a number
 of collection types, including `HashMap`. For example, if we had the team names
 and initial scores in two separate vectors, we could use the `zip` method to
-create a vector of tuples where “Blue” is paired with 10, and so forth. Then we
-could use the `collect` method to turn that vector of tuples into a hash map,
-as shown in Listing 8-21.
+create an iterator of tuples where “Blue” is paired with 10, and so forth. Then
+we could use the `collect` method to turn that iterator of tuples into a hash
+map, as shown in Listing 8-21.
 -->
 
 Une autre façon de construire une table de hachage est d'utiliser les itérateurs
@@ -131,9 +131,9 @@ associées dans [une section du chapitre 13][iterators]<!-- ignore -->. La
 méthode `collect` regroupe les données dans quelques types de collections, dont
 `HashMap`. Par exemple, si nous avions les noms des équipes et les scores
 initiaux dans deux vecteurs séparés, nous pourrions utiliser la méthode `zip`
-pour créer un vecteur de tuples où “Bleu” est associé à 10, et ainsi de suite.
-Ensuite, nous pourrions utiliser la méthode `collect` pour transformer ce
-vecteur de tuples en table de hachage, comme dans l'encart 8-21.
+pour créer un itérateur de tuples où “Bleu” est associé à 10, et ainsi de suite.
+Ensuite, nous pourrions utiliser la méthode `collect` pour transformer cet
+itérateur de tuples en table de hachage, comme dans l'encart 8-21.
 
 <!--
 ```rust

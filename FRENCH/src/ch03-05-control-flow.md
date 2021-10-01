@@ -559,20 +559,79 @@ Le symbole `^C` représente le moment où vous avez appuyé sur
 code quand elle a reçu le signal d'arrêt.
 
 <!--
-Fortunately, Rust provides another, more reliable way to break out of a loop.
-You can place the `break` keyword within the loop to tell the program when to
-stop executing the loop. Recall that we did this in the guessing game in the
+Fortunately, Rust provides a way to break out of a loop from code. You can
+place the `break` keyword within the loop to tell the program when to stop
+executing the loop. Recall that we did this in the guessing game in the
 [“Quitting After a Correct Guess”][quitting-after-a-correct-guess]<!-- ignore
 -- > section of Chapter 2 to exit the program when the user won the game by
 guessing the correct number.
 -->
 
-Heureusement, Rust fournit un autre moyen, plus fiable, de sortir d'une boucle.
-Vous pouvez ajouter le mot-clé `break` à l'intérieur de la boucle pour demander
-au programme d'arrêter la boucle. Souvenez-vous que nous avions fait ceci dans
-le jeu de devinettes, dans la section [“Arrêter le programme après avoir
-gagné”][quitting-after-a-correct-guess]<!-- ignore --> du chapitre 2 afin de
-quitter le programme quand l'utilisateur gagne le jeu en devinant le bon nombre.
+Heureusement, Rust fournit un autre moyen, plus fiable, de sortir d'une boucle
+avec du code. Vous pouvez ajouter le mot-clé `break` à l'intérieur de la boucle
+pour demander au programme d'arrêter la boucle. Souvenez-vous que nous avions
+fait ceci dans le jeu de devinettes, dans la section [“Arrêter le programme
+après avoir gagné”][quitting-after-a-correct-guess]<!-- ignore --> du chapitre 2
+afin de quitter le programme quand l'utilisateur gagne le jeu en devinant le
+bon nombre.
+
+<!--
+We also used `continue` in the guessing game. The `continue` keyword within a
+loop tells the program to skip over any remaining code in this iteration of the
+loop and go to the next iteration.
+-->
+
+Nous avons également `continue` dans le jeu du plus ou du moins. Le mot-clé
+`continue` dans une boucle demande au programme de sauter le code restant dans
+cette iteration de la boucle et passer directement à la prochaine itération.
+
+<!--
+If you have loops within loops, `break` and `continue` apply to the innermost
+loop at that point. You can optionally specify a *loop label* on a loop and
+then use the label with `break` or `continue` to have those keywords applied to
+the labeled loop instead of the innermost loop. Here’s an example with two
+nested loops:
+-->
+
+Si vous avez des boucles imbriquées dans d'autres boucles, `break` et `continue`
+s'appliquent uniquement à la boucle au plus bas niveau. Si vous en avez besoin,
+vous pouvez associer une *etiquette de boucle* à une boucle et utiliser ensuite
+utiliser cette étiquette en association avec `break` ou `continue` pour
+appliquer ces mot-clés sur la boucle correspondant à l'étiquette plutôt qu'à la
+boucle la plus proche possible. Voici un exemple avec deux boucles imbriquées :
+
+<!--
+```rust
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-32-5-loop-labels/src/main.rs}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-32-5-loop-labels/src/main.rs}}
+```
+
+<!--
+The outer loop has the label `'counting_up`, and it will count up from 0 to 2.
+The inner loop without a label counts down from 10 to 9. The first `break` that
+doesn’t specify a label will exit the inner loop only. The `break
+'counting_up;` statement will exit the outer loop. This code prints:
+-->
+
+La boucle la plus à l'extérieur a l'étiquette `increment`, et elle va
+incrémenter de 0 à 2. La boucle à l'intérieur n'a pas d'étiquette et va
+décrementer de 10 à 9. Le premier `break` qui ne précise pas d'étiquette va
+arrêter uniquement la boucle interne. L'instruction `break 'increment;` va
+arrêter la boucle la plus à l'extérieur. Ce code va afficher :
+
+<!--
+```console
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-32-5-loop-labels/output.txt}}
+```
+-->
+
+```console
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-32-5-loop-labels/output.txt}}
+```
 
 <!--
 #### Returning Values from Loops
@@ -765,15 +824,16 @@ s'exécuter avant d'essayer de récupérer une sixième valeur du tableau.
 
 <!--
 But this approach is error prone; we could cause the program to panic if the
-index length is incorrect. It’s also slow, because the compiler adds runtime
-code to perform the conditional check on every element on every iteration
-through the loop.
+index value or test condition are incorrect. It’s also slow, because the
+compiler adds runtime code to perform the conditional check of whether the
+index is within the bounds of the array on every iteration through the loop.
 -->
 
 Mais cette approche pousse à l'erreur ; nous pourrions faire paniquer le
-programme si l'indice est trop grand. De plus, c'est lent, car le compilateur
-ajoute du code à l'exécution pour effectuer des vérifications sur chaque élément
-à chaque itération de la boucle.
+programme si la valeur de l'indice est trop grand ou que la condition du test
+est incorrecte. De plus, c'est lent, car le compilateur ajoute du code pour
+effectuer à l'exécution la vérification que l'indice est compris dans les
+limites du tableau, et cela à chaque itération de la boucle.
 
 <!--
 As a more concise alternative, you can use a `for` loop and execute some code
@@ -836,9 +896,9 @@ la boucle `for`, vous n'aurez pas à vous rappeler de changer le code si vous
 changez le nombre de valeurs dans le tableau.
 
 <!--
-The safety and conciseness of `for` loops make them the most commonly used loop
-construct in Rust. Even in situations in which you want to run some code a
-certain number of times, as in the countdown example that used a `while` loop
+The safety and conciseness of `for` loops makes them the most commonly used
+loop construct in Rust. Even in situations in which you want to run some code
+a certain number of times, as in the countdown example that used a `while` loop
 in Listing 3-3, most Rustaceans would use a `for` loop. The way to do that
 would be to use a `Range`, which is a type provided by the standard library
 that generates all numbers in sequence starting from one number and ending

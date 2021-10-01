@@ -5,20 +5,22 @@
 ## Les variables et la mutabilité
 
 <!--
-As mentioned in Chapter 2, by default variables are immutable. This is one of
-many nudges Rust gives you to write your code in a way that takes advantage of
-the safety and easy concurrency that Rust offers. However, you still have the
-option to make your variables mutable. Let’s explore how and why Rust
-encourages you to favor immutability and why sometimes you might want to opt
-out.
+As mentioned in the [“Storing Values with
+Variables”][storing-values-with-variables]<!-- ignore -- > section, by default
+variables are immutable. This is one of many nudges Rust gives you to write
+your code in a way that takes advantage of the safety and easy concurrency that
+Rust offers. However, you still have the option to make your variables mutable.
+Let’s explore how and why Rust encourages you to favor immutability and why
+sometimes you might want to opt out.
 -->
 
-Tel qu'abordé au chapitre 2, par défaut, les variables sont *immuables*. C'est
-un des nombreux coups de pouce de Rust pour écrire votre code de façon à
-garantir la sécurité et la concurrence sans problème. Cependant, vous avez quand
-même la possibilité de rendre vos variables mutables *(modifiables)*. Explorons
-comment et pourquoi Rust vous encourage à favoriser l'immuabilité, et pourquoi
-parfois vous pourriez choisir d'y renoncer.
+Tel qu'abordé au [chapitre 2][storing-values-with-variables]<!-- ignore -->,
+par défaut, les variables sont *immuables*. C'est un des nombreux coups de pouce
+de Rust pour écrire votre code de façon à garantir la sécurité et la concurrence
+sans problème. Cependant, vous avez quand même la possibilité de rendre vos
+variables mutables *(modifiables)*. Explorons comment et pourquoi Rust vous
+encourage à favoriser l'immuabilité, et pourquoi parfois vous pourriez choisir
+d'y renoncer.
 
 <!--
 When a variable is immutable, once a value is bound to a name, you can’t change
@@ -88,14 +90,14 @@ signifient *pas* que vous êtes un mauvais développeur ! Même les Rustacés
 expérimentés continuent d'avoir des erreurs de compilation.
 
 <!--
-The error message indicates that the cause of the error is that you `cannot
-assign twice to immutable variable x`, because you tried to assign a second
+The error message indicates that the cause of the error is that you `` cannot
+assign twice to immutable variable `x` ``, because you tried to assign a second
 value to the immutable `x` variable.
 -->
 
-Ce message d'erreur indique que la cause du problème est qu'il est *impossible
-d'assigner à deux reprises la variable immuable `x`* (`cannot assign twice to
-immutable variable x`).
+Ce message d'erreur indique que la cause du problème est qu'il est
+`` impossible d'assigner à deux reprises la variable immuable `x` ``
+(`` cannot assign twice to immutable variable `x` ``).
 
 <!--
 It’s important that we get compile-time errors when we attempt to change a
@@ -262,50 +264,67 @@ nombreuses parties de votre code ont besoin de connaître.
 
 <!--
 The last difference is that constants may be set only to a constant expression,
-not the result of a function call or any other value that could only be
-computed at runtime.
+not the result of a value that could only be computed at runtime.
 -->
 
 La dernière différence est que les constantes ne peuvent être définies que par
-une expression constante, et non pas le résultat d'un appel de fonction ou toute
-autre valeur qui ne pourrait être calculée qu'à l'exécution.
+une expression constante, et non pas le résultat d'une valeur qui ne pourrait
+être calculée qu'à l'exécution.
 
 <!--
 Here’s an example of a constant declaration where the constant’s name is
-`MAX_POINTS` and its value is set to 100,000. (Rust’s naming convention for
-constants is to use all uppercase with underscores between words, and
-underscores can be inserted in numeric literals to improve readability):
+`THREE_HOURS_IN_SECONDS` and its value is set to the result of multiplying 60
+(the number of seconds in a minute) by 60 (the number of minutes in an hour) by
+3 (the number of hours we want to count in this program):
 -->
 
 Voici un exemple d'une déclaration de constante où le nom de la constante est
-`MAX_POINTS` et où sa valeur est définie à 100 000. (En Rust, la convention de
-nommage des constantes est de les écrire tout en majuscule avec des tirets bas
-entre les mots, et des tirets bas peuvent être ajoutés entre les nombres pour
-améliorer la lisibilité) :
+`TROIS_HEURES_EN_SECONDES` et où sa valeur est le résultat de la multiplication
+de 60 (le nombre de secondes dans une minute) par 60 (le nombre de minutes dans
+une heure) par 3 (le nombre d'heures que nous voulons calculer dans ce
+programme) :
 
 <!--
 ```rust
-const MAX_POINTS: u32 = 100_000;
+const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
 ```
 -->
 
 ```rust
-const MAX_POINTS: u32 = 100_000;
+const TROIS_HEURES_EN_SECONDES: u32 = 60 * 60 * 3;
 ```
+
+<!--
+Rust’s naming convention for constants is to use all uppercase with underscores
+between words. The compiler is able to evaluate a limited set of operations at
+compile time, which lets us choose to write out this value in a way that’s
+easier to understand and verify, rather than setting this constant to the value
+10,800. See the [Rust Reference’s section on constant evaluation][const-eval]
+for more information on what operations can be used when declaring constants.
+-->
+
+En Rust, la convention de nommage des constantes est de les écrire tout en
+majuscule avec des tirets bas entre les mots. Le compilateur peut calculer un
+certain nombre d'opérationss à la compilation, ce qui nous permet d'écrire
+cette valeur de façon à la comprendre plus facilement et à la vérifier, plutôt
+que de définir cette valeur à 10 800. Vous pouvez consulter la [section de la
+référence Rust à propos des évaluations des constantes][const-eval] pour en
+savoir plus sur les opérations qui peuvent être utilisées pour déclarer des
+constantes.
 
 <!--
 Constants are valid for the entire time a program runs, within the scope they
-were declared in, making them a useful choice for values in your application
-domain that multiple parts of the program might need to know about, such as the
-maximum number of points any player of a game is allowed to earn or the speed
-of light.
+were declared in. This property makes constants useful for values in your
+application domain that multiple parts of the program might need to know about,
+such as the maximum number of points any player of a game is allowed to earn or
+the speed of light.
 -->
 
 Les constantes sont valables pendant toute la durée d'exécution du programme
-au sein de la portée dans laquelle elles sont déclarées, ce qui en fait de
-très bons choix lorsque plusieurs parties du programme doivent connaître
-certaines valeurs, comme par exemple le nombre maximum de points qu'un joueur
-est autorisé à gagner ou encore la vitesse de la lumière.
+au sein de la portée dans laquelle elles sont déclarées. Cette caractéristique
+rends les constantes très utiles lorsque plusieurs parties du programme doivent
+connaître certaines valeurs, comme par exemple le nombre maximum de points
+qu'un joueur est autorisé à gagner ou encore la vitesse de la lumière.
 
 <!--
 Naming hardcoded values used throughout your program as constants is useful in
@@ -331,7 +350,7 @@ As you saw in the guessing game tutorial in the [“Comparing the Guess to the
 Secret Number”][comparing-the-guess-to-the-secret-number]<!-- ignore -- >
 section in Chapter 2, you can declare a new variable with the same name as a
 previous variable. Rustaceans say that the first variable is *shadowed* by the
-second, which means that the second variable’s value is what appears when the
+second, which means that the second variable’s value is what the program sees when the
 variable is used. We can shadow a variable by using the same variable’s name
 and repeating the use of the `let` keyword as follows:
 -->
@@ -341,7 +360,7 @@ secret”][comparing-the-guess-to-the-secret-number]<!-- ignore --> du jeu de
 devinettes au chapitre 2, on peut déclarer une nouvelle variable avec le même
 nom qu'une variable précédente. Les Rustacés disent que la première variable est
 *masquée* par la seconde, ce qui signifie que la valeur de la seconde variable
-sera ce que nous obtiendrons lorsque nous utiliserons cette variable. Nous
+sera ce que le programme verra lorsque nous utiliserons cette variable. Nous
 pouvons créer un masque d'une variable en utilisant le même nom de variable et
 en réutilisant le mot-clé `let` comme ci-dessous :
 
@@ -364,17 +383,20 @@ en réutilisant le mot-clé `let` comme ci-dessous :
 <!--
 This program first binds `x` to a value of `5`. Then it shadows `x` by
 repeating `let x =`, taking the original value and adding `1` so the value of
-`x` is then `6`. The third `let` statement also shadows `x`, multiplying the
-previous value by `2` to give `x` a final value of `12`. When we run this
-program, it will output the following:
+`x` is then `6`. Then, within an inner scope, the third `let` statement also
+shadows `x`, multiplying the previous value by `2` to give `x` a value of `12`.
+When that scope is over, the inner shadowing ends and `x` returns to being `6`.
+When we run this program, it will output the following:
 -->
 
 Au début, ce programme lie `x` à la valeur `5`. Puis il crée un masque de `x`
 en répétant `let x =`, en récupérant la valeur d'origine et lui ajoutant `1` :
-la valeur de `x` est désormais `6`. La troisième instruction `let` crée un autre
-masque de `x`, en récupérant la précédente valeur et en la multipliant par `2`
-pour donner à `x` la valeur finale de `12`. Lorsque nous exécutons ce programme,
-nous obtenons ceci :
+la valeur de `x` est désormais `6`. Ensuite, à l'intérieur de la portée interne,
+la troisième instruction `let` crée un autre masque de `x`, en récupérant la
+précédente valeur et en la multipliant par `2` pour donner à `x` la valeur
+finale de `12`. Dès que nous sortons de cette portée, le masque prends fin, et
+`x` revient à la valeur `6`. Lorsque nous exécutons ce programme, nous obtenons
+ceci :
 
 <!--
 ```console
@@ -481,8 +503,12 @@ les types de données qu'elles peuvent prendre.
 [comparing-the-guess-to-the-secret-number]:
 ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
 [data-types]: ch03-02-data-types.html#data-types
+[storing-values-with-variables]: ch02-00-guessing-game-tutorial.html#storing-values-with-variables
+[const-eval]: ../reference/const_eval.html
 -->
 
 [comparing-the-guess-to-the-secret-number]:
 ch02-00-guessing-game-tutorial.html#comparer-le-nombre-saisi-au-nombre-secret
 [data-types]: ch03-02-data-types.html#les-types-de-données
+[storing-values-with-variables]: ch02-00-guessing-game-tutorial.html
+[const-eval]: https://doc.rust-lang.org/reference/const_eval.html
