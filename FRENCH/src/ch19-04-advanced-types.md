@@ -85,7 +85,7 @@ nous pouvons fournir un type `Personnes` pour embarquer un
 `HashMap<i32, String>` qui stocke un identifiant d'une personne associé à son
 nom. Le code qui utilisera `Personnes` ne pourra utiliser que l'API publique
 que nous fournissons, comme une méthode pour ajouter une chaîne de caractères
-de caractère qui est un nom à la collection `Personnes` ; ce code n'aura pas
+en tant que nom à la collection `Personnes` ; ce code n'aura pas
 besoin de savoir que nous assignons en interne un identifiant `i32` aux noms.
 Le motif newtype est une façon allégée de procéder à de l'encapsulation pour
 masquer des détails d'implémentation, comme nous l'avons vu dans [une partie du
@@ -138,15 +138,6 @@ types `Milimetres` et `Metres` que nous avons créé dans l'encart 19-15,
 
 ```rust
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-04-kilometers-alias/src/main.rs:there}}
-```
-
-```rust
-type Kilometres = i32;
-
-let x: i32 = 5;
-let y: Kilometres = 5;
-
-println!("x + y = {}", x + y);
 ```
 
 <!--
@@ -359,11 +350,6 @@ lorsqu'une fonction ne va jamais retourner quelque chose. Voici un exemple :
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-07-never-type/src/lib.rs:here}}
 ```
 
-```rust,ignore
-fn bar() -> ! {
-    // -- partie masquée ici --
-}
-```
 
 <!--
 This code is read as “the function `bar` returns never.” Functions that return
@@ -426,12 +412,6 @@ Donc, par exemple, le code suivant ne fonctionne pas :
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-08-match-arms-different-types/src/main.rs:here}}
 ```
 
-```rust,ignore,does_not_compile
-let supposition = match supposition.trim().parse() {
-    Ok(_) => 5,
-    Err(_) => "salut",
-}
-```
 
 <!--
 The type of `guess` in this code would have to be an integer *and* a string,
@@ -564,9 +544,9 @@ we can’t create a variable of type `str`, nor can we take an argument of type
 
 Voyons les détails d'un type à taille dynamique qui s'appelle `str`, que nous
 avons utilisé dans ce livre. Plus précisément `&str`, car `str` en lui-même est
-un DST. Nous ne connaître la longueur de la chaîne de caractère qu'à
-l'exécution, ce qui signifie que nous ne pouvons pas ni créer une variable de
-type `str`, ni prendre prendre en argument un type `str`. Imaginons le code
+un DST. Nous ne pouvons connaître la longueur de la chaîne de caractère qu'à
+l'exécution, ce qui signifie que nous ne pouvons ni créer une variable de
+type `str`, ni prendre en argument un type `str`. Imaginons le code
 suivant, qui ne devrait pas fonctionner :
 
 <!--
