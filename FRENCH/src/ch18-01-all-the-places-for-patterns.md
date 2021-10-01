@@ -238,17 +238,6 @@ vecteur dans l'ordre opposé à celui dans lequel elles ont été insérées.
 {{#rustdoc_include ../listings/ch18-patterns-and-matching/listing-18-02/src/main.rs:here}}
 ```
 
-```rust
-let mut pile = Vec::new();
-
-pile.push(1);
-pile.push(2);
-pile.push(3);
-
-while let Some(donnee_du_haut) = pile.pop() {
-    println!("{}", donnee_du_haut);
-}
-```
 
 <!--
 <span class="caption">Listing 18-2: Using a `while let` loop to print values
