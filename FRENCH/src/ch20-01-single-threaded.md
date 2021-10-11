@@ -462,7 +462,7 @@ fetch */* repeatedly because it’s not getting a response from our program.
 
 En fonction de votre navigateur, vous pourriez voir une sortie légèrement
 différente. Maintenant que nous affichons les données des requêtes, nous
-pouvons constater pourquoi nous obtenons pourquoi nous obtenons plusieurs
+pouvons constater pourquoi nous obtenons plusieurs
 connexions pour un seul chargement de page dans le navigateur web en analysant
 le chemin après le `Requête : GET`. Si les connexions répétées sont toutes vers
 */*, nous pouvons constater que le navigateur essaye d'obtenir */* à répétition
