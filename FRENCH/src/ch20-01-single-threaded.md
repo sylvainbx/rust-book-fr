@@ -811,7 +811,7 @@ I/O project in Listing 12-4.
 
 Nous avons ajouté une ligne en haut pour importer le module de système de
 fichiers de la bibliothèque standard. Le code pour lire le contenu d'un fichier
-dans une `String` devrait vous être familier ; nous n'avons utilisé dans le
+dans une `String` devrait vous être familier ; nous l'avons utilisé dans le
 chapitre 12 lorsque nous lisions le contenu d'un fichier pour notre projet
 d'entrée/sortie, dans l'encart 12-4.
 
