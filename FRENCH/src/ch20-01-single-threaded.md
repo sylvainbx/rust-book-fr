@@ -745,7 +745,7 @@ l'encart 20-4 vous montre une possibilité.
 <span class="filename">Filename: hello.html</span>
 -->
 
-<span class="filename">Fichier : salutation.html</span>
+<span class="filename">Fichier : hello.html</span>
 
 <!--
 ```html
@@ -799,7 +799,7 @@ l'envoyer.
 body of the response</span>
 -->
 
-<span class="caption">Encart 20-5 : envoi du contenu de *salutation.html* dans
+<span class="caption">Encart 20-5 : envoi du contenu de *hello.html* dans
 le corps de la réponse</span>
 
 <!--
@@ -936,7 +936,7 @@ saw when running the code in Listing 20-1 and Listing 20-2.
 -->
 
 Exécutez ce code maintenant et demandez *127.0.0.1:7878* ; vous devriez obtenir
-le HTML de *salutation.html*. Si vous faites n'importe quelle autre requête,
+le HTML de *hello.html*. Si vous faites n'importe quelle autre requête,
 comme *127.0.0.1:7878/autre-chose*, vous allez obtenir une erreur de connexion
 comme celle que vous avez vu lorsque vous exécutiez le code l'encart 20-1 et de
 l'encart 20-2.
@@ -988,7 +988,7 @@ any HTML you want or use the example HTML in Listing 20-8.
 Ici, notre réponse a une ligne de statut avec le code de statut 404 et la
 phrase de raison `NOT FOUND`. Nous ne retournons toujours pas d'entêtes, et le
 corps de la réponse sera le HTML présent dans le fichier *404.html*. Nous aurons
-besoin de créer un fichier `404.html` à côté de *salutation.html* pour la page
+besoin de créer un fichier `404.html` à côté de *hello.html* pour la page
 d'erreur ; n'hésitez pas à nouveau à utiliser le HTML que vous souhaitez ou à
 défaut utiliser le HTML d'exemple présent dans l'encart 20-8.
 
@@ -1024,7 +1024,7 @@ should return the contents of *hello.html*, and any other request, like
 
 Une fois ces modifications appliquées, exécutez à nouveau votre serveur. Les
 requêtes vers *127.0.0.1:7878* devraient retourner le contenu de
-*salutation.html*, et toutes les autres requêtes, comme
+*hello.html*, et toutes les autres requêtes, comme
 *127.0.0.1:7878/autre-chose*, devraient retourner le HTML d'erreur présent dans
 *404.html*.
 
