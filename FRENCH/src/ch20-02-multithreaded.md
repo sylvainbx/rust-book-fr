@@ -602,7 +602,7 @@ request’s closure one time, which matches the `Once` in `FnOnce`.
 Le paramètre de type `F` est celui qui nous intéresse ici ; le paramètre de
 type `T` est lié à la valeur de retour, et nous ne sommes pas intéressés par
 ceci. Nous pouvons constater que `spawn` utilise le trait `FnOnce` lié à `F`.
-Cela est probablement ce dont nous avons besoin, parce que nous allons sûrement
+C'est probablement ce dont nous avons besoin, parce que nous allons sûrement
 passer cet argument dans le `execute` de `spawn`. Nous pouvons aussi être sûr
 que `FnOnce` est le trait dont nous avons besoin car la tâche qui va exécuter la
 requête va exécuter le traitement la requête uniquement une seule fois, ce qui
@@ -639,19 +639,6 @@ avec les liens suivants :
 {{#rustdoc_include ../listings/ch20-web-server/no-listing-03-define-execute/src/lib.rs:here}}
 ```
 
-```rust
-# pub struct GroupeTaches;
-impl GroupeTaches {
-    // -- partie masquée ici --
-
-    pub fn executer<F>(&self, f: F)
-        where
-            F: FnOnce() + Send + 'static
-    {
-
-    }
-}
-```
 
 <!--
 We still use the `()` after `FnOnce` because this `FnOnce` represents a closure
