@@ -96,14 +96,6 @@ Regardons le fichier *Cargo.toml* qui a été généré :
 ```
 
 <!--
-If the author information that Cargo obtained from your environment is not
-correct, fix that in the file and save it again.
--->
-
-Si le nom de l'auteur que Cargo a déduit de votre environnement est incorrect,
-vous pouvez le changer dans ce fichier et le sauvegarder.
-
-<!--
 As you saw in Chapter 1, `cargo new` generates a “Hello, world!” program for
 you. Check out the *src/main.rs* file:
 -->
@@ -336,25 +328,24 @@ qui sert à créer une *variable*. Voici un autre exemple :
 
 <!--
 ```rust,ignore
-let foo = bar;
+let apples = 5;
 ```
 -->
 
 ```rust,ignore
-let foo = bar;
+let pommes = 5;
 ```
 
 <!--
-This line creates a new variable named `foo` and binds it to the value of the
-`bar` variable. In Rust, variables are immutable by default. We’ll be
-discussing this concept in detail in the [“Variables and
-Mutability”][variables-and-mutability]<!-- ignore -- > section in Chapter 3.
-The following example shows how to use `mut` before the variable name to make
-a variable mutable:
+This line creates a new variable named `apples` and binds it to the value 5. In
+Rust, variables are immutable by default. We’ll be discussing this concept in
+detail in the [“Variables and Mutability”][variables-and-mutability]<!-- ignore
+-- > section in Chapter 3. The following example shows how to use `mut` before
+the variable name to make a variable mutable:
 -->
 
-Cette ligne permet de créer une nouvelle variable nommée `foo` et à lui
-assigner la valeur de `bar`. Par défaut en Rust, les variables sont immuables.
+Cette ligne permet de créer une nouvelle variable nommée `pommmes` et à lui
+assigner la valeur 5. Par défaut en Rust, les variables sont immuables.
 Nous aborderons plus en détail cette notion dans la section [“Variables et
 Mutabilité”][variables-and-mutability]<!-- ignore --> au chapitre 3. L'exemple
 suivant montre comment utiliser le mot-clé `mut` avant le nom de la variable
@@ -362,14 +353,14 @@ pour rendre une variable mutable *(c'est-à-dire modifiable)* :
 
 <!--
 ```rust,ignore
-let foo = 5; // immutable
-let mut bar = 5; // mutable
+let apples = 5; // immutable
+let mut bananas = 5; // mutable
 ```
 -->
 
 ```rust
-let foo = 5; // immuable
-let mut bar = 5; // mutable, modifiable
+let pommes = 5; // immuable
+let mut bananes = 5; // mutable, modifiable
 ```
 
 <!--
@@ -408,15 +399,13 @@ dont la longueur peut augmenter.
 
 <!--
 The `::` syntax in the `::new` line indicates that `new` is an *associated
-function* of the `String` type. An associated function is implemented on a type,
-in this case `String`, rather than on a particular instance of a `String`. Some
-languages call this a *static method*.
+function* of the `String` type. An associated function is implemented on a
+type, in this case `String`.
 -->
 
 La syntaxe `::` dans `String::new()` indique que `new` est une
 *fonction associée* au type `String`. Une fonction associée est implémentée sur
-un type, ici `String`, plutôt que sur une instance de `String`. Ce concept est
-parfois appelé une *méthode statique* dans d'autres langages.
+un type, ici `String`.
 
 <!--
 This `new` function creates a new, empty string. You’ll find a `new` function
@@ -559,15 +548,15 @@ de code. Cette nouvelle partie rajoute cette méthode :
 ```
 
 <!--
-When you call a method with the `.foo()` syntax, it’s often wise to introduce a
-newline and other whitespace to help break up long lines. We could have
-written this code as:
+When you call a method with the `.method_name()` syntax, it’s often wise to
+introduce a newline and other whitespace to help break up long lines. We could
+have written this code as:
 -->
 
-Lorsque l'on appelle une méthode avec la syntaxe `.foo()`, il est généralement
-préférable d'ajouter un retour à la ligne puis d'indenter à l'aide d'espaces
-pour décomposer les longues lignes de code.
-Nous aurions pu écrire ce code de cette manière :
+Lorsque l'on appelle une méthode avec la syntaxe `.method_name()`, il est
+généralement préférable d'ajouter un retour à la ligne puis d'indenter à l'aide
+d'espaces pour décomposer les longues lignes de code. Nous aurions pu écrire ce
+code de cette manière :
 
 <!--
 ```rust,ignore
@@ -864,28 +853,27 @@ bibliothèque standard. Cependant, l'équipe de Rust propose une
 ### Étendre les fonctionnalités de Rust avec une *crate*
 
 <!--
-Remember that a crate is a collection of Rust source code files.
-The project we’ve been building is a *binary crate*, which is an executable.
-The `rand` crate is a *library crate*, which contains code intended to be
-used in other programs.
+Remember that a crate is a collection of Rust source code files. The project
+we’ve been building is a *binary crate*, which is an executable. The `rand`
+crate is a *library crate*, which contains code intended to be used in other
+programs.
 -->
 
-Souvenez-vous, une *crate* est un ensemble de fichiers de code source Rust.
-Le projet sur lequel nous travaillons est une *crate* binaire, qui est un
-programme exécutable.
-La *crate* `rand` est une *crate de bibliothèque*, qui contient du
+Souvenez-vous, une *crate* est un ensemble de fichiers de code source Rust. Le
+projet sur lequel nous travaillons est une *crate* binaire, qui est un programme
+exécutable. La *crate* `rand` est une *crate de bibliothèque*, qui contient du
 code qui peut être utilisé dans d'autres programmes.
 
 <!--
-Cargo’s use of external crates is where it really shines. Before we can write
-code that uses `rand`, we need to modify the *Cargo.toml* file to include the
-`rand` crate as a dependency. Open that file now and add the following line to
-the bottom beneath the `[dependencies]` section header that Cargo created for
-you. Be sure to specify `rand` exactly as we have here, or the code examples in
-this tutorial may not work.
+Cargo’s coordination of external crates is where Cargo really shines. Before we
+can write code that uses `rand`, we need to modify the *Cargo.toml* file to
+include the `rand` crate as a dependency. Open that file now and add the
+following line to the bottom beneath the `[dependencies]` section header that
+Cargo created for you. Be sure to specify `rand` exactly as we have here, or
+the code examples in this tutorial may not work.
 -->
 
-L'utilisation des *crates* externes est un domaine dans lequel Cargo excelle.
+La coordination des *crates* externes est un domaine dans lequel Cargo excelle.
 Avant d'écrire le code qui utilisera `rand`, il nous faut éditer le fichier
 *Cargo.toml* pour y spécifier `rand` en tant que dépendance. Ouvrez donc
 maintenant ce fichier et ajoutez la ligne suivante à la fin, en dessous de
@@ -1137,9 +1125,9 @@ du code.
 Cargo has a mechanism that ensures you can rebuild the same artifact every time
 you or anyone else builds your code: Cargo will use only the versions of the
 dependencies you specified until you indicate otherwise. For example, what
-happens if next week version 0.8.4 of the `rand` crate comes out and
-contains an important bug fix but also contains a regression that will break
-your code?
+happens if next week version 0.8.4 of the `rand` crate comes out, and that
+version contains an important bug fix, but it also contains a regression that
+will break your code?
 -->
 
 Cargo embarque une fonctionnalité qui garantie que vous pouvez recompiler le
@@ -1147,7 +1135,7 @@ même artéfact à chaque fois que vous ou quelqu'un d'autre compile votre code�
 Cargo va utiliser uniquement les versions de dépendances que vous avez
 utilisées jusqu'à ce que vous indiquiez le contraire.
 Par exemple, que se passe-t-il si la semaine prochaine, la version 0.8.4 de la
-*crate* `rand` est publiée et qu'elle apporte une correction importante, mais
+*crate* `rand` est publiée, et qu'elle apporte une correction importante, mais
 aussi qu'elle produit une régression qui va casser votre code ?
 
 <!--
@@ -1963,7 +1951,7 @@ You win!
 Please input your guess.
 quit
 thread 'main' panicked at 'Please type a number!: ParseIntError { kind: InvalidDigit }', src/main.rs:28:47
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 ```
 -->
 <!-- markdownlint-restore -->
@@ -1990,7 +1978,7 @@ Vous avez gagné !
 Veuillez entrer un nombre.
 quitter
 thread 'main' panicked at 'Veuillez entrer un nombre !: ParseIntError { kind: InvalidDigit }', src/main.rs:28:47
-note: Run with `RUST_BACKTRACE=1` for a backtrace.
+note: Run with `RUST_BACKTRACE=1` for a backtrace
 ```
 
 <!--
@@ -2088,19 +2076,19 @@ another guess instead of crashing the program</span>
 et demander un nouveau nombre plutôt que de faire planter le programme</span>
 
 <!--
-Switching from an `expect` call to a `match` expression is how you generally
-move from crashing on an error to handling the error. Remember that `parse`
-returns a `Result` type and `Result` is an enum that has the variants `Ok` or
-`Err`. We’re using a `match` expression here, as we did with the `Ordering`
-result of the `cmp` method.
+Switching from an `expect` call to a `match` expression is one way of moving
+from crashing on an error to handling the error. Remember that `parse` returns
+a `Result` type and `Result` is an enum that has the variants `Ok` or `Err`.
+We’re using a `match` expression here, as we did with the `Ordering` result of
+the `cmp` method.
 -->
 
-Remplacer un appel à `expect` par une expression `match` est la technique qu'on
-utilise en général pour passer d'une erreur qui fait planter le programme à une
-erreur proprement gérée. N'oubliez pas que
-`parse` retourne un type `Result` et que `Result` est une énumération qui a pour
-variantes `Ok` ou `Err`. Nous utilisons ici une expression `match` comme nous
-l'avons déjà fait avec le résultat de type `Ordering` de la méthode `cmp`.
+Remplacer un appel à `expect` par une expression `match` est une des techniques
+qu'on utilise en général pour passer d'une erreur qui fait planter le programme
+à une erreur proprement gérée. N'oubliez pas que `parse` retourne un type
+`Result` et que `Result` est une énumération qui a pour variantes `Ok` ou `Err`.
+Nous utilisons ici une expression `match` comme nous l'avons déjà fait avec le
+résultat de type `Ordering` de la méthode `cmp`.
 
 <!--
 If `parse` is able to successfully turn the string into a number, it will
@@ -2256,13 +2244,12 @@ du plus ou du moins. Félicitations !
 
 <!--
 This project was a hands-on way to introduce you to many new Rust concepts:
-`let`, `match`, methods, associated functions, the use of external crates, and
-more. In the next few chapters, you’ll learn about these concepts in more
-detail. Chapter 3 covers concepts that most programming languages have, such as
-variables, data types, and functions, and shows how to use them in Rust.
-Chapter 4 explores ownership, a feature that makes Rust different from other
-languages. Chapter 5 discusses structs and method syntax, and Chapter 6
-explains how enums work.
+`let`, `match`, functions, the use of external crates, and more. In the next
+few chapters, you’ll learn about these concepts in more detail. Chapter 3
+covers concepts that most programming languages have, such as variables, data
+types, and functions, and shows how to use them in Rust. Chapter 4 explores
+ownership, a feature that makes Rust different from other languages. Chapter 5
+discusses structs and method syntax, and Chapter 6 explains how enums work.
 -->
 
 Ce projet était une mise en pratique pour vous initier à de nombreux concepts de

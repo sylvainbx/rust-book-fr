@@ -141,18 +141,18 @@ valeur entière.
 | 128 bits| `i128`  | `u128`    |
 | archi   | `isize` | `usize`   |
 
-<!-- markdownlint-disable -->
 <!--
 Each variant can be either signed or unsigned and has an explicit size.
 *Signed* and *unsigned* refer to whether it’s possible for the number to be
-negative—in other words, whether the number needs to have a sign
-with it (signed) or whether it will only ever be positive and can therefore be
+negative—in other words, whether the number needs to have a sign with it
+(signed) or whether it will only ever be positive and can therefore be
 represented without a sign (unsigned). It’s like writing numbers on paper: when
 the sign matters, a number is shown with a plus sign or a minus sign; however,
 when it’s safe to assume the number is positive, it’s shown with no sign.
-Signed numbers are stored using [two’s complement](https://en.wikipedia.org/wiki/Two%27s_complement) representation.
+Signed numbers are stored using [two’s
+complement](https://en.wikipedia.org/wiki/Two%27s_complement)<!-- ignore -- >
+representation.
 -->
-<!-- markdownlint-restore -->
 
 Chaque variante peut-être signée ou non signée et possède une taille explicite.
 *Signé* et *non signé* veut dire respectivement que le nombre peut prendre ou
@@ -162,7 +162,7 @@ sans signe (non signé). C'est comme écrire des nombres sur du papier : quand 
 signe est important, le nombre est écrit avec un signe plus ou un signe moins ;
 en revanche, quand le nombre est forcément positif, on peut l'écrire sans son
 signe. Les nombres signés sont stockés en utilisant le [complément à
-deux](https://fr.wikipedia.org/wiki/Compl%C3%A9ment_%C3%A0_deux).
+deux](https://fr.wikipedia.org/wiki/Compl%C3%A9ment_%C3%A0_deux)<!-- ignore -->.
 
 <!--
 Each signed variant can store numbers from -(2<sup>n - 1</sup>) to 2<sup>n -
@@ -192,14 +192,18 @@ votre programme va s'exécuter : 64 bits si vous utilisez une architecture
 
 <!--
 You can write integer literals in any of the forms shown in Table 3-2. Note
-that all number literals except the byte literal allow a type suffix, such as
-`57u8`, and `_` as a visual separator, such as `1_000`.
+that number literals that can be multiple numeric types allow a type suffix,
+such as `57u8`, to designate the type. Number literals can also use `_` as a
+visual separator to make the number easier to read, such as `1_000`, which will
+have the same value as if you had specified `1000`.
 -->
 
 Vous pouvez écrire des littéraux d'entiers dans chacune des formes décrites dans
-le tableau 3-2. Notez que chaque littéral numérique excepté l'octet accepte un
-suffixe de type, comme `57u8`, et `_` comme séparateur visuel, comme par exemple
-`1_000`.
+le tableau 3-2. Notez qu'un littéral numérique peut être de différent type
+numérique autorisent l'utilisation un suffixe de type, comme `57u8`, afin de
+préciser leur type. Les nombres littéraux peuvent aussi utiliser `_` comme
+séparateur visuel afin de les rendre plus lisible, comme par exemple `1_000`,
+qui a la même valeur que si vous aviez renseigné `1000`.
 
 <!--
 <span class="caption">Table 3-2: Integer Literals in Rust</span>
@@ -227,16 +231,15 @@ suffixe de type, comme `57u8`, et `_` comme séparateur visuel, comme par exempl
 
 <!--
 So how do you know which type of integer to use? If you’re unsure, Rust’s
-defaults are generally good choices, and integer types default to `i32`: this
-type is generally the fastest, even on 64-bit systems. The primary situation in
-which you’d use `isize` or `usize` is when indexing some sort of collection.
+defaults are generally good places to start: integer types default to `i32`.
+The primary situation in which you’d use `isize` or `usize` is when indexing
+some sort of collection.
 -->
 
 Comment pouvez-vous déterminer le type d'entier à utiliser ? Si vous n'êtes pas
-sûr, les choix par défaut de Rust sont généralement de bons choix, et le type
-d'entier par défaut est le `i32` : c'est souvent le plus rapide, même sur les
-systèmes 64 bits. La principale utilisation d'un `isize` ou d'un `usize` est
-lorsque l'on indexe une quelconque collection.
+sûr, les choix par défaut de Rust sont généralement de bons choix : le type
+d'entier par défaut est le `i32`. La principale utilisation d'un `isize` ou d'un
+`usize` est lorsque l'on indexe une quelconque collection.
 
 <!--
 > ##### Integer Overflow
@@ -255,10 +258,10 @@ lorsque l'on indexe une quelconque collection.
 > *not* include checks for integer overflow that cause panics. Instead, if
 > overflow occurs, Rust performs *two’s complement wrapping*. In short, values
 > greater than the maximum value the type can hold “wrap around” to the minimum
-> of the values the type can hold. In the case of a `u8`, 256 becomes 0, 257
-> becomes 1, and so on. The program won’t panic, but the variable will have a
-> value that probably isn’t what you were expecting it to have. Relying on
-> integer overflow’s wrapping behavior is considered an error.
+> of the values the type can hold. In the case of a `u8`, the value 256 becomes
+> 0, the value 257 becomes 1, and so on. The program won’t panic, but the
+> variable will have a value that probably isn’t what you were expecting it to
+> have. Relying on integer overflow’s wrapping behavior is considered an error.
 >
 > To explicitly handle the possibility of overflow, you can use these families
 > of methods that the standard library provides on primitive numeric types:
@@ -267,7 +270,7 @@ lorsque l'on indexe une quelconque collection.
 > - Return the `None` value if there is overflow with the `checked_*` methods
 > - Return the value and a boolean indicating whether there was overflow with
 >   the `overflowing_*` methods
-> - Saturate at the value's minimum or maximum values with `saturating_*`
+> - Saturate at the value’s minimum or maximum values with `saturating_*`
 >   methods
 -->
 
@@ -289,10 +292,10 @@ lorsque l'on indexe une quelconque collection.
 > qui peuvent faire paniquer le programme. En revanche, en cas de dépassement,
 > Rust va effectuer un *rebouclage du complément à deux*. Pour faire simple, les
 > valeurs supérieures à la valeur maximale du type seront “rebouclées” depuis la
-> valeur minimale que le type peut stocker. Dans cas d'un `u8`, 256 devient 0,
-> 257 devient 1, et ainsi de suite. Le programme ne va paniquer, mais
-> la variable va avoir une valeur qui n'est probablement pas ce que vous
-> attendez à avoir. Se fier au comportement du rebouclage lors du
+> valeur minimale que le type peut stocker. Dans cas d'un `u8`, la valeur 256
+> devient 0, la valeur 257 devient 1, et ainsi de suite. Le programme ne va
+> paniquer, mais la variable va avoir une valeur qui n'est probablement pas ce
+> que vous attendez à avoir. Se fier au comportement du rebouclage lors du
 > dépassement d'entier est considéré comme une faute.
 >
 > Pour gérer explicitement le dépassement, vous pouvez utiliser les familles
@@ -368,13 +371,15 @@ précision.
 <!--
 Rust supports the basic mathematical operations you’d expect for all of the
 number types: addition, subtraction, multiplication, division, and remainder.
-The following code shows how you’d use each one in a `let` statement:
+Integer division rounds down to the nearest integer. The following code shows
+how you’d use each numeric operation in a `let` statement:
 -->
 
 Rust offre les opérations mathématiques de base dont vous auriez besoin pour
 tous les types de nombres : addition, soustraction, multiplication, division et
-modulo. Le code suivant montre comment utiliser chacune d'elles avec une
-instruction `let` :
+modulo. Les divisions d'entiers arrondissent le résultat à l'entier le plus
+près. Le code suivant montre comment utiliser chacune des opérations numériques
+avec une instruction `let` :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -641,6 +646,18 @@ chaque élément en utilisant leur indices respectifs. Comme dans de nombreux
 langages de programmation, le premier indice d'un tuple est 0.
 
 <!--
+The tuple without any values, `()`, is a special type that has only one value,
+also written `()`. The type is called the *unit type* and the value is called
+the *unit value*. Expressions implicitly return the unit value if they don’t
+return any other value.
+-->
+
+Le tuple sans aucune valeur, `()`, est un type spécial qui a une seule et unique
+valeur, qui s'écrit aussi `()`. Ce type est aussi appelé le *type unité* et la
+valeur est appelée *valeur unité*. Les expressions retournent implicitement la
+valeur unité si elles ne retournent aucune autre valeur.
+
+<!--
 #### The Array Type
 -->
 
@@ -796,12 +813,14 @@ de manière plus concise.
 ##### Accéder aux éléments d'un tableau
 
 <!--
-An array is a single chunk of memory allocated on the stack. You can access
-elements of an array using indexing, like this:
+An array is a single chunk of memory of a known, fixed size that can be
+allocated on the stack. You can access elements of an array using indexing,
+like this:
 -->
 
-Un tableau est un simple bloc de mémoire alloué sur la pile. Vous pouvez accéder
-aux éléments d'un tableau en utilisant l'indexation, comme ceci :
+Un tableau est un simple bloc de mémoire de taille connue et fixe, qui peut être
+alloué sur la pile. Vous pouvez accéder aux éléments d'un tableau en utilisant
+l'indexation, comme ceci :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -866,7 +885,7 @@ un indice de tableau à l'utilisateur :
 This code compiles successfully. If you run this code using `cargo run` and
 enter 0, 1, 2, 3, or 4, the program will print out the corresponding value at
 that index in the array. If you instead enter a number past the end of the
-array, such as 10, you'll see output like this:
+array, such as 10, you’ll see output like this:
 -->
 
 Ce code compile avec succès. Si vous exécutez ce code avec `cargo run` et que
@@ -875,6 +894,12 @@ cet indice dans le tableau. Si au contraire, vous entrez un indice après la fin
 du tableau tel que 10, ceci s'affichera :
 
 <!--
+<!-- manual-regeneration
+cd listings/ch03-common-programming-concepts/no-listing-15-invalid-array-access
+cargo run
+10
+-- >
+
 ```console
 thread 'main' panicked at 'index out of bounds: the len is 5 but the index is 10', src/main.rs:19:19
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
@@ -889,13 +914,14 @@ note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 <!--
 The program resulted in a *runtime* error at the point of using an invalid
 value in the indexing operation. The program exited with an error message and
-didn't execute the final `println!` statement. When you attempt to access an
+didn’t execute the final `println!` statement. When you attempt to access an
 element using indexing, Rust will check that the index you’ve specified is less
 than the array length. If the index is greater than or equal to the length,
 Rust will panic. This check has to happen at runtime, especially in this case,
-because the compiler can't possibly know what value a user will enter when they
+because the compiler can’t possibly know what value a user will enter when they
 run the code later.
 -->
+
 Le programme a rencontré une erreur *à l'exécution*, au moment d'utiliser une
 valeur invalide comme indice. Le programme s'est arrêté avec un message d'erreur
 et n'a pas exécuté la dernière instruction `println!`. Quand vous essayez
@@ -907,20 +933,19 @@ peut pas deviner la valeur qu'entrera l'utilisateur quand il exécutera le code
 plus tard.
 
 <!--
-This is the first example of Rust’s safety principles in action. In many
+This is an example of Rust’s memory safety principles in action. In many
 low-level languages, this kind of check is not done, and when you provide an
 incorrect index, invalid memory can be accessed. Rust protects you against this
 kind of error by immediately exiting instead of allowing the memory access and
 continuing. Chapter 9 discusses more of Rust’s error handling.
 -->
 
-C'est un premier exemple pratique des principes de sécurité de Rust. Dans de
-nombreux langages de bas niveau, ce genre de vérification n'est pas effectuée,
-et quand vous utilisez un indice incorrect, de la mémoire invalide peut être
-récupérée. Rust vous protège de ce genre d'erreur en quittant immédiatement
-l'exécution au lieu de permettre l'accès en mémoire et
-continuer son déroulement. Le chapitre 9 expliquera la gestion d'erreurs de
-Rust.
+C'est un exemple de mise en pratique des principes de sécurité de la mémoire par
+Rust. Dans de nombreux langages de bas niveau, ce genre de vérification n'est
+pas effectuée, et quand vous utilisez un indice incorrect, de la mémoire
+invalide peut être récupérée. Rust vous protège de ce genre d'erreur en quittant
+immédiatement l'exécution au lieu de permettre l'accès en mémoire et continuer
+son déroulement. Le chapitre 9 expliquera la gestion d'erreurs de Rust.
 
 <!--
 [comparing-the-guess-to-the-secret-number]:
