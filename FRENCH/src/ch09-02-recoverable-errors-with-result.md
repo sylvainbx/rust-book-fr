@@ -649,46 +649,49 @@ dans le corps de cette fonction : la fonction `File::open` et la méthode
 
 <!--
 The body of the function starts by calling the `File::open` function. Then we
-handle the `Result` value returned with a `match` similar to the `match` in
-Listing 9-4, only instead of calling `panic!` in the `Err` case, we return
-early from this function and pass the error value from `File::open` back to the
-calling code as this function’s error value. If `File::open` succeeds, we store
-the file handle in the variable `f` and continue.
+handle the `Result` value with a `match` similar to the `match` in Listing 9-4.
+If `File::open` succeeds, the file handle in the pattern variable `file`
+becomes the value in the mutable variable `f` and the function continues. In
+the `Err` case, instead of calling `panic!`, we use the `return` keyword to
+return early out of the function entirely and pass the error value from
+`File::open`, now in the pattern variable `e`, back to the calling code as this
+function’s error value.
 -->
 
 Le corps de la fonction commence par appeler la fonction `File::open`. Ensuite,
-nous gérons la valeur `Result` retournée, avec un `match` similaire au `match`
-de l'encart 9-4, sauf qu'au lieu d'appeler `panic!` dans le cas de `Err`, nous
-sortons prématurément de la fonction en passant la valeur d'erreur de
-`File::open` au code appelant comme valeur de retour de cette fonction. Si
-`File::open` réussit, nous stockons le manipulateur de fichier dans la variable
-`f` et nous continuons.
+nous gérons la valeur du `Result` avec un `match` similaire au `match` de
+l'encart 9-4. Si le `File::open` est un succès, le manipulateur de fichier dans
+la variable `fichier` du motif devient la valeur dans la variable mutable `f`
+et la fonction continue son déroulement. Dans le cas d'un `Err`, au lieu
+d'appeler `panic!`, nous utilisons `return` pour sortir prématurément de toute
+la fonction et en passant la valeur du `File::open`, désormais dans la variable
+`e`, au code appelant comme valeur de retour de cette fonction.
 
 <!--
-Then we create a new `String` in variable `s` and call the `read_to_string`
-method on the file handle in `f` to read the contents of the file into `s`. The
-`read_to_string` method also returns a `Result` because it might fail, even
-though `File::open` succeeded. So we need another `match` to handle that
-`Result`: if `read_to_string` succeeds, then our function has succeeded, and we
-return the username from the file that’s now in `s` wrapped in an `Ok`. If
-`read_to_string` fails, we return the error value in the same way that we
-returned the error value in the `match` that handled the return value of
-`File::open`. However, we don’t need to explicitly say `return`, because this
-is the last expression in the function.
+So if we have a file handle in `f`, the function then creates a new `String` in
+variable `s` and calls the `read_to_string` method on the file handle in `f` to
+read the contents of the file into `s`. The `read_to_string` method also
+returns a `Result` because it might fail, even though `File::open` succeeded.
+So we need another `match` to handle that `Result`: if `read_to_string`
+succeeds, then our function has succeeded, and we return the username from the
+file that’s now in `s` wrapped in an `Ok`. If `read_to_string` fails, we return
+the error value in the same way that we returned the error value in the `match`
+that handled the return value of `File::open`. However, we don’t need to
+explicitly say `return`, because this is the last expression in the function.
 -->
 
-Ensuite, nous créons une nouvelle `String` dans la variable `s` et nous appelons
-la méthode `read_to_string` sur le manipulateur de fichier `f` pour extraire le
-contenu du fichier dans `s`. La méthode `read_to_string` retourne aussi un
-`Result` car elle peut échouer, même si `File::open` a réussi. Nous avons donc
-besoin d'un nouveau `match` pour gérer ce `Result` : si `read_to_string`
-réussit, alors notre fonction a réussi, et nous retournons le pseudo que nous
-avons extrait du fichier qui est maintenant intégré dans un `Ok`, lui-même
-stocké dans `s`. Si `read_to_string` échoue, nous retournons la valeur d'erreur
-de la même façon que nous avons retourné la valeur d'erreur dans le `match` qui
-gérait la valeur de retour de `File::open`. Cependant, nous n'avons pas besoin
-d'écrire explicitement `return`, car c'est la dernière expression de la
-fonction.
+Donc si nous avons un manipulateur de fichier dans `f`, la fonction crée
+ensuite une nouvelle `String` dans la variable `s` et nous appelons la méthode
+`read_to_string` sur le manipulateur de fichier `f` pour extraire le contenu du
+fichier dans `s`. La méthode `read_to_string` retourne aussi un `Result` car
+elle peut échouer, même si `File::open` a réussi. Nous avons donc besoin d'un
+nouveau `match` pour gérer ce `Result` : si `read_to_string` réussit, alors
+notre fonction a réussi, et nous retournons le pseudo que nous avons extrait du
+fichier qui est maintenant intégré dans un `Ok`, lui-même stocké dans `s`. Si
+`read_to_string` échoue, nous retournons la valeur d'erreur de la même façon
+que nous avons retourné la valeur d'erreur dans le `match` qui gérait la valeur
+de retour de `File::open`. Cependant, nous n'avons pas besoin d'écrire
+explicitement `return`, car c'est la dernière expression de la fonction.
 
 <!--
 The code that calls this code will then handle getting either an `Ok` value
@@ -790,11 +793,11 @@ on them go through the `from` function, defined in the `From` trait in the
 standard library, which is used to convert errors from one type into another.
 When the `?` operator calls the `from` function, the error type received is
 converted into the error type defined in the return type of the current
-function. This is useful when a function returns one error type to represent all
-the ways a function might fail, even if parts might fail for many different
-reasons. As long as each error type implements the `from` function to define how
-to convert itself to the returned error type, the `?` operator takes care of the
-conversion automatically.
+function. This is useful when a function returns one error type to represent
+all the ways a function might fail, even if parts might fail for many different
+reasons. As long as there’s an `impl From<OtherError> for ReturnedError` to
+define the conversion in the trait’s `from` function, the `?` operator takes
+care of calling the `from` function automatically.
 -->
 
 Il y a une différence entre ce que fait l'expression `match` de l'encart 9-6 et
@@ -805,10 +808,10 @@ la bibliothèque standard, qui est utilisée pour convertir les erreurs d'un typ
 reçu est converti dans le type d'erreur déclaré dans le type de retour de la
 fonction concernée. C'est utile lorsqu'une fonction retourne un type d'erreur
 qui peut couvrir tous les cas d'échec de la fonction, même si certaines de ses
-parties peuvent échouer pour différentes raisons. À partir du moment que chaque
-type d'erreur implémente la fonction `from` pour expliquer comment se convertir
-lui-même dans le type d'erreur retourné, l'opérateur `?` se charge de faire la
-conversion automatiquement.
+parties peuvent échouer pour différentes raisons. À partir du moment qu'il y a
+un `impl From<AutreErreur>` sur `ErreurRetournee` pour expliquer la conversion
+dans la fonction `from` du trait, l'opérateur `?` se charge d'appeler la
+fonction `from` automatiquement.
 
 <!--
 In the context of Listing 9-7, the `?` at the end of the `File::open` call will

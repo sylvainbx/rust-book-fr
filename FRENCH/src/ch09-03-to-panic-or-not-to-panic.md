@@ -173,16 +173,24 @@ contradictoires ou manquantes qui sont fournies à votre code, ainsi qu'un ou
 plusieurs des éléments suivants :
 
 <!--
-* The bad state is not something that’s *expected* to happen occasionally.
-* Your code after this point needs to rely on not being in this bad state.
-* There’s not a good way to encode this information in the types you use.
+* The bad state is something that is unexpected, as opposed to something that
+  will likely happen occasionally, like a user entering data in the wrong
+  format.
+* Your code after this point needs to rely on not being in this bad state,
+  rather than checking for the problem at every step.
+* There’s not a good way to encode this information in the types you use. We’ll
+  work through an example of what we mean in the [“Encoding States and Behavior
+  as Types”][encoding]<!-- ignore -- > section of Chapter 17.
 -->
 
-* L'état invalide n'est pas *censé* se produire occasionnellement.
+* L'état invalide est quelque chose qui est inattendu, contrairement à quelque
+  chose qui devrait arriver occasionnellement, comme par exemple un utilisateur
+  qui saisit une donnée dans un mauvais format.
 * Après cette instruction, votre code a besoin de ne pas être dans cet état
-  invalide.
+  invalide, plutôt que d'avoir à vérifier le problème à chaque étape.
 * Il n'y a pas de bonne façon d'encoder cette information dans les types que
-  vous utilisez.
+  vous utilisez. Nous allons pratiquer ceci via un exemple dans [une section du
+  chapitre 17][encoding]<!-- ignore -->.
 
 <!--
 If someone calls your code and passes in values that don’t make sense, the best
@@ -515,3 +523,9 @@ can use them in your code.
 Maintenant que vous avez vu la façon dont la bibliothèque standard tire parti de
 la généricité avec les énumérations `Option` et `Result`, nous allons voir
 comment la généricité fonctionne et comment vous pouvez l'utiliser dans votre code.
+
+<!--
+[encoding]: ch17-03-oo-design-patterns.html#encoding-states-and-behavior-as-types
+-->
+
+[encoding]: ch17-03-oo-design-patterns.html

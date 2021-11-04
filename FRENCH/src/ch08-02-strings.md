@@ -343,12 +343,12 @@ l'espérions !
 
 <!--
 The `push` method takes a single character as a parameter and adds it to the
-`String`. Listing 8-17 shows code that adds the letter "l" to a `String` using
+`String`. Listing 8-17 shows code that adds the letter “l” to a `String` using
 the `push` method.
 -->
 
 La méthode `push` prend un seul caractère en paramètre et l'ajoute à la
-`String`. L'encart 8-17 nous montre du code qui ajoute la lettre "l" à une
+`String`. L'encart 8-17 nous montre du code qui ajoute la lettre “l” à une
 `String` en utilisant la méthode `push`.
 
 <!--
@@ -1028,13 +1028,15 @@ plus d'un octet.
 <!--
 Getting grapheme clusters from strings is complex, so this functionality is not
 provided by the standard library. Crates are available on
-[crates.io](https://crates.io/) if this is the functionality you need.
+[crates.io](https://crates.io/)<!-- ignore -- > if this is the functionality you
+need.
 -->
 
 L'obtention des groupes de graphèmes à partir de chaînes de caractères est
 complexe, donc cette fonctionnalité n'est pas fournie par la bibliothèque
-standard. Des crates sont disponibles sur [crates.io](https://crates.io/) si
-c'est la fonctionnalité dont vous avez besoin.
+standard. Des crates sont disponibles sur
+[crates.io](https://crates.io/)<!-- ignore --> si c'est la fonctionnalité dont
+vous avez besoin.
 
 <!--
 ### Strings Are Not So Simple
