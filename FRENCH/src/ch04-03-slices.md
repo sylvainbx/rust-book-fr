@@ -134,7 +134,7 @@ C'est un peu plus pratique que de calculer les indices par nous-mêmes.
 
 <!--
 Because the `enumerate` method returns a tuple, we can use patterns to
-destructure that tuple. We'll be discussing patterns more in Chapter 6. So in
+destructure that tuple. We’ll be discussing patterns more in Chapter 6. So in
 the `for` loop, we specify a pattern that has `i` for the index in the tuple
 and `&item` for the single byte in the tuple. Because we get a reference to the
 element from `.iter().enumerate()`, we use `&` in the pattern.
