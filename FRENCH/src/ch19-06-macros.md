@@ -922,7 +922,7 @@ they’ll get the extra functionality that we provide in the modified
 -->
 
 Bientôt, nous définirons la fonction `impl_hello_macro`, qui nous permettra de
-construire de nous code Rust que nous souhaitons injecter. Mais avant de faire
+construire le nouveau code Rust que nous souhaitons injecter. Mais avant de faire
 cela, remarquez que la sortie de notre macro derive est aussi un `TokenStream`.
 Le `TokenStream` retourné est ajouté au code que les utilisateurs de notre
 crate ont écrit, donc lorsqu'ils compilent leur crate, ils récupéreront la
@@ -1009,7 +1009,7 @@ returns a value of the required `TokenStream` type.
 -->
 
 La macro `quote!` nous permet de définir le code Rust que nous souhaitons
-retourner. Le compilateur attend quelque chose de différent en résultat que le
+retourner. Le compilateur attend quelque chose de différent en résultat que
 ce qui correspond à l'exécution de `quote!`, donc nous devons le convertir en
 `TokenStream`. Nous faisons ceci en faisant appel à la méthode `into`, qui se
 base sur cette représentation intermédiaire et retourne une valeur attendue,
