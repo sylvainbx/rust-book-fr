@@ -25,7 +25,7 @@ Number”][comparing-the-guess-to-the-secret-number]<!-- ignore -- > section in
 Chapter 2, we must add a type annotation, like this:
 -->
 
-Gardez à l'esprit que Rust est langage *statiquement typé*, ce qui signifie
+Gardez à l'esprit que Rust est un langage *statiquement typé*, ce qui signifie
 qu'il doit connaître les types de toutes les variables au moment de la
 compilation. Le compilateur peut souvent déduire quel type utiliser en se basant
 sur la valeur et sur la façon dont elle est utilisée. Dans les cas où plusieurs
@@ -154,7 +154,7 @@ complement](https://en.wikipedia.org/wiki/Two%27s_complement)<!-- ignore -- >
 representation.
 -->
 
-Chaque variante peut-être signée ou non signée et possède une taille explicite.
+Chaque variante peut être signée ou non signée et possède une taille explicite.
 *Signé* et *non signé* veut dire respectivement que le nombre peut prendre ou
 non des valeurs négatives — en d'autres termes, si l'on peut lui attribuer un
 signe (signé) ou s'il sera toujours positif et que l'on peut donc le représenter
