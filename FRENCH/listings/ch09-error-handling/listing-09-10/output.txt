@@ -9,7 +9,7 @@ error[E0277]: the `?` operator can only be used in a function that returns `Resu
 5   | | }
     | |_- this function should return `Result` or `Option` to accept `?`
     |
-    = help: the trait `FromResidual<Result<Infallible, std::io:Error>>` is not implemented for `()`
+    = help: the trait `FromResidual<Result<Infallible, std::io::Error>>` is not implemented for `()`
 note: required by `from_residual`
 
 For more information about this error, try `rustc --explain E0277`.

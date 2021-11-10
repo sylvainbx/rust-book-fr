@@ -373,7 +373,7 @@ vérification comme celle-ci dans chacune de ces fonctions.
 Instead, we can make a new type and put the validations in a function to create
 an instance of the type rather than repeating the validations everywhere. That
 way, it’s safe for functions to use the new type in their signatures and
-confidently use the values they receive. Listing 9-10 shows one way to define a
+confidently use the values they receive. Listing 9-13 shows one way to define a
 `Guess` type that will only create an instance of `Guess` if the `new` function
 receives a value between 1 and 100.
 -->
@@ -382,7 +382,7 @@ receives a value between 1 and 100.
 vérifications dans la fonction de création d'une instance de ce type plutôt que
 de répéter partout les vérifications. Il est ainsi plus sûr pour les fonctions
 d'utiliser ce nouveau type dans leurs signatures et d'utiliser avec confiance
-les valeurs qu'elles reçoivent. L'encart 9-10 montre une façon de définir un
+les valeurs qu'elles reçoivent. L'encart 9-13 montre une façon de définir un
 type `Supposition` qui ne créera une instance de `Supposition` que si la
 fonction `new` reçoit une valeur entre 1 et 100 :
 
@@ -395,20 +395,20 @@ purposes. -- >
 
 <!--
 ```rust
-{{#include ../listings/ch09-error-handling/listing-09-10/src/main.rs:here}}
+{{#include ../listings/ch09-error-handling/listing-09-13/src/main.rs:here}}
 ```
 -->
 
 ```rust
-{{#include ../listings/ch09-error-handling/listing-09-10/src/main.rs:here}}
+{{#include ../listings/ch09-error-handling/listing-09-13/src/main.rs:here}}
 ```
 
 <!--
-<span class="caption">Listing 9-10: A `Guess` type that will only continue with
+<span class="caption">Listing 9-13: A `Guess` type that will only continue with
 values between 1 and 100</span>
 -->
 
-<span class="caption">Encart 9-10 : un type `Supposition` qui ne va continuer
+<span class="caption">Encart 9-13 : un type `Supposition` qui ne va continuer
 que si la valeur est entre 1 et 100</span>
 
 <!--
