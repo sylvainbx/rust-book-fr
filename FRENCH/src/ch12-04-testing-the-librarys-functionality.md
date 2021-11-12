@@ -124,14 +124,18 @@ fonction `rechercher` que nous souhaitons concevoir</span>
 
 <!--
 This test searches for the string `"duct"`. The text we’re searching is three
-lines, only one of which contains `"duct"`. We assert that the value returned
-from the `search` function contains only the line we expect.
+lines, only one of which contains `"duct"` (Note that the backslash after the
+opening double quote tells Rust not to put a newline character at the beginning
+of the contents of this string literal). We assert that the value returned from
+the `search` function contains only the line we expect.
 -->
 
 Ce test recherche la chaîne de caractères `"duct"`. Le texte dans lequel nous
-recherchons fait trois lignes, et seulement une d'entre elles contient `"duct"`.
-Nous vérifions que la valeur retournée par la fonction `rechercher` contient
-seulement la ligne que nous avions prévu.
+recherchons fait trois lignes, et seulement une d'entre elles contient `"duct"`
+(remarquez que l'antislash après la double-guillet ouvrante indique à Rust de
+ne pas insérer un caractère de nouvelle ligne au début du contenu de ce litéral
+de chaîne de caractère). Nous vérifions que la valeur retournée par la fonction
+`rechercher` contient seulement la ligne que nous avions prévu.
 
 <!--
 We aren’t able to run this test and watch it fail because the test doesn’t even
@@ -157,12 +161,12 @@ qui contient la ligne `"sécurité, rapidité, productivité."`
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch12-an-io-project/listing-12-16/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-16/src/lib.rs:here}}
 ```
 
@@ -336,12 +340,12 @@ l'encart 12-17. Notez que cela ne se compile pas encore.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust,ignore
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings-sources/ch12-an-io-project/listing-12-17/src/lib.rs:here}}
 ```
 -->
 
-```rust,ignore
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-17/src/lib.rs:here}}
 ```
 
@@ -395,12 +399,12 @@ Notez qu'ici non plus nous ne pouvons pas encore compiler.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust,ignore
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings-sources/ch12-an-io-project/listing-12-18/src/lib.rs:here}}
 ```
 -->
 
-```rust,ignore
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-18/src/lib.rs:here}}
 ```
 
