@@ -14,15 +14,20 @@ français.
 | Appendix | annexe | tout en minuscule (sauf en début de phrase) |
 | append | ajouter | - |
 | Application Programming Interface (API) | interface de programmation applicative (API) | - |
+| assertion | vérification | - |
 | assign | assigner | - |
 | argument | argument / paramètre | - |
 | arm | branche | dans une expression `match` |
 | array | tableau | - |
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
-| attributes | attributs | - |
+| attribute | attribut | - |
+| backtrace | retraçage | - |
+| benchmark | benchmark | - |
 | binary crate | crate binaire | s'utilise au féminin |
+| buffer overread | lecture hors limites | - |
 | *n*-bit number | nombre encodé sur *n* bits | - |
+| blanket implementation | implémentation générale | - |
 | blob | blob | - |
 | boilerplate code | code standard | - |
 | boolean | booléen | - |
@@ -34,6 +39,7 @@ français.
 | Cargo | Cargo | - |
 | catchall value | valeur passe-partout | - |
 | Chapter | chapitre | tout en minuscule (sauf en début de phrase) |
+| clause | clause | - |
 | closure | fermeture | - |
 | code review | revue de code | - |
 | coercion | extrapolation | - |
@@ -70,6 +76,7 @@ français.
 | directory | dossier | - |
 | dot notation | la notation avec un point | - |
 | double free | double libération | - |
+| elision | élision | - |
 | enum | énumération | - |
 | enumeration | énumération | - |
 | enum’s variant | variante d'énumération | - |
@@ -80,14 +87,16 @@ français.
 | flag | drapeau | pour les programmes en ligne de commande |
 | float | nombre à virgule flottante | - |
 | floating-point number | nombre à virgule flottante | - |
+| framework | environnement de développement | - |
 | function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
 | garbage collector | ramasse-miettes | - |
 | generics | génériques / généricité | - |
 | generic type parameter | paramètre de type générique | - |
-| grapheme cluster | groupe de graphèmes  | - |
+| getter | accesseur | - |
 | glob | global | opérateur |
 | global scope | portée globale | - |
+| grapheme cluster | groupe de graphèmes  | - |
 | guessing game | jeu de devinettes | - |
 | handle | référence abstraite | - |
 | hash | hash / relatif au hachage | - |
@@ -118,7 +127,7 @@ français.
 | library crate | crate de bibliothèque | s'utilise au féminin |
 | lifetime | durée de vie | - |
 | linker | linker | - |
-| literal value | valeur litérale | - |
+| literal value | valeur littérale | - |
 | Listing | encart | tout en minuscule (sauf en début de phrase) |
 | loop | boucle | - |
 | low-level | bas niveau | - |
@@ -131,23 +140,27 @@ français.
 | modern | récent | - |
 | module | module | - |
 | module system | système de modules | - |
+| monomorphization | monomorphisation | - |
 | move | déplacement | - |
 | mutability | mutabilité | - |
 | mutable | mutable | modifiable |
 | mutate | muter | - |
 | namespace | espace de nom | - |
+| namespacing | l'espace de nom | - |
 | nested (path) | (chemin) imbriqué | - |
+| nightly Rust | version expérimentale de Rust | - |
 | Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
 | object-oriented language | langage orienté objet | - |
 | operating system | système d'exploitation | - |
+| output | sortie | - |
 | owner | propriétaire | - |
 | ownership | possession | - |
 | package manager | système de gestion de paquets | - |
 | panic | panique(r) | - |
 | parallelism | parallélisme | - |
 | parameter | paramètre | - |
-| parse | interprêter | - |
+| parse | interpréter | - |
 | PATH | PATH | - |
 | pattern | motif | - |
 | pattern-matching | filtrage par motif | - |
@@ -156,11 +169,12 @@ français.
 | popping off the stack | dépiler | - |
 | prelude | étape préliminaire | - |
 | primitive obsession | obsession primitive | - |
-| privacy | protection | explication de la protection des éléments d'un module |
+| privacy | visibilité | en parlant des éléments d'un module |
 | procedural macro | macro procédurale | - |
 | project chapter | chapitre de projet | - |
-| race condition | situation de concurrence | - |
+| propagate | propager | - |
 | pushing onto the stack | empiler | - |
+| race condition | situation de concurrence | - |
 | raw identifier | identificateur brut | - |
 | README | README | - |
 | refactoring | remaniement | - |
@@ -215,6 +229,8 @@ français.
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | trait | trait | - |
+| trait bound | trait lié | - |
+| trait object | objet trait | - |
 | tree | arborescence | - |
 | troubleshooting | dépannage | - |
 | tuple | tuple | - |
@@ -232,6 +248,7 @@ français.
 | unsafe | non sécurisé | - |
 | unsigned | sans signe (toujours positif) | - |
 | unsigned | non signé | - |
+| unwind | dérouler | (la pile) |
 | user input | saisie utilisateur | - |
 | variable | variable | - |
 | variant | variante | d'une énumération |
