@@ -18,14 +18,14 @@ permet de déclarer des nouvelles fonctions.
 
 <!--
 Rust code uses *snake case* as the conventional style for function and variable
-names. In snake case, all letters are lowercase and underscores separate words.
+names, in which all letters are lowercase and underscores separate words.
 Here’s a program that contains an example function definition:
 -->
 
 Le code Rust utilise le *snake case* comme convention de style de nom des
-fonctions et des variables. Avec le *snake case*, toutes les lettres sont en
-minuscule et on utilise des tirets bas pour séparer les mots. Voici un programme
-qui est un exemple de définition de fonction :
+fonctions et des variables, toutes les lettres sont en minuscule et on utilise
+des tirets bas pour séparer les mots. Voici un programme qui est un exemple de
+définition de fonction :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -44,14 +44,14 @@ qui est un exemple de définition de fonction :
 ```
 
 <!--
-Function definitions in Rust start with `fn` and have a set of parentheses
-after the function name. The curly brackets tell the compiler where the
-function body begins and ends.
+We define a function in Rust by entering `fn` followed by a function name and a
+set of parentheses. The curly brackets tell the compiler where the function
+body begins and ends.
 -->
 
-La définition d'une fonction avec Rust commence par `fn` et a une paire de
-parenthèses après le nom de la fonction. Les accolades indiquent au compilateur
-où le corps de la fonction commence et où il se termine.
+Nous définissons une fonction avec Rust en saisissant `fn` suivi par un nom de
+fonction ainsi qu'une paire de parenthèses. Les accolades indiquent au
+compilateur où le corps de la fonction commence et où il se termine.
 
 <!--
 We can call any function we’ve defined by entering its name followed by a set
@@ -101,22 +101,22 @@ fonction `main`. D'abord, le message `Hello, world!` est écrit, et ensuite
 `une_autre_fonction` est appelée et son message est affiché.
 
 <!--
-### Function Parameters
+### Parameters
 -->
 
-### Les paramètres de fonctions
+### Les paramètres
 
 <!--
-Functions can also be defined to have *parameters*, which are special variables
-that are part of a function’s signature. When a function has parameters, you
-can provide it with concrete values for those parameters. Technically, the
-concrete values are called *arguments*, but in casual conversation, people tend
-to use the words *parameter* and *argument* interchangeably for either the
-variables in a function’s definition or the concrete values passed in when you
-call a function.
+We can define functions to have *parameters*, which are special variables that
+are part of a function’s signature. When a function has parameters, you can
+provide it with concrete values for those parameters. Technically, the concrete
+values are called *arguments*, but in casual conversation, people tend to use
+the words *parameter* and *argument* interchangeably for either the variables
+in a function’s definition or the concrete values passed in when you call a
+function.
 -->
 
-Les fonctions peuvent aussi être définies avec des *paramètres*, qui sont des
+Nous pouvons définir des fonctions avec des *paramètres*, qui sont des
 variables spéciales qui font partie de la signature de la fonction. Quand une
 fonction a des paramètres, vous pouvez lui fournir des valeurs concrètes avec
 ces paramètres. Techniquement, ces valeurs concrètes sont appelées des
@@ -126,12 +126,10 @@ variables dans la définition d'une fonction, soit les valeurs concrètes passé
 quand on appelle une fonction.
 
 <!--
-The following rewritten version of `another_function` shows what parameters
-look like in Rust:
+In this version of `another_function` we add a parameter:
 -->
 
-La version réécrite de `une_autre_fonction` montre comment utiliser un paramètre
-avec Rust :
+Dans cette version de `une_autre_fonction`, nous ajoutons un paramètre :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -167,13 +165,13 @@ En exécutant ce programme, vous devriez obtenir ceci :
 
 <!--
 The declaration of `another_function` has one parameter named `x`. The type of
-`x` is specified as `i32`. When `5` is passed to `another_function`, the
+`x` is specified as `i32`. When we pass `5` in to `another_function`, the
 `println!` macro puts `5` where the pair of curly brackets were in the format
 string.
 -->
 
 La déclaration de `une_autre_fonction` a un paramètre nommé `x`. Le type de
-`x` a été déclaré comme `i32`. Quand `5` est passé à `une_autre_fonction`, la
+`x` a été déclaré comme `i32`. Quand nous passons `5` à `une_autre_fonction`, la
 macro `println!` place `5` là où la paire d'accolades `{}` a été placée dans la
 chaîne de formatage.
 
@@ -191,12 +189,12 @@ presque plus besoin que vous les utilisiez autre part pour qu'il comprenne avec
 quel type vous souhaitez travailler.
 
 <!--
-When you want a function to have multiple parameters, separate the parameter
-declarations with commas, like this:
+When defining multiple parameters, separate the parameter declarations with
+commas, like this:
 -->
 
-Lorsque vous souhaitez qu'une fonction ait plusieurs paramètres, séparez les
-paramètres avec des virgules, comme ceci :
+Lorsque vous définissez plusieurs paramètres, séparez les paramètres avec des
+virgules, comme ceci :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -255,47 +253,48 @@ Comme nous avons appelé la fonction avec la valeur `5` pour `valeur` et `'h'`
 pour `nom_unite`, la sortie de ce programme contient ces valeurs.
 
 <!--
-### Function Bodies Contain Statements and Expressions
+### Statements and Expressions
 -->
 
-### Corps de fonction avec des instructions et des expressions
+### Instructions et expressions
 
 <!--
 Function bodies are made up of a series of statements optionally ending in an
-expression. So far, we’ve only covered functions without an ending expression,
-but you have seen an expression as part of a statement. Because Rust is an
-expression-based language, this is an important distinction to understand.
-Other languages don’t have the same distinctions, so let’s look at what
-statements and expressions are and how their differences affect the bodies of
-functions.
+expression. So far, the functions we've covered haven't included an ending
+expression, but you have seen an expression as part of a statement. Because
+Rust is an expression-based language, this is an important distinction to
+understand. Other languages don’t have the same distinctions, so let’s look at
+what statements and expressions are and how their differences affect the bodies
+of functions.
 -->
 
 Les corps de fonctions sont constitués d'une série d'instructions qui se
-termine éventuellement par une expression. Jusqu'à présent, nous avons vu des
-fonctions sans expression à la fin, mais vous avez déjà vu une expression faire
-partie d'une instruction. Comme Rust est un langage basé sur des expressions,
-il est important de faire la distinction. D'autres langages ne font pas de
-telles distinctions, donc penchons-nous sur ce que sont les instructions et les
-expressions et comment leurs différences influent sur le corps des fonctions.
+termine éventuellement par une expression. Jusqu'à présent, les fonctions que
+nous avons vu n'avaient pas d'expression à la fin, mais vous avez déjà vu une
+expression faire partie d'une instruction. Comme Rust est un langage basé sur
+des expressions, il est important de faire la distinction. D'autres langages ne
+font pas de telles distinctions, donc penchons-nous sur ce que sont les
+instructions et les expressions et comment leurs différences influent sur le
+corps des fonctions.
 
 <!--
-We’ve actually already used statements and expressions. *Statements* are
-instructions that perform some action and do not return a value. *Expressions*
-evaluate to a resulting value. Let’s look at some examples.
+*Statements* are instructions that perform some action and do not return a
+value. *Expressions* evaluate to a resulting value. Let’s look at some examples.
 -->
 
-Nous avons déjà utilisé des instructions et des expressions. Les *instructions*
-effectuent des actions et ne retournent aucune valeur.
+Les *instructions* effectuent des actions et ne retournent aucune valeur.
 Les *expressions* sont évaluées pour retourner une valeur comme résultat.
 Voyons quelques exemples.
 
 <!--
-Creating a variable and assigning a value to it with the `let` keyword is a
-statement. In Listing 3-1, `let y = 6;` is a statement.
+We’ve actually already used statements and expressions. Creating a variable and
+assigning a value to it with the `let` keyword is a statement. In Listing 3-1,
+`let y = 6;` is a statement.
 -->
 
-Créer une variable en lui assignant une valeur avec le mot-clé `let` constitue
-une instruction. Dans l'encart 3-1, `let y = 6;` est une instruction.
+Nous avons déjà utilisé des instructions et des expressions. La création d'une
+variable en lui assignant une valeur avec le mot-clé `let` est une instruction.
+Dans l'encart 3-1, `let y = 6;` est une instruction.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -392,8 +391,8 @@ you’ll write in Rust. Consider a math operation, such as `5 + 6`, which is an
 expression that evaluates to the value `11`. Expressions can be part of
 statements: in Listing 3-1, the `6` in the statement `let y = 6;` is an
 expression that evaluates to the value `6`. Calling a function is an
-expression. Calling a macro is an expression. The block that we use to create
-new scopes, `{}`, is an expression, for example:
+expression. Calling a macro is an expression. A new scope block created with
+curly brackets is an expression, for example:
 -->
 
 Les expressions sont calculées en tant que valeur et seront ce que vous écrirez
@@ -402,8 +401,8 @@ comme `5 + 6`, qui est une expression qui s'évalue à la valeur `11`. Les
 expressions peuvent faire partie d'une instruction : dans l'encart 3-1, le `6`
 dans l'instruction `let y = 6;` est une expression qui s'évalue à la valeur `6`.
 L'appel de fonction est aussi une expression. L'appel de macro est une
-expression. Le bloc que nous utilisons pour créer une nouvelle portée, `{}`,
-est une expression, par exemple :
+expression. Un nouveau bloc de portée que nous créons avec des accolades est
+une expression, par exemple :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -445,21 +444,21 @@ L'expression suivante…
 
 <!--
 is a block that, in this case, evaluates to `4`. That value gets bound to `y`
-as part of the `let` statement. Note the `x + 1` line without a semicolon at
-the end, which is unlike most of the lines you’ve seen so far. Expressions do
-not include ending semicolons. If you add a semicolon to the end of an
-expression, you turn it into a statement, which will then not return a value.
+as part of the `let` statement. Note that the `x + 1` line doesn't have a
+semicolon at the end, unlike most of the lines you’ve seen so far. Expressions
+do not include ending semicolons. If you add a semicolon to the end of an
+expression, you turn it into a statement, and it will then not return a value.
 Keep this in mind as you explore function return values and expressions next.
 -->
 
 … est un bloc qui, dans ce cas, s'évalue à `4`. Cette valeur est assignée à `y`
-dans le cadre de l'instruction `let`. Remarquez la ligne `x + 1` qui ne se
-termine pas par un point-virgule, ce qui est différent de la plupart
-des lignes que vous avez vues jusque là. Les expressions n'ont pas de
-point-virgule de fin de ligne. Si vous ajoutez un point-virgule à la fin de
-l'expression, vous la transformez en instruction, qui ne va donc pas retourner
-de valeur. Gardez ceci à l'esprit quand nous aborderons prochainement les
-valeurs de retour des fonctions ainsi que les expressions.
+dans le cadre de l'instruction `let`. Remarquez la ligne `x + 1` ne se termine
+pas par un point-virgule, ce qui est différent de la plupart des lignes que
+vous avez vues jusque là. Les expressions n'ont pas de point-virgule de fin de
+ligne. Si vous ajoutez un point-virgule à la fin de l'expression, vous la
+transformez en instruction, et elle ne va donc pas retourner de valeur. Gardez
+ceci à l'esprit quand nous aborderons prochainement les valeurs de retour des
+fonctions ainsi que les expressions.
 
 <!--
 ### Functions with Return Values

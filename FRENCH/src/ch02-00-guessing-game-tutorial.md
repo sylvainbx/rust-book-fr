@@ -224,17 +224,22 @@ la bibliothèque standard, connue sous le nom de `std` :
 <!--
 By default, Rust has a few items defined in the standard library that it brings
 into the scope of every program. This set is called the *prelude*, and you can
-see everything in it [in the standard library documentation][prelude]. If a
-type you want to use isn’t in the prelude, you have to bring that type into
-scope explicitly with a `use` statement. Using the `std::io` library provides
-you with a number of useful features, including the ability to accept user
-input.
+see everything in it [in the standard library documentation][prelude].
 -->
 
 Par défaut, Rust importe dans la portée de tous les programmes quelques
 fonctionnalités définies dans la bibliothèque standard. Cela s'appelle *l'étape
 préliminaire (the prelude)*, et vous pouvez en savoir plus dans sa
-[documentation de la bibliothèque standard][prelude]<!-- ignore -->. Si vous
+[documentation de la bibliothèque standard][prelude]<!-- ignore -->.
+
+<!--
+If a type you want to use isn’t in the prelude, you have to bring that type
+into scope explicitly with a `use` statement. Using the `std::io` library
+provides you with a number of useful features, including the ability to accept
+user input.
+-->
+
+Si vous
 voulez utiliser un type qui ne s'y trouve pas, vous devrez l'importer
 explicitement avec l'instruction `use`. L'utilisation de la bibliothèque
 `std::io` vous apporte de nombreuses fonctionnalités utiles, comme ici la
@@ -571,7 +576,6 @@ types are [*enumerations*][enums]<!-- ignore -- >, often referred to as *enums*,
 which can have a fixed set of possibilites known as *variants*. Enums are often
 used with `match`, a conditional that makes it convenient to execute different
 code based on which variant an enum value is when the conditional is evaluated.
-Chapter 6 will cover enums in more detail.
 -->
 
 Comme expliqué précédemment, `read_line` stocke dans la variable qu'on lui
@@ -585,23 +589,27 @@ des sous-modules, comme `io::Result`. Les types `Result` sont des
 avoir un certain nombre de valeurs prédéfinies que l'on appelle *variantes*.
 Les énumérations sont souvent utilisées avec `match`, une structure
 conditionelle qui facilite l'exécution d'un code différent en fonction de la
-variante dans l'énumération au moment de son évaluation. Le chapitre 6
-explorera les énumérations plus en détail.
+variante dans l'énumération au moment de son évaluation.
 
 <!--
-The purpose of these `Result` types is to encode error-handling information.
-For `Result`, the variants are `Ok` or `Err`. The `Ok` variant indicates the
-operation was successful, and inside `Ok` is the successfully generated value.
-The `Err` variant means the operation failed, and `Err` contains information
-about how or why the operation failed.
+Chapter 6 will cover enums in more detail. The purpose of these `Result` types
+is to encode error-handling information.
 -->
 
-La raison d'être du type `Result` est de coder des informations pour la gestion
-des erreurs. Avec `Result`, les variantes sont `Ok` ou `Err`. La variante `Ok`
-signifie que l'opération a fonctionné, et à l'intérieur de `Ok` se trouve la
-valeur générée avec succès. La variante `Err` signifie que l'opération a
-échoué, et `Err` contient les informations décrivant comment ou pourquoi
-l'opération a échoué.
+Le chapitre 6 explorera les énumérations plus en détail. La raison d'être du
+type `Result` est de coder des informations pour la gestion des erreurs.
+
+<!--
+`Result`’s variants are `Ok` or `Err`. The `Ok` variant indicates the operation
+was successful, and inside `Ok` is the successfully generated value. The `Err`
+variant means the operation failed, and `Err` contains information about how or
+why the operation failed.
+-->
+
+Les variantes de `Result` sont `Ok` ou `Err`. La variante `Ok` signifie que
+l'opération a fonctionné, et à l'intérieur de `Ok` se trouve la valeur générée
+avec succès. La variante `Err` signifie que l'opération a échoué, et `Err`
+contient les informations décrivant comment ou pourquoi l'opération a échoué.
 
 <!--
 Values of the `Result` type, like values of any type, have methods defined on
@@ -612,8 +620,7 @@ passed as an argument to `expect`. If the `read_line` method returns an `Err`,
 it would likely be the result of an error coming from the underlying operating
 system. If this instance of `io::Result` is an `Ok` value, `expect` will take
 the return value that `Ok` is holding and return just that value to you so you
-can use it. In this case, that value is the number of bytes in what the user
-this case, that value is the number of bytes in the user’s input.
+can use it. In this case, that value is the number of bytes in the user’s input.
 -->
 
 Les valeurs du type `Result`, comme pour tous les types, ont des méthodes
@@ -675,7 +682,7 @@ correctement les erreurs.
 
 <!--
 Aside from the closing curly bracket, there’s only one more line to discuss in
-the code added so far:
+the code so far:
 -->
 
 Mis à part l'accolade fermante, il ne nous reste plus qu'une seule ligne à
@@ -878,7 +885,7 @@ Versioning][semver]<!-- ignore -- > (sometimes called *SemVer*), which is a
 standard for writing version numbers. The number `0.8.3` is actually shorthand
 for `^0.8.3`, which means any version that is at least `0.8.3` but below
 `0.9.0`. Cargo considers these versions to have public APIs compatible with
-version `0.8.3`, and this specification ensures you'll get the latest patch
+version `0.8.3`, and this specification ensures you’ll get the latest patch
 release that will still compile with the code in this chapter. Any version
 `0.9.0` or greater is not guaranteed to have the same API as what the following
 examples use.
@@ -968,9 +975,9 @@ adding the rand crate as a dependency</span>
 avoir ajouté la *crate* `rand` comme dépendance</span>
 
 <!--
-You may see different version numbers (but they will all be compatible with
-the code, thanks to SemVer!), different lines (depending on the operating
-system), and the lines may be in a different order.
+You may see different version numbers (but they will all be compatible with the
+code, thanks to SemVer!), different lines (depending on the operating system),
+and the lines may be in a different order.
 -->
 
 Il est possible que vous ne voyiez pas exactement les mêmes numéros de version,
