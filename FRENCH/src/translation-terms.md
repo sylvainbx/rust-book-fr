@@ -22,6 +22,7 @@ français.
 | artifact | artéfact | - |
 | associated function | fonction associée | - |
 | attribute | attribut | - |
+| backend | application dorsale | - |
 | backtrace | retraçage | - |
 | benchmark | benchmark | - |
 | binary crate | crate binaire | s'utilise au féminin |
