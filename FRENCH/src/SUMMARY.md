@@ -73,3 +73,7 @@
     - [Développer les fonctionnalités de la bibliothèque avec le TDD](ch12-04-testing-the-librarys-functionality.md)
     - [Travailler avec des variables d'environnement](ch12-05-working-with-environment-variables.md)
     - [Ecrire les messages d'erreur sur la sortie d'erreurs standard au lieu de la sortie normale](ch12-06-writing-to-stderr-instead-of-stdout.md)
+
+## Repenser les choses en Rust
+
+- [Les fonctionnalités des langages fonctionnels : les itérateurs et les fermetures](ch13-00-functional-features.md)
