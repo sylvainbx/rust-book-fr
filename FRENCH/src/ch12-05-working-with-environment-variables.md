@@ -52,12 +52,12 @@ tests, comme dans l'encart 12-20.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-20/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-20/src/lib.rs:here}}
 ```
 
@@ -135,12 +135,12 @@ même casse lorsque nous vérifierons si la ligne contient la recherche.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-21/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-21/src/lib.rs:here}}
 ```
 
@@ -158,9 +158,9 @@ First, we lowercase the `query` string and store it in a shadowed variable with
 the same name. Calling `to_lowercase` on the query is necessary so no matter
 whether the user’s query is `"rust"`, `"RUST"`, `"Rust"`, or `"rUsT"`, we’ll
 treat the query as if it were `"rust"` and be insensitive to the case. While
-`to_lowercase` will handle basic Unicode, it won't be 100% accurate. If we were
-writing a real application, we'd want to do a bit more work here, but this section
-is about environment variables, not Unicode, so we'll leave it at that here.
+`to_lowercase` will handle basic Unicode, it won’t be 100% accurate. If we were
+writing a real application, we’d want to do a bit more work here, but this section
+is about environment variables, not Unicode, so we’ll leave it at that here.
 -->
 
 D'abord, nous obtenons la chaîne de caractères `recherche` en minuscule et nous
@@ -315,12 +315,12 @@ d'environnement `MINIGREP_INSENSIBLE_CASSE`, comme dans l'encart 12-23.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-23/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-23/src/lib.rs:here}}
 ```
 
@@ -409,7 +409,7 @@ On dirait que cela fonctionne ! Maintenant, lançons le programme avec
 `MINIGREP_INSENSIBLE_CASSE` définie à `1` mais avec la même recherche `to`.
 
 <!--
-If you're using PowerShell, you will need to set the environment
+If you’re using PowerShell, you will need to set the environment
 variable and run the program as separate commands:
 -->
 
