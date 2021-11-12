@@ -41,7 +41,7 @@ English book, to know which (translated) code needs to be updated thank to
 >
 > [`/listings/ch02-guessing-game-tutorial/listing-02-01/src/main.rs`][].
 
-<!-- LINKS : -- >
+<!-- LINKS : -->
 
 [`/FRENCH/listings`]:
 https://github.com/Jimskapt/rust-book-fr/tree/french-release/FRENCH/listings
