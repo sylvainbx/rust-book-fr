@@ -100,9 +100,8 @@ An *integer* is a number without a fractional component. We used one integer
 type in Chapter 2, the `u32` type. This type declaration indicates that the
 value it’s associated with should be an unsigned integer (signed integer types
 start with `i`, instead of `u`) that takes up 32 bits of space. Table 3-1 shows
-the built-in integer types in Rust. Each variant in the Signed and Unsigned
-columns (for example, `i16`) can be used to declare the type of an integer
-value.
+the built-in integer types in Rust. We can use any of these variants to declare
+the type of an integer value.
 -->
 
 Un *entier* est un nombre sans partie décimale. Nous avons utilisé un entier
@@ -111,9 +110,8 @@ indique que la valeur à laquelle elle est associée doit être un entier non si
 encodé sur 32 bits dans la mémoire (les entiers pouvant prendre des valeurs
 négatives commencent par un `i` (comme *integer* : “entier”), plutôt que par un
 `u` comme *unsigned* : “non signé”). Le tableau 3-1 montre les types
-d'entiers intégrés au langage. Chaque variante dans les colonnes “Signé” et
-“Non signé” (par exemple `i16`) peut être utilisée pour déclarer le type d'une
-valeur entière.
+d'entiers intégrés au langage. Nous pouvons utiliser chacune de ces variantes
+pour déclarer le type d'une valeur entière.
 
 <!--
 <span class="caption">Table 3-1: Integer Types in Rust</span>
@@ -181,14 +179,16 @@ stocker des nombres de 0 à 2<sup>*n*</sup> − 1, donc un `u8` peut stocker
 des nombres allant de 0 à 2<sup>8</sup> − 1, c'est-à-dire de 0 à 255.
 
 <!--
-Additionally, the `isize` and `usize` types depend on the kind of computer your
-program is running on: 64 bits if you’re on a 64-bit architecture and 32 bits
-if you’re on a 32-bit architecture.
+Additionally, the `isize` and `usize` types depend on the architecture of the
+computer your program is running on, which is denoted in the table as "arch":
+64 bits if you’re on a 64-bit architecture and 32 bits if you’re on a 32-bit
+architecture.
 -->
 
-De plus, les types `isize` et `usize` dépendent du type d'ordinateur sur lequel
-votre programme va s'exécuter : 64 bits si vous utilisez une architecture
-64 bits ou 32 bits si vous utilisez une architecture 32 bits.
+De plus, les types `isize` et `usize` dépendent de l'architecture de
+l'ordinateur sur lequel votre programme va s'exécuter, d'où la ligne "archi" :
+64 bits si vous utilisez une architecture 64 bits, ou 32 bits si vous utilisez
+une architecture 32 bits.
 
 <!--
 You can write integer literals in any of the forms shown in Table 3-2. Note
@@ -244,15 +244,15 @@ d'entier par défaut est le `i32`. La principale utilisation d'un `isize` ou d'u
 <!--
 > ##### Integer Overflow
 >
-> Let’s say you have a variable of type `u8` that can hold values between 0 and 255.
-> If you try to change the variable to a value outside of that range, such
-> as 256, *integer overflow* will occur. Rust has some interesting rules
-> involving this behavior. When you’re compiling in debug mode, Rust includes
-> checks for integer overflow that cause your program to *panic* at runtime if
-> this behavior occurs. Rust uses the term panicking when a program exits with
-> an error; we’ll discuss panics in more depth in the [“Unrecoverable Errors
-> with `panic!`”][unrecoverable-errors-with-panic]<!-- ignore -- > section in
-> Chapter 9.
+> Let’s say you have a variable of type `u8` that can hold values between 0 and
+> 255. If you try to change the variable to a value outside of that range, such
+> as 256, *integer overflow* will occur, which can result in one of two
+> behaviors. When you’re compiling in debug mode, Rust includes checks for
+> integer overflow that cause your program to *panic* at runtime if this
+> behavior occurs. Rust uses the term panicking when a program exits with an
+> error; we’ll discuss panics in more depth in the [“Unrecoverable Errors with
+> `panic!`”][unrecoverable-errors-with-panic]<!-- ignore -- > section in Chapter
+> 9.
 >
 > When you’re compiling in release mode with the `--release` flag, Rust does
 > *not* include checks for integer overflow that cause panics. Instead, if
@@ -264,7 +264,7 @@ d'entier par défaut est le `i32`. La principale utilisation d'un `isize` ou d'u
 > have. Relying on integer overflow’s wrapping behavior is considered an error.
 >
 > To explicitly handle the possibility of overflow, you can use these families
-> of methods that the standard library provides on primitive numeric types:
+> of methods provided by the standard library for primitive numeric types:
 >
 > - Wrap in all modes with the `wrapping_*` methods, such as `wrapping_add`
 > - Return the `None` value if there is overflow with the `checked_*` methods
@@ -278,14 +278,14 @@ d'entier par défaut est le `i32`. La principale utilisation d'un `isize` ou d'u
 >
 > Imaginons que vous avez une variable de type `u8` qui peut stocker des
 > valeurs entre 0 et 255. Si vous essayez de changer la variable pour une valeur
-> en dehors de cet intervalle, comme 256, vous aurez un dépassement
-> d'entier *(integer overflow)*. Rust possède quelques règles intéressantes
-> concernant ce comportement. Quand vous compilez en mode débogage, Rust
-> embarque des vérifications pour détecter les cas de dépassements d'entiers qui
-> pourraient faire *paniquer* votre programme à l'exécution si ce phénomène se
-> produit. Rust utilise le terme *paniquer* quand un programme se termine
-> avec une erreur ; nous verrons plus en détail les *paniques* dans une section
-> du [chapitre 9][unrecoverable-errors-with-panic]<!-- ignore -->.
+> en dehors de cet intervalle, comme 256, vous aurez un dépassement d'entier
+> *(integer overflow)*, qui peut se compter de deux manière. Lorsque vous
+> compilez en mode débogage, Rust embarque des vérifications pour détecter les
+> cas de dépassements d'entiers qui pourraient faire *paniquer* votre programme
+> à l'exécution si ce phénomène se produit. Rust utilise le terme *paniquer*
+> quand un programme se termine avec une erreur ; nous verrons plus en détail
+> les *paniques* dans une section du [chapitre
+> 9][unrecoverable-errors-with-panic]<!-- ignore -->.
 >
 > Lorsque vous compilez en mode publication *(release)* avec le drapeau
 > `--release`, Rust ne va *pas* vérifier les potentiels dépassements d'entiers
@@ -321,7 +321,7 @@ Rust also has two primitive types for *floating-point numbers*, which are
 numbers with decimal points. Rust’s floating-point types are `f32` and `f64`,
 which are 32 bits and 64 bits in size, respectively. The default type is `f64`
 because on modern CPUs it’s roughly the same speed as `f32` but is capable of
-more precision.
+more precision. All floating-point types are signed.
 -->
 
 Rust possède également deux types primitifs pour les *nombres à virgule
@@ -329,7 +329,7 @@ flottante* (ou *flottants*), qui sont des nombres avec des décimales. Les types
 de flottants en Rust sont les `f32` et les `f64`, qui ont respectivement une
 taille en mémoire de 32 bits et 64 bits. Le type par défaut est le `f64` car sur
 les processeurs récents ce type est quasiment aussi rapide qu'un `f32` mais est
-plus précis.
+plus précis. Tous les flottants ont un signe.
 
 <!--
 Here’s an example that shows floating-point numbers in action:
@@ -458,17 +458,13 @@ de `if` en Rust dans la section
 #### Le type caractère
 
 <!--
-So far we’ve worked only with numbers, but Rust supports letters too. Rust’s
-`char` type is the language’s most primitive alphabetic type, and the following
-code shows one way to use it. (Note that `char` literals are specified with
-single quotes, as opposed to string literals, which use double quotes.)
+Rust’s `char` type is the language’s most primitive alphabetic type. Here's
+some examples of declaring `char` values:
 -->
 
-Jusqu'à présent, nous avons utilisé uniquement des nombres, mais Rust peut aussi
-travailler avec des lettres. Le type `char` (comme *character*) est le type de
-caractère le plus rudimentaire, et le code suivant va vous montrer une façon de
-l'utiliser. (A noter que les `char` sont écrits avec des guillemets simples,
-contrairement aux chaînes, qui utilisent des guillemets doubles.)
+Le type `char` (comme *character*) est le type de caractère le plus
+rudimentaire. Voici quelques exemples de déclaration de valeurs de type
+`char` :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -487,26 +483,29 @@ contrairement aux chaînes, qui utilisent des guillemets doubles.)
 ```
 
 <!--
-Rust’s `char` type is four bytes in size and represents a Unicode Scalar Value,
-which means it can represent a lot more than just ASCII. Accented letters;
-Chinese, Japanese, and Korean characters; emoji; and zero-width spaces are all
-valid `char` values in Rust. Unicode Scalar Values range from `U+0000` to
-`U+D7FF` and `U+E000` to `U+10FFFF` inclusive. However, a “character” isn’t
-really a concept in Unicode, so your human intuition for what a “character” is
-may not match up with what a `char` is in Rust. We’ll discuss this topic in
-detail in [“Storing UTF-8 Encoded Text with Strings”][strings]<!-- ignore -- >
-in Chapter 8.
+Note that we specify `char` literals with single quotes, as opposed to string
+literals, which use double quotes. Rust’s `char` type is four bytes in size and
+represents a Unicode Scalar Value, which means it can represent a lot more than
+just ASCII. Accented letters; Chinese, Japanese, and Korean characters; emoji;
+and zero-width spaces are all valid `char` values in Rust. Unicode Scalar
+Values range from `U+0000` to `U+D7FF` and `U+E000` to `U+10FFFF` inclusive.
+However, a “character” isn’t really a concept in Unicode, so your human
+intuition for what a “character” is may not match up with what a `char` is in
+Rust. We’ll discuss this topic in detail in [“Storing UTF-8 Encoded Text with
+Strings”][strings]<!-- ignore -- > in Chapter 8.
 -->
 
-Le type `char` de Rust prend quatre octets en mémoire et représente une valeur
-scalaire Unicode, ce qui veut dire que cela représente plus de caractères que
-l'ASCII. Les lettres accentuées ; les caractères chinois, japonais et coréens ;
-les emoji ; les espaces de largeur nulle ont tous une valeur pour `char` avec
-Rust. Les valeurs scalaires Unicode vont de `U+0000` à `U+D7FF` et de `U+E000` à
-`U+10FFFF` inclus. Cependant, le concept de “caractère” n'est pas clairement
-défini par Unicode, donc votre notion de “caractère” peut ne pas correspondre
-à ce qu'est un `char` en Rust. Nous aborderons ce sujet plus en détail au
-[chapitre 8][strings]<!-- ignore -->.
+Notez que nous renseignons un litéral `char` avec des guillemets simples,
+contrairement aux littéraux de chaîne de caractères, qui nécéssite des doubles
+guillemets. Le type `char` de Rust prend quatre octets en mémoire et représente
+une valeur scalaire Unicode, ce qui veut dire que cela représente plus de
+caractères que l'ASCII. Les lettres accentuées ; les caractères chinois,
+japonais et coréens ; les emoji ; les espaces de largeur nulle ont tous une
+valeur pour `char` avec Rust. Les valeurs scalaires Unicode vont de `U+0000` à
+`U+D7FF` et de `U+E000` à `U+10FFFF` inclus. Cependant, le concept de
+“caractère” n'est pas clairement défini par Unicode, donc votre notion de
+“caractère” peut ne pas correspondre à ce qu'est un `char` en Rust. Nous
+aborderons ce sujet plus en détail au [chapitre 8][strings]<!-- ignore -->.
 
 <!--
 ### Compound Types
@@ -610,14 +609,13 @@ On appelle cela *déstructurer*, car il divise le tuple en trois parties.
 Puis finalement, le programme affiche la valeur de `y`, qui est `6.4`.
 
 <!--
-In addition to destructuring through pattern matching, we can access a tuple
-element directly by using a period (`.`) followed by the index of the value we
-want to access. For example:
+We can also access a tuple element directly by using a period (`.`) followed by
+the index of the value we want to access. For example:
 -->
 
-En plus de pouvoir déstructurer avec un filtrage par motif, nous pouvons accéder
-directement à chaque élément du tuple en utilisant un point (`.`) suivi de
-l'indice de la valeur que nous souhaitons obtenir. Par exemple :
+Nous pouvons aussi accéder directement à chaque élément du tuple en utilisant
+un point (`.`) suivi de l'indice de la valeur que nous souhaitons obtenir. Par
+exemple :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -636,12 +634,12 @@ l'indice de la valeur que nous souhaitons obtenir. Par exemple :
 ```
 
 <!--
-This program creates a tuple, `x`, and then makes new variables for each
+This program creates the tuple `x` and then makes new variables for each
 element by using their respective indices. As with most programming languages,
 the first index in a tuple is 0.
 -->
 
-Ce programme crée un tuple, `x`, puis crée une nouvelle variable pour
+Ce programme crée le tuple `x` puis crée une nouvelle variable pour
 chaque élément en utilisant leur indices respectifs. Comme dans de nombreux
 langages de programmation, le premier indice d'un tuple est 0.
 
@@ -665,23 +663,22 @@ valeur unité si elles ne retournent aucune autre valeur.
 
 <!--
 Another way to have a collection of multiple values is with an *array*. Unlike
-a tuple, every element of an array must have the same type. Arrays in Rust are
-different from arrays in some other languages because arrays in Rust have a
-fixed length, like tuples.
+a tuple, every element of an array must have the same type. Unlike arrays in
+some other languages, arrays in Rust have a fixed length.
 -->
 
 Un autre moyen d'avoir une collection de plusieurs valeurs est d'utiliser
 un *tableau*. Contrairement aux tuples, chaque élément d'un tableau doit être du
-même type. Les tableaux de Rust diffèrent de ceux de certains autres langages
-car les tableaux de Rust ont une taille fixe, comme les tuples.
+même type. Contrairement aux tableaux de certains autres langages, les tableaux
+de Rust ont une taille fixe.
 
 <!--
-In Rust, the values going into an array are written as a comma-separated list
-inside square brackets:
+We write the values in an array as a comma-separated list inside square
+brackets:
 -->
 
-Avec Rust, les valeurs stockées dans un tableau sont écrites dans une
-liste séparée par des virgules entre des crochets :
+Nous écrivons les valeurs dans un tableau via une liste entre des crochets,
+séparée par des virgules :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -701,37 +698,36 @@ liste séparée par des virgules entre des crochets :
 
 <!--
 Arrays are useful when you want your data allocated on the stack rather than
-the heap (we will discuss the stack and the heap more in Chapter 4) or when
-you want to ensure you always have a fixed number of elements. An array isn’t
-as flexible as the vector type, though. A vector is a similar collection type
-provided by the standard library that *is* allowed to grow or shrink in size.
-If you’re unsure whether to use an array or a vector, you should probably use a
-vector. Chapter 8 discusses vectors in more detail.
+the heap (we will discuss the stack and the heap more in [Chapter
+4][stack-and-heap]<!-- ignore -- >) or when you want to ensure you always have a
+fixed number of elements. An array isn’t as flexible as the vector type,
+though. A vector is a similar collection type provided by the standard library
+that *is* allowed to grow or shrink in size. If you’re unsure whether to use an
+array or a vector, chances are you should use a vector. [Chapter
+8][vectors]<!-- ignore -- > discusses vectors in more detail.
 -->
 
 Les tableaux sont utiles quand vous voulez que vos données soient allouées sur
 la pile *(stack)* plutôt que sur le tas *(heap)* (nous expliquerons la pile et
 le tas au chapitre 4) ou lorsque vous voulez vous assurer que vous avez toujours
 un nombre fixe d'éléments. Cependant, un tableau n'est pas aussi flexible qu'un
-vecteur *(vector)*. Un vecteur est un type de collection de données
-similaire qui est fourni par la bibliothèque standard qui, lui, peut
-grandir ou rétrécir en taille. Si vous ne savez pas si vous devez utiliser un
-tableau ou un vecteur, vous devriez probablement utiliser un vecteur. Le
-chapitre 8 expliquera les vecteurs.
+vecteur *(vector)*. Un vecteur est un type de collection de données similaire
+qui est fourni par la bibliothèque standard qui, lui, peut grandir ou rétrécir
+en taille. Si vous ne savez pas si vous devez utiliser un tableau ou un
+vecteur, il y a de fortes chances que vous devriez utiliser un vecteur. Le
+[chapitre 8][vectors]<!-- ignore --> expliquera les vecteurs.
 
 <!--
-An example of when you might want to use an array rather than a vector is in a
-program that needs to know the names of the months of the year. It’s very
-unlikely that such a program will need to add or remove months, so you can use
-an array because you know it will always contain 12 elements:
+However, arrays are more useful when you know the number of elements will not
+need to change. For example, if you were using the names of the month in a
+program, you would probably use an array rather than a vector because you know
+it will always contain 12 elements:
 -->
 
-Un exemple de cas où vous pourriez avoir recours à un tableau plutôt qu'à un
-vecteur est un programme qui nécessite de connaître les noms des mois de
-l'année.
-Il est très improbable qu'un tel programme ait besoin d'ajouter ou de supprimer
-des mois, donc vous pouvez utiliser un tableau car vous savez qu'il contiendra
-toujours 12 éléments :
+Toutefois, les tableaux s'avèrent plus utiles lorsque vous savez que le nombre
+d'éléments n'aura pas besoin de changer. Par exemple, si vous utilisez les noms
+des mois dans un programme, vous devriez probablement utiliser un tableau
+plutôt qu'un vecteur car vous savez qu'il contient toujours 12 éléments :
 
 <!--
 ```rust
@@ -746,12 +742,11 @@ let mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet",
 ```
 
 <!--
-You would write an array’s type by using square brackets, and within the
-brackets include the type of each element, a semicolon, and then the number of
-elements in the array, like so:
+You write an array’s type using square brackets with the type of each element,
+a semicolon, and then the number of elements in the array, like so:
 -->
 
-Vous pouvez écrire le type d'un tableau en utilisant des crochets, et entre ces
+Vous pouvez écrire le type d'un tableau en utilisant des crochets et entre ces
 crochets y ajouter le type de chaque élément, un point-virgule, et ensuite le
 nombre d'éléments dans le tableau, comme ceci :
 
@@ -774,17 +769,15 @@ Ici, `i32` est le type de chaque élément. Après le point-virgule, le nombre `
 indique que le tableau contient cinq éléments.
 
 <!--
-Writing an array’s type this way looks similar to an alternative syntax for
-initializing an array: if you want to create an array that contains the same
-value for each element, you can specify the initial value, followed by a
-semicolon, and then the length of the array in square brackets, as shown here:
+You can also initialize an array to contain the same value for each element by
+specifying the initial value, followed by a semicolon, and then the length of
+the array in square brackets, as shown here:
 -->
 
-L'écriture d'un type de tableau de cette manière ressemble à une autre syntaxe
-pour initialiser un tableau : si vous voulez créer un tableau qui contient la
-même valeur pour chaque élément, vous pouvez préciser la valeur initiale, suivie
-par un point-virgule, et ensuite la taille du tableau, le tout entre crochets,
-comme ci-dessous :
+Vous pouvez initialiser un tableau pour qu'il contienne toujours la même valeur
+pour chaque élément, vous pouvez préciser la valeur initiale, suivie par un
+point-virgule, et ensuite la taille du tableau, le tout entre crochets, comme
+ci-dessous :
 
 <!--
 ```rust
@@ -855,13 +848,13 @@ récupèrera la valeur `2` depuis l'indice `[1]` du tableau.
 ##### Accès incorrect à un élément d'un tableau
 
 <!--
-What happens if you try to access an element of an array that is past the end
-of the array? Say you change the example to the following, which uses code
-similar to the guessing game in Chapter 2 to get an array index from the user:
+Let's see what happens if you try to access an element of an array that is past
+the end of the array. Say you run this code, similar to the guessing game in
+Chapter 2, to get an array index from the user:
 -->
 
-Que se passe-t-il quand vous essayez d'accéder à un élément d'un tableau qui se
-trouve après la fin du tableau ? Imaginons que vous changiez l'exemple par le
+Découvrons ce qui se passe quand vous essayez d'accéder à un élément d'un
+tableau qui se trouve après la fin du tableau ? Imaginons que vous exécutiez le
 code suivant, similaire au jeu du plus ou du moins du chapitre 2, pour demander
 un indice de tableau à l'utilisateur :
 
@@ -952,6 +945,8 @@ son déroulement. Le chapitre 9 expliquera la gestion d'erreurs de Rust.
 ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
 [control-flow]: ch03-05-control-flow.html#control-flow
 [strings]: ch08-02-strings.html#storing-utf-8-encoded-text-with-strings
+[stack-and-heap]: ch04-01-what-is-ownership.html#the-stack-and-the-heap
+[vectors]: ch08-01-vectors.html
 [unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html
 [wrapping]: ../std/num/struct.Wrapping.html
 [appendix_b]: appendix-02-operators.md
@@ -961,6 +956,8 @@ ch02-00-guessing-game-tutorial.html#comparing-the-guess-to-the-secret-number
 ch02-00-guessing-game-tutorial.html#comparer-le-nombre-saisi-au-nombre-secret
 [control-flow]: ch03-05-control-flow.html#les-structures-de-contrôle
 [strings]: ch08-02-strings.html
+[stack-and-heap]: ch04-01-what-is-ownership.html
+[vectors]: ch08-01-vectors.html
 [unrecoverable-errors-with-panic]: ch09-01-unrecoverable-errors-with-panic.html
 [wrapping]: https://doc.rust-lang.org/std/num/struct.Wrapping.html
 [appendix_b]: appendix-02-operators.md
