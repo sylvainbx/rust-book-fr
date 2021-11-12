@@ -71,3 +71,4 @@
     - [Lire un fichier](ch12-02-reading-a-file.md)
     - [Remanier le code pour améliorer sa modularité et la gestion des erreurs](ch12-03-improving-error-handling-and-modularity.md)
     - [Développer les fonctionnalités de la bibliothèque avec le TDD](ch12-04-testing-the-librarys-functionality.md)
+    - [Travailler avec des variables d'environnement](ch12-05-working-with-environment-variables.md)
