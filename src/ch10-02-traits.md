@@ -2,8 +2,8 @@
 
 A *trait* tells the Rust compiler about functionality a particular type has and
 can share with other types. We can use traits to define shared behavior in an
-abstract way. We can use trait bounds to specify that a generic can be any type
-that has certain behavior.
+abstract way. We can use trait bounds to specify that a generic type can be any
+type that has certain behavior.
 
 > Note: Traits are similar to a feature often called *interfaces* in other
 > languages, although with some differences.
@@ -29,7 +29,7 @@ need a summary from each type, and we need to request that summary by calling a
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-12/src/lib.rs}}
 ```
 
@@ -62,7 +62,7 @@ already limited to 280 characters.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-13/src/lib.rs:here}}
 ```
 
@@ -130,7 +130,7 @@ in Listing 10-12.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-14/src/lib.rs:here}}
 ```
 
@@ -166,7 +166,7 @@ a small part of it. For example, we could define the `Summary` trait to have a
 `summarize` method that has a default implementation that calls the
 `summarize_author` method:
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/no-listing-03-default-impl-calls-other-methods/src/lib.rs:here}}
 ```
 
@@ -342,7 +342,7 @@ type parameter’s bounds, let’s return to Listing 10-5 to fix the definition 
 the `largest` function that uses a generic type parameter! Last time we tried
 to run that code, we received this error:
 
-```text
+```console
 {{#include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-05/output.txt}}
 ```
 
@@ -404,6 +404,9 @@ reference to a `T` value in the slice. If we change the return type to `&T`
 instead of `T`, thereby changing the body of the function to return a
 reference, we wouldn’t need the `Clone` or `Copy` trait bounds and we could
 avoid heap allocations. Try implementing these alternate solutions on your own!
+If you get stuck with errors having to do with lifetimes, keep reading: the
+“Validating References with Lifetimes” section coming up will explain, but
+lifetimes aren’t required to solve these challenges.
 
 ### Using Trait Bounds to Conditionally Implement Methods
 
@@ -416,7 +419,7 @@ the `Display` trait that enables printing.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-16/src/lib.rs}}
 ```
 
