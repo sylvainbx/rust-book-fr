@@ -274,22 +274,18 @@ bonne pratique d'insérer l'accolade ouvrante sur la même ligne que la
 déclaration de la fonction, en ajoutant une espace entre les deux.
 
 <!--
-At the time of this writing, an automatic formatter tool called `rustfmt` is
-under development. If you want to stick to a standard style across Rust
-projects, `rustfmt` will format your code in a particular style. The Rust team
-plans to eventually include this tool with the standard Rust distribution, like
-`rustc`. So depending on when you read this book, it might already be installed
-on your computer! Check the online documentation for more details.
+If you want to stick to a standard style across Rust projects, you can use an
+automatic formatter tool called `rustfmt` to format your code in a particular
+style. The Rust team has included this tool with the standard Rust distribution,
+like `rustc`, so it should already be installed on your computer! Check the
+online documentation for more details.
 -->
 
-Pendant que nous écrivons ces lignes, un outil de formatage automatique de code
-appelé `rustfmt` est en cours de développement.
-Si vous voulez standardiser le style de votre code Rust dans vos projets,
-`rustfmt` va formater votre code de manière bien définie.
-L'équipe Rust envisage d'intégrer cet outil dans la distribution
-standard de Rust, comme `rustc`. Donc, selon le moment où vous lirez ce livre,
-il se peut qu'il soit déjà installé sur votre ordinateur ! Consultez la
-documentation en ligne pour en savoir plus.
+Si vous souhaitez formater le code de vos projets Rust de manière standardisé,
+vous pouvez utiliser un outil de formatage automatique tel que `rustfmt`.
+L'équipe de Rust a intégré cet outil dans la distribution standard de Rust,
+comme pour `rustc` par exemple, donc il est probablement déjà installé sur votre
+ordinateur ! Consultez la documentation en ligne pour en savoir plus.
 
 <!--
 Inside the `main` function is the following code:
@@ -326,14 +322,16 @@ avec une tabulation.
 Second, `println!` calls a Rust macro. If it called a function instead, it
 would be entered as `println` (without the `!`). We’ll discuss Rust macros in
 more detail in Chapter 19. For now, you just need to know that using a `!`
-means that you’re calling a macro instead of a normal function.
+means that you’re calling a macro instead of a normal function, and that macros
+don’t always follow the same rules as functions.
 -->
 
 Deuxièmement, `println!` fait appel à une macro Rust. S'il appelait une
 fonction à la place, cela serait écrit `println` (sans le `!`). Nous aborderons
 les macros Rust plus en détail dans le chapitre 19. Pour l'instant, vous avez
 juste à savoir qu'utiliser un `!` signifie que vous utilisez une macro plutôt
-qu'une fonction classique.
+qu'une fonction classique. Les macros ne suivent pas toujours les mêmes règles
+que les fonctions.
 
 <!--
 Third, you see the `"Hello, world!"` string. We pass this string as an argument
@@ -410,13 +408,13 @@ vous devriez voir deux fichiers. Avec PowerShell sous Windows, vous devriez voir
 les trois mêmes fichiers que vous verriez en utilisant CMD.
 
 <!--
-```text
+```console
 $ ls
 main  main.rs
 ```
 -->
 
-```text
+```console
 $ ls
 main  main.rs
 ```

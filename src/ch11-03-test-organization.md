@@ -37,8 +37,8 @@ this chapter, Cargo generated this code for us:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-01/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-01/src/lib.rs}}
 ```
 
 This code is the automatically generated test module. The attribute `cfg`
@@ -60,15 +60,18 @@ Consider the code in Listing 11-12 with the private function `internal_adder`.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-12/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-12/src/lib.rs}}
 ```
 
 <span class="caption">Listing 11-12: Testing a private function</span>
 
-Note that the `internal_adder` function is not marked as `pub`, but because
-tests are just Rust code and the `tests` module is just another module, you can
-bring `internal_adder` into a test’s scope and call it. If you don’t think
+Note that the `internal_adder` function is not marked as `pub`. Tests are just
+Rust code, and the `tests` module is just another module. As we discussed in
+the [“Paths for Referring to an Item in the Module Tree”][paths]<!-- ignore -->
+section, items in child modules can use the items in their ancestor modules. In
+this test, we bring all of the `test` module’s parent’s items into scope with
+`use super::*`, and then the test can call `internal_adder`. If you don’t think
 private functions should be tested, there’s nothing in Rust that will compel
 you to do so.
 
@@ -120,7 +123,7 @@ seeing: one line for each unit test (one named `internal` that we added in
 Listing 11-12) and then a summary line for the unit tests.
 
 The integration tests section starts with the line `Running
-target/debug/deps/integration_test-ce99bcc2479f4607` (the hash at the end of
+target/debug/deps/integration_test-1082c4b063a8fbe6` (the hash at the end of
 your output will be different). Next, there is a line for each test function in
 that integration test and a summary line for the results of the integration
 test just before the `Doc-tests adder` section starts.
@@ -235,5 +238,6 @@ reduce logic bugs having to do with how your code is expected to behave.
 Let’s combine the knowledge you learned in this chapter and in previous
 chapters to work on a project!
 
+[paths]: ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html
 [separating-modules-into-files]:
 ch07-05-separating-modules-into-different-files.html
