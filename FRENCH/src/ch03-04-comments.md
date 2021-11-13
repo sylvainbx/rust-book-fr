@@ -6,16 +6,16 @@
 
 <!--
 All programmers strive to make their code easy to understand, but sometimes
-extra explanation is warranted. In these cases, programmers leave notes, or
-*comments*, in their source code that the compiler will ignore but people
-reading the source code may find useful.
+extra explanation is warranted. In these cases, programmers leave *comments* in
+their source code that the compiler will ignore but people reading the source
+code may find useful.
 -->
 
 Tous les développeurs s'efforcent de rendre leur code facile à comprendre, mais
-parfois il est nécessaire d'écrire des explications supplémentaires.
-Dans ce cas, les développeurs laissent des notes, appelées *commentaires*, dans
-leur code source que le compilateur va ignorer mais qui peuvent être utiles
-pour les personnes qui lisent le code source.
+parfois il est nécessaire d'écrire des explications supplémentaires. Dans ce
+cas, les développeurs laissent des *commentaires* dans leur code source que le
+compilateur va ignorer mais qui peuvent être utiles pour les personnes qui
+lisent le code source.
 
 <!--
 Here’s a simple comment:
@@ -73,7 +73,7 @@ contient du code :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-24-comments-end-of-line/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-24-comments-end-of-line/src/main.rs}}
 ```
 -->
 
@@ -97,7 +97,7 @@ commentaire sur une ligne séparée au-dessus du code qu'il annote :
 
 <!--
 ```rust
-{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-25-comments-above-line/src/main.rs}}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-25-comments-above-line/src/main.rs}}
 ```
 -->
 
