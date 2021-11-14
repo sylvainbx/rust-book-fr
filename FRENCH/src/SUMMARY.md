@@ -90,3 +90,4 @@
     - [Etendre les fonctionnalités de cargo avec des commandes personnalisées](ch14-05-extending-cargo.md)
 
 - [Les pointeurs intelligents](ch15-00-smart-pointers.md)
+    - [Utiliser `Box<T>` pour pointer sur des données présentes sur le tas](ch15-01-box.md)

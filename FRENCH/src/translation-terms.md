@@ -184,6 +184,7 @@ français.
 | race condition | situation de concurrence | - |
 | raw identifier | identificateur brut | - |
 | README | README | - |
+| recursive type | type récursif | - |
 | refactoring | remaniement | - |
 | reference | référence | - |
 | reference counting | compteur de références | - |
