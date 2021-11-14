@@ -77,7 +77,7 @@ from the vector.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-15/src/lib.rs:here}}
 ```
 
@@ -116,7 +116,7 @@ test illustrating a use of the `sum` method:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-16/src/lib.rs:here}}
 ```
 
@@ -196,18 +196,18 @@ instances. It will return only shoes that are the specified size.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-19/src/lib.rs}}
 ```
 
 <span class="caption">Listing 13-19: Using the `filter` method with a closure
 that captures `shoe_size`</span>
 
-The `shoes_in_my_size` function takes ownership of a vector of shoes and a shoe
+The `shoes_in_size` function takes ownership of a vector of shoes and a shoe
 size as parameters. It returns a vector containing only shoes of the specified
 size.
 
-In the body of `shoes_in_my_size`, we call `into_iter` to create an iterator
+In the body of `shoes_in_size`, we call `into_iter` to create an iterator
 that takes ownership of the vector. Then we call `filter` to adapt that
 iterator into a new iterator that only contains elements for which the closure
 returns `true`.
@@ -217,7 +217,7 @@ compares the value with each shoe’s size, keeping only shoes of the size
 specified. Finally, calling `collect` gathers the values returned by the
 adapted iterator into a vector that’s returned by the function.
 
-The test shows that when we call `shoes_in_my_size`, we get back only shoes
+The test shows that when we call `shoes_in_size`, we get back only shoes
 that have the same size as the value we specified.
 
 ### Creating Our Own Iterators with the `Iterator` Trait
@@ -241,7 +241,7 @@ Listing 13-20 has the definition of the `Counter` struct and an associated
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-20/src/lib.rs}}
 ```
 
@@ -261,7 +261,7 @@ iterator is used, as shown in Listing 13-21:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-21/src/lib.rs:here}}
 ```
 
@@ -287,7 +287,7 @@ with the iterator created from a vector in Listing 13-15.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-22/src/lib.rs:here}}
 ```
 
@@ -312,7 +312,7 @@ together, we could do so, as shown in the test in Listing 13-23:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch13-functional-features/listing-13-23/src/lib.rs:here}}
 ```
 
