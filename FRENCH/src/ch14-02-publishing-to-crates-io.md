@@ -238,7 +238,7 @@ copy just the doc-tests section below
 running 1 test
 test src/lib.rs - add_one (line 5) ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
 ```
 -->
 
@@ -248,7 +248,7 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
 running 1 test
 test src/lib.rs - ajouter_un (line 5) ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
 ```
 
 <!--
@@ -454,12 +454,12 @@ modules : un module `types` qui contient deux énumérations `CouleurPrimaire` 
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground,test_harness
 {{#rustdoc_include ../listings-sources/ch14-more-about-cargo/listing-14-03/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground,test_harness
 {{#rustdoc_include ../listings/ch14-more-about-cargo/listing-14-03/src/lib.rs:here}}
 ```
 
@@ -925,15 +925,13 @@ plusieurs identificateurs de licence séparés par `OR` pour avoir plusieurs
 licences pour votre projet.
 
 <!--
-With a unique name, the version, the author details that `cargo new` added
-when you created the crate, your description, and a license added, the
+With a unique name, the version, your description, and a license added, the
 *Cargo.toml* file for a project that is ready to publish might look like this:
 -->
 
-Avec le nom unique, la version, les informations du développeur que `cargo new`
-a ajouté lorsque vous avez créé la crate, ainsi que la description et la licence
-que vous avez ajouté, le fichier *Cargo.toml* de ce projet qui est prêt à être
-publié devrait ressembler à ceci :
+Avec le nom unique, la version, la description et la licence que vous avez
+ajouté, le fichier *Cargo.toml* de ce projet qui est prêt à être publié devrait
+ressembler à ceci :
 
 <!--
 <span class="filename">Filename: Cargo.toml</span>
@@ -946,7 +944,6 @@ publié devrait ressembler à ceci :
 [package]
 name = "guessing_game"
 version = "0.1.0"
-authors = ["Your Name <you@example.com>"]
 edition = "2018"
 description = "A fun game where you guess what number the computer has chosen."
 license = "MIT OR Apache-2.0"
@@ -959,7 +956,6 @@ license = "MIT OR Apache-2.0"
 [package]
 name = "jeu_du_plus_ou_du_moins"
 version = "0.1.0"
-authors = ["Votre nom <adresse@exemple.com>"]
 edition = "2018"
 description = "Un jeu où vous devez deviner quel nombre l'ordinateur a choisi."
 license = "MIT OR Apache-2.0"
