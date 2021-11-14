@@ -95,3 +95,4 @@
     - [Exécuter du code au nettoyage avec le trait `Drop`](ch15-03-drop.md)
     - [`Rc<T>`, le pointeur intelligent qui compte les références](ch15-04-rc.md)
     - [`RefCell<T>` et le motif de mutabilité interne](ch15-05-interior-mutability.md)
+    - [Les boucles de références qui peuvent provoquer des fuites de mémoire](ch15-06-reference-cycles.md)

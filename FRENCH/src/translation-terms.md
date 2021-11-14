@@ -146,6 +146,7 @@ français.
 | macro | macro | - |
 | main | main | - |
 | map | tableau associatif | - |
+| memory leak | fuite de mémoire | - |
 | memory management | gestion de mémoire | - |
 | method | méthode | - |
 | mock object | mock object | - |
@@ -228,6 +229,7 @@ français.
 | space | espace | ce mot est féminin quand on parle du caractère typographique |
 | square brackets | crochets | - |
 | stack | pile | - |
+| stack overflow | débordement de pile | - |
 | standard | standard *(adj. inv.)* / norme *(n.f.)* | - |
 | standard error | erreur standard | - |
 | standard input | entrée standard | - |
@@ -277,6 +279,7 @@ français.
 | version control system (VCS) | système de gestion de versions (VCS) | - |
 | vertical pipe | barre verticale | la barre `|` |
 | warning | avertissement | - |
+| weak reference | pointeur faible | - |
 | wildcard | joker | - |
 | workspace | espace de travail | - |
 | yank | déprécier | - |
