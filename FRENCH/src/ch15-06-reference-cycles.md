@@ -170,30 +170,29 @@ pour le moment, nous obtenons ceci :
 ```
 
 <!--
-The reference count of the `Rc<List>` instances in both `a` and `b` are 2
-after we change the list in `a` to point to `b`. At the end of `main`, Rust
-will try to drop `b` first, which will decrease the count of the `Rc<List>`
-instance in `b` by 1.
+The reference count of the `Rc<List>` instances in both `a` and `b` are 2 after
+we change the list in `a` to point to `b`. At the end of `main`, Rust drops the
+variable `b`, which decreases the reference count of the `Rc<List>` instance
+from 2 to 1. The memory that `Rc<List>` has on the heap won’t be dropped at
+this point, because its reference count is 1, not 0. Then Rust drops `a`, which
+decreases the reference count of the `a` `Rc<List>` instance from 2 to 1 as
+well. This instance’s memory can’t be dropped either, because the other
+`Rc<List>` instance still refers to it. The memory allocated to the list will
+remain uncollected forever. To visualize this reference cycle, we’ve created a
+diagram in Figure 15-4.
 -->
 
 Les compteurs de références des instances de `Rc<List>` valent tous les deux 2
 pour `a` et `b` après avoir modifié `a` pour qu'elle pointe sur `b`. A la fin
-du `main`, Rust va nettoyer d'abord `b`, ce qui va réduire le compteur de
-l'instance `Rc<List>` de `b` de 1.
-
-<!--
-However, because `a` is still referencing the `Rc<List>` that was in `b`, that
-`Rc<List>` has a count of 1 rather than 0, so the memory the `Rc<List>` has on
-the heap won’t be dropped. The memory will just sit there with a count of 1,
-forever. To visualize this reference cycle, we’ve created a diagram in Figure
-15-4.
--->
-
-Cependant, comme `a` pointe toujours sur le `Rc<List>` qui était sur `b`, le
-compteur de son `Rc<List>` vaudra toujours 1 au lieu de 0, donc la mémoire de
-sur le tas de ce `Rc<List>` ne sera pas nettoyé. La mémoire va juste rester ici
-avec un compteur à 1, pour toujours. Pour représenter la boucle de références,
-nous avons créé un diagramme dans l'illustration 15-4.
+du `main`, Rust nettoie d'abord la variable `b`, ce qui décrémente le compteur
+de références dans l'instance `Rc<List>` de 2 à 1. La mémoire utilisée sur le
+tas par `Rc<List>` ne sera pas libérée à ce moment, car son compteur de
+références est à 1, et non pas 0. Puis, Rust libère `a`, ce qui décrémente le
+compteur `a` de références `Rc<List>` de 2 à 1, également. La mémoire de cette
+instance ne peut pas non plus être libérée car l'autre instance `Rc<List>` y
+fait toujours référence. La mémoire alouée à la liste ne sera jamais libérée.
+Pour représenter cette boucle de références, nous avons créé un diagramme dans
+l'illustration 15-4.
 
 <!--
 <img alt="Reference cycle of lists" src="img/trpl15-04.svg" class="center" />
