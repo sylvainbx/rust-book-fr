@@ -36,6 +36,7 @@ français.
 | borrow | emprunt(er) | - |
 | borrow checker | vérificateur d'emprunt | - |
 | bug | bogue | - |
+| build | compilation | - |
 | build system | système de compilation | - |
 | byte | octet | - |
 | Cargo | Cargo | - |
@@ -186,6 +187,7 @@ français.
 | reference | référence | - |
 | registry | registre | - |
 | regression | régression | - |
+| release | publication | - |
 | remainder | modulo | opération `%` |
 | reproducible build | compilation reproductible | - |
 | Resource Acquisition Is Initialization (RAII) | l'acquisition d'une ressource est une initialisation (RAII) | - |
@@ -263,4 +265,5 @@ français.
 | vertical pipe | barre verticale | la barre `|` |
 | warning | avertissement | - |
 | wildcard | joker | - |
+| workspace | espace de travail | - |
 | zero-cost abstraction | abstraction sans coût | - |
