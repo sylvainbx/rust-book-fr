@@ -77,7 +77,7 @@ Listing 19-28 shows a slightly simplified definition of the `vec!` macro.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/listing-19-28/src/lib.rs}}
 ```
 
@@ -151,9 +151,9 @@ effectively deprecated. With this in mind, as well as the fact that most Rust
 programmers will *use* macros more than *write* macros, we won’t discuss
 `macro_rules!` any further. To learn more about how to write macros, consult
 the online documentation or other resources, such as [“The Little Book of Rust
-Macros”][tlborm].
+Macros”][tlborm] started by Daniel Keep and continued by Lukas Wirth.
 
-[tlborm]: https://danielkeep.github.io/tlborm/book/index.html
+[tlborm]: https://veykril.github.io/tlborm/
 
 ### Procedural Macros for Generating Code from Attributes
 
@@ -230,7 +230,7 @@ Next, we’ll define the `HelloMacro` trait and its associated function:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-20-impl-hellomacro-for-pancakes/hello_macro/src/lib.rs}}
 ```
 
@@ -280,7 +280,7 @@ in a moment, so we need to add them as dependencies. Add the following to the
 <span class="filename">Filename: hello_macro_derive/Cargo.toml</span>
 
 ```toml
-{{#include ../listings/ch19-advanced-features/listing-19-31/hello_macro/hello_macro_derive/Cargo.toml:7:12}}
+{{#include ../listings/ch19-advanced-features/listing-19-31/hello_macro/hello_macro_derive/Cargo.toml:6:12}}
 ```
 
 To start defining the procedural macro, place the code in Listing 19-31 into
