@@ -5,7 +5,7 @@ use std::io;
 fn main() {
     println!("Devinez le nombre !");
 
-    let nombre_secret = rand::thread_rng().gen_range(1, 101);
+    let nombre_secret = rand::thread_rng().gen_range(1..101);
 
     println!("Le nombre secret est : {}", nombre_secret);
 
@@ -29,5 +29,5 @@ fn main() {
         Ordering::Greater => println!("C'est moins !"),
         Ordering::Equal => println!("Vous avez gagné !"),
     }
+    // ANCHOR_END: here
 }
-// ANCHOR_END: here
