@@ -83,3 +83,4 @@
     - [Comparaison des performances : les boucles et les itérateurs](ch13-04-performance.md)
 
 - [En savoir plus sur cargo et crates.io](ch14-00-more-about-cargo.md)
+    - [Personnaliser les compilations avec les profils de publication](ch14-01-release-profiles.md)
