@@ -68,7 +68,7 @@ Listing 17-3 shows how to define a trait named `Draw` with one method named
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch17-oop/listing-17-03/src/lib.rs}}
 ```
 
@@ -82,7 +82,7 @@ a `Box` that implements the `Draw` trait.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch17-oop/listing-17-04/src/lib.rs:here}}
 ```
 
@@ -95,7 +95,7 @@ On the `Screen` struct, we’ll define a method named `run` that will call the
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch17-oop/listing-17-05/src/lib.rs:here}}
 ```
 
@@ -111,7 +111,7 @@ as in Listing 17-6:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch17-oop/listing-17-06/src/lib.rs:here}}
 ```
 
@@ -138,7 +138,7 @@ might have fields for `width`, `height`, and `label`, as shown in Listing 17-7:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch17-oop/listing-17-07/src/lib.rs:here}}
 ```
 
@@ -305,10 +305,12 @@ We would get this error:
 ```
 
 This error means you can’t use this trait as a trait object in this way. If
-you’re interested in more details on object safety, see [Rust RFC 255].
+you’re interested in more details on object safety, see [Rust RFC 255] or check the
+object safety section in the [Rust Reference][object-safety-reference].
 
 [Rust RFC 255]: https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md
 
 [performance-of-code-using-generics]:
 ch10-01-syntax.html#performance-of-code-using-generics
 [dynamically-sized]: ch19-04-advanced-types.html#dynamically-sized-types-and-the-sized-trait
+[object-safety-reference]: ../reference/items/traits.html#object-safety
