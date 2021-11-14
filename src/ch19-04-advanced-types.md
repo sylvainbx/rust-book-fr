@@ -6,11 +6,11 @@ examine why newtypes are useful as types. Then we’ll move on to type aliases, 
 feature similar to newtypes but with slightly different semantics. We’ll also
 discuss the `!` type and dynamically sized types.
 
-> Note: The next section assumes you’ve read the earlier section [“Using the
+### Using the Newtype Pattern for Type Safety and Abstraction
+
+> Note: This section assumes you’ve read the earlier section [“Using the
 > Newtype Pattern to Implement External Traits on External
 > Types.”][using-the-newtype-pattern]<!-- ignore -->
-
-### Using the Newtype Pattern for Type Safety and Abstraction
 
 The newtype pattern is useful for tasks beyond those we’ve discussed so far,
 including statically enforcing that values are never confused and indicating
@@ -101,14 +101,14 @@ possible I/O errors. Many of the functions in `std::io` will be returning
 `Result<T, E>` where the `E` is `std::io::Error`, such as these functions in
 the `Write` trait:
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-05-write-trait/src/lib.rs}}
 ```
 
-The `Result<..., Error>` is repeated a lot. As such, `std::io` has this type of
+The `Result<..., Error>` is repeated a lot. As such, `std::io` has this type
 alias declaration:
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-06-result-alias/src/lib.rs:here}}
 ```
 
@@ -117,7 +117,7 @@ qualified alias `std::io::Result<T>`—that is, a `Result<T, E>` with the `E`
 filled in as `std::io::Error`. The `Write` trait function signatures end up
 looking like this:
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-06-result-alias/src/lib.rs:there}}
 ```
 
@@ -133,7 +133,7 @@ Rust has a special type named `!` that’s known in type theory lingo as the
 because it stands in the place of the return type when a function will never
 return. Here is an example:
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-07-never-type/src/lib.rs:here}}
 ```
 
@@ -274,8 +274,9 @@ restriction:
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-14-generic-maybe-sized/src/lib.rs}}
 ```
 
-A trait bound on `?Sized` is the opposite of a trait bound on `Sized`: we would
-read this as “`T` may or may not be `Sized`.” This syntax is only available for
+A trait bound on `?Sized` means “`T` may or may not be `Sized`” and this
+notation overrides the default that generic types must have a known size at
+compile time. The `?Trait` syntax with this meaning is only available for
 `Sized`, not any other traits.
 
 Also note that we switched the type of the `t` parameter from `T` to `&T`.
