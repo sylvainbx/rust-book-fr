@@ -70,6 +70,7 @@ français.
 | dangling | pendouillant | - |
 | data race | accès concurrent | - |
 | data representation | modèle de données | - |
+| deadlock | interblocage | - |
 | deallocate | désalloué | - |
 | debug | déboguer | - |
 | debugging | débogage | - |
@@ -106,6 +107,7 @@ français.
 | glob | global | opérateur |
 | global scope | portée globale | - |
 | grapheme cluster | groupe de graphèmes  | - |
+| green thread | tâche virtuelle | - |
 | guessing game | jeu de devinettes | - |
 | handle | référence abstraite | - |
 | hash | hash / relatif au hachage | - |
@@ -187,6 +189,7 @@ français.
 | primitive obsession | obsession primitive | - |
 | privacy | visibilité | en parlant des éléments d'un module |
 | procedural macro | macro procédurale | - |
+| process | processus | - |
 | project chapter | chapitre de projet | - |
 | propagate | propager | - |
 | pushing onto the stack | empiler | - |
@@ -251,7 +254,7 @@ français.
 | systems-level code | code système | - |
 | terminal | terminal | - |
 | test double | double de test | - |
-| thread | processus | - |
+| thread | tâche | - |
 | token | jeton | - |
 | trait | trait | - |
 | trait bound | trait lié | - |
