@@ -8,11 +8,12 @@ and works just like regular Rust, but gives us extra superpowers.
 Unsafe Rust exists because, by nature, static analysis is conservative. When
 the compiler tries to determine whether or not code upholds the guarantees,
 it’s better for it to reject some valid programs rather than accept some
-invalid programs. Although the code might be okay, as far as Rust is able to
-tell, it’s not! In these cases, you can use unsafe code to tell the compiler,
-“Trust me, I know what I’m doing.” The downside is that you use it at your own
-risk: if you use unsafe code incorrectly, problems due to memory unsafety, such
-as null pointer dereferencing, can occur.
+invalid programs. Although the code *might* be okay, if the Rust compiler
+doesn’t have enough information to be confident, it will reject the code. In
+these cases, you can use unsafe code to tell the compiler, “Trust me, I know
+what I’m doing.” The downside is that you use it at your own risk: if you use
+unsafe code incorrectly, problems due to memory unsafety, such as null pointer
+dereferencing, can occur.
 
 Another reason Rust has an unsafe alter ego is that the underlying computer
 hardware is inherently unsafe. If Rust didn’t let you do unsafe operations, you
@@ -124,7 +125,7 @@ Recall that we can create raw pointers in safe code, but we can’t *dereference
 raw pointers and read the data being pointed to. In Listing 19-3, we use the
 dereference operator `*` on a raw pointer that requires an `unsafe` block.
 
-```rust,unsafe
+```rust
 {{#rustdoc_include ../listings/ch19-advanced-features/listing-19-03/src/main.rs:here}}
 ```
 
@@ -165,7 +166,7 @@ responsibility for upholding the function’s contracts.
 Here is an unsafe function named `dangerous` that doesn’t do anything in its
 body:
 
-```rust,unsafe
+```rust
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-01-unsafe-fn/src/main.rs:here}}
 ```
 
@@ -239,7 +240,7 @@ know code is okay, but Rust doesn’t, it’s time to reach for unsafe code.
 Listing 19-6 shows how to use an `unsafe` block, a raw pointer, and some calls
 to unsafe functions to make the implementation of `split_at_mut` work.
 
-```rust,unsafe
+```rust
 {{#rustdoc_include ../listings/ch19-advanced-features/listing-19-06/src/main.rs:here}}
 ```
 
@@ -281,7 +282,7 @@ In contrast, the use of `slice::from_raw_parts_mut` in Listing 19-7 would
 likely crash when the slice is used. This code takes an arbitrary memory
 location and creates a slice 10,000 items long.
 
-```rust,unsafe
+```rust
 {{#rustdoc_include ../listings/ch19-advanced-features/listing-19-07/src/main.rs:here}}
 ```
 
@@ -308,7 +309,7 @@ responsibility falls on the programmer to ensure safety.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,unsafe
+```rust
 {{#rustdoc_include ../listings/ch19-advanced-features/listing-19-08/src/main.rs}}
 ```
 
@@ -369,11 +370,10 @@ Static variables are similar to constants, which we discussed in the
 [“Differences Between Variables and
 Constants”][differences-between-variables-and-constants]<!-- ignore -->
 section in Chapter 3. The names of static variables are in
-`SCREAMING_SNAKE_CASE` by convention, and we *must* annotate the variable’s
-type, which is `&'static str` in this example. Static variables can only store
+`SCREAMING_SNAKE_CASE` by convention. Static variables can only store
 references with the `'static` lifetime, which means the Rust compiler can
-figure out the lifetime; we don’t need to annotate it explicitly. Accessing an
-immutable static variable is safe.
+figure out the lifetime and we aren’t required to annotate it explicitly.
+Accessing an immutable static variable is safe.
 
 Constants and immutable static variables might seem similar, but a subtle
 difference is that values in a static variable have a fixed address in memory.
@@ -387,7 +387,7 @@ static variable named `COUNTER`.
 
 <span class="filename">Filename: src/main.rs</span>
 
-```rust,unsafe
+```rust
 {{#rustdoc_include ../listings/ch19-advanced-features/listing-19-10/src/main.rs}}
 ```
 
@@ -408,13 +408,13 @@ that data accessed from different threads is done safely.
 
 ### Implementing an Unsafe Trait
 
-The final action that works only with `unsafe` is implementing an unsafe trait.
-A trait is unsafe when at least one of its methods has some invariant that the
-compiler can’t verify. We can declare that a trait is `unsafe` by adding the
-`unsafe` keyword before `trait` and marking the implementation of the trait as
-`unsafe` too, as shown in Listing 19-11.
+Another use case for `unsafe` is implementing an unsafe trait. A trait is
+unsafe when at least one of its methods has some invariant that the compiler
+can’t verify. We can declare that a trait is `unsafe` by adding the `unsafe`
+keyword before `trait` and marking the implementation of the trait as `unsafe`
+too, as shown in Listing 19-11.
 
-```rust,unsafe
+```rust
 {{#rustdoc_include ../listings/ch19-advanced-features/listing-19-11/src/main.rs}}
 ```
 
@@ -437,11 +437,12 @@ those checks manually and indicate as such with `unsafe`.
 
 ### Accessing Fields of a Union
 
-A `union` is similar to a `struct`, but only one declared field is used in a
-particular instance at one time. Unions are primarily used to interface with
-unions in C code. Accessing union fields is unsafe because Rust can’t guarantee
-the type of the data currently being stored in the union instance. You can
-learn more about unions in [the reference][reference].
+The final action that works only with `unsafe` is accessing fields of a
+*union*. A `union` is similar to a `struct`, but only one declared field is
+used in a particular instance at one time. Unions are primarily used to
+interface with unions in C code. Accessing union fields is unsafe because Rust
+can’t guarantee the type of the data currently being stored in the union
+instance. You can learn more about unions in [the reference][reference].
 
 ### When to Use Unsafe Code
 
@@ -454,7 +455,7 @@ annotation makes it easier to track down the source of problems when they occur.
 [dangling-references]:
 ch04-02-references-and-borrowing.html#dangling-references
 [differences-between-variables-and-constants]:
-ch03-01-variables-and-mutability.html#differences-between-variables-and-constants
+ch03-01-variables-and-mutability.html#constants
 [extensible-concurrency-with-the-sync-and-send-traits]:
 ch16-04-extensible-concurrency-sync-and-send.html#extensible-concurrency-with-the-sync-and-send-traits
 [the-slice-type]: ch04-03-slices.html#the-slice-type
