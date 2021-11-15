@@ -429,11 +429,11 @@ store the largest of its variants.
 
 Pour déterminer combien d'espace allouer pour une valeur `Message`, Rust
 parcourt chaque variante pour voir quelle variante a besoin le plus d'espace.
-Rust voit que `Message::Quit` n'a pas besoin d'espace, `Message::Move` a besoin
-de suffisamment d'espace pour stocker deux valeurs `i32`, et ainsi de suite.
-Comme une seule variante sera utilisée, le plus grand espace dont une valeur
-de `Message` aura besoin sera l'espace que cela prendra de stocker la plus
-grosse de ses variantes.
+Rust voit que `Message::Quitter` n'a pas besoin d'espace, `Message::Deplacer` a
+besoin de suffisamment d'espace pour stocker deux valeurs `i32`, et ainsi de
+suite. Comme une seule variante sera utilisée, le plus grand espace dont une
+valeur de `Message` aura besoin sera l'espace que cela prendra de stocker la
+plus grosse de ses variantes.
 
 <!--
 Contrast this with what happens when Rust tries to determine how much space a
