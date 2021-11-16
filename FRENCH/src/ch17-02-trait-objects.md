@@ -85,10 +85,11 @@ classe `Composant` qui a une méthode `afficher`. Les autres
 classes, telles que `Bouton`, `Image` et `ListeDeroulante`, hériteraient de
 `Composant` et hériteraient ainsi de la méthode `afficher`. Elles pourraient
 toutes redéfinir la méthode `afficher` avec leur comportement personnalisé,
-mais l'environnement de développement pourrait considérer tous les types comme des instances de
-`Composant` et appeler `afficher` sur chacun d'entre eux. Mais puisque Rust n'a
-pas d'héritage, il nous faut un autre moyen de structurer la bibliothèque `gui`
-pour permettre aux utilisateurs de la prolonger avec de nouveaux types.
+mais l'environnement de développement pourrait considérer tous les types comme
+des instances de `Composant` et appeler `afficher` sur chacun d'entre eux. Mais
+puisque Rust n'a pas d'héritage, il nous faut un autre moyen de structurer la
+bibliothèque `gui` pour permettre aux utilisateurs de la prolonger avec de
+nouveaux types.
 
 <!--
 ### Defining a Trait for Common Behavior
@@ -169,17 +170,13 @@ méthode nommée `afficher` :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-pub trait Draw {
-    fn draw(&self);
-}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch17-oop/listing-17-03/src/lib.rs}}
 ```
 -->
 
-```rust
-pub trait Affichable {
-    fn afficher(&self);
-}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch17-oop/listing-17-03/src/lib.rs}}
 ```
 
 <!--
@@ -210,25 +207,13 @@ bouche-trou pour n'importe quel type au sein d'un `Box` qui implémente le trait
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-# pub trait Draw {
-#     fn draw(&self);
-# }
-#
-pub struct Screen {
-    pub components: Vec<Box<dyn Draw>>,
-}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch17-oop/listing-17-04/src/lib.rs:here}}
 ```
 -->
 
-```rust
-# pub trait Affichable {
-#     fn afficher(&self);
-# }
-#
-pub struct Ecran {
-    pub composants: Vec<Box<dyn Affichable>>,
-}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch17-oop/listing-17-04/src/lib.rs:here}}
 ```
 
 <!--
@@ -257,41 +242,13 @@ l'encart 17-5 :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-# pub trait Draw {
-#     fn draw(&self);
-# }
-#
-# pub struct Screen {
-#     pub components: Vec<Box<dyn Draw>>,
-# }
-#
-impl Screen {
-    pub fn run(&self) {
-        for component in self.components.iter() {
-            component.draw();
-        }
-    }
-}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch17-oop/listing-17-05/src/lib.rs:here}}
 ```
 -->
 
-```rust
-# pub trait Affichable {
-#     fn afficher(&self);
-# }
-#
-# pub struct Ecran {
-#     pub composants: Vec<Box<dyn Affichable>>,
-# }
-#
-impl Ecran {
-    pub fn executer(&self) {
-        for composant in self.composants.iter() {
-            composant.afficher();
-        }
-    }
-}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch17-oop/listing-17-05/src/lib.rs:here}}
 ```
 
 <!--
@@ -325,43 +282,13 @@ utilisant un type générique et un trait lié comme dans l'encart 17-6 :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-# pub trait Draw {
-#     fn draw(&self);
-# }
-#
-pub struct Screen<T: Draw> {
-    pub components: Vec<T>,
-}
-
-impl<T> Screen<T>
-    where T: Draw {
-    pub fn run(&self) {
-        for component in self.components.iter() {
-            component.draw();
-        }
-    }
-}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch17-oop/listing-17-06/src/lib.rs:here}}
 ```
 -->
 
-```rust
-# pub trait Affichable {
-#     fn afficher(&self);
-# }
-#
-pub struct Ecran<T: Affichable> {
-    pub composants: Vec<T>,
-}
-
-impl<T> Ecran<T>
-    where T: Affichable {
-    pub fn executer(&self) {
-        for composant in self.composants.iter() {
-            composant.afficher();
-        }
-    }
-}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch17-oop/listing-17-06/src/lib.rs:here}}
 ```
 
 <!--
@@ -426,41 +353,13 @@ ressembler l'implémentation, une structure `Bouton` pourrait avoir des champs
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-# pub trait Draw {
-#     fn draw(&self);
-# }
-#
-pub struct Button {
-    pub width: u32,
-    pub height: u32,
-    pub label: String,
-}
-
-impl Draw for Button {
-    fn draw(&self) {
-        // code to actually draw a button
-    }
-}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch17-oop/listing-17-07/src/lib.rs:here}}
 ```
 -->
 
-```rust
-# pub trait Affichable {
-#     fn afficher(&self);
-# }
-#
-pub struct Bouton {
-    pub largeur: u32,
-    pub hauteur: u32,
-    pub libelle: String,
-}
-
-impl Affichable for Bouton {
-    fn afficher(&self) {
-        // code servant vraiment à afficher un bouton
-    }
-}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch17-oop/listing-17-07/src/lib.rs:here}}
 ```
 
 <!--
@@ -514,36 +413,12 @@ comme dans l'encart 17-8 :
 
 <!--
 ```rust,ignore
-use gui::Draw;
-
-struct SelectBox {
-    width: u32,
-    height: u32,
-    options: Vec<String>,
-}
-
-impl Draw for SelectBox {
-    fn draw(&self) {
-        // code to actually draw a select box
-    }
-}
+{{#rustdoc_include ../listings-sources/ch17-oop/listing-17-08/src/main.rs:here}}
 ```
 -->
 
 ```rust,ignore
-use gui::Affichable;
-
-struct ListeDeroulante {
-    largeur: u32,
-    hauteur: u32,
-    options: Vec<String>,
-}
-
-impl Affichable for ListeDeroulante {
-    fn afficher(&self) {
-        // code servant vraiment à afficher une liste déroulante
-    }
-}
+{{#rustdoc_include ../listings/ch17-oop/listing-17-08/src/main.rs:here}}
 ```
 
 <!--
@@ -577,58 +452,12 @@ L'encart 17-9 montre cette implémentation :
 
 <!--
 ```rust,ignore
-use gui::{Screen, Button};
-
-fn main() {
-    let screen = Screen {
-        components: vec![
-            Box::new(SelectBox {
-                width: 75,
-                height: 10,
-                options: vec![
-                    String::from("Yes"),
-                    String::from("Maybe"),
-                    String::from("No")
-                ],
-            }),
-            Box::new(Button {
-                width: 50,
-                height: 10,
-                label: String::from("OK"),
-            }),
-        ],
-    };
-
-    screen.run();
-}
+{{#rustdoc_include ../listings-sources/ch17-oop/listing-17-09/src/main.rs:here}}
 ```
 -->
 
 ```rust,ignore
-use gui::{Ecran, Bouton};
-
-fn main() {
-    let ecran = Ecran {
-        composants: vec![
-            Box::new(ListeDeroulante {
-                largeur: 75,
-                hauteur: 10,
-                options: vec![
-                    String::from("Oui"),
-                    String::from("Peut-être"),
-                    String::from("Non")
-                ],
-            }),
-            Box::new(Bouton {
-                largeur: 50,
-                hauteur: 10,
-                libelle: String::from("OK"),
-            }),
-        ],
-    };
-
-    ecran.executer();
-}
+{{#rustdoc_include ../listings/ch17-oop/listing-17-09/src/main.rs:here}}
 ```
 
 <!--
@@ -708,32 +537,12 @@ Par exemple, l'encart 17-10 montre ce qui arrive si on essaie de créer un
 
 <!--
 ```rust,ignore,does_not_compile
-use gui::Screen;
-
-fn main() {
-    let screen = Screen {
-        components: vec![
-            Box::new(String::from("Hi")),
-        ],
-    };
-
-    screen.run();
-}
+{{#rustdoc_include ../listings-sources/ch17-oop/listing-17-10/src/main.rs}}
 ```
 -->
 
 ```rust,ignore,does_not_compile
-use gui::Ecran;
-
-fn main() {
-    let ecran = Ecran {
-        composants: vec![
-            Box::new(String::from("Salut")),
-        ],
-    };
-
-    ecran.executer();
-}
+{{#rustdoc_include ../listings/ch17-oop/listing-17-10/src/main.rs}}
 ```
 
 <!--
@@ -752,27 +561,13 @@ Nous aurons cette erreur parce que `String` n'implémente pas le trait
 `Affichable` :
 
 <!--
-```text
-error[E0277]: the trait bound `std::string::String: gui::Draw` is not satisfied
-  -- > src/main.rs:7:13
-   |
- 7 |             Box::new(String::from("Hi")),
-   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait gui::Draw is not
-   implemented for `std::string::String`
-   |
-   = note: required for the cast to the object type `gui::Draw`
+```console
+{{#include ../listings-sources/ch17-oop/listing-17-10/output.txt}}
 ```
 -->
 
-```text
-error[E0277]: the trait bound `std::string::String: gui::Affichable` is not satisfied
-  -- > src/main.rs:7:13
-   |
- 7 |             Box::new(String::from("Salut")),
-   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait gui::Affichable is not
-   implemented for `std::string::String`
-   |
-   = note: required for the cast to the object type `gui::Affichable`
+```console
+{{#include ../listings/ch17-oop/listing-17-10/output.txt}}
 ```
 
 <!--
@@ -815,9 +610,10 @@ méthodes pour chaque type concret que nous utilisons à la place d'un paramètr
 de type générique. Le code résultant de la monomorphisation effectue du
 *dispatch statique*, c'est-à-dire quand le compilateur sait quelle méthode
 vous appelez à la compilation. Cela s'oppose au *dispatch dynamique*,
-c'est-à-dire quand le compilateur ne peut pas déterminer à la compilation quelle
-méthode vous appelez. Dans les cas de répartition dynamique, le compilateur émet du
-code qui devra déterminer à l'exécution quelle méthode appeler.
+c'est-à-dire quand le compilateur ne peut pas déterminer à la compilation
+quelle méthode vous appelez. Dans les cas de répartition dynamique, le
+compilateur émet du code qui devra déterminer à l'exécution quelle méthode
+appeler.
 
 <!--
 When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t
@@ -835,15 +631,15 @@ to consider.
 Quand nous utilisons des objets traits, Rust doit utiliser de la répartition
 dynamique. Le compilateur ne connaît pas tous les types qui pourraient être
 utilisés avec le code qui utilise des objets traits, donc il ne sait pas quelle
-méthode implémentée sur quel type il doit appeler. À la place, lors de l'exécution, Rust
-utilise les pointeurs à l'intérieur de l'objet trait pour savoir quelle méthode
-appeler. Il y a un coût à l'exécution lors de la recherche de cette méthode qui
-n'a pas lieu avec la répartition statique. La répartition dynamique empêche en outre
-le compilateur de choisir de remplacer un appel de méthode par le code de cette
-méthode, ce qui empêche par ricochet certaines optimisations. Cependant, cela a
-permis de rendre plus flexible le code que nous avons écrit dans l'encart 17-5
-et que nous avons pu supporter dans l'encart 17-9, donc c'est un compromis à
-envisager.
+méthode implémentée sur quel type il doit appeler. À la place, lors de
+l'exécution, Rust utilise les pointeurs à l'intérieur de l'objet trait pour
+savoir quelle méthode appeler. Il y a un coût à l'exécution lors de la
+recherche de cette méthode qui n'a pas lieu avec la répartition statique. La
+répartition dynamique empêche en outre le compilateur de choisir de remplacer
+un appel de méthode par le code de cette méthode, ce qui empêche par ricochet
+certaines optimisations. Cependant, cela a permis de rendre plus flexible le
+code que nous avons écrit dans l'encart 17-5 et que nous avons pu supporter
+dans l'encart 17-9, donc c'est un compromis à envisager.
 
 <!--
 ### Object Safety Is Required for Trait Objects
@@ -943,23 +739,19 @@ implement the `Clone` trait instead of the `Draw` trait, like this:
 -->
 
 Le compilateur vous préviendra lorsque vous essayez de faire quelque chose qui
-enfreint les règles de sûreté au sens de l'objet lors de l'utilisation des objets traits.
-Par exemple, supposons que nous avons essayé d'implémenter la structure `Ecran`
-de l'encart 17-4 en la faisant contenir des types qui implémentent le trait
-`Clone` plutôt que le trait `Affichable`, comme ceci :
+enfreint les règles de sûreté au sens de l'objet lors de l'utilisation des
+objets traits. Par exemple, supposons que nous avons essayé d'implémenter la
+structure `Ecran` de l'encart 17-4 en la faisant contenir des types qui
+implémentent le trait `Clone` plutôt que le trait `Affichable`, comme ceci :
 
 <!--
 ```rust,ignore,does_not_compile
-pub struct Screen {
-    pub components: Vec<Box<dyn Clone>>,
-}
+{{#rustdoc_include ../listings-sources/ch17-oop/no-listing-01-trait-object-of-clone/src/lib.rs}}
 ```
 -->
 
 ```rust,ignore,does_not_compile
-pub struct Ecran {
-    pub composants: Vec<Box<dyn Clone>>,
-}
+{{#rustdoc_include ../listings/ch17-oop/no-listing-01-trait-object-of-clone/src/lib.rs}}
 ```
 
 <!--
@@ -968,53 +760,39 @@ We would get this error:
 
 Nous aurions obtenu cette erreur :
 
-<!-- markdownlint-disable -->
 <!--
-```text
-error[E0038]: the trait `std::clone::Clone` cannot be made into an object
- -- > src/lib.rs:2:5
-  |
-2 |     pub components: Vec<Box<dyn Clone>>,
-  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `std::clone::Clone`
-  cannot be made into an object
-  |
-  = note: the trait cannot require that `Self : Sized`
+```console
+{{#include ../listings-sources/ch17-oop/no-listing-01-trait-object-of-clone/output.txt}}
 ```
 -->
-<!-- markdownlint-restore -->
 
-```text
-error[E0038]: the trait `std::clone::Clone` cannot be made into an object
- -- > src/lib.rs:2:5
-  |
-2 |     pub composants: Vec<Box<dyn Clone>>,
-  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `std::clone::Clone`
-  cannot be made into an object
-  |
-  = note: the trait cannot require that `Self : Sized`
+```console
+{{#include ../listings/ch17-oop/no-listing-01-trait-object-of-clone/output.txt}}
 ```
 
 <!--
 This error means you can’t use this trait as a trait object in this way. If
-you’re interested in more details on object safety, see [Rust RFC 255].
+you’re interested in more details on object safety, see [Rust RFC 255] or check the
+object safety section in the [Rust Reference][object-safety-reference].
 -->
 
 Cette erreur signifie que l'on ne peut pas utiliser ce trait comme d'un objet
 trait de cette façon. Si vous souhaitez connaître plus de détails sur la sûreté
-au sens de l'objet, référez-vous à la [RFC 255 de Rust][rust-rfc-255] (en
-anglais).
+au sens de l'objet, référez-vous à la [RFC 255 de Rust][Rust RFC 255] (en
+anglais) ou la section de la sécurité des objets dans la
+[référence Rust][object-safety-reference].
 
-<!-- markdownlint-disable -->
 <!--
 [Rust RFC 255]: https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md
 
 [performance-of-code-using-generics]:
 ch10-01-syntax.html#performance-of-code-using-generics
 [dynamically-sized]: ch19-04-advanced-types.html#dynamically-sized-types-and-the-sized-trait
+[object-safety-reference]: ../reference/items/traits.html#object-safety
 -->
-<!-- markdownlint-restore -->
 
-[rust-rfc-255]: https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md
+[Rust RFC 255]: https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md
 
 [performance-of-code-using-generics]: ch10-01-syntax.html
 [dynamically-sized]: ch19-04-advanced-types.html
+[object-safety-reference]: https://doc.rust-lang.org/reference/items/traits.html
