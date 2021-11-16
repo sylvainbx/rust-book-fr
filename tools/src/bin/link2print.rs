@@ -1,12 +1,10 @@
 // FIXME: we have some long lines that could be refactored, but it's not a big deal.
 // ignore-tidy-linelength
 
-
-
+use regex::{Captures, Regex};
 use std::collections::HashMap;
 use std::io;
 use std::io::{Read, Write};
-use regex::{Regex, Captures};
 
 fn main() {
     write_md(parse_links(parse_references(read_md())));
@@ -16,7 +14,7 @@ fn read_md() -> String {
     let mut buffer = String::new();
     match io::stdin().read_to_string(&mut buffer) {
         Ok(_) => buffer,
-        Err(error) => panic!(error),
+        Err(error) => panic!("{}", error),
     }
 }
 
@@ -27,27 +25,33 @@ fn write_md(output: String) {
 fn parse_references(buffer: String) -> (String, HashMap<String, String>) {
     let mut ref_map = HashMap::new();
     // FIXME: currently doesn't handle "title" in following line.
-    let re = Regex::new(r###"(?m)\n?^ {0,3}\[([^]]+)\]:[[:blank:]]*(.*)$"###).unwrap();
-    let output = re.replace_all(&buffer, |caps: &Captures<'_>| {
-        let key = caps.at(1).unwrap().to_owned().to_uppercase();
-        let val = caps.at(2).unwrap().to_owned();
-        if ref_map.insert(key, val).is_some() {
-            panic!("Did not expect markdown page to have duplicate reference");
-        }
-        "".to_string()
-    });
+    let re = Regex::new(r###"(?m)\n?^ {0,3}\[([^]]+)\]:[[:blank:]]*(.*)$"###)
+        .unwrap();
+    let output = re
+        .replace_all(&buffer, |caps: &Captures<'_>| {
+            let key = caps.get(1).unwrap().as_str().to_uppercase();
+            let val = caps.get(2).unwrap().as_str().to_string();
+            if ref_map.insert(key, val).is_some() {
+                panic!(
+                    "Did not expect markdown page to have duplicate reference"
+                );
+            }
+            "".to_string()
+        })
+        .to_string();
     (output, ref_map)
 }
 
 fn parse_links((buffer, ref_map): (String, HashMap<String, String>)) -> String {
     // FIXME: check which punctuation is allowed by spec.
-    let re = Regex::new(r###"(?:(?P<pre>(?:```(?:[^`]|`[^`])*`?\n```\n)|(?:[^[]`[^`\n]+[\n]?[^`\n]*`))|(?:\[(?P<name>[^]]+)\](?:(?:\([[:blank:]]*(?P<val>[^")]*[^ ])(?:[[:blank:]]*"[^"]*")?\))|(?:\[(?P<key>[^]]*)\]))?))"###).expect("could not create regex");
-    let error_code = Regex::new(r###"^E\d{4}$"###).expect("could not create regex");
+    let re = Regex::new(r###"(?:(?P<pre>(?:```(?:[^`]|`[^`])*`?\n```\n)|(?:[^\[]`[^`\n]+[\n]?[^`\n]*`))|(?:\[(?P<name>[^]]+)\](?:(?:\([[:blank:]]*(?P<val>[^")]*[^ ])(?:[[:blank:]]*"[^"]*")?\))|(?:\[(?P<key>[^]]*)\]))?))"###).expect("could not create regex");
+    let error_code =
+        Regex::new(r###"^E\d{4}$"###).expect("could not create regex");
     let output = re.replace_all(&buffer, |caps: &Captures<'_>| {
         match caps.name("pre") {
-            Some(pre_section) => format!("{}", pre_section.to_owned()),
+            Some(pre_section) => format!("{}", pre_section.as_str()),
             None => {
-                let name = caps.name("name").expect("could not get name").to_owned();
+                let name = caps.name("name").expect("could not get name").as_str();
                 // Really we should ignore text inside code blocks,
                 // this is a hack to not try to treat `#[derive()]`,
                 // `[profile]`, `[test]`, or `[E\d\d\d\d]` like a link.
@@ -55,21 +59,21 @@ fn parse_links((buffer, ref_map): (String, HashMap<String, String>)) -> String {
                    name.starts_with("profile") ||
                    name.starts_with("test") ||
                    name.starts_with("no_mangle") ||
-                   error_code.is_match(&name) {
-                    return name
+                   error_code.is_match(name) {
+                    return name.to_string()
                 }
 
                 let val = match caps.name("val") {
                     // `[name](link)`
-                    Some(value) => value.to_owned(),
+                    Some(value) => value.as_str().to_string(),
                     None => {
                         match caps.name("key") {
                             Some(key) => {
-                                match key {
+                                match key.as_str() {
                                     // `[name][]`
                                     "" => format!("{}", ref_map.get(&name.to_uppercase()).expect(&format!("could not find url for the link text `{}`", name))),
                                     // `[name][reference]`
-                                    _ => format!("{}", ref_map.get(&key.to_uppercase()).expect(&format!("could not find url for the link text `{}`", key))),
+                                    _ => format!("{}", ref_map.get(&key.as_str().to_uppercase()).expect(&format!("could not find url for the link text `{}`", key.as_str()))),
                                 }
                             }
                             // `[name]` as reference
@@ -81,7 +85,7 @@ fn parse_links((buffer, ref_map): (String, HashMap<String, String>)) -> String {
             }
         }
     });
-    output
+    output.to_string()
 }
 
 #[cfg(test)]
@@ -92,8 +96,12 @@ mod tests {
 
     #[test]
     fn parses_inline_link() {
-        let source = r"This is a [link](http://google.com) that should be expanded".to_string();
-        let target = r"This is a link at *http://google.com* that should be expanded".to_string();
+        let source =
+            r"This is a [link](http://google.com) that should be expanded"
+                .to_string();
+        let target =
+            r"This is a link at *http://google.com* that should be expanded"
+                .to_string();
         assert_eq!(parse(source), target);
     }
 
@@ -167,14 +175,18 @@ more text"
 
     #[test]
     fn ignores_optional_inline_title() {
-        let source = r###"This is a titled [link](http://example.com "My title")."###.to_string();
-        let target = r"This is a titled link at *http://example.com*.".to_string();
+        let source =
+            r###"This is a titled [link](http://example.com "My title")."###
+                .to_string();
+        let target =
+            r"This is a titled link at *http://example.com*.".to_string();
         assert_eq!(parse(source), target);
     }
 
     #[test]
     fn parses_title_with_puctuation() {
-        let source = r###"[link](http://example.com "It's Title")"###.to_string();
+        let source =
+            r###"[link](http://example.com "It's Title")"###.to_string();
         let target = r"link at *http://example.com*".to_string();
         assert_eq!(parse(source), target);
     }
@@ -191,7 +203,6 @@ more text"
         let target = r###"user’s forum at *the user’s forum*"###.to_string();
         assert_eq!(parse(source), target);
     }
-
 
     #[test]
     fn parses_reference_with_punctuation() {
@@ -243,12 +254,11 @@ more text"
 [package]
 name = "hello_cargo"
 version = "0.1.0"
-authors = ["Your Name <you@example.com>"]
 
 [dependencies]
 ```
 "###
-            .to_string();
+        .to_string();
         let target = source.clone();
         assert_eq!(parse(source), target);
     }
@@ -276,7 +286,6 @@ is still here` link at *ref*"
 [package]
 name = "hello_cargo"
 version = "0.1.0"
-authors = ["Your Name <you@example.com>"]
 
 [dependencies]
 ```
@@ -284,19 +293,18 @@ Another [link]
 more text
 [link]: http://gohere
 "###
-            .to_string();
+        .to_string();
         let target = r###"```toml
 [package]
 name = "hello_cargo"
 version = "0.1.0"
-authors = ["Your Name <you@example.com>"]
 
 [dependencies]
 ```
 Another link at *http://gohere*
 more text
 "###
-            .to_string();
+        .to_string();
         assert_eq!(parse(source), target);
     }
     #[test]

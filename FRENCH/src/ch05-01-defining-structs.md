@@ -5,14 +5,16 @@
 ## Définir et instancier des structures
 
 <!--
-Structs are similar to tuples, which were discussed in Chapter 3. Like tuples,
-the pieces of a struct can be different types. Unlike with tuples, you’ll name
-each piece of data so it’s clear what the values mean. As a result of these
-names, structs are more flexible than tuples: you don’t have to rely on the
-order of the data to specify or access the values of an instance.
+Structs are similar to tuples, which were discussed in [“The Tuple
+Type”][tuples]<!-- ignore -- > section. Like tuples, the pieces of a struct can
+be different types. Unlike with tuples, you’ll name each piece of data so it’s
+clear what the values mean. As a result of these names, structs are more
+flexible than tuples: you don’t have to rely on the order of the data to
+specify or access the values of an instance.
 -->
 
-Les structures sont similaires aux tuples, qu'on a vus au chapitre 3. Comme pour
+Les structures sont similaires aux tuples, qu'on a vus dans [une section du
+chapitre 3][tuples]<!-- ignore -->. Comme pour
 les tuples, les éléments d'une structure peuvent être de différents types.
 Contrairement aux tuples, on doit nommer chaque élément des données afin de
 clarifier le rôle de chaque valeur. Grâce à ces noms, les structures sont plus
@@ -36,29 +38,19 @@ compte d'utilisateur.
 
 <!--
 ```rust
-struct User {
-    username: String,
-    email: String,
-    sign_in_count: u64,
-    active: bool,
-}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-01/src/main.rs:here}}
 ```
 -->
 
 ```rust
-struct Utilisateur {
-    pseudo: String,
-    email: String,
-    nombre_de_connexions: u64,
-    actif: bool,
-}
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-01/src/main.rs:here}}
 ```
 
 <!--
 <span class="caption">Listing 5-1: A `User` struct definition</span>
 -->
 
-<span class="caption">Encart 5-1 : La définition d'une structure
+<span class="caption">Encart 5-1 : la définition d'une structure
 `Utilisateur`</span>
 
 <!--
@@ -86,36 +78,12 @@ déclarer un utilisateur précis comme dans l'encart 5-2.
 
 <!--
 ```rust
-# struct User {
-#     username: String,
-#     email: String,
-#     sign_in_count: u64,
-#     active: bool,
-# }
-#
-let user1 = User {
-    email: String::from("someone@example.com"),
-    username: String::from("someusername123"),
-    active: true,
-    sign_in_count: 1,
-};
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-02/src/main.rs:here}}
 ```
 -->
 
 ```rust
-# struct Utilisateur {
-#     pseudo: String,
-#     email: String,
-#     nombre_de_connexions: u64,
-#     actif: bool,
-# }
-#
-let utilisateur1 = Utilisateur {
-    email: String::from("quelquun@example.com"),
-    pseudo: String::from("pseudoquelconque123"),
-    actif: true,
-    nombre_de_connexions: 1,
-};
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-02/src/main.rs:here}}
 ```
 
 <!--
@@ -123,7 +91,7 @@ let utilisateur1 = Utilisateur {
 struct</span>
 -->
 
-<span class="caption">Encart 5-2 : Création d'une instance de la structure
+<span class="caption">Encart 5-2 : création d'une instance de la structure
 `Utilisateur`</span>
 
 <!--
@@ -144,40 +112,12 @@ d'une instance mutable de `Utilisateur`.
 
 <!--
 ```rust
-# struct User {
-#     username: String,
-#     email: String,
-#     sign_in_count: u64,
-#     active: bool,
-# }
-#
-let mut user1 = User {
-    email: String::from("someone@example.com"),
-    username: String::from("someusername123"),
-    active: true,
-    sign_in_count: 1,
-};
-
-user1.email = String::from("anotheremail@example.com");
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-03/src/main.rs:here}}
 ```
 -->
 
 ```rust
-# struct Utilisateur {
-#     pseudo: String,
-#     email: String,
-#     nombre_de_connexions: u64,
-#     actif: bool,
-# }
-#
-let mut utilisateur1 = Utilisateur {
-    email: String::from("quelquun@example.com"),
-    pseudo: String::from("pseudoquelconque123"),
-    actif: true,
-    nombre_de_connexions: 1,
-};
-
-utilisateur1.email = String::from("unautremail@example.com");
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-03/src/main.rs:here}}
 ```
 
 <!--
@@ -185,7 +125,7 @@ utilisateur1.email = String::from("unautremail@example.com");
 `User` instance</span>
 -->
 
-<span class="caption">Encart 5-3 : Changement de la valeur du champ `email`
+<span class="caption">Encart 5-3 : changement de la valeur du champ `email`
 d'une instance de `Utilisateur`</span>
 
 <!--
@@ -213,40 +153,12 @@ prend la valeur `true` et le `nombre_de_connexions` prend la valeur `1`.
 
 <!--
 ```rust
-# struct User {
-#     username: String,
-#     email: String,
-#     sign_in_count: u64,
-#     active: bool,
-# }
-#
-fn build_user(email: String, username: String) -> User {
-    User {
-        email: email,
-        username: username,
-        active: true,
-        sign_in_count: 1,
-    }
-}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-04/src/main.rs:here}}
 ```
 -->
 
 ```rust
-# struct Utilisateur {
-#     pseudo: String,
-#     email: String,
-#     nombre_de_connexions: u64,
-#     actif: bool,
-# }
-#
-fn creer_utilisateur(email: String, pseudo: String) -> Utilisateur {
-    Utilisateur {
-        email: email,
-        pseudo: pseudo,
-        actif: true,
-        nombre_de_connexions: 1,
-    }
-}
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-04/src/main.rs:here}}
 ```
 
 <!--
@@ -254,7 +166,7 @@ fn creer_utilisateur(email: String, pseudo: String) -> Utilisateur {
 and username and returns a `User` instance</span>
 -->
 
-<span class="caption">Encart 5-4 : Une fonction `creer_utilisateur` qui prend
+<span class="caption">Encart 5-4 : une fonction `creer_utilisateur` qui prend
 en entrée une adresse e-mail et un pseudo et retourne une instance de
 `Utilisateur`</span>
 
@@ -292,40 +204,12 @@ sorte qu'elle se comporte exactement de la même façon sans avoir à répéter
 
 <!--
 ```rust
-# struct User {
-#     username: String,
-#     email: String,
-#     sign_in_count: u64,
-#     active: bool,
-# }
-#
-fn build_user(email: String, username: String) -> User {
-    User {
-        email,
-        username,
-        active: true,
-        sign_in_count: 1,
-    }
-}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-05/src/main.rs:here}}
 ```
 -->
 
 ```rust
-# struct Utilisateur {
-#     pseudo: String,
-#     email: String,
-#     nombre_de_connexions: u64,
-#     actif: bool,
-# }
-#
-fn creer_utilisateur(email: String, pseudo: String) -> Utilisateur {
-    Utilisateur {
-        email,
-        pseudo,
-        actif: true,
-        nombre_de_connexions: 1,
-    }
-}
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-05/src/main.rs:here}}
 ```
 
 <!--
@@ -334,7 +218,7 @@ shorthand because the `email` and `username` parameters have the same name as
 struct fields</span>
 -->
 
-<span class="caption">Encart 5-5 : Une fonction `creer_utilisateur` qui utilise
+<span class="caption">Encart 5-5 : une fonction `creer_utilisateur` qui utilise
 le raccourci d'initialisation des champs parce que les paramètres `email` et
 `pseudo` ont le même nom que les champs de la structure</span>
 
@@ -360,17 +244,18 @@ plutôt que `email: email`.
 
 <!--
 It’s often useful to create a new instance of a struct that uses most of an old
-instance’s values but changes some. You’ll do this using *struct update syntax*.
+instance’s values but changes some. You can do this using *struct update
+syntax*.
 -->
 
 Il est souvent utile de créer une nouvelle instance de structure qui utilise la
-plupart des valeurs d'une ancienne instance tout en en changeant certaines. On
-utilisera pour cela la *syntaxe de mise à jour de structure*.
+plupart des valeurs d'une ancienne instance tout en en changeant certaines. Vous
+pouvez utiliser pour cela la *syntaxe de mise à jour de structure*.
 
 <!--
 First, Listing 5-6 shows how we create a new `User` instance in `user2` without
-the update syntax. We set new values for `email` and `username` but otherwise
-use the same values from `user1` that we created in Listing 5-2.
+the update syntax. We set a new value for `email` but otherwise use the same
+values from `user1` that we created in Listing 5-2.
 -->
 
 Tout d'abord, l'encart 5-6 nous montre comment créer une nouvelle instance de
@@ -381,59 +266,21 @@ l'encart 5-2.
 
 <!--
 ```rust
-# struct User {
-#     username: String,
-#     email: String,
-#     sign_in_count: u64,
-#     active: bool,
-# }
-#
-# let user1 = User {
-#     email: String::from("someone@example.com"),
-#     username: String::from("someusername123"),
-#     active: true,
-#     sign_in_count: 1,
-# };
-#
-let user2 = User {
-    email: String::from("another@example.com"),
-    username: String::from("anotherusername567"),
-    active: user1.active,
-    sign_in_count: user1.sign_in_count,
-};
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-06/src/main.rs:here}}
 ```
 -->
 
 ```rust
-# struct Utilisateur {
-#     pseudo: String,
-#     email: String,
-#     nombre_de_connexions: u64,
-#     actif: bool,
-# }
-#
-# let utilisateur1 = Utilisateur {
-#     email: String::from("quelquun@example.com"),
-#     pseudo: String::from("pseudoquelconque123"),
-#     actif: true,
-#     nombre_de_connexions: 1,
-# };
-#
-let utilisateur2 = Utilisateur {
-    email: String::from("quelquundautre@example.com"),
-    pseudo: String::from("autrepseudo567"),
-    actif: utilisateur1.actif,
-    nombre_de_connexions: utilisateur1.nombre_de_connexions,
-};
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-06/src/main.rs:here}}
 ```
 
 <!--
-<span class="caption">Listing 5-6: Creating a new `User` instance using some of
+<span class="caption">Listing 5-6: Creating a new `User` instance using one of
 the values from `user1`</span>
 -->
 
-<span class="caption">Encart 5-6 : Création d'une nouvelle instance de
-`Utilisateur` en utilisant certaines valeurs de `utilisateur1`.</span>
+<span class="caption">Encart 5-6 : création d'une nouvelle instance de
+`Utilisateur` en utilisant une des valeurs de `utilisateur1`.</span>
 
 <!--
 Using struct update syntax, we can achieve the same effect with less code, as
@@ -448,70 +295,67 @@ devraient avoir la même valeur que dans l'instance précisée.
 
 <!--
 ```rust
-# struct User {
-#     username: String,
-#     email: String,
-#     sign_in_count: u64,
-#     active: bool,
-# }
-#
-# let user1 = User {
-#     email: String::from("someone@example.com"),
-#     username: String::from("someusername123"),
-#     active: true,
-#     sign_in_count: 1,
-# };
-#
-let user2 = User {
-    email: String::from("another@example.com"),
-    username: String::from("anotherusername567"),
-    ..user1
-};
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-07/src/main.rs:here}}
 ```
 -->
 
 ```rust
-# struct Utilisateur {
-#     pseudo: String,
-#     email: String,
-#     nombre_de_connexions: u64,
-#     actif: bool,
-# }
-#
-# let utilisateur1 = Utilisateur {
-#     email: String::from("quelquun@example.com"),
-#     pseudo: String::from("pseudoquelconque123"),
-#     actif: true,
-#     nombre_de_connexions: 1,
-# };
-#
-let utilisateur2 = Utilisateur {
-    email: String::from("quelquundautre@example.com"),
-    pseudo: String::from("autrepseudo567"),
-    ..utilisateur1
-};
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-07/src/main.rs:here}}
 ```
 
 <!--
-<span class="caption">Listing 5-7: Using struct update syntax to set new
-`email` and `username` values for a `User` instance but use the rest of the
-values from the fields of the instance in the `user1` variable</span>
+<span class="caption">Listing 5-7: Using struct update syntax to set a new
+`email` value for a `User` instance but use the rest of the values from
+`user1`</span>
 -->
 
-<span class="caption">Encart 5-7 : Utilisation de la syntaxe de mise à jour de
-structure pour assigner de nouvelles valeurs à `email` et `pseudo` à une
-nouvelle instance de `Utilisateur` tout en utilisant les autres valeurs des
-champs de l'instance de la variable `utilisateur1`</span>
+<span class="caption">Encart 5-7 : utilisation de la syntaxe de mise à jour de
+structure pour assigner de nouvelles valeurs à `email` d'une nouvelle instance
+de `Utilisateur` tout en utilisant les autres valeurs de `utilisateur1`</span>
 
 <!--
 The code in Listing 5-7 also creates an instance in `user2` that has a
-different value for `email` and `username` but has the same values for the
-`active` and `sign_in_count` fields from `user1`.
+different value for `email` but has the same values for the `username`,
+`active`, and `sign_in_count` fields from `user1`. The `..user1` must come last
+to specify that any remaining fields should get their values from the
+corresponding fields in `user1`, but we can choose to specify values for as
+many fields as we want in any order, regardless of the order of the fields in
+the struct’s definition.
 -->
 
 Le code dans l'encart 5-7 crée aussi une instance dans `utilisateur2` qui a une
-valeur différente pour `email` et `pseudo` mais qui a les mêmes valeurs pour les
-champs `actif` et `nombre_de_connexions` que `utilisateur1`.
+valeur différente pour `email`, mais qui as les mêmes valeurs pour les champs
+`pseudo`, `actif` et `nombre_de_connexions` que `utilisateur1`. Le
+`..utilisateur1` doit être inséré à la fin pour préciser que tous les champs
+restants obtiendrons les valeurs des champs correspondants de `utilisateur1`,
+mais nous pouvons renseigner les valeurs des champs dans n'importe quel ordre,
+peu importe leur position dans la définition de la structure.
+
+<!--
+Note that the struct update syntax is like assignment with `=` because it moves
+the data, just as we saw in the [“Ways Variables and Data Interact: Move”
+section][move]<!-- ignore -- >. In this example, we can no longer use `user1`
+after creating `user2` because the `String` in the `username` field of `user1`
+was moved into `user2`. If we had given `user2` new `String` values for both
+`email` and `username`, and thus only used the `active` and `sign_in_count`
+values from `user1`, then `user1` would still be valid after creating `user2`.
+The types of `active` and `sign_in_count` are types that implement the `Copy`
+trait, so the behavior we discussed in the [“Stack-Only Data: Copy”
+section][copy]<!-- ignore -- > would apply.
+-->
+
+Veuillez notez que la syntaxe de la mise à jour de structure ressemble à une
+assignation avec un `=` car elle déplace les données, comme nous l'avons vu dans
+[une des sections au chapitre 4][move]<!-- ignore -->. Dans cet exemple, nous
+ne pouvons plus utiliser `utilisateur1` après avoir créé `utilisateur2` car la
+`String` dans le champ `pseudo` de `utilisateur1` a été déplacée dans
+`utilisateur2`. Si nous avions donné des nouvelles valeurs pour chacune des
+`String` `email` et `pseudo`, et que par conséquent nous aurions déplacé
+uniquement les valeurs de `actif` et de `nombre_de_connexions` à partir de
+`utilisateur1`, alors `utilisateur1` restera en vigueur après avoir créé
+`utilisateur2`. Les types de `actif` et de `nombre_de_connexions` sont de types
+qui implémentent le trait `Copy`, donc le comportement décris dans [la section
+à propos de copy][copy]<!-- ignore --> aura lieu ici.
 
 <!--
 ### Using Tuple Structs without Named Fields to Create Different Types
@@ -548,20 +392,12 @@ définition et une utilisation de deux structures tuples nommées `Couleur` et
 
 <!--
 ```rust
-struct Color(i32, i32, i32);
-struct Point(i32, i32, i32);
-
-let black = Color(0, 0, 0);
-let origin = Point(0, 0, 0);
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/no-listing-01-tuple-structs/src/main.rs:here}}
 ```
 -->
 
 ```rust
-struct Couleur(i32, i32, i32);
-struct Point(i32, i32, i32);
-
-let noir = Couleur(0, 0, 0);
-let origine = Point(0, 0, 0);
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-01-tuple-structs/src/main.rs:here}}
 ```
 
 <!--
@@ -593,17 +429,55 @@ l'indice pour accéder individuellement à une valeur, et ainsi de suite.
 
 <!--
 You can also define structs that don’t have any fields! These are called
-*unit-like structs* because they behave similarly to `()`, the unit type.
-Unit-like structs can be useful in situations in which you need to implement a
-trait on some type but don’t have any data that you want to store in the type
-itself. We’ll discuss traits in Chapter 10.
+*unit-like structs* because they behave similarly to `()`, the unit type that
+we mentioned in [“The Tuple Type”][tuples]<!-- ignore -- > section. Unit-like
+structs can be useful in situations in which you need to implement a trait on
+some type but don’t have any data that you want to store in the type itself.
+We’ll discuss traits in Chapter 10. Here’s an example of declaring and
+instantiating a unit struct named `AlwaysEqual`:
 -->
 
 On peut aussi définir des structures qui n'ont pas de champs ! Cela s'appelle
 des *structures unité* parce qu'elles se comportent d'une façon analogue au type
-unité, `()`. Les structures unité sont utiles lorsqu'on doit implémenter un
-trait sur un type mais qu'on n'a aucune donnée à stocker dans le type en
-lui-même. Nous aborderons les traits au chapitre 10.
+unité, `()`, que nous avons vu dans [la section sur les
+tuples][tuples]<!-- ignore -->. Les structures unité sont utiles lorsqu'on doit
+implémenter un trait sur un type mais qu'on n'a aucune donnée à stocker dans le
+type en lui-même. Nous aborderons les traits au chapitre 10. Voici un exemple
+de déclaration et d'instanciation d'une structure unité `ToujoursEgal` :
+
+<!--
+```rust
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/no-listing-04-unit-like-structs/src/main.rs:here}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-04-unit-like-structs/src/main.rs:here}}
+```
+
+<!--
+To define `AlwaysEqual`, we use the `struct` keyword, the name we want, then a
+semicolon. No need for curly brackets or parentheses! Then we can get an
+instance of `AlwaysEqual` in the `subject` variable in a similar way: using the
+name we defined, without any curly brackets or parentheses. Imagine we’ll be
+implementing behavior for this type that every instance is always equal to
+every instance of every other type, perhaps to have a known result for testing
+purposes. We wouldn’t need any data to implement that behavior! You’ll see in
+Chapter 10 how to define traits and implement them on any type, including
+unit-like structs.
+-->
+
+Pour définir `ToujoursEgal`, nous utilisons le mot-clé `struct`, puis le nom que
+nous voulons lui donner, et enfin un point-virgule. Pas besoin d'accolades ou de
+parenthèses ! Ensuite, nous pouvons obtenir une instance de `ToujourEgal` dans
+la variable `sujet` de la même manière : utilisez le nom que vous avez défini,
+sans aucune accolade ou parenthèse. Imaginez que nous allons implémenter un
+comportement pour ce type pour que toutes les instances soient toujours égales à
+chaque instance de n'importe quel autre type, peut-être pour avoir un résultat
+connu pour des besoins de tests. Nous n'avons pas besoin d'aucune donnée pour
+implémenter ce comportement ! Vous verrez au chapitre 10 comment définir des
+traits et les implémenter sur l'importe quel type, y compris sur les structures
+unité.
 
 <!--
 > ### Ownership of Struct Data
@@ -620,6 +494,8 @@ lui-même. Nous aborderons les traits au chapitre 10.
 > in a struct without specifying lifetimes, like this, which won’t work:
 >
 > <span class="filename">Filename: src/main.rs</span>
+>
+> <!-- CAN'T EXTRACT SEE https://github.com/rust-lang/mdBook/issues/1127 -- >
 >
 > ```rust,ignore,does_not_compile
 > struct User {
@@ -639,21 +515,42 @@ lui-même. Nous aborderons les traits au chapitre 10.
 > }
 > ```
 >
->
 > The compiler will complain that it needs lifetime specifiers:
 >
-> ```text
+> ```console
+> $ cargo run
+>    Compiling structs v0.1.0 (file:///projects/structs)
 > error[E0106]: missing lifetime specifier
->  -- >
+>  -- > src/main.rs:2:15
 >   |
 > 2 |     username: &str,
->   |               ^ expected lifetime parameter
+>   |               ^ expected named lifetime parameter
+>   |
+> help: consider introducing a named lifetime parameter
+>   |
+> 1 | struct User<'a> {
+> 2 |     username: &'a str,
+>   |
 >
 > error[E0106]: missing lifetime specifier
->  -- >
+>  -- > src/main.rs:3:12
 >   |
 > 3 |     email: &str,
->   |            ^ expected lifetime parameter
+>   |            ^ expected named lifetime parameter
+>   |
+> help: consider introducing a named lifetime parameter
+>   |
+> 1 | struct User<'a> {
+> 2 |     username: &str,
+> 3 |     email: &'a str,
+>   |
+>
+> error: aborting due to 2 previous errors
+>
+> For more information about this error, try `rustc --explain E0106`.
+> error: could not compile `structs`
+>
+> To learn more, run the command again with --verbose.
 > ```
 >
 > In Chapter 10, we’ll discuss how to fix these errors so you can store
@@ -679,6 +576,8 @@ lui-même. Nous aborderons les traits au chapitre 10.
 >
 > <span class="filename">Fichier : src/main.rs</span>
 >
+> <!-- CAN'T EXTRACT SEE https://github.com/rust-lang/mdBook/issues/1127 -->
+>
 > ```rust,ignore,does_not_compile
 > struct Utilisateur {
 >     pseudo: &str,
@@ -699,21 +598,62 @@ lui-même. Nous aborderons les traits au chapitre 10.
 >
 > Le compilateur réclamera l'ajout des durées de vie :
 >
-> ```text
+> ```console
+> $ cargo run
+>    Compiling structs v0.1.0 (file:///projects/structs)
 > error[E0106]: missing lifetime specifier
->  -->
+>  --> src/main.rs:2:15
 >   |
-> 2 |     username: &str,
->   |               ^ expected lifetime parameter
+> 2 |     pseudo: &str,
+>   |             ^ expected named lifetime parameter
+>   |
+> help: consider introducing a named lifetime parameter
+>   |
+> 1 | struct Utilisateur<'a> {
+> 2 |     pseudo: &'a str,
+>   |
 >
 > error[E0106]: missing lifetime specifier
->  -->
+>  --> src/main.rs:3:12
 >   |
 > 3 |     email: &str,
->   |            ^ expected lifetime parameter
+>   |            ^ expected named lifetime parameter
+>   |
+> help: consider introducing a named lifetime parameter
+>   |
+> 1 | struct Utilisateur<'a> {
+> 2 |     pseudo: &str,
+> 3 |     email: &'a str,
+>   |
+>
+> error: aborting due to 2 previous errors
+>
+> For more information about this error, try `rustc --explain E0106`.
+> error: could not compile `structs`
+>
+> To learn more, run the command again with --verbose.
 > ```
 >
 > Au chapitre 10, nous aborderons la façon de corriger ces erreurs pour qu'on
 > puisse stocker des références dans des structures, mais pour le moment, nous
 > résoudrons les erreurs comme celles-ci en utilisant des types possédés comme
 > `String` plutôt que des références comme `&str`.
+
+<!--
+<!-- manual-regeneration
+for the error above
+after running update-rustc.sh:
+pbcopy < listings/ch05-using-structs-to-structure-related-data/no-listing-02-reference-in-struct/output.txt
+paste above
+add `> ` before every line -- >
+-->
+
+<!--
+[tuples]: ch03-02-data-types.html#the-tuple-type
+[move]: ch04-01-what-is-ownership.html#ways-variables-and-data-interact-move
+[copy]: ch04-01-what-is-ownership.html#stack-only-data-copy
+-->
+
+[tuples]: ch03-02-data-types.html
+[move]: ch04-01-what-is-ownership.html
+[copy]: ch04-01-what-is-ownership.html

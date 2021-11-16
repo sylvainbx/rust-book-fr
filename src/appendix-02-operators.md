@@ -24,10 +24,10 @@ overload that operator is listed.
 | `&` | `&type`, `&mut type`, `&'a type`, `&'a mut type` | Borrowed pointer type | |
 | `&` | `expr & expr` | Bitwise AND | `BitAnd` |
 | `&=` | `var &= expr` | Bitwise AND and assignment | `BitAndAssign` |
-| `&&` | `expr && expr` | Logical AND | |
+| `&&` | `expr && expr` | Short-circuiting logical AND | |
 | `*` | `expr * expr` | Arithmetic multiplication | `Mul` |
 | `*=` | `var *= expr` | Arithmetic multiplication and assignment | `MulAssign` |
-| `*` | `*expr` | Dereference | |
+| `*` | `*expr` | Dereference | `Deref` |
 | `*` | `*const type`, `*mut type` | Raw pointer | |
 | `+` | `trait + trait`, `'a + trait` | Compound type constraint | |
 | `+` | `expr + expr` | Arithmetic addition | `Add` |
@@ -38,11 +38,11 @@ overload that operator is listed.
 | `-=` | `var -= expr` | Arithmetic subtraction and assignment | `SubAssign` |
 | `->` | `fn(...) -> type`, <code>&vert;...&vert; -> type</code> | Function and closure return type | |
 | `.` | `expr.ident` | Member access | |
-| `..` | `..`, `expr..`, `..expr`, `expr..expr` | Right-exclusive range literal | |
-| `..=` | `..=expr`, `expr..=expr` | Right-inclusive range literal | |
+| `..` | `..`, `expr..`, `..expr`, `expr..expr` | Right-exclusive range literal | `PartialOrd` |
+| `..=` | `..=expr`, `expr..=expr` | Right-inclusive range literal | `PartialOrd` |
 | `..` | `..expr` | Struct literal update syntax | |
 | `..` | `variant(x, ..)`, `struct_type { x, .. }` | “And the rest” pattern binding | |
-| `...` | `expr...expr` | In a pattern: inclusive range pattern | |
+| `...` | `expr...expr` | (Deprecated, use `..=` instead) In a pattern: inclusive range pattern | |
 | `/` | `expr / expr` | Arithmetic division | `Div` |
 | `/=` | `var /= expr` | Arithmetic division and assignment | `DivAssign` |
 | `:` | `pat: type`, `ident: type` | Constraints | |
@@ -67,7 +67,7 @@ overload that operator is listed.
 | <code>&vert;</code> | <code>pat &vert; pat</code> | Pattern alternatives | |
 | <code>&vert;</code> | <code>expr &vert; expr</code> | Bitwise OR | `BitOr` |
 | <code>&vert;=</code> | <code>var &vert;= expr</code> | Bitwise OR and assignment | `BitOrAssign` |
-| <code>&vert;&vert;</code> | <code>expr &vert;&vert; expr</code> | Logical OR | |
+| <code>&vert;&vert;</code> | <code>expr &vert;&vert; expr</code> | Short-circuiting logical OR | |
 | `?` | `expr?` | Error propagation | |
 
 ### Non-operator Symbols
@@ -136,7 +136,7 @@ parameters with trait bounds.
 |--------|-------------|
 | `T: U` | Generic parameter `T` constrained to types that implement `U` |
 | `T: 'a` | Generic type `T` must outlive lifetime `'a` (meaning the type cannot transitively contain any references with lifetimes shorter than `'a`) |
-| `T : 'static` | Generic type `T` contains no borrowed references other than `'static` ones |
+| `T: 'static` | Generic type `T` contains no borrowed references other than `'static` ones |
 | `'b: 'a` | Generic lifetime `'b` must outlive lifetime `'a` |
 | `T: ?Sized` | Allow generic type parameter to be a dynamically sized type |
 | `'a + trait`, `trait + trait` | Compound type constraint |
@@ -153,6 +153,7 @@ macros and specifying attributes on an item.
 | `$ident` | Macro substitution |
 | `$ident:kind` | Macro capture |
 | `$(…)…` | Macro repetition |
+| `ident!(...)`, `ident!{...}`, `ident![...]` | Macro invocation |
 
 Table B-7 shows symbols that create comments.
 
@@ -180,7 +181,6 @@ Table B-8 shows symbols that appear in the context of using tuples.
 | `(expr, ...)` | Tuple expression |
 | `(type, ...)` | Tuple type |
 | `expr(expr, ...)` | Function call expression; also used to initialize tuple `struct`s and tuple `enum` variants |
-| `ident!(...)`, `ident!{...}`, `ident![...]` | Macro invocation |
 | `expr.0`, `expr.1`, etc. | Tuple indexing |
 
 Table B-9 shows the contexts in which curly braces are used.
