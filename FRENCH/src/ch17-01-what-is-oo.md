@@ -32,13 +32,13 @@ les supporte.
 <!--
 The book *Design Patterns: Elements of Reusable Object-Oriented Software* by
 Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides (Addison-Wesley
-Professional, 1994) colloquially referred to as *The Gang of Four* book, is a
+Professional, 1994), colloquially referred to as *The Gang of Four* book, is a
 catalog of object-oriented design patterns. It defines OOP this way:
 -->
 
 Le livre *Design Patterns: Elements of Reusable Object-Oriented Software*
 d'Erich Gamma, Richard Helm, Ralph Johnson, et John Vlissides (Addison-Wesley
-Professional, 1994) que l'on surnomme le livre du *Gang of Four*, est un
+Professional, 1994), que l'on surnomme le livre du *Gang of Four*, est un
 catalogue de patrons de conception orientés objet. Il définit la POO ainsi :
 
 <!--
@@ -118,19 +118,13 @@ calculée pour nous. L'encart 17-1 contient la définition de la structure
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-pub struct AveragedCollection {
-    list: Vec<i32>,
-    average: f64,
-}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch17-oop/listing-17-01/src/lib.rs}}
 ```
 -->
 
-```rust
-pub struct CollectionMoyennee {
-    liste: Vec<i32>,
-    moyenne: f64,
-}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch17-oop/listing-17-01/src/lib.rs}}
 ```
 
 <!--
@@ -164,71 +158,13 @@ comme le montre l'encart 17-2 :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-# pub struct AveragedCollection {
-#     list: Vec<i32>,
-#     average: f64,
-# }
-impl AveragedCollection {
-    pub fn add(&mut self, value: i32) {
-        self.list.push(value);
-        self.update_average();
-    }
-
-    pub fn remove(&mut self) -> Option<i32> {
-        let result = self.list.pop();
-        match result {
-            Some(value) => {
-                self.update_average();
-                Some(value)
-            },
-            None => None,
-        }
-    }
-
-    pub fn average(&self) -> f64 {
-        self.average
-    }
-
-    fn update_average(&mut self) {
-        let total: i32 = self.list.iter().sum();
-        self.average = total as f64 / self.list.len() as f64;
-    }
-}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch17-oop/listing-17-02/src/lib.rs:here}}
 ```
 -->
 
-```rust
-# pub struct CollectionMoyennee {
-#     liste: Vec<i32>,
-#     moyenne: f64,
-# }
-impl CollectionMoyennee {
-    pub fn ajouter(&mut self, valeur: i32) {
-        self.liste.push(valeur);
-        self.mettre_a_jour_moyenne();
-    }
-
-    pub fn retirer(&mut self) -> Option<i32> {
-        let resultat = self.liste.pop();
-        match resultat {
-            Some(valeur) => {
-                self.mettre_a_jour_moyenne();
-                Some(valeur)
-            },
-            None => None,
-        }
-    }
-
-    pub fn moyenne(&self) -> f64 {
-        self.moyenne
-    }
-
-    fn mettre_a_jour_moyenne(&mut self) {
-        let total: i32 = self.liste.iter().sum();
-        self.moyenne = total as f64 / self.liste.len() as f64;
-    }
-}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch17-oop/listing-17-02/src/lib.rs:here}}
 ```
 
 <!--
