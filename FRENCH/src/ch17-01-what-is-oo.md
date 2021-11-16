@@ -60,9 +60,9 @@ functionality, according to the Gang of Four’s definition of objects.
 
 Si l'on se tient à cette définition, Rust est orienté objet : les structures et
 les énumérations ont des données, et les blocs `impl` leur fournissent des
-méthodes. Bien que les structures et les énumérations avec des méthodes ne soient pas qualifiées
-d'objets, elles en ont les fonctionnalités, d'après la définition des objets par
-le *Gang of Four*.
+méthodes. Bien que les structures et les énumérations avec des méthodes ne
+soient pas qualifiées d'objets, elles en ont les fonctionnalités, d'après la
+définition des objets par le *Gang of Four*.
 
 <!--
 ### Encapsulation that Hides Implementation Details
@@ -223,10 +223,11 @@ que la structure de données, à l'avenir. Par exemple, nous pourrions utiliser
 un `HashSet<i32>` plutôt qu'un `Vec<i32>` pour le champ `liste`. Du moment que
 les signatures des méthodes publiques `ajouter`, `retirer` et `moyenne` restent
 les mêmes, du code qui utilise `CollectionMoyennee` n'aurait pas besoin de
-changer. En revanche, si nous avions fait en sorte que `liste` soit publique, cela n'aurait pas été
-forcément le cas : `HashSet<i32>` et `Vec<i32>` ont des méthodes différentes
-pour ajouter et retirer des éléments, donc il aurait vraisemblablement fallu
-changer le code externe s'il modifiait directement `liste`.
+changer. En revanche, si nous avions fait en sorte que `liste` soit publique,
+cela n'aurait pas été forcément le cas : `HashSet<i32>` et `Vec<i32>` ont des
+méthodes différentes pour ajouter et retirer des éléments, donc il aurait
+vraisemblablement fallu changer le code externe s'il modifiait directement
+`liste`.
 
 <!--
 If encapsulation is a required aspect for a language to be considered object
@@ -331,9 +332,10 @@ objets entre eux à l'exécution s'ils partagent certaines caractéristiques.
 > des données de divers types. Pour l'héritage, ces types sont généralement des
 > classes filles (ou *sous-classes*).
 >
-> À la place, Rust utilise la généricité pour construire des abstractions des différents types et
-> traits liés possibles pour imposer des contraintes sur ce que ces types
-> doivent fournir. Cela est parfois appelé *polymorphisme paramétrique borné*.
+> À la place, Rust utilise la généricité pour construire des abstractions des
+> différents types et traits liés possibles pour imposer des contraintes sur ce
+> que ces types doivent fournir. Cela est parfois appelé *polymorphisme
+> paramétrique borné*.
 
 <!--
 Inheritance has recently fallen out of favor as a programming design solution
