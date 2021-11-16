@@ -35,7 +35,7 @@ traits `Sync` et `Send` de `std::marker`.
 ### Permettre le transfert de possession entre les tâches avec `Send`
 
 <!--
-The `Send` marker trait indicates that ownership of the type implementing
+The `Send` marker trait indicates that ownership of values of the type implementing
 `Send` can be transferred between threads. Almost every Rust type is `Send`,
 but there are some exceptions, including `Rc<T>`: this cannot be `Send` because
 if you cloned an `Rc<T>` value and tried to transfer ownership of the clone to
@@ -44,10 +44,10 @@ For this reason, `Rc<T>` is implemented for use in single-threaded situations
 where you don’t want to pay the thread-safe performance penalty.
 -->
 
-Le trait `Send` indique que la possession du type qui implémente `Send` peut
-être transféré entre plusieurs tâches. Presque tous les types de Rust
-implémentent `Send`, mais il subsiste quelques exceptions, comme `Rc<T>` : il
-ne peut pas implémenter `Send` car si vous clonez une valeur `Rc<T>` et que
+Le trait `Send` indique que la possession des valeurs du type qui implémente
+`Send` peut être transféré entre plusieurs tâches. Presque tous les types de
+Rust implémentent `Send`, mais il subsiste quelques exceptions, comme `Rc<T>` :
+il ne peut pas implémenter `Send` car si vous clonez une valeur `Rc<T>` et que
 vous essayez de transférer la possession de ce clone à une autre tâche, les
 deux tâches peuvent modifier le compteur de référence en même temps. Pour cette
 raison, `Rc<T>` est prévu pour une utilisation dans des situations qui
@@ -89,18 +89,18 @@ chapitre 19.
 <!--
 The `Sync` marker trait indicates that it is safe for the type implementing
 `Sync` to be referenced from multiple threads. In other words, any type `T` is
-`Sync` if `&T` (a reference to `T`) is `Send`, meaning the reference can be
-sent safely to another thread. Similar to `Send`, primitive types are `Sync`,
-and types composed entirely of types that are `Sync` are also `Sync`.
+`Sync` if `&T` (an immutable reference to `T`) is `Send`, meaning the reference
+can be sent safely to another thread. Similar to `Send`, primitive types are
+`Sync`, and types composed entirely of types that are `Sync` are also `Sync`.
 -->
 
 Le trait `Sync` indique qu'il est sûr d'avoir une référence dans plusieurs
 tâches vers le type qui implémente `Sync`. Autrement dit, n'importe quel type
-`T` implémente `Sync` si `&T` (une référence vers `T`) implémente `Send`, ce
-qui signifie que la référence peut être envoyée en toute sécurité à une autre
-tâche. De la même manière que `Send`, les types primitifs implémentent `Sync`,
-et les types composés entièrement d'autres types qui implémentent `Sync` sont
-eux-mêmes `Sync`.
+`T` implémente `Sync` si `&T` (une référence immuable vers `T`) implémente
+`Send`, ce qui signifie que la référence peut être envoyée en toute sécurité à
+une autre tâche. De la même manière que `Send`, les types primitifs
+implémentent `Sync`, et les types composés entièrement d'autres types qui
+implémentent `Sync` sont eux-mêmes `Sync`.
 
 <!--
 The smart pointer `Rc<T>` is also not `Sync` for the same reasons that it’s not
