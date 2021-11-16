@@ -35,36 +35,12 @@ certaine manière dans le *src/main.rs* de notre projet.
 
 <!--
 ```rust
-fn main() {
-    let width1 = 30;
-    let height1 = 50;
-
-    println!(
-        "The area of the rectangle is {} square pixels.",
-        area(width1, height1)
-    );
-}
-
-fn area(width: u32, height: u32) -> u32 {
-    width * height
-}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-08/src/main.rs:all}}
 ```
 -->
 
 ```rust
-fn main() {
-    let largeur1 = 30;
-    let hauteur1 = 50;
-
-    println!(
-        "L'aire du rectangle est de {} pixels carrés.",
-        aire(largeur1, hauteur1)
-    );
-}
-
-fn aire(largeur: u32, hauteur: u32) -> u32 {
-    largeur * hauteur
-}
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-08/src/main.rs:all}}
 ```
 
 <!--
@@ -82,13 +58,13 @@ Now, run this program using `cargo run`:
 Maintenant, lancez ce programme avec `cargo run` :
 
 <!--
-```text
-The area of the rectangle is 1500 square pixels.
+```console
+{{#include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-08/output.txt}}
 ```
 -->
 
-```text
-L'aire du rectangle est de 1500 pixels carrés.
+```console
+{{#include ../listings/ch05-using-structs-to-structure-related-data/listing-05-08/output.txt}}
 ```
 
 <!--
@@ -110,12 +86,12 @@ Le problème de ce code se voit dans la signature de `aire` :
 
 <!--
 ```rust,ignore
-fn area(width: u32, height: u32) -> u32 {
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-08/src/main.rs:here}}
 ```
 -->
 
 ```rust,ignore
-fn aire(largeur: u32, hauteur: u32) -> u32 {
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-08/src/main.rs:here}}
 ```
 
 <!--
@@ -123,7 +99,7 @@ The `area` function is supposed to calculate the area of one rectangle, but the
 function we wrote has two parameters. The parameters are related, but that’s
 not expressed anywhere in our program. It would be more readable and more
 manageable to group width and height together. We’ve already discussed one way
-we might do that in [“The Tuple Type”][the-tuple-type]<!−− ignore −− > section
+we might do that in [“The Tuple Type”][the-tuple-type]<!-- ignore -- > section
 of Chapter 3: by using tuples.
 -->
 
@@ -155,34 +131,12 @@ tuples.
 
 <!--
 ```rust
-fn main() {
-    let rect1 = (30, 50);
-
-    println!(
-        "The area of the rectangle is {} square pixels.",
-        area(rect1)
-    );
-}
-
-fn area(dimensions: (u32, u32)) -> u32 {
-    dimensions.0 * dimensions.1
-}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-09/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let rect1 = (30, 50);
-
-    println!(
-        "L'aire du rectangle est de {} pixels carrés.",
-        aire(rect1)
-    );
-}
-
-fn aire(dimensions: (u32, u32)) -> u32 {
-    dimensions.0 * dimensions.1
-}
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-09/src/main.rs}}
 ```
 
 <!--
@@ -250,44 +204,12 @@ de donnée nommé dont ses éléments sont aussi nommés, comme le montre l'enca
 
 <!--
 ```rust
-struct Rectangle {
-    width: u32,
-    height: u32,
-}
-
-fn main() {
-    let rect1 = Rectangle { width: 30, height: 50 };
-
-    println!(
-        "The area of the rectangle is {} square pixels.",
-        area(&rect1)
-    );
-}
-
-fn area(rectangle: &Rectangle) -> u32 {
-    rectangle.width * rectangle.height
-}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-10/src/main.rs}}
 ```
 -->
 
 ```rust
-struct Rectangle {
-    largeur: u32,
-    hauteur: u32,
-}
-
-fn main() {
-    let rect1 = Rectangle { largeur: 30, hauteur: 50 };
-
-    println!(
-        "L'aire du rectangle est de {} pixels carrés.",
-        aire(&rect1)
-    );
-}
-
-fn aire(rectangle: &Rectangle) -> u32 {
-    rectangle.largeur * rectangle.hauteur
-}
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-10/src/main.rs}}
 ```
 
 <!--
@@ -350,14 +272,15 @@ les indices `0` et `1`. On gagne en clarté.
 <!--
 It’d be nice to be able to print an instance of `Rectangle` while we’re
 debugging our program and see the values for all its fields. Listing 5-11 tries
-using the `println!` macro as we have used in previous chapters. This won’t
-work, however.
+using the [`println!` macro][println]<!-- ignore -- > as we have used in
+previous chapters. This won’t work, however.
 -->
 
 Cela serait bien de pouvoir afficher une instance de `Rectangle` pendant qu'on
 débogue notre programme et de voir la valeur de chacun de ses champs. L'encart
-5-11 essaye de le faire en utilisant la macro `println!` comme on l'a fait
-dans les chapitres précédents. Cependant, cela ne fonctionne pas.
+5-11 essaye de le faire en utilisant [la macro
+`println!`][println]<!-- ignore --> comme on l'a fait dans les chapitres
+précédents. Cependant, cela ne fonctionne pas.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -367,30 +290,12 @@ dans les chapitres précédents. Cependant, cela ne fonctionne pas.
 
 <!--
 ```rust,ignore,does_not_compile
-struct Rectangle {
-    width: u32,
-    height: u32,
-}
-
-fn main() {
-    let rect1 = Rectangle { width: 30, height: 50 };
-
-    println!("rect1 is {}", rect1);
-}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-11/src/main.rs}}
 ```
 -->
 
 ```rust,ignore,does_not_compile
-struct Rectangle {
-    largeur: u32,
-    hauteur: u32,
-}
-
-fn main() {
-    let rect1 = Rectangle { largeur: 30, hauteur: 50 };
-
-    println!("rect1 est {}", rect1);
-}
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-11/src/main.rs}}
 ```
 
 <!--
@@ -402,14 +307,20 @@ instance</span>
 `Rectangle`</span>
 
 <!--
-When we run this code, we get an error with this core message:
+When we compile this code, we get an error with this core message:
 -->
 
-Lorsqu'on exécute ce code, on obtient ce message d'erreur qui nous informe que
+Lorsqu'on compile ce code, on obtient ce message d'erreur qui nous informe que
 `Rectangle` n'implémente pas le trait `std::fmt::Display` :
 
+<!--
 ```text
-error[E0277]: `Rectangle` doesn't implement `std::fmt::Display`
+{{#include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-11/output.txt:3}}
+```
+-->
+
+```text
+{{#include ../listings/ch05-using-structs-to-structure-related-data/listing-05-11/output.txt:3}}
 ```
 
 <!--
@@ -443,9 +354,14 @@ If we continue reading the errors, we’ll find this helpful note:
 
 Si nous continuons de lire les erreurs, nous trouvons cette remarque utile :
 
+<!--
 ```text
-= help: the trait `std::fmt::Display` is not implemented for `Rectangle`
-= note: in format strings you may be able to use `{:?}` (or {:#?} for pretty-print) instead
+{{#include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-11/output.txt:9:10}}
+```
+-->
+
+```text
+{{#include ../listings/ch05-using-structs-to-structure-related-data/listing-05-11/output.txt:9:10}}
 ```
 
 Le compilateur nous informe que dans notre chaîne de formatage, on est peut-être
@@ -467,14 +383,20 @@ manière utile aux développeurs pour qu'on puisse voir sa valeur pendant qu'on
 débogue le code.
 
 <!--
-Run the code with this change. Drat! We still get an error:
+Compile the code with this change. Drat! We still get an error:
 -->
 
-Exécutez le code avec ce changement. Zut ! On a encore une erreur, nous
+Compilez le code avec ce changement. Zut ! On a encore une erreur, nous
 informant cette fois-ci que `Rectangle` n'implémente pas `std::fmt::Debug` :
 
+<!--
 ```text
-error[E0277]: `Rectangle` doesn't implement `std::fmt::Debug`
+{{#include ../listings-sources/ch05-using-structs-to-structure-related-data/output-only-01-debug/output.txt:3}}
+```
+-->
+
+```text
+{{#include ../listings/ch05-using-structs-to-structure-related-data/output-only-01-debug/output.txt:3}}
 ```
 
 <!--
@@ -483,9 +405,14 @@ But again, the compiler gives us a helpful note:
 
 Mais une nouvelle fois, le compilateur nous fait une remarque utile :
 
+<!--
 ```text
-= help: the trait `std::fmt::Debug` is not implemented for `Rectangle`
-= note: add `#[derive(Debug)]` or manually implement `std::fmt::Debug`
+{{#include ../listings-sources/ch05-using-structs-to-structure-related-data/output-only-01-debug/output.txt:9:10}}
+```
+-->
+
+```text
+{{#include ../listings/ch05-using-structs-to-structure-related-data/output-only-01-debug/output.txt:9:10}}
 ```
 
 Il nous conseille d'ajouter `#[derive(Debug)]` ou d'implémenter manuellement
@@ -494,14 +421,14 @@ Il nous conseille d'ajouter `#[derive(Debug)]` ou d'implémenter manuellement
 <!--
 Rust *does* include functionality to print out debugging information, but we
 have to explicitly opt in to make that functionality available for our struct.
-To do that, we add the annotation `#[derive(Debug)]` just before the struct
-definition, as shown in Listing 5-12.
+To do that, we add the outer attribute `#[derive(Debug)]` just before the
+struct definition, as shown in Listing 5-12.
 -->
 
 Rust *inclut* bel et bien une fonctionnalité pour afficher des informations de
 débogage, mais nous devons l'activer explicitement pour la rendre disponible sur
-notre structure. Pour ce faire, on ajoute l'annotation `#[derive(Debug)]` juste
-avant la définition de la structure, comme le montre l'encart 5-12.
+notre structure. Pour ce faire, on ajoute l'attribut externe `#[derive(Debug)]`
+juste avant la définition de la structure, comme le montre l'encart 5-12.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -511,40 +438,20 @@ avant la définition de la structure, comme le montre l'encart 5-12.
 
 <!--
 ```rust
-#[derive(Debug)]
-struct Rectangle {
-    width: u32,
-    height: u32,
-}
-
-fn main() {
-    let rect1 = Rectangle { width: 30, height: 50 };
-
-    println!("rect1 is {:?}", rect1);
-}
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-12/src/main.rs}}
 ```
 -->
 
 ```rust
-#[derive(Debug)]
-struct Rectangle {
-    largeur: u32,
-    hauteur: u32,
-}
-
-fn main() {
-    let rect1 = Rectangle { largeur: 30, hauteur: 50 };
-
-    println!("rect1 est {:?}", rect1);
-}
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/listing-05-12/src/main.rs}}
 ```
 
 <!--
-<span class="caption">Listing 5-12: Adding the annotation to derive the `Debug`
+<span class="caption">Listing 5-12: Adding the attribute to derive the `Debug`
 trait and printing the `Rectangle` instance using debug formatting</span>
 -->
 
-<span class="caption">Encart 5-12 : L'ajout de l'annotation pour dériver le
+<span class="caption">Encart 5-12 : ajout de l'attribut pour dériver le
 trait `Debug` et afficher l'instance de `Rectangle` en utilisant le formatage
 de débogage</span>
 
@@ -557,13 +464,13 @@ Maintenant, quand on exécute le programme, nous n'avons plus d'erreurs et ce
 texte s'affiche à l'écran :
 
 <!--
-```text
-rect1 is Rectangle { width: 30, height: 50 }
+```console
+{{#include ../listings-sources/ch05-using-structs-to-structure-related-data/listing-05-12/output.txt}}
 ```
 -->
 
-```text
-rect1 est Rectangle { largeur: 30, hauteur: 50 }
+```console
+{{#include ../listings/ch05-using-structs-to-structure-related-data/listing-05-12/output.txt}}
 ```
 
 <!--
@@ -582,33 +489,111 @@ au lieu de `{:?}` dans la chaîne de formatage. Quand on utilise `{:#?}` dans ce
 exemple, l'affichage donnera plutôt ceci :
 
 <!--
-```text
-rect1 is Rectangle {
-    width: 30,
-    height: 50
-}
+```console
+{{#include ../listings-sources/ch05-using-structs-to-structure-related-data/output-only-02-pretty-debug/output.txt}}
 ```
 -->
 
-```text
-rect1 est Rectangle {
-    largeur: 30,
-    hauteur: 50,
-}
+```console
+{{#include ../listings/ch05-using-structs-to-structure-related-data/output-only-02-pretty-debug/output.txt}}
 ```
 
 <!--
-Rust has provided a number of traits for us to use with the `derive` annotation
-that can add useful behavior to our custom types. Those traits and their
-behaviors are listed in Appendix C. We’ll cover how to implement these traits
-with custom behavior as well as how to create your own traits in Chapter 10.
+Another way to print out a value using the `Debug` format is by using the
+[`dbg!` macro][dbg] <!-- ignore -- >. The `dbg!` macro takes ownership of an
+expression, prints the file and line number of where that `dbg!` macro call
+occurs in your code along with the resulting value of that expression, and
+returns ownership of the value. Calling the `dbg!` macro prints to the standard
+error console stream (`stderr`), as opposed to `println!` which prints to the
+standard output console stream (`stdout`). We’ll talk more about `stderr` and
+`stdout` in the [“Writing Error Messages to Standard Error Instead of Standard
+Output” section in Chapter 12][err]<!-- ignore -- >. Here’s an example where
+we’re interested in the value that gets assigned to the `width` field, as well
+as the value of the whole struct in `rect1`:
 -->
 
-Rust nous fournit un certain nombre de traits qu'on peut utiliser avec
-l'annotation `derive` qui peuvent ajouter des comportements utiles à nos propres
-types. Ces traits et leurs comportements sont listés à l'annexe C. Nous
-expliquerons comment implémenter ces traits avec des comportements personnalisés
-et comment créer vos propres traits au chapitre 10.
+Une autre façon d'afficher une valeur en utilisant le format `Debug` est
+d'utiliser la [macro `dbg!`][dbg]<!-- ignore -->. La macro `dbg!` prend
+possession de l'expression, affiche le nom du fichier et la ligne de votre code
+où se trouve cet appel à la macro `dbg!` ainsi que le résultat de cette
+expression, puis rend la possession de cette valeur. L'appel de la macro `dbg!`
+écrit dans le flux d'erreur standard de la console (`stderr`), contrairement à
+`println!` qui écrit dans le flux de sortie standard de la console (`stdout`).
+Nous reparlerons de `stderr` et de `stdout` dans [une section du
+chapitre 12][err]<!-- ignore -->. Voici un exemple dans lequel nous nous
+intéressons à la valeur assignée au champ `largeur`, ainsi que la valeur de
+toute la structure `rect1` :
+
+<!--
+```rust
+{{#rustdoc_include ../listings-sources/ch05-using-structs-to-structure-related-data/no-listing-05-dbg-macro/src/main.rs}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch05-using-structs-to-structure-related-data/no-listing-05-dbg-macro/src/main.rs}}
+```
+
+<!--
+We can put `dbg!` around the expression `30 * scale` and, because `dbg!`
+returns ownership of the expression’s value, the `width` field will get the
+same value as if we didn’t have the `dbg!` call there. We don’t want `dbg!` to
+take ownership of `rect1`, so we use a reference to `dbg!` in the next call.
+Here’s what the output of this example looks like:
+-->
+
+Nous pouvons placer le `dbg!` autour de l'expression `30 * echelle` et, comme
+`dbg!` retourne la possession de la valeur issue de l'expression, le champ
+`largeur` va avoir la même valeur que si nous n'avions pas appelé `dbg!` ici.
+Nous ne voulons pas que `dbg!` prenne possession de `rect1`, donc nous donnons
+une référence à `dbg!` lors de son prochain appel. Voici à quoi ressemble la
+sortie de cet exemple :
+
+<!--
+```console
+{{#include ../listings-sources/ch05-using-structs-to-structure-related-data/no-listing-05-dbg-macro/output.txt}}
+```
+-->
+
+```console
+{{#include ../listings/ch05-using-structs-to-structure-related-data/no-listing-05-dbg-macro/output.txt}}
+```
+
+<!--
+We can see the first bit of output came from *src/main.rs* line 10, where we’re
+debugging the expression `30 * scale`, and its resulting value is 60 (the
+`Debug` formatting implemented for integers is to print only their value). The
+`dbg!` call on line 14 of *src/main.rs* outputs the value of `&rect1`, which is
+the `Rectangle` struct. This output uses the pretty `Debug` formatting of the
+`Rectangle` type. The `dbg!` macro can be really helpful when you’re trying to
+figure out what your code is doing!
+-->
+
+Nous pouvons constater que la première sortie provient de la ligne 10
+de *src/main.rs*, où nous déboguons l'expression `30 * echelle`, et son résultat
+est 60 (le formattage de `Debug` pour les entiers est d'afficher uniquement sa
+valeur). L'appel à `dbg!` à la ligne 14 de *src/main.rs* affiche la valeur de
+`&rect1`, qui est une structure `Rectangle`. La macro `dbg!` peut être très
+utile lorsque vous essayez de comprendre ce que fait votre code !
+
+<!--
+In addition to the `Debug` trait, Rust has provided a number of traits for us
+to use with the `derive` attribute that can add useful behavior to our custom
+types. Those traits and their behaviors are listed in [Appendix C][app-c]<!--
+ignore -- >. We’ll cover how to implement these traits with custom behavior as
+well as how to create your own traits in Chapter 10. There are also many
+attributes other than `derive`; for more information, see [the “Attributes”
+section of the Rust Reference][attributes].
+-->
+
+En plus du trait `Debug`, Rust nous offre d'autres traits pour que nous
+puissions les utiliser avec l'attribut `derive` pour ajouter des comportements
+utiles à nos propres types. Ces traits et leurs comportements sont listés à
+[l'annexe C][app-c]<!-- ignore -->. Nous expliquerons comment implémenter ces
+traits avec des comportements personnalisés et comment créer vos propres traits
+au chapitre 10. Il existe aussi de nombreux attributs autres que `derive` ; pour
+en savoir plus, consultez [la section “Attributs” de la référence de
+Rust][attributes]<!-- ignore -->.
 
 <!--
 Our `area` function is very specific: it only computes the area of rectangles.
@@ -624,6 +609,18 @@ structure `Rectangle`, puisque cela ne fonctionnera pas avec un autre type.
 Voyons comment on peut continuer de remanier ce code en transformant la fonction
 `aire` en *méthode* `aire` définie sur notre type `Rectangle`.
 
-<!-- [the-tuple-type]: ch03-02-data-types.html#the-tuple-type -->
+<!--
+[the-tuple-type]: ch03-02-data-types.html#the-tuple-type
+[app-c]: appendix-03-derivable-traits.md
+[println]: ../std/macro.println.html
+[dbg]: ../std/macro.dbg.html
+[err]: ch12-06-writing-to-stderr-instead-of-stdout.html
+[attributes]: ../reference/attributes.html
+-->
 
-[the-tuple-type]: ch03-02-data-types.html#le-type-tuple
+[the-tuple-type]: ch03-02-data-types.html
+[app-c]: appendix-03-derivable-traits.md
+[println]: https://doc.rust-lang.org/std/macro.println.html
+[dbg]: https://doc.rust-lang.org/std/macro.dbg.html
+[err]: ch12-06-writing-to-stderr-instead-of-stdout.html
+[attributes]: https://doc.rust-lang.org/reference/attributes.html

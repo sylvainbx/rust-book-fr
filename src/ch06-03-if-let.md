@@ -2,38 +2,36 @@
 
 The `if let` syntax lets you combine `if` and `let` into a less verbose way to
 handle values that match one pattern while ignoring the rest. Consider the
-program in Listing 6-6 that matches on an `Option<u8>` value but only wants to
-execute code if the value is 3.
+program in Listing 6-6 that matches on an `Option<u8>` value in the `config_max`
+variable but only wants to execute code if the value is the `Some` variant.
 
 ```rust
-let some_u8_value = Some(0u8);
-match some_u8_value {
-    Some(3) => println!("three"),
-    _ => (),
-}
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-06/src/main.rs:here}}
 ```
 
 <span class="caption">Listing 6-6: A `match` that only cares about executing
-code when the value is `Some(3)`</span>
+code when the value is `Some`</span>
 
-We want to do something with the `Some(3)` match but do nothing with any other
-`Some<u8>` value or the `None` value. To satisfy the `match` expression, we
-have to add `_ => ()` after processing just one variant, which is a lot of
-boilerplate code to add.
+If the value is `Some`, we want to print out the value in the `Some` variant,
+which we do by binding the value to the variable `max` in the pattern.
+We don’t want to do anything with the `None` value. To satisfy the `match`
+expression, we have to add `_ => ()` after processing just one variant, which
+is annoying boilerplate code to add.
 
 Instead, we could write this in a shorter way using `if let`. The following
 code behaves the same as the `match` in Listing 6-6:
 
 ```rust
-# let some_u8_value = Some(0u8);
-if let Some(3) = some_u8_value {
-    println!("three");
-}
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-12-if-let/src/main.rs:here}}
 ```
 
 The syntax `if let` takes a pattern and an expression separated by an equal
 sign. It works the same way as a `match`, where the expression is given to the
-`match` and the pattern is its first arm.
+`match` and the pattern is its first arm. In this case, the pattern is
+`Some(max)`, and the `max` binds to the value inside the `Some`. We can then
+use `max` in the body of the `if let` block in the same way as we used `max` in
+the corresponding `match` arm. The code in the `if let` block isn’t run if the
+value doesn’t match the pattern.
 
 Using `if let` means less typing, less indentation, and less boilerplate code.
 However, you lose the exhaustive checking that `match` enforces. Choosing
@@ -53,48 +51,13 @@ announcing the state of the quarters, we could do that with a `match`
 expression like this:
 
 ```rust
-# #[derive(Debug)]
-# enum UsState {
-#    Alabama,
-#    Alaska,
-# }
-#
-# enum Coin {
-#    Penny,
-#    Nickel,
-#    Dime,
-#    Quarter(UsState),
-# }
-# let coin = Coin::Penny;
-let mut count = 0;
-match coin {
-    Coin::Quarter(state) => println!("State quarter from {:?}!", state),
-    _ => count += 1,
-}
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-13-count-and-announce-match/src/main.rs:here}}
 ```
 
 Or we could use an `if let` and `else` expression like this:
 
 ```rust
-# #[derive(Debug)]
-# enum UsState {
-#    Alabama,
-#    Alaska,
-# }
-#
-# enum Coin {
-#    Penny,
-#    Nickel,
-#    Dime,
-#    Quarter(UsState),
-# }
-# let coin = Coin::Penny;
-let mut count = 0;
-if let Coin::Quarter(state) = coin {
-    println!("State quarter from {:?}!", state);
-} else {
-    count += 1;
-}
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-14-count-and-announce-if-let-else/src/main.rs:here}}
 ```
 
 If you have a situation in which your program has logic that is too verbose to

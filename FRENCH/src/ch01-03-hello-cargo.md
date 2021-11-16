@@ -8,7 +8,8 @@
 Cargo is Rust’s build system and package manager. Most Rustaceans use this tool
 to manage their Rust projects because Cargo handles a lot of tasks for you,
 such as building your code, downloading the libraries your code depends on, and
-building those libraries. (We call libraries your code needs *dependencies*.)
+building those libraries. (We call the libraries that your code needs
+*dependencies*.)
 -->
 
 Cargo est le système de compilation et de gestion de paquets de Rust. La plupart
@@ -48,7 +49,13 @@ avez utilisé l'installateur officiel présenté dans la section
 autrement, vérifiez que Cargo est installé en utilisant la commande suivante
 dans votre terminal :
 
-```text
+<!--
+```console
+$ cargo --version
+```
+-->
+
+```console
 $ cargo --version
 ```
 
@@ -81,7 +88,14 @@ notre projet initial “Hello, world!”. Retournez dans votre dossier *projects
 (ou là où vous avez décidé d'enregistrer votre code). Ensuite, sur n'importe
 quel système d'exploitation, lancez les commandes suivantes :
 
-```text
+<!--
+```console
+$ cargo new hello_cargo
+$ cd hello_cargo
+```
+-->
+
+```console
 $ cargo new hello_cargo
 $ cd hello_cargo
 ```
@@ -99,15 +113,24 @@ avec le même nom.
 <!--
 Go into the *hello_cargo* directory and list the files. You’ll see that Cargo
 has generated two files and one directory for us: a *Cargo.toml* file and a
-*src* directory with a *main.rs* file inside. It has also initialized a new Git
-repository along with a *.gitignore* file.
+*src* directory with a *main.rs* file inside.
 -->
 
 Rendez-vous dans le dossier *hello_cargo* et afficher la liste des fichiers.
 Vous constaterez que Cargo a généré deux fichiers et un dossier pour nous : un
 fichier *Cargo.toml* et un dossier *src* avec un fichier *main.rs* à
-l'intérieur. Il a aussi créé un nouveau dépôt Git ainsi qu'un fichier
-*.gitignore*.
+l'intérieur.
+
+<!--
+It has also initialized a new Git repository along with a *.gitignore* file.
+Git files won’t be generated if you run `cargo new` within an existing Git
+repository; you can override this behavior by using `cargo new --vcs=git`.
+-->
+
+Il a aussi créé un nouveau dépôt Git ainsi qu'un fichier *.gitignore*. Les
+fichiers de Git ne seront pas générés si vous lancez `cargo new` au sein d'un
+dépôt Git ; vous pouvez désactiver ce comportement temporairement en utilisant
+`cargo new --vcs=git`.
 
 <!--
 > Note: Git is a common version control system. You can change `cargo new` to
@@ -134,11 +157,21 @@ Ouvrez *Cargo.toml* dans votre éditeur de texte favori. Son contenu devrait
 
 <span class="filename">Fichier : Cargo.toml</span>
 
+<!--
 ```toml
 [package]
 name = "hello_cargo"
 version = "0.1.0"
-authors = ["Your Name <you@example.com>"]
+edition = "2018"
+
+[dependencies]
+```
+-->
+
+```toml
+[package]
+name = "hello_cargo"
+version = "0.1.0"
 edition = "2018"
 
 [dependencies]
@@ -153,14 +186,12 @@ new`</span>
 new`</span>
 
 <!--
-This file is in the [*TOML*][toml]<!-- ignore -- > (*Tom’s Obvious, Minimal
-Language*) format, which is Cargo’s configuration format.
+This file is in the [*TOML*](https://toml.io)<!-- ignore -- > (*Tom’s Obvious,
+Minimal Language*) format, which is Cargo’s configuration format.
 -->
 
-Ce fichier est au format [*TOML*][toml]<!-- ignore --> (*Tom’s Obvious, Minimal
-Language*), qui est le format de configuration de Cargo.
-
-[toml]: https://github.com/toml-lang/toml
+Ce fichier est au format [*TOML*](https://toml.io)<!-- ignore --> (*Tom’s
+Obvious, Minimal Language*), qui est le format de configuration de Cargo.
 
 <!--
 The first line, `[package]`, is a section heading that indicates that the
@@ -174,19 +205,15 @@ ajouterons plus de détails à ce fichier, nous ajouterons des sections
 supplémentaires.
 
 <!--
-The next four lines set the configuration information Cargo needs to compile
-your program: the name, the version, who wrote it, and the edition of Rust to
-use. Cargo gets your name and email information from your environment, so if
-that information is not correct, fix the information now and then save the
-file. We’ll talk about the `edition` key in Appendix E.
+The next three lines set the configuration information Cargo needs to compile
+your program: the name, the version, and the edition of Rust to use. We’ll talk
+about the `edition` key in [Appendix E][appendix-e]<!-- ignore -- >.
 -->
 
-Les quatre lignes suivantes définissent les informations de configuration dont
-Cargo a besoin pour compiler votre programme : le nom, la version, l'auteur et
-l'édition de Rust à utiliser. Cargo récupère votre nom et votre courriel à
-partir de votre environnement, donc si ces informations sont erronées, vous
-pouvez les corriger dès maintenant et ensuite enregistrer le fichier. Nous
-aborderons la clé `edition` dans l'annexe E.
+Les trois lignes suivantes définissent les informations de configuration dont
+Cargo a besoin pour compiler votre programme : le nom, la version, et l'édition
+de Rust à utiliser. Nous aborderons la clé `edition` dans
+l'[Annexe E][appendix-e]<!-- ignore -->.
 
 <!--
 The last line, `[dependencies]`, is the start of a section for you to list any
@@ -212,6 +239,14 @@ Maintenant, ouvrez *src/main.rs* et jetez-y un coup d'œil :
 -->
 
 <span class="filename">Fichier : src/main.rs</span>
+
+<!--
+```rust
+fn main() {
+    println!("Hello, world!");
+}
+```
+-->
 
 ```rust
 fn main() {
@@ -274,7 +309,15 @@ Maintenant, regardons ce qu'il y a de différent quand nous compilons et
 exécutons le programme “Hello, world!” avec Cargo ! À l'intérieur de votre
 dossier *hello_cargo*, compilez votre projet en utilisant la commande suivante :
 
-```text
+<!--
+```console
+$ cargo build
+   Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
+    Finished dev [unoptimized + debuginfo] target(s) in 2.85 secs
+```
+-->
+
+```console
 $ cargo build
    Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 2.85 secs
@@ -291,13 +334,13 @@ Cette commande crée un fichier exécutable dans *target/debug/hello_cargo* (ou
 dossier courant. Vous pouvez lancer l'exécutable avec cette commande :
 
 <!--
-```text
+```console
 $ ./target/debug/hello_cargo # or .\target\debug\hello_cargo.exe on Windows
 Hello, world!
 ```
 -->
 
-```text
+```console
 $ ./target/debug/hello_cargo # ou .\target\debug\hello_cargo.exe sous Windows
 Hello, world!
 ```
@@ -330,7 +373,16 @@ Nous venons de compiler un projet avec `cargo build` avant de l'exécuter avec
 compiler le code et ensuite lancer l'exécutable dans une seule et même
 commande :
 
-```text
+<!--
+```console
+$ cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs
+     Running `target/debug/hello_cargo`
+Hello, world!
+```
+-->
+
+```console
 $ cargo run
     Finished dev [unoptimized + debuginfo] target(s) in 0.0 secs
      Running `target/debug/hello_cargo`
@@ -350,7 +402,17 @@ donc il a juste exécuté le binaire. Si vous aviez modifié votre code source,
 Cargo aurait recompilé le projet avant de le lancer, et vous auriez eu les
 messages suivants :
 
-```text
+<!--
+```console
+$ cargo run
+   Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.33 secs
+     Running `target/debug/hello_cargo`
+Hello, world!
+```
+-->
+
+```console
 $ cargo run
    Compiling hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 0.33 secs
@@ -367,7 +429,15 @@ Cargo fournit aussi une commande appelée `cargo check`. Elle vérifie rapidemen
 votre code pour s'assurer qu'il est compilable, mais ne produit pas
 d'exécutable :
 
-```text
+<!--
+```console
+$ cargo check
+   Checking hello_cargo v0.1.0 (file:///projects/hello_cargo)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.32 secs
+```
+-->
+
+```console
 $ cargo check
    Checking hello_cargo v0.1.0 (file:///projects/hello_cargo)
     Finished dev [unoptimized + debuginfo] target(s) in 0.32 secs
@@ -397,15 +467,19 @@ Let’s recap what we’ve learned so far about Cargo:
 Récapitulons ce que nous avons appris sur Cargo :
 
 <!--
-* We can build a project using `cargo build` or `cargo check`.
+* We can build a project using `cargo build`.
 * We can build and run a project in one step using `cargo run`.
+* We can build a project without producing a binary to check for errors using
+  `cargo check`.
 * Instead of saving the result of the build in the same directory as our code,
   Cargo stores it in the *target/debug* directory.
 -->
 
-* Nous pouvons compiler un projet en utilisant `cargo build` ou `cargo check`
+* Nous pouvons compiler un projet en utilisant `cargo build`.
 * Nous pouvons compiler puis exécuter un projet en une seule fois en utilisant
   `cargo run`.
+* Nous pouvons compiler un projet sans produire de binaire afin de vérifier
+  l'existance d'erreurs en utilisant `cargo check`.
 * Au lieu d'enregistrer le résultat de la compilation dans le même dossier que
   votre code, Cargo l'enregistre dans le dossier *target/debug*.
 
@@ -484,15 +558,15 @@ qu'à saisir les commandes suivantes pour télécharger le code avec Git, vous
 déplacer dans le dossier projet et compiler :
 
 <!--
-```text
-$ git clone someurl.com/someproject
+```console
+$ git clone example.org/someproject
 $ cd someproject
 $ cargo build
 ```
 -->
 
-```text
-$ git clone example.com/projet_quelconque
+```console
+$ git clone example.org/projet_quelconque
 $ cd projet_quelconque
 $ cargo build
 ```
@@ -503,6 +577,10 @@ For more information about Cargo, check out [its documentation].
 
 Pour plus d'informations à propos de Cargo, vous pouvez consulter [sa
 documentation][its documentation].
+
+<!--
+[its documentation]: https://doc.rust-lang.org/cargo/
+-->
 
 [its documentation]: https://doc.rust-lang.org/cargo/
 
@@ -549,4 +627,10 @@ Si vous préférez commencer par apprendre comment les principes de programmatio
 de base fonctionnent avec Rust, rendez-vous au chapitre 3, puis revenez au
 chapitre 2.
 
+<!--
 [installation]: ch01-01-installation.html#installation
+[appendix-e]: appendix-05-editions.html
+-->
+
+[installation]: ch01-01-installation.html#installation
+[appendix-e]: appendix-05-editions.html

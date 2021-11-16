@@ -14,14 +14,14 @@ bring a path into a scope once and then call the items in that path as if
 they’re local items with the `use` keyword.
 -->
 
-Les chemins que nous avons créés peuvent désormais paraître génants car trop
-longs et répétitifs. Par exemple, dans l'encart 7-7, si nous avions choisi
+Les chemins que nous avons écrits jusqu'ici peuvent paraître pénibles car trop
+longs et répétitifs. Par exemple, dans l'encart 7-7, que nous ayons choisi
 d'utiliser le chemin absolu ou relatif pour la fonction
-`ajouter_a_la_liste_attente`, nous devrions aussi écrire `salle_a_manger` et
-`accueil` à chaque fois que nous voullions appeler `ajouter_a_la_liste_attente`.
+`ajouter_a_la_liste_attente`, nous aurions dû aussi écrire `salle_a_manger` et
+`accueil` à chaque fois que nous voulions appeler `ajouter_a_la_liste_attente`.
 Heureusement, il existe une solution pour simplifier ce cheminement.
 Nous pouvons importer un chemin dans la portée et appeler ensuite les éléments
-de ce chemin comme s'ils étaient des locaux grâce au mot-clé `use`.
+de ce chemin comme s'ils étaient locaux grâce au mot-clé `use`.
 
 <!--
 In Listing 7-11, we bring the `crate::front_of_house::hosting` module into the
@@ -42,39 +42,13 @@ qu'à utiliser `accueil::ajouter_a_la_liste_attente` pour appeler la fonction
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-}
-
-use crate::front_of_house::hosting;
-
-pub fn eat_at_restaurant() {
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-}
-# fn main() {}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-11/src/lib.rs}}
 ```
 -->
 
-```rust
-mod salle_a_manger {
-    pub mod accueil {
-        pub fn ajouter_a_la_liste_attente() {}
-    }
-}
-
-use crate::salle_a_manger::accueil;
-
-pub fn manger_au_restaurant() {
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-}
-# fn main() {}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-11/src/lib.rs}}
 ```
 
 <!--
@@ -93,12 +67,12 @@ module had been defined in the crate root. Paths brought into scope with `use`
 also check privacy, like any other paths.
 -->
 
-Dans une portée, utiliser un `use` et un chemin revient à créer un lien
+Dans une portée, utiliser un `use` et un chemin s'apparente à créer un lien
 symbolique dans le système de fichier. Grâce à l'ajout de
-`use crate::salle_a_manger::accueil` dans la crate racine, `accueil` est
+`use crate::salle_a_manger::accueil` à la racine de la crate, `accueil` est
 maintenant un nom valide dans cette portée, comme si le module `accueil` avait
-été défini dans la crate racine. Les chemins importés dans la portée via `use`
-sont soumis au principe de protection, tout comme les autres chemins.
+été défini à la racine de la crate. Les chemins importés dans la portée via
+`use` doivent respecter les règles de visibilité, tout comme les autres chemins.
 
 <!--
 You can also bring an item into scope with `use` and a relative path. Listing
@@ -106,9 +80,9 @@ You can also bring an item into scope with `use` and a relative path. Listing
 Listing 7-11.
 -->
 
-Vous pouvez aussi importer un élément dans portée avec `use` et un chemin
-relatif. L'encart 7-12 nous montre comment utiliser un
-chemin relatif pour obtenir le même résultat que l'encart 7-11.
+Vous pouvez aussi importer un élément dans la portée avec `use` et un chemin
+relatif. L'encart 7-12 nous montre comment utiliser un chemin relatif pour
+obtenir le même résultat que l'encart 7-11.
 
 <!--
 <span class="filename">Filename: src/lib.rs</span>
@@ -117,39 +91,13 @@ chemin relatif pour obtenir le même résultat que l'encart 7-11.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-}
-
-use front_of_house::hosting;
-
-pub fn eat_at_restaurant() {
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-}
-# fn main() {}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-12/src/lib.rs}}
 ```
 -->
 
-```rust
-mod salle_a_manger {
-    pub mod accueil {
-        pub fn ajouter_a_la_liste_attente() {}
-    }
-}
-
-use salle_a_manger::accueil;
-
-pub fn manger_au_restaurant() {
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-}
-# fn main() {}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-12/src/lib.rs}}
 ```
 
 <!--
@@ -186,39 +134,13 @@ pour avoir le même résultat, comme dans l'encart 7-13.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-}
-
-use crate::front_of_house::hosting::add_to_waitlist;
-
-pub fn eat_at_restaurant() {
-    add_to_waitlist();
-    add_to_waitlist();
-    add_to_waitlist();
-}
-# fn main() {}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-13/src/lib.rs}}
 ```
 -->
 
-```rust
-mod salle_a_manger {
-    pub mod accueil {
-        pub fn ajouter_a_la_liste_attente() {}
-    }
-}
-
-use crate::salle_a_manger::accueil::ajouter_a_la_liste_attente;
-
-pub fn manger_au_restaurant() {
-    ajouter_a_la_liste_attente();
-    ajouter_a_la_liste_attente();
-    ajouter_a_la_liste_attente();
-}
-# fn main() {}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-13/src/lib.rs}}
 ```
 
 <!--
@@ -233,19 +155,21 @@ into scope with `use`, which is unidiomatic</span>
 <!--
 Although both Listing 7-11 and 7-13 accomplish the same task, Listing 7-11 is
 the idiomatic way to bring a function into scope with `use`. Bringing the
-function’s parent module into scope with `use` so we have to specify the parent
-module when calling the function makes it clear that the function isn’t locally
-defined while still minimizing repetition of the full path. The code in Listing
-7-13 is unclear as to where `add_to_waitlist` is defined.
+function’s parent module into scope with `use` means we have to specify the
+parent module when calling the function. Specifying the parent module when
+calling the function makes it clear that the function isn’t locally defined
+while still minimizing repetition of the full path. The code in Listing 7-13 is
+unclear as to where `add_to_waitlist` is defined.
 -->
 
 Bien que l'encart 7-11 et 7-13 accomplissent la même tâche, l'encart 7-11 est la
-façon idéale d'importer une fonction dans la portée via `use`. Le fait
-d'importer le module parent de la fonction dans notre portée avec `use`, de
-sorte que nous ayons à préciser le module parent quand nous appelons la fonction
-précise clairement que la fonction n'est pas définie localement, tout en
-minimisant la répétition du chemin complet. Nous ne pouvons pas en déduire
-facilement où est défini `ajouter_a_la_liste_attente` dans l'encart 7-13.
+façon idéale d'importer une fonction dans la portée via `use`. L'import du
+module parent de la fonction dans notre portée avec `use` nécessite que nous
+ayons à préciser le module parent quand nous appelons la fonction. Renseigner le
+module parent lorsque nous appelons la fonction précise clairement que la
+fonction n'est pas définie localement, tout en minimisant la répétition du
+chemin complet. Nous ne pouvons pas repérer facilement là où est défini
+`ajouter_a_la_liste_attente` dans l'encart 7-13.
 
 <!--
 On the other hand, when bringing in structs, enums, and other items with `use`,
@@ -265,13 +189,14 @@ standard dans la portée d'une crate binaire.
 
 <span class="filename">Fichier : src/main.rs</span>
 
+<!--
 ```rust
-use std::collections::HashMap;
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-14/src/main.rs}}
+```
+-->
 
-fn main() {
-    let mut map = HashMap::new();
-    map.insert(1, 2);
-}
+```rust
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-14/src/main.rs}}
 ```
 
 <!--
@@ -301,7 +226,7 @@ different parent modules and how to refer to them.
 Il y a une exception à cette pratique : nous ne pouvons pas utiliser
 l'instruction `use` pour importer deux éléments avec le même nom dans la portée,
 car Rust ne l'autorise pas. L'encart 7-15 nous montre comment importer puis
-utiliser deux types `Result` ayant le même nom mais dont leurs modules parents
+utiliser deux types `Result` ayant le même nom mais dont les modules parents
 sont distincts.
 
 <!--
@@ -311,35 +236,13 @@ sont distincts.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-use std::fmt;
-use std::io;
-
-fn function1() -> fmt::Result {
-    // --snip--
-#     Ok(())
-}
-
-fn function2() -> io::Result<()> {
-    // --snip--
-#     Ok(())
-}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-15/src/lib.rs:here}}
 ```
 -->
 
-```rust
-use std::fmt;
-use std::io;
-
-fn fonction1() -> fmt::Result {
-    // -- code masqué ici --
-#     Ok(())
-}
-
-fn fonction2() -> io::Result<()> {
-    // -- code masqué ici --
-#     Ok(())
-}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-15/src/lib.rs:here}}
 ```
 
 <!--
@@ -359,9 +262,9 @@ meant when we used `Result`.
 
 Comme vous pouvez le constater, l'utilisation des modules parents permet de
 distinguer les deux types `Result`. Si nous avions utilisé
-`use std::fmt::Result` et `use std::io::Result`, nous aurions deux types de
+`use std::fmt::Result` et `use std::io::Result`, nous aurions deux types nommés
 `Result` dans la même portée et donc Rust ne pourrait pas comprendre lequel nous
-utiliserions en demandant `Result`.
+voudrions utiliser en demandant `Result`.
 
 <!--
 ### Providing New Names with the `as` Keyword
@@ -379,7 +282,7 @@ code in Listing 7-15 by renaming one of the two `Result` types using `as`.
 Il y a une autre solution au fait d'avoir deux types du même nom dans la même
 portée à cause de `use` : après le chemin, nous pouvons rajouter `as` suivi d'un
 nouveau nom local, ou alias, sur le type. L'encart 7-16 nous montre une autre
-façon d'écrire le code de l'encart 7-15 en utilisant `as` pour renommant un des
+façon d'écrire le code de l'encart 7-15 en utilisant `as` pour renommer un des
 deux types `Result`.
 
 <!--
@@ -389,35 +292,13 @@ deux types `Result`.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-use std::fmt::Result;
-use std::io::Result as IoResult;
-
-fn function1() -> Result {
-    // --snip--
-#     Ok(())
-}
-
-fn function2() -> IoResult<()> {
-    // --snip--
-#     Ok(())
-}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-16/src/lib.rs:here}}
 ```
 -->
 
-```rust
-use std::fmt::Result;
-use std::io::Result as IoResult;
-
-fn fonction1() -> Result {
-    // -- code masqué ici --
-#     Ok(())
-}
-
-fn fonction2() -> IoResult<()> {
-    // -- code masqué ici --
-#     Ok(())
-}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-16/src/lib.rs:here}}
 ```
 
 <!--
@@ -438,13 +319,13 @@ considered idiomatic, so the choice is up to you!
 Dans la seconde instruction `use`, nous avons choisi `IoResult` comme nouveau
 nom du type `std::io::Result`, qui n'est plus en conflit avec le `Result` de
 `std::fmt` que nous avons aussi importé dans la portée. Les encarts 7-15 et 7-16
-sont idéaux, donc le choix vous revient ! 
+sont idéaux, donc le choix vous revient !
 
 <!--
 ### Re-exporting Names with `pub use`
 -->
 
-### Re-exporter des éléments avec `pub use`
+### Réexporter des éléments avec `pub use`
 
 <!--
 When we bring a name into scope with the `use` keyword, the name available in
@@ -458,9 +339,9 @@ their scope.
 Lorsque nous importons un élément dans la portée avec le mot-clé `use`, son nom
 dans la nouvelle portée est privé. Pour permettre au code appelant d'utiliser ce
 nom comme s'il était défini dans cette portée, nous pouvons associer `pub` et
-`use`. Cette technique est appelée *re-exporter* car nous importons un
-élément dans la portée, mais nous rendons aussi cet élément disponible aux
-portées des autres.
+`use`. Cette technique est appelée *réexporter* car nous importons un élément
+dans la portée, mais nous rendons aussi cet élément disponible aux portées des
+autres.
 
 <!--
 Listing 7-17 shows the code in Listing 7-11 with `use` in the root module
@@ -477,39 +358,13 @@ a été remplacé par `pub use`.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-}
-
-pub use crate::front_of_house::hosting;
-
-pub fn eat_at_restaurant() {
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-    hosting::add_to_waitlist();
-}
-# fn main() {}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-17/src/lib.rs}}
 ```
 -->
 
-```rust
-mod salle_a_manger {
-    pub mod accueil {
-        pub fn ajouter_a_la_liste_attente() {}
-    }
-}
-
-pub use crate::salle_a_manger::accueil;
-
-pub fn manger_au_restaurant() {
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-    accueil::ajouter_a_la_liste_attente();
-}
-# fn main() {}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs}}
 ```
 
 <!--
@@ -544,15 +399,15 @@ structure. Doing so makes our library well organized for programmers working on
 the library and programmers calling the library.
 -->
 
-Re-exporter est utile quand la structure interne de votre code est différente de
-comment les développeurs qui utilisent votre code imaginent le domaine. Par
+Réexporter est utile quand la structure interne de votre code est différente de
+la façon dont les développeurs qui utilisent votre code se la représentent. Par
 exemple, dans cette métaphore du restaurant, les personnes qui font fonctionner
 le restaurant se structurent en fonction de la “salle à manger” et des
 “cuisines”. Mais les clients qui utilisent le restaurant ne vont probablement
-voir les choses ainsi. Avec `pub use`, nous pouvons écrire notre code selon une
-certaine organisation, mais l'exposer avec une organisation différente. En
+pas voir les choses ainsi. Avec `pub use`, nous pouvons écrire notre code selon
+une certaine organisation, mais l'exposer avec une organisation différente. En
 faisant ainsi, la bibliothèque est bien organisée autant pour les développeurs
-qui travaillent dans la bibliothèque que les développeurs qui utilisent la
+qui travaillent sur la bibliothèque que pour les développeurs qui utilisent la
 bibliothèque.
 
 <!--
@@ -567,15 +422,17 @@ package called `rand` to get random numbers. To use `rand` in our project, we
 added this line to *Cargo.toml*:
 -->
 
-Dans le chapitre 2, nous avions développé un projet de jeu de devinettes qui
-utilisait le paquet externe `rand` afin d'obtenir des nombres aléatoires.
-Pour pouvoir utiliser `rand` dans notre projet, nous avons ajouté cette ligne
+Dans le chapitre 2, nous avions développé un projet de jeu du plus ou du moins
+qui utilisait le paquet externe `rand` afin d'obtenir des nombres aléatoires.
+Pour pouvoir utiliser `rand` dans notre projet, nous avions ajouté cette ligne
 dans *Cargo.toml* :
 
+<!--
 <!-- When updating the version of `rand` used, also update the version of
 `rand` used in these files so they all match:
 * ch02-00-guessing-game-tutorial.md
 * ch14-03-cargo-workspaces.md
+-- >
 -->
 
 <!--
@@ -584,9 +441,14 @@ dans *Cargo.toml* :
 
 <span class="filename">Fichier : Cargo.toml</span>
 
+<!--
 ```toml
-[dependencies]
-rand = "0.5.5"
+{{#include ../listings-sources/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:}}
+```
+-->
+
+```toml
+{{#include ../listings/ch02-guessing-game-tutorial/listing-02-02/Cargo.toml:9:}}
 ```
 
 <!--
@@ -601,46 +463,41 @@ télécharger le paquet `rand` et toutes ses dépendances à partir de
 
 <!--
 Then, to bring `rand` definitions into the scope of our package, we added a
-`use` line starting with the name of the package, `rand`, and listed the items
+`use` line starting with the name of the crate, `rand`, and listed the items
 we wanted to bring into scope. Recall that in the [“Generating a Random
 Number”][rand]<!-- ignore -- > section in Chapter 2, we brought the `Rng` trait
 into scope and called the `rand::thread_rng` function:
 -->
 
 Ensuite, pour importer les définitions de `rand` dans la portée de notre paquet,
-nous avons ajouté une ligne `use` qui commence avec le nom de notre paquet,
-`rand`, et nous avons listé les éléments que nous voulions importer dans notre
-portée. Dans la section [“Générer le nombre secret”][rand]<!-- ignore --> du
-chapitre 2, nous avons importé le trait `Rng` dans la portée, puis nous avons
-appelé la fonction `rand::thread_rng` :
+nous avions ajouté une ligne `use` qui commence avec le nom de la crate, `rand`,
+et nous avions listé les éléments que nous voulions importer dans notre portée.
+Dans la section [“Générer le nombre secret”][rand]<!-- ignore --> du chapitre 2,
+nous avions importé le trait `Rng` dans la portée, puis nous avions appelé la
+fonction `rand::thread_rng` :
 
 <!--
 ```rust,ignore
-use rand::Rng;
-fn main() {
-    let secret_number = rand::thread_rng().gen_range(1, 101);
-}
+{{#rustdoc_include ../listings-sources/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:ch07-04}}
 ```
 -->
 
 ```rust,ignore
-use rand::Rng;
-fn main() {
-    let nombre_secret = rand::thread_rng().gen_range(1, 101);
-}
+{{#rustdoc_include ../listings/ch02-guessing-game-tutorial/listing-02-03/src/main.rs:ch07-04}}
 ```
 
 <!--
 Members of the Rust community have made many packages available at
 [crates.io](https://crates.io/), and pulling any of them into your package
 involves these same steps: listing them in your package’s *Cargo.toml* file and
-using `use` to bring items into scope.
+using `use` to bring items from their crates into scope.
 -->
 
-Les membres de la communauté Rust ont mis à disposition de nombreux paquets
-dans [crates.io](https://crates.io/), et utiliser l'un d'entre eux dans votre
-paquet implique toujours ces mêmes étapes : les lister dans le fichier
-*Cargo.toml* de votre paquet et utiliser `use` pour les importer dans la portée.
+Les membres de la communauté Rust ont mis à disposition de nombreux paquets sur
+[crates.io](https://crates.io/), et utiliser l'un d'entre eux dans votre paquet
+implique toujours ces mêmes étapes : les lister dans le fichier *Cargo.toml* de
+votre paquet et utiliser `use` pour importer certains éléments de ces crates
+dans la portée.
 
 <!--
 Note that the standard library (`std`) is also a crate that’s external to our
@@ -653,9 +510,15 @@ with `HashMap` we would use this line:
 Notez que la bibliothèque standard (`std`) est aussi une crate qui est externe à
 notre paquet. Comme la bibliothèque standard est livrée avec le langage Rust,
 nous n'avons pas à modifier le *Cargo.toml* pour y inclure `std`. Mais nous
-devons utiliser `use` pour importer les éléments qu'y se trouvent dans la portée
-de notre paquet. Par exemple, pour `HashMap` nous pourrions utiliser cette
+devons utiliser `use` pour importer les éléments qui se trouvent dans la portée
+de notre paquet. Par exemple, pour `HashMap`, nous pourrions utiliser cette
 ligne :
+
+<!--
+```rust
+use std::collections::HashMap;
+```
+-->
 
 ```rust
 use std::collections::HashMap;
@@ -676,17 +539,17 @@ bibliothèque standard.
 ### Utiliser des chemins imbriqués pour simplifier les grandes listes de `use`
 
 <!--
-If we’re using multiple items defined in the same package or same module,
+If we’re using multiple items defined in the same crate or same module,
 listing each item on its own line can take up a lot of vertical space in our
 files. For example, these two `use` statements we had in the Guessing Game in
 Listing 2-4 bring items from `std` into scope:
 -->
 
-Si vous utilisez de nombreux éléments définis dans un même paquet ou dans un
+Si vous utilisez de nombreux éléments définis dans une même crate ou dans un
 même module, lister chaque élément sur sa propre ligne prendra beaucoup d'espace
 vertical dans vos fichiers. Par exemple, ces deux instructions `use`, que nous
-avions dans le jeu de devinettes, dans l'encart 2-4, importaient des éléments de
-`std` dans la portée :
+avions dans le jeu du plus ou du moins dans l'encart 2-4, importaient des
+éléments de `std` dans la portée :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -695,17 +558,13 @@ avions dans le jeu de devinettes, dans l'encart 2-4, importaient des éléments 
 <span class="filename">Fichier : src/main.rs</span>
 
 <!--
-```rust
-use std::io;
-use std::cmp::Ordering;
-// ---snip---
+```rust,ignore
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/no-listing-01-use-std-unnested/src/main.rs:here}}
 ```
 -->
 
-```rust
-use std::io;
-use std::cmp::Ordering;
-// --- code masqué ici ---
+```rust,ignore
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/no-listing-01-use-std-unnested/src/main.rs:here}}
 ```
 
 <!--
@@ -715,10 +574,11 @@ colons, and then curly brackets around a list of the parts of the paths that
 differ, as shown in Listing 7-18.
 -->
 
-A la place, nous pouvons utiliser des chemins imbriqués afin d'importer les
+À la place, nous pouvons utiliser des chemins imbriqués afin d'importer ces
 mêmes éléments dans la portée en une seule ligne. Nous pouvons faire cela en
-indiquant la partie commune du chemin, suivi de deux double-points, puis
-d'accolades autour d'une liste d'éléments du chemin, comme dans l'encart 7-18 :
+indiquant la partie commune du chemin, suivi d'un double deux-points, puis
+d'accolades autour d'une liste des éléments qui diffèrent entre les chemins,
+comme dans l'encart 7-18 :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -727,15 +587,13 @@ d'accolades autour d'une liste d'éléments du chemin, comme dans l'encart 7-18�
 <span class="filename">Fichier : src/main.rs</span>
 
 <!--
-```rust
-use std::{cmp::Ordering, io};
-// ---snip---
+```rust,ignore
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-18/src/main.rs:here}}
 ```
 -->
 
-```rust
-use std::{cmp::Ordering, io};
-// --- code masqué ici ---
+```rust,ignore
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-18/src/main.rs:here}}
 ```
 
 <!--
@@ -747,13 +605,13 @@ items with the same prefix into scope</span>
 plusieurs éléments avec le même préfixe dans la portée</span>
 
 <!--
-In bigger programs, bringing many items into scope from the same package or
+In bigger programs, bringing many items into scope from the same crate or
 module using nested paths can reduce the number of separate `use` statements
 needed by a lot!
 -->
 
-Pour des programmes plus gros, importer plusieurs éléments dans la portée pour
-le même paquet ou module en utilisant des chemins imbriqués peut réduire
+Pour des programmes plus gros, importer plusieurs éléments dans la portée depuis
+la même crate ou module en utilisant des chemins imbriqués peut réduire
 considérablement le nombre de `use` utilisés !
 
 <!--
@@ -766,8 +624,8 @@ two `use` statements that share a subpath. For example, Listing 7-19 shows two
 Nous pouvons utiliser un chemin imbriqué à tous les niveaux d'un chemin, ce qui
 peut être utile lorsqu'on utilise deux instructions `use` qui partagent un
 sous-chemin. Par exemple, l'encart 7-19 nous montre deux instructions `use` :
-un qui importe `std::io` dans la portée et un autre qui importe `std::io::Write`
-dans la portée.
+une qui importe `std::io` dans la portée et une autre qui importe
+`std::io::Write` dans la portée.
 
 <!--
 <span class="filename">Filename: src/lib.rs</span>
@@ -775,9 +633,14 @@ dans la portée.
 
 <span class="filename">Fichier : src/lib.rs</span>
 
-```rust
-use std::io;
-use std::io::Write;
+<!--
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-19/src/lib.rs}}
+```
+-->
+
+```rust,noplayground
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-19/src/lib.rs}}
 ```
 
 <!--
@@ -804,8 +667,14 @@ nous pouvons utiliser `self` dans le chemin imbriqué, comme dans l'encart 7-20.
 
 <span class="filename">Fichier : src/lib.rs</span>
 
-```rust
-use std::io::{self, Write};
+<!--
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch07-managing-growing-projects/listing-07-20/src/lib.rs}}
+```
+-->
+
+```rust,noplayground
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-20/src/lib.rs}}
 ```
 
 <!--
@@ -857,7 +726,8 @@ was defined.
 Cette instruction `use` va importer tous les éléments publics définis dans
 `std::collections` dans la portée courante. Mais soyez prudent quand vous
 utilisez l'opérateur global ! L'opérateur global rend difficile à dire quels
-éléments sont dans la portée et où un élément est utilisé dans notre programme.
+éléments sont dans la portée et là où un élément utilisé dans notre programme a
+été défini.
 
 <!--
 The glob operator is often used when testing to bring everything under test
@@ -869,8 +739,8 @@ for more information on that pattern.
 -->
 
 L'opérateur global est souvent utilisé lorsque nous écrivons des tests, pour
-importer tout ce qui a à tester dans le module `tests` ; nous verrons cela dans
-une section du [chapitre 11][writing-tests]. L'opérateur global est parfois
+importer tout ce qu'il y a à tester dans le module `tests` ; nous verrons cela
+dans une section du [chapitre 11][writing-tests]. L'opérateur global est parfois
 aussi utilisé pour l'étape préliminaire : rendez-vous dans [la documentation de
 la bibliothèque
 standard](https://doc.rust-lang.org/std/prelude/index.html#other-preludes)<!--

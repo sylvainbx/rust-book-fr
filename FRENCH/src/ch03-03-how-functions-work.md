@@ -5,27 +5,27 @@
 ## Les fonctions
 
 <!--
-Functions are pervasive in Rust code. You’ve already seen one of the most
+Functions are prevalent in Rust code. You’ve already seen one of the most
 important functions in the language: the `main` function, which is the entry
 point of many programs. You’ve also seen the `fn` keyword, which allows you to
 declare new functions.
 -->
 
-Les fonctions sont omniprésentes dans le code Rust. Vous avez déjà vu l'une des
+Les fonctions sont très utilisées dans le code Rust. Vous avez déjà vu l'une des
 fonctions les plus importantes du langage : la fonction `main`, qui est le point
 d'entrée de beaucoup de programmes. Vous avez aussi vu le mot-clé `fn`, qui vous
 permet de déclarer des nouvelles fonctions.
 
 <!--
 Rust code uses *snake case* as the conventional style for function and variable
-names. In snake case, all letters are lowercase and underscores separate words.
+names, in which all letters are lowercase and underscores separate words.
 Here’s a program that contains an example function definition:
 -->
 
 Le code Rust utilise le *snake case* comme convention de style de nom des
-fonctions et des variables. Avec le *snake case*, toutes les lettres sont en
-minuscule et on utilise des tirets bas pour séparer les mots. Voici un programme
-qui est un exemple de définition de fonction :
+fonctions et des variables, toutes les lettres sont en minuscule et on utilise
+des tirets bas pour séparer les mots. Voici un programme qui est un exemple de
+définition de fonction :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -35,39 +35,23 @@ qui est un exemple de définition de fonction :
 
 <!--
 ```rust
-fn main() {
-    println!("Hello, world!");
-
-    another_function();
-}
-
-fn another_function() {
-    println!("Another function.");
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-16-functions/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    println!("Hello, world!");
-
-    une_autre_fonction();
-}
-
-fn une_autre_fonction() {
-    println!("Une autre fonction.");
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-16-functions/src/main.rs}}
 ```
 
 <!--
-Function definitions in Rust start with `fn` and have a set of parentheses
-after the function name. The curly brackets tell the compiler where the
-function body begins and ends.
+We define a function in Rust by entering `fn` followed by a function name and a
+set of parentheses. The curly brackets tell the compiler where the function
+body begins and ends.
 -->
 
-La définition d'une fonction avec Rust commence par `fn` et a une paire de
-parenthèses après le nom de la fonction. Les accolades indiquent au compilateur
-où le corps de la fonction commence et où il se termine.
+Nous définissons une fonction avec Rust en saisissant `fn` suivi par un nom de
+fonction ainsi qu'une paire de parenthèses. Les accolades indiquent au
+compilateur où le corps de la fonction commence et où il se termine.
 
 <!--
 We can call any function we’ve defined by entering its name followed by a set
@@ -97,23 +81,13 @@ apprendre plus sur les fonctions. Ajoutez l'exemple `une_autre_fonction` dans le
 *src/main.rs* et exécutez-le. Vous devriez avoir ceci :
 
 <!--
-```text
-$ cargo run
-   Compiling functions v0.1.0 (file:///projects/functions)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.28 secs
-     Running `target/debug/functions`
-Hello, world!
-Another function.
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-16-functions/output.txt}}
 ```
 -->
 
-```text
-$ cargo run
-   Compiling functions v0.1.0 (file:///projects/functions)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.28 secs
-     Running `target/debug/functions`
-Hello, world!
-Une autre fonction.
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-16-functions/output.txt}}
 ```
 
 <!--
@@ -127,22 +101,22 @@ fonction `main`. D'abord, le message `Hello, world!` est écrit, et ensuite
 `une_autre_fonction` est appelée et son message est affiché.
 
 <!--
-### Function Parameters
+### Parameters
 -->
 
-### Les paramètres de fonctions
+### Les paramètres
 
 <!--
-Functions can also be defined to have *parameters*, which are special variables
-that are part of a function’s signature. When a function has parameters, you
-can provide it with concrete values for those parameters. Technically, the
-concrete values are called *arguments*, but in casual conversation, people tend
-to use the words *parameter* and *argument* interchangeably for either the
-variables in a function’s definition or the concrete values passed in when you
-call a function.
+We can define functions to have *parameters*, which are special variables that
+are part of a function’s signature. When a function has parameters, you can
+provide it with concrete values for those parameters. Technically, the concrete
+values are called *arguments*, but in casual conversation, people tend to use
+the words *parameter* and *argument* interchangeably for either the variables
+in a function’s definition or the concrete values passed in when you call a
+function.
 -->
 
-Les fonctions peuvent aussi être définies avec des *paramètres*, qui sont des
+Nous pouvons définir des fonctions avec des *paramètres*, qui sont des
 variables spéciales qui font partie de la signature de la fonction. Quand une
 fonction a des paramètres, vous pouvez lui fournir des valeurs concrètes avec
 ces paramètres. Techniquement, ces valeurs concrètes sont appelées des
@@ -152,12 +126,10 @@ variables dans la définition d'une fonction, soit les valeurs concrètes passé
 quand on appelle une fonction.
 
 <!--
-The following rewritten version of `another_function` shows what parameters
-look like in Rust:
+In this version of `another_function` we add a parameter:
 -->
 
-La version réécrite de `une_autre_fonction` montre comment utiliser un paramètre
-avec Rust :
+Dans cette version de `une_autre_fonction`, nous ajoutons un paramètre :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -167,24 +139,12 @@ avec Rust :
 
 <!--
 ```rust
-fn main() {
-    another_function(5);
-}
-
-fn another_function(x: i32) {
-    println!("The value of x is: {}", x);
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-17-functions-with-parameters/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    une_autre_fonction(5);
-}
-
-fn une_autre_fonction(x: i32) {
-    println!("La valeur de x est : {}", x);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-17-functions-with-parameters/src/main.rs}}
 ```
 
 <!--
@@ -194,32 +154,24 @@ Try running this program; you should get the following output:
 En exécutant ce programme, vous devriez obtenir ceci :
 
 <!--
-```text
-$ cargo run
-   Compiling functions v0.1.0 (file:///projects/functions)
-    Finished dev [unoptimized + debuginfo] target(s) in 1.21 secs
-     Running `target/debug/functions`
-The value of x is: 5
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-17-functions-with-parameters/output.txt}}
 ```
 -->
 
-```text
-$ cargo run
-   Compiling functions v0.1.0 (file:///projects/functions)
-    Finished dev [unoptimized + debuginfo] target(s) in 1.21 secs
-     Running `target/debug/functions`
-La valeur de x est : 5
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-17-functions-with-parameters/output.txt}}
 ```
 
 <!--
 The declaration of `another_function` has one parameter named `x`. The type of
-`x` is specified as `i32`. When `5` is passed to `another_function`, the
+`x` is specified as `i32`. When we pass `5` in to `another_function`, the
 `println!` macro puts `5` where the pair of curly brackets were in the format
 string.
 -->
 
 La déclaration de `une_autre_fonction` a un paramètre nommé `x`. Le type de
-`x` a été déclaré comme `i32`. Quand `5` est passé à `une_autre_fonction`, la
+`x` a été déclaré comme `i32`. Quand nous passons `5` à `une_autre_fonction`, la
 macro `println!` place `5` là où la paire d'accolades `{}` a été placée dans la
 chaîne de formatage.
 
@@ -227,22 +179,22 @@ chaîne de formatage.
 In function signatures, you *must* declare the type of each parameter. This is
 a deliberate decision in Rust’s design: requiring type annotations in function
 definitions means the compiler almost never needs you to use them elsewhere in
-the code to figure out what you mean.
+the code to figure out what type you mean.
 -->
 
 Dans la signature d'une fonction, vous *devez* déclarer le type de chaque
 paramètre. C'est un choix délibéré de conception de Rust : exiger l'annotation
 de type dans la définition d'une fonction fait en sorte que le compilateur n'a
-presque plus besoin que vous les utilisiez autre part pour qu'il comprenne ce
-que vous voulez faire.
+presque plus besoin que vous les utilisiez autre part pour qu'il comprenne avec
+quel type vous souhaitez travailler.
 
 <!--
-When you want a function to have multiple parameters, separate the parameter
-declarations with commas, like this:
+When defining multiple parameters, separate the parameter declarations with
+commas, like this:
 -->
 
-Lorsque vous souhaitez qu'une fonction ait plusieurs paramètres, séparez les
-paramètres avec des virgules, comme ceci :
+Lorsque vous définissez plusieurs paramètres, séparez les paramètres avec des
+virgules, comme ceci :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -252,39 +204,25 @@ paramètres avec des virgules, comme ceci :
 
 <!--
 ```rust
-fn main() {
-    another_function(5, 6);
-}
-
-fn another_function(x: i32, y: i32) {
-    println!("The value of x is: {}", x);
-    println!("The value of y is: {}", y);
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-18-functions-with-multiple-parameters/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    une_autre_fonction(5, 6);
-}
-
-fn une_autre_fonction(x: i32, y: i32) {
-    println!("La valeur de x est : {}", x);
-    println!("La valeur de y est : {}", y);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-18-functions-with-multiple-parameters/src/main.rs}}
 ```
 
 <!--
-This example creates a function with two parameters, both of which are `i32`
-types. The function then prints the values in both of its parameters. Note that
-function parameters don’t all need to be the same type, they just happen to be
-in this example.
+This example creates a function named `print_labeled_measurement` with two
+parameters. The first parameter is named `value` and is an `i32`. The second is
+named `unit_label` and is type `char`. The function then prints text containing
+both the `value` and the `unit_label`.
 -->
 
-Cet exemple crée une fonction avec deux paramètres, chacun d'eux sont du type
-`i32`. La fonction affiche ensuite les valeurs de ses deux paramètres.
-Notez que les paramètres des fonctions n'ont pas besoin d'être du même type,
-nous sommes dans cette situation uniquement pour les besoins de notre exemple.
+Cet exemple crée la fonction `afficher_mesure_avec_unite` qui a deux paramètres.
+Le premier paramètre s'appelle `valeur` et est un `i32`. Le second, `nom_unite`,
+est de type `char`. La fonction affiche ensuite le texte qui contient les
+valeurs de `valeur` et de `nom_unite`.
 
 <!--
 Let’s try running this code. Replace the program currently in your *functions*
@@ -297,75 +235,66 @@ votre fichier *src/main.rs* de votre projet *functions* par l'exemple précéden
 et lancez-le en utilisant `cargo run` :
 
 <!--
-```text
-$ cargo run
-   Compiling functions v0.1.0 (file:///projects/functions)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
-     Running `target/debug/functions`
-The value of x is: 5
-The value of y is: 6
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-18-functions-with-multiple-parameters/output.txt}}
 ```
 -->
 
-```text
-$ cargo run
-   Compiling functions v0.1.0 (file:///projects/functions)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
-     Running `target/debug/functions`
-La valeur de x est : 5
-La valeur de y est : 6
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-18-functions-with-multiple-parameters/output.txt}}
 ```
 
 <!--
-Because we called the function with `5` as the value for  `x` and `6` is passed
-as the value for `y`, the two strings are printed with these values.
+Because we called the function with `5` as the value for `value` and `'h'` as
+the value for `unit_label`, the program output contains those values.
 -->
 
-Comme nous avons appelé la fonction avec la valeur `5` pour `x` et `6` pour
-`y`, deux lignes sont affichées avec ces valeurs.
+Comme nous avons appelé la fonction avec la valeur `5` pour `valeur` et `'h'`
+pour `nom_unite`, la sortie de ce programme contient ces valeurs.
 
 <!--
-### Function Bodies Contain Statements and Expressions
+### Statements and Expressions
 -->
 
-### Corps de fonction avec des instructions et des expressions
+### Instructions et expressions
 
 <!--
 Function bodies are made up of a series of statements optionally ending in an
-expression. So far, we’ve only covered functions without an ending expression,
-but you have seen an expression as part of a statement. Because Rust is an
-expression-based language, this is an important distinction to understand.
-Other languages don’t have the same distinctions, so let’s look at what
-statements and expressions are and how their differences affect the bodies of
-functions.
+expression. So far, the functions we've covered haven't included an ending
+expression, but you have seen an expression as part of a statement. Because
+Rust is an expression-based language, this is an important distinction to
+understand. Other languages don’t have the same distinctions, so let’s look at
+what statements and expressions are and how their differences affect the bodies
+of functions.
 -->
 
 Les corps de fonctions sont constitués d'une série d'instructions qui se
-termine éventuellement par une expression. Jusqu'à présent, nous avons vu des
-fonctions sans expression à la fin, mais vous avez déjà vu une expression faire
-partie d'une instruction. Comme Rust est un langage basé sur des expressions,
-il est important de faire la distinction. D'autres langages ne font pas de
-telles distinctions, donc penchons-nous sur ce que sont les instructions et les
-expressions et comment leurs différences influent sur le corps des fonctions.
+termine éventuellement par une expression. Jusqu'à présent, les fonctions que
+nous avons vu n'avaient pas d'expression à la fin, mais vous avez déjà vu une
+expression faire partie d'une instruction. Comme Rust est un langage basé sur
+des expressions, il est important de faire la distinction. D'autres langages ne
+font pas de telles distinctions, donc penchons-nous sur ce que sont les
+instructions et les expressions et comment leurs différences influent sur le
+corps des fonctions.
 
 <!--
-We’ve actually already used statements and expressions. *Statements* are
-instructions that perform some action and do not return a value. *Expressions*
-evaluate to a resulting value. Let’s look at some examples.
+*Statements* are instructions that perform some action and do not return a
+value. *Expressions* evaluate to a resulting value. Let’s look at some examples.
 -->
 
-Nous avons déjà utilisé des instructions et des expressions. Les *instructions*
-effectuent des actions et ne retournent aucune valeur.
+Les *instructions* effectuent des actions et ne retournent aucune valeur.
 Les *expressions* sont évaluées pour retourner une valeur comme résultat.
 Voyons quelques exemples.
 
 <!--
-Creating a variable and assigning a value to it with the `let` keyword is a
-statement. In Listing 3-1, `let y = 6;` is a statement.
+We’ve actually already used statements and expressions. Creating a variable and
+assigning a value to it with the `let` keyword is a statement. In Listing 3-1,
+`let y = 6;` is a statement.
 -->
 
-Créer une variable en lui assignant une valeur avec le mot-clé `let` constitue
-une instruction. Dans l'encart 3-1, `let y = 6;` est une instruction.
+Nous avons déjà utilisé des instructions et des expressions. La création d'une
+variable en lui assignant une valeur avec le mot-clé `let` est une instruction.
+Dans l'encart 3-1, `let y = 6;` est une instruction.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -373,10 +302,14 @@ une instruction. Dans l'encart 3-1, `let y = 6;` est une instruction.
 
 <span class="filename">Fichier : src/main.rs</span>
 
+<!--
 ```rust
-fn main() {
-    let y = 6;
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/listing-03-01/src/main.rs}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-01/src/main.rs}}
 ```
 
 <!-- markdownlint-disable -->
@@ -411,10 +344,14 @@ essaye de le faire, car vous obtiendrez une erreur :
 
 <span class="filename">Fichier : src/main.rs</span>
 
+<!--
 ```rust,ignore,does_not_compile
-fn main() {
-    let x = (let y = 6);
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-19-statements-vs-expressions/src/main.rs}}
+```
+-->
+
+```rust,ignore,does_not_compile
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-19-statements-vs-expressions/src/main.rs}}
 ```
 
 <!--
@@ -424,16 +361,14 @@ When you run this program, the error you’ll get looks like this:
 Quand vous exécutez ce programme, l'erreur que vous obtenez devrait ressembler à
 ceci :
 
-```text
-$ cargo run
-   Compiling functions v0.1.0 (file:///projects/functions)
-error: expected expression, found statement (`let`)
- -- > src/main.rs:2:14
-  |
-2 |     let x = (let y = 6);
-  |              ^^^
-  |
-  = note: variable declaration using `let` is a statement
+<!--
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-19-statements-vs-expressions/output.txt}}
+```
+-->
+
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-19-statements-vs-expressions/output.txt}}
 ```
 
 <!--
@@ -451,23 +386,23 @@ langages, vous pouvez écrire `x = y = 6` et avoir ainsi `x` et `y` qui ont
 chacun la valeur `6` ; cela n'est pas possible avec Rust.
 
 <!--
-Expressions evaluate to something and make up most of the rest of the code that
-you’ll write in Rust. Consider a simple math operation, such as `5 + 6`, which
-is an expression that evaluates to the value `11`. Expressions can be part of
+Expressions evaluate to a value and make up most of the rest of the code that
+you’ll write in Rust. Consider a math operation, such as `5 + 6`, which is an
+expression that evaluates to the value `11`. Expressions can be part of
 statements: in Listing 3-1, the `6` in the statement `let y = 6;` is an
 expression that evaluates to the value `6`. Calling a function is an
-expression. Calling a macro is an expression. The block that we use to create
-new scopes, `{}`, is an expression, for example:
+expression. Calling a macro is an expression. A new scope block created with
+curly brackets is an expression, for example:
 -->
 
-Les expressions sont évaluées et seront ce que vous écrirez le plus en Rust
-(hormis les instructions). Prenez une simple opération mathématique, comme
-`5 + 6`, qui est une expression qui s'évalue à la valeur `11`. Les expressions
-peuvent faire partie d'une instruction : dans l'encart 3-1, le `6` dans
-l'instruction `let y = 6;` est une expression qui s'évalue à la valeur `6`.
+Les expressions sont calculées en tant que valeur et seront ce que vous écrirez
+le plus en Rust (hormis les instructions). Prenez une opération mathématique,
+comme `5 + 6`, qui est une expression qui s'évalue à la valeur `11`. Les
+expressions peuvent faire partie d'une instruction : dans l'encart 3-1, le `6`
+dans l'instruction `let y = 6;` est une expression qui s'évalue à la valeur `6`.
 L'appel de fonction est aussi une expression. L'appel de macro est une
-expression. Le bloc que nous utilisons pour créer une nouvelle portée, `{}`,
-est une expression, par exemple :
+expression. Un nouveau bloc de portée que nous créons avec des accolades est
+une expression, par exemple :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -477,30 +412,12 @@ est une expression, par exemple :
 
 <!--
 ```rust
-fn main() {
-    let x = 5;
-
-    let y = {
-        let x = 3;
-        x + 1
-    };
-
-    println!("The value of y is: {}", y);
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-20-blocks-are-expressions/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let x = 5;
-
-    let y = {
-        let x = 3;
-        x + 1
-    };
-
-    println!("La valeur de y est : {}", y);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-20-blocks-are-expressions/src/main.rs}}
 ```
 
 <!--
@@ -508,6 +425,15 @@ This expression:
 -->
 
 L'expression suivante…
+
+<!--
+```rust,ignore
+{
+    let x = 3;
+    x + 1
+}
+```
+-->
 
 ```rust,ignore
 {
@@ -518,21 +444,21 @@ L'expression suivante…
 
 <!--
 is a block that, in this case, evaluates to `4`. That value gets bound to `y`
-as part of the `let` statement. Note the `x + 1` line without a semicolon at
-the end, which is unlike most of the lines you’ve seen so far. Expressions do
-not include ending semicolons. If you add a semicolon to the end of an
-expression, you turn it into a statement, which will then not return a value.
+as part of the `let` statement. Note that the `x + 1` line doesn't have a
+semicolon at the end, unlike most of the lines you’ve seen so far. Expressions
+do not include ending semicolons. If you add a semicolon to the end of an
+expression, you turn it into a statement, and it will then not return a value.
 Keep this in mind as you explore function return values and expressions next.
 -->
 
 … est un bloc qui, dans ce cas, s'évalue à `4`. Cette valeur est assignée à `y`
-dans le cadre de l'instruction `let`. Remarquez la ligne `x + 1` qui ne se
-termine pas par un point-virgule, ce qui est différent de la plupart
-des lignes que vous avez vues jusque là. Les expressions n'ont pas de
-point-virgule de fin de ligne. Si vous ajoutez un point-virgule à la fin de
-l'expression, vous la transformez en instruction, qui ne va donc pas retourner
-de valeur. Gardez ceci à l'esprit quand nous aborderons prochainement les
-valeurs de retour des fonctions ainsi que les expressions.
+dans le cadre de l'instruction `let`. Remarquez la ligne `x + 1` ne se termine
+pas par un point-virgule, ce qui est différent de la plupart des lignes que
+vous avez vues jusque là. Les expressions n'ont pas de point-virgule de fin de
+ligne. Si vous ajoutez un point-virgule à la fin de l'expression, vous la
+transformez en instruction, et elle ne va donc pas retourner de valeur. Gardez
+ceci à l'esprit quand nous aborderons prochainement les valeurs de retour des
+fonctions ainsi que les expressions.
 
 <!--
 ### Functions with Return Values
@@ -567,28 +493,12 @@ Voici un exemple d'une fonction qui retourne une valeur :
 
 <!--
 ```rust
-fn five() -> i32 {
-    5
-}
-
-fn main() {
-    let x = five();
-
-    println!("The value of x is: {}", x);
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-21-function-return-values/src/main.rs}}
 ```
 -->
 
 ```rust
-fn cinq() -> i32 {
-    5
-}
-
-fn main() {
-    let x = cinq();
-
-    println!("La valeur de x est : {}", x);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-21-function-return-values/src/main.rs}}
 ```
 
 <!--
@@ -605,21 +515,13 @@ parfaitement valide avec Rust. Remarquez que le type de retour de la fonction a
 devrait ressembler à ceci :
 
 <!--
-```text
-$ cargo run
-   Compiling functions v0.1.0 (file:///projects/functions)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.30 secs
-     Running `target/debug/functions`
-The value of x is: 5
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-21-function-return-values/output.txt}}
 ```
 -->
 
-```text
-$ cargo run
-   Compiling functions v0.1.0 (file:///projects/functions)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.30 secs
-     Running `target/debug/functions`
-La valeur de x est : 5
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-21-function-return-values/output.txt}}
 ```
 
 <!--
@@ -635,6 +537,12 @@ type de retour de `i32`. Regardons cela plus en détail. Il y a deux éléments
 importants : premièrement, la ligne `let x = cinq();` dit que nous utilisons
 la valeur de retour de la fonction pour initialiser la variable. Comme la
 fonction `cinq` retourne un `5`, cette ligne revient à faire ceci :
+
+<!--
+```rust
+let x = 5;
+```
+-->
 
 ```rust
 let x = 5;
@@ -664,28 +572,12 @@ Regardons un autre exemple :
 
 <!--
 ```rust
-fn main() {
-    let x = plus_one(5);
-
-    println!("The value of x is: {}", x);
-}
-
-fn plus_one(x: i32) -> i32 {
-    x + 1
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-22-function-parameter-and-return/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let x = plus_un(5);
-
-    println!("La valeur de x est : {}", x);
-}
-
-fn plus_un(x: i32) -> i32 {
-    x + 1
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-22-function-parameter-and-return/src/main.rs}}
 ```
 
 <!--
@@ -706,28 +598,12 @@ d'une expression à une instruction, nous obtenons une erreur.
 
 <!--
 ```rust,ignore,does_not_compile
-fn main() {
-    let x = plus_one(5);
-
-    println!("The value of x is: {}", x);
-}
-
-fn plus_one(x: i32) -> i32 {
-    x + 1;
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-23-statements-dont-return-values/src/main.rs}}
 ```
 -->
 
 ```rust,ignore,does_not_compile
-fn main() {
-    let x = plus_un(5);
-
-    println!("La valeur de x est : {}", x);
-}
-
-fn plus_un(x: i32) -> i32 {
-    x + 1;
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-23-statements-dont-return-values/src/main.rs}}
 ```
 
 <!--
@@ -737,42 +613,20 @@ Compiling this code produces an error, as follows:
 Compiler ce code va produire une erreur, comme ci-dessous :
 
 <!--
-```text
-error[E0308]: mismatched types
- -- > src/main.rs:7:28
-  |
-7 |   fn plus_one(x: i32) -> i32 {
-  |  ____________________________^
-8 | |     x + 1;
-  | |          - help: consider removing this semicolon
-9 | | }
-  | |_^ expected i32, found ()
-  |
-  = note: expected type `i32`
-             found type `()`
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-23-statements-dont-return-values/output.txt}}
 ```
 -->
 
-```text
-error[E0308]: mismatched types
- -- > src/main.rs:7:28
-  |
-7 |   fn plus_un(x: i32) -> i32 {
-  |  ___________________________^
-8 | |     x + 1;
-  | |          - help: consider removing this semicolon
-9 | | }
-  | |_^ expected i32, found ()
-  |
-  = note: expected type `i32`
-             found type `()`
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-23-statements-dont-return-values/output.txt}}
 ```
 
 <!--
 The main error message, “mismatched types,” reveals the core issue with this
 code. The definition of the function `plus_one` says that it will return an
 `i32`, but statements don’t evaluate to a value, which is expressed by `()`,
-an empty tuple. Therefore, nothing is returned, which contradicts the function
+the unit type. Therefore, nothing is returned, which contradicts the function
 definition and results in an error. In this output, Rust provides a message to
 possibly help rectify this issue: it suggests removing the semicolon, which
 would fix the error.
@@ -781,7 +635,7 @@ would fix the error.
 Le message d'erreur principal, “mismatched types” *(types inadéquats)* donne le
 cœur du problème de ce code. La définition de la fonction `plus_un` dit qu'elle
 va retourner un `i32`, mais les instructions ne retournent pas de valeur, ceci
-est donc représenté par `()`, un *tuple* vide. Par conséquent, rien n'est
+est donc représenté par `()`, le type unité. Par conséquent, rien n'est
 retourné, ce qui contredit la définition de la fonction et provoque une erreur.
 Rust affiche un message qui peut aider à corriger ce problème : il suggère
 d'enlever le point-virgule, ce qui va résoudre notre problème.
