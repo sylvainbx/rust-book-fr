@@ -101,3 +101,4 @@
     - [Utiliser les tâches pour exécuter simultanément du code](ch16-01-threads.md)
     - [Utiliser l'envoi de messages pour transférer des données entre les tâches](ch16-02-message-passing.md)
     - [Le partage d'état en concurrence](ch16-03-shared-state.md)
+    - [Etendre la concurrence avec les traits `Sync` et `Send`](ch16-04-extensible-concurrency-sync-and-send.md)
