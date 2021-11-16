@@ -19,10 +19,7 @@ listing the possible kinds an IP address can be, `V4` and `V6`. These are the
 variants of the enum:
 
 ```rust
-enum IpAddrKind {
-    V4,
-    V6,
-}
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-01-defining-enums/src/main.rs:def}}
 ```
 
 `IpAddrKind` is now a custom data type that we can use elsewhere in our code.
@@ -32,13 +29,7 @@ enum IpAddrKind {
 We can create instances of each of the two variants of `IpAddrKind` like this:
 
 ```rust
-# enum IpAddrKind {
-#     V4,
-#     V6,
-# }
-#
-let four = IpAddrKind::V4;
-let six = IpAddrKind::V6;
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-01-defining-enums/src/main.rs:instance}}
 ```
 
 Note that the variants of the enum are namespaced under its identifier, and we
@@ -48,26 +39,13 @@ both values `IpAddrKind::V4` and `IpAddrKind::V6` are of the same type:
 `IpAddrKind`:
 
 ```rust
-# enum IpAddrKind {
-#     V4,
-#     V6,
-# }
-#
-fn route(ip_kind: IpAddrKind) { }
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-01-defining-enums/src/main.rs:fn}}
 ```
 
 And we can call this function with either variant:
 
 ```rust
-# enum IpAddrKind {
-#     V4,
-#     V6,
-# }
-#
-# fn route(ip_kind: IpAddrKind) { }
-#
-route(IpAddrKind::V4);
-route(IpAddrKind::V6);
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-01-defining-enums/src/main.rs:fn_call}}
 ```
 
 Using enums has even more advantages. Thinking more about our IP address type,
@@ -76,25 +54,7 @@ only know what *kind* it is. Given that you just learned about structs in
 Chapter 5, you might tackle this problem as shown in Listing 6-1.
 
 ```rust
-enum IpAddrKind {
-    V4,
-    V6,
-}
-
-struct IpAddr {
-    kind: IpAddrKind,
-    address: String,
-}
-
-let home = IpAddr {
-    kind: IpAddrKind::V4,
-    address: String::from("127.0.0.1"),
-};
-
-let loopback = IpAddr {
-    kind: IpAddrKind::V6,
-    address: String::from("::1"),
-};
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-01/src/main.rs:here}}
 ```
 
 <span class="caption">Listing 6-1: Storing the data and `IpAddrKind` variant of
@@ -115,18 +75,16 @@ variant. This new definition of the `IpAddr` enum says that both `V4` and `V6`
 variants will have associated `String` values:
 
 ```rust
-enum IpAddr {
-    V4(String),
-    V6(String),
-}
-
-let home = IpAddr::V4(String::from("127.0.0.1"));
-
-let loopback = IpAddr::V6(String::from("::1"));
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-02-enum-with-data/src/main.rs:here}}
 ```
 
 We attach data to each variant of the enum directly, so there is no need for an
-extra struct.
+extra struct. Here it’s also easier to see another detail of how enums work:
+the name of each enum variant that we define also becomes a function that
+constructs an instance of the enum. That is, `IpAddr::V4()` is a function call
+that takes a `String` argument and returns an instance of the `IpAddr` type. We
+automatically get this constructor function defined as a result of defining the
+enum.
 
 There’s another advantage to using an enum rather than a struct: each variant
 can have different types and amounts of associated data. Version four type IP
@@ -136,14 +94,7 @@ still express `V6` addresses as one `String` value, we wouldn’t be able to wit
 a struct. Enums handle this case with ease:
 
 ```rust
-enum IpAddr {
-    V4(u8, u8, u8, u8),
-    V6(String),
-}
-
-let home = IpAddr::V4(127, 0, 0, 1);
-
-let loopback = IpAddr::V6(String::from("::1"));
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-03-variants-with-different-data/src/main.rs:here}}
 ```
 
 We’ve shown several different ways to define data structures to store version
@@ -186,12 +137,7 @@ Let’s look at another example of an enum in Listing 6-2: this one has a wide
 variety of types embedded in its variants.
 
 ```rust
-enum Message {
-    Quit,
-    Move { x: i32, y: i32 },
-    Write(String),
-    ChangeColor(i32, i32, i32),
-}
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-02/src/main.rs:here}}
 ```
 
 <span class="caption">Listing 6-2: A `Message` enum whose variants each store
@@ -200,7 +146,7 @@ different amounts and types of values</span>
 This enum has four variants with different types:
 
 * `Quit` has no data associated with it at all.
-* `Move` includes an anonymous struct inside it.
+* `Move` has named fields like a struct does.
 * `Write` includes a single `String`.
 * `ChangeColor` includes three `i32` values.
 
@@ -211,13 +157,7 @@ type. The following structs could hold the same data that the preceding enum
 variants hold:
 
 ```rust
-struct QuitMessage; // unit struct
-struct MoveMessage {
-    x: i32,
-    y: i32,
-}
-struct WriteMessage(String); // tuple struct
-struct ChangeColorMessage(i32, i32, i32); // tuple struct
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-04-structs-similar-to-message-enum/src/main.rs:here}}
 ```
 
 But if we used the different structs, which each have their own type, we
@@ -229,21 +169,7 @@ define methods on structs using `impl`, we’re also able to define methods on
 enums. Here’s a method named `call` that we could define on our `Message` enum:
 
 ```rust
-# enum Message {
-#     Quit,
-#     Move { x: i32, y: i32 },
-#     Write(String),
-#     ChangeColor(i32, i32, i32),
-# }
-#
-impl Message {
-    fn call(&self) {
-        // method body would be defined here
-    }
-}
-
-let m = Message::Write(String::from("hello"));
-m.call();
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-05-methods-on-enums/src/main.rs:here}}
 ```
 
 The body of the method would use `self` to get the value that we called the
@@ -301,8 +227,8 @@ as follows:
 
 ```rust
 enum Option<T> {
-    Some(T),
     None,
+    Some(T),
 }
 ```
 
@@ -315,19 +241,22 @@ still variants of type `Option<T>`.
 The `<T>` syntax is a feature of Rust we haven’t talked about yet. It’s a
 generic type parameter, and we’ll cover generics in more detail in Chapter 10.
 For now, all you need to know is that `<T>` means the `Some` variant of the
-`Option` enum can hold one piece of data of any type. Here are some examples of
-using `Option` values to hold number types and string types:
+`Option` enum can hold one piece of data of any type, and that each concrete
+type that gets used in place of `T` makes the overall `Option<T>` type a
+different type. Here are some examples of using `Option` values to hold number
+types and string types:
 
 ```rust
-let some_number = Some(5);
-let some_string = Some("a string");
-
-let absent_number: Option<i32> = None;
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-06-option-examples/src/main.rs:here}}
 ```
 
-If we use `None` rather than `Some`, we need to tell Rust what type of
-`Option<T>` we have, because the compiler can’t infer the type that the `Some`
-variant will hold by looking only at a `None` value.
+The type of `some_number` is `Option<i32>`. The type of `some_string` is
+`Option<&str>`, which is a different type. Rust can infer these types because
+we’ve specified a value inside the `Some` variant. For `absent_number`, Rust
+requires us to annotate the overall `Option` type: the compiler can’t infer the
+type that the corresponding `Some` variant will hold by looking only at a
+`None` value. Here, we tell Rust that we mean for `absent_number` to be of type
+`Option<i32>`.
 
 When we have a `Some` value, we know that a value is present and the value is
 held within the `Some`. When we have a `None` value, in some sense, it means
@@ -340,22 +269,13 @@ definitely a valid value. For example, this code won’t compile because it’s
 trying to add an `i8` to an `Option<i8>`:
 
 ```rust,ignore,does_not_compile
-let x: i8 = 5;
-let y: Option<i8> = Some(5);
-
-let sum = x + y;
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-07-cant-use-option-directly/src/main.rs:here}}
 ```
 
 If we run this code, we get an error message like this:
 
-```text
-error[E0277]: the trait bound `i8: std::ops::Add<std::option::Option<i8>>` is
-not satisfied
- -->
-  |
-5 |     let sum = x + y;
-  |                 ^ no implementation for `i8 + std::option::Option<i8>`
-  |
+```console
+{{#include ../listings/ch06-enums-and-pattern-matching/no-listing-07-cant-use-option-directly/output.txt}}
 ```
 
 Intense! In effect, this error message means that Rust doesn’t understand how

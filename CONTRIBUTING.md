@@ -13,19 +13,25 @@ repository.
 The Rust project has [a code of conduct](http://rust-lang.org/policies/code-of-conduct)
 that governs all sub-projects, including this one. Please respect it!
 
-## Review
+## Expectations
 
-Our [open pull requests][pulls] are new chapters or edits that we're
-currently working on. We would love if you would read through those and make
-comments for any suggestions or corrections!
+Because the book is [printed](https://nostarch.com/rust), and because we want
+to keep the online version of the book close to the print version when
+possible, it may take longer than you're used to for us to address your issue
+or pull request.
 
-[pulls]: https://github.com/rust-lang/book/pulls
+So far, we've been doing a larger revision to coincide with [Rust
+Editions](https://doc.rust-lang.org/edition-guide/). Between those larger
+revisions, we will only be correcting errors. If your issue or pull request
+isn't strictly fixing an error, it might sit until the next time that we're
+working on a large revision: expect on the order of months or years. Thank you
+for your patience!
 
 ## Help wanted
 
 If you're looking for ways to help that don't involve large amounts of
 reading or writing, check out the [open issues with the E-help-wanted
-label][help-wanted]. These might be small fixes to the text Rust code,
+label][help-wanted]. These might be small fixes to the text, Rust code,
 frontend code, or shell scripts that would help us be more efficient or
 enhance the book in some way!
 

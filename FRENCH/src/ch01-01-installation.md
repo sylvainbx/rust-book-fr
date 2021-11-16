@@ -16,16 +16,20 @@ les outils qui leur sont associés. Vous allez avoir besoin d'une connexion
 Internet pour le téléchargement.
 
 <!--
-> Note: If you prefer not to use `rustup` for some reason, please see [the Rust
-> installation page](https://www.rust-lang.org/tools/install) for other options.
+> Note: If you prefer not to use `rustup` for some reason, please see the
+> [Other Rust Installation Methods page][install] for more options.
 -->
 
 > Note : si vous préférez ne pas utiliser `rustup` pour une raison ou une autre,
 > vous pouvez vous référer à
-> [la page d'installation de Rust][rust-installation-page]
+> [la page des autres moyens d'installation de Rust][rust-installation-page]
 > pour d'autres méthodes d'installation.
 
-[rust-installation-page]: https://www.rust-lang.org/tools/install
+<!--
+[install]: https://forge.rust-lang.org/infra/other-installation-methods.html
+-->
+
+[install]: https://forge.rust-lang.org/infra/other-installation-methods.html
 
 <!--
 The following steps install the latest stable version of the Rust compiler.
@@ -78,8 +82,14 @@ If you’re using Linux or macOS, open a terminal and enter the following comman
 Si vous utilisez Linux ou macOS, ouvrez un terminal et écrivez la commande
 suivante :
 
-```text
-$ curl https://sh.rustup.rs -sSf | sh
+<!--
+```console
+$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+```
+-->
+
+```console
+$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 ```
 
 <!--
@@ -93,65 +103,57 @@ qui va installer la dernière version stable de Rust. Il est possible que l'on
 vous demande votre mot de passe. Si l'installation se déroule bien, vous
 devriez voir la ligne suivante s'afficher :
 
+<!--
+```text
+Rust is installed now. Great!
+```
+-->
+
 ```text
 Rust is installed now. Great!
 ```
 
 <!--
-If you prefer, feel free to download the script and inspect it before running
-it.
+You will also need a linker, which is a program that Rust uses to join its
+compiled outputs into one file. It is likely you already have one. If you get
+linker errors, you should install a C compiler, which will typically include a
+linker. A C compiler is also useful because some common Rust packages depend on
+C code and will need a C compiler.
 -->
 
-Si vous préférez, vous pouvez télécharger le script et l'examiner avant de le
-lancer.
+Vous aurez aussi besoin d'un *linker*, qui est un programme que Rust utilise
+pour regrouper ses multiples résultats de compilation dans un unique fichier.
+Il est probable que vous en ayez déjà un d'installé, mais si vous avez des
+erreurs à propos du *linker*, cela veut dire vous devrez installer un
+compilateur de langage C, qui inclura généralement un *linker*. Un compilateur
+est parfois utile car certains paquets Rust communs nécessitent du code C et
+auront besoin d'un compilateur C.
 
 <!--
-The installation script automatically adds Rust to your system PATH after your
-next login. If you want to start using Rust right away instead of restarting
-your terminal, run the following command in your shell to add Rust to your
-system PATH manually:
+On macOS, you can get a C compiler by running:
 -->
 
-Le script d'installation va ajouter automatiquement Rust dans la variable
-*PATH* de votre système après votre prochaine connexion utilisateur.
-Si vous préférez utiliser Rust tout de suite au lieu de redémarrer votre
-terminal, lancez la commande suivante dans votre terminal pour ajouter Rust dans
-le *PATH* de votre système manuellement :
+Sur macOS, vous pouvez obtenir un compilateur C en lançant la commande :
 
-```text
-$ source $HOME/.cargo/env
+<!--
+```console
+$ xcode-select --install
+```
+-->
+
+```console
+$ xcode-select --install
 ```
 
 <!--
-Alternatively, you can add the following line to your *~/.bash_profile*:
+Linux users should generally install GCC or Clang, according to their
+distribution’s documentation. For example, if you use Ubuntu, you can install
+the `build-essential` package.
 -->
 
-Vous pouvez aussi ajouter la ligne suivante dans votre *~/.bash_profile* :
-
-```text
-$ export PATH="$HOME/.cargo/bin:$PATH"
-```
-
-<!--
-Additionally, you’ll need a linker of some kind. It’s likely one is already
-installed, but when you try to compile a Rust program and get errors indicating
-that a linker could not execute, that means a linker isn’t installed on your
-system and you’ll need to install one manually. C compilers usually come with
-the correct linker. Check your platform’s documentation for how to install a C
-compiler. Also, some common Rust packages depend on C code and will need a C
-compiler. Therefore, it might be worth installing one now.
--->
-
-De plus, vous aurez peut-être besoin d'un *linker* quelconque. Il est probable
-qu'il y en ait déjà un d'installé, mais si vous essayez de compiler un
-programme Rust et que vous avez des erreurs qui disent que le *linker* ne peut
-pas être exécuté, cela veut dire qu'il n'y a pas de *linker* d'installé sur
-votre système et que vous devrez en installer un manuellement. Les
-compilateurs C sont généralement livrés avec un bon *linker*. Référez-vous à la
-documentation de votre plateforme pour savoir comment installer un compilateur
-C. De plus, certains paquets Rust communs nécessitent du code C et auront
-besoin d'un compilateur C. C'est pourquoi cela vaut la peine d'en installer un
-dès maintenant.
+Les utilisateurs de Linux doivent généralement install GCC ou Clang, en fonction
+de la documentation de leur distribution. Par exemple, si vous utilisez Ubuntu,
+vous pouvez installer le paquet `build-essential`.
 
 <!--
 ### Installing `rustup` on Windows
@@ -164,8 +166,9 @@ On Windows, go to [https://www.rust-lang.org/tools/install][install] and follow
 the instructions for installing Rust. At some point in the installation, you’ll
 receive a message explaining that you’ll also need the C++ build tools for
 Visual Studio 2013 or later. The easiest way to acquire the build tools is to
-install [Build Tools for Visual Studio 2019][visualstudio]. The tools are in
-the Other Tools and Frameworks section.
+install [Build Tools for Visual Studio 2019][visualstudio]. When asked which
+workloads to install make sure “C++ build tools” is selected and that the
+Windows 10 SDK and the English language pack components are included.
 -->
 
 Sous Windows, il faut aller sur
@@ -174,19 +177,21 @@ pour installer Rust. À un moment donné durant l'installation, vous aurez un
 message vous expliquant qu'il va vous falloir l'outil de compilation C++
 pour Visual Studio 2013 ou plus récent. La méthode la plus facile pour obtenir
 les outils de compilation est d'installer
-[Build Tools pour Visual Studio 2019][visualstudio].
+[Build Tools pour Visual Studio 2019][visualstudio]. Lorsque vous aurez à
+sélectionner les composants à installer, assurez-vous que les “Outils de
+compilation C++” sont bien sélectionnés, et que le SDK Windows 10 et les paquets
+de langage Anglais sont bien inclus.
 
-<!-- markdownlint-disable -->
 <!--
 [install]: https://www.rust-lang.org/tools/install
-[visualstudio]: https://www.visualstudio.com/downloads/#build-tools-for-visual-studio-2019
+[visualstudio]: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+
 FR translation: the website redirects to French version, we lose the "id" link.
 Fix is directly below:
 -->
-<!-- markdownlint-restore -->
 
 [install]: https://www.rust-lang.org/tools/install
-[visualstudio]: https://www.visualstudio.com/fr/downloads/#build-tools-for-visual-studio-2019
+[visualstudio]: https://visualstudio.microsoft.com/fr/visual-cpp-build-tools/
 
 <!--
 The rest of this book uses commands that work in both *cmd.exe* and PowerShell.
@@ -211,7 +216,13 @@ easy. From your shell, run the following update script:
 Après avoir installé Rust avec `rustup`, la mise à jour vers la dernière version
 est facile. Dans votre terminal, lancez le script de mise à jour suivant :
 
-```text
+<!--
+```console
+$ rustup update
+```
+-->
+
+```console
 $ rustup update
 ```
 
@@ -223,7 +234,13 @@ shell:
 Pour désinstaller Rust et `rustup`, exécutez le script de désinstallation
 suivant dans votre terminal :
 
-```text
+<!--
+```console
+$ rustup self uninstall
+```
+-->
+
+```console
 $ rustup self uninstall
 ```
 
@@ -241,7 +258,13 @@ line:
 Pour vérifier si Rust est correctement installé, ouvrez un terminal et entrez
 cette ligne :
 
-```text
+<!--
+```console
+$ rustc --version
+```
+-->
+
+```console
 $ rustc --version
 ```
 
@@ -253,6 +276,12 @@ stable version that has been released in the following format:
 Vous devriez voir le numéro de version, le *hash* de *commit*,
 et la date de *commit* de la dernière version stable qui a été publiée,
 au format suivant :
+
+<!--
+```text
+rustc x.y.z (abcabcabc yyyy-mm-dd)
+```
+-->
 
 ```text
 rustc x.y.z (abcabcabc yyyy-mm-dd)
@@ -278,9 +307,15 @@ dialoguer en ligne avec d'autres *Rustacés* (un surnom ridicule que nous nous
 donnons entre nous) qui pourront vous aider. D'autres bonnes sources de données
 sont [le forum d'utilisateurs][users] et [Stack Overflow][stackoverflow].
 
+<!--
 [discord]: https://discord.gg/rust-lang
 [users]: https://users.rust-lang.org/
-[stackoverflow]: http://stackoverflow.com/questions/tagged/rust
+[stackoverflow]: https://stackoverflow.com/questions/tagged/rust
+-->
+
+[discord]: https://discord.gg/rust-lang
+[users]: https://users.rust-lang.org/
+[stackoverflow]: https://stackoverflow.com/questions/tagged/rust
 
 <!--
 ### Local Documentation

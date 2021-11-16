@@ -63,32 +63,12 @@ fin du mot. Essayons cela, dans l'encart 4-7 :
 
 <!--
 ```rust
-fn first_word(s: &String) -> usize {
-    let bytes = s.as_bytes();
-
-    for (i, &item) in bytes.iter().enumerate() {
-        if item == b' ' {
-            return i;
-        }
-    }
-
-    s.len()
-}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-07/src/main.rs:here}}
 ```
 -->
 
 ```rust
-fn premier_mot(s: &String) -> usize {
-    let octets = s.as_bytes();
-
-    for (i, &element) in octets.iter().enumerate() {
-        if element == b' ' {
-            return i;
-        }
-    }
-
-    s.len()
-}
+{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-07/src/main.rs:here}}
 ```
 
 <!--
@@ -111,12 +91,12 @@ tableau d'octets en utilisant la méthode `as_bytes` :
 
 <!--
 ```rust,ignore
-let bytes = s.as_bytes();
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-07/src/main.rs:as_bytes}}
 ```
 -->
 
 ```rust,ignore
-let octets = s.as_bytes();
+{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-07/src/main.rs:as_bytes}}
 ```
 
 <!--
@@ -128,12 +108,12 @@ méthode `iter` :
 
 <!--
 ```rust,ignore
-for (i, &item) in bytes.iter().enumerate() {
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-07/src/main.rs:iter}}
 ```
 -->
 
 ```rust,ignore
-for (i, &element) in octets.iter().enumerate() {
+{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-07/src/main.rs:iter}}
 ```
 
 <!--
@@ -154,18 +134,18 @@ C'est un peu plus pratique que de calculer les indices par nous-mêmes.
 
 <!--
 Because the `enumerate` method returns a tuple, we can use patterns to
-destructure that tuple, just like everywhere else in Rust. So in the `for`
-loop, we specify a pattern that has `i` for the index in the tuple and `&item`
-for the single byte in the tuple. Because we get a reference to the element
-from `.iter().enumerate()`, we use `&` in the pattern.
+destructure that tuple. We’ll be discussing patterns more in Chapter 6. So in
+the `for` loop, we specify a pattern that has `i` for the index in the tuple
+and `&item` for the single byte in the tuple. Because we get a reference to the
+element from `.iter().enumerate()`, we use `&` in the pattern.
 -->
 
-Comme la méthode `enumerate` retourne un tuple, nous pouvons utiliser des motifs
-pour déstructurer ce tuple, comme nous pourrions le faire n'importe où avec
-Rust. Donc dans la boucle `for`, nous précisons un motif qui indique que nous
-définissons `i` pour l'indice au sein du tuple et `&element` pour l'octet dans
-le tuple. Comme nous obtenons une référence vers l'élément avec
-`.iter().enumerate()`, nous utilisons `&` dans le motif.
+Comme la méthode `enumerate` retourne un tuple, nous pouvons utiliser des
+motifs pour déstructurer ce tuple. Nous verrons les motifs au chapitre 6. Donc
+dans la boucle `for`, nous précisons un motif qui indique que nous définissons
+`i` pour l'indice au sein du tuple et `&element` pour l'octet dans le tuple.
+Comme nous obtenons une référence vers l'élément avec `.iter().enumerate()`,
+nous utilisons `&` dans le motif.
 
 <!--
 Inside the `for` loop, we search for the byte that represents the space by
@@ -180,22 +160,12 @@ utilisant `s.len()` :
 
 <!--
 ```rust,ignore
-    if item == b' ' {
-        return i;
-    }
-}
-
-s.len()
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-07/src/main.rs:inside_for}}
 ```
 -->
 
 ```rust,ignore
-    if element == b' ' {
-        return i;
-    }
-}
-
-s.len()
+{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-07/src/main.rs:inside_for}}
 ```
 
 <!--
@@ -222,54 +192,12 @@ dans l'encart 4-8 qui utilise la fonction `premier_mot` de l'encart 4-7 :
 
 <!--
 ```rust
-# fn first_word(s: &String) -> usize {
-#     let bytes = s.as_bytes();
-#
-#     for (i, &item) in bytes.iter().enumerate() {
-#         if item == b' ' {
-#             return i;
-#         }
-#     }
-#
-#     s.len()
-# }
-#
-fn main() {
-    let mut s = String::from("hello world");
-
-    let word = first_word(&s); // word will get the value 5
-
-    s.clear(); // this empties the String, making it equal to ""
-
-    // word still has the value 5 here, but there's no more string that
-    // we could meaningfully use the value 5 with. word is now totally invalid!
-}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-08/src/main.rs:here}}
 ```
 -->
 
 ```rust
-# fn premier_mot(s: &String) -> usize {
-#     let octets = s.as_bytes();
-#
-#     for (i, &element) in octets.iter().enumerate() {
-#         if element == b' ' {
-#             return i;
-#         }
-#     }
-#
-#     s.len()
-# }
-#
-fn main() {
-    let mut s = String::from("hello world");
-
-    let mot = premier_mot(&s); // la variable mot aura 5 comme valeur.
-
-    s.clear(); // ceci vide la String, elle vaut maintenant "".
-
-    // mot a toujours la valeur 5 ici, mais il n'y a plus de chaîne qui donne
-    // du sens à la valeur 5. mot est maintenant complètement invalide !
-}
+{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-08/src/main.rs:here}}
 ```
 
 <!--
@@ -348,11 +276,14 @@ A *string slice* is a reference to part of a `String`, and it looks like this:
 Une *slice de chaîne de caractères* (ou *slice de chaîne*) est une référence à
 une partie d'une `String`, et ressemble à ceci :
 
+<!--
 ```rust
-let s = String::from("hello world");
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/no-listing-17-slice/src/main.rs:here}}
+```
+-->
 
-let hello = &s[0..5];
-let world = &s[6..11];
+```rust
+{{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-17-slice/src/main.rs:here}}
 ```
 
 <!--
@@ -365,7 +296,6 @@ Cela ressemble à une référence pour toute la `String`, mais avec la partie
 `[0..5]` en plus. Plutôt que d'être une référence vers toute la `String`, c'est
 une référence vers une partie de la `String`.
 
-<!-- markdownlint-disable -->
 <!--
 We can create slices using a range within brackets by specifying
 `[starting_index..ending_index]`, where `starting_index` is the first position
@@ -373,9 +303,9 @@ in the slice and `ending_index` is one more than the last position in the
 slice. Internally, the slice data structure stores the starting position and
 the length of the slice, which corresponds to `ending_index` minus
 `starting_index`. So in the case of `let world = &s[6..11];`, `world` would be
-a slice that contains a pointer to the 7th byte (counting from 1) of `s` with a length value of 5.
+a slice that contains a pointer to the byte at index 6 of `s` with a length
+value of 5.
 -->
-<!-- markdownlint-enable -->
 
 Nous pouvons créer des slices en utilisant un intervalle entre crochets en
 spécifiant `[indice_debut..indice_fin]`, où `indice_debut` est la position du
@@ -383,8 +313,8 @@ premier octet de la slice et `indice_fin` est la position juste après le dernie
 octet de la slice. En interne, la structure de données de la slice stocke la
 position de départ et la longueur de la slice, ce qui correspond à `indice_fin`
 moins `indice_debut`. Donc dans le cas de `let world = &s[6..11];`, `world` est
-une slice qui contient un pointeur vers le septième octet (en comptant à partir
-de 1) de `s` et une longueur de 5.
+une slice qui contient un pointeur vers le sixième octet de `s` et une longueur
+de 5.
 
 <!--
 Figure 4-6 shows this in a diagram.
@@ -394,7 +324,7 @@ L'illustration 4-6 montre ceci dans un schéma.
 
 <!-- markdownlint-disable -->
 <!--
-<img alt="world containing a pointer to the 6th byte of String s and a length 5" src="img/trpl04-06.svg" class="center" style="width: 50%;" />
+<img alt="world containing a pointer to the byte at index 6 of String s and a length 5" src="img/trpl04-06.svg" class="center" style="width: 50%;" />
 -->
 <!-- markdownlint-restore -->
 
@@ -410,13 +340,22 @@ une longueur de 5" src="img/trpl04-06.svg" class="center" style="width: 50%;" />
 une partie d'une `String`</span>
 
 <!--
-With Rust’s `..` range syntax, if you want to start at the first index (zero),
-you can drop the value before the two periods. In other words, these are equal:
+With Rust’s `..` range syntax, if you want to start at index zero, you can drop
+the value before the two periods. In other words, these are equal:
 -->
 
-Avec la syntaxe d'intervalle `..` de Rust, si vous voulez commencer au premier
-indice (zéro), vous pouvez ne rien mettre avant les deux points. Autrement dit,
-ces deux cas sont identiques :
+Avec la syntaxe d'intervalle `..` de Rust, si vous voulez commencer à l'indice
+zéro, vous pouvez ne rien mettre avant les deux points. Autrement dit, ces deux
+cas sont identiques :
+
+<!--
+```rust
+let s = String::from("hello");
+
+let slice = &s[0..2];
+let slice = &s[..2];
+```
+-->
 
 ```rust
 let s = String::from("hello");
@@ -517,32 +456,12 @@ s'écrit `&str` :
 
 <!--
 ```rust
-fn first_word(s: &String) -> &str {
-    let bytes = s.as_bytes();
-
-    for (i, &item) in bytes.iter().enumerate() {
-        if item == b' ' {
-            return &s[0..i];
-        }
-    }
-
-    &s[..]
-}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/no-listing-18-first-word-slice/src/main.rs:here}}
 ```
 -->
 
 ```rust
-fn premier_mot(s: &String) -> &str {
-    let octets = s.as_bytes();
-
-    for (i, &element) in octets.iter().enumerate() {
-        if element == b' ' {
-            return &s[0..i];
-        }
-    }
-
-    &s[..]
-}
+{{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-18-first-word-slice/src/main.rs:here}}
 ```
 
 <!--
@@ -616,28 +535,12 @@ erreur de compilation :
 
 <!--
 ```rust,ignore,does_not_compile
-fn main() {
-    let mut s = String::from("hello world");
-
-    let word = first_word(&s);
-
-    s.clear(); // error!
-
-    println!("the first word is: {}", word);
-}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/no-listing-19-slice-error/src/main.rs:here}}
 ```
 -->
 
 ```rust,ignore,does_not_compile
-fn main() {
-    let mut s = String::from("hello world");
-
-    let mot = premier_mot(&s);
-
-    s.clear(); // Erreur !
-
-    println!("Le premier mot est : {}", mot);
-}
+{{#rustdoc_include ../listings/ch04-understanding-ownership/no-listing-19-slice-error/src/main.rs:here}}
 ```
 
 <!--
@@ -647,48 +550,34 @@ Here’s the compiler error:
 Voici l'erreur du compilateur :
 
 <!--
-```text
-error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immutable
-  -- > src/main.rs:18:5
-   |
-16 |     let word = first_word(&s);
-   |                           -- immutable borrow occurs here
-17 |
-18 |     s.clear(); // error!
-   |     ^^^^^^^^^ mutable borrow occurs here
-19 |
-20 |     println!("the first word is: {}", word);
-   |                                       ---- immutable borrow later used here
+```console
+{{#include ../listings-sources/ch04-understanding-ownership/no-listing-19-slice-error/output.txt}}
 ```
 -->
 
-```text
-error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immutable
-  --> src/main.rs:18:5
-   |
-16 |     let mot = premier_mot(&s);
-   |                           -- immutable borrow occurs here
-17 |
-18 |     s.clear(); // Erreur !
-   |     ^^^^^^^^^ mutable borrow occurs here
-19 |
-20 |     println!("Le premier mot est : {}", mot);
-   |                                         --- immutable borrow later used here
+```console
+{{#include ../listings/ch04-understanding-ownership/no-listing-19-slice-error/output.txt}}
 ```
 
 <!--
 Recall from the borrowing rules that if we have an immutable reference to
 something, we cannot also take a mutable reference. Because `clear` needs to
-truncate the `String`, it needs to get a mutable reference. Rust disallows
-this, and compilation fails. Not only has Rust made our API easier to use, but
-it has also eliminated an entire class of errors at compile time!
+truncate the `String`, it needs to get a mutable reference. The `println!`
+after the call to `clear` uses the reference in `word`, so the immutable
+reference must still be active at that point. Rust disallows the mutable
+reference in `clear` and the immutable reference in `word` from existing at the
+same time, and compilation fails. Not only has Rust made our API easier to use,
+but it has also eliminated an entire class of errors at compile time!
 -->
 
 Rappelons-nous que d'après les règles d'emprunt, si nous avons une référence
 immuable vers quelque chose, nous ne pouvons pas avoir une référence mutable
 en même temps. Étant donné que `clear` a besoin de modifier la `String`, il a
-besoin d'une référence mutable. Rust interdit cette situation, et la compilation
-échoue. Non seulement Rust a simplifié l'utilisation de notre API, mais il a
+besoin d'une référence mutable. Le `println!` qui a lieu après l'appel à `clear`
+utilise la référence à `mot`, donc la référence immuable sera toujours en
+vigueur à cet endroit. Rust interdit la référence mutable dans `clear` et la
+référence immuable pour `mot` au même moment, et la compilation échoue. Non
+seulement Rust a simplifié l'utilisation de notre API, mais il a
 aussi éliminé une catégorie entière d'erreurs au moment de la compilation !
 
 <!--
@@ -705,6 +594,12 @@ that we know about slices, we can properly understand string literals:
 Rappelez-vous lorsque nous avons appris que les littéraux de chaîne de
 caractères étaient enregistrés dans le binaire. Maintenant que nous connaissons
 les slices, nous pouvons désormais comprendre les littéraux de chaîne.
+
+<!--
+```rust
+let s = "Hello, world!";
+```
+-->
 
 ```rust
 let s = "Hello, world!";
@@ -756,12 +651,12 @@ cela nous permet d'utiliser la même fonction sur les `&String` et aussi les
 
 <!--
 ```rust,ignore
-fn first_word(s: &str) -> &str {
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-09/src/main.rs:here}}
 ```
 -->
 
 ```rust,ignore
-fn premier_mot(s: &str) -> &str {
+{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-09/src/main.rs:here}}
 ```
 
 <!--
@@ -774,16 +669,22 @@ utilisant une slice de chaîne de caractères comme type du paramètre `s`</span
 
 <!--
 If we have a string slice, we can pass that directly. If we have a `String`, we
-can pass a slice of the entire `String`. Defining a function to take a string
-slice instead of a reference to a `String` makes our API more general and useful
-without losing any functionality:
+can pass a slice of the `String` or a reference to the `String`. This
+flexibility takes advantage of *deref coercions*, a feature we will cover in
+the [“Implicit Deref Coercions with Functions and
+Methods”][deref-coercions]<!--ignore-- > section of Chapter 15. Defining a
+function to take a string slice instead of a reference to a `String` makes our
+API more general and useful without losing any functionality:
 -->
 
 Si nous avons une slice de chaîne, nous pouvons la passer en argument
-directement. Si nous avons une `String`, nous pouvons envoyer une slice de toute
-la `String`. Définir une fonction qui prend une slice de chaîne plutôt qu'une
-référence à une `String` rend notre API plus générique et plus utile sans perdre
-aucune fonctionnalité :
+directement. Si nous avons une `String`, nous pouvons envoyer une référence ou
+une slice de la `String`. Cette flexibilité nous est offerte par
+l'*extrapolation de déréferencement*, une fonctionnalité que nous allons
+découvrir dans [une section du Chapitre 15][deref-coercions]<!--ignore-->.
+Définir une fonction qui prend une slice de chaîne plutôt qu'une référence à
+une `String` rend notre API plus générique et plus utile sans perdre aucune
+fonctionnalité :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -793,62 +694,12 @@ aucune fonctionnalité :
 
 <!--
 ```rust
-# fn first_word(s: &str) -> &str {
-#     let bytes = s.as_bytes();
-#
-#     for (i, &item) in bytes.iter().enumerate() {
-#         if item == b' ' {
-#             return &s[0..i];
-#         }
-#     }
-#
-#     &s[..]
-# }
-fn main() {
-    let my_string = String::from("hello world");
-
-    // first_word works on slices of `String`s
-    let word = first_word(&my_string[..]);
-
-    let my_string_literal = "hello world";
-
-    // first_word works on slices of string literals
-    let word = first_word(&my_string_literal[..]);
-
-    // Because string literals *are* string slices already,
-    // this works too, without the slice syntax!
-    let word = first_word(my_string_literal);
-}
+{{#rustdoc_include ../listings-sources/ch04-understanding-ownership/listing-04-09/src/main.rs:usage}}
 ```
 -->
 
 ```rust
-# fn premier_mot(s: &str) -> &str {
-#     let octets = s.as_bytes();
-#
-#     for (i, &element) in octets.iter().enumerate() {
-#         if element == b' ' {
-#             return &s[0..i];
-#         }
-#     }
-#
-#     &s[..]
-# }
-fn main() {
-    let ma_string = String::from("hello world");
-
-    // premier_mot fonctionne avec les slices de `String`
-    let mot = premier_mot(&ma_string[..]);
-
-    let mon_litteral_de_chaine = "hello world";
-
-    // premier_mot fonctionne avec les slices de littéraux de chaîne
-    let mot = premier_mot(&mon_litteral_de_chaine[..]);
-
-    // Comme les littéraux de chaîne *sont* déjà des slices de chaînes,
-    // cela fonctionne aussi, sans la syntaxe de slice !
-    let mot = premier_mot(mon_litteral_de_chaine);
-}
+{{#rustdoc_include ../listings/ch04-understanding-ownership/listing-04-09/src/main.rs:usage}}
 ```
 
 <!--
@@ -866,6 +717,12 @@ Les slices de chaînes de caractères, comme vous pouvez l'imaginer, sont
 spécifiques aux chaînes de caractères. Mais il existe aussi un type de slice
 plus générique. Imaginons ce tableau de données :
 
+<!--
+```rust
+let a = [1, 2, 3, 4, 5];
+```
+-->
+
 ```rust
 let a = [1, 2, 3, 4, 5];
 ```
@@ -879,10 +736,22 @@ Tout comme nous pouvons nous référer à une partie d'une chaîne de caractère
 nous pouvons nous référer à une partie d'un tableau. Nous pouvons le faire comme
 ceci :
 
+<!--
 ```rust
 let a = [1, 2, 3, 4, 5];
 
 let slice = &a[1..3];
+
+assert_eq!(slice, &[2, 3]);
+```
+-->
+
+```rust
+let a = [1, 2, 3, 4, 5];
+
+let slice = &a[1..3];
+
+assert_eq!(slice, &[2, 3]);
 ```
 
 <!--
@@ -933,6 +802,8 @@ ensemble dans une `struct`.
 
 <!--
 [strings]: ch08-02-strings.html#storing-utf-8-encoded-text-with-strings
+[deref-coercions]: ch15-02-deref.html#implicit-deref-coercions-with-functions-and-methods
 -->
 
 [strings]: ch08-02-strings.html
+[deref-coercions]: ch15-02-deref.html

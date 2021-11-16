@@ -7,87 +7,84 @@
 <!--
 The `if let` syntax lets you combine `if` and `let` into a less verbose way to
 handle values that match one pattern while ignoring the rest. Consider the
-program in Listing 6-6 that matches on an `Option<u8>` value but only wants to
-execute code if the value is 3.
+program in Listing 6-6 that matches on an `Option<u8>` value in the `config_max`
+variable but only wants to execute code if the value is the `Some` variant.
 -->
 
-La syntaxe `if let` vous permet de combiner `if` et `let` afin de gérer une
-valeur qui correspond à un motif tout en ignorant les autres possibilités.
-Imaginons le programme dans l'encart 6-6 qui fait un `match` sur une valeur
-`Option<u8>` mais n'a besoin d'exécuter du code que si la valeur est 3.
+La syntaxe `if let` vous permet de combiner `if` et `let` afin de gérer les
+valeurs qui correspondent à un motif donné, tout en ignorant les autres.
+Imaginons le programme dans l'encart 6-6 qui fait un `match` sur la valeur
+`Option<u8>` de la variable `config_max` mais n'a besoin d'exécuter du code que
+si la valeur est la variante `Some`.
 
 <!--
 ```rust
-let some_u8_value = Some(0u8);
-match some_u8_value {
-    Some(3) => println!("three"),
-    _ => (),
-}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/listing-06-06/src/main.rs:here}}
 ```
 -->
 
 ```rust
-let une_valeur_u8 = Some(0u8);
-match une_valeur_u8 {
-    Some(3) => println!("trois"),
-    _ => (),
-}
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/listing-06-06/src/main.rs:here}}
 ```
 
 <!--
 <span class="caption">Listing 6-6: A `match` that only cares about executing
-code when the value is `Some(3)`</span>
+code when the value is `Some`</span>
 -->
 
 <span class="caption">Encart 6-6 : Un `match` qui n'exécute du code que si la
-valeur est `Some(3)`</span>
+valeur est `Some`</span>
 
 <!--
-We want to do something with the `Some(3)` match but do nothing with any other
-`Some<u8>` value or the `None` value. To satisfy the `match` expression, we
-have to add `_ => ()` after processing just one variant, which is a lot of
-boilerplate code to add.
+If the value is `Some`, we want to print out the value in the `Some` variant,
+which we do by binding the value to the variable `max` in the pattern.
+We don’t want to do anything with the `None` value. To satisfy the `match`
+expression, we have to add `_ => ()` after processing just one variant, which
+is annoying boilerplate code to add.
 -->
 
-Nous voulons faire quelque chose avec la valeur `Some(3)` mais ignorer
-les autres valeurs de type `Some<u8>` ou la valeur `None`. Pour satisfaire
-l'expression `match`, nous devons ajouter `_ => ()` après avoir géré une seule
-variante, ce qui fait beaucoup de code inutile.
+Si la valeur est un `Some`, nous voulons afficher la valeur dans la variante
+`Some`, en associant la valeur à la variable `max` dans le motif.
+Nous ne voulons rien faire avec la valeur `None`. Pour satisfaire l'expression
+`match`, nous devons ajouter `_ => ()` après avoir géré une seule variante, ce
+qui est du code inutile.
 
 <!--
 Instead, we could write this in a shorter way using `if let`. The following
 code behaves the same as the `match` in Listing 6-6:
 -->
 
-A la place, nous pourrions écrire le même programme de manière plus concise en
+À la place, nous pourrions écrire le même programme de manière plus concise en
 utilisant `if let`. Le code suivant se comporte comme le `match` de l'encart
 6-6 :
 
 <!--
 ```rust
-# let some_u8_value = Some(0u8);
-if let Some(3) = some_u8_value {
-    println!("three");
-}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/no-listing-12-if-let/src/main.rs:here}}
 ```
 -->
 
 ```rust
-# let une_valeur_u8 = Some(0u8);
-if let Some(3) = une_valeur_u8 {
-    println!("trois");
-}
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-12-if-let/src/main.rs:here}}
 ```
 
 <!--
 The syntax `if let` takes a pattern and an expression separated by an equal
 sign. It works the same way as a `match`, where the expression is given to the
-`match` and the pattern is its first arm.
+`match` and the pattern is its first arm. In this case, the pattern is
+`Some(max)`, and the `max` binds to the value inside the `Some`. We can then
+use `max` in the body of the `if let` block in the same way as we used `max` in
+the corresponding `match` arm. The code in the `if let` block isn’t run if the
+value doesn’t match the pattern.
 -->
 
 La syntaxe `if let` prend un motif et une expression séparés par un signe égal.
 Elle fonctionne de la même manière qu'un `match` où l'expression est donnée au
-`match` et que le motif est sa première branche.
+`match` et où le motif est sa première branche. Dans ce cas, le motif est
+`Some(max)`, et le `max` est associé à la valeur dans le `Some`. Nous pouvons
+ensuite utiliser `max` dans le corps du bloc `if let` de la même manière que
+nous avons utilisé `max` dans la branche correspondante au `match`. Le code dans
+le bloc `if let` n'est pas exécuté si la valeur ne correspond pas au motif.
 
 <!--
 Using `if let` means less typing, less indentation, and less boilerplate code.
@@ -100,7 +97,7 @@ losing exhaustive checking.
 Utiliser `if let` permet d'écrire moins de code, et de moins l'indenter.
 Cependant, vous perdez la vérification de l'exhaustivité qu'assure le `match`.
 Choisir entre `match` et `if let` dépend de la situation : à vous de choisir
-un équilibre entre être concis et appliquer une vérification exhaustive.
+s'il vaut mieux être concis ou appliquer une vérification exhaustive.
 
 <!--
 In other words, you can think of `if let` as syntax sugar for a `match` that
@@ -109,7 +106,7 @@ runs code when the value matches one pattern and then ignores all other values.
 
 Autrement dit, vous pouvez considérer le `if let` comme du sucre syntaxique pour
 un `match` qui exécute du code uniquement quand la valeur correspond à un motif
-et ignore tous autres valeurs.
+donné et ignore toutes les autres valeurs.
 
 <!--
 We can include an `else` with an `if let`. The block of code that goes with the
@@ -123,54 +120,20 @@ expression like this:
 
 Nous pouvons joindre un `else` à un `if let`. Le bloc de code qui va dans le
 `else` est le même que le bloc de code qui va dans le cas `_` avec l'expression
-`match`. Souvenez-vous de la définition de l'énumération `USACoin` de l'encart
-6-4, où la variante `Quarter` avait aussi une valeur `USAState`. Si nous
-voulions compter toutes les pièces qui ne sont pas des `Quarter` que nous voyons
-passer, tout en affichant l'état des `Quarter`, nous pourrions le faire avec
-une expression `match` comme ceci :
+`match`. Souvenez-vous de la définition de l'énumération `PieceUs` de l'encart
+6-4, où la variante `Quarter` stockait aussi une valeur `EtatUs`. Si nous
+voulions compter toutes les pièces qui ne sont pas des *quarters* que nous
+voyons passer, tout en affichant l'État des *quarters*, nous pourrions le faire
+avec une expression `match` comme ceci :
 
 <!--
 ```rust
-# #[derive(Debug)]
-# enum UsState {
-#    Alabama,
-#    Alaska,
-# }
-#
-# enum Coin {
-#    Penny,
-#    Nickel,
-#    Dime,
-#    Quarter(UsState),
-# }
-# let coin = Coin::Penny;
-let mut count = 0;
-match coin {
-    Coin::Quarter(state) => println!("State quarter from {:?}!", state),
-    _ => count += 1,
-}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/no-listing-13-count-and-announce-match/src/main.rs:here}}
 ```
 -->
 
 ```rust
-# #[derive(Debug)]
-# enum USAState {
-#    Alabama,
-#    Alaska,
-# }
-#
-# enum USACoin {
-#    Penny,
-#    Nickel,
-#    Dime,
-#    Quarter(USAState),
-# }
-# let piece = USACoin::Penny;
-let mut compteur = 0;
-match piece {
-    USACoin::Quarter(etat) => println!("Il s'agit d'un Quarter de l'état de {:?} !", etat),
-    _ => compteur += 1,
-}
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-13-count-and-announce-match/src/main.rs:here}}
 ```
 
 <!--
@@ -181,48 +144,12 @@ Ou nous pourrions utiliser une expression `if let`/`else` comme ceci :
 
 <!--
 ```rust
-# #[derive(Debug)]
-# enum UsState {
-#    Alabama,
-#    Alaska,
-# }
-#
-# enum Coin {
-#    Penny,
-#    Nickel,
-#    Dime,
-#    Quarter(UsState),
-# }
-# let coin = Coin::Penny;
-let mut count = 0;
-if let Coin::Quarter(state) = coin {
-    println!("State quarter from {:?}!", state);
-} else {
-    count += 1;
-}
+{{#rustdoc_include ../listings-sources/ch06-enums-and-pattern-matching/no-listing-14-count-and-announce-if-let-else/src/main.rs:here}}
 ```
 -->
 
 ```rust
-# #[derive(Debug)]
-# enum USAState {
-#    Alabama,
-#    Alaska,
-# }
-#
-# enum USACoin {
-#    Penny,
-#    Nickel,
-#    Dime,
-#    Quarter(USAState),
-# }
-# let piece = USACoin::Penny;
-let mut compteur = 0;
-if let USACoin::Quarter(etat) = piece {
-    println!("Il s'agit d'un Quarter de l'état de {:?}!", etat);
-} else {
-    compteur += 1;
-}
+{{#rustdoc_include ../listings/ch06-enums-and-pattern-matching/no-listing-14-count-and-announce-if-let-else/src/main.rs:here}}
 ```
 
 <!--
@@ -251,9 +178,9 @@ Nous avons désormais appris comment utiliser les énumérations pour créer des
 types personnalisés qui peuvent faire partie d'un jeu de valeurs recensées. Nous
 avons montré comment le type `Option<T>` de la bibliothèque standard vous aide
 à utiliser le système de types pour éviter les erreurs. Lorsque les valeurs
-d'énumération contiennent des données, vous pouvez utiliser `match`
-ou `if let` pour extraire et utiliser ces valeurs, à choisir en fonction du
-nombre de cas que vous voulez gérer.
+d'énumération contiennent des données, vous pouvez utiliser `match` ou `if let`
+pour extraire et utiliser ces valeurs, à choisir en fonction du nombre de cas
+que vous voulez gérer.
 
 <!--
 Your Rust programs can now express concepts in your domain using structs and

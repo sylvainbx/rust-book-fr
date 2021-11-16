@@ -41,20 +41,7 @@ Listing 10-1.
 <span class="filename">Filename: src/main.rs</span>
 
 ```rust
-fn main() {
-    let number_list = vec![34, 50, 25, 100, 65];
-
-    let mut largest = number_list[0];
-
-    for number in number_list {
-        if number > largest {
-            largest = number;
-        }
-    }
-
-    println!("The largest number is {}", largest);
-#  assert_eq!(largest, 100);
-}
+{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-01/src/main.rs:here}}
 ```
 
 <span class="caption">Listing 10-1: Code to find the largest number in a list
@@ -76,31 +63,7 @@ program, as shown in Listing 10-2.
 <span class="filename">Filename: src/main.rs</span>
 
 ```rust
-fn main() {
-    let number_list = vec![34, 50, 25, 100, 65];
-
-    let mut largest = number_list[0];
-
-    for number in number_list {
-        if number > largest {
-            largest = number;
-        }
-    }
-
-    println!("The largest number is {}", largest);
-
-    let number_list = vec![102, 34, 6000, 89, 54, 2, 43, 8];
-
-    let mut largest = number_list[0];
-
-    for number in number_list {
-        if number > largest {
-            largest = number;
-        }
-    }
-
-    println!("The largest number is {}", largest);
-}
+{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-02/src/main.rs}}
 ```
 
 <span class="caption">Listing 10-2: Code to find the largest number in *two*
@@ -122,31 +85,7 @@ number in two different lists.
 <span class="filename">Filename: src/main.rs</span>
 
 ```rust
-fn largest(list: &[i32]) -> i32 {
-    let mut largest = list[0];
-
-    for &item in list {
-        if item > largest {
-            largest = item;
-        }
-    }
-
-    largest
-}
-
-fn main() {
-    let number_list = vec![34, 50, 25, 100, 65];
-
-    let result = largest(&number_list);
-    println!("The largest number is {}", result);
-#    assert_eq!(result, 100);
-
-    let number_list = vec![102, 34, 6000, 89, 54, 2, 43, 8];
-
-    let result = largest(&number_list);
-    println!("The largest number is {}", result);
-#    assert_eq!(result, 6000);
-}
+{{#rustdoc_include ../listings/ch10-generic-types-traits-and-lifetimes/listing-10-03/src/main.rs:here}}
 ```
 
 <span class="caption">Listing 10-3: Abstracted code to find the largest number
@@ -155,7 +94,11 @@ in two lists</span>
 The `largest` function has a parameter called `list`, which represents any
 concrete slice of `i32` values that we might pass into the function. As a
 result, when we call the function, the code runs on the specific values that we
-pass in.
+pass in. Don’t worry about the syntax of the `for` loop for now. We aren’t
+referencing a reference to an `i32` here; we’re pattern matching and
+destructuring each `&i32` that the `for` loop gets so that `item` will be an
+`i32` inside the loop body. We’ll cover pattern matching in detail in [Chapter
+18][ch18]<!-- ignore -->.
 
 In sum, here are the steps we took to change the code from Listing 10-2 to
 Listing 10-3:
@@ -173,3 +116,5 @@ abstract types.
 For example, say we had two functions: one that finds the largest item in a
 slice of `i32` values and one that finds the largest item in a slice of `char`
 values. How would we eliminate that duplication? Let’s find out!
+
+[ch18]: ch18-00-patterns.html

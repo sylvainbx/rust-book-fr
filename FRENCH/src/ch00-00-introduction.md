@@ -14,6 +14,11 @@
 > ebook chez [No Starch Press][nsp] à cette adresse :
 > [The Rust Programming Language][nsprust]
 
+<!--
+[nsprust]: https://nostarch.com/rust
+[nsp]: https://nostarch.com/
+-->
+
 [nsprust]: https://nostarch.com/rust
 [nsp]: https://nostarch.com/
 
@@ -369,7 +374,7 @@ principles you might be familiar with.
 -->
 
 Au chapitre 16, nous passerons en revue les différents modes de programmation
-concurrente et comment Rust nous aide à développer dans des processus parallèles
+concurrente et comment Rust nous aide à développer dans des tâches parallèles
 sans crainte. Le chapitre 17 comparera les fonctionnalités de Rust aux
 principes de programmation orientée objet, que vous connaissez peut-être.
 
@@ -393,10 +398,10 @@ multithreaded web server!
 -->
 
 Au chapitre 20, nous terminerons un projet dans lequel nous allons
-implémenter en bas-niveau un serveur web multi-processus !
+implémenter en bas-niveau un serveur web multitâches !
 
 <!--
-Finally, some appendixes contain useful information about the language in a
+Finally, some appendices contain useful information about the language in a
 more reference-like format. Appendix A covers Rust’s keywords, Appendix B
 covers Rust’s operators and symbols, Appendix C covers derivable traits
 provided by the standard library, Appendix D covers some useful development
@@ -420,6 +425,10 @@ Il n'y a pas de mauvaise manière de lire ce livre : si vous voulez sauter des
 étapes, allez-y !
 Vous devrez alors peut-être revenir sur les chapitres précédents si vous
 éprouvez des difficultés. Mais faites comme bon vous semble.
+
+<!--
+<span id="ferris"></span>
+-->
 
 <span id="ferris"></span>
 
@@ -445,21 +454,19 @@ l'exemple que vous tentez de compiler doit échouer. Ferris va aussi vous aider
 
 <!-- markdownlint-disable -->
 <!--
-| Ferris                                                                 | Meaning                                          |
-|------------------------------------------------------------------------|--------------------------------------------------|
-| <img src="img/ferris/does_not_compile.svg" class="ferris-explain"/>    | This code does not compile!                      |
-| <img src="img/ferris/panics.svg" class="ferris-explain"/>              | This code panics!                                |
-| <img src="img/ferris/unsafe.svg" class="ferris-explain"/>              | This code block contains unsafe code.            |
-| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/>| This code does not produce the desired behavior. |
+| Ferris                                                                                                           | Meaning                                          |
+|------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
+| <img src="img/ferris/does_not_compile.svg" class="ferris-explain" alt="Ferris with a question mark"/>            | This code does not compile!                      |
+| <img src="img/ferris/panics.svg" class="ferris-explain" alt="Ferris throwing up their hands"/>                   | This code panics!                                |
+| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain" alt="Ferris with one claw up, shrugging"/> | This code does not produce the desired behavior. |
 -->
 <!-- markdownlint-restore -->
 
-| Ferris                                                                 | Signification                                    |
-|------------------------------------------------------------------------|--------------------------------------------------|
-| <img src="img/ferris/does_not_compile.svg" class="ferris-explain"/>    | Ce code ne compile pas !                         |
-| <img src="img/ferris/panics.svg" class="ferris-explain"/>              | Ce code panique !                                |
-| <img src="img/ferris/unsafe.svg" class="ferris-explain"/>              | Ce bloc de code contient du code non sécurisé.   |
-| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain"/>| Ce code ne se comporte pas comme voulu.          |
+| Ferris                                                                                                                             | Signification                           |
+|------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| <img src="img/ferris/does_not_compile.svg" class="ferris-explain" alt="Ferris avec un point d'interrogation"/>                     | Ce code ne compile pas !                |
+| <img src="img/ferris/panics.svg" class="ferris-explain" alt="Ferris qui lève ses bras"/>                                           | Ce code panique !                       |
+| <img src="img/ferris/not_desired_behavior.svg" class="ferris-explain" alt="Ferris avec une pince en l'air, haussant les épaules"/> | Ce code ne se comporte pas comme voulu. |
 
 <!--
 In most situations, we’ll lead you to the correct version of any code that
@@ -484,6 +491,10 @@ Les fichiers du code source qui a généré ce livre en anglais sont disponibles
 sur [GitHub][book].
 
 La version française est aussi disponible sur [GitHub][book-fr].
+
+<!--
+[book]: https://github.com/rust-lang/book/tree/master/src
+-->
 
 [book]: https://github.com/rust-lang/book/tree/master/src
 [book-fr]: https://github.com/Jimskapt/rust-book-fr

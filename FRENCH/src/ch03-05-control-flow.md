@@ -5,18 +5,17 @@
 ## Les structures de contrôle
 
 <!--
-Deciding whether or not to run some code depending on if a condition is true
-and deciding to run some code repeatedly while a condition is true are basic
-building blocks in most programming languages. The most common constructs that
-let you control the flow of execution of Rust code are `if` expressions and
-loops.
+The ability to run some code depending on if a condition is true, or run some
+code repeatedly while a condition is true, are basic building blocks in most
+programming languages. The most common constructs that let you control the flow
+of execution of Rust code are `if` expressions and loops.
 -->
 
-Choisir d'exécuter ou non du code selon qu'une condition est vérifiée et
-choisir d'exécuter du code de façon répétée tant qu'une condition est vérifiée
-sont des constructions élémentaires dans la plupart des langages de
-programmation. Les structures de contrôle les plus courantes en Rust sont les
-expressions `if` et les boucles.
+Pouvoir exécuter ou non du code si une condition est vérifiée, ou exécuter du
+code de façon répétée tant qu'une condition est vérifiée, sont des
+constructions élémentaires dans la plupart des langages de programmation. Les
+structures de contrôle les plus courantes en Rust sont les expressions `if` et
+les boucles.
 
 <!--
 ### `if` Expressions
@@ -51,50 +50,33 @@ découvrir les expressions `if`. Dans le fichier *src/main.rs*, écrivez ceci :
 
 <!--
 ```rust
-fn main() {
-    let number = 3;
-
-    if number < 5 {
-        println!("condition was true");
-    } else {
-        println!("condition was false");
-    }
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-26-if-true/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let nombre = 3;
-
-    if nombre < 5 {
-        println!("La condition est vérifiée");
-    } else {
-        println!("La condition n'est pas vérifiée");
-    }
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-26-if-true/src/main.rs}}
 ```
 
 <!--
-All `if` expressions start with the keyword `if`, which is followed by a
-condition. In this case, the condition checks whether or not the variable
-`number` has a value less than 5. The block of code we want to execute if the
-condition is true is placed immediately after the condition inside curly
-brackets. Blocks of code associated with the conditions in `if` expressions are
-sometimes called *arms*, just like the arms in `match` expressions that we
-discussed in the [“Comparing the Guess to the Secret
-Number”][comparing-the-guess-to-the-secret-number]<!-- ignore -- > section of
-Chapter 2.
+All `if` expressions start with the keyword `if`, followed by a condition. In
+this case, the condition checks whether or not the variable `number` has a
+value less than 5. We place block of code to execute if the condition is true
+immediately after the condition inside curly brackets. Blocks of code
+associated with the conditions in `if` expressions are sometimes called *arms*,
+just like the arms in `match` expressions that we discussed in the [“Comparing
+the Guess to the Secret Number”][comparing-the-guess-to-the-secret-number]<!--
+ignore -- > section of Chapter 2.
 -->
 
 Une expression `if` commence par le mot-clé `if`, suivi d'une condition.
 Dans notre cas, la condition vérifie si oui ou non la variable `nombre` a une
-valeur inférieure à 5. Le bloc de code que nous voulons exécuter si la condition
-est vérifiée est placé immédiatement après la condition entre des accolades.
-Les blocs de code associés à une condition dans une expression `if` sont parfois
-appelés des *branches*, exactement comme les branches dans les expressions
-`match` que nous avons vu dans la section [“Comparer le nombre saisi au
-nombre secret”][comparing-the-guess-to-the-secret-number]<!-- ignore --> du
+valeur inférieure à 5. Nous ajoutons un bloc de code à exécuter si la condition
+est vérifiée immédiatement après la condition entre des accolades. Les blocs de
+code associés à une condition dans une expression `if` sont parfois appelés des
+*branches*, exactement comme les branches dans les expressions `match` que nous
+avons vu dans la section [“Comparer le nombre saisi au nombre
+secret”][comparing-the-guess-to-the-secret-number]<!-- ignore --> du
 chapitre 2.
 
 <!--
@@ -119,21 +101,13 @@ Try running this code; you should see the following output:
 Essayez d'exécuter ce code ; vous verrez ceci :
 
 <!--
-```text
-$ cargo run
-   Compiling branches v0.1.0 (file:///projects/branches)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
-     Running `target/debug/branches`
-condition was true
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-26-if-true/output.txt}}
 ```
 -->
 
-```text
-$ cargo run
-   Compiling branches v0.1.0 (file:///projects/branches)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
-     Running `target/debug/branches`
-La condition est vérifiée
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-26-if-true/output.txt}}
 ```
 
 <!--
@@ -146,12 +120,12 @@ non vérifiée pour voir ce qui se passe :
 
 <!--
 ```rust,ignore
-let number = 7;
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-27-if-false/src/main.rs:here}}
 ```
 -->
 
 ```rust,ignore
-let nombre = 7;
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-27-if-false/src/main.rs:here}}
 ```
 
 <!--
@@ -161,21 +135,13 @@ Run the program again, and look at the output:
 Exécutez à nouveau le programme, et regardez le résultat :
 
 <!--
-```text
-$ cargo run
-   Compiling branches v0.1.0 (file:///projects/branches)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
-     Running `target/debug/branches`
-condition was false
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-27-if-false/output.txt}}
 ```
 -->
 
-```text
-$ cargo run
-   Compiling branches v0.1.0 (file:///projects/branches)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
-     Running `target/debug/branches`
-La condition n'est pas vérifiée
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-27-if-false/output.txt}}
 ```
 
 <!--
@@ -196,24 +162,12 @@ exemple, essayez d'exécuter le code suivant :
 
 <!--
 ```rust,ignore,does_not_compile
-fn main() {
-    let number = 3;
-
-    if number {
-        println!("number was three");
-    }
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/src/main.rs}}
 ```
 -->
 
 ```rust,ignore,does_not_compile
-fn main() {
-    let nombre = 3;
-
-    if nombre {
-        println!("Le nombre était trois");
-    }
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/src/main.rs}}
 ```
 
 <!--
@@ -224,27 +178,13 @@ error:
 La condition `if` vaut `3` cette fois, et Rust lève une erreur :
 
 <!--
-```text
-error[E0308]: mismatched types
- -- > src/main.rs:4:8
-  |
-4 |     if number {
-  |        ^^^^^^ expected bool, found integer
-  |
-  = note: expected type `bool`
-             found type `{integer}`
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/output.txt}}
 ```
 -->
 
-```text
-error[E0308]: mismatched types
- -- > src/main.rs:4:8
-  |
-4 |     if nombre {
-  |        ^^^^^^ expected bool, found integer
-  |
-  = note: expected type `bool`
-             found type `{integer}`
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-28-if-condition-must-be-bool/output.txt}}
 ```
 
 <!--
@@ -272,24 +212,12 @@ par la suivante :
 
 <!--
 ```rust
-fn main() {
-    let number = 3;
-
-    if number != 0 {
-        println!("number was something other than zero");
-    }
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-29-if-not-equal-0/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let nombre = 3;
-
-    if nombre != 0 {
-        println!("Le nombre valait autre chose que zéro");
-    }
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-29-if-not-equal-0/src/main.rs}}
 ```
 
 <!--
@@ -305,7 +233,7 @@ Exécuter ce code va bien afficher `Le nombre valait autre chose que zéro`.
 #### Gérer plusieurs conditions avec `else if`
 
 <!--
-You can have multiple conditions by combining `if` and `else` in an `else if`
+You can use multiple conditions by combining `if` and `else` in an `else if`
 expression. For example:
 -->
 
@@ -320,36 +248,12 @@ expression `else if`. Par exemple :
 
 <!--
 ```rust
-fn main() {
-    let number = 6;
-
-    if number % 4 == 0 {
-        println!("number is divisible by 4");
-    } else if number % 3 == 0 {
-        println!("number is divisible by 3");
-    } else if number % 2 == 0 {
-        println!("number is divisible by 2");
-    } else {
-        println!("number is not divisible by 4, 3, or 2");
-    }
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-30-else-if/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let nombre = 6;
-
-    if nombre % 4 == 0 {
-        println!("Le nombre est divisible par 4");
-    } else if nombre % 3 == 0 {
-        println!("Le nombre est divisible par 3");
-    } else if nombre % 2 == 0 {
-        println!("Le nombre est divisible par 2");
-    } else {
-        println!("Le nombre n'est pas divisible par 4, 3 ou 2");
-    }
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-30-else-if/src/main.rs}}
 ```
 
 <!--
@@ -361,21 +265,13 @@ Ce programme peut choisir entre quatre chemins différents. Après l'avoir
 exécuté, vous devriez voir le résultat suivant :
 
 <!--
-```text
-$ cargo run
-   Compiling branches v0.1.0 (file:///projects/branches)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
-     Running `target/debug/branches`
-number is divisible by 3
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-30-else-if/output.txt}}
 ```
 -->
 
-```text
-$ cargo run
-   Compiling branches v0.1.0 (file:///projects/branches)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.31 secs
-     Running `target/debug/branches`
-Le nombre est divisible par 3
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-30-else-if/output.txt}}
 ```
 
 <!--
@@ -413,11 +309,12 @@ présente une construction puissante appelée `match` pour de tels cas.
 
 <!--
 Because `if` is an expression, we can use it on the right side of a `let`
-statement, as in Listing 3-2.
+statement to assign the outcome to a variable, as in Listing 3-2.
 -->
 
 Comme `if` est une expression, nous pouvons l'utiliser à droite d'une
-instruction `let`, comme dans l'encart 3-2.
+instruction `let` pour assigner le résultat à une variable, comme dans l'encart
+3-2.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -427,30 +324,12 @@ instruction `let`, comme dans l'encart 3-2.
 
 <!--
 ```rust
-fn main() {
-    let condition = true;
-    let number = if condition {
-        5
-    } else {
-        6
-    };
-
-    println!("The value of number is: {}", number);
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/listing-03-02/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let condition = true;
-    let nombre = if condition {
-        5
-    } else {
-        6
-    };
-
-    println!("La valeur du nombre est : {}", nombre);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-02/src/main.rs}}
 ```
 
 <!--
@@ -470,21 +349,13 @@ La variable `nombre` va avoir la valeur du résultat de l'expression `if`.
 Exécutez ce code pour découvrir ce qui va se passer :
 
 <!--
-```text
-$ cargo run
-   Compiling branches v0.1.0 (file:///projects/branches)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.30 secs
-     Running `target/debug/branches`
-The value of number is: 5
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/listing-03-02/output.txt}}
 ```
 -->
 
-```text
-$ cargo run
-   Compiling branches v0.1.0 (file:///projects/branches)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.30 secs
-     Running `target/debug/branches`
-La valeur du nombre est : 5
+```console
+{{#include ../listings/ch03-common-programming-concepts/listing-03-02/output.txt}}
 ```
 
 <!--
@@ -514,32 +385,12 @@ obtenir une erreur :
 
 <!--
 ```rust,ignore,does_not_compile
-fn main() {
-    let condition = true;
-
-    let number = if condition {
-        5
-    } else {
-        "six"
-    };
-
-    println!("The value of number is: {}", number);
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-31-arms-must-return-same-type/src/main.rs}}
 ```
 -->
 
 ```rust,ignore,does_not_compile
-fn main() {
-    let condition = true;
-
-    let nombre = if condition {
-        5
-    } else {
-        "six"
-    };
-
-    println!("La valeur du nombre est : {}", nombre);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-31-arms-must-return-same-type/src/main.rs}}
 ```
 
 <!--
@@ -553,59 +404,35 @@ branches `if` et `else` ont des types de valeurs qui ne sont pas compatibles, et
 Rust indique exactement où trouver le problème dans le programme :
 
 <!--
-```text
-error[E0308]: if and else have incompatible types
- -- > src/main.rs:4:18
-  |
-4 |       let number = if condition {
-  |  __________________^
-5 | |         5
-6 | |     } else {
-7 | |         "six"
-8 | |     };
-  | |_____^ expected integer, found &str
-  |
-  = note: expected type `{integer}`
-             found type `&str`
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/no-listing-31-arms-must-return-same-type/output.txt}}
 ```
 -->
 
-```text
-error[E0308]: if and else have incompatible types
- -- > src/main.rs:4:18
-  |
-4 |       let nombre = if condition {
-  |  __________________^
-5 | |         5
-6 | |     } else {
-7 | |         "six"
-8 | |     };
-  | |_____^ expected integer, found &str
-  |
-  = note: expected type `{integer}`
-             found type `&str`
+```console
+{{#include ../listings/ch03-common-programming-concepts/no-listing-31-arms-must-return-same-type/output.txt}}
 ```
 
 <!--
 The expression in the `if` block evaluates to an integer, and the expression in
 the `else` block evaluates to a string. This won’t work because variables must
-have a single type. Rust needs to know at compile time what type the `number`
-variable is, definitively, so it can verify at compile time that its type is
-valid everywhere we use `number`. Rust wouldn’t be able to do that if the type
-of `number` was only determined at runtime; the compiler would be more complex
-and would make fewer guarantees about the code if it had to keep track of
-multiple hypothetical types for any variable.
+have a single type, and Rust needs to know at compile time what type the
+`number` variable is, definitively. Knowing the type of `number` lets the
+compiler verify the type is valid everywhere we use `number`. Rust wouldn’t be
+able to do that if the type of `number` was only determined at runtime; the
+compiler would be more complex and would make fewer guarantees about the code
+if it had to keep track of multiple hypothetical types for any variable.
 -->
 
 L'expression dans le bloc `if` donne un entier, et l'expression dans le bloc
 `else` donne une chaîne de caractères. Ceci ne fonctionne pas car les variables
-doivent avoir un seul type. Rust a besoin de savoir de quel type est la variable
-`nombre` au moment de la compilation, assurément, afin de vérifier au moment
-de la compilation que son type est valable n'importe où nous utilisons `nombre`.
-Rust ne serait pas capable de faire cela si le type de `nombre` était déterminé
-uniquement à l'exécution ; car le compilateur deviendrait plus complexe et nous
-donnerait moins de garanties sur le code s'il devait prendre en compte tous les
-types hypothétiques pour une variable.
+doivent avoir un seul type, et Rust a besoin de savoir de quel type est la
+variable `nombre` au moment de la compilation. Savoir le type de `nombre`
+permet au compilateur de vérifier que le type est valable n'importe où nous
+utilisons `nombre`. Rust ne serait pas capable de faire cela si le type de
+`nombre` était déterminé uniquement à l'exécution ; car le compilateur
+deviendrait plus complexe et nous donnerait moins de garanties sur le code s'il
+devait prendre en compte tous les types hypothétiques pour une variable.
 
 <!--
 ### Repetition with Loops
@@ -615,13 +442,13 @@ types hypothétiques pour une variable.
 
 <!--
 It’s often useful to execute a block of code more than once. For this task,
-Rust provides several *loops*. A loop runs through the code inside the loop
-body to the end and then starts immediately back at the beginning. To
+Rust provides several *loops*, which will run through the code inside the loop
+body to the end and then start immediately back at the beginning. To
 experiment with loops, let’s make a new project called *loops*.
 -->
 
 Il est parfois utile d'exécuter un bloc de code plus d'une seule fois. Dans ce
-but, Rust propose plusieurs types de *boucles*. Une boucle parcourt le code à
+but, Rust propose plusieurs types de *boucles*, qui parcourt le code à
 l'intérieur du corps de la boucle jusqu'à la fin et recommence immédiatement du
 début. Pour tester les boucles, créons un nouveau projet appelé *loops*.
 
@@ -663,26 +490,18 @@ ceci :
 
 <!--
 ```rust,ignore
-fn main() {
-    loop {
-        println!("again!");
-    }
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-32-loop/src/main.rs}}
 ```
 -->
 
 ```rust,ignore
-fn main() {
-    loop {
-        println!("À nouveau !");
-    }
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-32-loop/src/main.rs}}
 ```
 
 <!--
 When we run this program, we’ll see `again!` printed over and over continuously
-until we stop the program manually. Most terminals support a keyboard shortcut,
-<span class="keystroke">ctrl-c</span>, to interrupt a program that is stuck in
+until we stop the program manually. Most terminals support the keyboard shortcut
+<span class="keystroke">ctrl-c</span> to interrupt a program that is stuck in
 a continual loop. Give it a try:
 -->
 
@@ -693,10 +512,18 @@ ctrl-c</span>, pour arrêter un programme qui est bloqué dans une boucle infini
 Essayons cela :
 
 <!--
-```text
+<!-- manual-regeneration
+cd listings/ch03-common-programming-concepts/no-listing-32-loop
+cargo run
+CTRL-C
+-- >
+-->
+
+<!--
+```console
 $ cargo run
    Compiling loops v0.1.0 (file:///projects/loops)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.29 secs
+    Finished dev [unoptimized + debuginfo] target(s) in 0.29s
      Running `target/debug/loops`
 again!
 again!
@@ -706,10 +533,10 @@ again!
 ```
 -->
 
-```text
+```console
 $ cargo run
    Compiling loops v0.1.0 (file:///projects/loops)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.29 secs
+    Finished dev [unoptimized + debuginfo] target(s) in 0.29s
      Running `target/debug/loops`
 À nouveau !
 À nouveau !
@@ -731,20 +558,80 @@ Le symbole `^C` représente le moment où vous avez appuyé sur
 code quand elle a reçu le signal d'arrêt.
 
 <!--
-Fortunately, Rust provides another, more reliable way to break out of a loop.
-You can place the `break` keyword within the loop to tell the program when to
-stop executing the loop. Recall that we did this in the guessing game in the
+Fortunately, Rust also provides a way to break out of a loop using code. You
+can place the `break` keyword within the loop to tell the program when to stop
+executing the loop. Recall that we did this in the guessing game in the
 [“Quitting After a Correct Guess”][quitting-after-a-correct-guess]<!-- ignore
 -- > section of Chapter 2 to exit the program when the user won the game by
 guessing the correct number.
 -->
 
-Heureusement, Rust fournit un autre moyen, plus fiable, de sortir d'une boucle.
-Vous pouvez ajouter le mot-clé `break` à l'intérieur de la boucle pour demander
-au programme d'arrêter la boucle. Souvenez-vous que nous avions fait ceci dans
-le jeu de devinettes, dans la section [“Arrêter le programme après avoir
-gagné”][quitting-after-a-correct-guess]<!-- ignore --> du chapitre 2 afin de
-quitter le programme quand l'utilisateur gagne le jeu en devinant le bon nombre.
+Heureusement, Rust fournit aussi un autre moyen de sortir d'une boucle en
+utilisant du code. Vous pouvez ajouter le mot-clé `break` à l'intérieur de la boucle
+pour demander au programme d'arrêter la boucle. Souvenez-vous que nous avions
+fait ceci dans le jeu de devinettes, dans la section [“Arrêter le programme
+après avoir gagné”][quitting-after-a-correct-guess]<!-- ignore --> du chapitre 2
+afin de quitter le programme quand l'utilisateur gagne le jeu en devinant le
+bon nombre.
+
+<!--
+We also used `continue` in the guessing game, which in a loop tells the program
+to skip over any remaining code in this iteration of the loop and go to the
+next iteration.
+-->
+
+Nous avons également `continue` dans le jeu du plus ou du moins, qui dans une
+boucle demande au programme de sauter le code restant dans cette iteration de
+la boucle et passer directement à la prochaine itération.
+
+<!--
+If you have loops within loops, `break` and `continue` apply to the innermost
+loop at that point. You can optionally specify a *loop label* on a loop that we
+can then use with `break` or `continue` to specify that those keywords apply to
+the labeled loop instead of the innermost loop. Here’s an example with two
+nested loops:
+-->
+
+Si vous avez des boucles imbriquées dans d'autres boucles, `break` et `continue`
+s'appliquent uniquement à la boucle au plus bas niveau. Si vous en avez besoin,
+vous pouvez associer une *etiquette de boucle* à une boucle que nous pouvons
+ensuite utiliser en association avec `break` ou `continue` pour préciser que
+ces mot-clés s'appliquent sur la boucle correspondant à l'étiquette plutôt qu'à
+la boucle la plus proche possible. Voici un exemple avec deux boucles
+imbriquées :
+
+<!--
+```rust
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-32-5-loop-labels/src/main.rs}}
+```
+-->
+
+```rust
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-32-5-loop-labels/src/main.rs}}
+```
+
+<!--
+The outer loop has the label `'counting_up`, and it will count up from 0 to 2.
+The inner loop without a label counts down from 10 to 9. The first `break` that
+doesn’t specify a label will exit the inner loop only. The `break
+'counting_up;` statement will exit the outer loop. This code prints:
+-->
+
+La boucle la plus à l'extérieur a l'étiquette `increment`, et elle va
+incrémenter de 0 à 2. La boucle à l'intérieur n'a pas d'étiquette et va
+décrementer de 10 à 9. Le premier `break` qui ne précise pas d'étiquette va
+arrêter uniquement la boucle interne. L'instruction `break 'increment;` va
+arrêter la boucle la plus à l'extérieur. Ce code va afficher :
+
+<!--
+```console
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-32-5-loop-labels/output.txt}}
+```
+-->
+
+```console
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-32-5-loop-labels/output.txt}}
+```
 
 <!--
 #### Returning Values from Loops
@@ -754,53 +641,29 @@ quitter le programme quand l'utilisateur gagne le jeu en devinant le bon nombre.
 
 <!--
 One of the uses of a `loop` is to retry an operation you know might fail, such
-as checking whether a thread has completed its job. However, you might need to
-pass the result of that operation to the rest of your code. To do this, you can
-add the value you want returned after the `break` expression you use to stop
-the loop; that value will be returned out of the loop so you can use it, as
-shown here:
+as checking whether a thread has completed its job. You might also need to pass
+the result of that operation out of the loop to the rest of your code. To do
+this, you can add the value you want returned after the `break` expression you
+use to stop the loop; that value will be returned out of the loop so you can
+use it, as shown here:
 -->
 
 L'une des utilisations d'une boucle `loop` est de réessayer une opération qui
-peut échouer, comme vérifier si une tâche a terminé son travail. Cependant, vous
-aurez peut-être besoin de passer le résultat de l'opération au reste de votre
-code. Pour ce faire, vous pouvez ajouter la valeur que vous voulez retourner
-après l'expression `break` que vous utilisez pour stopper la boucle ; cette
-valeur sera retournée de la boucle pour que vous puissiez l'utiliser, comme
-ci-dessous :
+peut échouer, comme vérifier si une tâche a terminé son travail. Vous aurez
+aussi peut-être besoin de passer le résultat de l'opération au reste de votre
+code à l'extérieur de cette boucle. Pour ce faire, vous pouvez ajouter la
+valeur que vous voulez retourner après l'expression `break` que vous utilisez
+pour stopper la boucle ; cette valeur sera retournée à l'extérieur de la boucle
+pour que vous puissiez l'utiliser, comme ci-dessous :
 
 <!--
 ```rust
-fn main() {
-    let mut counter = 0;
-
-    let result = loop {
-        counter += 1;
-
-        if counter == 10 {
-            break counter * 2;
-        }
-    };
-
-    println!("The result is {}", result);
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-33-return-value-from-loop/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let mut compteur = 0;
-
-    let resultat = loop {
-        compteur += 1;
-
-        if compteur == 10 {
-            break compteur * 2;
-        }
-    };
-
-    println!("Le résultat est {}", resultat);
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-33-return-value-from-loop/src/main.rs}}
 ```
 
 <!--
@@ -829,29 +692,24 @@ affichons la valeur de `resultat`, qui est 20 dans ce cas-ci.
 #### Les boucles conditionnelles avec `while`
 
 <!--
-It’s often useful for a program to evaluate a condition within a loop. While
-the condition is true, the loop runs. When the condition ceases to be true, the
-program calls `break`, stopping the loop. This loop type could be implemented
-using a combination of `loop`, `if`, `else`, and `break`; you could try that
-now in a program, if you’d like.
+A program will often need to evaluate a condition within a loop. While the
+condition is true, the loop runs. When the condition ceases to be true, the
+program calls `break`, stopping the loop. It's possible to implement behavior
+like this using a combination of `loop`, `if`, `else`, and `break`; you could
+try that now in a program, if you’d like. However, this pattern is so common
+that Rust has a built-in language construct for it, called a `while` loop. In
+Listing 3-3, we use `while` to loop the program three times, counting down each
+time, and then, after the loop, print a message and exit.
 -->
 
-Il est souvent utile pour un programme d'évaluer une condition dans une boucle.
+Un programme a souvent besoin d'évaluer une condition dans une boucle.
 Tant que la condition est vraie, la boucle tourne. Quand la condition arrête
-d'être vraie, le programme appelle `break`, ce qui arrête la boucle. Ce type de
-boucle peut être implémenté en combinant `loop`, `if`, `else` et `break` ; vous
-pouvez essayer de le faire, si vous voulez.
-
-<!--
-However, this pattern is so common that Rust has a built-in language construct
-for it, called a `while` loop. Listing 3-3 uses `while`: the program loops
-three times, counting down each time, and then, after the loop, it prints
-another message and exits.
--->
-
+d'être vraie, le programme appelle `break`, ce qui arrête la boucle. Il est
+possible d'implémenter un comportement comme celui-ci en combinant `loop`,
+`if`, `else` et `break` ; vous pouvez essayer de le faire, si vous voulez.
 Cependant, cette utilisation est si fréquente que Rust a une construction pour
-cela, intégrée dans le langage, qui s'appelle une boucle `while`. L'encart 3-3
-utilise `while` : le programme va boucler trois fois, en décrémentant à chaque
+cela, intégrée dans le langage, qui s'appelle une boucle `while`. Dans l'encart
+3-3, nous utilisons `while` pour boucler trois fois, en décrémentant à chaque
 fois, et ensuite, après la boucle, il va afficher un message et se fermer.
 
 <!--
@@ -862,32 +720,12 @@ fois, et ensuite, après la boucle, il va afficher un message et se fermer.
 
 <!--
 ```rust
-fn main() {
-    let mut number = 3;
-
-    while number != 0 {
-        println!("{}!", number);
-
-        number -= 1;
-    }
-
-    println!("LIFTOFF!!!");
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/listing-03-03/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let mut nombre = 3;
-
-    while nombre != 0 {
-        println!("{} !", nombre);
-
-        nombre -= 1;
-    }
-
-    println!("DÉCOLLAGE !!!");
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-03/src/main.rs}}
 ```
 
 <!--
@@ -915,13 +753,14 @@ que la condition est vraie, le code est exécuté ; sinon, il quitte la boucle.
 #### Boucler dans une collection avec `for`
 
 <!--
-You could use the `while` construct to loop over the elements of a collection,
-such as an array. For example, let’s look at Listing 3-4.
+You can choose to use the `while` construct to loop over the elements of a
+collection, such as an array. For example, the loop in Listing 3-4 prints each
+element in the array `a`.
 -->
 
-Vous pouvez utiliser la construction `while` pour itérer sur les
-éléments d'une collection, comme les tableaux. Par exemple, analysons l'encart
-3-4.
+Vous pouvez choisir d'utiliser la construction `while` pour itérer sur les
+éléments d'une collection, comme les tableaux. Par exemple, la boucle dans
+l'encart 3-4 affiche chaque élément présent dans le tableau `a`.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -931,30 +770,12 @@ Vous pouvez utiliser la construction `while` pour itérer sur les
 
 <!--
 ```rust
-fn main() {
-    let a = [10, 20, 30, 40, 50];
-    let mut index = 0;
-
-    while index < 5 {
-        println!("the value is: {}", a[index]);
-
-        index += 1;
-    }
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/listing-03-04/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let a = [10, 20, 30, 40, 50];
-    let mut indice = 0;
-
-    while indice < 5 {
-        println!("La valeur est : {}", a[indice]);
-
-        indice += 1;
-    }
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-04/src/main.rs}}
 ```
 
 <!--
@@ -978,29 +799,13 @@ final du tableau (ce qui correspond au moment où la condition `index < 5` n'est
 plus vraie). Exécuter ce code va afficher chaque élément du tableau :
 
 <!--
-```text
-$ cargo run
-   Compiling loops v0.1.0 (file:///projects/loops)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.32 secs
-     Running `target/debug/loops`
-the value is: 10
-the value is: 20
-the value is: 30
-the value is: 40
-the value is: 50
+```console
+{{#include ../listings-sources/ch03-common-programming-concepts/listing-03-04/output.txt}}
 ```
 -->
 
-```text
-$ cargo run
-   Compiling loops v0.1.0 (file:///projects/loops)
-    Finished dev [unoptimized + debuginfo] target(s) in 0.32 secs
-     Running `target/debug/loops`
-La valeur est : 10
-La valeur est : 20
-La valeur est : 30
-La valeur est : 40
-La valeur est : 50
+```console
+{{#include ../listings/ch03-common-programming-concepts/listing-03-04/output.txt}}
 ```
 
 <!--
@@ -1014,16 +819,21 @@ Même si `indice` va atteindre la valeur `5` à un moment, la boucle arrêtera d
 s'exécuter avant d'essayer de récupérer une sixième valeur du tableau.
 
 <!--
-But this approach is error prone; we could cause the program to panic if the
-index length is incorrect. It’s also slow, because the compiler adds runtime
-code to perform the conditional check on every element on every iteration
-through the loop.
+However, this approach is error prone; we could cause the program to panic if
+the index value or test condition are incorrect. For example, if you changed
+the definition of the `a` array to have four elements but forgot to update the
+condition to `while index < 4`, the code would panic. It’s also slow, because
+the compiler adds runtime code to perform the conditional check of whether the
+index is within the bounds of the array on every iteration through the loop.
 -->
 
-Mais cette approche pousse à l'erreur ; nous pourrions faire paniquer le
-programme si l'indice est trop grand. De plus, c'est lent, car le compilateur
-ajoute du code à l'exécution pour effectuer des vérifications sur chaque élément
-à chaque itération de la boucle.
+Cependant, cette approche pousse à l'erreur ; nous pourrions faire paniquer le
+programme si la valeur de l'indice est trop grand ou que la condition du test
+est incorrecte. Par exemple, si vous changez la définition du tableau `a` pour
+avoir quatre éléments, mais que nous oublions de modifier la condition dans
+`while indice < 4`, le code paniquera. De plus, c'est lent, car le compilateur
+ajoute du code pour effectuer à l'exécution la vérification que l'indice est
+compris dans les limites du tableau, et cela à chaque itération de la boucle.
 
 <!--
 As a more concise alternative, you can use a `for` loop and execute some code
@@ -1042,24 +852,12 @@ s'utilise comme dans le code de l'encart 3-5.
 
 <!--
 ```rust
-fn main() {
-    let a = [10, 20, 30, 40, 50];
-
-    for element in a.iter() {
-        println!("the value is: {}", element);
-    }
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/listing-03-05/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    let a = [10, 20, 30, 40, 50];
-
-    for element in a.iter() {
-        println!("La valeur est : {}", element);
-    }
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/listing-03-05/src/main.rs}}
 ```
 
 <!--
@@ -1084,26 +882,23 @@ si on dépassait la fin du tableau, ou si on n'allait pas jusqu'au bout
 et qu'on ratait quelques éléments.
 
 <!--
-For example, in the code in Listing 3-4, if you removed an item from the `a`
-array but forgot to update the condition to `while index < 4`, the code would
-panic. Using the `for` loop, you wouldn’t need to remember to change any other
-code if you changed the number of values in the array.
+Using the `for` loop, you wouldn’t need to remember to change any other code if
+you changed the number of values in the array, as you would with the method
+used in Listing 3-4.
 -->
 
-Par exemple, dans le code de l'encart 3-4, si vous enlevez un élément du
-tableau `a` mais que vous oubliez de mettre à jour la condition tel que
-`while indice < 4`, le code va paniquer. En utilisant la boucle `for`, vous
-n'aurez pas à vous rappeler de changer le code si vous changez le nombre de
-valeurs dans le tableau.
+En utilisant la boucle `for`, vous n'aurez pas à vous rappeler de changer le
+code si vous changez le nombre de valeurs dans le tableau, comme vous devriez
+le faire dans la méthode utilisée dans l'encart 3-4.
 
 <!--
 The safety and conciseness of `for` loops make them the most commonly used loop
 construct in Rust. Even in situations in which you want to run some code a
 certain number of times, as in the countdown example that used a `while` loop
 in Listing 3-3, most Rustaceans would use a `for` loop. The way to do that
-would be to use a `Range`, which is a type provided by the standard library
-that generates all numbers in sequence starting from one number and ending
-before another number.
+would be to use a `Range`, provided by the standard library, which generates
+all numbers in sequence starting from one number and ending before another
+number.
 -->
 
 La sécurité et la concision de la boucle `for` en font la construction de boucle
@@ -1111,8 +906,8 @@ la plus utilisée avec Rust. Même dans des situations dans lesquelles vous
 voudriez exécuter du code plusieurs fois, comme l'exemple du décompte qui
 utilisait une boucle `while` dans l'encart 3-3, la plupart des Rustacés
 utiliseraient une boucle `for`. Il faut pour cela utiliser un intervalle
-`Range`, qui est un type fourni par la bibliothèque standard qui génère dans
-l'ordre tous les nombres compris entre un certain nombre et un autre nombre.
+`Range`, fourni par la bibliothèque standard pour générer dans l'ordre tous les
+nombres compris entre un certain nombre et un autre nombre.
 
 <!--
 Here’s what the countdown would look like using a `for` loop and another method
@@ -1130,22 +925,12 @@ méthode que nous n'avons pas encore vue, `rev`, qui inverse l'intervalle :
 
 <!--
 ```rust
-fn main() {
-    for number in (1..4).rev() {
-        println!("{}!", number);
-    }
-    println!("LIFTOFF!!!");
-}
+{{#rustdoc_include ../listings-sources/ch03-common-programming-concepts/no-listing-34-for-range/src/main.rs}}
 ```
 -->
 
 ```rust
-fn main() {
-    for nombre in (1..4).rev() {
-        println!("{} !", nombre);
-    }
-    println!("DÉCOLLAGE !!!");
-}
+{{#rustdoc_include ../listings/ch03-common-programming-concepts/no-listing-34-for-range/src/main.rs}}
 ```
 
 <!--
@@ -1162,16 +947,16 @@ Ce code est un peu plus sympa, non ?
 
 <!--
 You made it! That was a sizable chapter: you learned about variables, scalar
-and compound data types, functions, comments, `if` expressions, and loops! If
-you want to practice with the concepts discussed in this chapter, try building
+and compound data types, functions, comments, `if` expressions, and loops!
+To practice with the concepts discussed in this chapter, try building
 programs to do the following:
 -->
 
 Vous y êtes arrivé ! C'était un chapitre important : vous avez appris les
 variables, les types scalaires et composés, les fonctions, les commentaires, les
-expressions `if`, et les boucles ! Si vous voulez pratiquer un peu les concepts
-abordés dans ce chapitre, voici quelques programmes que vous pouvez essayer de
-créer :
+expressions `if`, et les boucles !
+Pour pratiquer un peu les concepts abordés dans ce chapitre, voici quelques
+programmes que vous pouvez essayer de créer :
 
 <!--
 * Convert temperatures between Fahrenheit and Celsius.
