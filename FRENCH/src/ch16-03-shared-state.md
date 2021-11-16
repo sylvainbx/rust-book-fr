@@ -345,18 +345,14 @@ propriétaires que nous avons vu au chapitre 15.
 In Chapter 15, we gave a value multiple owners by using the smart pointer
 `Rc<T>` to create a reference counted value. Let’s do the same here and see
 what happens. We’ll wrap the `Mutex<T>` in `Rc<T>` in Listing 16-14 and clone
-the `Rc<T>` before moving ownership to the thread. Now that we’ve seen the
-errors, we’ll also switch back to using the `for` loop, and we’ll keep the
-`move` keyword with the closure.
+the `Rc<T>` before moving ownership to the thread.
 -->
 
 Dans le chapitre 15, nous avons assigné plusieurs propriétaires à une valeur
 en utilisant le pointeur intelligent `Rc<T>` pour créer un compteur de
 référence. Faisons la même chose ici et voyons ce qui se passe. Nous allons
 intégrer le `Mutex<T>` dans un `Rc<T>` dans l'encart 16-14 et cloner le `Rc<T>`
-avant de déplacer sa possession à la tâche. Maintenant que nous avons vu les
-erreurs, nous allons aussi revenir à l'utilisation de la boucle `for` et nous
-allons garder le mot-clé `move` dans la fermeture.
+avant de déplacer sa possession à la tâche.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
