@@ -105,12 +105,11 @@ requires these around all function bodies. It’s good style to place the openin
 curly bracket on the same line as the function declaration, adding one space in
 between.
 
-At the time of this writing, an automatic formatter tool called `rustfmt` is
-under development. If you want to stick to a standard style across Rust
-projects, `rustfmt` will format your code in a particular style. The Rust team
-plans to eventually include this tool with the standard Rust distribution, like
-`rustc`. So depending on when you read this book, it might already be installed
-on your computer! Check the online documentation for more details.
+If you want to stick to a standard style across Rust projects, you can use an
+automatic formatter tool called `rustfmt` to format your code in a particular
+style. The Rust team has included this tool with the standard Rust distribution,
+like `rustc`, so it should already be installed on your computer! Check the
+online documentation for more details.
 
 Inside the `main` function is the following code:
 
@@ -126,7 +125,8 @@ First, Rust style is to indent with four spaces, not a tab.
 Second, `println!` calls a Rust macro. If it called a function instead, it
 would be entered as `println` (without the `!`). We’ll discuss Rust macros in
 more detail in Chapter 19. For now, you just need to know that using a `!`
-means that you’re calling a macro instead of a normal function.
+means that you’re calling a macro instead of a normal function, and that macros
+don’t always follow the same rules as functions.
 
 Third, you see the `"Hello, world!"` string. We pass this string as an argument
 to `println!`, and the string is printed to the screen.
@@ -156,7 +156,7 @@ entering the `ls` command in your shell. On Linux and macOS, you’ll see two
 files. With PowerShell on Windows, you’ll see the same three files that you
 would see using CMD.
 
-```text
+```console
 $ ls
 main  main.rs
 ```
