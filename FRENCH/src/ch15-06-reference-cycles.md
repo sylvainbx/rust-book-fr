@@ -230,11 +230,11 @@ causing it to run out of available memory.
 -->
 
 Dans ce cas, juste après que nous ayons créé la boucle de références, le
-programme se termine. Les conséquences de cette boucle ne sont désastreuses.
-Cependant, si un programme plus complexe alloue beaucoup de mémoire dans une
-boucle de références et la garde pendant longtemps, le programme va utiliser
-bien plus de mémoire qu'il a besoin et pourrait surcharger le système, qui
-devrait épuiser la mémoire disponible.
+programme se termine. Les conséquences de cette boucle ne sont pas
+désastreuses. Cependant, si un programme plus complexe alloue beaucoup de
+mémoire dans une boucle de références et la garde pendant longtemps, le
+programme va utiliser bien plus de mémoire qu'il a besoin et pourrait
+surcharger le système, qui devrait épuiser la mémoire disponible.
 
 <!--
 Creating reference cycles is not easily done, but it’s not impossible either.
