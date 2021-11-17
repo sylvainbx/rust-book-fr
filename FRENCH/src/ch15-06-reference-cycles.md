@@ -18,14 +18,14 @@ item in the cycle will never reach 0, and the values will never be dropped.
 Les garanties de sécurité de la mémoire de Rust rendent difficile, mais pas
 impossible, la création accidentelle de mémoire qui n'est jamais nettoyée
 (aussi appelée *fuite de mémoire*). Eviter absolument les fuites de mémoire
-n'est pas une des garanties de Rust comme c'est le cas pour l'accès
-concurrent à la compilation, ce qui signifie que les fuites de mémoire ne
-sont dangereuses, pour Rust. Nous pouvons constater que Rust permet les fuites
-de mémoire en utilisant `Rc<T>` et `RefCell<T>` : il est possible de créer des
-références où les éléments se réfèrent entre eux de manière cyclique. Cela
-crée des fuites de mémoire car le compteur de références de chaque élément
-dans la boucle de références ne vaudra jamais 0, et les valeurs ne seront
-jamais libérées.
+n'est pas une des garanties de Rust, en tout cas pas comme pour l'accès
+concurrent au moment de la compilation, ce qui signifie que les fuites de
+mémoire sont sans risque pour la mémoire avec Rust. Nous pouvons constater
+que Rust permet les fuites de mémoire en utilisant `Rc<T>` et `RefCell<T>` : il
+est possible de créer des références où les éléments se réfèrent entre eux de
+manière cyclique. Cela crée des fuites de mémoire car le compteur de références
+de chaque élément dans la boucle de références ne vaudra jamais 0, et les
+valeurs ne seront jamais libérées.
 
 <!--
 ### Creating a Reference Cycle
