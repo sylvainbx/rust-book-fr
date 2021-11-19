@@ -12,7 +12,7 @@ Rust supports it.
 
 The book *Design Patterns: Elements of Reusable Object-Oriented Software* by
 Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides (Addison-Wesley
-Professional, 1994) colloquially referred to as *The Gang of Four* book, is a
+Professional, 1994), colloquially referred to as *The Gang of Four* book, is a
 catalog of object-oriented design patterns. It defines OOP this way:
 
 > Object-oriented programs are made up of objects. An *object* packages both
@@ -46,7 +46,7 @@ cache the calculated average for us. Listing 17-1 has the definition of the
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch17-oop/listing-17-01/src/lib.rs}}
 ```
 
@@ -62,7 +62,7 @@ on the struct, as shown in Listing 17-2:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch17-oop/listing-17-02/src/lib.rs:here}}
 ```
 

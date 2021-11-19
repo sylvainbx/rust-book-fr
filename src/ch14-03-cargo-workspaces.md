@@ -122,7 +122,7 @@ In the *add-one/src/lib.rs* file, let’s add an `add_one` function:
 
 <span class="filename">Filename: add-one/src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch14-more-about-cargo/no-listing-02-workspace-with-two-crates/add/add-one/src/lib.rs}}
 ```
 
@@ -151,7 +151,7 @@ function to call the `add_one` function, as in Listing 14-7.
 {{#rustdoc_include ../listings/ch14-more-about-cargo/listing-14-07/add/adder/src/main.rs}}
 ```
 
-<span class="caption">Listing 14-7: Using the `add-one` library crate from the 
+<span class="caption">Listing 14-7: Using the `add-one` library crate from the
  `adder` crate</span>
 
 Let’s build the workspace by running `cargo build` in the top-level *add*
@@ -216,7 +216,8 @@ crate:
 
 We can now add `use rand;` to the *add-one/src/lib.rs* file, and building the
 whole workspace by running `cargo build` in the *add* directory will bring in
-and compile the `rand` crate:
+and compile the `rand` crate. We will get one warning because we aren’t
+referring to the `rand` we brought into scope:
 
 <!-- manual-regeneration
 cd listings/ch14-more-about-cargo/no-listing-03-workspace-with-external-dependency/add
@@ -227,10 +228,20 @@ copy output below; the output updating script doesn't handle subdirectories in p
 ```console
 $ cargo build
     Updating crates.io index
-  Downloaded rand v0.5.5
+  Downloaded rand v0.8.3
    --snip--
-   Compiling rand v0.5.6
+   Compiling rand v0.8.3
    Compiling add-one v0.1.0 (file:///projects/add/add-one)
+warning: unused import: `rand`
+ --> add-one/src/lib.rs:1:5
+  |
+1 | use rand;
+  |     ^^^^
+  |
+  = note: `#[warn(unused_imports)]` on by default
+
+warning: 1 warning emitted
+
    Compiling adder v0.1.0 (file:///projects/add/adder)
     Finished dev [unoptimized + debuginfo] target(s) in 10.18s
 ```
@@ -255,7 +266,7 @@ error[E0432]: unresolved import `rand`
  --> adder/src/main.rs:2:5
   |
 2 | use rand;
-  |     ^^^^ no `rand` external crate
+  |     ^^^^ no external crate `rand`
 ```
 
 To fix this, edit the *Cargo.toml* file for the `adder` package and indicate
@@ -274,7 +285,7 @@ within the `add_one` crate:
 
 <span class="filename">Filename: add-one/src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch14-more-about-cargo/no-listing-04-workspace-with-tests/add/add-one/src/lib.rs}}
 ```
 
@@ -296,19 +307,19 @@ $ cargo test
 running 1 test
 test tests::it_works ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
      Running target/debug/deps/adder-49979ff40686fa8e
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
    Doc-tests add-one
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 ```
 
 The first section of the output shows that the `it_works` test in the `add-one`
@@ -335,13 +346,13 @@ $ cargo test -p add-one
 running 1 test
 test tests::it_works ... ok
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 
    Doc-tests add-one
 
 running 0 tests
 
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 ```
 
 This output shows `cargo test` only ran the tests for the `add-one` crate and
