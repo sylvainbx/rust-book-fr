@@ -107,3 +107,7 @@
     - [Les caractéristiques des langages orientés objet](ch17-01-what-is-oo.md)
     - [Utiliser les objets traits qui permettent des valeurs de types différents](ch17-02-trait-objects.md)
     - [Implémenter un patron de conception orienté-objet](ch17-03-oo-design-patterns.md)
+
+## Sujets avancés
+
+- [Les motifs et le filtrage par motif](ch18-00-patterns.md)
