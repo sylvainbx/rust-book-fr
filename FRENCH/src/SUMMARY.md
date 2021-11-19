@@ -116,3 +116,4 @@
     - [La syntaxe des motifs](ch18-03-pattern-syntax.md)
 
 - [Les fonctionnalités avancées](ch19-00-advanced-features.md)
+    - [Le Rust non sécurisé (`unsafe`)](ch19-01-unsafe-rust.md)
