@@ -114,3 +114,5 @@
     - [Tous les endroits où les motifs peuvent être utilisés](ch18-01-all-the-places-for-patterns.md)
     - [La réfutabilité : lorsqu'un motif peut échouer à correspondre](ch18-02-refutability.md)
     - [La syntaxe des motifs](ch18-03-pattern-syntax.md)
+
+- [Les fonctionnalités avancées](ch19-00-advanced-features.md)
