@@ -8,7 +8,8 @@
 Cargo is Rust’s build system and package manager. Most Rustaceans use this tool
 to manage their Rust projects because Cargo handles a lot of tasks for you,
 such as building your code, downloading the libraries your code depends on, and
-building those libraries. (We call libraries your code needs *dependencies*.)
+building those libraries. (We call the libraries that your code needs
+*dependencies*.)
 -->
 
 Cargo est le système de compilation et de gestion de paquets de Rust. La plupart
@@ -161,7 +162,6 @@ Ouvrez *Cargo.toml* dans votre éditeur de texte favori. Son contenu devrait
 [package]
 name = "hello_cargo"
 version = "0.1.0"
-authors = ["Your Name <you@example.com>"]
 edition = "2018"
 
 [dependencies]
@@ -172,7 +172,6 @@ edition = "2018"
 [package]
 name = "hello_cargo"
 version = "0.1.0"
-authors = ["Your Name <you@example.com>"]
 edition = "2018"
 
 [dependencies]
@@ -206,19 +205,15 @@ ajouterons plus de détails à ce fichier, nous ajouterons des sections
 supplémentaires.
 
 <!--
-The next four lines set the configuration information Cargo needs to compile
-your program: the name, the version, who wrote it, and the edition of Rust to
-use. Cargo gets your name and email information from your environment, so if
-that information is not correct, fix the information now and then save the
-file. We’ll talk about the `edition` key in Appendix E.
+The next three lines set the configuration information Cargo needs to compile
+your program: the name, the version, and the edition of Rust to use. We’ll talk
+about the `edition` key in [Appendix E][appendix-e]<!-- ignore -- >.
 -->
 
-Les quatre lignes suivantes définissent les informations de configuration dont
-Cargo a besoin pour compiler votre programme : le nom, la version, l'auteur et
-l'édition de Rust à utiliser. Cargo récupère votre nom et votre courriel à
-partir de votre environnement, donc si ces informations sont erronées, vous
-pouvez les corriger dès maintenant et ensuite enregistrer le fichier. Nous
-aborderons la clé `edition` dans l'annexe E.
+Les trois lignes suivantes définissent les informations de configuration dont
+Cargo a besoin pour compiler votre programme : le nom, la version, et l'édition
+de Rust à utiliser. Nous aborderons la clé `edition` dans
+l'[Annexe E][appendix-e]<!-- ignore -->.
 
 <!--
 The last line, `[dependencies]`, is the start of a section for you to list any
@@ -471,15 +466,14 @@ Let’s recap what we’ve learned so far about Cargo:
 
 Récapitulons ce que nous avons appris sur Cargo :
 
-<!-- markdownlint-disable -->
 <!--
 * We can build a project using `cargo build`.
 * We can build and run a project in one step using `cargo run`.
-* We can build a project without producing a binary to check for errors using `cargo check`.
+* We can build a project without producing a binary to check for errors using
+  `cargo check`.
 * Instead of saving the result of the build in the same directory as our code,
   Cargo stores it in the *target/debug* directory.
 -->
-<!-- markdownlint-restore -->
 
 * Nous pouvons compiler un projet en utilisant `cargo build`.
 * Nous pouvons compiler puis exécuter un projet en une seule fois en utilisant
@@ -565,14 +559,14 @@ déplacer dans le dossier projet et compiler :
 
 <!--
 ```console
-$ git clone someurl.com/someproject
+$ git clone example.org/someproject
 $ cd someproject
 $ cargo build
 ```
 -->
 
 ```console
-$ git clone example.com/projet_quelconque
+$ git clone example.org/projet_quelconque
 $ cd projet_quelconque
 $ cargo build
 ```
@@ -635,6 +629,8 @@ chapitre 2.
 
 <!--
 [installation]: ch01-01-installation.html#installation
+[appendix-e]: appendix-05-editions.html
 -->
 
 [installation]: ch01-01-installation.html#installation
+[appendix-e]: appendix-05-editions.html
