@@ -169,6 +169,7 @@ français.
 | namespace | espace de nom | - |
 | namespacing | l'espace de nom | - |
 | nested (path) | (chemin) imbriqué | - |
+| newtype pattern | motif newtype | - |
 | nightly Rust | version expérimentale de Rust | - |
 | Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
