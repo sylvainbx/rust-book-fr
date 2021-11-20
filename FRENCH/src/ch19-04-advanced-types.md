@@ -21,19 +21,19 @@ différences sémantiques. Nous allons aussi voir le type `!` et les types à
 taille dynamique.
 
 <!--
-> Note: The next section assumes you’ve read the earlier section [“Using the
+### Using the Newtype Pattern for Type Safety and Abstraction
+-->
+
+### Utiliser le motif newtype pour la sécurité et l'abstraction des types
+
+<!--
+> Note: This section assumes you’ve read the earlier section [“Using the
 > Newtype Pattern to Implement External Traits on External
 > Types.”][using-the-newtype-pattern]<!-- ignore -- >
 -->
 
 > Remarque : cette section suppose que vous avez lu la
 > [section précédente][using-the-newtype-pattern]<!-- ignore -->
-
-<!--
-### Using the Newtype Pattern for Type Safety and Abstraction
--->
-
-### Utiliser le motif newtype pour la sécurité et l'abstraction des types
 
 <!--
 The newtype pattern is useful for tasks beyond those we’ve discussed so far,
@@ -260,30 +260,30 @@ d'entrée/sortie. De nombreuses fonctions dans `std::io` vont retourner un
 trait `Write` :
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch19-advanced-features/no-listing-05-write-trait/src/lib.rs}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-05-write-trait/src/lib.rs}}
 ```
 
 <!--
-The `Result<..., Error>` is repeated a lot. As such, `std::io` has this type of
+The `Result<..., Error>` is repeated a lot. As such, `std::io` has this type
 alias declaration:
 -->
 
-Le `Result<..., Error>` est répété plein de fois. Ainsi, `std::io` a ce type de
-déclaration d'alias :
+Le `Result<..., Error>` est répété plein de fois. Ainsi, `std::io` a cette
+déclaration d'alias de type :
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch19-advanced-features/no-listing-06-result-alias/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-06-result-alias/src/lib.rs:here}}
 ```
 
@@ -300,12 +300,12 @@ déjà renseigné comme étant un `std::io::Error`. Les fonctions du trait `Writ
 ressemblent finalement à ceci :
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch19-advanced-features/no-listing-06-result-alias/src/lib.rs:there}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-06-result-alias/src/lib.rs:there}}
 ```
 
@@ -341,15 +341,14 @@ préférons appeler cela le *type jamais* car il remplace le type de retour
 lorsqu'une fonction ne va jamais retourner quelque chose. Voici un exemple :
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch19-advanced-features/no-listing-07-never-type/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-07-never-type/src/lib.rs:here}}
 ```
-
 
 <!--
 This code is read as “the function `bar` returns never.” Functions that return
@@ -411,7 +410,6 @@ Donc, par exemple, le code suivant ne fonctionne pas :
 ```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-08-match-arms-different-types/src/main.rs:here}}
 ```
-
 
 <!--
 The type of `guess` in this code would have to be an integer *and* a string,
@@ -696,14 +694,17 @@ syntaxe spéciale suivante pour éviter cette restriction :
 ```
 
 <!--
-A trait bound on `?Sized` is the opposite of a trait bound on `Sized`: we would
-read this as “`T` may or may not be `Sized`.” This syntax is only available for
+A trait bound on `?Sized` means “`T` may or may not be `Sized`” and this
+notation overrides the default that generic types must have a known size at
+compile time. The `?Trait` syntax with this meaning is only available for
 `Sized`, not any other traits.
 -->
 
-Le trait lié `?Sized` est l'opposé du trait lié `Sized` : nous pourrions lire
-ceci comme étant “`T` peut être ou non un `Sized`”. Cette syntaxe est disponible
-uniquement pour `Sized`, et non pas pour les autres traits.
+Le trait lié `?Sized` signifie que “`T` peut être ou ne pas être `Sized`” et
+cette notation prévaut sur le comportement par défaut qui dit que les types
+génériques doivent avoir une taille connue au moment de la compilation. La
+syntaxe `?Trait` avec ce comportement n'est seulement disponible pour `Sized`,
+et non pas pour les autres traits.
 
 <!--
 Also note that we switched the type of the `t` parameter from `T` to `&T`.
