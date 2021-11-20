@@ -100,6 +100,7 @@ français.
 | float | nombre à virgule flottante | - |
 | floating-point number | nombre à virgule flottante | - |
 | framework | environnement de développement | - |
+| fully qualified syntax | syntaxe totalement définie | - |
 | function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
 | garbage collector | ramasse-miettes | - |
@@ -168,6 +169,7 @@ français.
 | namespace | espace de nom | - |
 | namespacing | l'espace de nom | - |
 | nested (path) | (chemin) imbriqué | - |
+| newtype pattern | motif newtype | - |
 | nightly Rust | version expérimentale de Rust | - |
 | Note | remarque | tout en minuscule (sauf en début de phrase) |
 | numerical characters | chiffres | - |
@@ -251,6 +253,7 @@ français.
 | `String` | `String` | nom féminin (une `String`) |
 | struct | structure | - |
 | submodule | sous-module | - |
+| supertrait | supertrait | - |
 | syntax sugar | sucre syntaxique | - |
 | systems concept | notion système | - |
 | systems-level | niveau système | - |

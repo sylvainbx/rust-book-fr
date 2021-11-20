@@ -117,3 +117,4 @@
 
 - [Les fonctionnalités avancées](ch19-00-advanced-features.md)
     - [Le Rust non sécurisé (`unsafe`)](ch19-01-unsafe-rust.md)
+    - [Les traits avancés](ch19-03-advanced-traits.md)
