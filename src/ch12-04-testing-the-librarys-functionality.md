@@ -48,8 +48,10 @@ yet.
 function we wish we had</span>
 
 This test searches for the string `"duct"`. The text we’re searching is three
-lines, only one of which contains `"duct"`. We assert that the value returned
-from the `search` function contains only the line we expect.
+lines, only one of which contains `"duct"` (Note that the backslash after the
+opening double quote tells Rust not to put a newline character at the beginning
+of the contents of this string literal). We assert that the value returned from
+the `search` function contains only the line we expect.
 
 We aren’t able to run this test and watch it fail because the test doesn’t even
 compile: the `search` function doesn’t exist yet! So now we’ll add just enough
@@ -60,7 +62,7 @@ containing the line `"safe, fast, productive."`
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-16/src/lib.rs:here}}
 ```
 
@@ -129,7 +131,7 @@ won’t compile yet.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-17/src/lib.rs:here}}
 ```
 
@@ -150,7 +152,7 @@ Listing 12-18. Note this still won’t compile yet.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,ignore
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-18/src/lib.rs:here}}
 ```
 
