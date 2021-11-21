@@ -120,7 +120,7 @@ Using `TcpListener`, we can listen for TCP connections at the address
 `127.0.0.1:7878`. In the address, the section before the colon is an IP address
 representing your computer (this is the same on every computer and doesn’t
 represent the authors’ computer specifically), and `7878` is the port. We’ve
-chosen this port for two reasons: HTTP is normally accepted on this port, and
+chosen this port for two reasons: HTTP isn’t normally accepted on this port, and
 7878 is *rust* typed on a telephone.
 -->
 
@@ -128,9 +128,9 @@ En utilisant `TcpListener`, nous pouvons écouter les connexions TCP à l'adress
 `127.0.0.1:7878`. Dans cette adresse, la partie avant les double-points est une
 adresse IP qui représente votre ordinateur (c'est la même sur chaque ordinateur
 et ne représente pas précisément l'ordinateur de l'auteur), et `7878` est le
-port. Nous avons choisi ce port pour deux raisons : HTTP est habituellement
-accepté sur ce port, et 7878 correspond aux touches utilisées sur un clavier de
-téléphone pour écrire *Rust*.
+port. Nous avons choisi ce port pour deux raisons : HTTP n'est pas
+habituellement accepté sur ce port, et 7878 correspond aux touches utilisées
+sur un clavier de téléphone pour écrire *Rust*.
 
 <!--
 The `bind` function in this scenario works like the `new` function in that it
@@ -147,7 +147,7 @@ les réseaux, connecter un port à écouter se dit aussi “lier à un port”.
 <!--
 The `bind` function returns a `Result<T, E>`, which indicates that binding
 might fail. For example, connecting to port 80 requires administrator
-privileges (nonadministrators can listen only on ports higher than 1024), so if
+privileges (nonadministrators can listen only on ports higher than 1023), so if
 we tried to connect to port 80 without being an administrator, binding wouldn’t
 work. As another example, binding wouldn’t work if we ran two instances of our
 program and so had two programs listening to the same port. Because we’re
@@ -159,7 +159,7 @@ errors happen.
 La fonction `bind` retourne un `Result<T, E>`, ce qui signifie que la création
 de lien peut échouer. Par exemple, la connexion au port 80 nécessite d'être
 administrateur (les utilisateurs non-administrateur ne peuvent écouter que sur
-les ports supérieurs à 1024), donc si nous essayons de connecter un port 80
+les ports supérieurs à 1023), donc si nous essayons de connecter un port 80
 sans être administrateur, le lien ne va pas fonctionner. Un autre exemple, le
 lien ne va pas fonctionner si nous exécutons deux instances de notre programme
 et que nous avons deux programmes qui écoutent sur le même port. Comme nous
@@ -979,18 +979,18 @@ d'erreur s'il y autre chose que */* qui est demandé</span>
 
 <!--
 Here, our response has a status line with status code 404 and the reason
-phrase `NOT FOUND`. We’re still not returning headers, and the body of the
-response will be the HTML in the file *404.html*. You’ll need to create a
-*404.html* file next to *hello.html* for the error page; again feel free to use
-any HTML you want or use the example HTML in Listing 20-8.
+phrase `NOT FOUND`. The body of the response will be the HTML in the file
+*404.html*. You’ll need to create a *404.html* file next to *hello.html* for
+the error page; again feel free to use any HTML you want or use the example
+HTML in Listing 20-8.
 -->
 
 Ici, notre réponse a une ligne de statut avec le code de statut 404 et la
-phrase de raison `NOT FOUND`. Nous ne retournons toujours pas d'entêtes, et le
-corps de la réponse sera le HTML présent dans le fichier *404.html*. Nous aurons
-besoin de créer un fichier `404.html` à côté de *hello.html* pour la page
-d'erreur ; n'hésitez pas à nouveau à utiliser le HTML que vous souhaitez ou à
-défaut utiliser le HTML d'exemple présent dans l'encart 20-8.
+phrase de raison `NOT FOUND`. Le corps de la réponse sera le HTML présent dans
+le fichier *404.html*. Nous aurons besoin de créer un fichier `404.html` à côté
+de *hello.html* pour la page d'erreur ; n'hésitez pas à nouveau à utiliser le
+HTML que vous souhaitez ou à défaut utiliser le HTML d'exemple présent dans
+l'encart 20-8.
 
 <!--
 <span class="filename">Filename: 404.html</span>
