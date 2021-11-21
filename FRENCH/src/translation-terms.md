@@ -261,6 +261,7 @@ français.
 | terminal | terminal | - |
 | test double | double de test | - |
 | thread | tâche | - |
+| thread pool | groupe de tâches | - |
 | token | jeton | - |
 | trait | trait | - |
 | trait bound | trait lié | - |
