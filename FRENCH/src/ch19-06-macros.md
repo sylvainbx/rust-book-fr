@@ -199,12 +199,12 @@ L'encart 19-28 montre une définition légèrement simplifiée de la macro `vec!
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/listing-19-28/src/lib.rs}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/listing-19-28/src/lib.rs}}
 ```
 
@@ -377,7 +377,7 @@ effectively deprecated. With this in mind, as well as the fact that most Rust
 programmers will *use* macros more than *write* macros, we won’t discuss
 `macro_rules!` any further. To learn more about how to write macros, consult
 the online documentation or other resources, such as [“The Little Book of Rust
-Macros”][tlborm].
+Macros”][tlborm] started by Daniel Keep and continued by Lukas Wirth.
 -->
 
 Il subsiste quelques cas marginaux étranges avec `macro_rules!`. Bientôt, Rust
@@ -387,13 +387,14 @@ manière mais qui corrigera ces cas marginaux. Après cette mise à jour,
 plupart des développeurs Rust vont plus *utiliser* les macros *qu'écrire* des
 macros, nous ne verrons plus à nouveau `macro_rules!` à l'avenir. Pour en
 savoir plus sur l'écriture des macros, consultez la documentation en ligne, ou
-d'autres ressources comme [“The Little Book of Rust Macros”][tlborm].
+d'autres ressources comme [“The Little Book of Rust Macros”][tlborm], débuté
+par Daniel Keep et continué par Lukas Wirth.
 
 <!--
-[tlborm]: https://danielkeep.github.io/tlborm/book/index.html
+[tlborm]: https://veykril.github.io/tlborm/
 -->
 
-[tlborm]: https://danielkeep.github.io/tlborm/book/index.html
+[tlborm]: https://veykril.github.io/tlborm/
 
 <!--
 ### Procedural Macros for Generating Code from Attributes
@@ -586,12 +587,12 @@ Ensuite, nous allons définir le trait `HelloMacro` et sa fonction associée :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch19-advanced-features/no-listing-20-impl-hellomacro-for-pancakes/hello_macro/src/lib.rs}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch19-advanced-features/no-listing-20-impl-hellomacro-for-pancakes/hello_macro/src/lib.rs}}
 ```
 
@@ -710,12 +711,12 @@ de `hello_macro_derive` :
 
 <!--
 ```toml
-{{#include ../listings-sources/ch19-advanced-features/listing-19-31/hello_macro/hello_macro_derive/Cargo.toml:7:12}}
+{{#include ../listings-sources/ch19-advanced-features/listing-19-31/hello_macro/hello_macro_derive/Cargo.toml:6:12}}
 ```
 -->
 
 ```toml
-{{#include ../listings/ch19-advanced-features/listing-19-31/hello_macro/hello_macro_derive/Cargo.toml:7:12}}
+{{#include ../listings/ch19-advanced-features/listing-19-31/hello_macro/hello_macro_derive/Cargo.toml:6:12}}
 ```
 
 <!--
