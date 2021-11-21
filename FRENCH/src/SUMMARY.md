@@ -120,3 +120,4 @@
     - [Les traits avancés](ch19-03-advanced-traits.md)
     - [Les types avancés](ch19-04-advanced-types.md)
     - [Les fonctions et fermetures avancées](ch19-05-advanced-functions-and-closures.md)
+    - [Les macros](ch19-06-macros.md)
