@@ -31,7 +31,7 @@ fn gestion_connexion(mut flux: TcpStream) {
         flux.write(reponse.as_bytes()).unwrap();
         flux.flush().unwrap();
     } else {
-        let ligne_statut = "HTTP/1.1 404 NOT FOUND\r\n\r\n";
+        let ligne_statut = "HTTP/1.1 404 NOT FOUND";
         let contenu = fs::read_to_string("404.html").unwrap();
 
         let reponse = format!(
