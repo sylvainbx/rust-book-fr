@@ -44,7 +44,12 @@ fn gestion_connexion(mut flux: TcpStream) {
 
     let contenu = fs::read_to_string(nom_fichier).unwrap();
 
-    let reponse = format!("{}{}", ligne_statut, contenu);
+    let reponse = format!(
+        "{}\r\nContent-Length: {}\r\n\r\n{}",
+        ligne_statut,
+        contenu.len(),
+        contenu
+    );
 
     flux.write(reponse.as_bytes()).unwrap();
     flux.flush().unwrap();

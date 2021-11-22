@@ -411,12 +411,12 @@ moment :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch20-web-server/no-listing-01-define-threadpool-struct/src/lib.rs}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch20-web-server/no-listing-01-define-threadpool-struct/src/lib.rs}}
 ```
 
@@ -493,13 +493,13 @@ ces caractéristiques :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings-sources/ch20-web-server/no-listing-02-impl-threadpool-new/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch20-web-server/no-listing-02-impl-threadpool-new/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings-sources/ch20-web-server/no-listing-02-impl-threadpool-new/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch20-web-server/no-listing-02-impl-threadpool-new/src/lib.rs}}
 ```
 
 <!--
@@ -577,16 +577,18 @@ la signature de `thread::spawn`. La documentation nous donne ceci :
 ```rust,ignore
 pub fn spawn<F, T>(f: F) -> JoinHandle<T>
     where
-        F: FnOnce() -> T + Send + 'static,
-        T: Send + 'static
+        F: FnOnce() -> T,
+        F: Send + 'static,
+        T: Send + 'static,
 ```
 -->
 
 ```rust,ignore
 pub fn spawn<F, T>(f: F) -> JoinHandle<T>
     where
-        F: FnOnce() -> T + Send + 'static,
-        T: Send + 'static
+        F: FnOnce() -> T,
+        F: Send + 'static,
+        T: Send + 'static,
 ```
 
 <!--
@@ -630,15 +632,14 @@ avec les liens suivants :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch20-web-server/no-listing-03-define-execute/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch20-web-server/no-listing-03-define-execute/src/lib.rs:here}}
 ```
-
 
 <!--
 We still use the `()` after `FnOnce` because this `FnOnce` represents a closure
@@ -735,12 +736,12 @@ reçoit un zéro, en utilisant la macro `assert!` comme dans l'encart 20-13.
 <span class="filename">Filename : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch20-web-server/listing-20-13/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch20-web-server/listing-20-13/src/lib.rs:here}}
 ```
 
@@ -816,16 +817,18 @@ une tâche ? Regardons à nouveau la signature de `thread::spawn` :
 ```rust,ignore
 pub fn spawn<F, T>(f: F) -> JoinHandle<T>
     where
-        F: FnOnce() -> T + Send + 'static,
-        T: Send + 'static
+        F: FnOnce() -> T,
+        F: Send + 'static,
+        T: Send + 'static,
 ```
 -->
 
 ```rust,ignore
 pub fn spawn<F, T>(f: F) -> JoinHandle<T>
     where
-        F: FnOnce() -> T + Send + 'static,
-        T: Send + 'static
+        F: FnOnce() -> T,
+        F: Send + 'static,
+        T: Send + 'static,
 ```
 
 <!--
@@ -1031,12 +1034,12 @@ aux changements listés précédemment.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch20-web-server/listing-20-15/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch20-web-server/listing-20-15/src/lib.rs:here}}
 ```
 
@@ -1172,12 +1175,12 @@ d'éléments que nous enverrons dans le canal.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch20-web-server/listing-20-16/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch20-web-server/listing-20-16/src/lib.rs:here}}
 ```
 
@@ -1312,12 +1315,12 @@ montre les changements que nous devons apporter.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch20-web-server/listing-20-18/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch20-web-server/listing-20-18/src/lib.rs:here}}
 ```
 
@@ -1376,12 +1379,12 @@ Voyez cela dans l'encart 20-19.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch20-web-server/listing-20-19/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch20-web-server/listing-20-19/src/lib.rs:here}}
 ```
 
@@ -1437,12 +1440,12 @@ un. Appliquons les changements montrés dans l'encart 20-20 à `Operateur::new`.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch20-web-server/listing-20-20/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch20-web-server/listing-20-20/src/lib.rs:here}}
 ```
 
@@ -1538,6 +1541,8 @@ warning: field is never read: `thread`
 49 |     thread: thread::JoinHandle<()>,
    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+warning: 3 warnings emitted
+
     Finished dev [unoptimized + debuginfo] target(s) in 1.40s
      Running `target/debug/main`
 Worker 0 got a job; executing.
@@ -1575,6 +1580,8 @@ warning: field is never read: `tache`
    |
 49 |     tache: thread::JoinHandle<()>,
    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: 3 warnings emitted
 
     Finished dev [unoptimized + debuginfo] target(s) in 1.40s
      Running `target/debug/main`
@@ -1661,9 +1668,7 @@ method returns. At compile time, the borrow checker can then enforce the rule
 that a resource guarded by a `Mutex` cannot be accessed unless we hold the
 lock. But this implementation can also result in the lock being held longer
 than intended if we don’t think carefully about the lifetime of the
-`MutexGuard<T>`. Because the values in the `while let` expression remain in
-scope for the duration of the block, the lock remains held for the duration of
-the call to `job()`, meaning other workers cannot receive jobs.
+`MutexGuard<T>`.
 -->
 
 Ce code se compile et s'exécute mais ne se comporte pas comme nous
@@ -1677,24 +1682,26 @@ vérifier la règle qui dit qu'une ressource gardée par un `Mutex` ne peut pas
 être accessible que si nous avons ce verrou. Mais cette implémentation peut
 aussi faire en sorte que nous gardions le verrou plus longtemps que prévu si
 nous ne réfléchissons pas avec attention sur la durée de vie du
-`MutexGuard<T>`. Comme les valeurs dans l'expression du `while let` restent dans
-la portée pour la durée de ce bloc, le verrou reste verrouillé pendant la durée
-de l'appel à `mission()`, ce qui signifie que les autres opérateurs ne peuvent
-pas recevoir d'autres missions.
+`MutexGuard<T>`.
 
 <!--
-By using `loop` instead and acquiring the lock without assigning to a variable,
-the temporary `MutexGuard` returned from the `lock` method is dropped as soon
-as the `let job` statement ends. This ensures that the lock is held during the
-call to `recv`, but it is released before the call to `job()`, allowing
-multiple requests to be serviced concurrently.
+The code in Listing 20-20 that uses `let job =
+receiver.lock().unwrap().recv().unwrap();` works because with `let`, any
+temporary values used in the expression on the right hand side of the equals
+sign are immediately dropped when the `let` statement ends. However, `while
+let` (and `if let` and `match`) does not drop temporary values until the end of
+the associated block. In Listing 20-21, the lock remains held for the duration
+of the call to `job()`, meaning other workers cannot receive jobs.
 -->
 
-En utilisant `loop` à la place et en obtenant le verrou sans l'assigner à une
-variable, le `MutexGuard` temporairement retourné par la méthode `lock` est
-libéré dès que l'instruction `let mission` se termine. Cela fait en sorte que le
-verrou est gardé pendant l'appel à `recv`, mais il est libéré avant l'appel à
-`mission()`, ce qui permet à plusieurs requêtes qu'être servies en concurrence.
+Le code de l'encart 20-20 qui utilise `let mission =
+reception.lock().unwrap().recv().unwrap();` fonctionne, car avec `let`, toute
+valeur temporaire utilisée dans la partie droite du signe égal est libérée
+immédiatement lorsque l'instruction `let` se termine. Cependant, `while let` (
+ainsi que `if let` et `match`) ne libèrent pas les valeurs temporaires avant la
+fin du bloc associé. Dans l'encart 20-21, le verrou continue à être maintenu
+pendant toute la durée de l'appel à `mission()`, ce qui veut dire que les
+autres opérateurs ne peuvent pas recevoir des tâches.
 
 <!--
 [creating-type-synonyms-with-type-aliases]:
