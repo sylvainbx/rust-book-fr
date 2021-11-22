@@ -136,6 +136,7 @@ français.
 | IOT | internet des objets (IOT) | - |
 | iterator | itérateur | - |
 | iterator adaptor | adaptateur d'itération | - |
+| job | mission | - |
 | just-in-time compilation | compilation à la volée | sigle : JIT |
 | keyword | mot-clé | - |
 | lazy | évaluation paresseuse | comportement d'un itérateur |
@@ -294,6 +295,7 @@ français.
 | warning | avertissement | - |
 | weak reference | pointeur faible | - |
 | wildcard | joker | - |
+| worker | opérateur | - |
 | workspace | espace de travail | - |
 | yank | déprécier | - |
 | zero-cost abstraction | abstraction sans coût | - |
