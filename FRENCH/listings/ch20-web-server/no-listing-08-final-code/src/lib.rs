@@ -81,7 +81,7 @@ impl Operateur {
 
             match message {
                 Message::NouvelleMission(mission) => {
-                    println!("L'opérateur {} a reçu une mission ; il l'exécute.", id);
+                    println!("L'opérateur {} a reçu une mission ; il l'exécute.", id);
 
                     mission();
                 }

@@ -293,12 +293,12 @@ des instances de `Job`.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings-sources/ch20-web-server/no-listing-07-define-message-enum/src/lib.rs:here}}
 ```
 -->
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch20-web-server/no-listing-07-define-message-enum/src/lib.rs:here}}
 ```
 
@@ -639,12 +639,12 @@ Voici le code complet pour pouvoir vous y référer :
 
 <!--
 ```rust,ignore
-{{#rustdoc_include ../listings-sources/ch20-web-server/listing-20-25/src/bin/main.rs:all}}
+{{#rustdoc_include ../listings-sources/ch20-web-server/no-listing-08-final-code/src/bin/main.rs}}
 ```
 -->
 
 ```rust,ignore
-{{#rustdoc_include ../listings/ch20-web-server/listing-20-25/src/bin/main.rs:all}}
+{{#rustdoc_include ../listings/ch20-web-server/no-listing-08-final-code/src/bin/main.rs}}
 ```
 
 <!--
@@ -654,13 +654,13 @@ Voici le code complet pour pouvoir vous y référer :
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust
-{{#rustdoc_include ../listings-sources/ch20-web-server/listing-20-25/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings-sources/ch20-web-server/no-listing-08-final-code/src/lib.rs}}
 ```
 -->
 
-```rust
-{{#rustdoc_include ../listings/ch20-web-server/listing-20-25/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch20-web-server/no-listing-08-final-code/src/lib.rs}}
 ```
 
 <!--
