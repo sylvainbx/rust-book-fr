@@ -15,8 +15,8 @@ scope of the `eat_at_restaurant` function so we only have to specify
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-11/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-11/src/lib.rs}}
 ```
 
 <span class="caption">Listing 7-11: Bringing a module into scope with
@@ -34,8 +34,8 @@ Listing 7-11.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-12/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-12/src/lib.rs}}
 ```
 
 <span class="caption">Listing 7-12: Bringing a module into scope with `use` and
@@ -50,8 +50,8 @@ the `add_to_waitlist` function to achieve the same result, as in Listing 7-13.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-13/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-13/src/lib.rs}}
 ```
 
 <span class="caption">Listing 7-13: Bringing the `add_to_waitlist` function
@@ -59,10 +59,11 @@ into scope with `use`, which is unidiomatic</span>
 
 Although both Listing 7-11 and 7-13 accomplish the same task, Listing 7-11 is
 the idiomatic way to bring a function into scope with `use`. Bringing the
-function’s parent module into scope with `use` so we have to specify the parent
-module when calling the function makes it clear that the function isn’t locally
-defined while still minimizing repetition of the full path. The code in Listing
-7-13 is unclear as to where `add_to_waitlist` is defined.
+function’s parent module into scope with `use` means we have to specify the
+parent module when calling the function. Specifying the parent module when
+calling the function makes it clear that the function isn’t locally defined
+while still minimizing repetition of the full path. The code in Listing 7-13 is
+unclear as to where `add_to_waitlist` is defined.
 
 On the other hand, when bringing in structs, enums, and other items with `use`,
 it’s idiomatic to specify the full path. Listing 7-14 shows the idiomatic way
@@ -88,7 +89,7 @@ different parent modules and how to refer to them.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-15/src/lib.rs:here}}
 ```
 
@@ -109,7 +110,7 @@ code in Listing 7-15 by renaming one of the two `Result` types using `as`.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-16/src/lib.rs:here}}
 ```
 
@@ -135,8 +136,8 @@ changed to `pub use`.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
-{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs:here}}
+```rust,noplayground,test_harness
+{{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-17/src/lib.rs}}
 ```
 
 <span class="caption">Listing 7-17: Making a name available for any code to use
@@ -244,7 +245,7 @@ two `use` statements that share a subpath. For example, Listing 7-19 shows two
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-19/src/lib.rs}}
 ```
 
@@ -257,7 +258,7 @@ the nested path, as shown in Listing 7-20.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch07-managing-growing-projects/listing-07-20/src/lib.rs}}
 ```
 
