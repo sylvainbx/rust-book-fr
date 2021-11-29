@@ -1,4 +1,4 @@
-use aggregator::{Resumable, Tweet};
+use agregateur::{Resumable, Tweet};
 
 fn main() {
     let tweet = Tweet {
