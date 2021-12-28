@@ -960,7 +960,7 @@ compatible with this `return`.
 
 L'opérateur `?` ne peut être utilisé uniquement dans des fonctions qui ont un
 type de retour compatible avec ce sur quoi le `?` est utilisé. C'est parceque
-l'opérateur `?` est conçu pour retourner prématurémment une valeur de la
+l'opérateur `?` est conçu pour retourner prématurément une valeur de la
 fonction, de la même manière que le faisait l'expression `match` que nous avons
 défini dans l'encart 9-6. Dans l'encart 9-6, le `match` utilisait une valeur de
 type `Result`, et la branche de retour prématuré retournait une valeur de type
