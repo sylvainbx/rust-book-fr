@@ -127,7 +127,7 @@ fn largest<T>(list: &[T]) -> T {
 -->
 
 ```rust,ignore
-fn le_plus_grand<T>(liste: &[T]) -> &T {
+fn le_plus_grand<T>(liste: &[T]) -> T {
 ```
 
 <!--
