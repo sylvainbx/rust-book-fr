@@ -21,7 +21,7 @@ Il reste un détail que nous n'avons pas abordé dans la section [“Les référ
 et l'emprunt”][references-and-borrowing]<!-- ignore --> du chapitre 4, c'est que
 toutes les références ont une *durée de vie* dans Rust, qui est la portée pour
 laquelle cette référence est en vigueur. La plupart du temps, les durées de
-vies sont implicites et sont déduit automatiquement, comme pour la plupart du
+vies sont implicites et sont déduites automatiquement, comme pour la plupart du
 temps les types sont déduits. Nous devons renseigner le type lorsque plusieurs
 types sont possibles. De la même manière, nous devons renseigner les durées de
 vie lorsque les durées de vies des références peuvent être déduites de
@@ -40,7 +40,7 @@ L'annotation de la durée de vie n'est pas un concept présent dans la pluspart
 des langages de programmation, donc cela n'est pas très familier. Bien que nous
 ne puissions couvrir l'intégralité de la durée de vie dans ce chapitre, nous
 allons voir les cas les plus courants où vous allez rencontrer la syntaxe de la
-durée de vie, pour vous introduire à ces concept.
+durée de vie, pour vous introduire ces concept.
 
 <!--
 ### Preventing Dangling References with Lifetimes
@@ -57,7 +57,7 @@ scope.
 
 L'objectif principal des durées de vies est d'éviter les références
 pendouillantes qui font qu'un programme pointe des données autres que celles sur
-lesquelles il était censé pointer. Admettons le programme de l'encart 10-17, qui
+lesquelles il était censé pointer. Soit le programme de l'encart 10-17, qui
 a une portée externe et une portée interne.
 
 <!--
@@ -109,7 +109,7 @@ interne déclare une variable `x` avec la valeur initiale à `5`. Au sein de la
 portée interne, nous essayons d'assigner la valeur de `r` comme étant une
 référence à `x`. Puis la portée interne se ferme, et nous essayons d'afficher la
 valeur dans `r`. Ce code ne va pas se compiler car la valeur `r` se réfère à
-quelque chose qui est sortie de la portée avant que nous essayons de l'utiliser.
+quelque chose qui est sorti de la portée avant que nous essayons de l'utiliser.
 Voici le message d'erreur :
 
 <!--
@@ -198,7 +198,7 @@ Listing 10-19 fixes the code so it doesn’t have a dangling reference and
 compiles without any errors.
 -->
 
-L'encart 10-19 résout le code afin qu'il n'ai plus de référence pendouillante et
+L'encart 10-19 résout le code afin qu'il n'ait plus de référence pendouillante et
 qu'il se compile sans erreur.
 
 <!--
@@ -225,7 +225,7 @@ means `r` can reference `x` because Rust knows that the reference in `r` will
 always be valid while `x` is valid.
 -->
 
-Ici, `x` a la durée de vie `'b`, qui est plus grand dans ce cas que `'a`. Cela
+Ici, `x` a la durée de vie `'b`, qui est plus grande dans ce cas que `'a`. Cela
 signifie que `r` peut référencer `x` car Rust sait que la référence présente
 dans `r` sera toujours valide du moment que `x` est en vigueur.
 
@@ -299,7 +299,7 @@ caractères, qui sont des références, car nous ne voulons pas que la fonction
 `la_plus_longue` prenne possession de ses paramètres. Rendez-vous à la section
 [“Les slices de chaînes de caractères en
 paramètres”][string-slices-as-parameters]<!-- ignore --> du chapitre 4 pour
-savoir pourquoi nous utilisons ce type de paramètre dans l'encart 10-20.
+savoir pourquoi nous utilisons ce type de paramètres dans l'encart 10-20.
 
 <!--
 If we try to implement the `longest` function as shown in Listing 10-21, it
@@ -383,7 +383,7 @@ concrètes qui vont passer dans cette fonction, donc nous ne savons pas si nous
 allons exécuter le cas du `if` ou du `else`. Nous ne connaissons pas non plus les
 durées de vie des références qui vont passer dans la fonction, donc nous ne
 pouvons pas vérifier les portées comme nous l'avons fait dans les encarts 10-18
-et 10-19 pour déterminer que la référence que nous allons retourner sera
+et 10-19 pour déterminer si la référence que nous allons retourner sera
 toujours en vigueur. Le vérificateur d'emprunt ne va pas pouvoir non plus
 déterminer cela, car il ne sait comment les durées de vie de `x` et de `y` sont
 reliées à la durée de vie de la valeur de retour. Pour résoudre cette erreur,
@@ -407,7 +407,7 @@ lifetimes.
 -->
 
 L'annotation des durées de vie ne change pas la longueur de leur durée de vie.
-Comme une fonction accepte n'importe quel type lorsque la signature utilise un
+De la même façon qu'une fonction accepte n'importe quel type lorsque la signature utilise un
 paramètre de type générique, les fonctions peuvent accepter des références avec
 n'importe quelle durée de vie en précisant un paramètre de durée de vie
 générique. L'annotation des durées de vie décrit la relation des durées de vies
@@ -422,7 +422,7 @@ separate the annotation from the reference’s type.
 -->
 
 L'annotation des durées de vies a une syntaxe un peu inhabituelle : le nom des
-paramètres de durées de vies doit commencer par une apostrophe (`'`) et sont
+paramètres de durées de vies doit commencer par une apostrophe (`'`) et est
 habituellement en minuscule et très court, comme les types génériques. La
 plupart des personnes utilisent le nom `'a`. Nous plaçons le paramètre de type
 après le `&` d'une référence, en utilisant un espace pour séparer l'annotation
@@ -546,8 +546,8 @@ analyzing this code.
 
 La signature de la fonction indique maintenant à Rust que pour la durée de vie
 `'a`, la fonction prend deux paramètres, les deux étant des slices de chaîne de
-caractère qui vivent aussi longtemps que la durée de vie `'a`. La signature de
-la fonction indique également à Rust que la slice de chaîne de caractère qui est
+caractères qui vivent aussi longtemps que la durée de vie `'a`. La signature de
+la fonction indique également à Rust que la slice de chaîne de caractères qui est
 retournée par la fonction vivra au moins aussi longtemps que la durée de vie
 `'a`. Dans la pratique, cela veut dire que durée de vie de la référence
 retournée par la fonction `la_plus_longue` est la même que celle de la plus
@@ -564,7 +564,7 @@ substituted for `'a` that will satisfy this signature.
 -->
 
 Souvenez-vous, lorsque nous précisons les paramètres de durée de vie dans la
-signature de cette fonction, nous ne changons pas les durées de vies des
+signature de cette fonction, nous ne changeons pas les durées de vies des
 valeurs qui lui sont envoyées ou qu'elle retourne. Ce que nous faisons, c'est
 plutôt indiquer au vérificateur d'emprunt qu'il doit rejeter toute valeur qui
 ne répond pas à ces conditions. Notez que la fonction `la_plus_longue` n'a pas
@@ -593,7 +593,7 @@ qui intègrent la durée de vie signifie que l'analyse que va faire le
 compilateur Rust sera plus simple. S'il y a un problème avec la façon dont la
 fonction est annotée ou appelée, les erreurs de compilation peuvent pointer
 plus précisément sur la partie de notre code qui impose ces contraintes. Mais
-si au contraire, le compilateur Rust aurait dû faire plus de suppositions sur
+si au contraire, le compilateur Rust avait dû faire plus de suppositions sur
 ce que nous voulions créer comme lien de durée de vie, le compilateur n'aurait
 pu qu'évoquer une utilisation de notre code bien plus éloignée de la véritable
 raison du problème.
@@ -733,7 +733,7 @@ values using the same lifetime parameter `'a`.
 
 L'erreur explique que pour que `resultat` soit en vigueur pour l'instruction
 `println!`, `string2` doit toujours être valide jusqu'à la fin de la portée
-externe. Rust en a déduit cela car nous avons précisé les durées de vie des
+externe. Rust a déduit cela car nous avons précisé les durées de vie des
 paramètres de la fonction et des valeurs de retour en utilisant le même
 paramètre de durée de vie `'a`.
 
@@ -768,9 +768,9 @@ borrow checker before you compile; then check to see if you’re right!
 
 Essayez d'expérimenter d'autres situations en variant les valeurs et durées de
 vie des références passées en argument de la fonction `la_plus_longue`, et
-aussi comment on utilise la référence retournée. Faites des hypothèses si ces
-situations vont passer ou non le vérificateur d'emprunt avant que vous
-compiliez ; et vérifiez ensuite si vous avez raison !
+aussi pour voir comment on utilise la référence retournée. Faites des hypothèses pour savoir si ces
+situations vont passer ou non le vérificateur d'emprunt avant que vous ne
+compiliez ; et vérifiez ensuite si vous aviez raison !
 
 <!--
 ### Thinking in Terms of Lifetimes
@@ -832,7 +832,7 @@ this attempted implementation of the `longest` function that won’t compile:
 Lorsqu'on retourne une référence à partir d'une fonction, le paramètre de la
 durée de vie pour le type de retour doit correspondre à une des durées des
 paramètres. Si la référence retournée ne se réfère *pas* à un de ses paramètres,
-elle se réfère probablement à une valeur crée à l'intérieur de cette fonction,
+elle se réfère probablement à une valeur créée à l'intérieur de cette fonction,
 et elle deviendra une référence pendouillante car sa valeur va sortir de la
 portée à la fin de la fonction. Imaginons cette tentative d'implémentation de
 la fonction `la_plus_longue` qui ne se compile pas :
@@ -890,7 +890,7 @@ fonction `la_plus_longue`. Nous avons aussi essayé de retourner une référence
 vers `resultat` à partir de la fonction. Il n'existe aucune façon d'écrire les
 paramètres de durée de vie de telle manière que cela changerait la référence
 pendouillante, et Rust ne nous laissera pas créer une référence pendouillante.
-Dans notre cas, la meilleure solution est de retourner un type de donnée dont on
+Dans notre cas, la meilleure solution consiste à retourner un type de donnée dont on
 va prendre possession plutôt qu'une référence, ainsi le code appelant sera
 responsable du nettoyage de la valeur.
 
@@ -903,7 +903,7 @@ would create dangling pointers or otherwise violate memory safety.
 
 Enfin, la syntaxe de la durée de vie sert à interconnecter les durées de vie de
 plusieurs paramètres ainsi que les valeurs de retour des fonctions. Une fois
-interconnectés, Rust a assez d'informations pour autoriser les opérations
+celles-ci interconnectés, Rust a assez d'informations pour autoriser les opérations
 sécurisées dans la mémoire et refuser les opérations qui pourraient créer des
 pointeurs pendouillants ou alors enfreindre la sécurité de la mémoire.
 
