@@ -108,7 +108,7 @@ this case is `fn summarize(&self) -> String`.
 
 Ici, nous déclarons un trait en utilisant le mot-clé `trait` et ensuite le nom
 du trait, qui est `Resumable` dans notre cas. Nous avons aussi déclaré le trait
-comme `pub` afin que les crates qui dépendent de cette crate puissent utiliser
+comme `pub` afin que les crates qui dépendent de cette crate puissent
 aussi utiliser ce trait, comme nous allons le voir dans quelques exemples.
 Entre les accolades, nous déclarons la signature de la méthode qui décrit le
 comportement des types qui implémentent ce trait, qui est dans notre cas
@@ -157,7 +157,7 @@ Maintenant que nous avons défini les signatures souhaitées des méthodes du
 trait `Resumable`, nous pouvons maintenant l'implémenter sur les types de notre
 agrégateur de médias. L'encart 10-13 montre une implémentation du trait
 `Resumable` sur la structure `ArticleDePresse` qui utilise le titre, le nom de
-l'auteur, et le lieu pour créer la valeur de retour de `resumer`. Pour la
+l'auteur et le lieu pour créer la valeur de retour de `resumer`. Pour la
 structure `Tweet`, nous définissons `resumer` avec le nom d'utilisateur suivi
 par le texte entier du tweet, en supposant que le contenu du tweet est déjà
 limité à 280 caractères.
@@ -221,7 +221,7 @@ Maintenant que la bibliothèque a implémenté le trait `Resumable` sur
 les méthodes de l'instance de `ArticleDePresse` et `Tweet` comme si elles
 étaient des méthodes classiques. La seule différence est que le trait ainsi que
 les types doivent être introduits dans la portée pour obtenir les méthodes de
-trait additionnelles. Voici un exemple de comment la crate binaire puisse
+trait additionnelles. Voici un exemple de comment la crate binaire pourra
 utiliser notre crate de bibliothèque `agregateur` :
 
 <!--
