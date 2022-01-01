@@ -1104,7 +1104,7 @@ specify how the references relate to each other.
 Les règles d'élision ne permettent pas de faire des déductions complètes. Si
 Rust applique les règles de façon stricte, mais qu'il existe toujours une
 ambiguïté quant à la durée de vie des références, le compilateur ne devinera pas
-quel devrait être la durée de vie des autres références. Dans ce cas, au lieu de
+quelle devrait être la durée de vie des autres références. Dans ce cas, au lieu de
 tenter de deviner, le compilateur va vous afficher une erreur que vous devrez
 résoudre en précisant les durées de vie qui clarifieront les liens entre chaque
 référence.
@@ -1127,9 +1127,9 @@ figure out lifetimes, the compiler will stop with an error. These rules apply
 to `fn` definitions as well as `impl` blocks.
 -->
 
-Le compilateur utilise trois règles pour déterminer quelles seraient les durées
+Le compilateur utilise trois règles pour déterminer quelles devraient être les durées
 de vie des références si cela n'est pas indiqué explicitement. La première règle
-s'applique sur les durées de vie des entrées, et la seconde et troisième règle
+s'applique sur les durées de vie des entrées, et les deuxième et troisième règles
 s'appliquent sur les durées de vie des sorties. Si le compilateur arrive à la
 fin des trois règles et qu'il y a encore des références pour lesquelles il ne
 peut pas savoir leur durée de vie, le compilateur s'arrête avec une erreur. Ces
@@ -1147,7 +1147,7 @@ on.
 La première règle dit que chaque paramètre qui est une référence a sa propre
 durée de vie. Autrement dit, une fonction avec un seul paramètre va avoir un
 seul paramètre de durée de vie : `fn foo<'a>(x: &'a i32)` ; une fonction avec
-deux paramètres va avoir deux paramètres de durée de vie séparées :
+deux paramètres va avoir deux paramètres de durée de vie séparés :
 `fn foo<'a, 'b>(x: &'a i32, y: &'b i32)` ; et ainsi de suite.
 
 <!--
@@ -1156,7 +1156,7 @@ lifetime is assigned to all output lifetime parameters: `fn foo<'a>(x: &'a i32)
 -> &'a i32`.
 -->
 
-La seconde règle dit que s'il y a exactement un seul paramètre de durée de vie
+La deuxième règle dit que s'il y a exactement un seul paramètre de durée de vie
 d'entrée, cette durée de vie est assignée à tous les paramètres de durée de vie
 des sorties : `fn foo<'a>(x: &'a i32) -> &'a i32`.
 
@@ -1200,7 +1200,7 @@ gets its own lifetime. We’ll call it `'a` as usual, so now the signature is
 this:
 -->
 
-Ensuite, le compilateur applique la première règle, qui dit que chaque référence
+Le compilateur applique alors la première règle, qui dit que chaque référence
 a sa propre durée de vie. Appellons-la `'a` comme d'habitude, donc maintenant la
 signature devient ceci :
 
@@ -1220,8 +1220,8 @@ rule specifies that the lifetime of the one input parameter gets assigned to
 the output lifetime, so the signature is now this:
 -->
 
-La seconde règle s'applique car il y a exactement une durée de vie d'entrée ici.
-La seconde règle dit que la durée de vie du seul paramètre d'entrée est affectée
+La deuxième règle s'applique car il y a exactement une durée de vie d'entrée ici.
+La deuxième règle dit que la durée de vie du seul paramètre d'entrée est affectée
 à la durée de vie des sorties, donc la signature est maintenant ceci :
 
 <!--
@@ -1242,8 +1242,8 @@ the lifetimes in this function signature.
 
 Maintenant, toutes les références de cette signature de fonction ont des
 durées de vie, et le compilateur peut continuer son analyse sans avoir besoin
-que le développeur renseigne les durées de vie dans les signatures de ces
-fonctions.
+que le développeur renseigne les durées de vie dans cette signature de 
+fonction.
 
 <!--
 Let’s look at another example, this time using the `longest` function that had
@@ -1293,9 +1293,9 @@ Listing 10-21: the compiler worked through the lifetime elision rules but still
 couldn’t figure out all the lifetimes of the references in the signature.
 -->
 
-Vous pouvez constater que la seconde règle ne s'applique pas car il y a plus
-qu'une seule durée de vie. La troisième ne s'applique pas non plus, car
-`la_plus_longue` est une fonction et non pas une méthode, donc aucun de ses
+Vous pouvez constater que la deuxième règle ne s'applique pas car il y a plus
+d'une seule durée de vie. La troisième ne s'applique pas non plus, car
+`la_plus_longue` est une fonction et pas une méthode, donc aucun de ses
 paramètres ne sont `self`. Après avoir utilisé ces trois règles, nous n'avons
 pas pu en déduire la durée de vie de la valeur de retour. C'est pourquoi nous
 obtenons une erreur en essayant de compiler le code dans l'encart 10-21 : le
@@ -1328,10 +1328,10 @@ fields or the method parameters and return values.
 -->
 
 Lorsque nous implémentons des méthodes sur une structure avec des durées de vie,
-nous utilisons la même syntaxe que les paramètres de type génériques que nous
-avons vu dans l'encart 10-11. L'endroit où nous déclarons et utilisons les
+nous utilisons la même syntaxe que celle des paramètres de type génériques que nous
+avons vue dans l'encart 10-11. L'endroit où nous déclarons et utilisons les
 paramètres de durée de vie dépend de s'ils sont reliés aux champs des structures
-ou aux paramètres de la méthode et les valeurs de retour.
+ou aux paramètres de la méthode et aux valeurs de retour.
 
 <!--
 Lifetime names for struct fields always need to be declared after the `impl`
@@ -1352,11 +1352,11 @@ struct named `ImportantExcerpt` that we defined in Listing 10-25.
 -->
 
 Sur les signatures des méthodes à l'intérieur du bloc `impl`, les références
-peuvent avoir la durée de vie des références des champs de la structure, ou
+peuvent être liées à la durée de vie des références de champs de la structure, ou
 elles peuvent être indépendantes. De plus, les règles d'élision des durées de
-vie le font parfois, ce qui fait que l'ajout des durées de vie n'est parfois pas
+vie font parfois en sorte que l'ajout de durées de vie n'est parfois pas
 nécessaire dans les signatures des méthodes. Voyons quelques exemples en
-utilisant la structure `ExtraitImportant` que nous avons défini dans l'encart
+utilisant la structure `ExtraitImportant` que nous avons définie dans l'encart
 10-25.
 
 <!--
@@ -1412,9 +1412,9 @@ and all lifetimes have been accounted for.
 -->
 
 Il y a deux durées de vies des entrées, donc Rust applique la première règle
-d'élision des durées de vie et donne à chacun de `&self` et `annonce` leur
+d'élision des durées de vie et donne à `&self` et `annonce` leur
 propre durée de vie. Ensuite, comme un des paramètres est `&self`, le type de
-retour obtient la durée de vie de `&self`, et ainsi toutes les durées de vie ont
+retour obtient la durée de vie de `&self`, de sorte que toutes les durées de vie ont
 été calculées.
 
 <!--
@@ -1464,14 +1464,14 @@ dangling reference or a mismatch of the available lifetimes. In such cases, the
 solution is fixing those problems, not specifying the `'static` lifetime.
 -->
 
-Il se peut que voyez des suggestions pour utiliser la durée de vie `'static`
+Il se peut que voyiez des suggestions pour utiliser la durée de vie `'static`
 dans les messages d'erreur. Mais avant d'utiliser `'static` comme durée de vie
 pour une référence, demandez-vous si la référence en question vit bien pendant
 toute la vie de votre programme, ou non. Vous devriez vous demander si vous
 voulez qu'elle vive aussi longtemps, même si si c'était possible. La plupart du
 temps, le problème résulte d'une tentative de création d'une référence
-pendouillante ou d'une inadéquation des durées de vie disponibles. Dans de ces
-cas-là, la solution est de résoudre ces problèmes, et non pas de renseigner la
+pendouillante ou d'une inadéquation des durées de vie disponibles. Dans ces
+cas-là, la solution consiste à résoudre ces problèmes, et pas à renseigner la
 durée de vie comme étant `'static`.
 
 <!--
@@ -1537,10 +1537,10 @@ analysis happens at compile time, which doesn’t affect runtime performance!
 -->
 
 Nous avons vu beaucoup de choses dans ce chapitre ! Maintenant que vous en savez
-plus sur les paramètres de type génériques, les traits et les traits liés, et
-les paramètres de durée de vie génériques, vous pouvez maintenant écrire du code
+plus sur les paramètres de type génériques, les traits et les traits liés, ainsi que
+sur les paramètres de durée de vie génériques, vous pouvez maintenant écrire du code
 en évitant les doublons qui va bien fonctionner dans de nombreuses situations.
-Les paramètres de type génériques vous permet d'appliquer du code à différents
+Les paramètres de type génériques vous permettent d'appliquer du code à différents
 types. Les traits et les traits liés s'assurent que bien que les types soient
 génériques, ils auront un comportement particulier sur lequel le code peut
 compter. Vous avez appris comment utiliser les indications de durée de vie pour
@@ -1559,10 +1559,9 @@ Rust so you can make sure your code is working the way it should.
 
 Croyez-le ou non, mais il y a encore des choses à apprendre sur les sujets que
 nous avons traités dans ce chapitre : le chapitre 17 expliquera les objets de
-trait, qui est une façon d'utiliser les traits. Il existe aussi des scénarios
-plus complexes qui nécessitent des indications de durée de vie ainsi que
-d'utiliser, uniquement pour ces ces scénarios avancés, certaines fonctionnalités
-avancées du système de type ; pour ces cas-là, vous devriez consulter la
+trait, qui est une façon d'utiliser les traits. Il existe aussi des situations
+plus complexes impliquant des indications de durée de vie dont vous n'aurez besoin
+que dans certains cas de figure très avancés; pour ces cas-là, vous devriez consulter la
 [Référence de Rust][reference]. Maintenant, nous allons voir au chapitre suivant
 comment écrire des tests en Rust afin que vous puissiez vous assurer que votre
 code fonctionne comme il devrait le faire.
