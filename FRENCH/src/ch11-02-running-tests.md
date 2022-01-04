@@ -470,11 +470,13 @@ uniquement les tests ignorés, nous pouvons utiliser `cargo test -- --ignored` :
 By controlling which tests run, you can make sure your `cargo test` results
 will be fast. When you’re at a point where it makes sense to check the results
 of the `ignored` tests and you have time to wait for the results, you can run
-`cargo test -- --ignored` instead.
+`cargo test -- --ignored` instead. If you want to run all tests whether they’re
+ignored or not, you can run `cargo test -- --include-ignored`.
 -->
 
 En gérant quels tests sont exécutés, vous pouvez vous assurer que vos résultats
 de `cargo test` seront rapides. Lorsque vous arrivez à un stade où il est
 justifié de vérifier le résultat des tests `ignored` et que vous avez le temps
 d'attendre ces résultats, vous pouvez lancer à la place
-`cargo test -- --ignored`.
+`cargo test -- --ignored`. Si vous voulez exécuter tous les tests q'uils soient
+ignorés ou non, vous pouvez lancer `cargo test -- --include-ignored`.

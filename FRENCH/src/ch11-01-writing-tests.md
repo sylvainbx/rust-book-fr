@@ -154,7 +154,7 @@ fonction pour voir comment elle fonctionne. Remarquez l'annotation `#[test]`
 avant la ligne `fn` : cet attribut indique que c'est une fonction de test, donc
 l'exécuteur de tests sait qu'il doit considérer cette fonction comme étant un
 test. Nous pouvons aussi avoir des fonctions qui ne font pas de tests dans le
-module `tests` afin de configurer des scénarios communs ou exécuter des 
+module `tests` afin de configurer des scénarios communs ou exécuter des
 opérations communes, c'est pourquoi nous devons indiquer quelles fonctions sont
 des tests en utilisant l'attribut `#[test]`.
 
@@ -205,11 +205,11 @@ reads `1 passed; 0 failed` totals the number of tests that passed or failed.
 
 Cargo a compilé et lancé le test. Après les lignes `Compiling`, `Finished`, et
 `Running`, on trouve la ligne `running 1 test`. La ligne suivante montre le nom
-de la fonction de test `it_works`, qui a été générée précédemment, et le résultat de
-l'exécution de ce test, `ok`. Le résumé général de l'exécution des tests
-s'affiche ensuite. Le texte `test result: ok.` signifie que tous les tests ont
-réussi, et la partie `1 passed; 0 failed` compte le nombre total de tests qui
-ont réussi ou échoué.
+de la fonction de test `it_works`, qui a été générée précédemment, et le
+résultat de l'exécution de ce test, `ok`. Le résumé général de l'exécution des
+tests s'affiche ensuite. Le texte `test result: ok.` signifie que tous les tests
+ont réussi, et la partie `1 passed; 0 failed` compte le nombre total de tests
+qui ont réussi ou échoué.
 
 <!--
 Because we don’t have any tests we’ve marked as ignored, the summary shows `0
@@ -531,8 +531,8 @@ règles de visibilité que nous avons vues au chapitre 7 dans la section [“Les
 chemins pour désigner un élément dans l'arborescence de
 module”][paths-for-referring-to-an-item-in-the-module-tree]<!-- ignore -->.
 Comme le module `tests` est un module interne, nous avons besoin de ramener le
-code à tester qui se trouve dans son module parent dans la portée interne du module. 
-Nous utilisons ici un opérateur global afin que tout ce que nous
+code à tester qui se trouve dans son module parent dans la portée interne du
+module. Nous utilisons ici un opérateur global afin que tout ce que nous
 avons défini dans le module parent soit disponible dans le module `tests`.
 
 <!--
@@ -1332,13 +1332,15 @@ si n'importe quelle opération en son sein retourne une variante de `Err`.
 
 <!--
 You can’t use the `#[should_panic]` annotation on tests that use `Result<T,
-E>`. Instead, you should return an `Err` value directly when the test should
-fail.
+E>`. To assert that an operation returns an `Err` variant, *don’t* use the
+question mark operator on the `Result<T, E>` value. Instead, use
+`assert!(value.is_err())`.
 -->
 
 Vous ne pouvez pas utiliser l'annotation `#[should_panic]` sur les tests qui
-utilisent `Result<T, E>`. Mais à la place, vous devez retourner directement
-une valeur `Err` lorsque le test échoue.
+utilisent `Result<T, E>`. Pour vérifier qu'une opération retourne une variante
+`Err`, *n'utilisez pas* l'opérateur "point d'interrogation" sur la valeur de
+type `Result<T, E>`. A la place, utilisez plutôt `assert!(valeur.is_err())`.
 
 <!--
 Now that you know several ways to write tests, let’s look at what is happening

@@ -288,15 +288,6 @@ permet de faciliter la compréhension du code par les futurs développeurs de ce
 code pour comprendre le lien entre les deux et quels sont leurs rôles.
 
 <!--
-> Note: Using primitive values when a complex type would be more appropriate is
-> an anti-pattern known as *primitive obsession*.
--->
-
-> Remarque : l'utilisation de valeurs primitives à la place d'un type
-> sophistiqué lorsque c'est nécessaire est un anti-patron connu sous le nom
-> *d'obsession primitive*.
-
-<!--
 Listing 12-6 shows the improvements to the `parse_config` function.
 -->
 
@@ -690,12 +681,12 @@ pas aussi le `main`, ce que nous allons faire dans le prochain encart.
 <span class="filename">Fichier : src/main.rs</span>
 
 <!--
-```rust,ignore
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings-sources/ch12-an-io-project/listing-12-09/src/main.rs:here}}
 ```
 -->
 
-```rust,ignore
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-09/src/main.rs:here}}
 ```
 
@@ -709,12 +700,14 @@ pas aussi le `main`, ce que nous allons faire dans le prochain encart.
 
 <!--
 Our `new` function now returns a `Result` with a `Config` instance in the
-success case and a `&str` in the error case.
+success case and a `&'static str` in the error case. Our error values will
+always be string literals that have the `'static` lifetime.
 -->
 
 Notre fonction `new` retourne désormais un `Result` contenant une instance de
-`Config` dans le cas d'un succès et une `&str` dans le cas d'une
-erreur.
+`Config` dans le cas d'un succès et une `&'static str` dans le cas d'une
+erreur. Nos valeurs d'erreur seront toujours des litéraux de chaîne de
+caractères qui ont la durée de vie `'static`.
 
 <!--
 We’ve made two changes in the body of the `new` function: instead of calling
@@ -1178,12 +1171,12 @@ dans l'encart 12-14.
 <span class="filename">Fichier : src/lib.rs</span>
 
 <!--
-```rust,ignore
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings-sources/ch12-an-io-project/listing-12-13/src/lib.rs:here}}
 ```
 -->
 
-```rust,ignore
+```rust,ignore,does_not_compile
 {{#rustdoc_include ../listings/ch12-an-io-project/listing-12-13/src/lib.rs:here}}
 ```
 

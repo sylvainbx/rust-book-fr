@@ -407,11 +407,12 @@ lifetimes.
 -->
 
 L'annotation des durées de vie ne change pas la longueur de leur durée de vie.
-De la même façon qu'une fonction accepte n'importe quel type lorsque la signature utilise un
-paramètre de type générique, les fonctions peuvent accepter des références avec
-n'importe quelle durée de vie en précisant un paramètre de durée de vie
-générique. L'annotation des durées de vie décrit la relation des durées de vies
-de plusieurs références entre elles sans influencer les durées de vie.
+De la même façon qu'une fonction accepte n'importe quel type lorsque la
+signature utilise un paramètre de type générique, les fonctions peuvent
+accepter des références avec n'importe quelle durée de vie en précisant un
+paramètre de durée de vie générique. L'annotation des durées de vie décrit la
+relation des durées de vies de plusieurs références entre elles sans influencer
+les durées de vie.
 
 <!--
 Lifetime annotations have a slightly unusual syntax: the names of lifetime
@@ -768,9 +769,10 @@ borrow checker before you compile; then check to see if you’re right!
 
 Essayez d'expérimenter d'autres situations en variant les valeurs et durées de
 vie des références passées en argument de la fonction `la_plus_longue`, et
-aussi pour voir comment on utilise la référence retournée. Faites des hypothèses pour savoir si ces
-situations vont passer ou non le vérificateur d'emprunt avant que vous ne
-compiliez ; et vérifiez ensuite si vous aviez raison !
+aussi pour voir comment on utilise la référence retournée. Faites des
+hypothèses pour savoir si ces situations vont passer ou non le vérificateur
+d'emprunt avant que vous ne compiliez ; et vérifiez ensuite si vous aviez
+raison !
 
 <!--
 ### Thinking in Terms of Lifetimes
@@ -890,9 +892,9 @@ fonction `la_plus_longue`. Nous avons aussi essayé de retourner une référence
 vers `resultat` à partir de la fonction. Il n'existe aucune façon d'écrire les
 paramètres de durée de vie de telle manière que cela changerait la référence
 pendouillante, et Rust ne nous laissera pas créer une référence pendouillante.
-Dans notre cas, la meilleure solution consiste à retourner un type de donnée dont on
-va prendre possession plutôt qu'une référence, ainsi le code appelant sera
-responsable du nettoyage de la valeur.
+Dans notre cas, la meilleure solution consiste à retourner un type de donnée
+dont on va prendre possession plutôt qu'une référence, ainsi le code appelant
+sera responsable du nettoyage de la valeur.
 
 <!--
 Ultimately, lifetime syntax is about connecting the lifetimes of various
@@ -1242,7 +1244,7 @@ the lifetimes in this function signature.
 
 Maintenant, toutes les références de cette signature de fonction ont des
 durées de vie, et le compilateur peut continuer son analyse sans avoir besoin
-que le développeur renseigne les durées de vie dans cette signature de 
+que le développeur renseigne les durées de vie dans cette signature de
 fonction.
 
 <!--
@@ -1414,8 +1416,8 @@ and all lifetimes have been accounted for.
 Il y a deux durées de vies des entrées, donc Rust applique la première règle
 d'élision des durées de vie et donne à `&self` et `annonce` leur
 propre durée de vie. Ensuite, comme un des paramètres est `&self`, le type de
-retour obtient la durée de vie de `&self`, de sorte que toutes les durées de vie ont
-été calculées.
+retour obtient la durée de vie de `&self`, de sorte que toutes les durées de
+vie ont été calculées.
 
 <!--
 ### The Static Lifetime
@@ -1536,17 +1538,18 @@ that this flexible code won’t have any dangling references. And all of this
 analysis happens at compile time, which doesn’t affect runtime performance!
 -->
 
-Nous avons vu beaucoup de choses dans ce chapitre ! Maintenant que vous en savez
-plus sur les paramètres de type génériques, les traits et les traits liés, ainsi que
-sur les paramètres de durée de vie génériques, vous pouvez maintenant écrire du code
-en évitant les doublons qui va bien fonctionner dans de nombreuses situations.
-Les paramètres de type génériques vous permettent d'appliquer du code à différents
-types. Les traits et les traits liés s'assurent que bien que les types soient
-génériques, ils auront un comportement particulier sur lequel le code peut
-compter. Vous avez appris comment utiliser les indications de durée de vie pour
-s'assurer que ce code flexible n'aura pas de références pendouillantes. Et
-toutes ces vérifications se font au moment de la compilation, ce qui n'influe
-pas sur les performances au moment de l'exécution du programme !
+Nous avons vu beaucoup de choses dans ce chapitre ! Maintenant que vous en
+savez plus sur les paramètres de type génériques, les traits et les traits
+liés, ainsi que sur les paramètres de durée de vie génériques, vous pouvez
+maintenant écrire du code en évitant les doublons qui va bien fonctionner dans
+de nombreuses situations. Les paramètres de type génériques vous permettent
+d'appliquer du code à différents types. Les traits et les traits liés
+s'assurent que bien que les types soient génériques, ils auront un comportement
+particulier sur lequel le code peut compter. Vous avez appris comment utiliser
+les indications de durée de vie pour s'assurer que ce code flexible n'aura pas
+de références pendouillantes. Et toutes ces vérifications se font au moment de
+la compilation, ce qui n'influe pas sur les performances au moment de
+l'exécution du programme !
 
 <!--
 Believe it or not, there is much more to learn on the topics we discussed in
@@ -1560,11 +1563,11 @@ Rust so you can make sure your code is working the way it should.
 Croyez-le ou non, mais il y a encore des choses à apprendre sur les sujets que
 nous avons traités dans ce chapitre : le chapitre 17 expliquera les objets de
 trait, qui est une façon d'utiliser les traits. Il existe aussi des situations
-plus complexes impliquant des indications de durée de vie dont vous n'aurez besoin
-que dans certains cas de figure très avancés; pour ces cas-là, vous devriez consulter la
-[Référence de Rust][reference]. Maintenant, nous allons voir au chapitre suivant
-comment écrire des tests en Rust afin que vous puissiez vous assurer que votre
-code fonctionne comme il devrait le faire.
+plus complexes impliquant des indications de durée de vie dont vous n'aurez
+besoin que dans certains cas de figure très avancés; pour ces cas-là, vous
+devriez consulter la [Référence de Rust][reference]. Maintenant, nous allons
+voir au chapitre suivant comment écrire des tests en Rust afin que vous
+puissiez vous assurer que votre code fonctionne comme il devrait le faire.
 
 <!--
 [references-and-borrowing]:
