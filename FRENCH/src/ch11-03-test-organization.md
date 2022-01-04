@@ -451,7 +451,6 @@ test :
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-12-shared-test-code-problem/tests/common.rs}}
 ```
 
-
 <!--
 When we run the tests again, we’ll see a new section in the test output for the
 *common.rs* file, even though this file doesn’t contain any test functions nor

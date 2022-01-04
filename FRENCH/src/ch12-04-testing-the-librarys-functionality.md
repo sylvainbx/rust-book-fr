@@ -9,8 +9,7 @@ Now that we’ve extracted the logic into *src/lib.rs* and left the argument
 collecting and error handling in *src/main.rs*, it’s much easier to write tests
 for the core functionality of our code. We can call functions directly with
 various arguments and check return values without having to call our binary
-from the command line. Feel free to write some tests for the functionality in
-the `Config::new` and `run` functions on your own.
+from the command line.
 -->
 
 Maintenant que nous avons extrait la logique dans *src/lib.rs* et que nous
@@ -18,8 +17,7 @@ avons laissé la récupération des arguments et la gestion des erreurs dans
 *src/main.rs*, il est bien plus facile d'écrire les tests pour les
 fonctionnalités de base de notre code. Nous pouvons appeler les fonctions
 directement avec différents arguments et vérifier les valeurs de retour sans
-avoir à appeler notre binaire dans la ligne de commande. N'hésitez pas à écrire
-quelques tests par vous-même pour les fonctions `Config::new` et `run`.
+avoir à appeler notre binaire dans la ligne de commande.
 
 <!--
 In this section, we’ll add the searching logic to the `minigrep` program by
