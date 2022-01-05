@@ -590,7 +590,7 @@ will be true, and we call the `panic!` macro to end the program immediately.
 -->
 
 Ce code est similaire à [la fonction Supposition::new que nous avons écrit
-dans l'encart 9-10][ch9-custom-types]<!-- ignore -->, dans lequel nous
+dans l'encart 9-10][ch9-custom-types]<!-- ignore -->, dans laquelle nous
 appelions `panic!` lorsque l'argument `valeur` était hors de l'intervalle des
 valeurs valides. Plutôt que de vérifier un intervalle de valeurs dans le cas
 présent, nous vérifions que la taille de `args` est au moins de 3 et que le
@@ -630,11 +630,11 @@ can use the other technique you learned about in Chapter 9—[returning a
 Cette sortie est meilleure : nous avons maintenant un message d'erreur
 compréhensible. Cependant, nous avons aussi des informations superflues que
 nous ne souhaitons pas afficher à nos utilisateurs. Peut-être que la technique
-que nous avons utilisé dans l'encart 9-13 n'est pas la plus appropriée dans ce
+que nous avons utilisée dans l'encart 9-13 n'est pas la plus appropriée dans ce
 cas : un appel à `panic!` est plus approprié pour un problème de développement
 qu'un problème d'utilisation, [comme nous l'avons appris au chapitre
 9][ch9-error-guidelines]<!-- ignore -->. A la place, nous pourrions utiliser
-une autre technique que vous avez appris au chapitre 9 — [retourner un
+une autre technique que vous avez apprise au chapitre 9 — [retourner un
 `Result`][ch9-result]<!-- ignore --> qui indique si c'est un succès ou une
 erreur.
 
@@ -719,8 +719,8 @@ make the function conform to its new type signature.
 Nous avons fait deux changements dans le corps de notre fonction `new` :
 plutôt que d'avoir à appeler `panic!` lorsque l'utilisateur n'envoie pas assez
 d'arguments, nous retournons maintenant une valeur `Err`, et nous avons intégré
-la valeur de retour `Config` dans un `Ok`. Ces modifications font en sorte que
-la fonction soit désormais conformes à son nouveau type de signature.
+la valeur de retour `Config` dans un `Ok`. Ces modifications rendent 
+la fonction conforme à son nouveau type de signature.
 
 <!--
 Returning an `Err` value from `Config::new` allows the `main` function to
@@ -798,7 +798,7 @@ value when it runs.
 -->
 
 Dans cet encart, nous avons utilisé une méthode que nous n'avons pas encore
-détaillé pour l'instant : `unwrap_or_else`, qui est défini sur `Result<T, E>`
+détaillée pour l'instant : `unwrap_or_else`, qui est définie sur `Result<T, E>`
 par la bibliothèque standard. L'utilisation de `unwrap_or_else` nous permet de
 définir une gestion des erreurs personnalisée, exempt de `panic!`. Si le
 `Result` est une valeur `Ok`, le comportement de cette méthode est similaire à
@@ -808,7 +808,7 @@ qui est une fonction anonyme que nous définissons et passons en argument de
 `unwrap_or_else`. Nous verrons les fermetures plus en détail dans le [chapitre
 13][ch13]<!-- ignore -->. Pour l'instant, vous avez juste à savoir que le
 `unwrap_or_else` va passer la valeur interne du `Err` (qui dans ce cas est la
-chaîne de caractères statique `"pas assez d'arguments"` que nous avons ajouté
+chaîne de caractères statique `"pas assez d'arguments"` que nous avons ajoutée
 dans l'encart 12-9) à notre fermeture dans l'argument `err` qui est présent
 entre deux barres verticales. Le code dans la fermeture peut ensuite utiliser
 la valeur `err` lorsqu'il est exécuté.
@@ -829,7 +829,7 @@ dans le cas d'une erreur fait uniquement deux lignes : nous affichons la valeur
 de `err` et nous appelons ensuite `process::exit`. La fonction `process::exit`
 va stopper le programme immédiatement et retourner le nombre qui lui a été donné
 en paramètre comme code de statut de sortie. C'est semblable à la gestion basée
-sur `panic!` que nous avons utilisé à l'encart 12-8, mais nous n'avons plus tout
+sur `panic!` que nous avons utilisée à l'encart 12-8, mais nous n'avons plus tout
 le texte en plus. Essayons cela :
 
 <!--
@@ -865,7 +865,7 @@ inspection, and we’ll be able to write tests for all the other logic.
 -->
 
 Maintenant que nous avons fini le remaniement de l'interprétation de la
-configuration, occupons-nous de logique du programme. Comme nous l'avons dit
+configuration, occupons-nous de la logique du programme. Comme nous l'avons dit
 dans [“Séparation des tâches des projets de
 binaires”](#separation-of-concerns-for-binary-projects)<!-- ignore -->, nous
 allons extraire une fonction `run` qui va contenir toute la logique qui est
@@ -936,7 +936,7 @@ signature and body of `run`.
 
 Avec le restant de la logique du programme maintenant séparée dans la fonction
 `run`, nous pouvons améliorer la gestion des erreurs, comme nous l'avons fait
-avec `Config::new` dans l'encart 12-9. Plutôt que de permettre au programme à
+avec `Config::new` dans l'encart 12-9. Plutôt que de permettre au programme de
 paniquer en appelant `expect`, la fonction `run` va retourner un `Result<T, E>`
 lorsque quelque chose se passe mal. Cela va nous permettre de consolider
 davantage la logique de gestion des erreurs dans le `main` pour qu'elle soit
@@ -1023,10 +1023,10 @@ it doesn’t return a value we need.
 
 Troisièmement, la fonction `run` retourne maintenant une valeur `Ok` dans les
 cas de succès. Nous avons déclaré dans la signature que le type de succès de la
-fonction `run` était `()`, ce qui signifie que nous avons envelopper la valeur
+fonction `run` était `()`, ce qui signifie que nous avons enveloppé la valeur
 de type unité dans la valeur `Ok`. Cette syntaxe `Ok(())` peut sembler un peu
 étrange au départ, mais utiliser `()` de cette manière est la façon idéale
-d'indiquer que nous appelons `run` uniquement pour ses effets secondaires ; elle
+d'indiquer que nous appelons `run` uniquement pour ses effets de bord ; elle
 ne retourne pas de valeur dont nous pourrions avoir besoin.
 
 <!--
@@ -1071,7 +1071,7 @@ with `Config::new` in Listing 12-10, but with a slight difference:
 -->
 
 Nous allons vérifier les erreurs et les gérer en utilisant une technique
-similaire à celle que nous avons utilisé avec `Config::new` dans l'encart
+similaire à celle que nous avons utilisée avec `Config::new` dans l'encart
 12-10, mais avec une légère différence :
 
 <!--
@@ -1101,10 +1101,10 @@ return the unwrapped value because it would only be `()`.
 
 Nous utilisons `if let` plutôt que `unwrap_or_else` pour vérifier si `run`
 retourne un valeur `Err` et appeler `process::exit(1)` le cas échéant. La
-fonction `run` ne retourne pas de valeur que nous avons besoin de `unwrap`
+fonction `run` ne retourne pas de valeur que nous aurions besoin de `unwrap`er
 comme nous l'avions fait avec le `Config::new` qui retournait une instance de
 `Config`. Comme `run` retourne `()` dans le cas d'un succès, nous nous
-préoccupons uniquement de détecter les erreurs, donc n'avons pas besoin de
+préoccupons uniquement de détecter les erreurs, donc nous n'avons pas besoin de
 `unwrap_or_else` pour retourner la valeur extraite car elle sera toujours
 `()`.
 
@@ -1195,7 +1195,7 @@ public API that we can test!
 -->
 
 Nous avons fait un usage généreux du mot-clé `pub` : sur `Config`, sur ses
-champs et sur la méthode `new`, et sur la fonction `run`. Nous avons maintenant
+champs et sur la méthode `new` et enfin sur la fonction `run`. Nous avons maintenant
 une crate de bibliothèque qui a une API publique que nous pouvons tester !
 
 <!--
@@ -1252,7 +1252,7 @@ future. Now it’s much easier to handle errors, and we’ve made the code more
 modular. Almost all of our work will be done in *src/lib.rs* from here on out.
 -->
 
-Ouah ! C'était pas mal de travail, mais nous sommes organisés pour nous assurer
+Ouah ! C'était pas mal de travail, mais nous nous sommes organisés pour nous assurer
 le succès à venir. Maintenant il est bien plus facile de gérer les erreurs, et
 nous avons rendu le code plus modulaire. A partir de maintenant, l'essentiel de
 notre travail sera effectué dans *src/lib.rs*.
