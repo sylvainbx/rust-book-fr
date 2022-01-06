@@ -10,7 +10,7 @@ program’s structure and how it’s handling potential errors.
 -->
 
 Pour améliorer notre programme, nous allons résoudre quatre problèmes liés
-à la structure du programme et comment il gère de potentielles erreurs.
+à la structure du programme et à la façon dont il gère de potentielles erreurs.
 
 <!--
 First, our `main` function now performs two tasks: it parses arguments and
@@ -41,7 +41,7 @@ it will be to keep track of the purpose of each. It’s best to group the
 configuration variables into one structure to make their purpose clear.
 -->
 
-Cette problématique est aussi liée au second problème : bien que `recherche` et
+Cette problématique est aussi liée au deuxième problème : bien que `recherche` et
 `nom_fichier` soient des variables de configuration de notre programme, les
 variables telles que `contenu` sont utilisées pour appuyer la logique du
 programme. Plus `main` est grand, plus nous aurons des variables à importer
@@ -62,7 +62,7 @@ Le troisième problème est que nous avons utilisé `expect` pour afficher un
 message d'erreur lorsque la lecture du fichier échoue, mais le message affiche
 uniquement `Quelque chose s'est mal passé lors de la lecture du fichier`. Lire
 un fichier peut échouer pour de nombreuses raisons : par exemple, le fichier
-peut ne pas exister, ou nous n'avons pas le droit de l'ouvrir. Pour le moment,
+peut ne pas exister, ou parce que nous n'avons pas le droit de l'ouvrir. Pour le moment,
 quelle que soit la raison, nous affichons le message d'erreur `Quelque chose
 s'est mal passé lors de la lecture du fichier`, ce qui ne donne aucune
 information à l'utilisateur !
@@ -278,14 +278,14 @@ other and what their purpose is.
 -->
 
 Un autre signe qui indique qu'il y a encore de la place pour de l'amélioration
-est que la partie `config` de `interpreter_config`, ce qui sous-entend que les
+est la partie `config` de `interpreter_config` qui sous-entend que les
 deux valeurs que nous retournons sont liées et font partie d'une même valeur de
-configuration. Actuellement, nous ne donnons pas de signification à cela dans la
-structure des données autrement qu'en regroupant les deux valeurs dans un
+configuration. Or, à ce stade, nous ne tenons pas compte de cela dans la 
+structure des données que nous utilisons si ce n'est en regroupant les deux valeurs dans un
 tuple ; nous pourrions mettre les deux valeurs dans une seule structure et
 donner un nom significatif à chacun des champs de la structure. Faire ainsi
 permet de faciliter la compréhension du code par les futurs développeurs de ce
-code pour comprendre le lien entre les deux et quels sont leurs rôles.
+code pour mettre en évidence le lien entre les deux valeurs et leurs rôles respectifs.
 
 <!--
 Listing 12-6 shows the improvements to the `parse_config` function.
@@ -383,8 +383,9 @@ un compromis qui en vaut la peine.
 > le [chapitre 13][ch13]<!-- ignore -->, vous allez apprendre à utiliser des
 > méthodes plus efficaces dans ce genre de situation. Mais pour le moment, ce
 > n'est pas un problème de copier quelques chaînes de caractères pour continuer
-> à progresser car vous allez le faire une seule fois et votre `nom_fichier` et
-> `recherche` sont très courts. Il est plus important d'avoir un programme
+> à progresser car vous allez le faire une seule fois et les chaînes
+> de caractères `nom_fichier` et `recherche` sont très courtes. Il est plus important 
+> d'avoir un programme
 > fonctionnel qui n'est pas très optimisé plutôt que d'essayer d'optimiser à
 > outrance le code dès sa première écriture. Plus vous deviendrez expérimenté
 > en Rust, plus il sera facile de commencer par la solution la plus
