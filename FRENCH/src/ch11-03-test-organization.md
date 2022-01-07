@@ -185,7 +185,8 @@ you to do so.
 
 Remarquez que la fonction `addition_interne` n'est pas marquée comme `pub`. Les
 tests sont uniquement du code Rust, et le module `test` est simplement un autre
-module. Comme nous l'avons vu dans [la section "Désigner un élément dans l'arborescence de modules"][./ch07-03-paths-for-referring-to-an-item-in-the-module-tree.html], les
+module. Comme nous l'avons vu dans [la section "Désigner un élément dans
+l'arborescence de modules"][paths]<!-- ignore -->, les
 éléments dans les modules enfants peuvent utiliser les éléments dans leurs
 modules parents. Dans ce test, nous importons dans la portée tous les éléments
 du parent du module `test` grâce à `use super::*;`, permettant ensuite au test de 
