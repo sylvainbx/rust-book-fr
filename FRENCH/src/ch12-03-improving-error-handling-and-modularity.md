@@ -1101,8 +1101,8 @@ return the unwrapped value because it would only be `()`.
 
 Nous utilisons `if let` plutôt que `unwrap_or_else` pour vérifier si `run`
 retourne un valeur `Err` et appeler `process::exit(1)` le cas échéant. La
-fonction `run` ne retourne pas de valeur que nous aurions besoin de `unwrap`er
-comme nous l'avions fait avec le `Config::new` qui retournait une instance de
+fonction `run` ne retourne pas de valeur sur laquelle nous aurions besoin
+d'utiliser `unwrap` comme avec le `Config::new` qui retournait une instance de
 `Config`. Comme `run` retourne `()` dans le cas d'un succès, nous nous
 préoccupons uniquement de détecter les erreurs, donc nous n'avons pas besoin de
 `unwrap_or_else` pour retourner la valeur extraite car elle sera toujours
