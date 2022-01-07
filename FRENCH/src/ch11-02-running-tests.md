@@ -96,7 +96,7 @@ the following example:
 Si vous ne souhaitez pas exécuter les tests en parallèle ou si vous voulez un
 contrôle plus précis du nombre de tâches utilisées, vous pouvez utiliser l'option
  `--test-threads` suivie du nombre de tâches que vous souhaitez
-que le binaiire de test exécute en parallèle. Regardez cet exemple :
+que le binaire de test exécute en parallèle. Regardez cet exemple :
 
 <!--
 ```console
