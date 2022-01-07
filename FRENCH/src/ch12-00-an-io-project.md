@@ -29,7 +29,7 @@ in that file that contain the string argument, and prints those lines.
 -->
 
 Sa rapiditié, ses fonctionnalités de sécurité, sa sortie binaire unifiée et sa prise
-en charge de multiples plateforme font de Rust le langage idéal pour créer des outils
+en charge de multiples plateformes font de Rust le langage idéal pour créer des outils
 en ligne de commande, donc pour notre projet, nous allons construire notre
 version de l'outil en ligne de commande `grep` (qui signifie **g**lobally
 search a **r**egular **e**xpression and **p**rint, soit *recherche globale et
