@@ -190,10 +190,10 @@ Remarquez que nous avons besoin de préciser explicitement une durée de vie `'a
 définie dans la signature de `rechercher` et l'utiliser sur l'argument `contenu`
 et la valeur de retour. Rappelez-vous que dans le
 [chapitre 10][ch10-lifetimes]<!-- ignore --> nous avions vu que les paramètres
-de durée de vie renseignent à quelle durée de vie des arguments sont connectées
-aux durées de vie des valeurs de retour. Dans notre cas, nous indiquons que le
-vecteur retourné devrait contenir des slices de chaînes de caractères qui sont
-des slices de l'argument `contenu` (et non pas de l'argument `recherche`).
+de durée de vie indique quelle durée de vie d'argument est connectée
+à la durée de vie de la valeur de retour. Dans notre cas, nous indiquons que le
+vecteur retourné devrait contenir des slices de chaînes de caractères qui proviennent 
+des slices de l'argument `contenu` (et pas de l'argument `recherche`).
 
 <!--
 In other words, we tell Rust that the data returned by the `search` function
@@ -207,7 +207,7 @@ incorrectly.
 Autrement dit, nous disons à Rust que les données retournées par la fonction
 `rechercher` vont vivre aussi longtemps que la donnée dans l'argument `contenu`
 de la fonction `rechercher`. C'est très important ! Les données sur lesquelles
-pointent les slices doivent être en vigueur pour que la référence reste valide ;
+pointent les slices doivent être toujours valides pour que la référence reste valide ;
 si le compilateur croit que nous créons des slices de `recherche` plutôt que de
 `contenu`, ses vérifications de sécurité seront incorrectes.
 
@@ -427,7 +427,7 @@ to store a `line` in the vector. After the `for` loop, we return the vector, as
 shown in Listing 12-19.
 -->
 
-Nous avons aussi besoin d'un moyen de stocker les lignes qui contienent la
+Nous avons aussi besoin d'un moyen de stocker les lignes qui contiennent la
 chaîne de caractères que nous recherchons. Pour cela, nous pouvons créer un
 vecteur mutable avant la boucle `for` et appeler la méthode `push` pour
 enregistrer la `ligne` dans le vecteur. Après la boucle `for`, nous retournons
@@ -601,9 +601,9 @@ and output, lifetimes, testing, and command line parsing.
 -->
 
 Très bien ! Nous avons construit notre propre mini-version d'un outil classique
-et nous avons beaucoup appris à structurer nos applications. Nous avons aussi
+et nous avons beaucoup appris sur la façon de structurer nos applications. Nous en avons aussi
 appris un peu sur les entrées et sorties des fichiers, les durées de vie, les
-tests, et l'interprétation de la ligne de commande.
+tests et l'interprétation de la ligne de commande.
 
 <!--
 To round out this project, we’ll briefly demonstrate how to work with
@@ -613,7 +613,7 @@ useful when you’re writing command line programs.
 
 Pour clôturer ce projet, nous allons brièvement voir comment travailler avec les
 variables d'environnement et comment écrire sur la sortie standard des erreurs,
-qui sont tous les deux utiles lorsque vous écrivez des programmes en ligne de
+connaissances qui sont toutes les deux utiles lorsque vous écrivez des programmes en ligne de
 commande.
 
 <!--
