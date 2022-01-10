@@ -613,7 +613,7 @@ useful when you’re writing command line programs.
 
 Pour clôturer ce projet, nous allons brièvement voir comment travailler avec les
 variables d'environnement et comment écrire sur la sortie standard des erreurs,
-connaissances qui sont toutes les deux utiles lorsque vous écrivez des programmes en ligne de
+ce qui peut s'avérer utile lorsque vous écrivez des programmes en ligne de
 commande.
 
 <!--
