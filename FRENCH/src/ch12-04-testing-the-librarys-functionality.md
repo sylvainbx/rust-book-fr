@@ -189,7 +189,7 @@ argument `query`).
 Remarquez que nous avons besoin de préciser explicitement une durée de vie `'a`
 définie dans la signature de `rechercher` et l'utiliser sur l'argument `contenu`
 et la valeur de retour. Rappelez-vous que dans le
-[chapitre 10][ch10-lifetimes]<!-- ignore --> nous avions vu que les paramètres
+[chapitre 10][ch10-lifetimes]<!-- ignore --> nous avions vu que le paramètre
 de durée de vie indique quelle durée de vie d'argument est connectée
 à la durée de vie de la valeur de retour. Dans notre cas, nous indiquons que le
 vecteur retourné devrait contenir des slices de chaînes de caractères qui proviennent 
