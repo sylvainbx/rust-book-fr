@@ -207,7 +207,7 @@ incorrectly.
 Autrement dit, nous disons à Rust que les données retournées par la fonction
 `rechercher` vont vivre aussi longtemps que la donnée dans l'argument `contenu`
 de la fonction `rechercher`. C'est très important ! Les données sur lesquelles
-pointent les slices doivent être toujours valides pour que la référence reste valide ;
+pointent les slices doivent toujours être en vigueur pour que la référence reste valide ;
 si le compilateur croit que nous créons des slices de `recherche` plutôt que de
 `contenu`, ses vérifications de sécurité seront incorrectes.
 
