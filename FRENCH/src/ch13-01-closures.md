@@ -258,7 +258,7 @@ minutes of running based on the complex algorithm.
 Si l'utilisateur souhaite un entraînement de haute intensité, il y a une logique
 en plus : si la valeur du nombre aléatoire généré par l'application est 3,
 l'application recommandera une pause et une hydratation à la place. Sinon,
-l'utilisateur recevra un nombre de minutes de course à pied fournit par 
+l'utilisateur recevra un nombre de minutes de course à pied calculé par 
 l'algorithme complexe.
 
 <!--
