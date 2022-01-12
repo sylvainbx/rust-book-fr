@@ -506,7 +506,7 @@ plus longtemps que nécessaire. Nous pourrions résoudre ce problème en créant
 variable locale à ce bloc `if` pour conserver le résultat de l'appel à la
 fermeture, mais les fermetures nous ouvrent d'autres solutions. Commençons
 d'abord par expliquer pourquoi il n'y a pas d'annotation de type dans la
-définition des fermetures et parlons des traits liés aux fermetures.
+définition des fermetures et des traits liés aux fermetures.
 
 <!--
 ### Closure Type Inference and Annotation
