@@ -18,7 +18,7 @@ la macro `println!`. Dans la plupart des terminaux, il y a deux genres de
 sorties : la *sortie standard* (`stdout`) pour les informations générales
 et *la sortie d'erreur standard* (`stderr`) pour les messages d'erreur. Cette
 distinction permet à l'utilisateur de choisir de rediriger la sortie des
-commandes réussies d'un programme vers un fichier mais continuer à afficher les messages
+messages sans erreurs d'un programme vers un fichier mais continuer à afficher les messages
 d'erreur à l'écran.
 
 <!--
