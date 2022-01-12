@@ -806,7 +806,7 @@ and an optional result value.
 -->
 
 L'encart 13-9 montre la définition de la structure `Cache` qui possède une
-fermeture et une valeur de résultat optionnelle:
+fermeture et une valeur de résultat optionnelle :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
