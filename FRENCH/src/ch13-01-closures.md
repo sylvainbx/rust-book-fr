@@ -69,7 +69,7 @@ we passed in.
 
 Pour simuler l'appel à cet algorithme hypothétique, nous allons utiliser la
 fonction `simuler_gros_calcul` présent dans l'encart 13-1, qui affichera
-`calcul très lent ...` et attendra deux secondes  avant de retourner le nombre
+`calcul très lent ...` et attendra deux secondes avant de retourner le nombre
 qui lui a été donné :
 
 <!--
