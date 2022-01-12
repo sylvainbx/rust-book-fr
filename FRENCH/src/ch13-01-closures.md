@@ -276,7 +276,7 @@ Ce code fonctionne comme la logique métier le souhaite, mais imaginons que
 l'équipe de science des données nous informe qu'il va y avoir des changements
 dans la façon dont nous devrons appeler l'algorithme à l'avenir. Pour simplifier
 la mise à jour lorsque ces changements se produiront, nous voulons remanier ce
-code de telle sorte qu'il n'appelle la fonction `simuler_gros_calcul` qu'une seule fois.
+code de sorte qu'il n'appelle la fonction `simuler_gros_calcul` qu'une seule fois.
 Nous voulons également nous débarrasser de l'endroit où nous appelons la
 fonction deux fois inutilement, sans ajouter d'autres appels à cette fonction au
 cours de ce processus. Autrement dit, nous ne voulons pas l'appeler si le
