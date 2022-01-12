@@ -1112,7 +1112,7 @@ the resulting value in the hash map associated with its `arg` value.
 Essayez de modifier `Cache` pour tenir une table de hachage plutôt qu'une seule
 valeur. Les clés de la table de hachage seront les valeurs `arg` qui lui sont
 passées, et les valeurs de la table de hachage seront le résultat de l'appel à
-la fermeture avec cette clef. Plutôt que de regarder directement si `self.valeur`
+la fermeture avec cette clé. Plutôt que de regarder directement si `self.valeur`
 a une valeur `Some` ou une valeur `None`, la fonction `valeur` recherchera `arg`
 dans la table de hachage et retournera la valeur si elle est présente. S'il
 n'est pas présent, le `Cache` appellera la fermeture et sauvegardera la valeur
