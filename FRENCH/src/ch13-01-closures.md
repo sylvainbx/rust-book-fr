@@ -1116,7 +1116,7 @@ la fermeture avec cette clé. Plutôt que de regarder directement si `self.valeu
 a une valeur `Some` ou une valeur `None`, la fonction `valeur` recherchera `arg`
 dans la table de hachage et retournera la valeur si elle est présente. S'il
 n'est pas présent, le `Cache` appellera la fermeture et sauvegardera la valeur
-résultante dans la table de hachage associée à sa clef `arg`.
+résultante dans la table de hachage associée à sa clé `arg`.
 
 <!--
 The second problem with the current `Cacher` implementation is that it only
