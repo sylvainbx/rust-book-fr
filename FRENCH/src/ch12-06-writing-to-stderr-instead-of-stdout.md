@@ -280,4 +280,4 @@ languages: closures and iterators.
 -->
 
 Maintenant, nous allons découvrir quelques fonctionnalités de Rust qui ont été
-influencées par les langages fonctionnels : les fermetures (*closures*) et les itérateurs.
+influencées par les langages fonctionnels : les fermetures et les itérateurs.
