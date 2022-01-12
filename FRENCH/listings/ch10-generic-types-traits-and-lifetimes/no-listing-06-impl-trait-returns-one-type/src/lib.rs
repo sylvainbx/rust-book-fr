@@ -35,8 +35,8 @@ fn retourne_resumable(estArticle: bool) -> impl Resumable {
             titre: String::from("Les Penguins ont remporté la Coupe Stanley !"),
             lieu: String::from("Pittsburgh, PA, USA"),
             auteur: String::from("Iceburgh"),
-            contenu: String::from("Les Penguins de Pittsburgh sont une nouvelle fois la meilleure \
-            équipe de hockey de la LNH."),
+            contenu: String::from("Les Penguins de Pittsburgh sont une nouvelle fois la \
+            meilleure équipe de hockey de la LNH."),
         }
     } else {
         Tweet {
