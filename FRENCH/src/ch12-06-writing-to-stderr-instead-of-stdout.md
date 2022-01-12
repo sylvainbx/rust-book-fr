@@ -245,8 +245,9 @@ This demonstrates that we’re now using standard output for successful output
 and standard error for error output as appropriate.
 -->
 
-Ceci prouve que nous utilisons maintenant de manière appropriée la sortie standard pour afficher
-les résultats quand tout se passe bien et la sortie d'erreur pour afficher les éventuels messages d'erreur.
+Ceci prouve qu'en fonction des circonstances, nous utilisons maintenant la
+sortie standard pour la sortie sans les erreurs et l'erreur standard pour la
+sortie d'erreur.
 
 <!--
 ## Summary
