@@ -51,7 +51,7 @@ it once so we don’t make the user wait more than necessary.
 
 Imaginons la situation suivante : nous travaillons dans une *startup* qui crée
 une application destinée à générer des programmes d'entraînements physiques personnalisés.
-L'application dorsale est écrite en Rust et repsoe sur un algorithme qui génère les
+L'application dorsale est écrite en Rust et repose sur un algorithme qui génère les
 exercices en fonction de beaucoup de facteurs tels que l'âge de l'utilisateur, son
 indice de masse corporelle, ses préférences et une intensité qu'il aura paramétré. 
 L'algorithme réellement utilisé n'est pas important pour cet
