@@ -407,7 +407,7 @@ barres verticales (`|`), à l'intérieur desquelles on renseigne les paramètres
 la fermeture ; cette syntaxe a été choisie en raison de sa similitude avec les
 définitions des fermetures en Smalltalk et en Ruby. Cette fermeture a un
 paramètre `nombre` : si nous avions plus d'un paramètre, nous les séparerions
-par des virgules, comme ceci: `|param1, param2|`.
+par des virgules, comme ceci : `|param1, param2|`.
 
 <!--
 After the parameters, we place curly brackets that hold the body of the
