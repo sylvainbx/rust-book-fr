@@ -42,7 +42,7 @@ nous allons appeler lorsque la variable d'environnement est active. Nous allons
 continuer à suivre le processus de TDD, donc la première étape est d'écrire à
 nouveau un test qui échoue. Nous allons ajouter un nouveau test pour la nouvelle
 fonction `rechercher_insensible_casse` et renommer notre ancien test
-`UN_resultat` en `sensible_casse` pour clarifier les différences entre les deux
+`un_resultat` en `sensible_casse` pour clarifier les différences entre les deux
 tests, comme dans l'encart 12-20.
 
 <!--
