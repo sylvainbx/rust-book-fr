@@ -480,7 +480,7 @@ string’s content.
 Ensuite, la ligne `.read_line(&mut supposition)` appelle la méthode
 [`read_line`][read_line]<!-- ignore --> sur l'entrée standard afin d'obtenir
 la saisie utilisateur.
-On passons aussi `&mut supposition` en argument de `read_line` pour lui
+Nous passons aussi `&mut supposition` en argument de `read_line` pour lui
 indiquer dans quelle chaîne de caractère il faut stocker la saisie utilisateur.
 Le but final de `read_line` est de récupérer tout ce que l'utilisateur écrit
 dans l'entrée standard et de l'ajouter à la fin d'une chaîne de caractères
