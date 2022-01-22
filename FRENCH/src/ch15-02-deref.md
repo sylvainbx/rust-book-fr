@@ -474,27 +474,27 @@ qui correspond au `5` du `assert_eq!` de l'encart 15-9.
 <!--
 *Deref coercion* is a convenience that Rust performs on arguments to functions
 and methods. Deref coercion works only on types that implement the `Deref`
-trait. Deref coercion converts such a type into a reference to another type.
-For example, deref coercion can convert `&String` to `&str` because `String`
-implements the `Deref` trait such that it returns `&str`. Deref coercion happens
-automatically when we pass a reference to a particular type’s value as an
-argument to a function or method that doesn’t match the parameter type in the
-function or method definition. A sequence of calls to the `deref` method
-converts the type we provided into the type the parameter needs.
+trait. Deref coercion converts a reference to such a type into a reference to
+another type. For example, deref coercion can convert `&String` to `&str`
+because `String` implements the `Deref` trait such that it returns `&str`.
+Deref coercion happens automatically when we pass a reference to a particular
+type’s value as an argument to a function or method that doesn’t match the
+parameter type in the function or method definition. A sequence of calls to the
+`deref` method converts the type we provided into the type the parameter needs.
 -->
 
 L'*extrapolation de déréférencement* est une commodité que Rust applique sur les
 arguments des fonctions et des méthodes. L'extrapolation de déréférencement
 fonctionne uniquement avec un type qui implémente le trait `Deref`.
-L'extrapolation de déréférencement convertit ce type en une référence vers un
-autre type. Par exemple, l'extrapolation de déréférencement peut convertir
-`&String` en `&str` car `String` implémente le trait `Deref` de sorte qu'il
-puisse retourner `&str`. L'extrapolation de déréférencement s'applique
-automatiquement lorsque nous passons une référence vers une valeur d'un type
-particulier en argument d'une fonction ou d'une méthode qui ne correspond pas à
-ce type de paramètre dans la définition de la fonction ou de la méthode. Une
-série d'appels à la méthode `deref` convertit le type que nous donnons dans le
-type que le paramètre nécessite.
+L'extrapolation de déréférencement convertit une référence vers ce type en une
+référence vers un autre type. Par exemple, l'extrapolation de déréférencement
+peut convertir `&String` en `&str` car `String` implémente le trait `Deref` de
+sorte qu'il puisse retourner `&str`. L'extrapolation de déréférencement
+s'applique automatiquement lorsque nous passons une référence vers une valeur
+d'un type particulier en argument d'une fonction ou d'une méthode qui ne
+correspond pas à ce type de paramètre dans la définition de la fonction ou de
+la méthode. Une série d'appels à la méthode `deref` convertit le type que nous
+donnons dans le type que le paramètre nécessite.
 
 <!--
 Deref coercion was added to Rust so that programmers writing function and

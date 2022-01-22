@@ -7,22 +7,21 @@
 <!--
 Rust’s memory safety guarantees make it difficult, but not impossible, to
 accidentally create memory that is never cleaned up (known as a *memory leak*).
-Preventing memory leaks entirely is not one of Rust’s guarantees in the same
-way that disallowing data races at compile time is, meaning memory leaks are
-memory safe in Rust. We can see that Rust allows memory leaks by using `Rc<T>`
-and `RefCell<T>`: it’s possible to create references where items refer to each
-other in a cycle. This creates memory leaks because the reference count of each
-item in the cycle will never reach 0, and the values will never be dropped.
+Preventing memory leaks entirely is not one of Rust’s guarantees, meaning
+memory leaks are memory safe in Rust. We can see that Rust allows memory leaks
+by using `Rc<T>` and `RefCell<T>`: it’s possible to create references where
+items refer to each other in a cycle. This creates memory leaks because the
+reference count of each item in the cycle will never reach 0, and the values
+will never be dropped.
 -->
 
 Les garanties de sécurité de la mémoire de Rust rendent difficile, mais pas
 impossible, la création accidentelle de mémoire qui n'est jamais nettoyée
 (aussi appelée *fuite de mémoire*). Eviter absolument les fuites de mémoire
-n'est pas une des garanties de Rust, en tout cas pas comme pour l'accès
-concurrent au moment de la compilation, ce qui signifie que les fuites de
-mémoire sont sans risque pour la mémoire avec Rust. Nous pouvons constater
-que Rust permet les fuites de mémoire en utilisant `Rc<T>` et `RefCell<T>` : il
-est possible de créer des références où les éléments se réfèrent entre eux de
+n'est pas une des garanties de Rust, ce qui signifie que les fuites de mémoire
+sont sans risque pour la mémoire avec Rust. Nous pouvons constater que Rust
+permet les fuites de mémoire en utilisant `Rc<T>` et `RefCell<T>` : il est
+possible de créer des références où les éléments se réfèrent entre eux de
 manière cyclique. Cela crée des fuites de mémoire car le compteur de références
 de chaque élément dans la boucle de références ne vaudra jamais 0, et les
 valeurs ne seront jamais libérées.
