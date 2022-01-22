@@ -364,7 +364,7 @@ nous retourne rien qui nous permettrait de le vérifier. Nous voulons pouvoir di
 si nous créons un `TraqueurDeLimite` avec quelque chose qui implémente le trait
 `Messager` et une valeur précise pour `max`, lorsque nous passons différents
 nombres pour `valeur`, le messager reçoit bien l'instruction d'envoyer les messages
-correspondants à la situation.
+correspondants.
 
 <!--
 We need a mock object that, instead of sending an email or text message when we
