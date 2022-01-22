@@ -82,7 +82,7 @@ Nous avions besoin de `clone` ici parce que nous avons une slice d'éléments
 `String` dans le paramètre `args`, mais la fonction `new` ne possède pas `args`.
 Pour renvoyer la propriété d'une instance de `Config`, nous avons dû cloner les
 valeurs des champs `recherche` et `nom_fichier` de `Config` afin que cette instance
-de `Config` puisse posséder ces valeurs.
+de `Config` puisse prendre possession de ces valeurs.
 
 <!--
 With our new knowledge about iterators, we can change the `new` function to
