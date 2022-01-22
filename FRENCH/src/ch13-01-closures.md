@@ -107,7 +107,7 @@ representing inputs to our program and print the outputs.
 Ensuite, nous avons la fonction `main` qui contient les parties de l'application
 d'entraînement qui sont importantes pour cet exemple. Cette fonction représente le code que
 l'application appellera lorsqu'un utilisateur demande un programme d'entraînement.
-Comme l'interaction avec l'interface de l'application n'apporte rien dans l'étude 
+Comme l'interaction avec l'interface frontale de l'application n'apporte rien dans l'étude 
 de l'utilisation des fermetures qui nous occupe ici, nous allons nous contenter de coder 
 en dur les valeurs représentant les entrées de notre programme puis afficher les résultats obtenus.
 
