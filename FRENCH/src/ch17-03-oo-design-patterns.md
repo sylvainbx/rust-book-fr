@@ -15,12 +15,12 @@ another state. The value that holds a state object knows nothing about the
 different behavior of the states or when to transition between states.
 -->
 
-Le *patron état* est un patron de conception orienté objet. Le point
-essentiel de ce patron est qu'une valeur possède un état interne qui est représenté par
-un ensemble *d'objets état*, et le comportement de la valeur change en fonction de son
-état interne. Les objets état partagent des fonctionnalités : en Rust, bien sûr,
-nous utilisons des structures et des traits plutôt que des objets et de
-l'héritage. Chaque objet état est responsable de son propre comportement et
+Le *patron état* est un patron de conception orienté objet. Le point essentiel
+de ce patron est qu'une valeur possède un état interne qui est représenté par
+un ensemble *d'objets état*, et le comportement de la valeur change en fonction
+de son état interne. Les objets état partagent des fonctionnalités : en Rust,
+bien sûr, nous utilisons des structures et des traits plutôt que des objets et
+de l'héritage. Chaque objet état est responsable de son propre comportement et
 décide lorsqu'il doit changer pour un autre état. La valeur contenue dans un
 objet état ne sait rien sur les différents comportements des états et ne sait
 pas quand il va changer d'état.
@@ -59,8 +59,8 @@ manière incrémentale. Les fonctionnalités finales du blog seront les suivante
 1. Un billet de blog commence par un brouillon vide.
 2. Lorsque le brouillon est terminé, une relecture du billet est demandée.
 3. Lorsqu'un billet est approuvé, il est publié.
-4. Seuls les billets de blog publiés retournent du contenu à afficher si bien que les
-   billets non approuvés ne peuvent pas être publiés accidentellement.
+4. Seuls les billets de blog publiés retournent du contenu à afficher si bien
+   que les billets non approuvés ne peuvent pas être publiés accidentellement.
 
 <!--
 Any other changes attempted on a post should have no effect. For example, if we
@@ -157,10 +157,10 @@ type `Billet`. Ce type va utiliser le patron état et va héberger une valeur qu
 sera un des trois objets état représentant les différents états par lesquels
 passe un billet : brouillon, en attente de relecture ou publié. Le changement
 d'un état à un autre sera géré en interne du type `Billet`. Les états vont
-changer en réponse à l'appel des méthodes de l'instance de `Billet` par les 
-utilisateurs de notre bibliothèque qui n'auront donc pas à les gérer directement. 
-Ainsi les utilisateurs ne peuvent pas faire d'erreur avec
-les états, comme celle de publier un billet avant qu'il ne soit relu par exemple.
+changer en réponse à l'appel des méthodes de l'instance de `Billet` par les
+utilisateurs de notre bibliothèque qui n'auront donc pas à les gérer
+directement. Ainsi les utilisateurs ne peuvent pas faire d'erreur avec les
+états, comme celle de publier un billet avant qu'il ne soit relu par exemple.
 
 <!--
 ### Defining `Post` and Creating a New Instance in the Draft State
@@ -180,11 +180,11 @@ inside an `Option<T>` in a private field named `state`. You’ll see why the
 
 Commençons l'implémentation de la bibliothèque ! Nous savons que nous aurons
 besoin d'une structure publique `Billet` qui héberge du contenu, donc nous
-allons commencer par définir cette structure ainsi qu'une fonction publique `new` qui
-lui est associée pour créer une instance de `Billet`, comme dans l'encart 17-12.
-Nous allons aussi créer un trait privé `Etat`. Ensuite `Billet` devra avoir un
-champ privé `etat` pour y loger une `Option<T>` contenant un objet trait de
-`Box<dyn Etat>`. Nous verrons plus tard l'intérêt du `Option<T>`.
+allons commencer par définir cette structure ainsi qu'une fonction publique
+`new` qui lui est associée pour créer une instance de `Billet`, comme dans
+l'encart 17-12. Nous allons aussi créer un trait privé `Etat`. Ensuite `Billet`
+devra avoir un champ privé `etat` pour y loger une `Option<T>` contenant un
+objet trait de `Box<dyn Etat>`. Nous verrons plus tard l'intérêt du `Option<T>`.
 
 <!--
 <span class="filename">Filename: src/lib.rs</span>
@@ -652,9 +652,9 @@ to understand that.
 -->
 
 Nous faisons ensuite appel à la méthode `unwrap`, mais nous savons qu'elle ne
-va jamais paniquer, car nous savons que les méthodes sur `Billet` vont 
-garantir que `etat` contiendra toujours une valeur `Some` lorsqu'elles seront
-utilisées. C'est un des cas dont nous avons parlé dans
+va jamais paniquer, car nous savons que les méthodes sur `Billet` vont garantir
+que `etat` contiendra toujours une valeur `Some` lorsqu'elles seront utilisées.
+C'est un des cas dont nous avons parlé dans
 [une section][more-info-than-rustc]<!-- ignore --> du chapitre 9 lorsque nous
 savions qu'une valeur `None` ne serait jamais possible, même si le compilateur
 n'est pas capable de le comprendre.
@@ -818,10 +818,10 @@ utilise le patron état, essayez d'accomplir certaines de ces suggestions :
   `EnRelecture` à `Brouillon`.
 * Attendre deux appels à `approuver` avant que l'état puisse être changé en
   `Publier`.
-* Permettre aux utilisateurs d'ajouter du contenu textuel uniquement
-  lorsqu'un billet est à l'état `Brouillon`. Indice : rendre l'objet état 
-  responsable de ce qui peut changer dans le contenu mais pas responsable de la
-  modification de `Billet`.
+* Permettre aux utilisateurs d'ajouter du contenu textuel uniquement lorsqu'un
+  billet est à l'état `Brouillon`. Indice : rendre l'objet état responsable de
+  ce qui peut changer dans le contenu mais pas responsable de la modification
+  de `Billet`.
 
 </div>
 
@@ -869,11 +869,11 @@ that followed this pattern, we might consider defining a macro to eliminate the
 repetition (see the [“Macros”][macros]<!-- ignore -- > section in Chapter 19).
 -->
 
-Nous avons aussi des doublons dans le code des méthodes `demander_relecture`
-et `approuver` sur `Billet`. Ces deux méthodes délèguent leur travail à la même
-méthode de la valeur du champ `etat` de type `Option` et assignent
-la nouvelle valeur du même champ `etat` à la fin. Si nous avions beaucoup de méthodes sur
-`Billet` qui suivaient cette logique, nous devrions envisager de définir une 
+Nous avons aussi des doublons dans le code des méthodes `demander_relecture` et
+`approuver` sur `Billet`. Ces deux méthodes délèguent leur travail à la même
+méthode de la valeur du champ `etat` de type `Option` et assignent la nouvelle
+valeur du même champ `etat` à la fin. Si nous avions beaucoup de méthodes sur
+`Billet` qui suivaient cette logique, nous devrions envisager de définir une
 macro pour éviter cette répétition (voir la
 [section dédiée][macros]<!-- ignore --> dans le chapitre 19).
 
@@ -905,12 +905,12 @@ draft posts where only published posts are allowed by issuing a compiler error.
 -->
 
 Nous allons vous montrer comment repenser le patron état pour qu'il offre des
-compromis différents. Plutôt que d'encapsuler complètement les états et les transitions,
-faisant que le code externe ne puissent pas les connaître,
-nous allons coder ces états sous forme de différents types. En conséquence, le
-système de vérification de type de Rust va empêcher toute tentative d'utilisation des 
-brouillons de billets là où seuls des billets publiés sont autorisés, en provoquant 
-une erreur de compilation.
+compromis différents. Plutôt que d'encapsuler complètement les états et les
+transitions, faisant que le code externe ne puissent pas les connaître, nous
+allons coder ces états sous forme de différents types. En conséquence, le
+système de vérification de type de Rust va empêcher toute tentative
+d'utilisation des brouillons de billets là où seuls des billets publiés sont
+autorisés, en provoquant une erreur de compilation.
 
 <!--
 Let’s consider the first part of `main` in Listing 17-11:
@@ -989,11 +989,11 @@ struct will represent a published post, and it has a `content` method that
 returns the `content`.
 -->
 
-Les deux structures `Billet` et `BrouillonDeBillet` ont un champ privé `contenu`
-qui stocke le texte du billet de blog. Les structures n'ont plus le champ `etat`
-car nous avons déplacé la signification de l'état directement dans le nom de ces
-types de structures. La structure `Billet` représente un billet publié et possède une
-méthode `contenu` qui retourne le `contenu`.
+Les deux structures `Billet` et `BrouillonDeBillet` ont un champ privé
+`contenu` qui stocke le texte du billet de blog. Les structures n'ont plus le
+champ `etat` car nous avons déplacé la signification de l'état directement dans
+le nom de ces types de structures. La structure `Billet` représente un billet
+publié et possède une méthode `contenu` qui retourne le `contenu`.
 
 <!--
 We still have a `Post::new` function, but instead of returning an instance of
@@ -1118,10 +1118,10 @@ au lieu de modifier la structure sur laquelle elles ont été appelées, donc no
 devons ajouter des assignations de masquage `let billet =` pour stocker les
 nouvelles instances retournées. Nous ne pouvons pas non plus vérifier que le
 contenu des brouillons de billets et de ceux en cours de relecture sont bien
-vides, donc nous n'avons plus besoin des vérifications associées : 
-en effet, nous ne pouvons plus compiler du code
-qui essaye d'utiliser le contenu d'un billet dans ces états. Le code du `main`
-mis à jour est présenté dans l'encart 17-21 :
+vides, donc nous n'avons plus besoin des vérifications associées : en effet,
+nous ne pouvons plus compiler du code qui essaye d'utiliser le contenu d'un
+billet dans ces états. Le code du `main` mis à jour est présenté dans
+l'encart 17-21 :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -1173,12 +1173,12 @@ what you think about the design of this version of the code. Note that some of
 the tasks might be completed already in this design.
 -->
 
-Essayez d'implémenter [les exigences fonctionnelles supplémentaires suggérées 
-dans la liste présente au début de cette section](#suggestions-implementations), 
-sur la crate `blog` dans l'état où elle était après l'encart 17-20, 
-afin de vous faire une idée sur cette façon de concevoir le code.
-Notez aussi que certaines de ces exigences pourraient déjà être implémentées 
-implicitement du fait de cette conception.
+Essayez d'implémenter [les exigences fonctionnelles supplémentaires suggérées
+dans la liste présente au début de cette section](#suggestions-implementations),
+sur la crate `blog` dans l'état où elle était après l'encart 17-20, afin de
+vous faire une idée sur cette façon de concevoir le code. Notez aussi que
+certaines de ces exigences pourraient déjà être implémentées implicitement du
+fait de cette conception.
 
 <!--
 We’ve seen that even though Rust is capable of implementing object-oriented
@@ -1236,10 +1236,10 @@ lots of flexibility. We’ve looked at them briefly throughout the book but
 haven’t seen their full capability yet. Let’s go!
 -->
 
-Dans le chapitre suivant, nous allons étudier les motifs, qui constituent une autre des
-fonctionnalités de Rust et apportent beaucoup de flexibilité. Nous les avons
-abordés brièvement dans le livre, mais nous n'avons pas encore vu tout leur
-potentiel. C'est parti !
+Dans le chapitre suivant, nous allons étudier les motifs, qui constituent une
+autre des fonctionnalités de Rust et apportent beaucoup de flexibilité. Nous
+les avons abordés brièvement dans le livre, mais nous n'avons pas encore vu
+tout leur potentiel. C'est parti !
 
 <!-- markdownlint-disable -->
 <!--

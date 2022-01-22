@@ -49,10 +49,10 @@ Un canal de programmation est divisé en deux parties : un transmetteur et un
 receveur. La partie du transmetteur est le lieu en amont où vous déposez les
 canards en plastique sur la rivière et la partie du receveur est celle où les
 canards en plastique finissent leur voyage. Une partie de votre code appelle
-des méthodes du transmetteur en lui passant les données que vous souhaitez envoyer,
-tandis qu'une autre partie attend que des messages arrivent. Un canal est déclaré *fermé*
-lorsque l'une des parties, le transmetteur ou le récepteur, est
-libérée.
+des méthodes du transmetteur en lui passant les données que vous souhaitez
+envoyer, tandis qu'une autre partie attend que des messages arrivent. Un canal
+est déclaré *fermé* lorsque l'une des parties, le transmetteur ou le récepteur,
+est libérée.
 
 <!--
 Here, we’ll work up to a program that has one thread to generate values and
@@ -145,11 +145,11 @@ La fonction `mpsc::channel` retourne un tuple, le premier élément est celui qu
 permet d'envoyer et le second est celui qui reçoit. Les abréviations `tx` et
 `rx` sont utilisés traditionnellement dans de nombreux domaines pour signifier
 respectivement *transmetteur* et *récepteur*, nous avons donc nommé nos
-variables ainsi pour indiquer clairement le rôle de chaque élément.  Nous utilisons une
-instruction `let` avec un motif qui déstructure les tuples ; nous verrons
-l'utilisation des motifs dans les instructions `let` et la déstructuration au
-chapitre 18. L'utilisation d'une instruction `let` est un façon d'extraire facilement
-les éléments du tuple retourné par `mpsc::channel`.
+variables ainsi pour indiquer clairement le rôle de chaque élément.  Nous
+utilisons une instruction `let` avec un motif qui déstructure les tuples ; nous
+verrons l'utilisation des motifs dans les instructions `let` et la
+déstructuration au chapitre 18. L'utilisation d'une instruction `let` est une
+façon d'extraire facilement les éléments du tuple retourné par `mpsc::channel`.
 
 <!--
 Let’s move the transmitting end into a spawned thread and have it send one
@@ -469,8 +469,8 @@ between each by calling the `thread::sleep` function with a `Duration` value of
 -->
 
 Cette fois-ci, la nouvelle tâche a un vecteur de chaînes de caractères que nous
-souhaitons envoyer à la tâche principale. Nous itérons sur celui-ci, on 
-envoie les chaînes une par une en faisant une pause entre chaque envoi en appelant la
+souhaitons envoyer à la tâche principale. Nous itérons sur celui-ci, on envoie
+les chaînes une par une en faisant une pause entre chaque envoi en appelant la
 fonction `thread::sleep` avec une valeur `Duration` de 1 seconde.
 
 <!--

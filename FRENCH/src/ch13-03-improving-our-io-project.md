@@ -297,8 +297,8 @@ valeur de retour. Ensuite, nous appelons `next` pour obtenir la valeur que nous
 voulons mettre dans le champ `recherche` de `Config`. Si `next` renvoie un
 `Some`, nous utilisons un `match` pour extraire sa valeur. S'il retourne `None`,
 cela signifie que pas assez d'arguments ont été fournis, si bien que nous quittons
-aussitôt la fonction en retournant une valeur `Err`. 
-Nous procédons de même pour la valeur `nom_fichier`.
+aussitôt la fonction en retournant une valeur `Err`. Nous procédons de même
+pour la valeur `nom_fichier`.
 
 <!--
 ### Making Code Clearer with Iterator Adaptors
@@ -311,9 +311,9 @@ We can also take advantage of iterators in the `search` function in our I/O
 project, which is reproduced here in Listing 13-28 as it was in Listing 12-19:
 -->
 
-Nous pouvons également tirer parti des itérateurs dans la fonction
-`rechercher` de notre projet d'entrée/sortie, qui est reproduite ici dans
-l'encart 13-28, telles qu'elle était dans l'encart 12-19 à la fin du chapitre 12 :
+Nous pouvons également tirer parti des itérateurs dans la fonction `rechercher`
+de notre projet d'entrée/sortie, qui est reproduite ici dans l'encart 13-28,
+telles qu'elle était dans l'encart 12-19 à la fin du chapitre 12 :
 
 <!--
 <span class="filename">Filename: src/lib.rs</span>

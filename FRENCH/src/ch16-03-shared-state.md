@@ -40,12 +40,11 @@ la possession exclusive, car une fois que vous avez transféré une valeur dans 
 canal, vous ne pouvez plus utiliser cette valeur. Le partage de mémoire en
 concurrence est comme de la possession multiple : plusieurs tâches peuvent
 accéder au même endroit de la mémoire en même temps. Comme vous l'avez vu au
-chapitre 15, dans lequel les pointeurs intelligents la rendent possible, 
-la possession multiple peut ajouter de la complexité car
-ses différents propriétaires ont besoin d'être gérés. Le système de type de Rust
-et les règles de possession aident beaucoup à les gérer correctement. Par
-exemple, découvrons les mutex, une des primitives les plus courantes pour
-partager la mémoire.
+chapitre 15, dans lequel les pointeurs intelligents la rendent possible, la
+possession multiple peut ajouter de la complexité car ses différents
+propriétaires ont besoin d'être gérés. Le système de type de Rust et les règles
+de possession aident beaucoup à les gérer correctement. Par exemple, découvrons
+les mutex, une des primitives les plus courantes pour partager la mémoire.
 
 <!--
 ### Using Mutexes to Allow Access to Data from One Thread at a Time
@@ -175,10 +174,10 @@ that case, no one would ever be able to get the lock, so we’ve chosen to
 `unwrap` and have this thread panic if we’re in that situation.
 -->
 
-L'appel à `lock` échouera si une autre tâche qui avait le verrou
-a paniqué. Dans ce cas, personne ne pourra obtenir le verrou, donc nous avons
-choisi d'utiliser `unwrap` pour que notre tâche panique si nous nous 
-retrouvons dans une telle situation.
+L'appel à `lock` échouera si une autre tâche qui avait le verrou a paniqué.
+Dans ce cas, personne ne pourra obtenir le verrou, donc nous avons choisi
+d'utiliser `unwrap` pour que notre tâche panique si nous nous retrouvons dans
+une telle situation.
 
 <!--
 After we’ve acquired the lock, we can treat the return value, named `num` in
@@ -425,17 +424,17 @@ with it. What we need is a type exactly like `Rc<T>` but one that makes changes
 to the reference count in a thread-safe way.
 -->
 
-Malheureusement l'utilisation de `Rc<T>` n'est pas sure lorsqu'il est partagé entre plusieurs tâches.
-Lorsque `Rc<T>` gère le compteur de références, il incrémente le compteur autant
-de fois que nous avons fait appel à `clone` et décrémente le compteur à chaque
-fois qu'un clone est libéré. Mais il n'utilise pas de primitives de concurrence
-pour s'assurer que les changements faits au compteur ne peuvent pas être
-interrompus par une autre tâche. Cela pourrait provoquer des bogues subtils induisant 
-une mauvaise gestion du compteur, ce qui pourrait provoquer des fuites
-de mémoire ou faire qu'une valeur soit libérée avant que nous ayions
-fini de l'utiliser. Nous avons besoin d'un type exactement comme `Rc<T>` mais
-qui procède aux changements du compteur de références de manière sure en 
-situation de concurrence.
+Malheureusement l'utilisation de `Rc<T>` n'est pas sure lorsqu'il est partagé
+entre plusieurs tâches. Lorsque `Rc<T>` gère le compteur de références, il
+incrémente le compteur autant de fois que nous avons fait appel à `clone` et
+décrémente le compteur à chaque fois qu'un clone est libéré. Mais il n'utilise
+pas de primitives de concurrence pour s'assurer que les changements faits au
+compteur ne peuvent pas être interrompus par une autre tâche. Cela pourrait
+provoquer des bogues subtils induisant une mauvaise gestion du compteur, ce qui
+pourrait provoquer des fuites de mémoire ou faire qu'une valeur soit libérée
+avant que nous ayions fini de l'utiliser. Nous avons besoin d'un type
+exactement comme `Rc<T>` mais qui procède aux changements du compteur de
+références de manière sure en situation de concurrence.
 
 <!--
 #### Atomic Reference Counting with `Arc<T>`

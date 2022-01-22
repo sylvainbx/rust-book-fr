@@ -95,7 +95,7 @@ niveau, car un langage de haut niveau offre des avantages en sacrifiant
 certains contrôles afin d'être plus accessible. Cependant, les langages de bas
 niveau sont censés fournir la solution la plus performante dans n'importe
 quelle situation donnée et proposer moins d'abstraction vis-à-vis du matériel.
-C'est pourquoi Rust offre toute une gamme d'outils pour répondre aux problèmes 
+C'est pourquoi Rust offre toute une gamme d'outils pour répondre aux problèmes
 de modélisation quelle que soit la manière qui est adaptée à la situation et
 aux exigences.
 

@@ -124,8 +124,8 @@ call the `drop` method explicitly.
 Dans le `main`, nous créons deux instances de `PointeurPerso` et ensuite on
 affiche `PointeurPersos créés`. A la fin du `main`, nos instances de
 `PointeurPerso` vont sortir de la portée, et Rust va appeler le code que nous
-avons placé dans la méthode `drop` et qui va afficher notre message final. Notez que
-nous n'avons pas besoin d'appeler explicitement la méthode `drop`.
+avons placé dans la méthode `drop` et qui va afficher notre message final.
+Notez que nous n'avons pas besoin d'appeler explicitement la méthode `drop`.
 
 <!--
 When we run this program, we’ll see the following output:

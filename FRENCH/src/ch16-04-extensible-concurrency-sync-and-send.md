@@ -201,15 +201,16 @@ go forth and make your programs concurrent, fearlessly!
 -->
 
 La bibliothèque standard de Rust fournit les canaux pour l'envoi de messages et
-les types de pointeurs intelligents, comme `Mutex<T>` et `Arc<T>`, qui sont sûrs
-à utiliser en situation de concurrence. Le système de type et le vérificateur d'emprunt sont
-là pour s'assurer que le code utilisé dans ces solutions ne vont pas conduire à
-des situations de concurrence ou utiliser des références qui ne sont plus en
-vigueur. Une fois que votre code se compile, vous pouvez être assuré qu'il
-fonctionnera bien sur plusieurs tâches sans avoir les genres de bogues
-*difficiles à traquer* qui sont monnaie courante dans les autres langages. Le
-développement en concurrence est un domaine qui ne devrait plus faire peur :
-lancez-vous et utilisez la concurrence dans vos programmes sans crainte !
+les types de pointeurs intelligents, comme `Mutex<T>` et `Arc<T>`, qui sont
+sûrs à utiliser en situation de concurrence. Le système de type et le
+vérificateur d'emprunt sont là pour s'assurer que le code utilisé dans ces
+solutions ne vont pas conduire à des situations de concurrence ou utiliser des
+références qui ne sont plus en vigueur. Une fois que votre code se compile,
+vous pouvez être assuré qu'il fonctionnera bien sur plusieurs tâches sans avoir
+les genres de bogues *difficiles à traquer* qui sont monnaie courante dans les
+autres langages. Le développement en concurrence est un domaine qui ne devrait
+plus faire peur : lancez-vous et utilisez la concurrence dans vos programmes
+sans crainte !
 
 <!--
 Next, we’ll talk about idiomatic ways to model problems and structure solutions

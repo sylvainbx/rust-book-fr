@@ -276,8 +276,8 @@ valeur peut être libérée. Dans l'encart 15-25, nous voulons toujours que les
 variantes `Cons` possèdent leur propre liste, donc il est impossible de
 réorganiser la structure des données. Voyons maintenant un exemple qui utilise
 des graphes constitués de nœuds parents et de nœuds enfants pour voir quand
-des relations sans possessions constituent un moyen approprié d'éviter les boucles de
-références.
+des relations sans possessions constituent un moyen approprié d'éviter les
+boucles de références.
 
 <!--
 ### Preventing Reference Cycles: Turning an `Rc<T>` into a `Weak<T>`
@@ -397,9 +397,10 @@ modify which nodes are children of another node, so we have a `RefCell<T>` in
 Nous souhaitons qu'un `Noeud` prenne possession de ses enfants, et nous
 souhaitons partager la possession avec des variables afin d'accéder directement
 à chaque `Noeud` de l'arbre. Pour pouvoir faire ceci, nous définissons les
-éléments du `Vec<T>` comme étant des valeurs du type `Rc<Noeud>`. Nous souhaitons
-également pouvoir modifier le fait que tel nœud soit enfant de tel autre, 
-donc, dans `enfants`, nous englobons le `Vec<Rc<Noeud>>` dans un `RefCell<T>`.
+éléments du `Vec<T>` comme étant des valeurs du type `Rc<Noeud>`. Nous
+souhaitons également pouvoir modifier le fait que tel nœud soit enfant de tel
+autre, donc, dans `enfants`, nous englobons le `Vec<Rc<Noeud>>` dans un
+`RefCell<T>`.
 
 <!--
 Next, we’ll use our struct definition and create one `Node` instance named

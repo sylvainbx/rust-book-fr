@@ -277,11 +277,10 @@ as some other languages do. However, you can definitely create a struct that
 will serve the same purposes as a mock object.
 -->
 
-Rust n'a pas d'objets au sens où l'entendent les autres langages qui en ont, 
-et Rust n'offre pas non plus de fonctionnalité de mock object dans
-la bibliothèque standard comme le font d'autres langages. Cependant, vous
-pouvez très bien créer une structure qui va répondre aux mêmes besoins qu'un
-mock object.
+Rust n'a pas d'objets au sens où l'entendent les autres langages qui en ont, et
+Rust n'offre pas non plus de fonctionnalité de mock object dans la bibliothèque
+standard comme le font d'autres langages. Cependant, vous pouvez très bien
+créer une structure qui va répondre aux mêmes besoins qu'un mock object.
 
 <!--
 Here’s the scenario we’ll test: we’ll create a library that tracks a value
@@ -291,10 +290,10 @@ user’s quota for the number of API calls they’re allowed to make, for exampl
 -->
 
 Voici le scénario que nous allons tester : nous allons créer une bibliothèque
-qui surveille la proximité d'une valeur par rapport à une valeur maximale 
-et envoie des messages en fonction de cette proximité. Cette bibliothèque peut
-être utilisée pour suivre un quota d'un utilisateur pour le nombre d'appels
-aux API qu'il est autorisé à faire, par exemple.
+qui surveille la proximité d'une valeur par rapport à une valeur maximale et
+envoie des messages en fonction de cette proximité. Cette bibliothèque peut
+être utilisée pour suivre un quota d'un utilisateur pour le nombre d'appels aux
+API qu'il est autorisé à faire, par exemple.
 
 <!--
 Our library will only provide the functionality of tracking how close to the
@@ -360,11 +359,11 @@ doit implémenter afin que le mock puisse être utilisé de la même manière qu
 l'objet réel. L'autre partie importante est lorsque nous souhaitons tester le
 comportement de la méthode `set_valeur` sur le `TraqueurDeLimite`. Nous pouvons
 changer ce que nous envoyons dans le paramètre `valeur`, mais `set_valeur` ne
-nous retourne rien qui nous permettrait de le vérifier. Nous voulons pouvoir dire que
-si nous créons un `TraqueurDeLimite` avec quelque chose qui implémente le trait
-`Messager` et une valeur précise pour `max`, lorsque nous passons différents
-nombres pour `valeur`, le messager reçoit bien l'instruction d'envoyer les messages
-correspondants.
+nous retourne rien qui nous permettrait de le vérifier. Nous voulons pouvoir
+dire que si nous créons un `TraqueurDeLimite` avec quelque chose qui implémente
+le trait `Messager` et une valeur précise pour `max`, lorsque nous passons
+différents nombres pour `valeur`, le messager reçoit bien l'instruction
+d'envoyer les messages correspondants.
 
 <!--
 We need a mock object that, instead of sending an email or text message when we
@@ -447,14 +446,15 @@ vide de messages. Ensuite, nous créons un nouveau `TraqueurDeLimite` et nous
 lui donnons une référence vers ce `MessagerMock` et une valeur `max` de 100.
 Nous appelons la méthode `set_valeur` sur le `TraqueurDeLimite` avec une
 valeur de 80, qui est plus grande que 75 pourcents de 100. Enfin, nous
-vérifions que la liste de messages qu'a enregistrée le `MessagerMock` contient 
+vérifions que la liste de messages qu'a enregistrée le `MessagerMock` contient
 bien désormais un message.
 
 <!--
 However, there’s one problem with this test, as shown here:
 -->
 
-Cependant, il reste un problème avec ce test, problème qui est montré ci-dessous :
+Cependant, il reste un problème avec ce test, problème qui est montré
+ci-dessous :
 
 <!--
 ```console

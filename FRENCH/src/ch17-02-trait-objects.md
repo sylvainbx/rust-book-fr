@@ -66,8 +66,8 @@ types que les autres développeurs auraient envie de créer. Mais nous savons qu
 `gui` doit gérer plusieurs valeurs de types différents et qu'elle
 doit appeler la méthode `afficher` sur chacune de ces valeurs de types
 différents. Elle n'a pas besoin de savoir exactement ce qui arrivera quand on
-appellera la méthode `afficher`, mais seulement de savoir que la valeur disposera de
-cette méthode que nous pourrons appeler.
+appellera la méthode `afficher`, mais seulement de savoir que la valeur
+disposera de cette méthode que nous pourrons appeler.
 
 <!--
 To do this in a language with inheritance, we might define a class named
@@ -602,18 +602,18 @@ runtime will figure out which method to call.
 -->
 
 Rappelez-vous de notre discussion dans [une
-section][performance-of-code-using-generics]<!-- ignore --> du
-chapitre 10 à propos du processus de monomorphisation effectué par le
-compilateur quand nous utilisons des traits liés sur des génériques : le
-compilateur génère des implémentations non génériques de fonctions et de
-méthodes pour chaque type concret que nous utilisons à la place d'un paramètre
-de type générique. Le code résultant de la monomorphisation effectue du
-*dispatch statique* (*répartition statique*), qui peut être mis en place quand le compilateur sait, au moment
-de la compilation, quelle méthode vous appelez. Cela s'oppose au *dispatch dynamique* (*répartition dynamique*),
-qui est mis en place quand le compilateur ne peut pas déterminer à la compilation
-quelle méthode vous appelez. Dans le cas de la répartition dynamique, le
-compilateur produit du code qui devra déterminer à l'exécution quelle méthode
-appeler.
+section][performance-of-code-using-generics]<!-- ignore --> du chapitre 10 à
+propos du processus de monomorphisation effectué par le compilateur quand nous
+utilisons des traits liés sur des génériques : le compilateur génère des
+implémentations non génériques de fonctions et de méthodes pour chaque type
+concret que nous utilisons à la place d'un paramètre de type générique. Le code
+résultant de la monomorphisation effectue du *dispatch statique* (*répartition
+statique*), qui peut être mis en place quand le compilateur sait, au moment de
+la compilation, quelle méthode vous appelez. Cela s'oppose au *dispatch
+dynamique* (*répartition dynamique*), qui est mis en place quand le compilateur
+ne peut pas déterminer à la compilation quelle méthode vous appelez. Dans le
+cas de la répartition dynamique, le compilateur produit du code qui devra
+déterminer à l'exécution quelle méthode appeler.
 
 <!--
 When we use trait objects, Rust must use dynamic dispatch. The compiler doesn’t

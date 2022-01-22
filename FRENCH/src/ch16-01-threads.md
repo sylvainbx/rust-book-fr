@@ -41,7 +41,7 @@ tels que :
   reliably
 -->
 
-* Les situations de concurrence, durant lesquelles les tâches accèdent à des 
+* Les situations de concurrence, durant lesquelles les tâches accèdent à des
   données ou des ressources dans un ordre incohérent
 * Des interblocages, durant lesquels deux tâches attendent mutuellement que
   l'autre finisse d'utiliser une ressource que l'autre tâche utilise, bloquant
@@ -117,19 +117,19 @@ maintain performance.
 -->
 
 Dans ce contexte, lorsque nous parlons *d'environnement exécution*, nous
-voulons dire le code qui est intégré par le langage dans chaque binaire. Ce code
-peut être plus ou moins vaste en fonction du langage, mais chaque langage non
-assembleur possèdera quand même une certaine quantité de code d'environnement exécution. Pour
-cette raison, lorsque les gens disent un peu abusivement d'un langage qu'il n'a pas
-“d'environnement d'exécution”, ils veulent très souvent dire qu'il a un “faible environnement
-d'exécution”. Les faibles environnements d'exécution ont moins de
-fonctionnalités mais ont l'avantage d'avoir des bibliothèques plus petites, ce
-qui facilite la combinaison du langage avec un autre et dans plus de contextes.
-Contrairement à de nombreux langages de programmation qui acceptent d'augmenter
-la taille de l'environnement d'exécution pour avoir plus de fonctionnalités, Rust n'a
-quasiment pas besoin d'avoir un environnement d'exécution et ne doit pas
-faire de compromis en faisant appel au C afin de conserver ses
-performances.
+voulons dire le code qui est intégré par le langage dans chaque binaire. Ce
+code peut être plus ou moins vaste en fonction du langage, mais chaque langage
+non assembleur possèdera quand même une certaine quantité de code
+d'environnement exécution. Pour cette raison, lorsque les gens disent un peu
+abusivement d'un langage qu'il n'a pas “d'environnement d'exécution”, ils
+veulent très souvent dire qu'il a un “faible environnement d'exécution”. Les
+faibles environnements d'exécution ont moins de fonctionnalités mais ont
+l'avantage d'avoir des bibliothèques plus petites, ce qui facilite la
+combinaison du langage avec un autre et dans plus de contextes. Contrairement à
+de nombreux langages de programmation qui acceptent d'augmenter la taille de
+l'environnement d'exécution pour avoir plus de fonctionnalités, Rust n'a
+quasiment pas besoin d'avoir un environnement d'exécution et ne doit pas faire
+de compromis en faisant appel au C afin de conserver ses performances.
 
 <!--
 The green-threading M:N model requires a larger language runtime to manage
@@ -288,9 +288,9 @@ on the order in which threads run!
 
 Le code dans l'encart 16-1 non seulement stoppe la nouvelle tâche prématurément
 la plupart du temps à cause de la fin de la tâche principale, mais il ne
-garantit pas non plus que la nouvelle tâche va s'exécuter ne serait-ce qu'une seule fois. La
-raison à cela est qu'il n'y a pas de garantie sur l'ordre dans lequel les
-tâches vont s'exécuter !
+garantit pas non plus que la nouvelle tâche va s'exécuter ne serait-ce qu'une
+seule fois. La raison à cela est qu'il n'y a pas de garantie sur l'ordre dans
+lequel les tâches vont s'exécuter !
 
 <!--
 We can fix the problem of the spawned thread not getting to run, or not getting
@@ -588,8 +588,8 @@ Listing 16-4 provides a scenario that’s more likely to have a reference to `v`
 that won’t be valid:
 -->
 
-L'encart 16-4 propose un scénario qui est a plus de chance d'avoir une référence à
-`v` qui ne sera plus valide :
+L'encart 16-4 propose un scénario qui est a plus de chance d'avoir une
+référence à `v` qui ne sera plus valide :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -671,9 +671,9 @@ should borrow the values. The modification to Listing 16-3 shown in Listing
 -->
 
 En ajoutant le mot-clé `move` avant la fermeture, nous forçons la fermeture à
-prendre possession des valeurs qu'elle utilise au lieu de laisser Rust 
-déduire qu'il doit emprunter les valeurs. Les modifications à l'encart 16-3
-proposées dans l'encart 16-5 devraient se compiler et s'exécuter comme prévu :
+prendre possession des valeurs qu'elle utilise au lieu de laisser Rust déduire
+qu'il doit emprunter les valeurs. Les modifications à l'encart 16-3 proposées
+dans l'encart 16-5 devraient se compiler et s'exécuter comme prévu :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -712,10 +712,10 @@ Qu'est-ce qui arriverait au code de l'encart 16-4 dans lequel la tâche
 principale fait appel à `drop` si nous utilisions la fermeture avec `move` ?
 Est-ce que le `move` résoudrait le problème ? Malheureusement, non ; nous
 obtiendrions une erreur différente parce que ce que l'encart 16-4 essaye de
-faire n'est pas autorisé pour une raison différente de la précédente. Si nous ajoutions `move` à la
-fermeture, nous déplacerions `v` dans l'environnement de la fermeture, et nous
-ne pourrions plus appeler `drop` sur `v` dans la tâche principale. Nous
-obtiendrons à la place cette erreur de compilation :
+faire n'est pas autorisé pour une raison différente de la précédente. Si nous
+ajoutions `move` à la fermeture, nous déplacerions `v` dans l'environnement de
+la fermeture, et nous ne pourrions plus appeler `drop` sur `v` dans la tâche
+principale. Nous obtiendrons à la place cette erreur de compilation :
 
 <!--
 ```console

@@ -144,12 +144,12 @@ also updated. We do this by implementing `add`, `remove`, and `average` methods
 on the struct, as shown in Listing 17-2:
 -->
 
-La structure est marquée `pub` de façon à ce qu'elle puisse être utilisée par 
-du code externe, mais les champs au sein de la structure restent privés. C'est important dans ce
-cas puisque nous voulons nous assurer que lorsqu'une valeur est ajoutée ou
-retirée dans la liste, la moyenne soit aussi mise à jour. Nous le faisons en
-implémentant les méthodes `ajouter`, `retirer` et `moyenne` sur la structure,
-comme le montre l'encart 17-2 :
+La structure est marquée `pub` de façon à ce qu'elle puisse être utilisée par
+du code externe, mais les champs au sein de la structure restent privés. C'est
+important dans ce cas puisque nous voulons nous assurer que lorsqu'une valeur
+est ajoutée ou retirée dans la liste, la moyenne soit aussi mise à jour. Nous
+le faisons en implémentant les méthodes `ajouter`, `retirer` et `moyenne` sur
+la structure, comme le montre l'encart 17-2 :
 
 <!--
 <span class="filename">Filename: src/lib.rs</span>
@@ -218,8 +218,8 @@ likely have to change if it were modifying `list` directly.
 -->
 
 Puisque nous avons encapsulé les détails d'implémentation de la structure
-`CollectionMoyennee`, nous pourrons aisément en changer plus tard quelques aspects, tels
-que la structure de données. Par exemple, nous pourrions utiliser
+`CollectionMoyennee`, nous pourrons aisément en changer plus tard quelques
+aspects, tels que la structure de données. Par exemple, nous pourrions utiliser
 un `HashSet<i32>` plutôt qu'un `Vec<i32>` pour le champ `liste`. Du moment que
 les signatures des méthodes publiques `ajouter`, `retirer` et `moyenne` restent
 les mêmes, du code qui utilise `CollectionMoyennee` n'aurait pas besoin de

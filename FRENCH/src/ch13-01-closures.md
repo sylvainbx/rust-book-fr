@@ -13,14 +13,14 @@ demonstrate how these closure features allow for code reuse and behavior
 customization.
 -->
 
-Les fermetures en Rust sont des fonctions anonymes qui peuvent être sauvegardées
-dans une variable ou qui peuvent être passées en argument à d'autres fonctions.
-Il est possible de créer une fermeture à un endroit du code et ensuite de
-l'appeler dans un contexte différent pour l'exécuter. Contrairement aux
-fonctions, les fermetures ont la possibilité de capturer les valeurs présentes
-dans le contexte où elles sont appelées. Nous allons montrer comment les
-fonctionnalités des fermetures permettent de réutiliser du code et suivre des
-comportements personnalisés.
+Les fermetures en Rust sont des fonctions anonymes qui peuvent être
+sauvegardées dans une variable ou qui peuvent être passées en argument à
+d'autres fonctions. Il est possible de créer une fermeture à un endroit du code
+et ensuite de l'appeler dans un contexte différent pour l'exécuter.
+Contrairement aux fonctions, les fermetures ont la possibilité de capturer les
+valeurs présentes dans le contexte où elles sont appelées. Nous allons montrer
+comment les fonctionnalités des fermetures permettent de réutiliser du code et
+suivre des comportements personnalisés.
 
 <!--
 ### Creating an Abstraction of Behavior with Closures
@@ -35,8 +35,8 @@ type inference, and traits.
 -->
 
 Travaillons sur un exemple d'une situation où il est utile de stocker une
-fermeture qui s'exécutera ultérieurement. Au cours de ce chapitre, nous 
-allons parler de la syntaxe des fermetures, de l'inférence de type et des traits.
+fermeture qui s'exécutera ultérieurement. Au cours de ce chapitre, nous allons
+parler de la syntaxe des fermetures, de l'inférence de type et des traits.
 
 <!--
 Consider this hypothetical situation: we work at a startup that’s making an app
@@ -50,15 +50,15 @@ it once so we don’t make the user wait more than necessary.
 -->
 
 Imaginons la situation suivante : nous travaillons dans une *startup* qui crée
-une application destinée à générer des programmes d'entraînements physiques personnalisés.
-L'application dorsale est écrite en Rust et repose sur un algorithme qui génère les
-exercices en fonction de beaucoup de facteurs tels que l'âge de l'utilisateur, son
-indice de masse corporelle, ses préférences et une intensité qu'il aura paramétré. 
-L'algorithme réellement utilisé n'est pas important pour cet
-exemple : ce qui est important c'est que le calcul prenne plusieurs secondes.
-Nous voulons appeler l'algorithme uniquement lorsque nous en avons besoin, et
-seulement une fois, afin que l'utilisateur n'ait pas à attendre plus longtemps
-que nécessaire.
+une application destinée à générer des programmes d'entraînements physiques
+personnalisés. L'application dorsale est écrite en Rust et repose sur un
+algorithme qui génère les exercices en fonction de beaucoup de facteurs tels
+que l'âge de l'utilisateur, son indice de masse corporelle, ses préférences et
+une intensité qu'il aura paramétré. L'algorithme réellement utilisé n'est pas
+important pour cet exemple : ce qui est important c'est que le calcul prenne
+plusieurs secondes. Nous voulons appeler l'algorithme uniquement lorsque nous
+en avons besoin, et seulement une fois, afin que l'utilisateur n'ait pas à
+attendre plus longtemps que nécessaire.
 
 <!--
 We’ll simulate calling this hypothetical algorithm with the function
@@ -104,12 +104,14 @@ app’s frontend isn’t relevant to the use of closures, we’ll hardcode value
 representing inputs to our program and print the outputs.
 -->
 
-Ensuite, nous avons la fonction `main` qui contient les parties de l'application
-d'entraînement qui sont importantes pour cet exemple. Cette fonction représente le code que
-l'application appellera lorsqu'un utilisateur demande un programme d'entraînement.
-Comme l'interaction avec l'interface frontale de l'application n'apporte rien dans l'étude 
-de l'utilisation des fermetures qui nous occupe ici, nous allons nous contenter de coder 
-en dur les valeurs représentant les entrées de notre programme puis afficher les résultats obtenus.
+Ensuite, nous avons la fonction `main` qui contient les parties de
+l'application d'entraînement qui sont importantes pour cet exemple. Cette
+fonction représente le code que l'application appellera lorsqu'un utilisateur
+demande un programme d'entraînement. Comme l'interaction avec l'interface
+frontale de l'application n'apporte rien dans l'étude de l'utilisation des
+fermetures qui nous occupe ici, nous allons nous contenter de coder en dur les
+valeurs représentant les entrées de notre programme puis afficher les résultats
+obtenus.
 
 <!--
 The required inputs are these:
@@ -159,8 +161,8 @@ simulate user input and random number generation</span>
 -->
 
 <span class="caption">Encart 13-2 : une fonction `main` avec des valeurs codées
-en dur pour simuler la saisie d'une valeur d'intensité par l'utilisateur et la génération 
-d'un nombre aléatoire</span>
+en dur pour simuler la saisie d'une valeur d'intensité par l'utilisateur et la
+génération d'un nombre aléatoire</span>
 
 <!--
 We’ve hardcoded the variable `simulated_user_specified_value` as 10 and the
@@ -258,7 +260,7 @@ minutes of running based on the complex algorithm.
 Si l'utilisateur souhaite un entraînement de haute intensité, il y a une logique
 en plus : si la valeur du nombre aléatoire généré par l'application est 3,
 l'application recommandera une pause et une hydratation à la place. Sinon,
-l'utilisateur recevra un nombre de minutes de course à pied calculé par 
+l'utilisateur recevra un nombre de minutes de course à pied calculé par
 l'algorithme complexe.
 
 <!--
@@ -530,8 +532,9 @@ nécessaires pour les fonctions car elles font partie d'une interface explicite
 exposée à leurs utilisateurs. Définir cette interface de manière rigide est
 nécessaire pour s'assurer que tout le monde s'accorde sur les types de valeurs
 qu'une fonction utilise et retourne. Mais les fermetures ne sont pas utilisées
-dans une interface exposée de cette façon : elles sont stockées dans des variables et
-utilisées sans les nommer ni les exposer aux utilisateurs de notre bibliothèque.
+dans une interface exposée de cette façon : elles sont stockées dans des
+variables et utilisées sans les nommer ni les exposer aux utilisateurs de notre
+bibliothèque.
 
 <!--
 Closures are usually short and relevant only within a narrow context rather
@@ -854,10 +857,10 @@ est précisé après le `->`).
 > `Fn` trait.
 -->
 
-> Remarque : les fonctions peuvent aussi implémenter chacun de ces trois traits `Fn`. Si ce
-> que nous voulons faire ne nécessite pas de capturer une valeur de
-> l'environnement, nous pouvons utiliser une fonction plutôt qu'une fermeture lorsque
-> nous avons besoin de quelque chose qui implémente un trait `Fn`.
+> Remarque : les fonctions peuvent aussi implémenter chacun de ces trois traits
+> `Fn`. Si ce que nous voulons faire ne nécessite pas de capturer une valeur de
+> l'environnement, nous pouvons utiliser une fonction plutôt qu'une fermeture
+> lorsque nous avons besoin de quelque chose qui implémente un trait `Fn`.
 
 <!--
 The `value` field is of type `Option<u32>`. Before we execute the closure,
