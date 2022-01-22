@@ -430,7 +430,7 @@ Lorsque `Rc<T>` gère le compteur de références, il incrémente le compteur au
 de fois que nous avons fait appel à `clone` et décrémente le compteur à chaque
 fois qu'un clone est libéré. Mais il n'utilise pas de primitives de concurrence
 pour s'assurer que les changements faits au compteur ne peuvent pas être
-interrompus par une autre tâche. Cela pourrait provoquer des bugs subtils induisant 
+interrompus par une autre tâche. Cela pourrait provoquer des bogues subtils induisant 
 une mauvaise gestion du compteur, ce qui pourrait provoquer des fuites
 de mémoire ou faire qu'une valeur soit libérée avant que nous ayions
 fini de l'utiliser. Nous avons besoin d'un type exactement comme `Rc<T>` mais
@@ -605,7 +605,7 @@ lorsqu'une opération nécessite de verrouiller deux ressources et que deux tâc
 ont chacune un des deux verrous, ce qui fait qu'elles s'attendent mutuellement
 pour toujours. Si vous êtes intéressés par les interblocages, essayez de créer
 un programme Rust qui a un interblocage ; recherchez ensuite des stratégies pour
-pallier les interblocages dans n'importe quel langage et implémentez-les en
+remédier aux interblocages dans n'importe quel langage et implémentez-les en
 Rust. La documentation de l'API de la bibliothèque standard pour `Mutex<T>` et
 `MutexGuard` offre des informations précieuses à ce sujet.
 
