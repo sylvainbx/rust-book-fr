@@ -837,7 +837,7 @@ another design pattern.
 
 Un inconvénient du patron état est que comme les états implémentent les
 transitions entre les états, certains des états sont couplés entre eux. Si nous
-ajoutons un nouvel état entre `EnRelecture` et `Publier`,`Planifier` par exemple,
+ajoutons un nouvel état entre `EnRelecture` et `Publier`, `Planifier` par exemple,
 nous devrons alors changer le code dans `EnRelecture` pour qu'il passe ensuite
 à l'état `Planifier` au lieu de `Publier`. Cela représenterait moins de travail
 si `EnRelecture` n'avait pas besoin de changer lorsqu'on ajoute un nouvel état, mais
@@ -908,8 +908,8 @@ Nous allons vous montrer comment repenser le patron état pour qu'il offre des
 compromis différents. Plutôt que d'encapsuler complètement les états et les transitions,
 faisant que le code externe ne puissent pas les connaître,
 nous allons coder ces états sous forme de différents types. En conséquence, le
-système de vérification de type de Rust va empêcher toute tentative d'utiliser des 
-brouillons de billets là où seuls des billets publiés sont autorisés en provoquant 
+système de vérification de type de Rust va empêcher toute tentative d'utilisation des 
+brouillons de billets là où seuls des billets publiés sont autorisés, en provoquant 
 une erreur de compilation.
 
 <!--
@@ -1175,7 +1175,7 @@ the tasks might be completed already in this design.
 
 Essayez d'implémenter [les exigences fonctionnelles supplémentaires suggérées 
 dans la liste présente au début de cette section](#suggestions-implementations), 
-sur la crate `blog` dans l'état où telle qu'elle était après l'encart 17-20, 
+sur la crate `blog` dans l'état où elle était après l'encart 17-20, 
 afin de vous faire une idée sur cette façon de concevoir le code.
 Notez aussi que certaines de ces exigences pourraient déjà être implémentées 
 implicitement du fait de cette conception.
