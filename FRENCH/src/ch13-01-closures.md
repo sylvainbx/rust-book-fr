@@ -173,7 +173,7 @@ with the simulated input values.
 
 Nous avons codé en dur la variable `valeur_utilisateur_simule` à 10 et la
 variable `nombre_aleatoire_simule` à 7 pour des raisons de simplicité ; dans un
-vrai programme nous obtiendrions la valeur d'intensité à partir de l'application
+vrai programme nous obtiendrions la valeur d'intensité à partir de l'interface
 frontale et nous utiliserions la crate `rand` pour générer un nombre aléatoire,
 comme nous l'avons fait dans l'exemple du jeu du plus ou du moins dans le
 chapitre 2. La fonction `main` appelle une fonction `generer_exercices` avec ces
