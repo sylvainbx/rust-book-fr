@@ -625,14 +625,15 @@ in the workspace will be compatible with each other.
 -->
 
 Pour corriger cela, modifiez le fichier *Cargo.toml* pour le paquet
-`additioneur` et indiquez que `rand` est une dépendance de cette crate aussi. La compilation du
-paquet `additioneur` va rajouter `rand` à la liste des dépendances pour
-`additioneur` dans *Cargo.lock*, mais aucune copie supplémentaire de `rand` ne sera
-téléchargée. Cargo s'est assuré que toutes les crates de chaque paquet de
-l'espace de travail qui utilise le paquet `rand` seraient de la même version.
-Utiliser la même version de `rand` dans les espaces de travail économise de
-l'espace car nous n'avons pas à multiplier les copies, ni à nous assurer que les
-crates dans l'espace de travail sont compatibles les unes avec les autres.
+`additioneur` et indiquez que `rand` est une dépendance de cette crate aussi.
+La compilation du paquet `additioneur` va rajouter `rand` à la liste des
+dépendances pour `additioneur` dans *Cargo.lock*, mais aucune copie
+supplémentaire de `rand` ne sera téléchargée. Cargo s'est assuré que toutes les
+crates de chaque paquet de l'espace de travail qui utilise le paquet `rand`
+seraient de la même version. Utiliser la même version de `rand` dans les
+espaces de travail économise de l'espace car nous n'avons pas à multiplier les
+copies, ni à nous assurer que les crates dans l'espace de travail sont
+compatibles les unes avec les autres.
 
 <!--
 #### Adding a Test to a Workspace

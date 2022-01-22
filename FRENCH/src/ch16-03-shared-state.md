@@ -114,10 +114,10 @@ many people are enthusiastic about channels. However, thanks to Rust’s type
 system and ownership rules, you can’t get locking and unlocking wrong.
 -->
 
-La gestion des mutex peut devenir incroyablement compliquée, c'est pourquoi tant de
-personnes sont partisanes des canaux. Cependant, grâce au système de type de
-Rust et aux règles de possession, vous ne pouvez pas vous tromper dans le
-verrouillage et déverrouillage.
+La gestion des mutex peut devenir incroyablement compliquée, c'est pourquoi
+tant de personnes sont partisanes des canaux. Cependant, grâce au système de
+type de Rust et aux règles de possession, vous ne pouvez pas vous tromper dans
+le verrouillage et déverrouillage.
 
 <!--
 #### The API of `Mutex<T>`

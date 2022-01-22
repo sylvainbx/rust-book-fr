@@ -106,9 +106,9 @@ in the *target/doc* directory.
 Ici nous avons écrit une description de ce que fait la fonction `ajouter_un`,
 débuté une section avec le titre `Exemples` puis fourni du code qui
 montre comment utiliser la fonction `ajouter_un`. Nous pouvons générer la
-documentation HTML à partir de ces commentaires de documentation en lançant `cargo doc`.
-Cette commande lance l'outil `rustdoc` qui est distribué avec Rust et place la
-documentation HTML générée dans le dossier *target/doc*.
+documentation HTML à partir de ces commentaires de documentation en lançant
+`cargo doc`. Cette commande lance l'outil `rustdoc` qui est distribué avec Rust
+et place la documentation HTML générée dans le dossier *target/doc*.
 
 <!--
 For convenience, running `cargo doc --open` will build the HTML for your
@@ -505,8 +505,8 @@ see them.
 -->
 
 Notez que les types `CouleurPrimaire` et `CouleurSecondaire` ne sont pas listés
-sur la page d'accueil, pas plus que la fonction `mixer`. Nous devons cliquer sur `types`
-et `utilitaires` pour les voir.
+sur la page d'accueil, pas plus que la fonction `mixer`. Nous devons cliquer
+sur `types` et `utilitaires` pour les voir.
 
 <!--
 Another crate that depends on this library would need `use` statements that
@@ -935,9 +935,9 @@ With a unique name, the version, your description, and a license added, the
 *Cargo.toml* file for a project that is ready to publish might look like this:
 -->
 
-Une fois le nom unique, la version, la description et la licence 
-ajoutés, le fichier *Cargo.toml* de ce projet qui est prêt à être publié devrait
-ressembler à ceci :
+Une fois le nom unique, la version, la description et la licence ajoutés, le
+fichier *Cargo.toml* de ce projet qui est prêt à être publié devrait ressembler
+à ceci :
 
 <!--
 <span class="filename">Filename: Cargo.toml</span>

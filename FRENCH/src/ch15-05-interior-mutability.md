@@ -845,7 +845,6 @@ vérifications des règles d'emprunt à l'exécution nous protègent des accès
 concurrents, et il est parfois intéressant de sacrifier un peu de vitesse pour
 cette flexibilité dans nos structures de données.
 
-
 <!--
 The standard library has other types that provide interior mutability, such as
 `Cell<T>`, which is similar except that instead of giving references to the
