@@ -31,7 +31,7 @@ or smart pointers.
 
 Regardons d'abord comment l'opérateur de déréférencement fonctionne avec des
 références classiques. Ensuite nous essayerons de définir un type personnalisé
-qui se comporte comme `Box<T>`, et voir pourquoi l'opérateur de déréférencement
+qui se comporte comme `Box<T>` et voir pourquoi l'opérateur de déréférencement
 ne fonctionne pas comme une référence sur notre type fraîchement défini. Nous
 allons découvrir comment implémenter le trait `Deref` de manière à ce qu'il soit
 possible que les pointeurs intelligents fonctionnent comme les références.
@@ -462,7 +462,7 @@ Listing 15-9.
 Notez que l'opérateur `*` est remplacé par un appel à la méthode `deref` suivi
 par un appel à l'opérateur `*` une seule fois, à chaque fois que nous utilisons
 un `*` dans notre code. Comme la substitution de l'opérateur `*` ne s'effectue
-pas de manière récursive et infinie, nous récupérerons une donnée de type `i32`,
+pas de manière récursive et infinie, nous récupèrerons une donnée de type `i32`,
 qui correspond au `5` du `assert_eq!` de l'encart 15-9.
 
 <!--
@@ -503,11 +503,11 @@ with `&` and `*`. The deref coercion feature also lets us write more code that
 can work for either references or smart pointers.
 -->
 
-L'extrapolation de déréférencement a été ajouté à Rust afin de permettre aux
+L'extrapolation de déréférencement a été ajoutée à Rust afin de permettre aux
 développeurs d'écrire des appels de fonctions et de méthodes qui n'ont pas
 besoin d'indiquer explicitement les références et les déréférencements avec `&`
 et `*`. La fonctionnalité d'extrapolation de déréférencement nous permet aussi
-d'écrire plus de code qui peut fonctionner à la fois pour les références ou pour
+d'écrire plus de code qui peut fonctionner à la fois pour les références et pour
 les pointeurs intelligents.
 
 <!--
@@ -519,7 +519,7 @@ parameter:
 
 Pour voir l'extrapolation de déréférencement en action, utilisons le type
 `MaBoite<T>` que nous avons défini dans l'encart 15-8 ainsi que l'implémentation
-de `Deref` que nous avons ajouté dans l'encart 15-10. L'encart 15-11 montre la
+de `Deref` que nous avons ajoutée dans l'encart 15-10. L'encart 15-11 montre la
 définition d'une fonction qui a un paramètre qui est une slice de chaîne de
 caractères :
 
@@ -711,7 +711,7 @@ happens for mutable references.
 
 Les deux premiers cas sont exactement les mêmes, sauf pour la mutabilité. Le
 premier cas signifie que si vous avez un `&T` et que `T` implémente `Deref` pour
-le type `U`, vous pouvez obtenir un `&U` de manière transparente. Le second cas
+le type `U`, vous pouvez obtenir un `&U` de manière transparente. Le deuxième cas
 signifie que la même extrapolation de déréférencement se déroule pour les
 références mutables.
 
@@ -733,11 +733,11 @@ Le troisième cas est plus ardu : Rust va aussi procéder à une extrapolation 
 déréférencement d'une référence mutable vers une référence immuable. Mais
 l'inverse n'est *pas* possible: une extrapolation de déréférencement d'une
 valeur immuable ne donnera jamais une référence mutable. A cause des règles
-d'emprunt, si vous avez une référence mutable, cette référence mutable doit
-être la seule référence vers cette donnée (autrement, le programme ne peut pas
-être compilé). Convertir une référence mutable vers une référence immuable ne
-va jamais casser les règles d'emprunt. Convertir une référence immuable vers
-une référence mutable nécessite que la référence immuable initiale soit la
-seule référence immuable vers cette donnée, mais les règles d'emprunt
-n'empêchent pas cela. Ainsi, Rust ne peut pas déduire que la conversion d'une
-référence immuable vers une référence mutable soit possible.
+d'emprunt, si vous avez une référence mutable, cette référence mutable doit être 
+la seule référence vers cette donnée (autrement, le programme ne peut pas être 
+compilé). Convertir une référence mutable vers une référence immuable ne va
+jamais casser les règles d'emprunt. Convertir une référence immuable vers une 
+référence mutable nécessite que la référence immuable initiale soit la seule 
+référence immuable vers cette donnée, mais les règles d'emprunt ne garantissent pas 
+cela. Rust ne peut donc pas déduire que la conversion d'une référence immuable 
+vers une référence mutable est possible.

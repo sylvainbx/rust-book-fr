@@ -100,6 +100,7 @@ français.
 | float | nombre à virgule flottante | - |
 | floating-point number | nombre à virgule flottante | - |
 | framework | environnement de développement | - |
+| frontend | interface frontale | - |
 | fully qualified syntax | syntaxe totalement définie | - |
 | function | fonction | - |
 | functional programming | programmation fonctionnelle | - |
@@ -293,7 +294,7 @@ français.
 | version control system (VCS) | système de gestion de versions (VCS) | - |
 | vertical pipe | barre verticale | la barre `|` |
 | warning | avertissement | - |
-| weak reference | pointeur faible | - |
+| weak reference | référence faible | - |
 | wildcard | joker | - |
 | worker | opérateur | - |
 | workspace | espace de travail | - |
