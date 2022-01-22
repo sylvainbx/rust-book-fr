@@ -238,18 +238,6 @@ donné que nous prenons possession de `args` et que nous allons muter `args`
 en itérant dessus, nous pouvons ajouter le mot-clé `mut` dans la spécification
 du paramètre `args` pour le rendre mutable.
 
-<!-- Something is missing here -->
-
-Nous avons aussi besoin de préciser que le type de slice de chaîne de caractères 
-d'erreur ne peut avoir que la durée de vie 'static. Précédemment, nous retournions toujours 
-des littéraux de chaînes de caractères. Cependant, comme nous avions une référence dans les paramètres, 
-il y avait une possibilité que la référence dans le type de retour puisse avoir la même durée de vie que la 
-référence dans les paramètres. Toutefois, comme les règles que nous avons vues dans une section du 
-chapitre 10 s'appliquaient également, nous n'avions pas besoin de préciser la 
-durée de vie de &str. Mais avec le changement que nous venons de faire à args, les règles 
-d'élision de durée de vie ne s'appliquent plus et nous devons désormais indiquer 
-la durée de vie 'static.
-
 <!--
 #### Using `Iterator` Trait Methods Instead of Indexing
 -->
