@@ -294,7 +294,7 @@ français.
 | version control system (VCS) | système de gestion de versions (VCS) | - |
 | vertical pipe | barre verticale | la barre `|` |
 | warning | avertissement | - |
-| weak reference | pointeur faible | - |
+| weak reference | référence faible | - |
 | wildcard | joker | - |
 | worker | opérateur | - |
 | workspace | espace de travail | - |
