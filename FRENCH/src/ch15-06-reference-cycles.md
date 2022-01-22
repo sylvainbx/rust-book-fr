@@ -300,7 +300,7 @@ doesn’t need to be 0 for the `Rc<T>` instance to be cleaned up.
 
 Précédemment, nous avons démontré que l'appel à `Rc::clone` augmente le
 `strong_count` d'une instance de `Rc<T>`, et une instance `Rc<T>` est nettoyée
-seulement si son `strong_count` est à 0. Vous pouvez aussi créer un *pointeur
+seulement si son `strong_count` est à 0. Vous pouvez aussi créer une *référence
 faible* (NdT : d'où le `weak`) vers la valeur présente dans une instance `Rc<T>`
 en appelant `Rc::downgrade` et en lui passant une référence vers le `Rc<T>`.
 Lorsque vous faites appel à `Rc::downgrade`, vous obtenez un pointeur
@@ -486,7 +486,7 @@ En concevant le lien d'une autre manière, un nœud parent devrait prendre
 possession de ses enfants : si un nœud parent est libéré, ses nœuds enfants
 devraient aussi être libérés. Cependant, un enfant ne devrait pas prendre
 possession de son parent : si nous libérons un nœud enfant, le parent doit
-toujours exister. C'est donc un cas d'emploi pour les pointeurs faibles !
+toujours exister. C'est donc un cas d'emploi pour les références faibles !
 
 <!--
 So instead of `Rc<T>`, we’ll make the type of `parent` use `Weak<T>`,
@@ -546,7 +546,7 @@ moyen de pointer vers son parent, `branche` :
 parent node `branch`</span>
 -->
 
-<span class="caption">Encart 15-28 : un nœud `feuille` avec un pointeur faible
+<span class="caption">Encart 15-28 : un nœud `feuille` avec une référence faible
 vers son nœud parent, `branche`</span>
 
 <!--
