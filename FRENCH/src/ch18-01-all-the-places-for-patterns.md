@@ -332,7 +332,7 @@ of the output.
 Nous avons utilisé la méthode `enumerate` pour produire une valeur et son indice
 à partir d'un itérateur que nous avons placé dans un tuple. La premiere valeur
 produite est le tuple `(0, 'a')`. Comme cette valeur correspond au motif
-`(indice, valeur)`, `indice` se voit affecter `0`, `valeur` se voit affecter `'a'` 
+`(indice, valeur)`, `indice` se voit affecter `0`, `valeur` se voit affecter `'a'`,
 provoquant l'affichage de la première ligne sur la sortie.
 
 <!--
