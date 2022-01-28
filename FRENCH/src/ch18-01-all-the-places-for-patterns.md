@@ -60,7 +60,7 @@ value can never fail and thus covers every remaining case.
 -->
 
 L'une des conditions à respecter pour les expressions `match` est qu'elles doivent
-être *exhaustive* dans le sens où toutes les valeurs possibles de la valeur présente dans
+être *exhaustives* dans le sens où toutes les valeurs possibles de la valeur présente dans
 l'expression `match` doivent être prises en compte. Une façon de s'assurer que
 vous avez couvert toutes les possibilités est d'avoir un motif passe-partout
 pour la dernière branche : par exemple, une valeur quelconque ne pourra jamais
