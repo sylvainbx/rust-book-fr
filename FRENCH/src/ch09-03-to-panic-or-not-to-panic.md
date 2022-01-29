@@ -55,15 +55,15 @@ générales pour décider s'il faut paniquer dans le code d'une bibliothèque.
 ### Les exemples, les prototypes et les tests
 
 <!--
-When you’re writing an example to illustrate some concept, having robust
-error-handling code in the example as well can make the example less clear. In
+When you’re writing an example to illustrate some concept, also including robust
+error-handling code can make the example less clear. In
 examples, it’s understood that a call to a method like `unwrap` that could
 panic is meant as a placeholder for the way you’d want your application to
 handle errors, which can differ based on what the rest of your code is doing.
 -->
 
-Lorsque vous écrivez un exemple pour illustrer un concept, avoir un code de
-gestion des erreurs très résilient peut nuire à la clarté de l'exemple. Dans
+Lorsque vous écrivez un exemple pour illustrer un concept, y rajouter un code
+de gestion des erreurs très résilient peut nuire à la clarté de l'exemple. Dans
 les exemples, il est courant d'utiliser une méthode comme `unwrap` (qui peut
 faire un panic) pour remplacer le code de gestion de l'erreur que vous
 utiliseriez en temps normal dans votre application, et qui peut changer en
@@ -261,9 +261,9 @@ l'API de ladite fonction.
 <!--
 However, having lots of error checks in all of your functions would be verbose
 and annoying. Fortunately, you can use Rust’s type system (and thus the type
-checking the compiler does) to do many of the checks for you. If your function
-has a particular type as a parameter, you can proceed with your code’s logic
-knowing that the compiler has already ensured you have a valid value. For
+checking done by the compiler) to do many of the checks for you. If your
+function has a particular type as a parameter, you can proceed with your code’s
+logic knowing that the compiler has already ensured you have a valid value. For
 example, if you have a type rather than an `Option`, your program expects to
 have *something* rather than *nothing*. Your code then doesn’t have to handle
 two cases for the `Some` and `None` variants: it will only have one case for
@@ -277,9 +277,9 @@ Cependant, avoir beaucoup de vérifications d'erreurs dans toutes vos fonctions
 serait verbeux et pénible. Heureusement, vous pouvez utiliser le système de
 types de Rust (et donc la vérification de type que fait le compilateur) pour
 assurer une partie des vérifications à votre place. Si votre fonction a un
-paramètre d'un type précis, vous pouvez continuer à écrire votre code en sachant
-que le compilateur s'est déjà assuré que vous avez une valeur valide. Par
-exemple, si vous obtenez un type de valeur plutôt qu'une `Option`, votre
+paramètre d'un type précis, vous pouvez continuer à écrire votre code en
+sachant que le compilateur s'est déjà assuré que vous avez une valeur valide.
+Par exemple, si vous obtenez un type de valeur plutôt qu'une `Option`, votre
 programme s'attend à obtenir *quelque chose* plutôt que *rien*. Votre code n'a
 donc pas à gérer les deux cas de variantes `Some` et `None` : la seule
 possibilité est qu'il y a une valeur. Du code qui essaye de ne rien fournir à
