@@ -379,14 +379,14 @@ sur `Millimetres` avec `Metres` comme étant le `Rhs`, comme dans l'encart
 -->
 
 <span class="caption">Encart 19-15 : implémentation du trait `Add` sur
-`Milimetres` pour pouvoir additionner `Milimetres` à `Metres`</span>
+`Millimetres` pour pouvoir additionner `Millimetres` à `Metres`</span>
 
 <!--
 To add `Millimeters` and `Meters`, we specify `impl Add<Meters>` to set the
 value of the `Rhs` type parameter instead of using the default of `Self`.
 -->
 
-Pour additionner `Milimetres` et `Metres`, nous renseignons
+Pour additionner `Millimetres` et `Metres`, nous renseignons
 `impl Add<Metres>` pour régler la valeur du paramètre de type `Rhs` au lieu
 d'utiliser la valeur par défaut `Self`.
 
