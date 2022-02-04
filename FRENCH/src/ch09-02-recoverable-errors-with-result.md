@@ -1104,55 +1104,53 @@ value</span>
 valeur du type `Option<T>`</span>
 
 <!--
-This function returns `Option<char>` because it might find a character at this
-position, or there might be no character there. This code takes the `text`
-string slice argument and calls the `lines` method on it, which returns an
-iterator over the lines in the string. Because this function wants to examine
-the first line, it calls `next` on the iterator to get the first value from the
-iterator. If `text` is the empty string, this call to `next` will return
-`None`, and here we can use `?` to stop and return `None` from
-`last_char_of_first_line` if that is the case. If `text` is not the empty
-string, `next` will return a `Some` value containing a string slice of the
-first line in `text`.
+This function returns `Option<char>` because it’s possible that there is a
+character there, but it’s also possible that there isn’t. This code takes the
+`text` string slice argument and calls the `lines` method on it, which returns
+an iterator over the lines in the string. Because this function wants to
+examine the first line, it calls `next` on the iterator to get the first value
+from the iterator. If `text` is the empty string, this call to `next` will
+return `None`, in which case we use `?` to stop and return `None` from
+`last_char_of_first_line`. If `text` is not the empty string, `next` will
+return a `Some` value containing a string slice of the first line in `text`.
 -->
 
-Cette fonction retourne un type `Option<char>` car elle va peut-être trouver un
-caractère à cet endroit, ou alors il n'y aura pas de caractère là-bas. Ce code
-prends l'argument `texte` slice de chaîne de caractère et appelle sur elle la
-méthode `lines`, qui retourne un itérateur des lignes dans la chaîne. Comme
+Cette fonction retourne un type `Option<char>` car il est possible qu'il y ait
+un caractère à cet endroit, mais il est aussi possible qu'il n'y soit pas. Ce
+code prends l'argument `texte` slice de chaîne de caractère et appelle sur elle
+la méthode `lines`, qui retourne un itérateur des lignes dans la chaîne. Comme
 cette fonction veut traiter la première ligne, elle appelle `next` sur
 l'itérateur afin d'obtenir la première valeur de cet itérateur. Si `texte` est
-une chaîne vide, cet appel à `next` va retourner `None`, et ici nous pouvons
-utiliser `?` pour arrêter le déroulement de la fonction et retourner `None` si
-c'est le cas. Si `texte` n'est pas une chaîne vide, `next` va retourner une
-valeur de type `Some` contenant une slice de chaîne de caractères de la
-première ligne de `texte`.
+une chaîne vide, cet appel à `next` va retourner `None`, et dans ce cas nous
+utilisons `?` pour arrêter le déroulement de la fonction et retourner `None`.
+Si `texte` n'est pas une chaîne vide, `next` va retourner une valeur de type
+`Some` contenant une slice de chaîne de caractères de la première ligne de
+`texte`.
 
 <!--
 The `?` extracts the string slice, and we can call `chars` on that string slice
-to get an iterator of the characters in this string slice. We’re interested in
-the last character in this first line, so we call `last` to return the last
-item in the iterator over the characters. This is an `Option` because the first
-line might be the empty string, if `text` starts with a blank line but has
-characters on other lines, as in `"\nhi"`. However, if there is a last
-character on the first line, it will be returned in the `Some` variant. The `?`
-operator in the middle gives us a concise way to express this logic, and this
-function can be implemented in one line. If we couldn’t use the `?` operator on
-`Option`, we’d have to implement this logic using more method calls or a
-`match` expression.
+to get an iterator of its characters. We’re interested in the last character in
+this first line, so we call `last` to return the last item in the iterator.
+This is an `Option` because it’s possible that the first line is the empty
+string, for example if `text` starts with a blank line but has characters on
+other lines, as in `"\nhi"`. However, if there is a last character on the first
+line, it will be returned in the `Some` variant. The `?` operator in the middle
+gives us a concise way to express this logic, allowing us to implement the
+function in one line. If we couldn’t use the `?` operator on `Option`, we’d
+have to implement this logic using more method calls or a `match` expression.
 -->
 
 Le `?` extrait la slice de la chaîne de caractères, et nous pouvons ainsi
 appeller `chars` sur cette slice de chaîne de caractères afin d'obtenir un
-itérateur de caractères de cette slice de chaîne de caractères. Nous nous
-intéressons au dernier caractère de cette première ligne, donc nous appelons
-`last` pour retourner le dernier élément dans l'itérateur de caractères. C'est
-une `Option` car la première ligne peut être une chaîne de caractères vide, si
-`texte` commence par une ligne vide mais a des caractères sur les autres
-lignes, comme par exemple `"\nhi"`. Cependant, si y a un caractère à la fin de
-la première ligne, il sera retourné dans la variante `Some`. L'opérateur `?` au
-millieu nous donne un moyen concret d'exprimer cette logique, et cette fonction
-peut être implémentée en une ligne. Si nous n'aurions pas pu utiliser
+itérateur de ses caractères. Nous nous intéressons au dernier caractère de
+cette première ligne, donc nous appelons `last` pour retourner le dernier
+élément dans l'itérateur. C'est une `Option` car il est possible que la
+première ligne soit une chaîne de caractères vide, par exemple si `texte`
+commence par une ligne vide mais a des caractères sur les autres lignes, comme
+par exemple `"\nhi"`. Cependant, si y a un caractère à la fin de la première
+ligne, il sera retourné dans la variante `Some`. L'opérateur `?` au millieu
+nous donne un moyen concret d'exprimer cette logique, nous permettant
+d'implémenter la fonction en une ligne. Si nous n'aurions pas pu utiliser
 l'opérateur `?` sur `Option`, nous aurions dû implémenter cette logique en
 utilisant plus d'appels à des méthodes ou des expressions `match`.
 
@@ -1177,25 +1175,13 @@ la conversion.
 So far, all the `main` functions we’ve used return `()`. The `main` function is
 special because it’s the entry and exit point of executable programs, and there
 are restrictions on what its return type can be for the programs to behave as
-expected. Executables written in C return integers when they exit, and Rust
-executables follow this convention as well: programs that exit successfully
-return the integer `0`, and programs that error return some integer other than
-`0`. When `main` returns `()`, Rust executables will return `0` if `main`
-returns and a nonzero value if the program panics before reaching the end of
-`main`.
+expected.
 -->
 
 Jusqu'ici, toutes les fonctions `main` que nous avons utilisé retournent `()`.
 La fonction `main` est spéciale car c'est le point d'entrée et de sortie des
 programmes exécutables, et il y a quelques limitations sur ce que peut être
-le type de retour pour que les programmes se comportent correctement. Les
-exécutables écrits en C retournent des entiers lorsqu'ils se terminent, et les
-exécutables écrits en Rust suivent également cette convention : les programmes
-qui se terminent avec succès retournent l'entier `0`, et les programmes qui
-sont en erreur retournent un entier autre que `0`. Lorsque `main` retourne
-`()`, les exécutables Rust vont retourner `0` si `main` retourne quelque chose
-et une valeur différente de zéro si le programme panique avant d'atteindre la
-fin du `main`.
+le type de retour pour que les programmes se comportent correctement.
 
 <!--
 Luckily, `main` can also return a `Result<(), E>`. Listing 9-12 has the
@@ -1245,15 +1231,22 @@ pouvez interpréter `Box<dyn Error>` en “tout type d'erreur”. L'utilisation 
 valeur de type `Err` d'être retournée prématurément.
 
 <!--
-When a `main` function returns a `Result<(), E>`, the executable will exit with
-a value of `0` if `main` returns `Ok(())` and will exit with a nonzero value if
-`main` returns an `Err` value.
+When a `main` function returns a `Result<(), E>`, the executable will
+exit with a value of `0` if `main` returns `Ok(())` and will exit with a
+nonzero value if `main` returns an `Err` value. Executables written in C return
+integers when they exit: programs that exit successfully return the integer
+`0`, and programs that error return some integer other than `0`. Rust also
+returns integers from executables to be compatible with this convention.
 -->
 
 Lorsqu'une fonction `main` retourne un `Result<(), E>`, l'exécutable va
 terminer son exécution avec une valeur de `0` si le `main` retourne `Ok(())` et
 va se terminer avec une valeur différente de zéro si `main` retourne une valeur
-`Err`.
+`Err`. Les exécutables écrits en C retournent des entiers lorsqu'ils se
+terminent : les programmes qui se terminent avec succès retournent l'entier
+`0`, et les programmes qui sont en erreur retournent un entier autre que `0`.
+Rust retourne également des entiers avec des exécutables pour être compatible
+avec cette convention.
 
 <!--
 The `main` function may return any types that implement [the

@@ -8,45 +8,42 @@
 So how do you decide when you should call `panic!` and when you should return
 `Result`? When code panics, there’s no way to recover. You could call `panic!`
 for any error situation, whether there’s a possible way to recover or not, but
-then you’re making the decision on behalf of the code calling your code that a
-situation is unrecoverable. When you choose to return a `Result` value, you
-give the calling code options rather than making the decision for it. The
-calling code could choose to attempt to recover in a way that’s appropriate for
-its situation, or it could decide that an `Err` value in this case is
-unrecoverable, so it can call `panic!` and turn your recoverable error into an
-unrecoverable one. Therefore, returning `Result` is a good default choice when
-you’re defining a function that might fail.
+then you’re making the decision that a situation is unrecoverable on behalf of
+the calling code. When you choose to return a `Result` value, you give the
+calling code options. The calling code could choose to attempt to recover in a
+way that’s appropriate for its situation, or it could decide that an `Err`
+value in this case is unrecoverable, so it can call `panic!` and turn your
+recoverable error into an unrecoverable one. Therefore, returning `Result` is a
+good default choice when you’re defining a function that might fail.
 -->
 
 Comment décider si vous devez utiliser `panic!` ou si vous devez retourner un
 `Result` ? Quand un code panique, il n'y a pas de moyen de récupérer la
 situation. Vous pourriez utiliser `panic!` pour n'importe quelle situation
 d'erreur, peu importe s'il est possible de récupérer la situation ou non, mais
-vous prenez alors la décision de tout arrêter à la place du code qui appelle
-votre code. Lorsque vous choisissez de retourner une valeur `Result`, vous
-donnez plus de choix au code appelant plutôt que de prendre des décisions à sa
-place. Le code appelant peut choisir d'essayer de récupérer l'erreur de manière
-appropriée à la situation, ou il peut décider que dans ce cas une valeur `Err`
-est irrécupérable, et va donc utiliser `panic!` et transformer votre erreur
-récupérable en erreur irrécupérable. Ainsi, retourner `Result` est un bon choix
-par défaut lorsque vous définissez une fonction qui peut échouer.
+vous prenez alors la décision de tout arrêter à la place du code appellant.
+Lorsque vous choisissez de retourner une valeur `Result`, vous donnez le choix
+au code appelant. Le code appelant peut choisir d'essayer de récupérer l'erreur
+de manière appropriée à la situation, ou il peut décider que dans ce cas une
+valeur `Err` est irrécupérable, et va donc utiliser `panic!` et transformer
+votre erreur récupérable en erreur irrécupérable. Ainsi, retourner `Result` est
+un bon choix par défaut lorsque vous définissez une fonction qui peut échouer.
 
 <!--
-In rare situations, it’s more appropriate to write code that panics instead of
-returning a `Result`. Let’s explore why it’s appropriate to panic in examples,
-prototype code, and tests. Then we’ll discuss situations in which the compiler
-can’t tell that failure is impossible, but you as a human can. The chapter will
-conclude with some general guidelines on how to decide whether to panic in
-library code.
+In situations such as examples, prototype code, and tests, it’s more
+appropriate to write code that panics instead of returning a `Result`. Let’s
+explore why, then discuss situations in which the compiler can’t tell that
+failure is impossible, but you as a human can. The chapter will conclude with
+some general guidelines on how to decide whether to panic in library code.
 -->
 
-Dans certaines situations, il est plus approprié d'écrire du code qui panique
-plutôt que de retourner un `Result`. Nous allons voir pourquoi il est approprié
-de paniquer dans les exemples, les prototypes et les tests. Ensuite, nous
-verrons des situations dans lesquelles vous savez en tant qu'humain qu'un
-code ne peut pas échouer, mais que le compilateur ne peut pas le déduire par
-lui-même. Puis nous allons conclure le chapitre par quelques lignes directrices
-générales pour décider s'il faut paniquer dans le code d'une bibliothèque.
+Dans certains cas comme les exemples, les prototypes, et les tests, il est plus
+approprié d'écrire du code qui panique plutôt que de retourner un `Result`.
+Nous allons voir pourquoi, puis nous verrons des situations dans lesquelles
+vous savez en tant qu'humain qu'un code ne peut pas échouer, mais que le
+compilateur ne peut pas le déduire par lui-même. Enfin, nous allons conclure le
+chapitre par quelques lignes directrices générales pour décider s'il faut
+paniquer dans le code d'une bibliothèque.
 
 <!--
 ### Examples, Prototype Code, and Tests
