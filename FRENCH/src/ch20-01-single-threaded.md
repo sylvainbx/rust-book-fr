@@ -11,7 +11,7 @@ servers. The details of these protocols are beyond the scope of this book, but
 a brief overview will give you the information you need.
 -->
 
-Nous allons commencer par faire fonctionner un serveur web avec une seule tâche.
+Nous allons commencer par faire fonctionner un serveur web monotâche.
 Avant de commencer, faisons un survol rapide des protocoles utilisés dans les
 serveurs web. Les détails de ces protocoles ne sont pas le sujet de ce livre,
 mais un rapide aperçu vous donnera les informations dont vous avez besoin.
