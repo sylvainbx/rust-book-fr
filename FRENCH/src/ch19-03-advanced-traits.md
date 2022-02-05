@@ -701,8 +701,7 @@ Listing 19-20, we’ll get a compilation error.
 Ce résultat n'est pas celui que nous souhaitons. Nous voulons appeler la
 fonction `nom_bebe` qui fait partie du trait `Animal` que nous avons implémenté
 sur `Chien` afin que le code affiche `Un bébé chien s'appelle un chiot`. La
-technique pour préciser le nom du trait que nous avons utilisée que nous avons utilisée
-précédemment ne va pas nous
+technique pour préciser le nom du trait que nous avons utilisée précédemment ne va pas nous
 aider ici ; si nous changeons le `main` par le code de l'encart 19-20, nous
 allons avoir une erreur de compilation.
 
@@ -951,7 +950,7 @@ Comme nous avons précisé que `OutlinePrint` nécessite le trait `Display`, nou
 pouvons utiliser la fonction `to_string` qui est automatiquement implémentée
 pour n'importe quel type qui implémente `Display`. Si nous avions essayé
 d'utiliser `to_string` sans ajouter un double-point et en renseignant le trait
-`Display` après le nom du trait, nous aurios alors obtenu une erreur qui nous
+`Display` après le nom du trait, nous aurions alors obtenu une erreur qui nous
 informerait qu'il n'y a pas de méthode `to_string` pour le type `&Self` dans la
 portée courante.
 
@@ -1064,7 +1063,7 @@ pour le type sur lequel nous souhaitons implémenter le trait. Ensuite, le type
 enveloppant est local à notre crate, et nous pouvons lui implémenter un trait.
 *Newtype* est un terme qui provient du langage de programmation Haskell. Il n'y
 a pas de conséquence sur les performance à l'exécution pour l'utilisation de ce
-motif, attendu que le type enveloppant est résolu à la compilation.
+motif, ce qui signifie que le type enveloppant est résolu à la compilation.
 
 <!--
 As an example, let’s say we want to implement `Display` on `Vec<T>`, which the
