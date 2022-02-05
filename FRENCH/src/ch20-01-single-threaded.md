@@ -380,7 +380,7 @@ the buffer.
 Ensuite, nous devons lire les données du flux. Nous faisons cela en deux
 temps : d'abord, nous déclarons un `tampon` sur la pile pour y stocker les
 données qui seront lues. Nous avons fait en sorte que le tampon fasse 1024
-octets, ce qui est suffisamment grand pour stocker les données d'un requête
+octets, ce qui est suffisamment grand pour stocker les données d'une requête
 basique, ce qui est suffisant pour nos besoins dans ce chapitre. Si nous
 aurions voulu gérer des requêtes de tailles quelconques, la gestion du tampon
 aurait été plus complexe ; nous allons la garder simplifiée pour l'instant.
