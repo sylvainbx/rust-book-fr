@@ -181,7 +181,7 @@ Nous avons un autre motif utile qui exploite un détail de l'implémentation des
 structures tuple et des variantes d'énumérations de structures de tuples. Ces
 types utilisent `()` comme syntaxe d'initialisation, ce qui ressemble à un appel de
 fonction. Les initialisateurs sont effectivement actuellement implémentés en tant que 
-fonctions qui retournent une instance qui est construite à partir des paramètres passés. 
+fonctions qui retournent une instance qui est construite à partir des paramètres qu'on lui donne. 
 Nous pouvons utiliser ces fonctions d'initialisation en tant que 
 pointeurs de fonctions qui implémentent les traits de fermetures, ce qui
 signifie que nous pouvons utiliser les fonctions d'initialisation comme paramètre 
