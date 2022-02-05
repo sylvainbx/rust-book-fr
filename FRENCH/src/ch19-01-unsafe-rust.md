@@ -768,7 +768,7 @@ Parfois, votre code Rust peut avoir besoin d'interagir avec du code écrit dans
 d'autres langages. Dans ce cas, Rust propose un mot-clé, `extern`, qui facilite
 la création et l'utilisation du *Foreign Function Interface (FFI)*. Le FFI est
 un outil permettant à un langage de programmation de définir des fonctions auxquelles
-d'autres langages de programmation différent du premier pourront faire appel.
+d'autres langages de programmation pourront faire appel.
 
 <!--
 Listing 19-8 demonstrates how to set up an integration with the `abs` function
