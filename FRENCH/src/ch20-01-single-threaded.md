@@ -187,7 +187,7 @@ réponse, durant lequel le client se connecte au serveur, le serveur génère un
 réponse, et le serveur ferme la connexion. Ainsi, `TcpStream` va se lire
 lui-même pour voir ce que le client a envoyé et nous permettre ensuite d'écrire
 notre réponse dans le flux. De manière générale, cette boucle `for` traitera
-chaque connexion dans l'ordre et produire nous une série de flux pour que nous
+chaque connexion dans l'ordre et nous produira une série de flux pour que nous
 puissions les gérer.
 
 <!--
