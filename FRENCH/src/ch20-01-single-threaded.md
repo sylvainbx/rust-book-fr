@@ -27,9 +27,9 @@ protocols.
 
 Les deux principaux protocoles utilisés dans les serveurs web sont le
 *Hypertext Transfer Protocol* *(HTTP)* et le *Transmission Control Protocol*
-*(TCP)*. Ces deux protocoles sont des protocoles de type *demande-réponse*, ce
-qui signifie qu'un *client* démarre les requêtes, et le *serveur* écoute les
-requêtes et fournit une réponse au client. Le contenu de ces requêtes et
+*(TCP)*. Ces deux protocoles sont des protocoles de type *requête-réponse*, ce
+qui signifie qu'un *client* initie des requêtes tandis que le *serveur* écoute les
+requêtes et fournit une réponse au client. Le contenu de ces requêtes et de ces
 réponses est défini par les protocoles.
 
 <!--
