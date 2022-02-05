@@ -18,7 +18,7 @@ Les motifs se divisent en deux catégories : réfutables et irréfutables. Les
 motifs qui vont correspondre à n'importe quelle valeur qu'on lui passe sont
 *irréfutables*. Un exemple serait le `x` dans l'instruction `let x = 5;` car
 `x` correspond à tout ce qui est possible de sorte que la
-correspondance ne peut pas échouer. Les motifs pour lesquels la correspondance
+correspondance ne puisse pas échouer. Les motifs pour lesquels la correspondance
 peut échouer pour certains valeurs
 sont *réfutables*. Un exemple serait `Some(x)` dans l'expression
 `if let Some(x) = une_valeur` car si la valeur dans la variable `une_valeur` est
