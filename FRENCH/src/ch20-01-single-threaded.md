@@ -11,7 +11,7 @@ servers. The details of these protocols are beyond the scope of this book, but
 a brief overview will give you the information you need.
 -->
 
-Nous allons commencer par faire fonctionner un serveur web avec une seule tâche.
+Nous allons commencer par faire fonctionner un serveur web monotâche.
 Avant de commencer, faisons un survol rapide des protocoles utilisés dans les
 serveurs web. Les détails de ces protocoles ne sont pas le sujet de ce livre,
 mais un rapide aperçu vous donnera les informations dont vous avez besoin.
@@ -27,9 +27,9 @@ protocols.
 
 Les deux principaux protocoles utilisés dans les serveurs web sont le
 *Hypertext Transfer Protocol* *(HTTP)* et le *Transmission Control Protocol*
-*(TCP)*. Ces deux protocoles sont des protocoles de type *demande-réponse*, ce
-qui signifie qu'un *client* démarre les requêtes, et le *serveur* écoute les
-requêtes et fournit une réponse au client. Le contenu de ces requêtes et
+*(TCP)*. Ces deux protocoles sont des protocoles de type *requête-réponse*, ce
+qui signifie qu'un *client* initie des requêtes tandis que le *serveur* écoute les
+requêtes et fournit une réponse au client. Le contenu de ces requêtes et de ces
 réponses est défini par les protocoles.
 
 <!--
@@ -127,9 +127,9 @@ chosen this port for two reasons: HTTP isn’t normally accepted on this port, a
 En utilisant `TcpListener`, nous pouvons écouter les connexions TCP à l'adresse
 `127.0.0.1:7878`. Dans cette adresse, la partie avant les double-points est une
 adresse IP qui représente votre ordinateur (c'est la même sur chaque ordinateur
-et ne représente pas précisément l'ordinateur de l'auteur), et `7878` est le
+et ne représente pas spécifiquement l'ordinateur de l'auteur) et `7878` est le
 port. Nous avons choisi ce port pour deux raisons : HTTP n'est pas
-habituellement accepté sur ce port, et 7878 correspond aux touches utilisées
+habituellement accepté sur ce port et 7878 correspond aux touches utilisées
 sur un clavier de téléphone pour écrire *Rust*.
 
 <!--
@@ -142,7 +142,7 @@ will return a new `TcpListener` instance. The reason the function is called
 La fonction `bind` dans ce scénario fonctionne comme la fonction `new` dans le
 sens où elle retourne une nouvelle instance de `TcpListener`. La raison pour
 laquelle cette fonction s'appelle `bind` *(NdT : signifie "lier")* est que dans
-les réseaux, connecter un port à écouter se dit aussi “lier à un port”.
+le domaine des réseaux, se connecter un port à écouter se dit se “lier à un port”.
 
 <!--
 The `bind` function returns a `Result<T, E>`, which indicates that binding
@@ -160,12 +160,12 @@ La fonction `bind` retourne un `Result<T, E>`, ce qui signifie que la création
 de lien peut échouer. Par exemple, la connexion au port 80 nécessite d'être
 administrateur (les utilisateurs non-administrateur ne peuvent écouter que sur
 les ports supérieurs à 1023), donc si nous essayons de connecter un port 80
-sans être administrateur, le lien ne va pas fonctionner. Un autre exemple, le
+sans être administrateur, le lien ne va pas fonctionner. Pour donner un autre exemple, le
 lien ne va pas fonctionner si nous exécutons deux instances de notre programme
 et que nous avons deux programmes qui écoutent sur le même port. Comme nous
 écrivons un serveur basique uniquement à but pédagogique, nous n'avons pas à
 nous soucier de la gestion de ce genre d'erreur ; c'est pourquoi nous utilisons
-`unwrap` pour arrêter l'exécution du programme si des erreurs arrivent.
+`unwrap` pour arrêter l'exécution du programme si des erreurs surviennent.
 
 <!--
 The `incoming` method on `TcpListener` returns an iterator that gives us a
@@ -182,13 +182,13 @@ streams for us to handle.
 La méthode `incoming` d'un `TcpListener` retourne l'itérateur qui nous donne une
 séquence de flux (plus précisément, des flux de type `TcpStream`). Un seul
 *flux* représente une connexion entre le client et le serveur. Une *connexion*
-est le nom qui désigne tout le processus désignant la requête ainsi que la
-réponse, durant lequel le client se connecte au serveur, le serveur génère une
-réponse, et le serveur ferme la connexion. Ainsi, `TcpStream` va se lire
+est le nom qui désigne le processus complet de requête et de réponse, 
+durant lequel le client se connecte au serveur, le serveur génère une
+réponse puis le serveur ferme la connexion. Ainsi, `TcpStream` va se lire
 lui-même pour voir ce que le client a envoyé et nous permettre ensuite d'écrire
 notre réponse dans le flux. De manière générale, cette boucle `for` traitera
-chaque connexion dans l'ordre et produire nous une série de flux pour que nous
-puissions les gérer.
+l'une après l'autre chaque connexion dans l'ordre et produira une série de flux que
+nous devrons gérer.
 
 <!--
 For now, our handling of the stream consists of calling `unwrap` to terminate
@@ -206,8 +206,8 @@ connections are closed.
 
 Pour l'instant, notre gestion des flux consiste à appeler `unwrap` pour arrêter
 notre programme si le flux rencontre une erreur ; s'il n'y a pas d'erreurs, le
-programme affiche un message. Nous allons ajouter plus de fonctionnalités dans
-le cas de succès dans le prochain encart. La raison pour laquelle nous pourrions
+programme affiche un message. Nous ajouterons davantage de fonctionnalités en
+cas de succès dans le prochain encart. La raison pour laquelle nous pourrions
 recevoir des erreurs de la méthode `incoming` lorsqu'un client se connecte au
 serveur est qu'en réalité nous n'itérons pas sur les connexions. En effet, nous
 itérons sur des *tentatives de connexion*. La connexion peut échouer pour de
@@ -215,7 +215,7 @@ nombreuses raisons, beaucoup d'entre elles sont spécifiques au système
 d'exploitation. Par exemple, de nombreux systèmes d'exploitation ont une limite
 sur le nombre de connexions ouvertes simultanément qu'ils peuvent supporter ;
 les tentatives de nouvelles connexions une fois ce nombre dépassé produiront une
-erreur jusqu'à ce que certaines connexions soient fermées.
+erreur jusqu'à ce que certaines des connexions soient fermées.
 
 <!--
 Let’s try running this code! Invoke `cargo run` in the terminal and then load
@@ -227,8 +227,8 @@ were printed when the browser connected to the server!
 
 Essayons d'exécuter ce code ! Saisissez `cargo run` dans le terminal et ensuite
 ouvrez *127.0.0.1:7878* dans un navigateur web. Le navigateur devrait afficher
-un message d'erreur comme “La connexion a été réinitialisée”, car le serveur ne
-renvois pas de données pour le moment. Mais si vous regardez le terminal, vous
+un message d'erreur tel que “La connexion a été réinitialisée”, car le serveur ne
+renvoie pas de données pour le moment. Mais si vous regardez le terminal, vous
 devriez voir quelques messages qui se sont affichés lorsque le navigateur s'est
 connecté au serveur !
 
@@ -256,7 +256,7 @@ browser tab.
 -->
 
 Des fois, vous pourriez voir plusieurs messages s'afficher pour une seule
-requête de navigateur ; la raison à cela est peut-être que le navigateur fait
+requête du navigateur ; la raison à cela est peut-être que le navigateur fait
 une requête pour la page ainsi que des requêtes pour d'autres ressources, comme
 l'icone *favicon.ico* qui s'affiche dans l'onglet du navigateur.
 
@@ -269,8 +269,8 @@ connections by retrying, because the problem might be temporary. The important
 factor is that we’ve successfully gotten a handle to a TCP connection!
 -->
 
-Peut-être que le navigateur essaye aussi de se connecter plusieurs fois au
-serveur car le serveur ne répond aucune donnée. Lorsque `flux` sort de la portée
+Peut-être que le navigateur essaie aussi de se connecter plusieurs fois au
+serveur car le serveur ne renvoie aucune donnée dans sa réponse. Lorsque `flux` sort de la portée
 et est nettoyé à la fin de la boucle, la connexion est fermée car cela est
 implémenté dans le `drop`. Les navigateurs réagissent à ces connexions fermées
 en ré-essayant, car le problème peut être temporaire. La partie importante est
@@ -283,10 +283,10 @@ run` after you’ve made each set of code changes to make sure you’re running 
 newest code.
 -->
 
-Souvenez-vous que vous pouvez arrêter le programme en appuyant sur
+Pensez à arrêter le programme en appuyant sur
 <span class="keystroke">ctrl-c</span> lorsque vous avez fini d'exécuter une
-version du code. Relancez ensuite `cargo run` après avoir appliqué un jeu de
-modifications pour vous assurer d'exécuter le nouveau code.
+version donnée du code. Relancez ensuite `cargo run` après avoir appliqué une série de
+modifications afin d'être sûr que vous exécutez bien la toute dernière version du code.
 
 <!--
 ### Reading the Request
@@ -303,8 +303,8 @@ print it so we can see the data being sent from the browser. Change the code to
 look like Listing 20-2.
 -->
 
-Commençons à implémenter la fonctionnalité pour lire la requête du navigateur !
-Pour séparer les parties où nous obtenons une connexion et celle où nous
+Commençons à implémenter la fonctionnalité permettant de lire la requête du navigateur !
+Pour séparer les parties où nous obtenons une connexion de celle où nous
 agissons avec la connexion, nous allons créer une nouvelle fonction pour traiter
 les connexions. Dans cette nouvelle fonction `gestion_connexion`, nous allons
 lire des données provenant du flux TCP et les afficher afin que nous puissions
@@ -359,9 +359,9 @@ mutation, but in this case we need the `mut` keyword.
 
 Dans la fonction `gestion_connexion`, nous avons fait en sorte que le paramètre
 `flux` soit mutable. La raison à cela est que l'instance de `TcpStream` garde en
-mémoire interne quelles données il nous a retourné. Il peut avoir plus de
-données que celles que nous avons demandé, et il peut alors conserver ces
-données jusqu'à la prochaine fois où nous demanderons des données. Il doit donc
+mémoire interne le suivi des données qu'il nous a retournées. Il peut lire plus de données
+que nous en avons demandées et les conserver pour la prochaine fois que nous en 
+redemanderons. Il doit donc
 être `mut` car son état interne doit pouvoir changer ; d'habitude, nous n'avons
 pas besoin que la “lecture” nécessite d'être mutable, mais dans ce cas nous
 avons besoin du mot-clé `mut`.
@@ -380,11 +380,11 @@ the buffer.
 Ensuite, nous devons lire les données du flux. Nous faisons cela en deux
 temps : d'abord, nous déclarons un `tampon` sur la pile pour y stocker les
 données qui seront lues. Nous avons fait en sorte que le tampon fasse 1024
-octets, ce qui est suffisamment grand pour stocker les données d'un requête
+octets, ce qui est suffisamment grand pour stocker les données d'une requête
 basique, ce qui est suffisant pour nos besoins dans ce chapitre. Si nous
-aurions voulu gérer des requêtes de tailles quelconques, la gestion du tampon
-aurait été plus complexe ; nous allons la garder simplifiée pour l'instant.
-Nous envoyons le tampon dans `flux.read`, qui va lire les octets provenant du
+avions voulu gérer des requêtes de taille arbitraire, cette gestion du tampon
+aurait été plus complexe ; nous allons la garder simpliste pour l'instant.
+Nous envoyons le tampon dans `flux.read` qui va lire les octets provenant du
 `TcpStream` et les ajouter dans le tampon.
 
 <!--
@@ -398,12 +398,12 @@ characters for characters in the buffer that aren’t filled by request data.
 
 Ensuite, nous convertissons les octets présents dans le tampon en chaînes de
 caractères et nous affichons cette chaîne de caractères. La fonction
-`String::from_utf8_lossy` prends en paramètres un `&[u8]` le transforme en une
+`String::from_utf8_lossy` prend en paramètre un `&[u8]` et le transforme en une
 `String`. La partie “lossy” du nom indique le comportement de cette fonction
 lorsqu'elle rencontre une séquence UTF-8 invalide : elle va remplacer la
 séquence invalide par `�`, le caractère `U+FFFD REPLACEMENT CHARACTER`. Vous
-devriez voir ces caractères de remplacement pour les caractères dans le
-tampon qui ne correspondent pas aux données de la demande.
+devriez voir ces caractères de remplacement à la place des caractères du
+tampon qui n'ont pas été renseignés par des données de requête.
 
 <!--
 Let’s try this code! Start the program and make a request in a web browser
