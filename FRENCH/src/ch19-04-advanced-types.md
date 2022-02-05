@@ -317,7 +317,7 @@ just another `Result<T, E>`, which means we can use any methods that work on
 -->
 
 L'alias de type nous aide sur deux domaines : il permet de faciliter l'écriture
-du code *et* il nous donne une interface cohérebte pour tout `std::io`. Comme
+du code *et* il nous donne une interface cohérente pour tout `std::io`. Comme
 c'est un alias, c'est simplement un autre `Result<T, E>`, ce qui signifie que
 nous pouvons utiliser n'importe quelle méthode qui fonctionne avec
 `Result<T, E>`, ainsi que les syntaxes spéciales telle que l'opérateur `?`.
@@ -625,7 +625,7 @@ Trait>` would work too).
 
 Nous pouvons combiner `str` avec n'importe quel type de pointeur : par exemple,
 `Box<str>` ou `Rc<str>`. En fait, vous avez vu cela déjà auparavant mais avec un
-type à taille dynamique différent : les traits. Chaque trait est un type à taille
+autre type à taille dynamique : les traits. Chaque trait est un type à taille
 dynamique auquel nous pouvons nous référer en utilisant le nom du trait. Dans
 [une section][using-trait-objects-that-allow-for-values-of-different-types]<!--
 ignore --> du chapitre 17, nous avions mentionné que pour utiliser les traits
