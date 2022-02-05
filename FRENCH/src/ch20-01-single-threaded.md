@@ -897,7 +897,7 @@ to */* differently from other requests</span>
 -->
 
 <span class="caption">Encart 20-6 : détection et gestion des requêtes vers */* 
-     de manière différenciée des autres requêtes</span>
+de manière différenciée des autres requêtes</span>
 
 <!--
 First, we hardcode the data corresponding to the */* request into the `get`
