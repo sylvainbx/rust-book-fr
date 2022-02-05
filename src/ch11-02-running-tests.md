@@ -61,7 +61,7 @@ parameter and returns 10, as well as a test that passes and a test that fails.
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust,panics
+```rust,panics,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-10/src/lib.rs}}
 ```
 
@@ -105,7 +105,7 @@ To demonstrate how to run a subset of tests, we’ll create three tests for our
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
+```rust,noplayground
 {{#rustdoc_include ../listings/ch11-writing-automated-tests/listing-11-11/src/lib.rs}}
 ```
 
@@ -159,8 +159,8 @@ here:
 
 <span class="filename">Filename: src/lib.rs</span>
 
-```rust
-{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-11-ignore-a-test/src/lib.rs:here}}
+```rust,noplayground
+{{#rustdoc_include ../listings/ch11-writing-automated-tests/no-listing-11-ignore-a-test/src/lib.rs}}
 ```
 
 After `#[test]` we add the `#[ignore]` line to the test we want to exclude. Now
@@ -180,4 +180,5 @@ the ignored tests, we can use `cargo test -- --ignored`:
 By controlling which tests run, you can make sure your `cargo test` results
 will be fast. When you’re at a point where it makes sense to check the results
 of the `ignored` tests and you have time to wait for the results, you can run
-`cargo test -- --ignored` instead.
+`cargo test -- --ignored` instead. If you want to run all tests whether they’re
+ignored or not, you can run `cargo test -- --include-ignored`.
