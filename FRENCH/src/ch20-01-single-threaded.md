@@ -398,7 +398,7 @@ characters for characters in the buffer that aren’t filled by request data.
 
 Ensuite, nous convertissons les octets présents dans le tampon en chaînes de
 caractères et nous affichons cette chaîne de caractères. La fonction
-`String::from_utf8_lossy` prends en paramètres un `&[u8]` le transforme en une
+`String::from_utf8_lossy` prend en paramètre un `&[u8]` et le transforme en une
 `String`. La partie “lossy” du nom indique le comportement de cette fonction
 lorsqu'elle rencontre une séquence UTF-8 invalide : elle va remplacer la
 séquence invalide par `�`, le caractère `U+FFFD REPLACEMENT CHARACTER`. Vous
