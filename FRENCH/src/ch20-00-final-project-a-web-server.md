@@ -81,7 +81,7 @@ the crates you might use in the future.
 -->
 
 Toutefois, notre intention dans ce chapitre est de vous aider à apprendre, et
- pas de se laisser aller à la facilité. Comme Rust est un langage de
+ne pas de se laisser aller à la facilité. Comme Rust est un langage de
 programmation système, nous pouvons choisir le niveau d'abstraction avec 
 lequel nous souhaitons travailler et nous pouvons descendre à un niveau plus bas
 que ce qui est possible ou pratique dans d'autres langages. Nous allons écrire
