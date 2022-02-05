@@ -209,7 +209,7 @@ valeurs `u32` présentes dans l'intervalle sur laquelle nous appelons `map` en
 utilisant la fonction d'initialisation de `Statut::Valeur`. Certaines personnes
 préfèrent ce style, et d'autres préfèrent utiliser des fermetures. Ces deux approches
 se compilent et produisent le même code, vous pouvez donc utiliser le style qui
-est le plus clair pouv vous.
+est le plus clair pour vous.
 
 <!--
 ### Returning Closures
