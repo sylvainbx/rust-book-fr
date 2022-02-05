@@ -27,7 +27,7 @@ following code gives some examples:
 -->
 
 Comme vous l'avez vu chapitre 6, vous pouvez faire directement correspondre des
-motifs à des littéraux. Le code suivant vous donne quelques exemples :
+motifs avec des littéraux. Le code suivant vous donne quelques exemples :
 
 <!--
 ```rust
@@ -147,7 +147,7 @@ case, x = None`.
 En supposant maintenant que `x` ait la valeur `None` plutôt que `Some(5)`, les motifs présents
 dans les deux premières branches ne correspondront pas, donc la valeur qui
 correspondra sera celle avec le tiret du bas. Comme nous n'avons pas
-introduit de nouvelle variable `x` dans la la branche du motif,
+introduit de nouvelle variable `x` dans la branche du motif,
 le `x` de l'expression associée désigne toujours la variable `x` en dehors et qui
 n'a pas été masquée. Le `match` va donc afficher
 `Cas par défaut, x = None`.
@@ -157,7 +157,7 @@ When the `match` expression is done, its scope ends, and so does the scope of
 the inner `y`. The last `println!` produces `at the end: x = Some(5), y = 10`.
 -->
 
-Si nous reprenons la valeur `Some(5)` pour `x`, lorsque l'expression `match` 
+Lorsque l'expression `match` 
 est terminée, sa portée se termine également, et avec elle
 la portée de la variable interne `y`. Le dernier `println!` affiche donc
 `A la fin : x = Some(5), y = 10`.
@@ -189,7 +189,7 @@ value of `x` matches either of the values in that arm, that arm’s code will
 run:
 -->
 
-Dans les expressions `match`, vous pouvez faire correspondre un même branche à plusieurs motifs
+Dans les expressions `match`, vous pouvez faire correspondre une même branche à plusieurs motifs
 en utilisant la syntaxe `|`, qui signifie *ou*. Par exemple, dans le code suivant
 appliquant un `match` sur la valeur de `x`, la première des branches possède une option
 *ou*, ce qui signifie que si la valeur de `x` correspond à l'un ou l'autre des motifs de
@@ -416,7 +416,7 @@ destructure the other fields.
 
 Nous pouvons aussi destructurer en utilisant des valeurs littérales faisant partie
 du motif de la structure plutôt que d'avoir à créer les variables pour tous les
-champs. Ceci nous permet de tester que certains champs possède des valeurs
+champs. Ceci nous permet de tester que certains champs possèdent des valeurs
 particulières tout en créant des variables pour destructurer les autres champs.
 
 <!--
@@ -460,7 +460,7 @@ the `y` field matches if its value matches the literal `0`. The pattern still
 creates an `x` variable that we can use in the code for this arm.
 -->
 
-La première branche va correspondre avec tous les points qui se trouve sur
+La première branche va correspondre avec tous les points qui se trouvent sur
 l'axe `x` en précisant que le champ `y` correspond au littéral `0`. Le motif va
 systématiquement créer une variable `x` que nous pourrons utiliser dans le code de cette
 branche.
@@ -579,7 +579,7 @@ variables in the pattern must match the number of elements in the variant we’r
 matching.
 -->
 
-Pour les variantes d'énumérations qui ressemblent à des tuples, telle que
+Pour les variantes d'énumérations qui ressemblent à des tuples, telles que
 `Message::Ecrire` qui stocke un tuple avec un seul élément, ou
 `Message::ChangerCouleur` qui stocke un tuple avec trois éléments, le motif
 est semblable à celui que nous renseignons pour correspondre aux tuples. Le nombre
@@ -711,7 +711,7 @@ motif, comme celle dans la dernière branche d'un `match`, pour obtenir un joker
 qui ne fait rien mis à part qu'il représente toutes les autres valeurs
 possibles. Il existe plusieurs façons d'ignorer totalement ou en partie des valeurs 
 dans un motif : en utilisant le motif `_` (que vous avez
-déjà vu), ou le motif `_` à l'intérieur d'un autre motif, ou 
+déjà vu), le motif `_` à l'intérieur d'un autre motif,
 un nom qui commence avec un tiret bas, ou enfin `..` pour ignorer les
 parties restantes d'une valeur. Voyons comment et pourquoi utiliser ces différents motifs.
 
@@ -807,7 +807,7 @@ qu'une seule partie d'une valeur mais que nous n'utilisons pas les autres
 parties dans le code que nous souhaitons exécuter. L'encart 18-18 montre du
 code qui s'occupe de gérer la valeur d'un réglage. Les règles métier sont que
 l'utilisateur ne doit pas pouvoir modifier un réglage existant mais peut
-l'annuler le réglage ou lui donner une valeur s'il n'en a pas encore.
+annuler le réglage ou lui donner une valeur s'il n'en a pas encore.
 
 <!--
 ```rust
@@ -841,7 +841,7 @@ changed.
 Ce code va afficher `Vous ne pouvez pas écraser une valeur déjà existante` et
 ensuite `Le réglage vaut Some(5)`. Dans la première branche, nous n'avons pas
 besoin de récupérer ou d'utiliser les valeurs à l'intérieur de chacune des
-variantes `Some`, mais nous avons besoin de tester correspondant à la situation
+variantes `Some`, mais nous avons besoin de tester les situations
 où `valeur_du_reglage` et `nouvelle_valeur_du_reglage` sont toutes deux des variantes
 `Some`. Dans ce cas, nous écrivons que nous n'allons pas changer
 `valeur_du_reglage` et elle ne changera pas.
@@ -991,7 +991,7 @@ because `s` doesn’t get moved into `_`.
 -->
 
 Nous allons obtenir une erreur car la valeur `s` est toujours déplacée dans
-`_s`, ce qui nous empêche d'utiliser `s` ensuite. Inversement, l'utilisation du
+`_s`, ce qui nous empêche d'utiliser `s` ensuite. A l'inverse, l'utilisation du
 tiret bas tout seul n'assigne jamais la valeur à quelque chose. Par conséquent, l'encart 18-22
 va se compiler sans aucune erreur car `s` n'est pas déplacé dans `_`.
 
@@ -1206,7 +1206,7 @@ Un *contrôle de correspondance* est une condition `if` supplémentaire renseign
 après le motif d'une branche d'un `match` qui doit elle aussi correspondre en même temps 
 que le filtrage par motif, pour que cette branche soit choisie. Les
 contrôles de correspondance sont utiles pour exprimer des idées plus complexes
-que celles permises par les seuls motifs.
+que celles permises uniquement par les motifs.
 
 <!--
 The condition can use variables created in the pattern. Listing 18-26 shows a
