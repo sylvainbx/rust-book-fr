@@ -43,7 +43,7 @@ fonctions.
 
 <!--
 ### The Difference Between Macros and Functions
---> 
+-->
 
 ### La différence entre les macros et les fonctions
 
@@ -1011,7 +1011,7 @@ returns a value of the required `TokenStream` type.
 
 La macro `quote!` nous permet de définir le code Rust que nous souhaitons
 retourner. Le compilateur attend quelque chose de différent que le résultat direct
-fourni par l'exécution de `quote!`, donc nous devons convertir ce dernier en
+produit par l'exécution de `quote!`, donc nous devons convertir ce dernier en
 `TokenStream`. Nous faisons ceci en faisant appel à la méthode `into`, qui utilise 
 cette représentation intermédiaire et retourne une valeur du type attendu,
 le type `TokenStream` ici.
@@ -1199,7 +1199,7 @@ function that generates the code you want!
 -->
 
 Mis à part cela, les macros qui ressemblent à des attributs fonctionnent de la
-même manière que les macros `derive` personnalisées : vous générez une crate avec
+même manière que les macros `derive` personnalisées : vous générez une crate avec
 le type de la crate `proc-macro` et vous implémentez une fonction qui génèrera le
 code que vous souhaitez !
 
@@ -1278,7 +1278,7 @@ the tokens that are inside the parentheses and return the code we wanted to
 generate.
 -->
 
-Cette définition ressemble à la signature de la macro `derive` personnalisée :
+Cette définition ressemble à la signature de la macro `derive` personnalisée :
 nous récupérons les éléments entre parenthèses et retournons le code que nous
 souhaitons générer.
 
