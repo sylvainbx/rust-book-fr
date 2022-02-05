@@ -72,7 +72,7 @@ This code prints `The answer is: 12`. We specify that the parameter `f` in
 the function name `add_one` as the first argument to `do_twice`.
 -->
 
-Ce code affiche `La réponse est : 7`. Nous avons précisé que le paramètre `f`
+Ce code affiche `La réponse est : 12`. Nous avons précisé que le paramètre `f`
 dans `le_faire_deux_fois` est une `fn` qui prend en argument un paramètre du
 type `i32` et retourne un `i32`. Nous pouvons ensuite appeler `f` dans le corps
 de `le_faire_deux_fois`. Dans `main`, nous pouvons envoyer le nom de la fonction
