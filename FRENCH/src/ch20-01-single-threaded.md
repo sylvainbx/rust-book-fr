@@ -129,7 +129,7 @@ En utilisant `TcpListener`, nous pouvons écouter les connexions TCP à l'adress
 adresse IP qui représente votre ordinateur (c'est la même sur chaque ordinateur
 et ne représente pas spécifiquement l'ordinateur de l'auteur), et `7878` est le
 port. Nous avons choisi ce port pour deux raisons : HTTP n'est pas
-habituellement accepté sur ce port, et 7878 correspond aux touches utilisées
+habituellement accepté sur ce port et 7878 correspond aux touches utilisées
 sur un clavier de téléphone pour écrire *Rust*.
 
 <!--
