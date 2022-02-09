@@ -938,14 +938,14 @@ implementation of threads doesn’t include any way to do that; we have to
 implement it manually.
 -->
 
-Nous avons laissé un commentaire dans la boucle `for` dans l'encart 20-14 qui
-concernait la création des tâches. Ici, nous allons voir comment nous créer les
-tâches. La bibliothèque standard fournit une manière de créer les tâches avec
-`thread::spawn`, et `thread::spawn` doit recevoir du code que la tâche doit
-exécuter dès que la tâche est créée. Cependant, dans notre cas, nous souhaitons
-créer les tâches et qu'elles *attendent* du code que nous leur enverrons plus
-tard. L'implémentation des tâches de la bibliothèque standard n'offre pas les
-moyens de faire ceci ; nous devons implémenter cela manuellement.
+Nous avions laissé un commentaire dans la boucle `for` dans l'encart 20-14 qui
+concernait la création des tâches. Maintenant, nous allons voir comment créer ces
+tâches. La bibliothèque standard fournit un moyen de créer des tâches avec
+`thread::spawn` à qui il faut passer le code que la tâche doit
+exécuter dès qu'elle est créée. Cependant, dans notre cas, nous souhaitons
+créer des tâches et faire en sorte qu'elles *attendent* du code que nous leur enverrons plus
+tard. L'implémentation des tâches de la bibliothèque standard n'offre aucun 
+moyen de faire ceci ; nous devons donc implémenter cela nous-même.
 
 <!--
 We’ll implement this behavior by introducing a new data structure between the
@@ -958,10 +958,10 @@ for taking those orders and filling them.
 
 Nous allons implémenter ce comportement en introduisant une nouvelle structure
 de données entre le `GroupeTaches` et les tâches qui va gérer ce nouveau
-comportement. Nous allons appeler cette structure `Operateur`, qui est souvent
-appelé `Worker` dans les implémentations de groupe. C'est comme des personnes
-qui travaillent dans la cuisine d'un restaurant : les opérateurs attendent les
-commandes des clients, et ils sont chargés de prendre en charge ces commandes et
+comportement. Nous allons appeler cette structure `Operateur`, nom qui lui est 
+traditionnellement donné avec `Worker` dans les implémentations de groupe de tâches. 
+Imaginez des personnes qui travaillent dans la cuisine d'un restaurant : les opérateurs 
+attendent les commandes des clients puis sont chargés de prendre en charge ces commandes et
 d'y répondre.
 
 <!--
@@ -974,13 +974,13 @@ the different workers in the pool when logging or debugging.
 -->
 
 Au lieu de stocker un vecteur d'instances `JoinHandle<()>` dans le groupe de
-tâches, nous allons stocker les instances de structure `Operateur`. Chaque
+tâches, nous allons stocker des instances de structure `Operateur`. Chaque
 `Operateur` va stocker une seule instance de `JoinHandle<()>`. Ensuite nous
 implémenterons une méthode sur `Operateur` qui va prendre en argument une
-fermeture de code à exécuter et l'envoyer à une tâche qui fonctionne déjà pour
+fermeture de code à exécuter et l'envoyer à la tâche qui fonctionne déjà pour
 exécution. Nous allons aussi donner à chacun des opérateurs un identifiant `id`
 afin que nous puissions distinguer les différents opérateurs dans le groupe
-dans les journaux ou lors de déboguages.
+dans les journaux ou lors de débogages.
 
 <!--
 Let’s make the following changes to what happens when we create a `ThreadPool`.
@@ -990,7 +990,7 @@ We’ll implement the code that sends the closure to the thread after we have
 
 Appliquons ces changements à l'endroit où nous créons un `GroupeTaches`. Nous
 allons implémenter le code de `Operateur` qui envoie la fermeture à la tâche
-selon ces instructions :
+en suivant ces étapes :
 
 <!--
 1. Define a `Worker` struct that holds an `id` and a `JoinHandle<()>`.
@@ -1003,13 +1003,13 @@ selon ces instructions :
 -->
 
 1. Définir une structure `Operateur` qui possède un `id` et un `JoinHandle<()>`.
-2. Changer le `GroupeTaches` pour posséder un vecteur d'instances de
+2. Modifier le `GroupeTaches` afin qu'il possède un vecteur d'instances de
    `Operateur`.
-3. Définir une fonction `Operateur::new` qui prend en argument un nombre `id`
-   et retourne une instance de `Operateur` qui contient le `id` et une tâche
+3. Définir une fonction `Operateur::new` qui prend en argument un numéro d'`id`
+   et retourne une instance de `Operateur` qui contient l' `id` et une tâche
    créée avec une fermeture vide.
-4. Dans `GroupeTaches::new`, utilisons le compteur de la boucle `for` pour
-   générer un `id`, créer un nouveau `Operateur` avec cet `id`, et stocker
+4. Dans `GroupeTaches::new`, utiliser le compteur de la boucle `for` pour
+   générer un `id`, créer un nouveau `Operateur` avec cet `id` et stocker
    l'opérateur dans le vecteur.
 
 <!--
@@ -1059,10 +1059,10 @@ instances. We use the counter in the `for` loop as an argument to
 `Worker::new`, and we store each new `Worker` in the vector named `workers`.
 -->
 
-Nous avons changé le nom du champ `taches` sur `GroupeTaches` par `operateurs`
+Nous avons changé le nom du champ `taches` de `GroupeTaches` en `operateurs`
 car il stocke maintenant des instances de `Operateur` plutôt que des instances
-de `JoinHandle<()>`. Nous utilisons le compteur de la boucle `for` en argument
-de `Operateur::new`, et nous stockons chacun des nouveaux `Operateur` dans le
+de `JoinHandle<()>`. Nous utilisons le compteur de la boucle `for` comme argument
+de `Operateur::new` et nous stockons chacun des nouveaux `Operateur` dans le
 vecteur `operateurs`.
 
 <!--
@@ -1076,9 +1076,9 @@ instance that is created by spawning a new thread using an empty closure.
 Le code externe (comme celui de notre serveur dans *src/bin/main.rs*) n'a pas
 besoin de connaître les détails de l'implémentation qui utilise une structure
 `Operateur` dans `GroupeTaches`, donc nous faisons en sorte que la structure
-`Operateur` et sa fonction `new` restent privées. La fonction `Operateur::new`
-utilise le `id` que nous lui donnons et stocke une instance de `JoinHandle<()>`
-qui est créée en créant une nouvelle tâche en utilisant une fermeture vide.
+`Operateur` et sa fonction `new` soient privées. La fonction `Operateur::new`
+utilise l' `id` que nous lui donnons et stocke une instance de `JoinHandle<()>`
+qui est créée en instanciant une nouvelle tâche utilisant une fermeture vide.
 
 <!--
 This code will compile and will store the number of `Worker` instances we
@@ -1088,14 +1088,14 @@ the closure that we get in `execute`. Let’s look at how to do that next.
 
 Ce code va se compiler et stocker le nombre d'instances de `Operateur` que nous
 avons renseigné en argument de `GroupeTaches::new`. Mais nous n'exécutons
-*toujours pas* la fermeture que nous obtenons de `executer`. Voyons désormais
+*toujours pas* la fermeture que nous obtenons de `executer`. Voyons maintenant
 comment faire cela.
 
 <!--
 #### Sending Requests to Threads via Channels
 -->
 
-#### Envoyer des requêtes à des tâches via les canaux
+#### Envoyer des requêtes à des tâches via des canaux
 
 <!--
 Now we’ll tackle the problem that the closures given to `thread::spawn` do
@@ -1104,11 +1104,11 @@ absolutely nothing. Currently, we get the closure we want to execute in the
 create each `Worker` during the creation of the `ThreadPool`.
 -->
 
-Maintenant nous allons nous pencher sur le problème qui fait que les fermetures
+Maintenant nous allons nous attaquer au problème qui fait que les fermetures
 passées à `thread::spawn` ne font absolument rien. Actuellement, nous obtenons
 la fermeture que nous souhaitons exécuter dans la méthode `executer`. Mais nous
-avons besoin de donner une fermeture à `thread::spawn` pour qu'elle l'exécute
-lorsque nous créons chaque `Operateur` pendant la création de `GroupeTaches`.
+avons besoin de donner une fermeture à `thread::spawn` à exécuter
+lorsque nous créons chaque `Operateur` lors de la création de `GroupeTaches`.
 
 <!--
 We want the `Worker` structs that we just created to fetch code to run from a
@@ -1146,14 +1146,14 @@ plan :
    and execute the closures of any jobs it receives.
 -->
 
-1. Le `GroupeTaches` va créer un canal et conserver la partie d'envoi du canal.
-2. Chaque `Operateur` va conserver la partie de réception du canal.
+1. Le `GroupeTaches` va créer un canal et se connecter à la partie émettrice de ce canal.
+2. Chaque `Operateur` va se connecter à la partie réceptrice du canal.
 3. Nous allons créer une nouvelle structure `Mission` qui va stocker les
    fermetures que nous souhaitons envoyer dans le canal.
-4. La méthode `executer` va envoyer la mission qu'elle souhaite executer dans
-   la zone d'envoi du canal.
-5. Dans sa propre tâche, le `Operateur` va vérifier en permanence la partie
-   réception du canal et exécuter les fermetures des missions qu'il va
+4. La méthode `executer` va envoyer la mission qu'elle souhaite executer à 
+   la partie émettrice du canal.
+5. Dans sa propre tâche, l' `Operateur` va vérifier en permanence la partie
+   réceptrice du canal et exécuter les fermetures des missions qu'il va
    recevoir.
 
 <!--
@@ -1164,8 +1164,8 @@ the channel.
 -->
 
 Commençons par créer un canal dans `GroupeTaches::new` et stocker la partie
-d'envoi dans l'instance de `GroupeTaches`, comme dans l'encart 20-16. La
-structure `Mission` ne contient rien pour le moment, mais sera le type
+émettrice dans l'instance de `GroupeTaches`, comme dans l'encart 20-16. La
+structure `Mission` ne contient rien pour le moment mais sera le type
 d'éléments que nous enverrons dans le canal.
 
 <!--
@@ -1190,7 +1190,7 @@ sending end of a channel that sends `Job` instances</span>
 -->
 
 <span class="caption">Encart 20-16 : modification de `GroupeTaches` pour
-stocker la partie d'envoi du canal qui envoie des instances de `Mission`</span>
+stocker la partie émettrice du canal qui émet des instances de `Mission`</span>
 
 <!--
 In `ThreadPool::new`, we create our new channel and have the pool hold the
@@ -1198,7 +1198,7 @@ sending end. This will successfully compile, still with warnings.
 -->
 
 Dans `GroupeTaches::new`, nous créons notre nouveau canal et faisons en sorte
-que le groupe stocke la partie d'envoi. Cela devrait pouvoir se compiler, mais
+que le groupe stocke la partie émettrice. Cela devrait pouvoir se compiler, mais
 il subsiste des avertissements.
 
 <!--
@@ -1243,8 +1243,8 @@ We’ve made some small and straightforward changes: we pass the receiving end o
 the channel into `Worker::new`, and then we use it inside the closure.
 -->
 
-Nous avons fait des petites et simples modifications : nous envoyons la partie
-réceptrice du canal dans `Operateur::new`, et ensuite nous l'utilisons dans la
+Nous avons juste fait de petites modifications simples : nous envoyons la partie
+réceptrice du canal dans `Operateur::new` puis nous l'utilisons dans la
 fermeture.
 
 <!--
@@ -1287,9 +1287,9 @@ Additionally, taking a job off the channel queue involves mutating the
 otherwise, we might get race conditions (as covered in Chapter 16).
 -->
 
-De plus, obtenir une mission de la file d'attente du canal implique de muter le
+De plus, obtenir une mission de la file d'attente du canal implique de modifier la
 `reception`, donc les tâches ont besoin d'une méthode sécurisée pour partager
-et modifier `reception` ; autrement, nous allons avoir des situations de
+et modifier `reception` ; autrement, nous risquons de nous trouver dans des situations de
 concurrence (comme nous l'avons vu dans le chapitre 16).
 
 <!--
@@ -1302,10 +1302,10 @@ receiver at a time. Listing 20-18 shows the changes we need to make.
 
 Souvenez-vous des pointeurs intelligents conçus pour les échanges entre les
 tâches que nous avons vus au chapitre 16 : pour partager la possession entre
-plusieurs tâches et permettre aux tâches de muter la valeur, nous avons besoin
+plusieurs tâches et permettre aux tâches de modifier la valeur, nous avons besoin
 d'utiliser `Arc<Mutex<T>>`. Le type `Arc` va permettre à plusieurs opérateurs
-de posséder la réception, et `Mutex` va s'assurer que seulement un seul
-opérateur obtienne la mission dans la réception au même moment. L'encart 20-18
+de posséder la réception tandis que `Mutex` va s'assurer qu'un seul
+opérateur obtienne une mission dans la réception à un moment donné. L'encart 20-18
 montre les changements que nous devons apporter.
 
 <!--
@@ -1364,9 +1364,9 @@ section of Chapter 19, type aliases allow us to make long types shorter. Look
 at Listing 20-19.
 -->
 
-Finissons par implémenter la méthode `executer` sur `GroupeTaches`. Nous allons
-aussi modifier la structure `Mission` pour devenir un alias de type pour un
-objet trait qui contiendra le type de la fermeture que `executer` recevra.
+Finissons en implémentant la méthode `executer` de `GroupeTaches`. Nous allons
+également modifier la structure `Mission` pour la transformer en un alias de type pour un
+objet trait qui contiendra le type de fermeture que `executer` recevra.
 Comme nous l'avons vu dans [une section du
 chapitre 19][creating-type-synonyms-with-type-aliases]<!-- ignore -->, les
 alias de type nous permettent de raccourcir les types un peu trop longs.
@@ -1427,11 +1427,11 @@ channel for a job and running the job when it gets one. Let’s make the change
 shown in Listing 20-20 to `Worker::new`.
 -->
 
-Mais nous n'avons pas encore fini ! Dans l'opérateur, notre fermeture envoyée
-à `thread::spawn` ne fait que *référencer* la sortie du canal. Nous avons
-plutôt besoin d'une fermeture pour faire une boucle à l'infini, qui demandera
-une mission à la sortie du canal et exécuter cette mission lorsqu'il en obtient
-un. Appliquons les changements montrés dans l'encart 20-20 à `Operateur::new`.
+Mais nous n'avons pas encore tout à fait fini ! Dans l'opérateur, notre fermeture envoyée
+à `thread::spawn` ne fait que *référencer* la partie réception du canal. Au lieu de ça, nous avons
+besoin que la fermeture boucle à l'infini, demandant une mission à la partie réceptrice 
+du canal et l'exécutant quand elle en obtient une. Appliquons les changements montrés 
+dans l'encart 20-20 à `Operateur::new`.
 
 <!--
 <span class="filename">Filename: src/lib.rs</span>
@@ -1468,13 +1468,13 @@ you.
 -->
 
 Ici, nous faisons d'abord appel à `lock` sur `reception` pour obtenir le mutex,
-et ensuite nous faisons appel à `unwrap` pour paniquer dès qu'il y a une
+puis nous faisons appel à `unwrap` pour paniquer dès qu'il y a une
 erreur. L'acquisition d'un verrou peut échouer si le mutex est dans un état
 *empoisonné*, ce qui peut arriver si d'autres tâches ont paniqué pendant
-qu'elles avaient le verrou, au lieu de le rendre. Dans cette situation, l'appel
+qu'elles avaient le verrou au lieu de le rendre. Dans cette situation, l'appel
 à `unwrap` fera paniquer la tâche, ce qui est la bonne chose à faire. Vous
 pouvez aussi changer ce `unwrap` en un `expect` avec un message d'erreur qui
-vous est plus explicite.
+fera davantage sens pour vous.
 
 <!--
 If we get the lock on the mutex, we call `recv` to receive a `Job` from the
@@ -1485,7 +1485,7 @@ how the `send` method returns `Err` if the receiving side shuts down.
 
 Si nous obtenons le verrou du mutex, nous faisons appel à `recv` pour recevoir
 une `Mission` provenant du canal. Un `unwrap` final s'occupe lui aussi des cas
-d'erreurs, qui peuvent se produire si la tâche qui contient la partie émettrice
+d'erreurs qui peuvent se produire si la tâche qui est connectée à la partie émettrice
 du canal se termine, de la même manière que la méthode `send` enverrait `Err`
 si la partie réceptrice se fermerait.
 
@@ -1497,8 +1497,8 @@ wait until a job becomes available. The `Mutex<T>` ensures that only one
 
 L'appel à `recv` bloque l'exécution, donc s'il n'y a pas encore de mission, la
 tâche courante va attendre jusqu'à ce qu'une mission soit disponible. Le
-`Mutex<T>` s'assure qu'une seule tâche d'`Operateur` obtienne une même mission
-à la fois.
+`Mutex<T>` s'assure qu'une seule tâche d'`Operateur` essaie d'obtenir une mission
+à un instant donné.
 
 <!--
 Our thread pool is now in a working state! Give it a `cargo run` and make some
@@ -1606,7 +1606,7 @@ thread run them.
 -->
 
 Parfait ! Nous avons maintenant un groupe de tâches qui exécute des connexions
-de manière asynchrone. Il n'y a pas plus que quatre tâches qui sont créées,
+de manière asynchrone. Il n'y a jamais plus de quatre tâches qui sont créées,
 donc notre système ne sera pas surchargé si le serveur reçoit beaucoup de
 requêtes. Si nous faisons une requête vers */pause*, le serveur sera toujours
 capable de servir les autres requêtes grâce aux autres tâches qui pourront les
@@ -1622,15 +1622,15 @@ exécuter.
 > Remarque : si vous ouvrez */pause* dans plusieurs fenêtres de navigation en
 > simultané, elles peuvent parfois être chargées une par une avec 5 secondes
 > d'intervalle. Certains navigateurs web exécutent plusieurs instances de la
-> même requête de manière séquentielle pour des raisons de cache. Cette
-> limitation n'est pas la faute de notre serveur web.
+> même requête de manière séquentielle pour des raisons de mise en cache. Cette
+> limitation n'est pas imputable à notre serveur web.
 
 <!--
 After learning about the `while let` loop in Chapter 18, you might be wondering
 why we didn’t write the worker thread code as shown in Listing 20-21.
 -->
 
-Après avoir appris la boucle `while let` dans le chapitre 18, vous pourriez
+Ayant appris la boucle `while let` dans le chapitre 18, vous pourriez
 vous demander pourquoi nous n'avons pas écrit le code des tâches des opérateurs
 comme dans l'encart 20-21.
 
@@ -1671,17 +1671,17 @@ than intended if we don’t think carefully about the lifetime of the
 `MutexGuard<T>`.
 -->
 
-Ce code se compile et s'exécute mais ne se comporte pas comme nous
-souhaiterions que les tâches se comportent : une requête lente à traiter va
-continuer à faire en sorte que les autres requêtes vont attendre d'être
-traitées. La raison à cela est subtile : la structure `Mutex` n'a pas de
+Ce code se compile et s'exécute mais ne se produit pas le comportement des 
+tâches que nous souhaitons : une requête lente à traiter va
+continuer à mettre en attente de traitement les autres requêtes. 
+La raison à cela est subtile : la structure `Mutex` n'a pas de
 méthode publique `unlock` car la propriété du verrou se base sur la durée de
 vie du `MutexGuard<T>` au sein du `LockResult<MutexGuard<T>>` que retourne la
 méthode `lock`. A la compilation, le vérificateur d'emprunt peut ensuite
-vérifier la règle qui dit qu'une ressource gardée par un `Mutex` ne peut pas
+vérifier la règle qui dit qu'une ressource gardée par un `Mutex` ne peut
 être accessible que si nous avons ce verrou. Mais cette implémentation peut
-aussi faire en sorte que nous gardions le verrou plus longtemps que prévu si
-nous ne réfléchissons pas avec attention sur la durée de vie du
+aussi conduire à ce que nous gardions le verrou plus longtemps que prévu si
+nous ne réfléchissons pas avec attention à la durée de vie du
 `MutexGuard<T>`.
 
 <!--
@@ -1701,7 +1701,7 @@ immédiatement lorsque l'instruction `let` se termine. Cependant, `while let` (
 ainsi que `if let` et `match`) ne libèrent pas les valeurs temporaires avant la
 fin du bloc associé. Dans l'encart 20-21, le verrou continue à être maintenu
 pendant toute la durée de l'appel à `mission()`, ce qui veut dire que les
-autres opérateurs ne peuvent pas recevoir des tâches.
+autres opérateurs ne peuvent pas recevoir de tâches.
 
 <!--
 [creating-type-synonyms-with-type-aliases]:
