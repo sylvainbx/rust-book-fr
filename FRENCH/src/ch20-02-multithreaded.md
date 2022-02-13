@@ -945,7 +945,7 @@ tâches. La bibliothèque standard fournit un moyen de créer des tâches avec
 exécuter dès qu'elle est créée. Cependant, dans notre cas, nous souhaitons
 créer des tâches et faire en sorte qu'elles *attendent* du code que nous leur enverrons plus
 tard. L'implémentation des tâches de la bibliothèque standard n'offre aucun 
-moyen de faire ceci ; nous devons donc implémenter cela nous-même.
+moyen de faire ceci ; nous devons donc implémenter cela nous-même.
 
 <!--
 We’ll implement this behavior by introducing a new data structure between the
