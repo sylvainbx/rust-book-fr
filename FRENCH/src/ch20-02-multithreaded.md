@@ -1474,7 +1474,7 @@ erreur. L'acquisition d'un verrou peut échouer si le mutex est dans un état
 qu'elles avaient le verrou au lieu de le rendre. Dans cette situation, l'appel
 à `unwrap` fera paniquer la tâche, ce qui est la bonne chose à faire. Vous
 pouvez aussi changer ce `unwrap` en un `expect` avec un message d'erreur qui
-fera davantage sens pour vous.
+sera plus explicite pour vous.
 
 <!--
 If we get the lock on the mutex, we call `recv` to receive a `Job` from the
