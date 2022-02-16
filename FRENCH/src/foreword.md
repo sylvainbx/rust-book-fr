@@ -81,7 +81,7 @@ same skills to target your Raspberry Pi.
 Mais Rust n'est pas cantonné à la programmation de bas niveau. C'est un langage
 suffisamment expressif et ergonomique pour rendre les applications en ligne
 de commande, les serveurs web et bien d'autres types de code agréables à écrire
-— vous trouverez plus tard des exemples simples de ces catégories de programme dans ce livre.
+— vous trouverez plus tard des exemples simples de ces types de programmes dans ce livre.
 Travailler avec Rust vous permet d'acquérir des compétences qui sont
 transposables d'un domaine à un autre ; vous pouvez apprendre Rust en écrivant
 une application web, puis appliquer les mêmes notions pour les utiliser avec
