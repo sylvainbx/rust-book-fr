@@ -515,7 +515,7 @@ should error, and in your terminal you should see output similar to this:
 -->
 
 Démarrez le serveur avec `cargo run` et faites trois requêtes. La troisième
-requête devrait renovyer une erreur tandis que dans votre terminal vous devriez avoir une
+requête devrait renvoyer une erreur tandis que dans votre terminal vous devriez avoir une
 sortie similaire à ceci :
 
 <!--
