@@ -98,7 +98,7 @@ Ce livre exploite pleinement le potentiel de Rust pour permettre à ses
 utilisateurs de se perfectionner. C'est une documentation conviviale et accessible
 destinée à améliorer vos connaissances en Rust, mais aussi à améliorer vos
 capacités et votre assurance en tant que développeur en général. Alors foncez,
-préparez-vous à apprendre — et bienvenue dans la communauté Rust !
+préparez-vous à apprendre, et bienvenue dans la communauté Rust !
 
 <!--
 — Nicholas Matsakis and Aaron Turon
