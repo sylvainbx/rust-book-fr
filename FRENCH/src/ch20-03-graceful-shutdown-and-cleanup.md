@@ -584,7 +584,7 @@ the thread pool calls `join` to shut down each worker thread.
 -->
 
 Vous pourriez avoir un ordre différent entre les opérateurs et les messages
-affichés. Nous pouvons constater la façon dont ce code fonctionne grâce aux messages:
+affichés. Nous pouvons constater la façon dont ce code fonctionne grâce aux messages :
 les opérateurs 0 et 3 obtiennent les deux premières requêtes puis, à
 la troisième requête, le serveur arrête d'accepter des connexions. Lorsque
 le `GroupeTaches` sort de la portée à la fin du `main`, son implémentation de
