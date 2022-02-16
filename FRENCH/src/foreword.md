@@ -32,7 +32,7 @@ concurrence. Traditionnellement, ce domaine de la programmation est jugé
 ésotérique, compréhensible uniquement par une poignée de personnes qui ont
 consacré des années d'apprentissage à en déjouer les pièges infâmes.
 Et même ceux qui travaillent dans ce domaine le font avec beaucoup de prudence,
-de crainte que leur code ne puisse conduire à des attaques, des plantages
+de crainte que leur code ne puisse conduire à des problèmes de sécurité, des plantages
 ou des corruptions de mémoire.
 
 <!--
