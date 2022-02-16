@@ -284,7 +284,7 @@ Pour corriger ce problème, nous allons modifier les tâches pour qu'elles
 attendent soit une `Mission` à exécuter, soit le signal qui leur dit qu'elles
 doivent arrêter d'attendre des missions et sortir de la boucle infinie. Notre
 canal va envoyer une de ces deux variantes d'énumération au lieu 
-d'instances de `Job`.
+d'instances de `Mission`.
 
 <!--
 <span class="filename">Filename: src/lib.rs</span>
