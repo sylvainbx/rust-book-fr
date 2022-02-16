@@ -30,7 +30,7 @@ requests and shut down. To see this code in action, we’ll modify our server to
 accept only two requests before gracefully shutting down its thread pool.
 -->
 
-Maintenant, nous allons implémenter le trait `Drop` ain d'appeler `join` sur chacune
+Maintenant, nous allons implémenter le trait `Drop` afin d'appeler `join` sur chacune
 des tâches du groupe afin qu'elles puissent finir les requêtes qu'elles
 sont en train de traiter avant de s'arrêter. Ensuite, nous allons implémenter un
 moyen de demander aux tâches d'arrêter d'accepter de nouvelles requêtes et de
