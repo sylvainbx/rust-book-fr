@@ -14,7 +14,7 @@ macros, static values, attributes, types, traits, or lifetimes.
 -->
 
 La liste suivante contient des mots-clés réservés qui sont actuellement
-utilisés dans le langage Rust ou qui pourrait l'être à l'avenir. De ce fait, 
+utilisés dans le langage Rust ou qui pourraient l'être à l'avenir. De ce fait, 
 ils ne peuvent pas être utilisés comme identificateurs (sauf comme identificateurs bruts, ce que
 nous allons voir dans la section
 “[les identificateurs bruts][raw-identifiers]<!-- ignore -->”), y compris pour les
