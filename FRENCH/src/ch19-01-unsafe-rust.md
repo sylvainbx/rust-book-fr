@@ -131,10 +131,11 @@ bugs.
 -->
 
 Personne n'est parfait, les erreurs arrivent, et en imposant que ces cinq
-opérations non sécurisés se trouvent dans des blocs marqués d'un `unsafe`, Rust vous
-permet de savoir que ces éventuelles erreurs liées à la sécurité de la mémoire se trouveront dans un
-bloc `unsafe`. Vous devez donc essayer de minimiser la taille des blocs `unsafe` ; vous ne le
-regretterez pas lorsque vous rechercherez des bogues de mémoire.
+opérations non sécurisés se trouvent dans des blocs marqués d'un `unsafe`, Rust
+vous permet de savoir que ces éventuelles erreurs liées à la sécurité de la
+mémoire se trouveront dans un bloc `unsafe`. Vous devez donc essayer de
+minimiser la taille des blocs `unsafe` ; vous ne le regretterez pas lorsque
+vous rechercherez des bogues de mémoire.
 
 <!--
 To isolate unsafe code as much as possible, it’s best to enclose unsafe code
@@ -148,15 +149,15 @@ abstraction is safe.
 -->
 
 Pour isoler autant que possible le code non sécurisé, il vaut mieux intégrer du
-code non sécurisé dans une abstraction et fournir ainsi une API sécurisée, comme
-nous le verrons plus tard dans ce chapitre lorsque nous examinerons les
+code non sécurisé dans une abstraction et fournir ainsi une API sécurisée,
+comme nous le verrons plus tard dans ce chapitre lorsque nous examinerons les
 fonctions et méthodes non sécurisées. Certaines parties de la bibliothèque
-standard sont implémentées comme étant des abstractions sécurisées et basées sur
-du code non sécurisé qui a été audité. Encapsuler du code non sécurisé dans une
-abstraction sécurisée évite que l'utilisation de `unsafe` ne se propage dans des
-endroits où vous ou vos utilisateurs souhaiteraient éviter d'utiliser les
-fonctionnalités du code `unsafe`, car au final utiliser une abstraction sécurisée doit
-rester sûr.
+standard sont implémentées comme étant des abstractions sécurisées et basées
+sur du code non sécurisé qui a été audité. Encapsuler du code non sécurisé dans
+une abstraction sécurisée évite que l'utilisation de `unsafe` ne se propage
+dans des endroits où vous ou vos utilisateurs souhaiteraient éviter d'utiliser
+les fonctionnalités du code `unsafe`, car au final utiliser une abstraction
+sécurisée doit rester sûr.
 
 <!--
 Let’s look at each of the five unsafe superpowers in turn. We’ll also look at
@@ -290,11 +291,11 @@ Usually, there is no good reason to write code like this, but it is possible.
 Ensuite, nous allons créer un pointeur brut dont la validité n'est pas
 certaine. L'encart 19-2 montre comment créer un pointeur brut vers un
 emplacement arbitraire de la mémoire. Essayer d'utiliser de la mémoire
-arbitraire va engendrer un comportement incertain : il peut y avoir des données à cette adresse comme il
-peut ne pas y en avoir, le compilateur pourrait optimiser le code de tel sorte qu'aucun accès mémoire n'aura lieu
-ou bien le programme pourrait déclencher une erreur de
-segmentation. Habituellement, il n'y a pas de bonne raison d'écrire du code
-comme celui-ci, mais c'est possible.
+arbitraire va engendrer un comportement incertain : il peut y avoir des données
+à cette adresse comme il peut ne pas y en avoir, le compilateur pourrait
+optimiser le code de tel sorte qu'aucun accès mémoire n'aura lieu ou bien le
+programme pourrait déclencher une erreur de segmentation. Habituellement, il
+n'y a pas de bonne raison d'écrire du code comme celui-ci, mais c'est possible.
 
 <!--
 ```rust
@@ -411,10 +412,10 @@ responsibility for upholding the function’s contracts.
 
 Le deuxième type d'opération qui nécessite un bloc `unsafe` est l'appel à des
 fonctions non sécurisées. Les fonctions et méthodes non sécurisées ressemblent
-exactement aux méthodes et fonctions habituelles, mais ont un
-`unsafe` en plus devant le reste de leur définition. Le mot-clé `unsafe` dans
-ce cas signifie que la fonction a des exigences que nous devons respecter pour pouvoir y
-faire appel, car Rust ne pourra pas garantir de son côté que nous les ayons remplies.
+exactement aux méthodes et fonctions habituelles, mais ont un `unsafe` en plus
+devant le reste de leur définition. Le mot-clé `unsafe` dans ce cas signifie
+que la fonction a des exigences que nous devons respecter pour pouvoir y faire
+appel, car Rust ne pourra pas garantir de son côté que nous les ayons remplies.
 En faisant appel à une fonction non sécurisée dans un bloc `unsafe`, nous
 reconnaissons que nous avons lu la documentation de cette fonction et pris la
 responsabilité de respecter les conditions d'utilisation de la fonction.
@@ -473,9 +474,10 @@ unsafe operations within an unsafe function, we don’t need to add another
 `unsafe` block.
 -->
 
-Les corps des fonctions non sécurisées sont bel et bien des blocs `unsafe`, donc pour
-pouvoir procéder à d'autres opérations non sécurisées dans une fonction non
-sécurisée, nous n'avons pas besoin d'ajouter un autre bloc `unsafe`.
+Les corps des fonctions non sécurisées sont bel et bien des blocs `unsafe`,
+donc pour pouvoir procéder à d'autres opérations non sécurisées dans une
+fonction non sécurisée, nous n'avons pas besoin d'ajouter un autre bloc
+`unsafe`.
 
 <!--
 #### Creating a Safe Abstraction over Unsafe Code

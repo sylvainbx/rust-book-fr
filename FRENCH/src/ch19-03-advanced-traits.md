@@ -465,9 +465,9 @@ Lorsque nous faisons appel à des méthodes qui ont un conflit de nom, vous deve
 préciser à Rust précisément celle que vous souhaitez utiliser. Imaginons le
 code dans l'encart 19-16 dans lequel nous avons défini deux traits, `Pilote` et
 `Magicien`, qui ont tous les deux une méthode `voler`. Nous
-implémentons ensuite ces deux traits sur un type `Humain` qui a déjà lui-aussi une méthode
-`voler` qui lui a été implémentée. Chaque méthode `voler` fait quelque chose de
-différent.
+implémentons ensuite ces deux traits sur un type `Humain` qui a déjà lui-aussi
+une méthode `voler` qui lui a été implémentée. Chaque méthode `voler` fait
+quelque chose de différent.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -568,7 +568,8 @@ nous souhaitons utiliser. L'encart 19-18 montre cette syntaxe.
 want to call</span>
 -->
 
-<span class="caption">Encart 19-18 : préciser de quel trait nous souhaitons utiliser la méthode `voler`</span>
+<span class="caption">Encart 19-18 : préciser de quel trait nous souhaitons
+utiliser la méthode `voler`</span>
 
 <!--
 Specifying the trait name before the method name clarifies to Rust which
@@ -704,9 +705,9 @@ Listing 19-20, we’ll get a compilation error.
 Ce résultat n'est pas celui que nous souhaitons. Nous voulons appeler la
 fonction `nom_bebe` qui fait partie du trait `Animal` que nous avons implémenté
 sur `Chien` afin que le code affiche `Un bébé chien s'appelle un chiot`. La
-technique pour préciser le nom du trait que nous avons utilisée précédemment ne va pas nous
-aider ici ; si nous changeons le `main` par le code de l'encart 19-20, nous
-allons avoir une erreur de compilation.
+technique pour préciser le nom du trait que nous avons utilisée précédemment ne
+va pas nous aider ici ; si nous changeons le `main` par le code de l'encart
+19-20, nous allons avoir une erreur de compilation.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -863,10 +864,10 @@ this case, you need to rely on the dependent trait also being implemented.
 The trait you rely on is a *supertrait* of the trait you’re implementing.
 -->
 
-Des fois, vous pourriez avoir besoin d'un trait pour utiliser la 
-fonctionnalité d'un autre trait. Dans ce cas, vous devez pouvoir compter sur le fait
-que le trait dépendant soit bien implémenté. Le trait sur lequel vous comptez
-est alors un *supertrait* du trait que vous implémentez.
+Des fois, vous pourriez avoir besoin d'un trait pour utiliser la fonctionnalité
+d'un autre trait. Dans ce cas, vous devez pouvoir compter sur le fait que le
+trait dépendant soit bien implémenté. Le trait sur lequel vous comptez est
+alors un *supertrait* du trait que vous implémentez.
 
 <!--
 For example, let’s say we want to make an `OutlinePrint` trait with an
@@ -965,7 +966,8 @@ doesn’t implement `Display`, such as the `Point` struct:
 -->
 
 Voyons ce qui ce passe lorsque nous essayons d'implémenter `OutlinePrint` sur
-un type qui n'implémente pas `Display`, comme c'est le cas de la structure `Point` :
+un type qui n'implémente pas `Display`, comme c'est le cas de la structure
+`Point` :
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -1137,10 +1139,10 @@ behavior—we would have to implement just the methods we do want manually.
 Le désavantage d'utiliser cette technique est que `Enveloppe` est un nouveau
 type, donc il n'implémente pas toutes les méthodes de la valeur qu'il possède.
 Il faudrait implémenter toutes les méthodes de `Vec<T>` directement sur
-`Enveloppe` de façon à ce qu'elles délèguent aux méthodes correspondantes de `self.0`, 
-ce qui nous permettrait d'utiliser `Enveloppe` exactement comme un `Vec<T>`. Si 
-nous voulions que le nouveau type ait toutes les méthodes du type qu'il possède, 
-l'implémentation du trait `Deref` (que nous avons vu dans
+`Enveloppe` de façon à ce qu'elles délèguent aux méthodes correspondantes de
+`self.0`, ce qui nous permettrait d'utiliser `Enveloppe` exactement comme un
+`Vec<T>`. Si nous voulions que le nouveau type ait toutes les méthodes du type
+qu'il possède, l'implémentation du trait `Deref` (que nous avons vu dans
 [une section du chapitre 15][smart-pointer-deref]<!-- ignore -->) sur
 `Enveloppe` pour retourner le type interne pourrait être une solution. Si nous
 ne souhaitons pas que le type `Enveloppe` ait toutes les méthodes du type qu'il

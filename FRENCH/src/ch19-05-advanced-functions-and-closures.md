@@ -120,10 +120,11 @@ function, let’s look at a use of `map`. To use the `map` function to turn a
 vector of numbers into a vector of strings, we could use a closure, like this:
 -->
 
-Comme exemple d'une situation dans laquelle vous pouvez utiliser soit une fermeture définie 
-directement ou le nom d'une fonction, prenons l'utilisation de `map`. Pour
-utiliser la fonction `map` pour transformer un vecteur de nombres en vecteur de
-chaînes de caractères, nous pouvons utiliser une fermeture, comme ceci :
+Comme exemple d'une situation dans laquelle vous pouvez utiliser soit une
+fermeture définie directement ou le nom d'une fonction, prenons l'utilisation
+de `map`. Pour utiliser la fonction `map` pour transformer un vecteur de
+nombres en vecteur de chaînes de caractères, nous pouvons utiliser une
+fermeture, comme ceci :
 
 <!--
 ```rust
@@ -224,12 +225,12 @@ pointer `fn` as a return type, for example.
 -->
 
 Les fermetures sont représentées par des traits, ce qui signifie que vous ne
-pouvez pas retourner directement des fermetures. Dans la plupart des situations 
-où vous auriez voulu retourner un trait, vous pouvez utiliser à la place le type concret qui
-implémente le trait comme valeur de retour de la fonction. Mais vous ne pouvez
-pas faire ceci avec les fermetures car elles n'ont pas de type concret qu'elles
-peuvent retourner ; vous n'êtes pas autorisé à utiliser le pointeur de fonction
-`fn` comme type de retour, par exemple.
+pouvez pas retourner directement des fermetures. Dans la plupart des situations
+où vous auriez voulu retourner un trait, vous pouvez utiliser à la place le
+type concret qui implémente le trait comme valeur de retour de la fonction.
+Mais vous ne pouvez pas faire ceci avec les fermetures car elles n'ont pas de
+type concret qu'elles peuvent retourner ; vous n'êtes pas autorisé à utiliser
+le pointeur de fonction `fn` comme type de retour, par exemple.
 
 <!--
 The following code tries to return a closure directly, but it won’t compile:
@@ -270,9 +271,9 @@ it will need to store the closure. We saw a solution to this problem earlier.
 We can use a trait object:
 -->
 
-Une nouvelle fois l'erreur du trait `Sized` ! Rust ne sait pas combien de mémoire sera
-nécessaire pour stocker la fermeture. Nous avons vu une solution à ce problème
-précédemment. Nous pouvons utiliser un objet trait :
+Une nouvelle fois l'erreur du trait `Sized` ! Rust ne sait pas combien de
+mémoire sera nécessaire pour stocker la fermeture. Nous avons vu une solution à
+ce problème précédemment. Nous pouvons utiliser un objet trait :
 
 <!--
 ```rust,noplayground

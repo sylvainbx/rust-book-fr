@@ -384,11 +384,11 @@ Il subsiste quelques cas limites étranges avec `macro_rules!`. Bientôt, Rust
 rajoutera un second type de macro déclarative qui fonctionnera de la même
 manière mais qui corrigera ces cas limites. Après cette mise à jour,
 `macro_rules!` sera dépréciée. En sachant cela, ainsi que le fait que la
-plupart des développeurs Rust vont davantage *utiliser* les macros qu'en *écrire*, 
-nous arrêtons là la discussion sur `macro_rules!`. Pour en
-apprendre plus sur l'écriture des macros, consultez la documentation en ligne ou
-d'autres ressources comme [“The Little Book of Rust Macros”][tlborm], débuté
-par Daniel Keep et continué par Lukas Wirth.
+plupart des développeurs Rust vont davantage *utiliser* les macros qu'en
+*écrire*, nous arrêtons là la discussion sur `macro_rules!`. Pour en apprendre
+plus sur l'écriture des macros, consultez la documentation en ligne ou d'autres
+ressources comme [“The Little Book of Rust Macros”][tlborm], débuté par Daniel
+Keep et continué par Lukas Wirth.
 
 <!--
 [tlborm]: https://veykril.github.io/tlborm/
@@ -891,8 +891,8 @@ parsing the code that has the macro’s attribute in Listing 19-30</span>
 -->
 
 <span class="caption">Encart 19-32 : l'instance de `DeriveInput` que nous
-obtenons lorsque nous analysons le code qui est décoré par l'attribut de la macro dans
-l'encart 19-30</span>
+obtenons lorsque nous analysons le code qui est décoré par l'attribut de la
+macro dans l'encart 19-30</span>
 
 <!--
 The fields of this struct show that the Rust code we’ve parsed is a unit struct
@@ -1010,11 +1010,11 @@ returns a value of the required `TokenStream` type.
 -->
 
 La macro `quote!` nous permet de définir le code Rust que nous souhaitons
-retourner. Le compilateur attend quelque chose de différent que le résultat direct
-produit par l'exécution de `quote!`, donc nous devons convertir ce dernier en
-`TokenStream`. Nous faisons ceci en faisant appel à la méthode `into`, qui utilise 
-cette représentation intermédiaire et retourne une valeur du type attendu,
-le type `TokenStream` ici.
+retourner. Le compilateur attend quelque chose de différent que le résultat
+direct produit par l'exécution de `quote!`, donc nous devons convertir ce
+dernier en `TokenStream`. Nous faisons ceci en faisant appel à la méthode
+`into`, qui utilise cette représentation intermédiaire et retourne une valeur
+du type attendu, le type `TokenStream` ici.
 
 <!--
 The `quote!` macro also provides some very cool templating mechanics: we can
@@ -1024,8 +1024,8 @@ Check out [the `quote` crate’s docs][quote-docs] for a thorough introduction.
 -->
 
 La macro `quote!` fournit aussi quelques mécaniques de gabarit intéressantes :
-nous pouvons entrer `#nom`, et `quote!` va le remplacer avec la valeur présente dans la
-variable `nom`. Vous pouvez même exécuter des répétitions d'une façon
+nous pouvons entrer `#nom`, et `quote!` va le remplacer avec la valeur présente
+dans la variable `nom`. Vous pouvez même exécuter des répétitions d'une façon
 similaire à celle des macros classiques. Regardez dans
 [la documentation de `quote`][quote-docs] pour une présentation plus détaillée.
 
