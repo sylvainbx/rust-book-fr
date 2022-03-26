@@ -7,13 +7,13 @@
 <!--
 We first covered traits in the [“Traits: Defining Shared
 Behavior”][traits-defining-shared-behavior]<!-- ignore -- > section of Chapter
-10, but as with lifetimes, we didn’t discuss the more advanced details. Now
-that you know more about Rust, we can get into the nitty-gritty.
+10, but we didn’t discuss the more advanced details. Now that you know more
+about Rust, we can get into the nitty-gritty.
 -->
 
-Nous avons vu les traits dans une section du chapitre 10, mais comme pour les durées
-de vie, nous n'avons pas abordé certains détails plus avancés. Maintenant que vous en savez
-plus sur Rust, nous pouvons attaquer les choses sérieuses.
+Nous avons vu les traits dans une section du chapitre 10, mais nous n'avons pas
+abordé certains détails plus avancés. Maintenant que vous en savez plus sur
+Rust, nous pouvons attaquer les choses sérieuses.
 
 <!--
 ### Specifying Placeholder Types in Trait Definitions with Associated Types
@@ -612,20 +612,23 @@ déduire quelle implémentation de quel trait utiliser en fonction du type
 de `self`.
 
 <!--
-However, associated functions that are part of traits don’t have a `self`
-parameter. When two types in the same scope implement that trait, Rust can’t
-figure out which type you mean unless you use *fully qualified syntax*. For
-example, the `Animal` trait in Listing 19-19 has the associated function
-`baby_name`, the implementation of `Animal` for the struct `Dog`, and the
-associated function `baby_name` defined on `Dog` directly.
+However, associated functions that are not methods don’t have a `self`
+parameter. When there are multiple types or traits that define non-method
+functions with the same function name, Rust doesn't always know which type you
+mean unless you use *fully qualified syntax*. For example, the `Animal` trait
+in Listing 19-19 has the associated non-method function `baby_name`, and the
+`Animal` trait is implemented for the struct `Dog`. There’s also an associated
+non-method function `baby_name` defined on `Dog` directly.
 -->
 
-Cependant, les fonctions associées qui font partie des traits n'ont pas de
-paramètre `self`. Lorsque deux types de la même portée implémentent ce trait,
-Rust ne peut pas en déduire quel type vous sous-entendez jusqu'à ce que vous
+Cependant, les fonctions associées qui ne sont pas des méthodes n'ont pas de
+paramètre `self`. Lorsqu'il y a plusieurs types ou traits qui définissent des
+fonctions qui ne sont pas des méthodes et qui ont le même nom de fonction, Rust
+ne peut pas toujours savoir quel type vous sous-entendez jusqu'à ce que vous
 utilisiez la *syntaxe totalement définie*. Par exemple, le trait `Animal` de
-l'encart 19-19 a une fonction associée `nom_bebe` qui est implémentée à la fois
-par l'implémentation d'`Animal` sur la structure `Chien` et par la fonction associée `nom_bebe` définie
+l'encart 19-19 a une fonction associée `nom_bebe` qui n'est pas une méthode, et
+le trait `Animal` est implémenté pour la structure `Dog`.Il y a aussi une
+fonction associée `nom_bebe` qui n'est pas une méthode et qui est définie
 directement sur `Chien`.
 
 <!--
@@ -731,15 +734,15 @@ use</span>
 du trait `Animal`, mais Rust ne sait pas quelle implémentation utiliser</span>
 
 <!--
-Because `Animal::baby_name` is an associated function rather than a method, and
-thus doesn’t have a `self` parameter, Rust can’t figure out which
+Because `Animal::baby_name` doesn’t have a `self` parameter, and there could be
+other types that implement the `Animal` trait, Rust can’t figure out which
 implementation of `Animal::baby_name` we want. We’ll get this compiler error:
 -->
 
-Comme `Animal::nom_bebe` est une fonction associée plutôt qu'une méthode, et
-qu'elle n'a pas de paramètre `self`, Rust ne peut pas savoir quelle
-implémentation de `Animal::nom_bebe` nous souhaitons utiliser. Nous obtenons
-alors cette erreur de compilation :
+Comme `Animal::nom_bebe` n'a pas de paramètre `self`, et qu'il peut y avoir
+d'autres types qui implémentent le trait `Animal`, Rust ne peut pas savoir
+quelle implémentation de `Animal::nom_bebe` nous souhaitons utiliser. Nous
+obtenons alors cette erreur de compilation :
 
 <!--
 ```console
@@ -753,13 +756,15 @@ alors cette erreur de compilation :
 
 <!--
 To disambiguate and tell Rust that we want to use the implementation of
-`Animal` for `Dog`, we need to use fully qualified syntax. Listing 19-21
-demonstrates how to use fully qualified syntax.
+`Animal` for `Dog` as opposed to the implementation of `Animal` for some other
+type, we need to use fully qualified syntax. Listing 19-21 demonstrates how to
+use fully qualified syntax.
 -->
 
 Pour expliquer à Rust que nous souhaitons utiliser l'implémentation de `Animal`
-pour `Chien`, nous devons utiliser la syntaxe totalement définie. L'encart
-19-21 montre comment utiliser la syntaxe totalement définie.
+pour `Chien` et non pas l'implémentation de `Animal` pour d'autres types, nous
+devons utiliser la syntaxe totalement définie. L'encart 19-21 montre comment
+utiliser la syntaxe totalement définie.
 
 <!--
 <span class="filename">Filename: src/main.rs</span>
@@ -827,24 +832,24 @@ De manière générale, une syntaxe totalement définie est définie comme ceci�
 ```
 
 <!--
-For associated functions, there would not be a `receiver`: there would only be
-the list of other arguments. You could use fully qualified syntax everywhere
-that you call functions or methods. However, you’re allowed to omit any part of
-this syntax that Rust can figure out from other information in the program. You
-only need to use this more verbose syntax in cases where there are multiple
-implementations that use the same name and Rust needs help to identify which
-implementation you want to call.
+For associated functions that aren’t methods, there would not be a `receiver`:
+there would only be the list of other arguments. You could use fully qualified
+syntax everywhere that you call functions or methods. However, you’re allowed
+to omit any part of this syntax that Rust can figure out from other information
+in the program. You only need to use this more verbose syntax in cases where
+there are multiple implementations that use the same name and Rust needs help
+to identify which implementation you want to call.
 -->
 
-Pour les fonctions associées, il n'y a pas de `destinataire` : il n'y a qu'une
-liste d'arguments. Vous pouvez utiliser la syntaxe totalement définie à
-n'importe quel endroit où vous faites appel à des fonctions ou des méthodes.
-Cependant, vous avez la possibilité de ne pas renseigner toute partie de cette
-syntaxe que Rust peut déduire à partir d'autres informations présentes dans le
-code. Vous avez seulement besoin d'utiliser cette syntaxe plus verbeuse dans
-les cas où il y a plusieurs implémentations qui utilisent le même nom et que
-Rust doit être aidé pour identifier quelle implémentation vous souhaitez
-appeler.
+Pour les fonctions associées qui ne sont pas des méthodes, il n'y a pas de
+`destinataire` : il n'y a qu'une liste d'arguments. Vous pouvez utiliser la
+syntaxe totalement définie à n'importe quel endroit où vous faites appel à des
+fonctions ou des méthodes. Cependant, vous avez la possibilité de ne pas
+renseigner toute partie de cette syntaxe que Rust peut déduire à partir
+d'autres informations présentes dans le code. Vous avez seulement besoin
+d'utiliser cette syntaxe plus verbeuse dans les cas où il y a plusieurs
+implémentations qui utilisent le même nom et que Rust doit être aidé pour
+identifier quelle implémentation vous souhaitez appeler.
 
 <!--
 ### Using Supertraits to Require One Trait’s Functionality Within Another Trait
@@ -1155,7 +1160,7 @@ interagir avec le système de type de Rust.
 
 <!-- markdownlint-disable -->
 <!--
-[newtype]: ch19-04-advanced-types.html#using-the-newtype-pattern-for-type-safety-and-abstraction
+[newtype]: ch19-03-advanced-traits.html#using-the-newtype-pattern-to-implement-external-traits-on-external-types
 [implementing-a-trait-on-a-type]:
 ch10-02-traits.html#implementing-a-trait-on-a-type
 [the-iterator-trait-and-the-next-method]:
@@ -1167,8 +1172,7 @@ ch10-02-traits.html#traits-defining-shared-behavior
 -->
 <!-- markdownlint-restore -->
 
-[newtype]:
-ch19-04-advanced-types.html#utiliser-le-motif-newtype-pour-la-sécurité-et-labstraction-des-types
+[newtype]: #utiliser-le-motif-newtype-pour-implémenter-des-traits-externes-sur-des-types-externes
 [implementing-a-trait-on-a-type]: ch10-02-traits.html
 [the-iterator-trait-and-the-next-method]: ch13-02-iterators.html
 [traits-defining-shared-behavior]: ch10-02-traits.html

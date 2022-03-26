@@ -742,12 +742,12 @@ emplacement mémoire arbitraire</span>
 <!--
 We don’t own the memory at this arbitrary location, and there is no guarantee
 that the slice this code creates contains valid `i32` values. Attempting to use
-`slice` as though it’s a valid slice results in undefined behavior.
+`values` as though it’s a valid slice results in undefined behavior.
 -->
 
 Nous ne possédons pas la mémoire à cet emplacement arbitraire, et il n'y a
 aucune garantie que la slice créée par ce code contiennent des valeurs `i32`
-valides. Toute tentative d'utilisation de `slice` aura un comportement
+valides. Toute tentative d'utilisation de `valeurs` aura un comportement
 imprévisible bien qu'il s'agisse d'une slice valide.
 
 <!--
@@ -1103,7 +1103,7 @@ The final action that works only with `unsafe` is accessing fields of a
 used in a particular instance at one time. Unions are primarily used to
 interface with unions in C code. Accessing union fields is unsafe because Rust
 can’t guarantee the type of the data currently being stored in the union
-instance. You can learn more about unions in [the reference][reference].
+instance. You can learn more about unions in [the Rust Reference][reference].
 -->
 
 La dernière action qui fonctionne uniquement avec `unsafe` est d'accéder aux
@@ -1112,7 +1112,8 @@ ceux déclarés est utilisé dans une instance précise au même moment. Les uni
 sont principalement utilisés pour s'interfacer avec les unions du code C.
 L'accès aux champs des unions n'est pas sécurisé car Rust ne peut pas garantir
 le type de la donnée qui est actuellement stockée dans l'instance de l'union.
-Vous pouvez en apprendre plus sur les unions dans [the reference][reference].
+Vous pouvez en apprendre plus sur les unions dans
+[the Rust Reference][reference].
 
 <!--
 ### When to Use Unsafe Code

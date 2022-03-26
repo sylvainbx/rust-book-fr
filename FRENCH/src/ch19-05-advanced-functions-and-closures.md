@@ -5,13 +5,13 @@
 ## Les fonctions et fermetures avancées
 
 <!--
-Next, we’ll explore some advanced features related to functions and
-closures, which include function pointers and returning closures.
+This section explores some advanced features related to functions and closures,
+including function pointers and returning closures.
 -->
 
-Maintenant, nous allons explorer quelques fonctionnalités avancées liées aux
-fonctions et aux fermetures, dont les pointeurs de fonctions et la capacité de retourner des
-fermetures.
+Dans cette section, nous allons explorer quelques fonctionnalités avancées
+liées aux fonctions et aux fermetures, y compris les pointeurs de fonctions et
+la capacité de retourner des fermetures.
 
 <!--
 ### Function Pointers
@@ -168,24 +168,21 @@ utilisons la fonction `to_string` définie dans le trait `ToString` que la
 bibliothèque standard a implémenté sur chaque type qui implémente `Display`.
 
 <!--
-We have another useful pattern that exploits an implementation detail of tuple
-structs and tuple-struct enum variants. These types use `()` as initializer
-syntax, which looks like a function call. The initializers are actually
-implemented as functions returning an instance that’s constructed from their
-arguments. We can use these initializer functions as function pointers that
+Recall from the [“Enum values”][enum-values]<!-- ignore -- > section of Chapter
+6 that the name of each enum variant that we define also becomes an initializer
+function. We can use these initializer functions as function pointers that
 implement the closure traits, which means we can specify the initializer
 functions as arguments for methods that take closures, like so:
 -->
 
-Nous avons un autre motif utile qui exploite un détail de l'implémentation des
-structures tuple et des variantes d'énumérations de structures de tuples. Ces
-types utilisent `()` comme syntaxe d'initialisation, ce qui ressemble à un appel de
-fonction. Les initialisateurs sont effectivement actuellement implémentés en tant que 
-fonctions qui retournent une instance qui est construite à partir des paramètres qu'on lui donne. 
-Nous pouvons utiliser ces fonctions d'initialisation en tant que 
-pointeurs de fonctions qui implémentent les traits de fermetures, ce qui
-signifie que nous pouvons utiliser les fonctions d'initialisation comme paramètre 
-des méthodes qui acceptent des fermetures, comme ceci :
+Rappelez-vous qu'à la section
+[“Les valeurs d'énumérations”][enum-values]<!-- ignore --> du chapitre 6, nous
+apprenions que le nom de chaque variante d'énumération que nous déclarons
+devient aussi une fonction d'initialisation. Nous pouvons utiliser ces
+fonctions d'initialisation en tant que pointeurs de fonctions qui implémentent
+les traits de fermetures, ce qui signifie que nous pouvons utiliser les
+fonctions d'initialisation comme paramètre des méthodes qui acceptent des
+fermetures, comme ceci :
 
 <!--
 ```rust
@@ -308,10 +305,12 @@ Maintenant, penchons-nous sur les macros !
 <!--
 [advanced-traits]:
 ch19-03-advanced-traits.html#advanced-traits
+[enum-values]: ch06-01-defining-an-enum.html#enum-values
 [using-trait-objects-that-allow-for-values-of-different-types]:
 ch17-02-trait-objects.html#using-trait-objects-that-allow-for-values-of-different-types
 -->
 
 [advanced-traits]: ch19-03-advanced-traits.html
+[enum-values]: ch06-01-defining-an-enum.html#enum-values
 [using-trait-objects-that-allow-for-values-of-different-types]:
 ch17-02-trait-objects.html

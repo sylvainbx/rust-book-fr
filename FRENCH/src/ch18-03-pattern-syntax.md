@@ -294,13 +294,13 @@ afficher `lettre ASCII du début`.
 ### Destructurer pour séparer les valeurs
 
 <!--
-We can also use patterns to destructure structs, enums, tuples, and references
-to use different parts of these values. Let’s walk through each value.
+We can also use patterns to destructure structs, enums, and tuples to use
+different parts of these values. Let’s walk through each value.
 -->
 
 Nous pouvons aussi utiliser les motifs pour destructurer les structures, les
-énumérations, les tuples et les références pour utiliser différentes parties de
-ces valeurs. Passons en revue chacun des cas.
+énumérations, et les tuples pour utiliser différentes parties de ces valeurs.
+Passons en revue chacun des cas.
 
 <!--
 #### Destructuring Structs
@@ -1211,12 +1211,13 @@ que celles permises uniquement par les motifs.
 <!--
 The condition can use variables created in the pattern. Listing 18-26 shows a
 `match` where the first arm has the pattern `Some(x)` and also has a match
-guard of `if x < 5`.
+guard of `if x % 2 == 0` (which will be true if the number is even).
 -->
 
 La condition peut utiliser des variables créées dans le motif. L'encart 18-26
 montre un `match` dans lequel la première branche a le motif `Some(x)` et
-procède aussi au contrôle de correspondance `if x < 5`.
+procède aussi au contrôle de correspondance `if x < % 2 == 0` (qui sera vrai si
+le nombre est pair).
 
 <!--
 ```rust
@@ -1236,37 +1237,43 @@ procède aussi au contrôle de correspondance `if x < 5`.
 motif</span>
 
 <!--
-This example will print `less than five: 4`. When `num` is compared to the
+This example will print `The number 4 is even`. When `num` is compared to the
 pattern in the first arm, it matches, because `Some(4)` matches `Some(x)`. Then
-the match guard checks whether the value in `x` is less than `5`, and because
-it is, the first arm is selected.
+the match guard checks whether the remainder of dividing `x` by 2 is equal to
+0, and because it is, the first arm is selected.
 -->
 
-Cet exemple va afficher `moins que cinq : 4`. Lorsque `nombre` est comparé au
+Cet exemple va afficher `Le nombre 4 est pair`. Lorsque `nombre` est comparé au
 motif de la première branche, il va correspondre, car `Some(4)` correspond à
-`Some(x)`. Ensuite, le contrôle de correspondance vérifie si la valeur dans `x`
-est inférieure à `5`, et comme c'est le cas, la première branche est choisie.
+`Some(x)`. Ensuite, le contrôle de correspondance vérifie si le reste de la
+division de `x` par 2 vaut 0, et comme c'est le cas, la première branche est
+choisie.
 
 <!--
-If `num` had been `Some(10)` instead, the match guard in the first arm would
-have been false because 10 is not less than 5. Rust would then go to the second
-arm, which would match because the second arm doesn’t have a match guard and
-therefore matches any `Some` variant.
+If `num` had been `Some(5)` instead, the match guard in the first arm would
+have been false because the remainder of 5 divided by 2 is 1, which is not
+equal to 0. Rust would then go to the second arm, which would match because the
+second arm doesn’t have a match guard and therefore matches any `Some` variant.
 -->
 
-Si `nombre` avait été plutôt `Some(10)`, le contrôle de correspondance de la
-première branche aurait été faux car 10 n'est pas inférieur à 5. Rust serait
-donc allé à la deuxième branche, qui devrait être choisie car cette deuxième branche
-correspond à n'importe quelle variante `Some` et n'a pas de contrôle de correspondance.
+Si `nombre` avait été plutôt `Some(5)`, le contrôle de correspondance de la
+première branche aurait été faux car le reste de la division de 5 par 2 est 1,
+ce qui n'est pas égal à 0. Rust serait donc allé à la deuxième branche, qui
+devrait être choisie car cette deuxième branche correspond à n'importe quelle
+variante `Some` et n'a pas de contrôle de correspondance.
 
 <!--
-There is no way to express the `if x < 5` condition within a pattern, so the
-match guard gives us the ability to express this logic.
+There is no way to express the `if x % 2 == 0` condition within a pattern, so
+the match guard gives us the ability to express this logic. The downside of
+this additional expressiveness is that the compiler doesn't try to check for
+exhaustiveness when match guard expressions are involved.
 -->
 
-Comme il n'existe pas d'autre moyen d'exprimer la condition `if x < 5` dans un motif,
-le contrôle de correspondance nous donne la possibilité d'exprimer une telle 
-logique.
+Comme il n'existe pas d'autre moyen d'exprimer la condition `if x % 2 == 0`
+dans un motif, le contrôle de correspondance nous donne la possibilité
+d'exprimer une telle logique. L'inconvénient de cette expressivité renforcée
+est que le compilateur n'essaie pas de vérifier l'exhaustivité lorsqu'on
+utilise les contrôles de correspondance.
 
 <!--
 In Listing 18-11, we mentioned that we could use match guards to solve our

@@ -290,7 +290,7 @@ Dans le fichier *ajouter_un/src/lib.rs*, ajoutons une fonction `ajouter_un` :
 
 <!--
 ```rust,noplayground
-{{#rustdoc_include ../listings-sources/ch14-more-about-cargo/no-listing-02-workspace-with-two-crates/add/add_one/src/lib.rs}}
+{{#rustdoc_include ../listings-sources/ch14-more-about-cargo/no-listing-02-workspace-with-two-crates/add/add-one/src/lib.rs}}
 ```
 -->
 

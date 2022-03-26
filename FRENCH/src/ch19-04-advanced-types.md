@@ -58,14 +58,12 @@ une valeur du type `Metres` ou `u32` pur.
 <!--
 Another use of the newtype pattern is in abstracting away some implementation
 details of a type: the new type can expose a public API that is different from
-the API of the private inner type if we used the new type directly to restrict
-the available functionality, for example.
+the API of the private inner type.
 -->
 
 Une autre utilisation du motif newtype est de permettre d'abstraire certains détails
 d'implémentation d'un type : le newtype peut exposer une API publique qui est
-différente de l'API du type interne privé si, par exemple, nous utilisons directement le
-newtype pour restreindre les fonctionnalités disponibles.
+différente de l'API du type interne privé.
 
 <!--
 Newtypes can also hide internal implementation. For example, we could provide a
