@@ -285,7 +285,7 @@ une minute) par 60 (le nombre de minutes dans une heure) par 3 (le nombre
 d'heures que nous voulons calculer dans ce programme).
 En Rust, la convention de nommage des constantes est de les écrire tout en
 majuscule avec des tirets bas entre les mots. Le compilateur peut calculer un
-certain nombre d'opérationss à la compilation, ce qui nous permet d'écrire
+certain nombre d'opérations à la compilation, ce qui nous permet d'écrire
 cette valeur de façon à la comprendre plus facilement et à la vérifier, plutôt
 que de définir cette valeur à 10 800. Vous pouvez consulter la [section de la
 référence Rust à propos des évaluations des constantes][const-eval] pour en
