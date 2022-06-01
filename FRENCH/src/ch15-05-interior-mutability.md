@@ -161,7 +161,7 @@ Voici un résumé des raisons de choisir `Box<T>`, `Rc<T>` ou `RefCell<T>` :
 -->
 
 * `Rc<T>` permet d'avoir plusieurs propriétaires pour une même donnée ;
-  `Rc<T>` et `RefCell<T>` n'ont qu'un seul propriétaire.
+  `Box<T>` et `RefCell<T>` n'ont qu'un seul propriétaire.
 * `Box<T>` permet des emprunts immuables ou mutables à la compilation ;
   `Rc<T>` permet uniquement des emprunts immuables, vérifiés à la
   compilation ; `RefCell<T>` permet des emprunts immuables ou mutables,
