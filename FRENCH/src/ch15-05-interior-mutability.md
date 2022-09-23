@@ -290,10 +290,10 @@ user’s quota for the number of API calls they’re allowed to make, for exampl
 -->
 
 Voici le scénario que nous allons tester : nous allons créer une bibliothèque
-qui surveille la proximité d'une valeur par rapport à une valeur maximale et
-envoie des messages en fonction de cette proximité. Cette bibliothèque peut
-être utilisée pour suivre un quota d'un utilisateur pour le nombre d'appels aux
-API qu'il est autorisé à faire, par exemple.
+qui surveillera la proximité d'une valeur par rapport à une valeur maximale et
+enverra des messages en fonction de cette limite. Par exemple, cette
+bibliothèque peut être utilisée pour suivre le quota d'un utilisateur afin de
+suivre le nombre d'appels aux API qu'il est autorisé à faire.
 
 <!--
 Our library will only provide the functionality of tracking how close to the
