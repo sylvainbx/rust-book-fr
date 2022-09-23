@@ -178,7 +178,8 @@ examine how it’s possible.
 
 Modifer une valeur à l'intérieur d'une valeur immuable est ce qu'on appelle
 le motif de *mutabilité interne*. Découvrons une situation pour laquelle la
-mutabilité interne est utile est examinons comment c'est possible.
+mutabilité interne s'avère utile, puis examinons comment cela est rendu
+possible.
 
 <!--
 ### Interior Mutability: A Mutable Borrow to an Immutable Value
