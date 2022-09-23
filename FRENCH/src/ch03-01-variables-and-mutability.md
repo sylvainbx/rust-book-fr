@@ -123,7 +123,7 @@ partie du code ne fasse pas ce pour quoi elle a été conçue. La cause de ce
 genre de bogue peut être difficile à localiser après coup, en particulier
 lorsque la seconde partie du code ne modifie que *parfois* cette valeur. Le
 compilateur Rust garantit que lorsque vous déclarez qu'une valeur ne change
-pas, il ne va jamais changer, donc vous n'avez pas à en vous soucier. Votre
+pas, elle ne va jamais changer, donc vous n'avez pas à vous en soucier. Votre
 code est ainsi plus facile à maîtriser.
 
 <!--
