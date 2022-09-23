@@ -644,10 +644,10 @@ rest of this chapter.
 Le type `Box<T>` est un pointeur intelligent car il implémente le trait
 `Deref`, qui permet aux valeurs `Box<T>` d'être traitées comme des
 références. Lorsque une valeur `Box<T>` sort de la portée, les données sur le
-tas que la boite pointait est aussi nettoyé grâce au trait `Drop`. Explorons
-plus en détail ces deux traits. Ces deux traits deviendrons encore plus
-importants pour les fonctionnalités offertes par les autres pointeurs
-intelligents que nous verrons dans le reste de ce chapitre.
+tas pointées par la boite seront également nettoyées grâce à l'implémentation
+du trait `Drop`. Explorons plus en détail ces deux traits. Ces deux traits
+deviendrons encore plus importants pour les fonctionnalités offertes par les
+autres pointeurs intelligents que nous verrons dans le reste de ce chapitre.
 
 <!-- markdownlint-disable -->
 <!--
