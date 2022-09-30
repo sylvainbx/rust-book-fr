@@ -184,7 +184,7 @@ Hello, world!
 On Windows, enter the command `.\main.exe` instead of `./main`:
 -->
 
-Sur Windows, écrivez la commande `.\main.exe` à la place de `.\main` :
+Sur Windows, écrivez la commande `.\main.exe` à la place de `./main` :
 
 <!--
 ```powershell
