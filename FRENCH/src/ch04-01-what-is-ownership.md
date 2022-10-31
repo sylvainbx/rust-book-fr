@@ -1145,7 +1145,7 @@ from the body of the function that we might want to return as well.
 Même si cela fonctionne, il est un peu fastidieux de prendre la possession puis
 ensuite de retourner la possession à chaque fonction. Et qu'est-ce qu'il se
 passe si nous voulons qu'une fonction utilise une valeur, mais n'en prenne pas
-possession ? C'est assez pénible que tout ce que nous passons doit être
+possession ? C'est assez pénible que tout ce que nous passons doive être
 retourné si nous voulons l'utiliser à nouveau, en plus de toutes les données
 qui découlent du corps de la fonction que nous voulons aussi récupérer.
 
