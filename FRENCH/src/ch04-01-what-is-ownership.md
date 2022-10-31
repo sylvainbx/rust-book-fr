@@ -1003,9 +1003,10 @@ implement `Copy`:
 
 Donc, quels sont les types qui implémentent le trait `Copy` ? Vous pouvez
 regarder dans la documentation pour un type donné pour vous en assurer, mais de
-manière générale, tout groupe de valeur scalaire peut implémenter `Copy`, et
-tout ce qui ne nécessite pas d'allocation de mémoire ou tout autre forme de
-ressource qui implémente `Copy`. Voici quelques types qui implémentent `Copy` :
+manière générale, tout groupe de valeurs scalaires peut implémenter `Copy`, et
+rien de ce qui nécessite une allocation de mémoire ou qui est une forme de
+ressource ne peut implémenter `Copy`. Voici quelques types qui implémentent
+Copy` :
 
 <!--
 * All the integer types, such as `u32`.
