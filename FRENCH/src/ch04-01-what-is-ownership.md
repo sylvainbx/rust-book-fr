@@ -1020,7 +1020,7 @@ Copy` :
 * Tous les types d'entiers, comme `u32`.
 * Le type booléen, `bool`, avec les valeurs `true` et `false`.
 * Tous les types de flottants, comme `f64`.
-* Le type de caractère, `char`.
+* Le type caractère, `char`.
 * Les tuples, mais uniquement s'ils contiennent des types qui implémentent
   aussi `Copy`. Par exemple, le `(i32, i32)` implémente `Copy`, mais pas
   `(i32, String)`.
@@ -1038,7 +1038,7 @@ copy, just as assignment does. Listing 4-3 has an example with some annotations
 showing where variables go into and out of scope.
 -->
 
-La syntaxe pour passer une valeur à une fonction est similaire à celle pour
+La mécanique pour passer une valeur à une fonction est similaire à celle pour
 assigner une valeur à une variable. Passer une variable à une fonction va la
 déplacer ou la copier, comme l'assignation. L'encart 4-3 est un exemple avec
 quelques commentaires qui montrent où les variables rentrent et sortent de la
