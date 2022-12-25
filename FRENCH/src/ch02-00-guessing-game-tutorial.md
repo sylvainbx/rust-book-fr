@@ -1093,7 +1093,7 @@ Cargo embarque une fonctionnalité qui garantie que vous pouvez recompiler le
 même artéfact à chaque fois que vous ou quelqu'un d'autre compile votre code :
 Cargo va utiliser uniquement les versions de dépendances que vous avez
 utilisées jusqu'à ce que vous indiquiez le contraire.
-Par exemple, immaginons que la semaine prochaine, la version 0.8.4 de la
+Par exemple, imaginons que la semaine prochaine, la version 0.8.4 de la
 *crate* `rand` est publiée, et qu'elle apporte une correction importante, mais
 aussi qu'elle produit une régression qui va casser votre code. Pour éviter cela,
 Rust crée le fichier *Cargo.lock* la première fois que vous utilisez
