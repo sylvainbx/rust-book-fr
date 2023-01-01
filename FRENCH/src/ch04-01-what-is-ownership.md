@@ -1003,9 +1003,10 @@ implement `Copy`:
 
 Donc, quels sont les types qui implémentent le trait `Copy` ? Vous pouvez
 regarder dans la documentation pour un type donné pour vous en assurer, mais de
-manière générale, tout groupe de valeur scalaire peut implémenter `Copy`, et
-tout ce qui ne nécessite pas d'allocation de mémoire ou tout autre forme de
-ressource qui implémente `Copy`. Voici quelques types qui implémentent `Copy` :
+manière générale, tout groupe de valeurs scalaires peut implémenter `Copy`, et
+rien de ce qui nécessite une allocation de mémoire ou qui est une forme de
+ressource ne peut implémenter `Copy`. Voici quelques types qui implémentent
+Copy` :
 
 <!--
 * All the integer types, such as `u32`.
@@ -1019,7 +1020,7 @@ ressource qui implémente `Copy`. Voici quelques types qui implémentent `Copy`�
 * Tous les types d'entiers, comme `u32`.
 * Le type booléen, `bool`, avec les valeurs `true` et `false`.
 * Tous les types de flottants, comme `f64`.
-* Le type de caractère, `char`.
+* Le type caractère, `char`.
 * Les tuples, mais uniquement s'ils contiennent des types qui implémentent
   aussi `Copy`. Par exemple, le `(i32, i32)` implémente `Copy`, mais pas
   `(i32, String)`.
@@ -1037,7 +1038,7 @@ copy, just as assignment does. Listing 4-3 has an example with some annotations
 showing where variables go into and out of scope.
 -->
 
-La syntaxe pour passer une valeur à une fonction est similaire à celle pour
+La mécanique pour passer une valeur à une fonction est similaire à celle pour
 assigner une valeur à une variable. Passer une variable à une fonction va la
 déplacer ou la copier, comme l'assignation. L'encart 4-3 est un exemple avec
 quelques commentaires qui montrent où les variables rentrent et sortent de la
@@ -1144,7 +1145,7 @@ from the body of the function that we might want to return as well.
 Même si cela fonctionne, il est un peu fastidieux de prendre la possession puis
 ensuite de retourner la possession à chaque fonction. Et qu'est-ce qu'il se
 passe si nous voulons qu'une fonction utilise une valeur, mais n'en prenne pas
-possession ? C'est assez pénible que tout ce que nous passons doit être
+possession ? C'est assez pénible que tout ce que nous passons doive être
 retourné si nous voulons l'utiliser à nouveau, en plus de toutes les données
 qui découlent du corps de la fonction que nous voulons aussi récupérer.
 

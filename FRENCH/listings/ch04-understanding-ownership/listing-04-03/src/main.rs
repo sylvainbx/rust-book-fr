@@ -8,7 +8,7 @@ fn main() {
 
   creer_copie(x);         // x va être déplacée dans la fonction,
                           // mais i32 est Copy, donc on peut
-                          // utiliser x ensuite.
+                          // continuer d'utiliser x ensuite.
 
 } // Ici, x sort de la portée, puis ensuite s. Mais puisque la valeur de s a
 // été déplacée, il ne se passe rien de spécial.
